@@ -1,0 +1,3 @@
+:ng-deep .sebm-google-map-container-inner{
+    position: static !important;
+}

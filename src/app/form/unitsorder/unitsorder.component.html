@@ -1,0 +1,211 @@
+<div class="row">
+  <!-- column -->
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <!-- <h4 class="card-title">Filter Option</h4> -->
+        <!-- <h5 class="card-subtitle">This is the filerable Data table</h5> -->
+        <form class="m-b-30">
+          <div class="row">
+          <div class="col-sm-6">
+          <input type='text' class="form-control" placeholder='Type to filter the name column...' (keyup)='updateFilter($event)' />
+        </div>
+        <div class="col-sm-6">
+          <button class="btn btn-success btn-raised" (click)="open1(content1)" *ngIf="user?.role!='UNITMGR'">Add Unit</button>
+        </div>
+      </div>
+        </form>
+
+      
+
+        <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="'auto'" [limit]="10" [rows]='orders'>
+        <ngx-datatable-column name="Customer Name" prop="order_detail?.customer?.name" [width]="150">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+           <p>{{row?.order_detail?.customer?.name}}</p>
+        </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Type" prop="context" [width]="150"></ngx-datatable-column>
+        <ngx-datatable-column name="Amount" prop="amount" [width]="150"></ngx-datatable-column>
+        <ngx-datatable-column name="Address" prop="order_detail?.shipping_address.line_1" [width]="150">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <p>{{row?.order_detail?.shipping_address.line_1}}</p>
+         </ng-template>
+        </ngx-datatable-column>
+       
+      </ngx-datatable>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #content1 let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Unit</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="unitForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="territory">Territory</label>
+        <div class="mb-3 mt-1 input-group"> 
+          <select formControlName="territory_id" class="form-control">
+          <option *ngFor="let item of territory" value="{{item.id}}">{{item.territory}}</option>
+        </select>
+        </div>
+        <label for="Country">Unit Name</label>
+        <div class="mb-3 mt-1 input-group">
+          <input id="Country" class="form-control"  name="dp" type="text" formControlName="name">
+        </div>
+        <label for="Country">Username</label>
+        <div class="mb-3 mt-1 input-group">
+          <input id="Country" class="form-control"  name="dp" type="text" formControlName="username">
+        </div>
+
+        <label for="State">Password</label>
+        <div class="mb-3 mt-1 input-group">
+          <input id="State" class="form-control"  name="dp" type="password" formControlName="password">
+        </div>
+        
+        <label for="State">Type</label>
+        <!-- <div class="col-md-6 col-lg-3 d-flex align-items-end">
+                    <div class="webParent">
+                        <input type="radio" name="rGroup" value="t" id="t" />
+                        <div class="customlabel">
+                            <label class="buildItem" for="t">
+                                <div class="customCheck"></div>
+                                <img src="" onerror="this.src='../../assets/images/noImage.png';"
+                                    class="img-fluid" />
+                               
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="webParent">
+                      <input type="radio" name="rGroup" value="t" id="t" />
+                      <div class="customlabel">
+                          <label class="buildItem" for="t">
+                              <div class="customCheck"></div>
+                              <img src="" onerror="this.src='../../assets/images/noImage.png';"
+                                  class="img-fluid" />
+                             
+                          </label>
+                      </div>
+                  </div>
+
+                </div> -->
+
+              <div class="row">
+                  <label class="col-sm-6 col-lg-3 testradio">
+                      <img src="../../../assets/images/beer.svg" style="height: 50px;width: 50px;"/>
+                      <input type="radio" checked="checked" name="radio" value="BEER" (change)="changeType($event)">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="col-sm-6 col-lg-3  testradio">
+                        <img src="../../../assets/images/cafe.svg" style="height: 50px;width: 50px;"/>
+                      <input type="radio" name="radio" value="CAFE" (change)="changeType($event)">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="col-sm-6 col-lg-3  testradio">
+                        <img src="../../../assets/images/icon-500-hotel-restaurant.svg" style="height: 50px;width: 50px;"/>
+                      <input type="radio" name="radio"  value="HOTEL" (change)="changeType($event)">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="col-sm-6 col-lg-3  testradio">
+                        <img src="../../../assets/images/icon-500-farmers-market.svg" style="height: 50px;width: 50px;"/>
+                      <input type="radio" name="radio" value="FARMER" (change)="changeType($event)">
+                      <span class="checkmark"></span>
+                    </label>
+
+                    <label class="col-sm-6 col-lg-3  testradio">
+                        <img src="../../../assets/images/pizza.svg" style="height: 50px;width: 50px;"/>
+                      <input type="radio" name="radio" value="PIZZA" (change)="changeType($event)">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="col-sm-6 col-lg-3  testradio">
+                        <img src="../../../assets/images/wine.svg" style="height: 50px;width: 50px;"/>
+                      <input type="radio" name="radio" value="WINE" (change)="changeType($event)">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="col-sm-6 col-lg-3  testradio">
+                        <img src="../../../assets/images/icon-500-restaurant.svg" style="height: 50px;width: 50px;"/>
+                      <input type="radio" name="radio"  value="RESTAURANT" (change)="changeType($event)">
+                      <span class="checkmark"></span>
+                    </label>
+
+
+
+                <!-- <div class="col-sm-3 testradio">
+                  <input id="State" class="form-control"  name="dp" type="radio" value="BEER" (change)="changeType($event)"/>
+                  <img src="../../../assets/images/beer.svg" style="height: 50px;width: 50px;"/>
+                </div>
+
+                <div class="col-sm-3 testradio">
+                  <input id="State" class="form-control"  name="dp" type="radio" value="CAFE" (change)="changeType($event)"/>
+                  <img src="../../../assets/images/cafe.svg" style="height: 50px;width: 50px;"/>
+                </div>
+                <div class="col-sm-3">
+                  <input id="State" class="form-control"  name="dp" type="radio" value="HOTEL" (change)="changeType($event)"/>
+                  <img src="../../../assets/images/icon-500-hotel-restaurant.svg" style="height: 50px;width: 50px;"/>
+                  </div>
+                  <div class="col-sm-3">
+                  <input id="State" class="form-control"  name="dp" type="radio"  value="FARMER" (change)="changeType($event)"/>
+                  <img src="../../../assets/images/icon-500-farmers-market.svg" style="height: 50px;width: 50px;"/>
+                    </div> -->
+
+                    <!-- <div class="col-sm-3">
+                  <input id="State" class="form-control"  name="dp" type="radio"  value="PIZZA" (change)="changeType($event)"/>
+                  <img src="../../../assets/images/pizza.svg" style="height: 50px;width: 50px;"/>
+                      </div>
+                      <div class="col-sm-3">
+                  <input id="State" class="form-control"  name="dp" type="radio"  value="WINE" (change)="changeType($event)"/>
+                  <img src="../../../assets/images/wine.svg" style="height: 50px;width: 50px;"/>
+                        </div>
+                        <div class="col-sm-3">
+                   <input id="State" class="form-control"  name="dp" type="radio"  value="RESTAURANT" (change)="changeType($event)"/>
+                  <img src="../../../assets/images/icon-500-restaurant.svg" style="height: 50px;width: 50px;"/>
+              </div> -->
+              </div>
+
+        <!-- <div class="input-group">
+          <select class="form-control" formControlName="type">
+              <option value="BEER">BEER</option>
+              <option value="ASIAN">ASIAN</option>
+              <option value="MEXICAN">MEXICAN</option>
+              <option value="CAFE">CAFE</option>
+              <option value="HOTEL">HOTEL</option>
+              <option value="FARMER">FARMER</option>
+              <option value="WINE">WINE</option>
+              <option value="PIZZA">PIZZA</option>
+              <option value="RESTAURANT">RESTAURANT</option>
+          </select>
+        </div> -->
+
+        <label for="State">Customer Order Window (min)</label>
+        <ng5-slider [(value)]="customer_order_window" [options]="customerorderwindow_options"></ng5-slider>
+
+        <label for="State">Delivery Time Window(min) </label>
+        <ng5-slider [(value)]="delivery_time_offset" [options]="customerdeliverytime_options"></ng5-slider>
+
+        <label for="State">Delivery Radius(km/mi)</label>
+        <ng5-slider [(value)]="delivery_radius" [options]="deliveryradious_options"></ng5-slider>
+
+        <label for="State">Delivery Charge Amount(R$)</label>
+        <ng5-slider [(value)]="delivery_chg_amount" [options]="deliverycharge_options"></ng5-slider>
+
+       
+
+
+      </div>
+      <div class="modal-footer">
+          <button type="submit" class="btn btn-outline-dark" >Save</button>
+        </div>
+    </form>
+  </div>
+
+</ng-template>

@@ -1,0 +1,14 @@
+# gitignore
+node_modules/*
+.DS_store
+*#*
+
+# Database backups #
+####################
+backup*
+
+# Log files #
+####################
+*access.log
+*error.log
+.idea/

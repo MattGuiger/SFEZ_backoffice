@@ -1,0 +1,114 @@
+<!-- Result tab Form starts -->
+<div class="tab-pane active">
+    <h3 class="head text-center">{{title}}</h3>
+    
+    <p class="narrow text-center">
+        Your Company is on-board now successfully:
+    </p>
+    <div class='row'>
+        <div class='col-offset-1 col-10 col-sm-offset-3 col-sm-8 col-md-offset-4 col-md-8'>
+            <div class="row">
+                <div class='col-3 col-sm-2'>
+                    <div class="form-group">
+                        <label class="form-control-label" for="name">Name: </label> 
+                    </div>
+                </div>
+                <div class='col-9 col-sm-10'>
+                    {{companyProfile.name}}
+                </div>
+            </div>
+            <div class="row">
+                <div class='col-3 col-sm-2'>
+                    <div class="form-group">
+                        <label class="form-control-label" for="email">Email: </label> 
+                    </div>
+                </div>
+                <div class='col-9 col-sm-10'>
+                    {{companyProfile.email}}
+                </div>
+           </div>     
+            <div class="row">
+                <div class='col-3 col-sm-2'>
+                    <div class="form-group">
+                        <label class="form-control-label" for="work">Facebook: </label> 
+                    </div>
+                </div>
+                <div class='col-9 col-sm-10'>
+                    {{companyProfile.facebook}}
+                </div>
+           </div>  
+           
+           <div class="row">
+            <div class='col-3 col-sm-2'>
+                <div class="form-group">
+                    <label class="form-control-label" for="work">Twitter: </label> 
+                </div>
+            </div>
+            <div class='col-9 col-sm-10'>
+                {{companyProfile.twitter}}
+            </div>
+       </div>  
+
+       <div class="row">
+        <div class='col-3 col-sm-2'>
+            <div class="form-group">
+                <label class="form-control-label" for="work">Instagram: </label> 
+            </div>
+        </div>
+        <div class='col-9 col-sm-10'>
+            {{companyProfile.instagram}}
+        </div>
+   </div>  
+<!-- 
+   <div class="row">
+    <div class='col-3 col-sm-2'>
+        <div class="form-group">
+            <label class="form-control-label" for="work">Google Sheet URL: </label> 
+        </div>
+    </div>
+    <div class='col-9 col-sm-10'>
+        {{companyProfile.google_sheet_url}}
+    </div>
+</div>  
+
+<div class="row">
+    <div class='col-3 col-sm-2'>
+        <div class="form-group">
+            <label class="form-control-label" for="work">Google Sheet Tab Name: </label> 
+        </div>
+    </div>
+    <div class='col-9 col-sm-10'>
+        {{companyProfile.google_sheet_tab_name}}
+    </div>
+</div>  
+
+<div class="row">
+    <div class='col-3 col-sm-2'>
+        <div class="form-group">
+            <label class="form-control-label" for="work">Google Api Key: </label> 
+        </div>
+    </div>
+    <div class='col-9 col-sm-10'>
+        {{companyProfile.google_api_key}}
+    </div>
+</div>   -->
+
+           <div class="row">
+                <div class='col-3 col-sm-2'>
+                    <div class="form-group">
+                        <label class="form-control-label" for="address">Address: </label>
+                    </div>
+                </div>
+                <div class='col-9 col-sm-10'>
+                    {{companyProfile.business_address}}
+                    <br/>
+                    {{companyProfile.city + ' ' + companyProfile.state + ' ' + companyProfile.country}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success btn-raised" [disabled]="!isFormValid" (click)="submit()"> Submit <span style="margin-left:10px;"><i class="ft-chevron-right"></i></span></button>
+    </div>
+</div>
+<!-- Result tab Form ends -->

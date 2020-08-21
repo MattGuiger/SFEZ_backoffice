@@ -1,0 +1,431 @@
+<div class="row el-element-overlay">
+        <div *ngIf="!productList.length">
+           <app-spinner></app-spinner>
+       </div>
+      
+
+        <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Menu Items Management</h4>
+                        <h6 class="card-subtitle">A Menuitems listed here, and we can maname Menuitems by importing/syncing them from google spreadsheet.</h6>
+                        <ngb-tabset>
+                          <ngb-tab title="Menu Items">
+                            <ng-template ngbTabContent>
+                              <div class="card card-body">
+                              
+                                <!-- <div *ngIf="productList.length==0">
+                                        <h4>No Menu Items available!</h4>
+                                </div> -->
+                                 <div *ngIf="processing" class="mt-5">
+                                        <h6>Menu Items Loading...! Please wait</h6>
+                                </div>
+                                <div class="row">
+                                <div class="col-lg-3 col-md-6" *ngFor="let item of productList">
+                                    <div class="card" (click)="openProduct(item)">
+                                        <div class="el-card-item">
+                                            <div class="el-card-avatar el-overlay-1">
+                                                <img src="{{item.image ? item.image : '../assets/images/gallery/noProduct.png'}}" alt="user" class="productimg"/>
+                                                <div class="el-overlay">
+                                                    <ul class="list-style-none el-info">
+                                                        <li class="el-item">
+                                                            <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                                                <i class="icon-link"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex no-block align-items-center">
+                                                <div class="m-l-15">
+                                                    <h4 class="m-b-0">{{item.name}}</h4>
+                                                    <span class="text-muted">{{getDescription(item.description)}}</span>
+                                                </div>
+                                                <div class="ml-auto m-r-15">
+                                                    <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD' ? '$' : item.price[0].currency}} {{item.price[0].amount}}</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                              </div>
+                            </ng-template>
+                          </ngb-tab>
+        
+                          <ngb-tab title="Google Sheet">
+                            <ng-template ngbTabContent>
+                              <div class="card card-body">
+                                    <form class="form-horizontal form-material">
+                                            <div class="form-group">
+                                                <label class="col-md-12">Name</label>
+                                                <div class="col-md-12">
+                                                    <input type="text" value="{{profile.name}}" class="form-control form-control-line" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="example-email" class="col-md-12">Email</label>
+                                                <div class="col-md-12">
+                                                    <input type="email"  value="{{profile.email}}" class="form-control form-control-line" name="example-email" id="example-email" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-12">Google Sheet URL</label>
+                                                <div class="col-md-12">
+                                                    <a href="{{profile.google_sheet_url}}" target="_blank">{{profile.google_sheet_url}}</a>
+                                                </div>
+                                            </div>
+            
+                                            <div class="form-group">
+                                                <div class="col-sm-8">
+                                                    <button class="btn btn-success" (click)="uploadGoogleMenuSheet()" *ngIf="profile.google_sheet_url">Sync Google Menu Items</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                            </div>
+                              <div class="row">
+                                  <div class="col-sm-4"></div>
+                              <div class="col-sm-4">
+                              </div>
+                              <div class="col-sm-4">
+                                  <!-- <button class="btn btn-success btn-raised" (click)="setDriverManagers()" style="margin-right: 4%;float: right;">Save</button> -->
+                              </div>
+                            </div>
+                            </ng-template>
+                          </ngb-tab>
+                        </ngb-tabset>
+                        
+                      </div>
+                </div>
+            </div>
+
+
+<!-- 
+    <div class="col-lg-3 col-md-6" *ngFor="let item of productList">
+        <div class="card" (click)="openProduct(item)">
+            <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1">
+                    <img src="{{item.image ? item.image : '../assets/images/gallery/noProduct.png'}}" alt="user" class="productimg"/>
+                    <div class="el-overlay">
+                        <ul class="list-style-none el-info">
+                            <li class="el-item">
+                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                    <i class="icon-link"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex no-block align-items-center">
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">{{item.name}}</h4>
+                        <span class="text-muted">{{getDescription(item.description)}}</span>
+                    </div>
+                    <div class="ml-auto m-r-15">
+                        <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD' ? '$' : item.price[0].currency}} {{item.price[0].amount}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1">
+                    <img src="assets/images/gallery/chair2.jpg" alt="user" />
+                    <div class="el-overlay">
+                        <ul class="list-style-none el-info">
+                            <li class="el-item">
+                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                    <i class="icon-link"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex no-block align-items-center">
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">Rounded Chair</h4>
+                        <span class="text-muted">globe type chair for rest</span>
+                    </div>
+                    <div class="ml-auto m-r-15">
+                        <button type="button" class="btn btn-success btn-circle">$15</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1">
+                    <img src="assets/images/gallery/chair3.jpg" alt="user" />
+                    <div class="el-overlay">
+                        <ul class="list-style-none el-info">
+                            <li class="el-item">
+                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                    <i class="icon-link"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex no-block align-items-center">
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">Rounded Chair</h4>
+                        <span class="text-muted">globe type chair for rest</span>
+                    </div>
+                    <div class="ml-auto m-r-15">
+                        <button type="button" class="btn btn-dark btn-circle">$15</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1">
+                    <img src="assets/images/gallery/chair4.jpg" alt="user" />
+                    <div class="el-overlay">
+                        <ul class="list-style-none el-info">
+                            <li class="el-item">
+                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                    <i class="icon-link"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex no-block align-items-center">
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">Rounded Chair</h4>
+                        <span class="text-muted">globe type chair for rest</span>
+                    </div>
+                    <div class="ml-auto m-r-15">
+                        <button type="button" class="btn btn-info btn-circle">$15</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1">
+                    <img src="assets/images/gallery/chair4.jpg" alt="user" />
+                    <div class="el-overlay">
+                        <ul class="list-style-none el-info">
+                            <li class="el-item">
+                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                    <i class="icon-link"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex no-block align-items-center">
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">Rounded Chair</h4>
+                        <span class="text-muted">globe type chair for rest</span>
+                    </div>
+                    <div class="ml-auto m-r-15">
+                        <button type="button" class="btn btn-success btn-circle">$15</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1">
+                    <img src="assets/images/gallery/chair3.jpg" alt="user" />
+                    <div class="el-overlay">
+                        <ul class="list-style-none el-info">
+                            <li class="el-item">
+                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                    <i class="icon-link"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex no-block align-items-center">
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">Rounded Chair</h4>
+                        <span class="text-muted">globe type chair for rest</span>
+                    </div>
+                    <div class="ml-auto m-r-15">
+                        <button type="button" class="btn btn-info btn-circle">$15</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1">
+                    <img src="assets/images/gallery/chair2.jpg" alt="user" />
+                    <div class="el-overlay">
+                        <ul class="list-style-none el-info">
+                            <li class="el-item">
+                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                    <i class="icon-link"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex no-block align-items-center">
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">Rounded Chair</h4>
+                        <span class="text-muted">globe type chair for rest</span>
+                    </div>
+                    <div class="ml-auto m-r-15">
+                        <button type="button" class="btn btn-warning btn-circle">$15</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1">
+                    <img src="assets/images/gallery/chair.jpg" alt="user" />
+                    <div class="el-overlay">
+                        <ul class="list-style-none el-info">
+                            <li class="el-item">
+                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                    <i class="icon-link"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex no-block align-items-center">
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">Rounded Chair</h4>
+                        <span class="text-muted">globe type chair for rest</span>
+                    </div>
+                    <div class="ml-auto m-r-15">
+                        <button type="button" class="btn btn-secondary btn-circle">$15</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1">
+                    <img src="assets/images/gallery/chair2.jpg" alt="user" />
+                    <div class="el-overlay">
+                        <ul class="list-style-none el-info">
+                            <li class="el-item">
+                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                    <i class="icon-link"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex no-block align-items-center">
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">Rounded Chair</h4>
+                        <span class="text-muted">globe type chair for rest</span>
+                    </div>
+                    <div class="ml-auto m-r-15">
+                        <button type="button" class="btn btn-dark btn-circle">$15</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1">
+                    <img src="assets/images/gallery/chair3.jpg" alt="user" />
+                    <div class="el-overlay">
+                        <ul class="list-style-none el-info">
+                            <li class="el-item">
+                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                    <i class="icon-link"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex no-block align-items-center">
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">Rounded Chair</h4>
+                        <span class="text-muted">globe type chair for rest</span>
+                    </div>
+                    <div class="ml-auto m-r-15">
+                        <button type="button" class="btn btn-danger btn-circle">$15</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1">
+                    <img src="assets/images/gallery/chair4.jpg" alt="user" />
+                    <div class="el-overlay">
+                        <ul class="list-style-none el-info">
+                            <li class="el-item">
+                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                    <i class="icon-link"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex no-block align-items-center">
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">Rounded Chair</h4>
+                        <span class="text-muted">globe type chair for rest</span>
+                    </div>
+                    <div class="ml-auto m-r-15">
+                        <button type="button" class="btn btn-success btn-circle">$15</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1">
+                    <img src="assets/images/gallery/chair2.jpg" alt="user" />
+                    <div class="el-overlay">
+                        <ul class="list-style-none el-info">
+                            <li class="el-item">
+                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                    <i class="icon-link"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex no-block align-items-center">
+                    <div class="m-l-15">
+                        <h4 class="m-b-0">Rounded Chair</h4>
+                        <span class="text-muted">globe type chair for rest</span>
+                    </div>
+                    <div class="ml-auto m-r-15">
+                        <button type="button" class="btn btn-dark btn-circle">$15</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>

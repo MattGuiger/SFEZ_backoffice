@@ -1,0 +1,100 @@
+
+<form #workForm="ngForm" class="editForm" novalidate>
+    <div >
+        <div class="tab-pane active">
+            <h4 class="head text-center">{{title}}</h4>
+            <br/>
+            <div class="row">
+                <div class='col-12 col-sm-6'>
+                    <div class="form-group">
+                        <label class="form-control-label" for="tags">Tags</label>  
+                        <!-- <tag-input [(ngModel)]='tags'></tag-input> -->
+                        <input class="form-control input-md" #googleapikey="ngModel" required id="tags" name="tags" type="text"  [(ngModel)]="tags">   
+                    </div>
+                </div>
+            </div>
+           
+            <div class="form-group text-center space-20">
+                <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1" (click)="cancel()"> Previous</button>
+                <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+<!-- <form #workForm="ngForm" class="editForm" novalidate>
+    <div >
+        <div class="tab-pane active">
+            <h4 class="head text-center">{{title}}</h4>
+            <br/>
+            <div class="row">
+                <div class='col-12 col-sm-6'>
+                    <div class="form-group">
+                        <label class="form-control-label" for="google_api_key">Google Api Key</label>  
+                        <input class="form-control input-md" #googleapikey="ngModel" required id="google_api_key" name="google_api_key" type="text"  [(ngModel)]="google_api_key">   
+                    </div>
+                </div>
+                <div class='col-12 col-sm-6'>
+                    <div class="form-group">
+                        <label class="form-control-label" for="google_sheet_url">Google Sheet URL</label>  
+                        <input class="form-control input-md" #googlesheeturl="ngModel" required id="google_sheet_url" name="google_sheet_url" type="text"  [(ngModel)]="google_sheet_url">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class='col-12 col-sm-6'>
+                    <div class="form-group">
+                        <label class="form-control-label" for="google_sheet_tab_name">Google Api Key</label>  
+                        <input class="form-control input-md" #googlsheettabname="ngModel" required id="google_sheet_tab_name" name="google_sheet_tab_name" type="text"  [(ngModel)]="google_sheet_tab_name">   
+                    </div>
+                </div>
+            </div>
+            <div class="form-group text-center space-20">
+                <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1" (click)="cancel()"> Previous</button>
+                <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button>
+            </div>
+        </div>
+    </div>
+</form> -->
+
+
+
+<!-- <form #workForm="ngForm" class="editForm" novalidate>
+    <div >
+        <div class="tab-pane active">
+            <h4 class="head text-center">{{title}}</h4>
+            <br/>
+            <div class="row">
+                <div class='col-12 col-sm-6'>
+                    <div class="form-group">
+                        <label class="form-control-label" for="google_api_key">Google Api Key</label>  
+                        <input class="form-control input-md" #googleapikey="ngModel" required id="google_api_key" name="google_api_key" type="text"  [(ngModel)]="google_api_key">   
+                        <small class="form-text text-muted danger" *ngIf="!google_api_key.valid && (google_api_key.dirty || google_api_key.touched)">This field is required!</small>
+                    </div>
+                </div>
+                <div class='col-12 col-sm-6'>
+                    <div class="form-group">
+                        <label class="form-control-label" for="google_sheet_url">Google Sheet URL</label>  
+                        <input class="form-control input-md" #googlesheeturl="ngModel" required id="google_sheet_url" name="google_sheet_url" type="text"  [(ngModel)]="google_sheet_url">
+                        <small class="form-text text-muted danger" *ngIf="!google_sheet_url.valid && (google_sheet_url.dirty || google_sheet_url.touched)">This field is required!</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class='col-12 col-sm-6'>
+                    <div class="form-group">
+                        <label class="form-control-label" for="google_sheet_tab_name">Google Api Key</label>  
+                        <input class="form-control input-md" #googlsheettabname="ngModel" required id="google_sheet_tab_name" name="google_sheet_tab_name" type="text"  [(ngModel)]="google_sheet_tab_name">   
+                        <small class="form-text text-muted danger" *ngIf="!google_sheet_tab_name.valid && (google_sheet_tab_name.dirty || google_sheet_tab_name.touched)">This field is required!</small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group text-center space-20">
+                <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1" (click)="cancel()"> Previous</button>
+                <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button>
+            </div>
+        </div>
+    </div>
+</form> -->

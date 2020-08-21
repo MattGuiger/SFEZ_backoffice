@@ -1,0 +1,310 @@
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+                    <div class="form-body">
+                        <h5 class="card-title">About Company</h5>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Company Name</label>
+                                    <input type="text" id="firstName" class="form-control" [attr.disabled]="type"  formControlName="name"> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Phone</label>
+                                    <input type="text" id="lastName" class="form-control" [attr.disabled]="type" value="{{companyDetails?.phone}}" formControlName="phone"> </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Facebook</label>
+                                    <input type="text" id="firstName" class="form-control" [attr.disabled]="type" value="{{companyDetails?.facebook}}" formControlName="facebook"> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Instagram</label>
+                                    <input type="text" id="lastName" class="form-control" [attr.disabled]="type" value="{{companyDetails?.instagram}}" formControlName="instagram"> </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Twitter</label>
+                                    <input type="text" id="firstName" class="form-control" [attr.disabled]="type" value="{{companyDetails?.twitter}}" formControlName="twitter"> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Hours</label>
+                                    <input type="text" id="lastName" class="form-control" [attr.disabled]="type" value="{{companyDetails?.hours}}" formControlName="hours"> </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Schedule</label>
+                                    <input type="text" id="firstName" class="form-control" [attr.disabled]="type" value="{{companyDetails?.schedule}}" formControlName="hours"> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Business Address</label>
+                                    <input type="text" id="lastName" class="form-control" [attr.disabled]="type" value="{{companyDetails?.business_address}}" formControlName="business_address"> </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">City</label>
+                                    <input type="text" id="firstName" class="form-control" [attr.disabled]="type" value="{{companyDetails?.city}}" formControlName="city"> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">State</label>
+                                    <input type="text" id="lastName" class="form-control" [attr.disabled]="type" value="{{companyDetails?.state}}" formControlName="state"> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Country</label>
+                                    <input type="text" id="firstName" class="form-control" [attr.disabled]="type" value="{{companyDetails?.country}}" formControlName="country"> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Tags</label>
+                                    <input type="text" id="lastName" class="form-control" [attr.disabled]="type" value="{{companyDetails?.tags}}" formControlName="tags"> </div>
+                            </div>
+                        </div>
+                        
+
+
+
+                       
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Email</label>
+                                    <input type="text" id="lastName" class="form-control" [attr.disabled]="type" value="{{companyDetails?.email}}" formControlName="email"> </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Distance Range</label>
+                                        <input type="text" id="lastName" class="form-control" [attr.disabled]="type" value="{{companyDetails?.distance_range}}" formControlName="distance_range"> </div>
+                                    </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Delivery Charge Amount</label>
+                                    <div class="input-group mb-3">
+                                      
+                                        <input type="text" class="form-control" placeholder="price" [attr.disabled]="type" aria-label="price" aria-describedby="basic-addon1" value="{{companyDetails?.delivery_chg_amount}}" formControlName="delivery_chg_amount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Show vendor setup</label>
+                                    <br/>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked="{{companyDetails?.show_vendor_setup=='live'}}">
+                                        <label class="custom-control-label" for="customRadioInline1" >Live</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadioInline2">Draft</label>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                      
+                       
+                        <h5 class="card-title m-t-40">Company Description</h5>
+                        <div class="row">
+                            <div class="col-md-12 ">
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="4" [attr.disabled]="type" formControlName="description">{{companyDetails?.description}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <label for="territory">Select Location</label>
+                        <div class="form-group mapmarker"> 
+                        <agm-map 
+                        [latitude]="companyDetails.latitude" 
+                        [longitude]="companyDetails.longitude" 
+                        [zoom]="zoom" 
+                        [style.height.px]="300"
+                        (mapClick)="placeMarker($event)"
+                >
+                            <agm-marker 
+                            [latitude]="lat" 
+                            [longitude]="lng"></agm-marker>
+                        </agm-map>
+                        </div>
+
+                        <div class="row">
+
+                            <!--/span-->
+                            <div class="col-md-3">
+                                <h5 class="card-title m-t-20">Company Image</h5>
+                                <div class="el-element-overlay">
+                                    <div class="el-card-item">
+                                        <div class="el-card-avatar el-overlay-1">
+                                            <img src="{{companyDetails?.photo ? companyDetails?.photo : 'assets/images/gallery/noProduct.png'}}" alt="user" style="height:275px;"/>
+                                            <div class="el-overlay">
+                                                <ul class="list-style-none el-info">
+                                                    <li class="el-item">
+                                                        <a class="btn default btn-outline image-popup-vertical-fit el-link" href="companyDetails?.photo">
+                                                            <i class="icon-magnifier"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="el-item">
+                                                        <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                                            <i class="icon-link"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="col-md-3">
+                            <h5 class="card-title m-t-20">Featured Dish</h5>
+                            <div class="el-element-overlay">
+                                <div class="el-card-item">
+                                    <div class="el-card-avatar el-overlay-1">
+                                        <img src="{{companyDetails?.featured_dish ? companyDetails?.featured_dish : 'assets/images/gallery/noProduct.png'}}" alt="user" style="height:275px;"/>
+                                        <div class="el-overlay">
+                                            <ul class="list-style-none el-info">
+                                                <li class="el-item">
+                                                    <a class="btn default btn-outline image-popup-vertical-fit el-link" href="companyDetails?.featured_dish">
+                                                        <i class="icon-magnifier"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="el-item">
+                                                    <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                                        <i class="icon-link"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h5 class="card-title m-t-20">Thumbnail Image</h5>
+                        <div class="el-element-overlay">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1">
+                                    <img src="{{companyDetails?.thumbnail ? companyDetails?.thumbnail : 'assets/images/gallery/noProduct.png'}}" alt="user" style="height:275px;"/>
+                                    <div class="el-overlay">
+                                        <ul class="list-style-none el-info">
+                                            <li class="el-item">
+                                                <a class="btn default btn-outline image-popup-vertical-fit el-link" href="companyDetails?.thumbnail">
+                                                    <i class="icon-magnifier"></i>
+                                                </a>
+                                            </li>
+                                            <li class="el-item">
+                                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                                    <i class="icon-link"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                        <!-- <div class="row">
+                            <div class="col-md-12">
+                                <h5 class="card-title m-t-40">GENERAL INFO</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered td-padding">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Brand">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Stellar">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Delivery Condition">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Knock Down">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Seat Lock Included">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Yes">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Type">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Office Chair">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Style">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Contemporary &amp; Modern">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Wheels Included">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Yes">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Upholstery Included">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" placeholder="Yes">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div> -->
+                        <hr> </div>
+                    <div class="form-actions m-t-40">
+                         <button type="submit" class="btn btn-success m-r-5" [attr.disabled]="type">
+                            <i class="fa fa-check"></i> Save</button> 
+                       
+                        <button type="button" class="btn btn-dark" [routerLink]="['/forms/company']">Back</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+</div>

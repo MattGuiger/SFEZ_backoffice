@@ -1,0 +1,113 @@
+<div class="row">
+  <!-- column -->
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <form class="m-b-30">
+          <div class="row">
+          <div class="col-sm-6">
+          <input type='text' class="form-control" placeholder='Type to filter the name column...' (keyup)='updateFilter($event)' />
+        </div>
+        <div class="col-sm-6">
+          <button class="btn btn-success btn-raised" (click)="open1(content1)">Add Hub Manager</button>
+        </div>
+      </div>
+        </form>
+        <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        
+          [rowHeight]="'auto'" [limit]="10" [rows]='rows'>
+          <ngx-datatable-column name="First Name" prop="first_name" [width]="150"></ngx-datatable-column>
+          <ngx-datatable-column name="Last Name" prop="last_name" [width]="150"></ngx-datatable-column>
+          <ngx-datatable-column name="Email" prop="username" [width]="150"></ngx-datatable-column>
+          <ngx-datatable-column >
+              <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                <input class="btn btn-success btn-raised" type="button" value="View" (click)="onCheckboxChangeFn($event,row)">&nbsp;&nbsp;
+              </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #content1 let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Hub Manager</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="foodParkMgrForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+          <label for="name">First Name</label>
+          <div class="input-group">
+            <input id="name" class="form-control"  name="dp" type="text" formControlName="first_name">
+          </div>
+          <label for="name">Last Name</label>
+          <div class="input-group">
+            <input id="name" class="form-control"  name="dp" type="text" formControlName="last_name">
+          </div>
+          <label for="name">Email</label>
+          <div class="input-group">
+            <input id="name" class="form-control"  name="dp" type="text" formControlName="email">
+          </div>
+          <label for="name">Password</label>
+          <div class="input-group">
+            <input id="name" class="form-control"  name="dp" type="password" formControlName="password">
+          </div>
+          <!-- <label for="territory">Territory</label>
+          <div class="input-group"> 
+            <select formControlName="territory_id" class="form-control">
+            <option *ngFor="let item of territory1" value="{{item.id}}">{{item.territory}}</option>
+          </select>
+          </div> -->
+
+          <label for="territory">Country</label>
+          <div class="input-group"> 
+            <select formControlName="country_id" class="form-control">
+              <option *ngFor="let item of countryList" value="{{item.id}}">{{item.name}}</option>
+          </select>
+          </div>
+
+          <label for="territory">Hub</label>
+          <div class="input-group"> 
+            <select formControlName="food_park_id" class="form-control">
+              <option *ngFor="let item of foodparkList" value="{{item.id}}">{{item.name}}</option>
+          </select>
+          </div>
+
+         
+          
+            <agm-map 
+            [latitude]="lat" 
+            [longitude]="lng" 
+            [zoom]="zoom" >
+              <agm-marker 
+              [latitude]="lat" 
+              [longitude]="lng"></agm-marker>
+            </agm-map>
+
+        <!-- <label for="latitude">Latitude</label>
+        <div class="input-group">
+          <input id="latitude" class="form-control"  name="dp" type="text" formControlName="latitude">
+        </div>
+
+        <label for="longitude">Longitude</label>
+        <div class="input-group">
+          <input id="longitude" class="form-control"  name="dp" type="text" formControlName="longitude">
+        </div> -->
+
+      </div>
+      <div class="modal-footer">
+          <button type="submit" class="btn btn-outline-dark" >Save</button>
+        </div>
+    </form>
+  </div>
+ 
+</ng-template>
+
+
+
+

@@ -1,0 +1,55 @@
+<!-- Address Tab form Starts -->
+<form #addressForm="ngForm" class="editForm" novalidate>
+    <div class="tab-pane active">
+        <h4 class="head text-center">{{title}}</h4>
+        <br/>
+
+        <div class='row'>
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <label class="form-control-label" for="street">Logo</label>  
+                    <ngx-dropzone (change)="onSelect($event)">
+                        <ngx-dropzone-label>Drag and Drop, or click here to upload!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                    <!-- <div style="display: inline !important;" >
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" style="display: inline !important;">
+                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                      </ngx-dropzone-image-preview>
+                    </div> -->
+                    
+                </div>   
+            </div>
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <label class="form-control-label" for="street">Favorite dish</label>  
+                    <ngx-dropzone (change)="onSelectfeathured($event)">
+                        <ngx-dropzone-label>Drag and Drop, or click here to upload!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of feathuredfiles" [removable]="true" (removed)="onRemovefeathured(f)">
+                            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                    <!-- <div style="display: inline !important;" >
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" style="display: inline !important;">
+                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                      </ngx-dropzone-image-preview>
+                    </div> -->
+                    
+                </div>   
+                <div class='row'>
+                <div class="form-group text-center">
+                    <button uiSref="work" type="button" class="btn btn-raised btn-secondary mr-1" (click)="cancel()">Previous</button>
+                    <button uiSref="result" type="button" class="btn btn-raised btn-info" (click)="save()"> Next </button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+      
+
+    
+    </div>
+</form>
+<!-- Address Tab form Ends -->

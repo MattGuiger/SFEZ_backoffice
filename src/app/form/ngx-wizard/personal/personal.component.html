@@ -1,0 +1,114 @@
+<!-- Personal Tab Form Starts -->
+<form #personalForm="ngForm" class="editForm" novalidate>
+    <div class="tab-pane active">
+        <h4 class="font-medium-2 text-center">{{title}}</h4>
+        <br/>
+        <div class='row'>
+            <div class='col-12'>
+                <div class="row">
+                    <div class='col-12 col-sm-6'>
+                        <div class="form-group">
+                            <label class="form-control-label" for="firstname">First Name</label>  
+                            <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <button class="btn mr-0 btn-info" type="button">
+                                    <i class=" icon-User"></i>
+                                </button>
+                            </div>
+                            <input class="form-control input-md" #firstname="ngModel" required id="firstname" name="firstname" type="text"  [(ngModel)]="personal.first_name">   
+                        </div>
+                            <small class="form-text text-muted danger" *ngIf="!firstname.valid && (firstname.dirty || firstname.touched)">This field is required!</small>
+                        </div>
+                    </div>
+                    <div class='col-12 col-sm-6'>
+                        <div class="form-group">
+                            <label class="form-control-label" for="lastname">Last Name</label>  
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn mr-0 btn-info" type="button">
+                                        <i class=" icon-User"></i>
+                                    </button>
+                                </div>
+                            <input class="form-control input-md" #lastname="ngModel" required id="lastname" name="lastname" type="text"  [(ngModel)]="personal.last_name">
+                            </div>
+                            <small class="form-text text-muted danger" *ngIf="!lastname.valid && (lastname.dirty || lastname.touched)">This field is required!</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                        <div class='col-12 col-sm-6'>
+                            <div class="form-group">
+                                <label class="form-control-label" for="password">Password</label>  
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn mr-0 btn-info" type="button">
+                                            <i class="icon-Password-shopping"></i>
+                                        </button>
+                                    </div>
+                                <input class="form-control input-md" #password="ngModel" required id="password" name="password" type="password"  [(ngModel)]="personal.password">   
+                                </div>
+                                <small class="form-text text-muted danger" *ngIf="!password.valid && (password.dirty || password.touched)">This field is required!</small>
+                            </div>
+                        </div>
+                        <div class='col-12 col-sm-6'>
+                            <div class="form-group">
+                                <label class="form-control-label" for="company_name">Company Name</label>  
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn mr-0 btn-info" type="button">
+                                            <i class=" icon-User"></i>
+                                        </button>
+                                    </div>
+                                <input class="form-control input-md" #company_name="ngModel" required id="company_name" name="company_name" type="text"  [(ngModel)]="personal.company_name">
+                                </div>
+                            
+                                <small class="form-text text-muted danger" *ngIf="!company_name.valid && (company_name.dirty || company_name.touched)">This field is required!</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                            <div class='col-12 col-sm-6'>
+                                    <div class="form-group">
+                                            <label class="form-control-label" for="email">Email</label>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <button class="btn mr-0 btn-info" type="button">
+                                                        <i class="icon-Email"></i>
+                                                    </button>
+                                                </div>
+                                            <input class="form-control input-md" #email="ngModel" required email id="email" name="email" type="text"  [(ngModel)]="personal.email">
+                                            </div>
+                                            <small class="form-text text-danger" *ngIf="!email.valid && (email.dirty || email.touched)">Please enter a valid email!</small>
+                                        </div>
+                            </div>
+                            <div class='col-12 col-sm-6'>
+                                <div class="form-group">
+                                        <label class="form-control-label" for="country_id">Country</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <button class="btn mr-0 btn-info" type="button">
+                                                    <i class="icon-Global-Position"></i>
+                                                </button>
+                                            </div>
+                                        <select class="form-control custom-select" data-placeholder="Choose a Country" #country_id="ngModel" tabindex="1"  [(ngModel)]="personal.country_id" (change)="changeCountry($event)">
+                                                <option value="" selected>Select</option>
+                                            <option *ngFor="let item of countryList" value="{{item.id}}">{{item.name}}</option>
+                                        </select>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                
+                    
+                <div class="form-group text-center">
+                    <button type="button" uiSref="work" class="btn btn-success btn-raised" [disabled]="!personalForm.valid" (click)="save(personalForm)"> Next </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- Personal Tab Form Ends -->
