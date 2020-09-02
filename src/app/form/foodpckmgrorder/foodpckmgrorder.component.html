@@ -449,7 +449,7 @@
               <!--Start Hourly Wages table-->
               <div class="card-body">
                 <div class="accodion-datatable">
-                  <ngx-datatable class="material" #table [rows]="shareddata" [columnMode]="'force'"
+                  <ngx-datatable class="material" #table [rows]="wagesData" [columnMode]="'force'"
                     [headerHeight]="50" [footerHeight]="50" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
 
                     <ngx-datatable-column [width]="20">
@@ -478,63 +478,70 @@
 
                     <ngx-datatable-column name="Drivers" [width]="100" prop="driver">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.driver" name="driver" [disabled]="!isEditable[rowIndex]">
-
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row?.driver" name="driver" [disabled]="!isEditable[rowIndex]"> -->
+                        {{row?.driver}}
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Hourly wages" [width]="100" prop="hour_wages">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>  
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.hour_wages" name="hour_wages" [disabled]="!isEditable[rowIndex]">
-                          
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row?.hour_wages" name="hour_wages" [disabled]="!isEditable[rowIndex]"> -->
+                         ${{row?.hour_wages}}/hr 
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Mon" [width]="70" prop="mon">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.mon" name="mon" [disabled]="!isEditable[rowIndex]">
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row?.mon" name="mon" [disabled]="!isEditable[rowIndex]"> -->
+                        {{row?.mon?row.mon:0}}
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Tue" [width]="70" prop="tue">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.tue" name="tue" [disabled]="!isEditable[rowIndex]">
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row?.tue" name="tue" [disabled]="!isEditable[rowIndex]"> -->
+                        {{row?.tue?row.tue:0}}
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Wed" [width]="70" prop="wed">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.wed" name="wed" [disabled]="!isEditable[rowIndex]">
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row?.wed" name="wed" [disabled]="!isEditable[rowIndex]"> -->
+                        {{row?.wed?row.wed:0}}
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Thu" [width]="70" prop="thu">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.thu" name="thu" [disabled]="!isEditable[rowIndex]">
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row?.thu" name="thu" [disabled]="!isEditable[rowIndex]"> -->
+                        {{row?.thu?row.thu:0}}
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Fri" [width]="70" prop="fri">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.fri" name="fri" [disabled]="!isEditable[rowIndex]">
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row?.fri" name="fri" [disabled]="!isEditable[rowIndex]"> -->
+                        {{row?.fri?row.fri:0}}
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Sat" [width]="70" prop="sat">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.sat" name="sat" [disabled]="!isEditable[rowIndex]">
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row?.sat" name="sat" [disabled]="!isEditable[rowIndex]"> -->
+                        {{row?.sat?row.sat:0}}
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Sun" [width]="70" prop="sun">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.sun" name="tue" [disabled]="!isEditable[rowIndex]">
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row?.sun" name="tue" [disabled]="!isEditable[rowIndex]"> -->
+                        {{row?.sun?row.sun:0}}
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Total" [width]="70">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        27
+                        0
                       </ng-template>
                     </ngx-datatable-column>
 

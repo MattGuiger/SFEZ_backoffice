@@ -311,35 +311,35 @@ export class FoodpckmgrorderComponent {
     )
   }
 
+  wagesData:any[] = [];
   manageWagesDriver(data, driverName){
-    //console.log(data);
+    console.log(data);
     let daysName = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
-    let wagesData = [];
     let workTime = 0;
     var holder = {}
     var final = [];
     data.forEach((value) => {
       
-      console.log(value);
+      //console.log(value);
       let date = new Date(value.work_date);
       let getDays = date.getDay();
-     
-
-      let day = new Date(value.work_date).getDay();
-      if(day in final) {
-        daysName[final[day]] =  final[day] + value.work_time;
-      } else {
-        daysName[final[day]] = value.work_time;
-      }
-
-      console.log(final);
       
-      // let makeData = {
-      //   "driver":driverName,
-      //   "hour_wages": value.per_hour_price,
+
+      // let day = new Date(value.work_date).getDay();
+      // if(day in final) {
+      //   daysName[final[day]] =  final[day] + value.work_time;
+      // } else {
+      //   daysName[final[day]] = value.work_time;
       // }
-      // makeData[daysName[getDays]] = final;
-      // wagesData.push(makeData);
+
+      // console.log(final);
+      
+      let makeData = {
+        "driver":driverName,
+        "hour_wages": value.per_hour_price,
+      }
+      makeData[daysName[getDays]] = value.work_time;
+      this.wagesData.push(makeData);
       
       // if(value.work_date.includes(splitDate[0])){
       //   console.log('hello');
@@ -350,8 +350,8 @@ export class FoodpckmgrorderComponent {
       // console.log('worktime', workTime);
 
       
-      //console.log(wagesData);
     });
+    console.log(this.wagesData);
 
   }
 
