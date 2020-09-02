@@ -4,29 +4,30 @@
         <div class="card">
             <div class="card-body">
                 <div class="m-t-30 text-center">
-                    <img src="{{profile?.photo ? profile?.photo : 'assets/images/users/nouser.jpeg'}}" class="rounded-circle" width="150" />
+                    <img src="{{profile?.photo ? profile?.photo : 'assets/images/users/nouser.jpeg'}}"
+                        class="rounded-circle" width="150" />
                     <h4 class="card-title m-t-10">{{profile?.name}}</h4>
                     <h6 class="card-subtitle">{{profile?.email}}</h6>
-                    <div class="col-sm-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Upload Your Company Photo</h4>
-                                    <!-- <h6 class="card-subtitle">To use add
-                                        <code>.custom-file-input</code> class to the input</h6> -->
-                                    <form>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Upload</span>
-                                            </div>
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="inputGroupFile01" (change)="onFileSelect($event)">
-                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                            </div>
+                    <!-- <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Upload Your Company Photo</h4>
+                                
+                                <form>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Upload</span>
                                         </div>
-                                    </form>
-                                </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                                                (change)="onFileSelect($event)">
+                                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
+                    </div> -->
 
                     <div class="form-group">
                         <!-- <div class="col-sm-12">
@@ -50,20 +51,22 @@
                 </div>
             </div>
             <div>
-                <hr> </div>
-            <div class="card-body">
+                <hr>
+            </div>
+            <!-- <div class="card-body">
                 <small class="text-muted">Email address </small>
-                <h6>{{profile.email}}</h6>
+                <h6>{{profile?.email}}</h6>
                 <small class="text-muted p-t-30 db">Phone</small>
-                <h6>{{profile.phone}}</h6>
+                <h6>{{profile?.phone}}</h6>
                 <small class="text-muted p-t-30 db">Address</small>
-                <h6>{{profile.business_address}}</h6>
+                <h6>{{profile?.business_address}}</h6>
                 <div class="map-box">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470029.1604841957!2d72.29955005258641!3d23.019996818380896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C+Gujarat!5e0!3m2!1sen!2sin!4v1493204785508"
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470029.1604841957!2d72.29955005258641!3d23.019996818380896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C+Gujarat!5e0!3m2!1sen!2sin!4v1493204785508"
                         width="100%" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
                 <small class="text-muted p-t-30 db">Social Profile</small>
-                <br/>
+                <br />
                 <button class="btn btn-circle btn-secondary">
                     <i class="fab fa-facebook"></i>
                 </button>
@@ -73,7 +76,7 @@
                 <button class="btn btn-circle btn-secondary">
                     <i class="fab fa-youtube"></i>
                 </button>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- Column -->
@@ -261,17 +264,32 @@
                 <ngb-tab title="Settings">
                     <ng-template ngbTabContent>
                         <div class="card-body">
-                            <form class="form-horizontal form-material">
-                                <div class="form-group">
+                            <form class="form-horizontal form-material" [formGroup]="profileForm" (ngSubmit)="onManagerSubmit()">
+                                <!-- <div class="form-group">
                                     <label class="col-md-12">Name</label>
                                     <div class="col-md-12">
-                                        <input type="text" value="{{profile?.name}}" class="form-control form-control-line" #name>
+                                        <input type="text" value="{{profile?.name}}"
+                                            class="form-control form-control-line" #name>
+                                    </div>
+                                </div> -->
+                                <div class="form-group">
+                                    <label class="col-md-12">First Name</label>
+                                    <div class="col-md-12">
+                                        <input type="text" 
+                                            class="form-control form-control-line" formControlName="first_name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Last Name</label>
+                                    <div class="col-md-12">
+                                        <input type="text"
+                                            class="form-control form-control-line" formControlName="last_name">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="example-email" class="col-md-12">Email</label>
                                     <div class="col-md-12">
-                                        <input type="email" disabled value="{{profile?.email}}" class="form-control form-control-line" name="example-email" id="example-email" #email>
+                                        <input type="email" class="form-control form-control-line" id="example-email" formControlName="username">
                                     </div>
                                 </div>
                                 <!-- <div class="form-group">
@@ -283,10 +301,11 @@
                                 <div class="form-group">
                                     <label class="col-md-12">Phone No</label>
                                     <div class="col-md-12">
-                                        <input type="text"  value="{{profile?.phone}}" class="form-control form-control-line" #phone>
+                                        <input type="text" 
+                                            class="form-control form-control-line" formControlName="phone">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="col-md-12">Delivery Charge Amount</label>
                                     <div class="col-md-12">
                                         <input type="text"  value="{{profile?.delivery_chg_amount}}" class="form-control form-control-line" #delivery_chg_amount>
@@ -309,8 +328,8 @@
                                     <div class="col-md-12">
                                         <input type="text"  value="{{profile?.distance_range}}" class="form-control form-control-line" #distance_range>
                                     </div>
-                                </div>
-                                <div class="form-group">
+                                </div> -->
+                                <!-- <div class="form-group">
                                     <label class="col-md-12">Facebook</label>
                                     <div class="col-md-12">
                                         <input type="text"  value="{{profile?.facebook}}" class="form-control form-control-line" #facebook>
@@ -339,13 +358,13 @@
                                     <div class="col-md-12">
                                         <input type="text"  value="{{profile?.schedule}}" class="form-control form-control-line" #schedule>
                                     </div>
-                                </div>
-                                <div class="form-group">
+                                </div> -->
+                                <!-- <div class="form-group">
                                     <label class="col-md-12">Tags</label>
                                     <div class="col-md-12">
                                         <input type="text"  value="{{profile?.tags}}" class="form-control form-control-line" #tags>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- <div class="form-group">
                                     <label class="col-md-12">Message</label>
                                     <div class="col-md-12">
@@ -355,49 +374,64 @@
                                 <div class="form-group">
                                     <label class="col-sm-12">Select Country</label>
                                     <div class="col-sm-12">
-                                            <select class="form-control custom-select" data-placeholder="Choose a Country" tabindex="1" #country_id value="{{profile.country_id}}">
-                                                    <option value="">Select</option>
-                                                <option *ngFor="let item of countryList" value="{{item.id}}">{{item.name}}</option>
-                                            </select>
+                                        <select class="form-control custom-select" data-placeholder="Choose a Country"
+                                            tabindex="1" formControlName="country_id">
+                                            <option value="">Select</option>
+                                            <option *ngFor="let item of countryList" value="{{item.id}}">{{item.name}}
+                                            </option>
+                                        </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                        <label class="col-sm-12">Select State</label>
-                                        <div class="col-sm-12">
-                                                <select class="form-control custom-select" data-placeholder="Choose a State" tabindex="1" #state value="{{profile.country_id}}">
-                                                        <option value="">Select</option>
-                                                    <option *ngFor="let item of countryList" value="{{item.id}}">{{item.name}}</option>
-                                                </select>
+                                    <label class="col-sm-12">Select State</label>
+                                    <div class="col-sm-12">
+                                        <select class="form-control custom-select" data-placeholder="Choose a State"
+                                            tabindex="1" formControlName="state_id">
+                                            <option value="">Select</option>
+                                            <option *ngFor="let item of countryList" value="{{item.id}}">{{item.name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-12">City</label>
+                                    <div class="col-md-12">
+                                        <input type="text" 
+                                            class="form-control form-control-line" formControlName="city">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-12">Zip Code</label>
+                                    <div class="col-md-12">
+                                        <input type="text" 
+                                            class="form-control form-control-line" formControlName="zip">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-12">Featured Dish</label>
+                                    <div class="col-md-6">
+                                        <img src="{{profile?.featured_dish ? profile?.featured_dish : 'assets/images/users/nouser.jpeg'}}"
+                                            class="rounded-circle" width="150" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group-prepend">
+                                            <!-- <span class="input-group-text">Upload</span> -->
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                                                (change)="onFileSelectFeaturephoto($event)">
+                                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                            <label class="col-md-12">City</label>
-                                            <div class="col-md-12">
-                                                <input type="text"  value="{{profile?.city}}" class="form-control form-control-line" #city>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                                <label class="col-md-12">Featured Dish</label>
-                                                <div class="col-md-6">
-                                                        <img src="{{profile?.featured_dish ? profile?.featured_dish : 'assets/images/users/nouser.jpeg'}}" class="rounded-circle" width="150" /> 
-                                                </div>
-                                                <div class="col-md-6">
-                                                        <div class="input-group-prepend">
-                                                                <!-- <span class="input-group-text">Upload</span> -->
-                                                            </div>
-                                                            <div class="custom-file">
-                                                                <input type="file" class="custom-file-input" id="inputGroupFile01" (change)="onFileSelectFeaturephoto($event)">
-                                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                                            </div>
-                                                </div>
-
-                                            </div>
+                                </div>
 
 
-                                        <!-- <form>
+                                <!-- <form>
                                             <div class="input-group mb-3">
                                                     <label class="col-md-12">Featured Dish</label>
 
@@ -412,9 +446,17 @@
                                         </form> -->
 
 
+                                <!-- <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-success"
+                                            (click)="updateComapnydetails(phone.value,email.value,name.value,business_address.value,country_id?.value,state.value,city.value)">Update
+                                            Profile</button>
+                                    </div>
+                                </div> -->
+
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <button class="btn btn-success"  (click)="updateComapnydetails(tags.value,schedule.value,hours.value,twitter.value,instagram.value,facebook.value,distance_range.value,description.value,delivery_chg_amount.value,phone.value,email.value,name.value,business_address.value,country_id.value,state.value,city.value)">Update Profile</button>
+                                        <button class="btn btn-success" type="submit">Update Profile</button>
                                     </div>
                                 </div>
                             </form>

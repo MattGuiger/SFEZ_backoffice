@@ -7,6 +7,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from "@angular/router";
 import { Options } from 'ng5-slider';
 import { isNgTemplate } from '@angular/compiler';
+import { async } from '@angular/core/testing';
+
 
 declare var require: any;
 const data: any = [];
@@ -17,6 +19,7 @@ const data: any = [];
 })
 export class FoodpckmgrorderComponent {
   editing = {};
+  isEditable = {};
   rows = [];
   temp = [...data];
   orders: any[] = [];
@@ -57,6 +60,53 @@ export class FoodpckmgrorderComponent {
   dailyPayoutData:any[] = [];
   codBalance:any;
 
+
+  shareddata = [
+    {
+      "driver":"steve",
+      "hour_wages": 12,
+      "mon":2,
+      "tue":3,
+      "wed":4,
+      "thu":5,
+      "fri":6,
+      "sat":1,
+      "sun":3
+    },
+    {
+      "driver":"steve",
+      "hour_wages": 12,
+      "mon":2,
+      "tue":3,
+      "wed":4,
+      "thu":5,
+      "fri":6,
+      "sat":1,
+      "sun":3
+    },
+    {
+      "driver":"steve",
+      "hour_wages": 12,
+      "mon":2,
+      "tue":3,
+      "wed":4,
+      "thu":5,
+      "fri":6,
+      "sat":1,
+      "sun":3
+    },
+    {
+      "driver":"steve",
+      "hour_wages": 12,
+      "mon":2,
+      "tue":3,
+      "wed":4,
+      "thu":5,
+      "fri":6,
+      "sat":1,
+      "sun":3
+    },
+  ]
  
 
   //@ViewChild(FoodpckmgrorderComponent, { static: false }) table: FoodpckmgrorderComponent;
@@ -69,7 +119,8 @@ export class FoodpckmgrorderComponent {
     private route: ActivatedRoute) {
     this.getAllOrder();
     this.getDailyPayout();
-
+    this.foodParkUnits(); 
+      
   }
   /** Get Daily Payout */
   getDailyPayout(){
@@ -179,5 +230,130 @@ export class FoodpckmgrorderComponent {
     console.log('UPDATED!', this.rows[rowIndex][cell]);
   }
 
+  // Save row
+  save(row, rowIndex){
+    this.isEditable[rowIndex]=!this.isEditable[rowIndex]
+    console.log(row);
+    console.log("Row saved: "+ rowIndex);
+  }
+
+  // Delete row
+  delete(row, rowIndex){
+    this.isEditable[rowIndex]=!this.isEditable[rowIndex]
+    console.log("Row deleted: "+ rowIndex);
+  }
   
+  /**Get food park units */
+  unitOrderAndName:any[] = [];
+  unitsId:any[] = [];
+  async foodParkUnits(){
+    await this._ProfileService.foodParkUnits(this.user.food_park_id).subscribe(
+      (response) => {
+        console.log(response.data);
+        if(response.data){
+          response.data.forEach(async (value) => {
+            await this._ProfileService.getParticularUnitData(value.id).subscribe(
+              async (unitResponse) => {
+                let data = {
+                  "unitId": unitResponse.data.id,
+                  "unitName":unitResponse.data.name,
+                  "unitOrder":unitResponse.data.order_count
+                };
+                this.unitOrderAndName.push(data);  
+                this.unitsId.push(value.id);
+                await this.unitsDriver();
+
+              },
+              (unitError) =>{
+                console.log(unitError);
+              }
+            )
+          })
+        }  
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
+  unitsDriver(){
+    let unitsIdData = {
+      "units": [2164, 2165]//this.unitsId
+    }
+    this._ProfileService.getUnitsDriver(unitsIdData).subscribe(
+      (driverRespose) => {
+        let getDriverId = [];
+        if(driverRespose.data){
+          driverRespose.data.forEach((valueDriver) => {
+            valueDriver.forEach(async (valueExact) =>{
+              if(getDriverId.includes(valueExact.id) !== true){
+                getDriverId.push(valueExact.id);
+                await this._ProfileService.getParticularDriverWages(valueExact.id).subscribe(
+                  (wagesResponse) => {
+                    if(wagesResponse.data && wagesResponse.data.result){
+                      this.manageWagesDriver(wagesResponse.data.result, wagesResponse.data.driver.first_name);
+                    }
+                  },
+                  (wagesError) => {
+                    console.log(wagesError);
+                  }
+                )
+              }             
+            
+            });
+          });
+        }  
+      },
+      (driverError) => {
+        console.log(driverError);
+      }
+    )
+  }
+
+  manageWagesDriver(data, driverName){
+    //console.log(data);
+    let daysName = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+    let wagesData = [];
+    let workTime = 0;
+    var holder = {}
+    var final = [];
+    data.forEach((value) => {
+      
+      console.log(value);
+      let date = new Date(value.work_date);
+      let getDays = date.getDay();
+     
+
+      let day = new Date(value.work_date).getDay();
+      if(day in final) {
+        daysName[final[day]] =  final[day] + value.work_time;
+      } else {
+        daysName[final[day]] = value.work_time;
+      }
+
+      console.log(final);
+      
+      // let makeData = {
+      //   "driver":driverName,
+      //   "hour_wages": value.per_hour_price,
+      // }
+      // makeData[daysName[getDays]] = final;
+      // wagesData.push(makeData);
+      
+      // if(value.work_date.includes(splitDate[0])){
+      //   console.log('hello');
+      // }else{
+      //   console.log('bye');
+      // }
+      // workTime = value.work_time;
+      // console.log('worktime', workTime);
+
+      
+      //console.log(wagesData);
+    });
+
+  }
+
+
 }

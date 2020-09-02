@@ -38,6 +38,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { Ng5SliderModule } from 'ng5-slider';
 import { TagInputModule } from 'ngx-chips';
 import { AgmCoreModule } from '@agm/core';
+import { CustompipePipe } from './custompipe.pipe';
+
 
 
 @NgModule({
@@ -71,7 +73,8 @@ import { AgmCoreModule } from '@agm/core';
         CompanyviewComponent,
         ViewunitComponent,
         UnitorderComponent,
-        FoodpckmgrorderComponent
+        FoodpckmgrorderComponent,
+        CustompipePipe
     ]
 })
 export class FormModule { }

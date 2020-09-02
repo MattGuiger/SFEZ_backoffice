@@ -38,6 +38,8 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { HttpModule } from '@angular/http';
+import { GreenmoneyComponent } from './greenmoney/greenmoney.component';
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true,
     wheelSpeed: 1,
@@ -55,6 +57,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         BreadcrumbComponent,
         SidebarComponent,
         LoginComponent,
+        GreenmoneyComponent
+       
         // SignupComponent
     ],
     imports: [

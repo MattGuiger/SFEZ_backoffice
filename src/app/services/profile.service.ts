@@ -29,8 +29,51 @@ export class ProfileService {
   private addDriverURL = config.getEnvironmentVariable('endPoint') + 'auth/register'; 
   private companyURL = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/companies'; 
   private dailyPayout = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/getVendorDriverWagesForOrders';
+  private getManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/getfoodparkmgrs';
+  //private greenMoneyURL = config.getEnvironmentVariable('endPoint') + 'api/v1/payment/green-money-generate-widget/';
+  private getUnitListURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/list-units';
+  private addManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/create-manager';
+  private deleteManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/delete-manager';
+  private updateProfileUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/users/update-profile/';
+  private foodParkUnitsUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/get-units-by-foodpark/';
+  private particularUnitUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/ord/list-unit-order/';
+  private unitsDriverUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/get-drivers-for-units';
+  private particularDriverWagesUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/ord/get-driver-wage/';
 
   constructor(private http: HttpClient) { }
+
+  // greenMoneyPayment(data):Observable<any> {
+  //   return this.http.get(this.greenMoneyURL+data);
+  // }
+  getParticularDriverWages(id):Observable<any>{
+    return this.http.get(this.particularDriverWagesUrl+id);
+  }
+  getUnitsDriver(data):Observable<any>{
+    return this.http.post(this.unitsDriverUrl, data);
+  }
+
+  getParticularUnitData(id):Observable<any>{
+    return this.http.get(this.particularUnitUrl+id);
+  }
+  foodParkUnits(id):Observable<any> {
+    return this.http.get(this.foodParkUnitsUrl+id);
+  }
+
+  updateUserProfile(id,data):Observable<any> {
+    return this.http.post(this.updateProfileUrl+id, data);
+  }
+
+  deleteManager(data): Observable<any> {
+    return this.http.post(this.deleteManagersURL, data);
+  }
+
+  addManagers(data): Observable<any> {
+    return this.http.post(this.addManagersURL,data);
+  }
+
+  getAllUnitListData():Observable<any> {
+    return this.http.get(this.getUnitListURL);
+  }
 
   getCompanyprofileUser(id): Observable<any> {
     return this.http.get(this.getProfileUserURL+id);
@@ -118,6 +161,10 @@ export class ProfileService {
   }
   setDriverManagers(data): Observable<any> {
     return this.http.post(this.setDriverManagersURL,data);
+  }
+
+  getAllManager(data):Observable<any>{
+    return this.http.post(this.getManagerURL, data);
   }
 
   getCompanyprofile(id): Observable<any> {

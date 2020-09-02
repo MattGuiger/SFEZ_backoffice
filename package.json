@@ -38,6 +38,7 @@
         "datatables.net-dt": "^1.10.20",
         "date-fns": "^2.9.0",
         "lodash": "^4.17.15",
+        "moment": "^2.27.0",
         "ng-chartist": "^4.1.0",
         "ng-multiselect-dropdown": "^0.2.10",
         "ng2-charts": "^2.3.0",

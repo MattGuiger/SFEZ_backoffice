@@ -24,17 +24,17 @@ export class MenuitemsComponent implements OnInit{
   getAllProductList(){
     this.processing = true;
     this.user = this._CommonFunctionsService.checkUser().user;
-    this._ProfileService.getAllProductList(this.user.company_id).subscribe((res:any)=>{
+    this._ProfileService.getAllProductList(this.user.unit_id).subscribe((res:any)=>{
       this.productList = res.data;
       this.processing = false;
     },error=>{
-      debugger
+      //debugger
     })
  }
 
  getCompanyProfile(){
   this.user = this._CommonFunctionsService.checkUser().user;
-  this._ProfileService.getCompanyprofile(this.user.company_id).subscribe((res:any)=>{
+  this._ProfileService.getCompanyprofile(this.user.unit_id).subscribe((res:any)=>{
     this.profile = res.data;
   },error=>{
    //  

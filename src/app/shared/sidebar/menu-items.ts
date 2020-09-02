@@ -77,6 +77,7 @@ export const ADMINROUTE: RouteInfo[] = [
         submenu: [
         ]
     },
+    
  ];
 
  

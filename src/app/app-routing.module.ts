@@ -4,14 +4,23 @@ import { Routes, RouterModule } from '@angular/router';
 import { FullComponent } from './layouts/full/full.component';
 import { BlankComponent } from './layouts/blank/blank.component';
 import {LoginComponent} from '../app/login/login.component'
+import { GreenmoneyComponent } from './greenmoney/greenmoney.component';
 
 export const Approutes: Routes = [
+  {
+    path:'green-money/:id',
+    component: GreenmoneyComponent
+  },
   {
     path: '',
     component: FullComponent,
     children: [
       // { path: '', redirectTo: '/dashboard/dashboard1', pathMatch: 'full' },
       { path: '', redirectTo: '/login', pathMatch: 'full' },
+      {
+        path:'green-money',
+        component: GreenmoneyComponent
+      },
       {
         path: 'dashboard',
         loadChildren: () => import('./dashboards/dashboard.module').then(m => m.DashboardModule)
@@ -71,7 +80,7 @@ export const Approutes: Routes = [
   // {
   //   path: '**',
   //   redirectTo: '/authentication/404'
-  // }
+  // },
   {
     path: '**',
     redirectTo: '/login'

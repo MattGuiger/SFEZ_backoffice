@@ -88,3 +88,37 @@
     background-color: #fff;
     border-color: #eb4c4c;
   }
+  /** Shared labour*/
+  .row.mt-3.custom-card-main {
+    margin: 0 50px;
+  }
+  .custom-card {
+    width: 25%;
+    height: auto;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  .wrap-div {
+    border: solid 1px #ddd;
+    text-align: center;
+    height: 125px;
+  }
+  .wrap-div .title {
+    margin: 15px auto;
+  }
+  .wrap-div .title h5 {
+    font-size: 30px;
+  }
+  .view-orders button{
+    float: right;
+  }
+  .wrap-div.total-wages {
+    height: 75px;
+  }
+  .total-wages .title {
+    margin: 12px auto !important;
+  }
+
+  
+  
+  

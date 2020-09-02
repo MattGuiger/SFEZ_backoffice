@@ -5,9 +5,11 @@ export class config {
 
   public static getEnvironmentVariable(value) {
     let serverip = 'https://api.instamarkt.co/';
+    //let serverip = 'http://161.35.1.231:1337/';
   //  let serverip = 'http://localhost:1337/';
     if (Production) {
       serverip = 'https://api.instamarkt.co/';
+      //serverip = 'http://161.35.1.231:1337/';
       // serverip = 'http://localhost:1337/';
     }
     return serverip;
