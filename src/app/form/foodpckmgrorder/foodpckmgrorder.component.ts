@@ -120,6 +120,7 @@ export class FoodpckmgrorderComponent {
     this.getAllOrder();
     this.getDailyPayout();
     this.foodParkUnits(); 
+    //this.getCurrentDate();
       
   }
   /** Get Daily Payout */
@@ -230,22 +231,12 @@ export class FoodpckmgrorderComponent {
     console.log('UPDATED!', this.rows[rowIndex][cell]);
   }
 
-  // Save row
-  save(row, rowIndex){
-    this.isEditable[rowIndex]=!this.isEditable[rowIndex]
-    console.log(row);
-    console.log("Row saved: "+ rowIndex);
-  }
-
-  // Delete row
-  delete(row, rowIndex){
-    this.isEditable[rowIndex]=!this.isEditable[rowIndex]
-    console.log("Row deleted: "+ rowIndex);
-  }
   
   /**Get food park units */
   unitOrderAndName:any[] = [];
   unitsId:any[] = [];
+  totalDeliveryCount:any=0;
+  
   async foodParkUnits(){
     await this._ProfileService.foodParkUnits(this.user.food_park_id).subscribe(
       (response) => {
@@ -257,40 +248,46 @@ export class FoodpckmgrorderComponent {
                 let data = {
                   "unitId": unitResponse.data.id,
                   "unitName":unitResponse.data.name,
-                  "unitOrder":unitResponse.data.order_count
+                  "unitOrder":45 //unitResponse.data.order_count
                 };
-                this.unitOrderAndName.push(data);  
+                this.unitOrderAndName.push(data); 
+                this.totalDeliveryCount = this.totalDeliveryCount+data.unitOrder; 
                 this.unitsId.push(value.id);
-                await this.unitsDriver();
-
               },
               (unitError) =>{
                 console.log(unitError);
               }
             )
           })
+
+          console.log("testing", this.unitsId);
+          this.unitsDriver();
         }  
       },
       (error) => {
         console.log(error);
       }
     )
+
   }
 
+  driverCount:any = '';
   unitsDriver(){
     let unitsIdData = {
-      "units": [2164, 2165]//this.unitsId
+      "units":  [2164, 2165]//this.unitsId
     }
     this._ProfileService.getUnitsDriver(unitsIdData).subscribe(
       (driverRespose) => {
         let getDriverId = [];
         if(driverRespose.data){
+          this.driverCount = driverRespose.data.length;
           driverRespose.data.forEach((valueDriver) => {
             valueDriver.forEach(async (valueExact) =>{
               if(getDriverId.includes(valueExact.id) !== true){
                 getDriverId.push(valueExact.id);
                 await this._ProfileService.getParticularDriverWages(valueExact.id).subscribe(
                   (wagesResponse) => {
+                    
                     if(wagesResponse.data && wagesResponse.data.result){
                       this.manageWagesDriver(wagesResponse.data.result, wagesResponse.data.driver.first_name);
                     }
@@ -311,49 +308,156 @@ export class FoodpckmgrorderComponent {
     )
   }
 
-  wagesData:any[] = [];
+  wagesData = [];
+  oldData:any[] = [];
+  makeData:any={};
   manageWagesDriver(data, driverName){
-    console.log(data);
-    let daysName = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+    
     let workTime = 0;
-    var holder = {}
     var final = [];
+
+
     data.forEach((value) => {
-      
-      //console.log(value);
       let date = new Date(value.work_date);
       let getDays = date.getDay();
       
+      let day = new Date(value.work_date).getDay();
+      if(day in final) {
+        final[day] =  final[day] + value.work_time;
+      } else {
+        final[day] = value.work_time;
+      }
 
-      // let day = new Date(value.work_date).getDay();
-      // if(day in final) {
-      //   daysName[final[day]] =  final[day] + value.work_time;
-      // } else {
-      //   daysName[final[day]] = value.work_time;
-      // }
-
-      // console.log(final);
-      
-      let makeData = {
+      this.makeData = {
+        "driverId":value.driver_id,
         "driver":driverName,
         "hour_wages": value.per_hour_price,
+        'mon' : '1' in final ? final[1] : 0,
+        'tue' : '2' in final ? final[2] : 0,
+        'wed' : '3' in final ? final[3] : 0,
+        'thu' : '4' in final ? final[4] : 0,
+        'fri' : '5' in final ? final[5] : 0,
+        'sat' : '6' in final ? final[6] : 0,
+        'sun' : '0' in final ? final[0] : 0,
       }
-      makeData[daysName[getDays]] = value.work_time;
-      this.wagesData.push(makeData);
-      
-      // if(value.work_date.includes(splitDate[0])){
-      //   console.log('hello');
-      // }else{
-      //   console.log('bye');
-      // }
-      // workTime = value.work_time;
-      // console.log('worktime', workTime);
+      this.makeData['unitId'] = value.unit_id;
+      this.makeData['total'] = parseInt(this.makeData['mon'])+parseInt(this.makeData['tue'])+parseInt(this.makeData['wed'])+parseInt(this.makeData['thu'])+parseInt(this.makeData['fri'])+parseInt(this.makeData['sat'])+parseInt(this.makeData['sun']);
 
-      
     });
-    console.log(this.wagesData);
 
+    this.wagesData.push(this.makeData);
+    //this.wagesData = Array.from(this.wagesData.reduce((m, t) => m.set(t.name, t), new Map()).values());
+    localStorage.setItem('wagesdata', JSON.stringify(this.wagesData));
+
+    this.totalWagesDataList();
   }
 
+  /** Save row */
+  save(row, rowIndex){
+    this.isEditable[rowIndex]=!this.isEditable[rowIndex];
+    console.log(row);
+    let getLocalStorage = localStorage.getItem('wagesdata');
+    getLocalStorage = JSON.parse(getLocalStorage);
+    getLocalStorage = getLocalStorage[rowIndex];
+    console.log(getLocalStorage);
+
+    let editDay, editValue;
+    if(row.mon != parseInt(getLocalStorage.mon)){editDay = 1;editValue=row.mon;console.log("edit mon hua hai")}
+    if(row.tue != parseInt(getLocalStorage.tue)){editDay = 2;editValue=row.tue;console.log("edit tue hua hai")}
+    if(row.wed != parseInt(getLocalStorage.wed)){editDay = 3;editValue=row.wed;console.log("edit wed hua hai")}
+    if(row.thu != parseInt(getLocalStorage.thu)){editDay = 4;editValue=row.thu;console.log("edit thu hua hai")}
+    if(row.fri != parseInt(getLocalStorage.fri)){editDay = 5;editValue=row.fri;console.log("edit fri hua hai")}
+    if(row.sat != parseInt(getLocalStorage.sat)){editDay = 6;editValue=row.sat;console.log("edit sat hua hai")}
+    if(row.sun != parseInt(getLocalStorage.sun)){editDay = 7;editValue=row.sun;console.log("edit sun hua hai")}
+    console.log("editday:"+editDay, "editValue:"+editValue);
+
+    let currentDate = new Date()
+    let currentDay = currentDate.getDay();
+    let exactDate = currentDay - editDay;
+    let pasCurFutDate; 
+    if(Math.sign(exactDate) == -1){
+      pasCurFutDate = currentDate.getDate() + Math.abs(exactDate);
+    }else{
+      pasCurFutDate = currentDate.getDate() - Math.abs(exactDate);
+    }
+    console.log("pascurfut", String(pasCurFutDate).padStart(2, '0'));
+    let actualDate = this.getCurrentDate(String(pasCurFutDate).padStart(2, '0'));
+    console.log(actualDate);
+
+    let addhour = parseInt(row.mon)+parseInt(row.tue)+parseInt(row.wed)+parseInt(row.thu)+parseInt(row.fri)+parseInt(row.sat)+parseInt(row.sun); 
+    let workTime = parseInt(addhour) - parseInt(row.total);
+
+    let createWagesData = {
+      "unit_id":row.unitId,
+      "per_hour_price":row.hour_wages,
+      "work_time":workTime,
+      "work_date": actualDate
+    }
+    console.log(createWagesData);
+    this._ProfileService.createDriverWages(row.driverId,createWagesData).subscribe(
+      (wagesResponse) => {
+        console.log(wagesResponse);
+        this.unitsDriver();
+      },
+      (wagesError) => {
+        console.log(wagesError);
+      }
+    );
+  }
+  /** end */
+
+  /**Delete row */
+  delete(row, rowIndex){
+    this.isEditable[rowIndex]=!this.isEditable[rowIndex]
+    console.log("Row deleted: "+ rowIndex);
+  }
+  /** end */
+
+  currentDate:string;
+  getCurrentDate(actualDate){
+    const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+    let dateObj = new Date();
+    let month = monthNames[dateObj.getMonth()];
+    let day = actualDate;
+    let year = dateObj.getFullYear();
+    return month+' '+day+ ','+year;
+  }
+
+  /** Total Delivery wages table */
+  totalDeliveryWagesData:any[] = [];
+  sumTotalDeliveryWages:any = 0;
+  totalWagesDataList(){
+    this.wagesData.forEach((wagesValue, wagesKey) => {
+      let data = {
+        "driverName":wagesValue.driver,
+        "wagesTotal":wagesValue.total * wagesValue.hour_wages
+      }
+      this.totalDeliveryWagesData.push(data);
+      this.sumTotalDeliveryWages = this.sumTotalDeliveryWages+parseInt(data.wagesTotal)
+    });
+    //this.totalDeliveryWagesData = Array.from(this.totalDeliveryWagesData.reduce((m, t) => m.set(t.name, t), new Map()).values());
+    // console.log(this.totalDeliveryWagesData);
+    this.deliveryAllocation();
+  }
+  /** end */
+
+  /** Delivery Allocation Table */
+  deliveryAllocationList:any[] = []; 
+  deliveryAllocation(){
+    console.log(this.unitOrderAndName);
+    this.unitOrderAndName.forEach((valAllocation, valKey) => {
+     // console.log("deliveryAllcocatin",this.totalDeliveryWagesData[valKey].wagesTotal)
+      let data = {
+        "unitName":valAllocation.unitName,
+        //"subSidy": (this.sumTotalDeliveryWages*valAllocation.unitOrder)/this.totalDeliveryCount,
+        "subSidy": parseInt(((this.totalDeliveryWagesData[valKey]?.wagesTotal) *valAllocation.unitOrder)/this.totalDeliveryCount),
+        "status":"unpaid"
+      }
+      this.deliveryAllocationList.push(data);
+    });
+  }
+  /** end */
+
+  
 
 }
