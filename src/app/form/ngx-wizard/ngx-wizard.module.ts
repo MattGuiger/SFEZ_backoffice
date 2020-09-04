@@ -24,12 +24,14 @@ import { WorkflowService } from './workflow/workflow.service';
 import { CommonModule } from "@angular/common";
 // import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     imports: [CommonModule,
         FormsModule,
         NGXWizardRoutingModule,
-        NgxDropzoneModule
+        NgxDropzoneModule,
+        NgbModule
         // NgxDatatableModule,
     ],
     providers: [{ provide: FormDataService, useClass: FormDataService },

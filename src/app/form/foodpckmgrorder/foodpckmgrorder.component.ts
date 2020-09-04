@@ -278,6 +278,7 @@ export class FoodpckmgrorderComponent {
     }
     this._ProfileService.getUnitsDriver(unitsIdData).subscribe(
       (driverRespose) => {
+        // console.log("driverResponse",driverRespose);
         let getDriverId = [];
         if(driverRespose.data){
           this.driverCount = driverRespose.data.length;
@@ -356,19 +357,19 @@ export class FoodpckmgrorderComponent {
   save(row, rowIndex){
     this.isEditable[rowIndex]=!this.isEditable[rowIndex];
     console.log(row);
-    let getLocalStorage = localStorage.getItem('wagesdata');
+    let getLocalStorage:any = localStorage.getItem('wagesdata');
     getLocalStorage = JSON.parse(getLocalStorage);
     getLocalStorage = getLocalStorage[rowIndex];
-    console.log(getLocalStorage);
+    //console.log(getLocalStorage.mon);
 
     let editDay, editValue;
-    if(row.mon != parseInt(getLocalStorage.mon)){editDay = 1;editValue=row.mon;console.log("edit mon hua hai")}
-    if(row.tue != parseInt(getLocalStorage.tue)){editDay = 2;editValue=row.tue;console.log("edit tue hua hai")}
-    if(row.wed != parseInt(getLocalStorage.wed)){editDay = 3;editValue=row.wed;console.log("edit wed hua hai")}
-    if(row.thu != parseInt(getLocalStorage.thu)){editDay = 4;editValue=row.thu;console.log("edit thu hua hai")}
-    if(row.fri != parseInt(getLocalStorage.fri)){editDay = 5;editValue=row.fri;console.log("edit fri hua hai")}
-    if(row.sat != parseInt(getLocalStorage.sat)){editDay = 6;editValue=row.sat;console.log("edit sat hua hai")}
-    if(row.sun != parseInt(getLocalStorage.sun)){editDay = 7;editValue=row.sun;console.log("edit sun hua hai")}
+    if(row.mon != parseInt(getLocalStorage.mon)){editDay = 1;editValue=row.mon;}
+    if(row.tue != parseInt(getLocalStorage.tue)){editDay = 2;editValue=row.tue;}
+    if(row.wed != parseInt(getLocalStorage.wed)){editDay = 3;editValue=row.wed;}
+    if(row.thu != parseInt(getLocalStorage.thu)){editDay = 4;editValue=row.thu;}
+    if(row.fri != parseInt(getLocalStorage.fri)){editDay = 5;editValue=row.fri;}
+    if(row.sat != parseInt(getLocalStorage.sat)){editDay = 6;editValue=row.sat;}
+    if(row.sun != parseInt(getLocalStorage.sun)){editDay = 7;editValue=row.sun;}
     console.log("editday:"+editDay, "editValue:"+editValue);
 
     let currentDate = new Date()
@@ -380,12 +381,11 @@ export class FoodpckmgrorderComponent {
     }else{
       pasCurFutDate = currentDate.getDate() - Math.abs(exactDate);
     }
-    console.log("pascurfut", String(pasCurFutDate).padStart(2, '0'));
+    // console.log("pascurfut", String(pasCurFutDate).padStart(2, '0'));
     let actualDate = this.getCurrentDate(String(pasCurFutDate).padStart(2, '0'));
-    console.log(actualDate);
-
-    let addhour = parseInt(row.mon)+parseInt(row.tue)+parseInt(row.wed)+parseInt(row.thu)+parseInt(row.fri)+parseInt(row.sat)+parseInt(row.sun); 
-    let workTime = parseInt(addhour) - parseInt(row.total);
+    // console.log(actualDate);
+    let addhour:any = parseInt(row.mon)+parseInt(row.tue)+parseInt(row.wed)+parseInt(row.thu)+parseInt(row.fri)+parseInt(row.sat)+parseInt(row.sun); 
+    let workTime:any = parseInt(addhour) - parseInt(row.total);
 
     let createWagesData = {
       "unit_id":row.unitId,
@@ -428,9 +428,10 @@ export class FoodpckmgrorderComponent {
   sumTotalDeliveryWages:any = 0;
   totalWagesDataList(){
     this.wagesData.forEach((wagesValue, wagesKey) => {
-      let data = {
+      let data:any = {
         "driverName":wagesValue.driver,
-        "wagesTotal":wagesValue.total * wagesValue.hour_wages
+        "wagesTotal":wagesValue.total * wagesValue.hour_wages,
+        "driverId":wagesValue.driverId
       }
       this.totalDeliveryWagesData.push(data);
       this.sumTotalDeliveryWages = this.sumTotalDeliveryWages+parseInt(data.wagesTotal)
@@ -445,19 +446,48 @@ export class FoodpckmgrorderComponent {
   deliveryAllocationList:any[] = []; 
   deliveryAllocation(){
     console.log(this.unitOrderAndName);
-    this.unitOrderAndName.forEach((valAllocation, valKey) => {
+    this.unitOrderAndName.forEach((valAllocation:any, valKey:any) => {
      // console.log("deliveryAllcocatin",this.totalDeliveryWagesData[valKey].wagesTotal)
-      let data = {
+      let data:any = {
         "unitName":valAllocation.unitName,
-        //"subSidy": (this.sumTotalDeliveryWages*valAllocation.unitOrder)/this.totalDeliveryCount,
-        "subSidy": parseInt(((this.totalDeliveryWagesData[valKey]?.wagesTotal) *valAllocation.unitOrder)/this.totalDeliveryCount),
-        "status":"unpaid"
+        "subSidy": (this.sumTotalDeliveryWages*valAllocation.unitOrder)/this.totalDeliveryCount,
+        //"subSidy": ((this.totalDeliveryWagesData[valKey]?.wagesTotal) *valAllocation.unitOrder)/this.totalDeliveryCount,
+        "status":"unpaid",
+        "sumTotalDeliveryWages":this.sumTotalDeliveryWages,
+        "unitsOrder":valAllocation.unitOrder,
+        "totalDeliveryCount":this.totalDeliveryCount,
+        "unitId":valAllocation.unitId
       }
       this.deliveryAllocationList.push(data);
+    });
+    console.log("Allocation", this.deliveryAllocationList);
+  }
+
+  subsidyTotalDeliveryWages:any;
+  subsidyUnitsOrder:any;
+  subsidyTotalDeliveryCount:any;
+  openSubsidy(subsidy,sumTotalDeliveryWages,unitsOrder,totalDeliveryCount) {
+    this.subsidyTotalDeliveryWages= sumTotalDeliveryWages;
+    this.subsidyUnitsOrder = unitsOrder;
+    this.subsidyTotalDeliveryCount = totalDeliveryCount;
+    
+    this.modalService.open(subsidy, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
   /** end */
 
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
   
 
 }

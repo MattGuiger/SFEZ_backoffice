@@ -38,17 +38,20 @@
         <li class="sidebar-item" [class.selected]="showMenu === sidebarnavItem.title" *ngFor="let sidebarnavItem of sidebarnavItems"
             [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
             <div class="nav-small-cap" *ngIf="sidebarnavItem.extralink === true">
-                <i [ngClass]="[sidebarnavItem.icon]"></i>
+                <img [src]="[sidebarnavItem.icon]" class="img-fluid mr-2" width="20">
                 <span class="hide-menu">{{sidebarnavItem.title}}</span>
             </div>
-            <a class="sidebar-link waves-effect waves-dark" [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null"
+            <!-- <a class="sidebar-link waves-effect waves-dark" [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null"
                 [ngClass]="[sidebarnavItem.class]" *ngIf="!sidebarnavItem.extralink;" (click)="addExpandClass(sidebarnavItem.title)"
-                [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
-                <i [ngClass]="[sidebarnavItem.icon]"></i>
+                [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'"> -->
+                <a class="sidebar-link waves-effect waves-dark active" [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null"
+                [ngClass]="[sidebarnavItem.class]" *ngIf="!sidebarnavItem.extralink;" (click)="addExpandClass(sidebarnavItem.title)"
+                >
+                <img [src]="[sidebarnavItem.icon]" class="img-fluid mr-2" width="20">
                 <span class="hide-menu">{{sidebarnavItem.title}}</span>
             </a>
             <!-- Second level menu -->
-            <ul aria-expanded="false" class="collapse first-level" *ngIf="sidebarnavItem.submenu.length > 0" [ngClass]="{'in' : showMenu === sidebarnavItem.title }">
+            <!-- <ul aria-expanded="false" class="collapse first-level" *ngIf="sidebarnavItem.submenu.length > 0" [ngClass]="{'in' : showMenu === sidebarnavItem.title }">
                 <li class="sidebar-item" *ngFor="let sidebarnavSubItem of sidebarnavItem.submenu" [class.active]="showSubMenu === sidebarnavSubItem.title"
                     [routerLinkActive]="sidebarnavSubItem.submenu.length > 0 ? '' : 'active'">
                     <a class="sidebar-link" [routerLink]="sidebarnavSubItem.submenu.length > 0 ? null : [sidebarnavSubItem.path]" [routerLinkActive]="sidebarnavSubItem.submenu.length > 0 ? '' : 'router-link-active'"
@@ -56,7 +59,7 @@
                         <i [ngClass]="[sidebarnavSubItem.icon]"></i>
                         <span class="hide-menu">{{sidebarnavSubItem.title}}</span>
                     </a>
-                    <!-- Third level menu -->
+                    
                     <ul aria-expanded="false" class="collapse second-level" *ngIf="sidebarnavSubItem.submenu.length > 0" [ngClass]="{'in' : showSubMenu === sidebarnavSubItem.title }">
                         <li class="sidebar-item" *ngFor="let sidebarnavSubsubItem of sidebarnavSubItem.submenu" routerLinkActive="active" [ngClass]="[sidebarnavSubsubItem.class]">
                             <a class="sidebar-link" [routerLink]="[sidebarnavSubsubItem.path]" *ngIf="!sidebarnavSubsubItem.extralink;" [routerLinkActive]="sidebarnavSubsubItem.submenu.length > 0 ? '' : 'router-link-active'">
@@ -66,7 +69,7 @@
                         </li>
                     </ul>
                 </li>
-            </ul>
+            </ul> -->
         </li>
     </ul>
 </nav>

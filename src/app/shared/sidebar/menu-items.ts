@@ -4,7 +4,7 @@ export const FOODPARKMGRROUTES: RouteInfo[] = [
     {
         path: '/forms/foodparks',
         title: 'Hub | Driver Mgmt',
-        icon: 'icon-Mailbox-Empty',
+        icon: '/assets/images/driver.png',
         class: '',
         extralink: false,
         submenu: [
@@ -13,7 +13,7 @@ export const FOODPARKMGRROUTES: RouteInfo[] = [
     {
         path: '/forms/hubs',
         title: 'Hubs',
-        icon: 'icon-Mailbox-Empty',
+        icon: '/assets/images/order_reconcillation.png',
         class: '',
         extralink: false,
         submenu: [
@@ -22,7 +22,7 @@ export const FOODPARKMGRROUTES: RouteInfo[] = [
     {
         path: '/forms/hubmanager',
         title: 'Hubs Managers',
-        icon: 'icon-Mailbox-Empty',
+        icon: '/assets/images/order_reconcillation.png',
         class: '',
         extralink: false,
         submenu: [
@@ -31,7 +31,7 @@ export const FOODPARKMGRROUTES: RouteInfo[] = [
     {
         path: '/forms/drivers',
         title: 'Drivers',
-        icon: 'icon-Mailbox-Empty',
+        icon: '/assets/images/driver.png',
         class: '',
         extralink: false,
         submenu: [
@@ -39,8 +39,8 @@ export const FOODPARKMGRROUTES: RouteInfo[] = [
     },
     {
         path: '/forms/foodpcgmgrorder',
-        title: 'Orders Mgmt',
-        icon: 'icon-Mailbox-Empty',
+        title: 'Orders | Reconciliation',
+        icon: '/assets/images/order_reconcillation.png',
         class: '',
         extralink: false,
         submenu: [
@@ -160,10 +160,20 @@ export const ROUTES: RouteInfo[] = [
     //     extralink: false,
     //     submenu: []
     // },
+    
+    {
+        path: '/forms',
+        title: 'Vendor Registration',
+        icon: '/assets/images/vendor.png',
+        class: '',
+        extralink: false,
+        submenu: [
+        ]
+    },
     {
         path: '/menuitems',
-        title: 'Menu',
-        icon: 'icon-Mailbox-Empty',
+        title: 'Menu | Products',
+        icon: '/assets/images/menu.png',
         class: '',
         extralink: false,
         submenu: [
@@ -178,23 +188,33 @@ export const ROUTES: RouteInfo[] = [
         ]
     },
     {
-        path: '/forms',
-        title: 'Vendor Registraion',
-        icon: 'icon-Mailbox-Empty',
+        path: '/forms/foodpcgmgrorder',
+        title: 'Orders | Reconciliation',
+        icon: '/assets/images/order_reconcillation.png',
         class: '',
         extralink: false,
         submenu: [
         ]
     },
     {
-        path: '/forms/units',
-        title: 'Units',
-        icon: 'icon-Mailbox-Empty',
+        path: '/forms/foodparks',
+        title: 'Hub Mgmt | Drivers',
+        icon: '/assets/images/driver.png',
         class: '',
         extralink: false,
         submenu: [
         ]
     },
+
+    // {
+    //     path: '/forms/units',
+    //     title: 'Units',
+    //     icon: 'icon-Mailbox-Empty',
+    //     class: '',
+    //     extralink: false,
+    //     submenu: [
+    //     ]
+    // },
     // {
     //     path: '/forms/territory',
     //     title: 'Territory',
@@ -204,15 +224,15 @@ export const ROUTES: RouteInfo[] = [
     //     submenu: [
     //     ]
     // },
-    {
-        path: '/forms/foodparks',
-        title: 'Hub Members',
-        icon: 'icon-Mailbox-Empty',
-        class: '',
-        extralink: false,
-        submenu: [
-        ]
-    },
+    // {
+    //     path: '/forms/foodparks',
+    //     title: 'Hub Members',
+    //     icon: 'icon-Mailbox-Empty',
+    //     class: '',
+    //     extralink: false,
+    //     submenu: [
+    //     ]
+    // },
     // {
     //     path: '/forms/foodparks/:id',
     //     title: 'Vew Hub Members Details',

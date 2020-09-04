@@ -397,38 +397,38 @@
 
           </ngb-tab>
 
-          <ngb-tab title="Shared Laboor">
+          <ngb-tab title="Shared Labor">
             <ng-template ngbTabContent>
              <div class="row mb-1 mt-4">
                 <!-- <div class="col-md-3 offset-3 text-right" style="font-weight:500;padding-left:10px;">Delivery Hub :
                 </div>
                 <div class="col-md-3 pl-0">Redmond Hub</div> -->
               </div> 
-              <div class="row mb-1">
+              <div class="row mb-3">
                 <div class="col-md-3 offset-3 text-right" style="font-weight:500;padding-left:10px;">Week Of : </div>
                 <div class="col-md-3 pl-0">Aug 11 - Aug 17 &nbsp; <i class="ti-pencil" aria-hidden="true" style="cursor:pointer;color: #3dc6ac;
                   font-weight: 700;"></i></div>
               </div>
-              <div class="row mb-1">
-                <div class="col-md-3 offset-3 text-right" style="font-weight:500;padding-left:10px;">Total Deliveries :
-                </div>
-                <div class="col-md-3 pl-0">{{totalDeliveryCount}}</div>
-              </div>
-
-              <div class="row mt-3 custom-card-main">
-                <div class="custom-card" *ngFor="let unitData of unitOrderAndName;">
-                  <div class="wrap-div">
-                    <div class="title">
-                      <h5>{{unitData.unitOrder}}</h5>
-                    </div>
-                    <div class="description">
-                      <p>{{unitData.unitName}}</p>
+              <div class="wrap-custom-card-main">
+                <div class="row mt-3 custom-card-main justify-content-center">
+                  <div class="col-lg-3 col-sm-4 col-6 col-list mb-3" *ngFor="let unitData of unitOrderAndName; let i=index;">
+                    <div class="custom-card card-colors p-3">
+                      <div class="wrap-div">
+                        <div class="title">
+                          <h3>{{unitData.unitOrder}} Deliveries</h3>
+                        </div>
+                        <div class="description">
+                          <p>Location: {{unitData.unitName}} #{{i+1}} </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-
+                <div class="row mt-3">
+                  <div style="font-weight:500;padding-left:10px; margin:0 auto;">Total Hub Deliveries : {{totalDeliveryCount}}
+                  </div>
+                </div>
               </div>
-
               <div class="row mb-1 mt-4">
                 <div class="view-orders" style="margin:0 auto;">
                   <button type="button" class="btn btn-success">View Orders</button>
@@ -564,8 +564,8 @@
 
               <!-- Delivery Wages Table -->
               <div class="row mt-3 custom-card-main">
-                <div class="custom-card">
-                  <div class="wrap-div total-wages">
+                <div class="custom-card-wages-total">
+                  <div class="total-wages">
                     <div class="title">
                       <h6>Total Delivery Wages</h6>
                     </div>
@@ -630,7 +630,7 @@
 
                     <ngx-datatable-column name="Amount" [width]="62">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        ${{row.wagesTotal}}
+                        ${{row.wagesTotal.toFixed(2)}}
                       </ng-template>
                     </ngx-datatable-column>
 
@@ -650,7 +650,7 @@
                   <ngx-datatable class="material" #table [rows]="deliveryAllocationList" [columnMode]="'force'"
                     [headerHeight]="50" [footerHeight]="50" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
 
-                    <ngx-datatable-column name="" [width]="40">
+                    <ngx-datatable-column name="" [width]="10">
                       <ng-template let-row="row" ngx-datatable-cell-template>
                         <div class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" id="customCheck{{row.id}}"
@@ -660,19 +660,19 @@
                       </ng-template>
                     </ngx-datatable-column>
 
-                    <ngx-datatable-column name="Vendor" [width]="70">
+                    <ngx-datatable-column name="Vendor" [width]="110">
                       <ng-template let-row="row" ngx-datatable-cell-template>
                         {{row.unitName}}
                       </ng-template>
                     </ngx-datatable-column>
 
-                    <ngx-datatable-column name="Subsidy" [width]="62">
+                    <ngx-datatable-column name="Subsidy" [width]="150">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        ${{row.subSidy?row.subSidy:0}}
+                        ${{row.subSidy?row.subSidy:0}} &nbsp;<button type="button" class="btn btn-danger" (click)="openSubsidy(subsidy, row.sumTotalDeliveryWages, row.unitsOrder, row.totalDeliveryCount)">Details</button>
                       </ng-template>
                     </ngx-datatable-column>
 
-                    <ngx-datatable-column name="Status" [width]="70">
+                    <ngx-datatable-column name="Status" [width]="40">
                       <ng-template let-row="row" ngx-datatable-cell-template>
                         {{row.status}}
                       </ng-template>
@@ -680,8 +680,8 @@
 
                     <ngx-datatable-column name="Action" [width]="150">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        <button class="btn btn-success">Approve</button>
-                        <button class="btn btn-warning ml-1">Process</button>
+                        <button class="btn btn-success">Approve / Process</button>
+                        
                       </ng-template>
 
                     </ngx-datatable-column>
@@ -702,9 +702,43 @@
   </div>
 </div>
 
-
-<ng-template #content1 let-modal>
+<ng-template #subsidy let-modal>
   <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Subsidy Calculation</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-6 text-right pr-1"><b>Total delivery wages</b><span>:</span></div>
+      <div class="col-md-3 pl-0">{{subsidyTotalDeliveryWages}}</div>
+      <!-- <span><strong>Total delivery wages:</strong> </span><span>{{subsidyTotalDeliveryWages}}</span> -->
+    </div>
+    <div class="row">
+      <div class="col-md-6 text-right pr-1"><b>Total unit order</b><span>:</span></div>
+      <div class="col-md-3 pl-0">{{subsidyUnitsOrder}}</div>
+      <!-- <span><strong>Total delivery wages:</strong> </span><span>{{subsidyTotalDeliveryWages}}</span> -->
+    </div>
+    <div class="row">
+      <div class="col-md-6 text-right pr-1"><b>Total delivery</b><span>:</span></div>
+      <div class="col-md-3 pl-0">{{subsidyTotalDeliveryCount}}</div>
+      <!-- <span><strong>Total delivery wages:</strong> </span><span>{{subsidyTotalDeliveryWages}}</span> -->
+    </div>
+    
+    <div class="row">
+      <div class="col-md-6 text-right pr-1"><b>Subsidy calculate</b><span>:</span></div>
+      <div class="col-md-6 pl-0">({{subsidyTotalDeliveryWages}} * {{subsidyUnitsOrder}}) / {{subsidyTotalDeliveryCount}} = {{(subsidyTotalDeliveryWages * subsidyUnitsOrder) / subsidyTotalDeliveryCount}}</div>
+      <!-- <span><strong>Total delivery wages:</strong> </span><span>{{subsidyTotalDeliveryWages}}</span> -->
+    </div>
+  </div>
+  <div class="modal-footer" style="border-top:0;">
+    
+  </div>  
+</ng-template>
+
+<!-- <ng-template #content1 let-modal> -->
+  <!-- <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Add Unit</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
       <span aria-hidden="true">&times;</span>
@@ -733,7 +767,7 @@
           <input id="State" class="form-control" name="dp" type="password" formControlName="password">
         </div>
 
-        <label for="State">Type</label>
+        <label for="State">Type</label> -->
         <!-- <div class="col-md-6 col-lg-3 d-flex align-items-end">
                     <div class="webParent">
                         <input type="radio" name="rGroup" value="t" id="t" />
@@ -761,7 +795,7 @@
 
                 </div> -->
 
-        <div class="row">
+        <!-- <div class="row">
           <label class="col-sm-6 col-lg-3 testradio">
             <img src="../../../assets/images/beer.svg" style="height: 50px;width: 50px;" />
             <input type="radio" checked="checked" name="radio" value="BEER" (change)="changeType($event)">
@@ -797,7 +831,7 @@
             <img src="../../../assets/images/icon-500-restaurant.svg" style="height: 50px;width: 50px;" />
             <input type="radio" name="radio" value="RESTAURANT" (change)="changeType($event)">
             <span class="checkmark"></span>
-          </label>
+          </label> -->
 
 
 
@@ -831,7 +865,7 @@
                    <input id="State" class="form-control"  name="dp" type="radio"  value="RESTAURANT" (change)="changeType($event)"/>
                   <img src="../../../assets/images/icon-500-restaurant.svg" style="height: 50px;width: 50px;"/>
               </div> -->
-        </div>
+        <!-- </div> -->
 
         <!-- <div class="input-group">
           <select class="form-control" formControlName="type">
@@ -847,7 +881,7 @@
           </select>
         </div> -->
 
-        <label for="State">Customer Order Window (min)</label>
+        <!-- <label for="State">Customer Order Window (min)</label>
         <ng5-slider [(value)]="customer_order_window" [options]="customerorderwindow_options"></ng5-slider>
 
         <label for="State">Delivery Time Window(min) </label>
@@ -869,4 +903,5 @@
     </form>
   </div>
 
-</ng-template>
+</ng-template> -->
+

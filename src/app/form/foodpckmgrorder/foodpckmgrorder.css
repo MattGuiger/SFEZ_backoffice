@@ -89,19 +89,32 @@
     border-color: #eb4c4c;
   }
   /** Shared labour*/
-  .row.mt-3.custom-card-main {
-    margin: 0 50px;
+  .wrap-custom-card-main{
+    border: solid 1px #ddd;
+    padding: 20px 0px;
   }
-  .custom-card {
+  .row.mt-3.custom-card-main {
+    margin: 0 20px;
+  }
+  /* .custom-card {
     width: 25%;
     height: auto;
     margin: 0 auto;
     padding: 0 10px;
-  }
-  .wrap-div {
+  } */
+  
+  .custom-card-wages-total{
+    width: 25%;
+    height: auto;
+    margin: 0 auto;
+    padding: 0 10px;
     border: solid 1px #ddd;
     text-align: center;
-    height: 125px;
+  }
+  .wrap-div {
+    /* border: solid 1px #ddd; */
+    text-align: center;
+    min-height: 125px;
   }
   .wrap-div .title {
     margin: 15px auto;
@@ -119,6 +132,21 @@
     margin: 12px auto !important;
   }
 
+  .col-list:nth-child(3n+0) .card-colors{
+    background-color:#253a7e;
+    color: #fff;
+  }
+  .col-list:nth-child(3n+1) .card-colors{
+    background-color:#40cccc;
+    color: #fff;
+  }
+  .col-list:nth-child(3n+2) .card-colors{
+    background-color:#be3d5e;
+    color: #fff;
+  }
+  .description{
+    font-size:16px;
+  }
   
   
   

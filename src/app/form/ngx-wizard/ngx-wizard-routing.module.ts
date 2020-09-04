@@ -44,7 +44,8 @@ const routes: Routes = [
         path: 'wizard',
         component: PersonalComponent,
         data: {
-          title: 'Vendor Registration'
+          //title: 'Vendor Registration'
+          title: ''
         }
       },
       {

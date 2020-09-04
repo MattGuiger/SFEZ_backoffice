@@ -34,7 +34,7 @@ sidebar navigation
   ul {
     .sidebar-item {
       .sidebar-link {
-        color: $sidebar-text;
+        color: $sidebar-text-dark;
         padding: $sidebar-link-padding;
         display: flex;
         white-space: nowrap;
@@ -172,7 +172,8 @@ User Profile
   .user-content,
   .user-name,
   .user-email {
-    color: $theme-light;
+    //color: $theme-light;
+    color:$sidebar-text-dark;
     position: relative;
     white-space: nowrap;
   }
