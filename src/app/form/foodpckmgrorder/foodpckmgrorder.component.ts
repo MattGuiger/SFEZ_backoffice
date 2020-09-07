@@ -157,7 +157,6 @@ export class FoodpckmgrorderComponent {
     })
   }
 
-  
   /** Start accordion for order tab*/
   toggleExpandRow(row) {
     this.rowWiseData = [];
@@ -208,7 +207,17 @@ export class FoodpckmgrorderComponent {
   }
 
   orderAction(event, row){
-    console.log(event.target.value);
+    console.log(row.order_detail.id);
+    this._ProfileService.voidOrder(row.order_detail.id).subscribe(
+      (voidResponse) => {
+        console.log(voidResponse);
+        this.toastr.success("Order removed successfully");
+        this.getAllOrder();
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 
   /** Filter by moltin id, company name, delivery address and customer name*/
@@ -444,6 +453,7 @@ export class FoodpckmgrorderComponent {
 
   /** Delivery Allocation Table */
   deliveryAllocationList:any[] = []; 
+  commasUnitName:any = "";
   deliveryAllocation(){
     console.log(this.unitOrderAndName);
     this.unitOrderAndName.forEach((valAllocation:any, valKey:any) => {
@@ -458,19 +468,27 @@ export class FoodpckmgrorderComponent {
         "totalDeliveryCount":this.totalDeliveryCount,
         "unitId":valAllocation.unitId
       }
+      if(valKey == 0){
+        this.commasUnitName = valAllocation.unitName;
+      }else{
+        this.commasUnitName = this.commasUnitName+","+valAllocation.unitName;
+      }
       this.deliveryAllocationList.push(data);
     });
     console.log("Allocation", this.deliveryAllocationList);
+    console.log("unitsname:"+this.commasUnitName);
   }
 
   subsidyTotalDeliveryWages:any;
   subsidyUnitsOrder:any;
   subsidyTotalDeliveryCount:any;
-  openSubsidy(subsidy,sumTotalDeliveryWages,unitsOrder,totalDeliveryCount) {
+  subsidyUnitName:any;
+  openSubsidy(subsidy,sumTotalDeliveryWages,unitsOrder,totalDeliveryCount, unitname) {
     this.subsidyTotalDeliveryWages= sumTotalDeliveryWages;
     this.subsidyUnitsOrder = unitsOrder;
     this.subsidyTotalDeliveryCount = totalDeliveryCount;
-    
+    this.subsidyUnitName = unitname;
+    console.log(this.subsidyUnitName)
     this.modalService.open(subsidy, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {

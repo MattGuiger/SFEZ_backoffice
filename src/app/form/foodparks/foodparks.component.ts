@@ -63,7 +63,7 @@ export class FoodParkComponent {
     this.getallfoodparkmgr();
     this.getAllUnitList();
     this.user = this._CommonFunctionsService.checkUser().user;
-    if (this.user.role == 'FOODPARKMGR') {
+    if (this.user.role == 'FOODPARKMGR' || this.user.role == 'OWNER') {
       this.showManagerTab = true;
     }
     this.getAllManger();
@@ -256,15 +256,19 @@ export class FoodParkComponent {
     this.managerForm.value.food_park_id = this.user.food_park_id;
     
     if(this.managerForm.value.unitId == null){
+      console.log('if');
       delete this.managerForm.value.unitId;
     }else{
+      console.log('else');
       delete this.managerForm.value.territory_id;
       delete this.managerForm.value.food_park_id;
     }
+    return console.log(this.managerForm.value);
 
     this._ProfileService.addManagers(this.managerForm.value).subscribe((res: any) => {
       if (res.status == 200) {
         this.toastr.success('Manager created successfully'); 
+        this.toastr.success('Email sent successfully');
         document.getElementById("closeModal").click();
         this.getAllManger();
       } else {

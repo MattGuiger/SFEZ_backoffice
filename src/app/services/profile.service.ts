@@ -40,12 +40,17 @@ export class ProfileService {
   private unitsDriverUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/get-drivers-for-units';
   private particularDriverWagesUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/ord/get-driver-wage/';
   private createWagesUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/ord/create-wage/';
+  private voidOrderUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/ord/delete-order/';
 
   constructor(private http: HttpClient) { }
 
   // greenMoneyPayment(data):Observable<any> {
   //   return this.http.get(this.greenMoneyURL+data);
   // }
+  voidOrder(id):Observable<any>{
+    return this.http.get(this.voidOrderUrl+id);
+  }
+
   createDriverWages(id,data):Observable<any>{
     return this.http.post(this.createWagesUrl+id, data);
   }

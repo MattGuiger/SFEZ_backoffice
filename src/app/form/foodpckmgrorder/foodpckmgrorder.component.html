@@ -668,7 +668,7 @@
 
                     <ngx-datatable-column name="Subsidy" [width]="150">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        ${{row.subSidy?row.subSidy:0}} &nbsp;<button type="button" class="btn btn-danger" (click)="openSubsidy(subsidy, row.sumTotalDeliveryWages, row.unitsOrder, row.totalDeliveryCount)">Details</button>
+                        ${{row.subSidy?row.subSidy:0}} &nbsp;<button type="button" class="btn btn-danger" (click)="openSubsidy(subsidy, row.sumTotalDeliveryWages, row.unitsOrder, row.totalDeliveryCount, row.unitName)">Details</button>
                       </ng-template>
                     </ngx-datatable-column>
 
@@ -711,24 +711,24 @@
   </div>
   <div class="modal-body">
     <div class="row">
-      <div class="col-md-6 text-right pr-1"><b>Total delivery wages</b><span>:</span></div>
+      <div class="col-md-6 text-right pr-1"><b>Total Wages (All Drivers)</b><span>:</span></div>
       <div class="col-md-3 pl-0">{{subsidyTotalDeliveryWages}}</div>
       <!-- <span><strong>Total delivery wages:</strong> </span><span>{{subsidyTotalDeliveryWages}}</span> -->
     </div>
     <div class="row">
-      <div class="col-md-6 text-right pr-1"><b>Total unit order</b><span>:</span></div>
+      <div class="col-md-6 text-right pr-1"><b>({{subsidyUnitName}}) Deliveries</b><span>:</span></div>
       <div class="col-md-3 pl-0">{{subsidyUnitsOrder}}</div>
       <!-- <span><strong>Total delivery wages:</strong> </span><span>{{subsidyTotalDeliveryWages}}</span> -->
     </div>
     <div class="row">
-      <div class="col-md-6 text-right pr-1"><b>Total delivery</b><span>:</span></div>
+      <div class="col-md-6 text-right pr-1"><b>Total ({{commasUnitName}}) Deliveries</b><span>:</span></div>
       <div class="col-md-3 pl-0">{{subsidyTotalDeliveryCount}}</div>
       <!-- <span><strong>Total delivery wages:</strong> </span><span>{{subsidyTotalDeliveryWages}}</span> -->
     </div>
     
     <div class="row">
       <div class="col-md-6 text-right pr-1"><b>Subsidy calculate</b><span>:</span></div>
-      <div class="col-md-6 pl-0">({{subsidyTotalDeliveryWages}} * {{subsidyUnitsOrder}}) / {{subsidyTotalDeliveryCount}} = {{(subsidyTotalDeliveryWages * subsidyUnitsOrder) / subsidyTotalDeliveryCount}}</div>
+      <div class="col-md-6 pl-0">{{subsidyTotalDeliveryWages}} * ({{subsidyUnitsOrder}} / {{subsidyTotalDeliveryCount}}) = {{(subsidyTotalDeliveryWages * subsidyUnitsOrder) / subsidyTotalDeliveryCount}}</div>
       <!-- <span><strong>Total delivery wages:</strong> </span><span>{{subsidyTotalDeliveryWages}}</span> -->
     </div>
   </div>

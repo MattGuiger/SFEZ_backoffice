@@ -36,6 +36,7 @@ export class MenuitemsComponent implements OnInit{
   this.user = this._CommonFunctionsService.checkUser().user;
   this._ProfileService.getCompanyprofile(this.user.unit_id).subscribe((res:any)=>{
     this.profile = res.data;
+    console.log(this.profile)
   },error=>{
    //  
   })
