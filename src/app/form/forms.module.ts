@@ -45,7 +45,7 @@ import { CustompipePipe } from './custompipe.pipe';
 @NgModule({
     imports: [CommonModule, RouterModule.forChild(FormsRoutes),Ng5SliderModule,
         AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyBl-UKKzfU6aOgD-aixzgRy_yJ7_BIvbms',
+            apiKey: 'AIzaSyBLXlb_YUHwakS59P-aI5_xJHRwXBtA_hE',//'AIzaSyBl-UKKzfU6aOgD-aixzgRy_yJ7_BIvbms',
             libraries: ['places','visualization','drawing', 'geometry']
           }),
         FormsModule,NgxDatatableModule,TagInputModule, NGXFormWizardModule, NgMultiSelectDropDownModule, NgbModule, CustomFormsModule, ReactiveFormsModule],

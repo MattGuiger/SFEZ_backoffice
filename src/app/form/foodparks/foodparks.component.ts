@@ -72,6 +72,7 @@ export class FoodParkComponent {
     // setTimeout(() => {
     //   this.loadingIndicator = false;
     // }, 1500);
+    this.getSingleTerritory();
   }
 
 
@@ -117,13 +118,12 @@ export class FoodParkComponent {
 
   /** select hub or location */
   selectHubOrLoc(event) {
-    if (event.target.value == "Location") {
-      this.huborlocation = true;
-      this.managerRole = "UNITMGR";
-
-    } else {
+    if (event.target.value == "Hub") {
       this.huborlocation = false;
       this.managerRole = "FOODPARKMGR";
+    } else {
+      this.huborlocation = true;
+      this.managerRole = "UNITMGR";
     }
   }
 
@@ -231,6 +231,17 @@ export class FoodParkComponent {
   }
 
   /** manager tab*/
+  territoryName:any;
+  getSingleTerritory(){
+    this._ProfileService.getSingleTerritory(this.user.territory_id).subscribe(
+      (territoryResponse) => {
+        this.territoryName = territoryResponse.territory;
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
   getAllManger() {
     let data = {
       "managerId": this.user.manager_id,
@@ -257,18 +268,19 @@ export class FoodParkComponent {
     
     if(this.managerForm.value.unitId == null){
       console.log('if');
+      this.managerForm.value.territory_id = this.user.territory_id;
       delete this.managerForm.value.unitId;
     }else{
       console.log('else');
       delete this.managerForm.value.territory_id;
       delete this.managerForm.value.food_park_id;
     }
-    return console.log(this.managerForm.value);
-
+    
     this._ProfileService.addManagers(this.managerForm.value).subscribe((res: any) => {
       if (res.status == 200) {
         this.toastr.success('Manager created successfully'); 
         this.toastr.success('Email sent successfully');
+        this.huborlocation = false;
         document.getElementById("closeModal").click();
         this.getAllManger();
       } else {
