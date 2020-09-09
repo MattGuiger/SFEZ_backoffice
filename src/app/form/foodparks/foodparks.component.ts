@@ -275,7 +275,7 @@ export class FoodParkComponent {
       delete this.managerForm.value.territory_id;
       delete this.managerForm.value.food_park_id;
     }
-    
+    return console.log(this.managerForm.value);
     this._ProfileService.addManagers(this.managerForm.value).subscribe((res: any) => {
       if (res.status == 200) {
         this.toastr.success('Manager created successfully'); 
@@ -341,6 +341,14 @@ export class FoodParkComponent {
 
   openManager(content3) {
     this.modalService.open(content3, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  openLocations(content4) {
+    this.modalService.open(content4, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

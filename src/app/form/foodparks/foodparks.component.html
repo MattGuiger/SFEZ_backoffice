@@ -56,11 +56,12 @@
                         (keyup)='updateFilter($event)' />
                     </div>
                     <div class="col-sm-6">
-                      <button class="btn btn-success btn-raised" (click)="open1(content1)">Add Hub</button>
+                      <button class="btn btn-success btn-raised" (click)="openLocations(content4)">New Locations</button>
                     </div>
                   </div>
                 </form>
-                <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
+
+                <!--<ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
                   [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='foodparkmgrList'>
                   <ngx-datatable-column name="First Name" prop="first_name" [width]="150"></ngx-datatable-column>
                   <ngx-datatable-column name="Last Name" prop="last_name" [width]="150"></ngx-datatable-column>
@@ -78,13 +79,54 @@
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                       <input class="btn btn-success btn-raised" type="button" value="View"
                         (click)="onCheckboxChangeFn($event,row)">&nbsp;&nbsp;
-                      <!-- <input class="btn btn-danger btn-raised" type="button" value="Delete" (click)="onCheckboxChangeFn($event,row)"> -->
                     </ng-template>
-
                   </ngx-datatable-column>
+                </ngx-datatable> -->
 
-                </ngx-datatable>
-              </div>
+                <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
+                [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='rows'>
+                  <ngx-datatable-column name="Name" prop="name" [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      ABC
+                    </ng-template>
+                  </ngx-datatable-column>  
+                  <ngx-datatable-column name="Type" prop="Type" [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="State" prop="State" [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      Punajb
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Territory" prop="Territory" [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      Ludhiana
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Hub" prop="Hub" [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      ABC
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Manager" prop="Manager" [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <select class="form-control" (change)="selectHub($event,row,value)">
+                        <option value="">Assign Manager</option>
+                        <option *ngFor="let manager of rows " value="{{manager.id}}"
+                          [selected]="manager.foodpark_mgr==row.id">{{manager.name}}</option>
+ 
+                      </select>
+                    </ng-template>
+                  </ngx-datatable-column>
+                  <ngx-datatable-column name="Action" prop="Action" [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <button type="button" class="btn btn-success btn-sm"><i class="ti-pencil"></i></button> &nbsp; <button type="button" class="btn btn-danger btn-sm"><i class="ti-close"></i></button> 
+                    </ng-template>
+                  </ngx-datatable-column>
+                </ngx-datatable>  
+                </div>
               <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
@@ -343,7 +385,74 @@
 </ng-template>
 
 
+<ng-template #content4 let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New Locations</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="foodParkForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Unit Name</label>
+        <div class="input-group">
+          <input id="name" class="form-control" name="dp" type="text" formControlName="name">
+        </div>
 
+        <label for="name">Type</label>
+        <div class="input-group">
+          <input id="type" class="form-control" name="type" type="text" formControlName="territory">
+        </div>
+
+        <label for="territory">Territory</label>
+        <div class="input-group">
+          <select formControlName="territory_id" class="form-control">
+            <option *ngFor="let item of territory" value="{{item.id}}">{{item.territory}}</option>
+          </select>
+        </div>
+
+        <label for="name">State</label>
+        <div class="input-group">
+          <input id="name" class="form-control" name="state_search" type="text" formControlName="state_search">
+        </div>
+
+        <label for="name">Country</label>
+        <div class="input-group">
+          <input id="country" class="form-control" name="country" type="text" formControlName="country">
+        </div>
+        
+
+        <!-- <label for="territory">Select Location</label>
+        <div class="form-group mapmarker">
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [style.height.px]="300"
+            (mapClick)="placeMarker($event)">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+        </div>
+
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map> -->
+
+        <!-- <label for="latitude">Latitude</label>
+        <div class="input-group">
+          <input id="latitude" class="form-control"  name="dp" type="text" formControlName="latitude">
+        </div>
+
+        <label for="longitude">Longitude</label>
+        <div class="input-group">
+          <input id="longitude" class="form-control"  name="dp" type="text" formControlName="longitude">
+        </div> -->
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark">Save</button>
+      </div>
+    </form>
+  </div>
+
+</ng-template>
 
 
 <ng-template #content2 let-modal>
