@@ -7,7 +7,7 @@
         <div class='row'>
             <div class='col-sm-6'>
                 <div class="form-group">
-                    <label class="form-control-label" for="street">Logo</label>  
+                    <label class="form-control-label" for="street">Add a Logo <img src="/assets/images/paco.png" /></label>  
                     <ngx-dropzone (change)="onSelect($event)">
                         <ngx-dropzone-label>Drag and Drop, or click here to upload!</ngx-dropzone-label>
                         <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
@@ -24,7 +24,7 @@
             </div>
             <div class='col-sm-6'>
                 <div class="form-group">
-                    <label class="form-control-label" for="street">Favorite dish</label>  
+                    <label class="form-control-label" for="street">Favorite dish <img src="/assets/images/dish.jpg" /></label>  
                     <ngx-dropzone (change)="onSelectfeathured($event)">
                         <ngx-dropzone-label>Drag and Drop, or click here to upload!</ngx-dropzone-label>
                         <ngx-dropzone-preview *ngFor="let f of feathuredfiles" [removable]="true" (removed)="onRemovefeathured(f)">
@@ -41,7 +41,7 @@
                 <div class='row'>
                 <div class="form-group text-center">
                     <button uiSref="work" type="button" class="btn btn-raised btn-secondary mr-1" (click)="cancel()">Previous</button>
-                    <button uiSref="result" type="button" class="btn btn-raised btn-info" (click)="save()"> Next </button>
+                    <button uiSref="result" type="button" class="btn btn-raised btn-info" (click)="save()" style="background: #34a6bf;color:#fff;"> Next </button>
                 </div>
             </div>
             </div>

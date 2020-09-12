@@ -4,19 +4,30 @@
         <div class="tab-pane active">
             <h4 class="head text-center">{{title}}</h4>
             <br/>
-            <div class="row">
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="tags">Tags</label>  
-                        <!-- <tag-input [(ngModel)]='tags'></tag-input> -->
-                        <input class="form-control input-md" #googleapikey="ngModel" required id="tags" name="tags" type="text"  [(ngModel)]="tags">   
-                    </div>
-                </div>
+            
+            <div class="text-center">
+                <img src="/assets/images/type.png" height="190"/>
             </div>
            
-            <div class="form-group text-center space-20">
-                <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1" (click)="cancel()"> Previous</button>
-                <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button>
+            <div class="form-group col-4 offset-4 mt-4">
+                <label for="exampleInputEmail1">Select Type</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>RESTAURANT</option>
+                    <option>CAFÉ</option>
+                    <option>BEER</option>
+                    <option>WINE</option>
+                    <option>FOODTRUCK</option>
+                    <option>PIZZA</option>
+                    <option>FARMER</option>
+                    <option>CHEF</option>
+                    <option>GHOST KITCHEN</option>
+                </select>
+
+                <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1 mt-3" (click)="cancel()"> Previous</button>
+                <!-- <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button> -->
+
+                <button uiSref="address" type="button" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" (click)="save()"> Next </button>
+
             </div>
         </div>
     </div>

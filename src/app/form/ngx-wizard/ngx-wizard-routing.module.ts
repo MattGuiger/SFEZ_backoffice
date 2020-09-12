@@ -9,6 +9,8 @@ import { ResultComponent }    from './result/result.component';
 import {ScheduleComponent} from './schedule/schedule.component';
 import {DescriptionComponent} from './description/description.component';
 import {PhotoComponent} from './photo/photo.component';
+import { TagsComponent } from './tags/tags.component';
+
 
 const routes: Routes = [
   {
@@ -19,21 +21,32 @@ const routes: Routes = [
     },
     children: [
       {
-        path: 'schedule/:id',
+        //path: 'schedule/:id',
+        path: 'schedule',
         component: ScheduleComponent,
         data: {
           title: 'Schedule'
         }
       },
       {
-        path: 'description/:id',
+        //path: 'tags/:id',
+        path: 'tags',
+        component: TagsComponent,
+        data: {
+          title: 'Tags'
+        }
+      },
+      {
+        //path: 'description/:id',
+        path: 'description',
         component: DescriptionComponent,
         data: {
           title: 'Description'
         }
       },
       {
-        path: 'photo/:id',
+        //path: 'photo/:id',
+        path: 'photo',
         component: PhotoComponent,
         data: {
           title: 'Photo/Featured Dish'
@@ -45,25 +58,28 @@ const routes: Routes = [
         component: PersonalComponent,
         data: {
           //title: 'Vendor Registration'
-          title: ''
+          title: 'Wizard'
         }
       },
       {
-        path: 'work/:id',
+        //path: 'work/:id',
+        path: 'work',  
         component: WorkComponent,        
         data: {
           title: 'Work'
         }
       },  
       {
-        path: 'address/:id',
+        // path: 'address/:id',
+        path: 'address',
         component: AddressComponent,
         data: {
           title: 'Address'
         }
       },  
       {
-        path: 'result/:id',
+        //path: 'result/:id',
+        path: 'result',
         component: ResultComponent,
         data: {
           title: 'Result'

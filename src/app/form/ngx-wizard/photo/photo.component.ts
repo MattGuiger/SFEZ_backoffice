@@ -17,7 +17,7 @@ import { CommonFunctionsService } from 'src/app/services';
 })
 
 export class PhotoComponent implements OnInit {
-    title = 'STEP 2 : Photo/ Featured Dish';
+    title = 'Photo/ Featured Dish';
     business_address: string;
     city : string;
     state : string;
@@ -89,7 +89,7 @@ export class PhotoComponent implements OnInit {
 
     //Save button event Starts
     save() {
-        this.router.navigateByUrl('/forms/ngx/work/'+this.companyId, { relativeTo: this.route.parent, skipLocationChange: true });
+        this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
     }
     //Save button event Ends
 

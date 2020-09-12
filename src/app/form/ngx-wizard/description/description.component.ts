@@ -16,7 +16,7 @@ import { ProfileService} from '../../../services/profile.service'
 })
 
 export class DescriptionComponent implements OnInit {
-    title = 'STEP 3 : Tell Us What Makes You Unique';
+    title = 'STEP #4 Tell Us What Makes You Unique';
     description : string;
     form: any;
     companyId :any;
@@ -35,20 +35,24 @@ export class DescriptionComponent implements OnInit {
          });
     }
 
-    save(form: any) {
-        if (!form.valid)
-            return;
-        let obj={
-            description : this.description
-        }
-        this._ProfileService.updateGoogleSheetDetails(this.companyId,obj).subscribe((res:any)=>{
-            // this.toastr.success('E-Commerce google sheet details update successfully!');
-            this.toastr.success('Saved successfully!');
-            this.router.navigateByUrl('/forms/ngx/schedule/'+this.companyId, { relativeTo: this.route.parent, skipLocationChange: true });
-        })
-        // this.router.navigateByUrl('/forms/ngx/schedule/11152', { relativeTo: this.route.parent, skipLocationChange: true });
-        let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);       
+    // save(form: any) {
+    //     if (!form.valid)
+    //         return;
+    //     let obj={
+    //         description : this.description
+    //     }
+    //     this._ProfileService.updateGoogleSheetDetails(this.companyId,obj).subscribe((res:any)=>{
+    //         // this.toastr.success('E-Commerce google sheet details update successfully!');
+    //         this.toastr.success('Saved successfully!');
+    //         this.router.navigateByUrl('/forms/ngx/schedule/'+this.companyId, { relativeTo: this.route.parent, skipLocationChange: true });
+    //     })
+    //     // this.router.navigateByUrl('/forms/ngx/schedule/11152', { relativeTo: this.route.parent, skipLocationChange: true });
+    //     let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);       
         
+    // }
+
+    save(){
+        this.router.navigateByUrl('/forms/ngx/schedule', { relativeTo: this.route.parent, skipLocationChange: true });
     }
 
     cancel() {

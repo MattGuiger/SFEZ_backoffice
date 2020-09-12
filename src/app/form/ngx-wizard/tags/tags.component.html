@@ -1,0 +1,24 @@
+<form #workForm="ngForm" class="editForm" novalidate>
+    <div >
+        <div class="tab-pane active">
+            <h4 class="head text-center">{{title}}</h4>
+            <br/>
+            
+            <div class="text-center">
+                <img src="/assets/images/tags.png" height="190"/>
+            </div>
+           
+            <div class="form-group col-4 offset-4 mt-4">
+                <label for="exampleInputEmail1">Tags</label>
+                <input type="text" class="form-control" >
+                <small class="form-text text-muted">Helper Text:  Mexican, Carne Asada, Tacos</small>
+
+                <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1 mt-3" (click)="cancel()"> Previous</button>
+                <!-- <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button> -->
+
+                <button uiSref="address" type="button" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" (click)="save()"> Next </button>
+
+            </div>
+        </div>
+    </div>
+</form>

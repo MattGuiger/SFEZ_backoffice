@@ -3,7 +3,7 @@
         <div class="liner"></div>
 
         <li class="active flex-fill">
-            <a [ngClass]="(page==='Personal')?'nav-link active':'nav-link'" uiSrefActive="active" uiSref="personal" data-toggle="tab"
+            <a [ngClass]="(page==='Wizard' || page==='Personal')?'nav-link active':'nav-link'" uiSrefActive="active" uiSref="wizard" data-toggle="tab"
                 title="personal">
                 <span class="round-tabs one">
                     <i class="icon-User"></i>
@@ -18,7 +18,14 @@
             </a>
         </li>
         <li class="flex-fill">
-            <a [ngClass]="(page==='Work')?'nav-link active':'nav-link'" uiSrefActive="active" uiSref="tags" data-toggle="tab" title="tags">
+            <a [ngClass]="(page==='Work')?'nav-link active':'nav-link'" uiSrefActive="active" uiSref="type" data-toggle="tab" title="type">
+                <span class="round-tabs two">
+                    <i class=" icon-File-TextImage"></i>
+                </span> 
+            </a>
+        </li>
+        <li class="flex-fill">
+            <a [ngClass]="(page==='Tags')?'nav-link active':'nav-link'" uiSrefActive="active" uiSref="tags" data-toggle="tab" title="tags">
                 <span class="round-tabs two">
                     <i class=" icon-Aligator"></i>
                 </span> 
@@ -33,18 +40,18 @@
             </a>
         </li>
         <li class="flex-fill">
-            <a [ngClass]="(page==='Address')?'nav-link active':'nav-link'" uiSrefActive="active" uiSref="address" data-toggle="tab" title="address">
+            <a [ngClass]="(page==='Schedule')?'nav-link active':'nav-link'" uiSrefActive="active" uiSref="schedule" data-toggle="tab" title="address">
                 <span class="round-tabs three">
                     <i class=" icon-Address-Book"></i>
                 </span>
             </a>
         </li>
-        <li class="flex-fill">
+        <!-- <li class="flex-fill">
             <a [ngClass]="(page==='Result')?'nav-link active':'nav-link'" uiSrefActive="active" uiSref="result" data-toggle="tab" title="completed">
                 <span class="round-tabs four">
                     <i class="icon-Cursor"></i>
                 </span>
             </a>
-        </li>
+        </li> -->
 </ul>
 <!-- Navbar for Wizard Ends -->

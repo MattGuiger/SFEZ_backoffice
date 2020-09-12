@@ -17,7 +17,7 @@ import { ProfileService} from '../../../services/profile.service'
 
 export class WorkComponent implements OnInit {
     // title = 'E-Commerce (Google Sheets) Details';
-    title = 'STEP 2 : Tags';
+    title = 'STEP #2 Type';
     google_api_key: string;
     google_sheet_url :string;
     google_sheet_tab_name : string;
@@ -39,27 +39,31 @@ export class WorkComponent implements OnInit {
          });
     }
 
-    save(form: any) {
-        if (!form.valid)
-            return;
-        // let obj ={
-        //     google_sheet_url : this.google_sheet_url,
-        //     google_api_key : this.google_api_key,
-        //     google_sheet_tab_name : this.google_sheet_tab_name
-        // }
-        debugger
-        let obj={
-            tags : this.tags
-        }
-        this._ProfileService.updateGoogleSheetDetails(this.companyId,obj).subscribe((res:any)=>{
-            // this.toastr.success('E-Commerce google sheet details update successfully!');
-            this.toastr.success('Tags Update successfully!');
-            this.router.navigateByUrl('/forms/ngx/description/'+this.companyId, { relativeTo: this.route.parent, skipLocationChange: true });
-        })
-        // this.router.navigateByUrl('/forms/ngx/description/11152', { relativeTo: this.route.parent, skipLocationChange: true });
+    // save(form: any) {
+    //     if (!form.valid)
+    //         return;
+    //     // let obj ={
+    //     //     google_sheet_url : this.google_sheet_url,
+    //     //     google_api_key : this.google_api_key,
+    //     //     google_sheet_tab_name : this.google_sheet_tab_name
+    //     // }
+    //     debugger
+    //     let obj={
+    //         tags : this.tags
+    //     }
+    //     this._ProfileService.updateGoogleSheetDetails(this.companyId,obj).subscribe((res:any)=>{
+    //         // this.toastr.success('E-Commerce google sheet details update successfully!');
+    //         this.toastr.success('Tags Update successfully!');
+    //         this.router.navigateByUrl('/forms/ngx/description/'+this.companyId, { relativeTo: this.route.parent, skipLocationChange: true });
+    //     })
+    //     // this.router.navigateByUrl('/forms/ngx/description/11152', { relativeTo: this.route.parent, skipLocationChange: true });
         
-        let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);       
+    //     let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);       
         
+    // }
+
+    save(){
+        this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });  
     }
 
     cancel() {

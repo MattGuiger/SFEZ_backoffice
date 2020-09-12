@@ -16,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class PersonalComponent implements OnInit {
-    title = 'STEP 1 : Vendor Details';
+    title = 'Step #1 Vendor';
     personal: Personal;
     form: any;
     countryList : any[]=[];
@@ -46,22 +46,28 @@ export class PersonalComponent implements OnInit {
     }
 
     //Save button event Starts
-    save(form: any) {
-        if (!form.valid)
-            return;
-        this.formDataService.setPersonal(this.personal);
-        this._AuthService.vendorRegistration(this.personal).subscribe((res:any)=>{
-            if(res.status=200){
-                this.toastr.success('Vendor details saved successfully!');
-                this.router.navigateByUrl('/forms/ngx/photo/'+res.user.company_id, { relativeTo: this.route.parent, skipLocationChange: true });
-            }else{
-                this.toastr.success(res.message);
-            }
-        })
-        // this.router.navigateByUrl('/forms/ngx/photo/11152', { relativeTo: this.route.parent, skipLocationChange: true });
+    // save(form: any) {
+    //     if (!form.valid)
+    //         return;
+    //     this.formDataService.setPersonal(this.personal);
+    //     this._AuthService.vendorRegistration(this.personal).subscribe((res:any)=>{
+    //         if(res.status=200){
+    //             this.toastr.success('Vendor details saved successfully!');
+    //             this.router.navigateByUrl('/forms/ngx/photo/'+res.user.company_id, { relativeTo: this.route.parent, skipLocationChange: true });
+    //         }else{
+    //             this.toastr.success(res.message);
+    //         }
+    //     })
+    //     // this.router.navigateByUrl('/forms/ngx/photo/11152', { relativeTo: this.route.parent, skipLocationChange: true });
 
-        let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);
-        if (firstState.length > 0) {          
-        };       
+    //     let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);
+    //     if (firstState.length > 0) {          
+    //     };       
+    // }
+
+    save(){
+        this.router.navigateByUrl('/forms/ngx/photo', { relativeTo: this.route.parent, skipLocationChange: true });
     }
+
+
 }

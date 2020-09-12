@@ -16,7 +16,7 @@ import { ProfileService} from '../../../services/profile.service'
 })
 
 export class ScheduleComponent implements OnInit {
-    title = 'STEP 4 : Weekly Schedule';
+    title = 'STEP #5 Business Details';
     schedule: string;
     hours :string;
     facebook : string;
@@ -51,8 +51,7 @@ export class ScheduleComponent implements OnInit {
             this.router.navigateByUrl('/forms/ngx/address/'+this.companyId, { relativeTo: this.route.parent, skipLocationChange: true });
         })
         // this.router.navigateByUrl('/forms/ngx/address/11152', { relativeTo: this.route.parent, skipLocationChange: true });
-        let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);       
-        
+        let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);           
     }
 
     cancel() {

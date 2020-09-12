@@ -25,6 +25,7 @@ import { CommonModule } from "@angular/common";
 // import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TagsComponent } from './tags/tags.component';
 
 @NgModule({
     imports: [CommonModule,
@@ -36,7 +37,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ],
     providers: [{ provide: FormDataService, useClass: FormDataService },
     { provide: WorkflowService, useClass: WorkflowService }],
-    declarations: [NGXFormWizardComponent, NavbarComponent, PersonalComponent,PhotoComponent, WorkComponent, AddressComponent, ResultComponent,ScheduleComponent,DescriptionComponent],
+    declarations: [NGXFormWizardComponent, NavbarComponent, PersonalComponent,PhotoComponent, WorkComponent, AddressComponent, ResultComponent,ScheduleComponent,DescriptionComponent, TagsComponent],
     bootstrap: [NGXFormWizardComponent]
 
 })

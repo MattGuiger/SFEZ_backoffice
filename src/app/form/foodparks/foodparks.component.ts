@@ -47,6 +47,42 @@ export class FoodParkComponent {
   allManager: any[] = [];
   allUnitList:any[] = [];
 
+  hubData = [
+    {
+      "name":"KLM",
+      "manager":"Manger Name",
+      "deliveryIcon":true,
+      "codIcon":true,
+      "takeoutIcon":true,
+    },
+    {
+      "name":"PQR",
+      "manager":"Manger Name",
+      "deliveryIcon":true,
+      "codIcon":true,
+      "takeoutIcon":true,
+    }
+  ];
+  registerVendor:any[] = [
+    {
+      name:"Vendor name",
+      manager:"Manager name",
+    }
+  ];
+
+  driverData = [
+    {
+      "name": "Kid Rock",
+      "phone": "480-921-8847",
+    }
+  ];
+  registerDriver = [
+    {
+      "name": "Jimmy Hendricks",
+      "phone": "541-439-0134",
+    }
+  ];
+
 
   @ViewChild(FoodParkComponent, { static: false }) table: FoodParkComponent;
   constructor(private _ProfileService: ProfileService,

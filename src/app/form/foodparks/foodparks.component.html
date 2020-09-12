@@ -8,7 +8,7 @@
         <h6 class="card-subtitle">A Hubs listed here, and we can maname Drivers here also.</h6>
         <ngb-tabset>
 
-          <ngb-tab title="Delivery Hub">
+          <ngb-tab title="Delivery Hubs">
             <ng-template ngbTabContent>
               <div class="card-body">
                 <!-- <h4 class="card-title">Filter Option</h4> -->
@@ -24,19 +24,119 @@
                     </div>
                   </div>
                 </form>
+                <p class="text-center" style="font-weight: 500;">Hubs</p>
                 <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
-                  [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='rows'>
-                  <ngx-datatable-column name="Name" prop="name" [width]="150"></ngx-datatable-column>
+                  [footerHeight]="50" [rowHeight]="'auto'" [limit]="3" [rows]='rows'>
+                  <!-- <ngx-datatable-column name="Name" prop="name" [width]="150"></ngx-datatable-column>
                   <ngx-datatable-column name="Country" prop="country" [width]="150"></ngx-datatable-column>
                   <ngx-datatable-column name="State" prop="state" [width]="150"></ngx-datatable-column>
                   <ngx-datatable-column name="City" prop="city" [width]="150"></ngx-datatable-column>
 
                   <ngx-datatable-column>
-                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value"> -->
                       <!-- <input class="btn btn-success btn-raised" type="button" value="View" (click)="onCheckboxChangeFn($event,row)">&nbsp;&nbsp; -->
                       <!-- <input class="btn btn-danger btn-raised" type="button" value="Delete" (click)="onCheckboxChangeFn($event,row)"> -->
+                    <!-- </ng-template>
+                  </ngx-datatable-column> -->
+                  <ngx-datatable-column name="Name" [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      ABC
+                    </ng-template>
+                  </ngx-datatable-column>  
+                  <ngx-datatable-column name="State" [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      Punjab
                     </ng-template>
                   </ngx-datatable-column>
+                  <ngx-datatable-column name="Territory" prop="Territory" [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      Ludhiana
+                    </ng-template>
+                  </ngx-datatable-column>
+                  
+                  <ngx-datatable-column name="Master" [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <select class="form-control" (change)="selectHub($event,row,value)">
+                        <option value="">Assign Master</option>
+                        <option *ngFor="let manager of rows " value="{{manager.id}}"
+                          [selected]="manager.foodpark_mgr==row.id">{{manager.name}}</option>
+                      </select>
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Action" prop="Action" [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <button type="button" class="btn btn-success btn-sm"><i class="ti-pencil"></i></button> 
+                    </ng-template>
+                  </ngx-datatable-column>
+                </ngx-datatable>
+              </div>
+
+              <div class="card-body">
+                <p class="text-center" style="font-weight: 500;">Hub #1</p>
+                <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
+                [footerHeight]="50" [rowHeight]="'auto'" [limit]="5" [rows]='hubData'>
+                
+                  <ngx-datatable-column name="Name"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      {{row.name}}
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Manager"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      {{row.manager}}
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Delivery"  [width]="200">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <img src="/assets/images/deliverySmall.png"/>
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Cod"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <img src="/assets/images/cod.png"/>
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Takeout"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <img src="/assets/images/takeout.png"/>
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Action"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <button type="button" class="btn btn-danger btn-sm"><i class="ti-close"></i></button> 
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                </ngx-datatable>
+              </div>
+
+              <div class="card-body">
+                <p class="text-center" style="font-weight: 500;">Register Vendors</p>
+                <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
+                [footerHeight]="50" [rowHeight]="'auto'" [limit]="5" [rows]='registerVendor'>
+                <ngx-datatable-column name="Name"  [width]="150">
+                  <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                    {{row.name}}
+                  </ng-template>
+                </ngx-datatable-column>
+
+                <ngx-datatable-column name="Manager"  [width]="150">
+                  <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                    {{row.manager}}
+                  </ng-template>
+                </ngx-datatable-column>
+
+                <ngx-datatable-column name="Active"  [width]="150">
+                  <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                    <button type="button" class="btn btn-success btn-sm"><i class="ti-plus"></i></button> 
+                  </ng-template>
+                </ngx-datatable-column>
 
                 </ngx-datatable>
               </div>
@@ -56,7 +156,7 @@
                         (keyup)='updateFilter($event)' />
                     </div>
                     <div class="col-sm-6">
-                      <button class="btn btn-success btn-raised" (click)="openLocations(content4)">New Locations</button>
+                      <button class="btn btn-success btn-raised" (click)="openLocations(content4)">New Location</button>
                     </div>
                   </div>
                 </form>
@@ -233,7 +333,7 @@
               <div class="card-body">
                 <!-- <h4 class="card-title">Filter Option</h4> -->
                 <!-- <h5 class="card-subtitle">This is the filerable Data table</h5> -->
-                <form class="m-b-30">
+                <!-- <form class="m-b-30">
                   <div class="row">
                     <div class="col-sm-4">
                       <select class="form-control" (change)="changeselectHub($event)">
@@ -250,10 +350,12 @@
                       <button class="btn btn-success btn-raised" (click)="openDriver(content2)">Add Driver</button>
                     </div>
                   </div>
-                </form>
+                </form> -->
+                <p class="text-center" style="font-weight: 500;">Territory: Central Oregon</p>
+                <p class="text-center" style="font-weight: 500;">Hub #1 Managed Driver</p>
                 <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
-                  [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='drivers'>
-                  <ngx-datatable-column name="First Name" prop="first_name" [width]="150"></ngx-datatable-column>
+                  [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='driverData'>
+                  <!-- <ngx-datatable-column name="First Name" prop="first_name" [width]="150"></ngx-datatable-column>
                   <ngx-datatable-column name="Last Name" prop="last_name" [width]="150"></ngx-datatable-column>
                   <ngx-datatable-column name="UserName" prop="username" [width]="150"></ngx-datatable-column>
                   <ngx-datatable-column name="Phone" prop="phone" [width]="150"></ngx-datatable-column>
@@ -264,18 +366,146 @@
                         <option *ngFor="let manager of rows " value="{{manager.id}}">{{manager.name}}</option>
                       </select>
                     </ng-template>
-                  </ngx-datatable-column>
-                  <ngx-datatable-column>
+                  </ngx-datatable-column> -->
+                  <!-- <ngx-datatable-column>
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <!-- <input class="btn btn-success btn-raised" type="button" value="View" (click)="onCheckboxChangeFn($event,row)">&nbsp;&nbsp; -->
-                      <!-- <input class="btn btn-danger btn-raised" type="button" value="Delete" (click)="onCheckboxChangeFn($event,row)"> -->
+                      <input class="btn btn-success btn-raised" type="button" value="View" (click)="onCheckboxChangeFn($event,row)">&nbsp;&nbsp;
+                      <input class="btn btn-danger btn-raised" type="button" value="Delete" (click)="onCheckboxChangeFn($event,row)"> 
                     </ng-template>
 
+                  </ngx-datatable-column>-->
+                  <ngx-datatable-column name="Name"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      {{row.name}}
+                    </ng-template>
                   </ngx-datatable-column>
 
+                  <ngx-datatable-column name="Phone"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      {{row.phone}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  
+                  <ngx-datatable-column name="Active"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <button type="button" class="btn btn-danger btn-sm"><i class="ti-close"></i></button> 
+                    </ng-template>
+                  </ngx-datatable-column>
+                </ngx-datatable>
+
+                <p class="text-center mt-4" style="font-weight: 500;">Registered Drivers</p>
+                <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
+                  [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='registerDriver'>
+                
+                  <ngx-datatable-column name="Name"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      {{row.name}}
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Phone"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      {{row.phone}}
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Active"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <button type="button" class="btn btn-success btn-sm"><i class="ti-plus"></i></button> 
+                    </ng-template>
+                  </ngx-datatable-column>
+                
                 </ngx-datatable>
               </div>
-              <div class="row">
+
+              <div class="card-body">
+                <!-- <h4 class="card-title">Filter Option</h4> -->
+                <!-- <h5 class="card-subtitle">This is the filerable Data table</h5> -->
+                <!-- <form class="m-b-30">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <select class="form-control" (change)="changeselectHub($event)">
+                        <option value="">Select</option>
+                        <option *ngFor="let manager of rows " value="{{manager.id}}"
+                          ng-selected="selectedHub == namager.id">{{manager.name}}</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-6">
+                      <input type='text' class="form-control" placeholder='Type to filter the name column...'
+                        (keyup)='updateDriverFilter($event)' />
+                    </div>
+                    <div class="col-sm-2" *ngIf="user?.role=='ADMIN'">
+                      <button class="btn btn-success btn-raised" (click)="openDriver(content2)">Add Driver</button>
+                    </div>
+                  </div>
+                </form> -->
+                <p class="text-center" style="font-weight: 500;">Territory: Central Oregon</p>
+                <p class="text-center" style="font-weight: 500;">Hub #2 Managed Driver</p>
+                <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
+                  [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='driverData'>
+                  <!-- <ngx-datatable-column name="First Name" prop="first_name" [width]="150"></ngx-datatable-column>
+                  <ngx-datatable-column name="Last Name" prop="last_name" [width]="150"></ngx-datatable-column>
+                  <ngx-datatable-column name="UserName" prop="username" [width]="150"></ngx-datatable-column>
+                  <ngx-datatable-column name="Phone" prop="phone" [width]="150"></ngx-datatable-column>
+                  <ngx-datatable-column name="Assign Hub">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <select class="form-control" (change)="selectdriverHub($event,row,value)">
+                        <option value="">Select</option>
+                        <option *ngFor="let manager of rows " value="{{manager.id}}">{{manager.name}}</option>
+                      </select>
+                    </ng-template>
+                  </ngx-datatable-column> -->
+                  <!-- <ngx-datatable-column>
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <input class="btn btn-success btn-raised" type="button" value="View" (click)="onCheckboxChangeFn($event,row)">&nbsp;&nbsp;
+                      <input class="btn btn-danger btn-raised" type="button" value="Delete" (click)="onCheckboxChangeFn($event,row)"> 
+                    </ng-template>
+
+                  </ngx-datatable-column>-->
+                  <ngx-datatable-column name="Name"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      {{row.name}}
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Phone"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      {{row.phone}}
+                    </ng-template>
+                  </ngx-datatable-column>
+                  
+                  <ngx-datatable-column name="Active"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <button type="button" class="btn btn-danger btn-sm"><i class="ti-close"></i></button> 
+                    </ng-template>
+                  </ngx-datatable-column>
+                </ngx-datatable>
+
+                <p class="text-center mt-4" style="font-weight: 500;">Registered Drivers</p>
+                <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
+                  [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='registerDriver'>
+                
+                  <ngx-datatable-column name="Name"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      {{row.name}}
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Phone"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      {{row.phone}}
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Active"  [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <button type="button" class="btn btn-success btn-sm"><i class="ti-plus"></i></button> 
+                    </ng-template>
+                  </ngx-datatable-column>
+                
+                </ngx-datatable>
+              </div>
+              <!-- <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
                 </div>
@@ -283,7 +513,7 @@
                   <button class="btn btn-success btn-raised" (click)="setDriverManagers()"
                     style="margin-right: 4%;float: right;">Save</button>
                 </div>
-              </div>
+              </div> -->
             </ng-template>
           </ngb-tab>
 
@@ -387,7 +617,7 @@
 
 <ng-template #content4 let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">New Locations</h4>
+    <h4 class="modal-title" id="modal-basic-title">New Location</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -395,7 +625,7 @@
   <div class="modal-body">
     <form [formGroup]="foodParkForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="name">Unit Name</label>
+        <label for="name">Name</label>
         <div class="input-group">
           <input id="name" class="form-control" name="dp" type="text" formControlName="name">
         </div>
@@ -527,8 +757,12 @@
               <div class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
             </div>
             <select class="form-control" (change)="selectHubOrLoc($event)">
-              <option>Hub</option>
-              <option>{{territoryName}}</option>
+              <option>Hub #1 Delhi-sector 48</option>
+              <option>Hub #2</option>
+              <option>Hub #3 Delhi-sector 48</option>
+              <option>Hub #4</option>
+              <option>Hub #5 Delhi-sector 50</option>
+              <option>Hub #6</option>
             </select>
           </div>
         </div>
@@ -537,7 +771,7 @@
     <form [formGroup]="managerForm" (ngSubmit)="onManagerSubmit()">
       <div class="form-group">
         
-        <div class="form-group" *ngIf="huborlocation; else showhub">
+        <!-- <div class="form-group" *ngIf="huborlocation; else showhub"> -->
           <!-- <div class="form-group row">
             <label for="name" class="col-md-3 col-form-label">Territory</label>
             <div class="col-md-9">
@@ -551,9 +785,9 @@
               </div>
             </div>
           </div>   -->
-        </div>
+        <!-- </div> -->
 
-        <ng-template #showhub>
+        <!-- <ng-template #showhub>
           <div class="form-group">
             <div class="form-group row">
               <label for="name" class="col-md-3 col-form-label">Hub</label>
@@ -570,7 +804,7 @@
               </div>
             </div>  
           </div>
-        </ng-template>
+        </ng-template> -->
 
         <div class="form-group">
           <div class="form-group row">
