@@ -58,7 +58,7 @@ const routes: Routes = [
         component: PersonalComponent,
         data: {
           //title: 'Vendor Registration'
-          title: 'Wizard'
+          title: 'Vendors'
         }
       },
       {
