@@ -10,11 +10,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { EcomRoutes } from './menuitems.routing';
+import { TruncateStringPipe } from './truncate-string.pipe';
 
 @NgModule({
   declarations: [
     MenuitemsComponent,
     EditComponent,
+    TruncateStringPipe,
     // SpinnerComponent
   ],
   imports: [CommonModule,
