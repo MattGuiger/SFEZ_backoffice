@@ -6,7 +6,8 @@ import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  templateUrl: 'menuitems.component.html'
+  templateUrl: 'menuitems.component.html',
+  styleUrls:['./menuitems.component.css']
 })
 export class MenuitemsComponent implements OnInit{
   user:any;

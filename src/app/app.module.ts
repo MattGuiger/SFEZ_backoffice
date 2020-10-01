@@ -40,6 +40,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { HttpModule } from '@angular/http';
 import { GreenmoneyComponent } from './greenmoney/greenmoney.component';
 
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true,
     wheelSpeed: 1,
@@ -64,11 +65,13 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     imports: [
         CommonModule,
         BrowserModule,
+        
         BrowserAnimationsModule,
         FormsModule,
         HttpClientModule,
         HttpModule,
         NgbModule,
+   
         ToastrModule.forRoot(),
         SlimLoadingBarModule.forRoot(),
         RouterModule.forRoot(Approutes, { useHash: false }),

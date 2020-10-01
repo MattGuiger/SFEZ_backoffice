@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { EcomRoutes } from './menuitems.routing';
 import { TruncateStringPipe } from './truncate-string.pipe';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { TruncateStringPipe } from './truncate-string.pipe';
   imports: [CommonModule,
     ToastrModule.forRoot(),
     SlimLoadingBarModule.forRoot(),
+    MaterialModule,
      RouterModule.forChild(EcomRoutes), FormsModule, NgbModule],
 
 })

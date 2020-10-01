@@ -25,7 +25,7 @@
                                     <div class="card" (click)="openProduct(item)">
                                         <div class="el-card-item">
                                             <div class="el-card-avatar el-overlay-1">
-                                                <img src="{{item.image ? item.image : '../assets/images/gallery/noProduct.png'}}" alt="user" class="productimg"/>
+                                                <img src="{{item.image ? item.image :'./../../assets/images/gallery/noProduct.png'}}" alt="user" class="productimg"/>
                                                 <div class="el-overlay">
                                                     <ul class="list-style-none el-info">
                                                         <li class="el-item">
@@ -57,7 +57,7 @@
                           <ngb-tab title="Google Sheet | images">
                             <ng-template ngbTabContent>
                               <div class="card card-body">
-                                    <form class="form-horizontal form-material">
+                                    <!-- <form class="form-horizontal form-material">
                                             <div class="form-group">
                                                 <label class="col-md-12">Name</label>
                                                 <div class="col-md-12">
@@ -82,8 +82,308 @@
                                                     <button class="btn btn-success" (click)="uploadGoogleMenuSheet()" *ngIf="profile.google_sheet_url">Sync Google Menu Items</button>
                                                 </div>
                                             </div>
-                                        </form>
-                            </div>
+                                        </form> -->
+                                        <section class="hero_section">
+                                            <div class="container">
+                                              <div class="row">
+                                                <div class="col-md-10 offset-md-1">
+                                                  <div class="hero_content">
+                                                    <h2>Google Sheets Tutorial</h2>
+                                                    <p class="text-center">InstaMarkt uses one central location (Google Sheets) to store a vendor's menu.
+                                                      This includes menu item names (or products), pricing, description, add-ons, categories, s
+                                                      pecial instructions, etc. This is a step-by-step tutorial for how to upload these menu item details.</p>
+                                                    <h4 class="text-center">Example Spreadsheet Below:</h4>
+                                                    <img src="./../../assets/img/Layer-1@1X.png" alt="" class="hero_img">
+                                                    <h2 class="text-center">Onboarding Workflow (Similar to Vendor Registration):</h2>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </section>
+                                          
+                                          <section class="step_tabs">
+                                            <div class="container">
+                                              <mat-tab-group>
+                                                <mat-tab label="1">
+                                                  <div class="step_one">
+                                                    <h2>Step 1</h2>
+                                                    <h4>Select Google Drive or Dropbox</h4>
+                                                    <div class="row">
+                                                      <div class="col-6 col-md-4 offset-md-2 col-lg-2 offset-lg-4">
+                                                        <div class="icon_card">
+                                                          <img src="./../../assets/img/google-drive@1X.png" alt="  " class="drive">
+                                                          <p>Google Drive</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-6 col-md-4 col-lg-2">
+                                                        <div class="icon_card">
+                                                          <img src="./../../assets/img/dropbox@1X.png" alt="  " class="dropbox">
+                                                          <p>Dropbox</p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </mat-tab>
+                                                <mat-tab label="2">
+                                                  <div class="step_one">
+                                                    <h2>Step 1</h2>
+                                                    <h4>Select Your Categories</h4>
+                                                    <div class="row">
+                                                      <div class="col-md-12 col-lg-10 offset-lg-1">
+                                                        <div class="category_sec">
+                                                          <div class="row">
+                                                            <div class="col-md-5">
+                                                              <div class="category_area">
+                                                                <div class="category_head">
+                                                                  <p>Available Categories</p>
+                                                                </div>
+                                                                <div class="category_checkbox">
+                                                                  <mat-form-field appearance="fill">
+                                                                    <input matInput placeholder="Search" class="form-control">
+                                                                  </mat-form-field>
+                                                                  <mat-checkbox>Appetizers</mat-checkbox>
+                                                                  <mat-checkbox>Salads</mat-checkbox>
+                                                                  <mat-checkbox>
+                                                                    Entrées
+                                                                  </mat-checkbox>
+                                                                  <mat-checkbox>Beverages</mat-checkbox>
+                                                                  <mat-checkbox>Sandwiches</mat-checkbox>
+                                                                  <mat-checkbox>Burgers</mat-checkbox>
+                                                                  <mat-checkbox>Noodles</mat-checkbox>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                              <div class="category_btn">
+                                                                <button mat-raised-button class="btn btn-primary btn-block">Add &gt;</button>
+                                                                <button mat-raised-button class="btn btn-secondary btn-block">&lt; Remove</button>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                              <div class="category_area">
+                                                                <div class="category_head">
+                                                                  <p>Selected Categories (Up to 7)</p>
+                                                                </div>
+                                                                <div class="category_checkbox">
+                                                                  <mat-form-field appearance="fill">
+                                                                    <input matInput placeholder="Search" class="form-control">
+                                                                  </mat-form-field>
+                                                                  <mat-checkbox>Appetizers</mat-checkbox>
+                                                                  <mat-checkbox>Salads</mat-checkbox>
+                                                                  <mat-checkbox>
+                                                                    Entrées
+                                                                  </mat-checkbox>
+                                                                  <mat-checkbox>Beverages</mat-checkbox>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </mat-tab>
+                                                <mat-tab label="3">
+                                                  <div class="step_one">
+                                                    <h2>Step 3</h2>
+                                                    <h4>Upload images in their respective folder (or category) as shown below:</h4>
+                                                    <div class="row">
+                                                      <div class="col-md-4">
+                                                        <div class="step_three_left">
+                                                          <h5>Image Name:</h5>
+                                                          <img src="./../../assets/img/Chicken-Teriyaki.png" alt="">
+                                                          <p>chicken-teriyaki.png</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-6 offset-md-2">
+                                                        <div class="step_three_right">
+                                                          <h5>Category:</h5>
+                                                          <ul>
+                                                            <li>
+                                                              <img src="./../../assets/img/folder@1X.png" alt="">
+                                                              <p>Lunch</p>
+                                                            </li>
+                                                            <li>
+                                                              <img src="./../../assets/img/folder@1X.png" alt="">
+                                                              <p>Salads</p>
+                                                            </li>
+                                                            <li>
+                                                              <img src="./../../assets/img/folder@1X.png" alt="">
+                                                              <p>Soup</p>
+                                                            </li>
+                                                          </ul>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12">
+                                                        <div class="sync_btn">
+                                                          <button mat-raised-button class="btn">Sync to Google Sheets <img
+                                                              src="./../../assets/img/google-sheets-icon.png" alt=""></button>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </mat-tab>
+                                                <mat-tab label="4">
+                                                  <div class="step_one padding_area">
+                                                    <h2>Step 4</h2>
+                                                    <h4>Upload Menu (jpg or png)</h4>
+                                                    <div class="row">
+                                                      <div class="col-md-12">
+                                                        <div class="step_four">
+                                                          <div class="form-group">
+                                                            <label for="" class="label-control">Upload Files</label>
+                                                            <div class="custom-file">
+                                                              <input type="file" class="custom-file-input" id="customFile">
+                                                              <label class="custom-file-label" for="customFile">Choose file</label>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12">
+                                                        <div class="add_btn">
+                                                          <button mat-raised-button class="btn btn-primary">Add More Menu Files</button>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="row">
+                                                      <div class="col-md-4 col-lg-3">
+                                                        <div class="bot_img">
+                                                          <img src="../../assets/images/Bot.png" alt="">
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-8 col-lg-8 offset-lg-1">
+                                                        <div class="bot_txt">
+                                                          <p>Please upload 1 or more pictures of your menu that includes
+                                                            descriptions, pricing, add-ons, special instructions, beverages, etc.
+                                                            We will also use this information in our Customer Ordering Bot.</p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </mat-tab>
+                                                <mat-tab label="5">
+                                                  <div class="step_one padding_area">
+                                                    <h2>Step 5</h2>
+                                                    <h4>Custom Google Sheets Spreadsheet</h4>
+                                                    <p>Thank you for providing these menu item details! InstaMarkt Support will finish
+                                                      creating your menu in Google Sheets. We will schedule a time with you to confirm
+                                                      that all this information is correct.</p>
+                                                    <div class="row">
+                                                      <div class="col-md-12">
+                                                        <div class="step_five">
+                                                          <img src="./../../assets/img/Layer-2@1X.png">
+                                                          <img src="./../../assets/img/Layer-3@1X.png">
+                                                          <h4>Google Sheets Link (URL)</h4>
+                                                          <p>Vendors can make changes directly to their menu in Google Sheets by clicking on
+                                                            this shared link. Once ready, use the button below to update the menu.</p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12">
+                                                        <div class="sync_btn">
+                                                          <button mat-raised-button class="btn">Sync to Google Sheets <img
+                                                              src="./../../assets/img/google-sheets-icon.png" alt=""></button>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="spreadsheet_detail">
+                                                    <h2>Google Spreadsheet Details</h2>
+                                                    <p>1. Menu Item Name: Philly Steak Sandwich
+                                                    </p>
+                                                    <p>2. Menu Item Description: Sandwich made with super thinly sliced ribeye steak, caramelized onion, and
+                                                      provolone cheese</p>
+                                                    <p>3. Menu Item Price: $12.00</p>
+                                                    <p>4. Image</p>
+                                                    <div class="row">
+                                                      <div class="col-12 col-md-6 col-lg-4">
+                                                        <img src="./../../assets/img/Cheez-Whiz-Philly-Cheese-Steak-Sandwich-photo.png" alt="">
+                                                      </div>
+                                                      <div class="col-12 col-md-6 col-lg-4">
+                                                        <p class="p_t_note">Note:</p>
+                                                        <p>Vendors can use Google Drive or Dropbox to upload and share images.</p>
+                                                      </div>
+                                                    </div>          
+                                                    <p>5. Category: Sandwiches (Categories like “Lunch”, “Dinner”, “Soups” can be used)</p>
+                                                    <p>6. Category Description: Choose from our classic Philly, Buffalo Chicken, Sliders and
+                                                      Vegetarian Sandwiches.</p>
+                                                    <p>7. Category Image:</p>
+                                                    <img src="./../../assets/img/Best-Burger.png">
+                                                    <p>8. Add-Ons: Extra Meat, Curly Fries, Chips & Guacamole</p>
+                                                    <p>9. Add-Ons Price: 3.00, 4.00, 2.50
+                                                      Note: “3.00” corresponds to “Extra Meat” ($3.00), “4.00” corresponds to “Curly Fries”
+                                                      ($4.00), etc.</p>
+                                                    <p>10. Required Category: Size</p>
+                                                    <p>11. Required Selections: Regular, Large
+                                                      Note: Other “Required Categories” can be used. “Meat” (Required Category) could
+                                                      have selections for “Beef”, “Chicken” or “Pork”. All possible selections are listed. </p>
+                                                    <p>12. Required Price: 0, 1.80
+                                                      Note: “Regular” size would have no additional charge ($0). “Large” size would be
+                                                      +$1.80.</p>
+                                                    <p>13. Instructions: Gluten-Free, Spicy, Extra Sauce
+                                                      Note: 1 or more instructions can be selected for any “Menu Item, Add-On and
+                                                      Required Selection” bundle.
+                                                    </p>
+                                                  </div>
+                                                </mat-tab>
+                                                <mat-tab label="6">
+                                                  <div class="step_one padding_area">
+                                                    <h2>Manual Copy of Image URL's</h2>
+                                                    <h4>For those of you that are tech savvy, owners can copy the Image URL's from
+                                                      both Google Drive or Dropbox and paste them into the Google Sheets Spreadsheet.</h4>
+                                                    <div class="step_six">
+                                                      <div class="row">
+                                                        <div class="col-md-3">
+                                                          <div class="icon_card">
+                                                            <img src="./../../assets/img/google-drive@1X.png" alt="  " class="drive">
+                                                            <p>Google Drive</p>
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                          <p>1. Login to Google Drive and upload all of your images first. Use folders for the Menu Categories
+                                                            (lunch, dinner, soups, etc.) if you wish. </p>
+                                                          <p>2. After the images have been uploaded, select each image and click the “Share Image” button.</p>
+                                                          <img src="./../../assets/img/Layer-5@1X.png" alt="">
+                                                          <img src="./../../assets/img/Layer-6@1X.png" alt="">
+                                                          <p>Copy the link (as shown above) and paste the URL into Google Sheets (the one we created for you).
+                                                            Example URL: https://drive.google.com/file/d/1UAsbJZb66kBcaETVBT7nClg0B5k0c7yr/view?usp=sharing</p>
+                                                          <p>1. Login to Dropbox and upload all of your images first. Use folders for the Menu Categories
+                                                            (lunch, dinner, soups, etc.) if you wish.
+                                          
+                                                            2. After the images have been uploaded, select each image, right click and share that image.
+                                                            Please copy the URL (share link) and after paste it into Google Sheets (the one we created for you).
+                                          
+                                                            3. Example URL:
+                                                            https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0
+                                                          </p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="step_six">
+                                                      <div class="row">
+                                                        <div class="col-md-3">
+                                                          <div class="icon_card">
+                                                            <img src="./../../assets/img/dropbox@1X.png" alt="  " class="drive">
+                                                            <p>Dropbox</p>
+                                                          </div>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                          <p>1. Login to Dropbox and upload all of your images first. Use folders for the Menu Categories (lunch,
+                                                            dinner, soups, etc.) if you wish.</p>
+                                                          <p>2. After the images have been uploaded, select each image, right click and share that image.
+                                                            Please copy the URL (share link) and after paste it into Google Sheets (the one we created for you).
+                                                          </p>
+                                                          <p>3. Example URL:
+                                                            https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0</p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </mat-tab>
+                                              </mat-tab-group>
+                                          
+                                            </div>
+                                          </section>
+                                    </div>
                               <div class="row">
                                   <div class="col-sm-4"></div>
                               <div class="col-sm-4">
@@ -106,7 +406,7 @@
         <div class="card" (click)="openProduct(item)">
             <div class="el-card-item">
                 <div class="el-card-avatar el-overlay-1">
-                    <img src="{{item.image ? item.image : '../assets/images/gallery/noProduct.png'}}" alt="user" class="productimg"/>
+                    <img src="{{item.image ? item.image : './../../assets/images/gallery/noProduct.png'}}" alt="user" class="productimg"/>
                     <div class="el-overlay">
                         <ul class="list-style-none el-info">
                             <li class="el-item">

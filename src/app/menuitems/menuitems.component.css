@@ -1,0 +1,379 @@
+*, html, body {
+    font-family: 'Poppins', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 ,p {
+    font-family: 'Poppins', sans-serif;
+}
+p {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 500;
+}
+/***** Hero Section CSS *******/
+.hero_section {
+    background: url('./../../assets/images/Rectangle-img.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 4rem 0;
+}
+.hero_content .hero_img {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.hero_content h2 {
+    font-size: 28px;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+.hero_content p {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 2rem;
+    line-height: 28px;
+}
+.hero_content h4 {
+    font-size: 22px;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+/***** Hero Section CSS *******/
+
+
+
+/***** Mat Tabs CSS *******/
+.step_tabs {
+    padding: 4rem 0;
+}
+::ng-deep .mat-tab-label {
+    width: 60px;
+    height: 60px !important;
+    font-weight: 700;
+    padding: 0 !important;
+    background: #ddd;
+    margin: 0 2.5rem;
+    border-radius: 50px;
+    opacity: 1 !important;
+    min-width: auto !important;
+    color: #111;
+}
+::ng-deep .mat-tab-label-active {
+    background-color: #2196f3;
+    color: #fff;
+}
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar {
+    display: none;
+}
+::ng-deep .mat-tab-labels {
+    justify-content: center;
+}
+::ng-deep .mat-tab-label .mat-tab-label-content {
+    font-size: 24px;
+}
+::ng-deep .mat-tab-labels {
+    position: relative;
+}
+::ng-deep .mat-tab-labels:before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 10%;
+    border-bottom: 4px solid #ddd;
+    width: 80%;
+}
+::ng-deep .mat-tab-body-content {
+    padding: 0 1rem;
+}
+/***** Mat Tabs CSS *******/
+
+
+/***** Step One CSS *******/
+.step_one {
+    text-align: center;
+    padding: 3rem 0;
+}
+.step_one h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+}
+.step_one h4 {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+}
+.icon_card img {
+    width: 100%;
+    border: 1px solid #2196f3;
+    border-radius: 10px;
+    padding: 1.4rem;
+    margin-bottom: 1rem;
+}
+.icon_card img.dropbox {
+    width: 145px;
+}
+.icon_card p {
+    font-size: 16px;
+    margin-bottom: 2rem;
+    line-height: 28px;
+    font-weight: 600;
+    color: #2196f3;
+}
+/***** Step One CSS *******/
+
+
+/***** Step Two CSS *******/
+::ng-deep .mat-checkbox-inner-container {
+    border: 1px solid #333;
+    border-radius: 4px
+}
+.category_area {
+    border: 1px solid #eee;
+}
+.category_head {
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+.category_head p {
+    margin: 0;
+    font-weight: 600;
+}
+.category_checkbox {
+    text-align: left;
+    padding: 1rem;
+}
+.form-control {
+    border: 1px solid #d5d5d5;
+    border-radius: 4px;
+    padding-left: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+::ng-deep .mat-form-field {
+    width: 100% !important;
+}
+::ng-deep .mat-checkbox-layout .mat-checkbox-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+.category_sec {
+    border: 1px solid #dedede;
+    padding: 2rem;
+}
+::ng-deep .mat-checkbox {
+    width: 100%;
+    display: block;
+}
+.category_btn {
+    padding-top: 8rem;
+}
+/***** Step Two CSS *******/
+
+
+/***** Step Three CSS *******/
+.step_three_left {
+    text-align: left;
+}
+.step_three_left h5 {
+    font-weight: 700;
+    font-size: 18px;
+} 
+.step_three_left img {
+    width: 100px;
+    margin-bottom: 1rem;
+}
+.step_three_right {
+    text-align: left;
+}
+.step_three_left p {
+    font-size: 16px;
+    font-weight: 500;
+}
+.step_three_right h5 {
+    font-size: 18px;
+    font-weight: 700;
+}
+.step_three_right ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.step_three_right li {
+    margin-right: 1rem;
+}
+.step_three_right img {
+    width: 70px;
+    margin-bottom: 1rem;
+}
+.step_three_right li p {
+    font-size: 16px;
+    font-weight: 500;
+}
+.sync_btn {
+    text-align: center;
+    margin-top: 2rem;
+}
+.sync_btn button {
+    background: #eee;
+    padding: 3px 30px;
+    box-shadow: none;
+}
+/***** Step Three CSS *******/
+
+
+/***** Step Four CSS *******/
+.step_four {
+    text-align: left;
+}
+.label-control {
+    font-weight: 500;
+}
+.bot_img {
+    border: 1px solid #dedede;
+    padding: 1rem;
+}
+.bot_img img {
+    width: 100%;
+}
+.bot_txt {
+    text-align: left;
+    padding-top: 5rem;
+}
+.bot_txt p{
+    font-weight: 500;
+    font-size: 18px;
+}
+.add_btn {
+    text-align: center;
+    margin: 2rem 0;
+}
+/***** Step Four CSS *******/
+
+
+/***** Step Five CSS *******/
+.step_five img {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.padding_area {
+    padding: 3rem 5rem;
+}
+.spreadsheet_detail h2 {    
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    padding: 4rem 0;
+}
+.spreadsheet_detail p {
+    text-align: left;
+    font-size: 18px;
+}
+.spreadsheet_detail img {
+    width: 300px;
+    margin-bottom: 2rem;
+}
+.p_t_note {
+    padding-top: 8rem;
+}
+/***** Step Five CSS *******/
+
+
+/***** Step Six CSS *******/
+.step_six p {
+    margin-bottom: 2rem;
+    font-size: 14px;
+}
+.step_six {
+    text-align: left;
+}
+.step_six img {
+    width: 70%;
+    margin-bottom: 2rem;
+}
+.step_six .icon_card {
+    text-align: center;
+}
+/***** Step Six CSS *******/
+
+/******* IPAD Pro Media Query **********/
+
+@media only screen and (min-width: 1024px)and (max-width: 1365px)  {
+    .icon_card img.dropbox {
+        width: 90%;
+    }
+    .category_sec {
+        padding: 1rem;
+    }
+    .category_sec .col-md-2 {
+        padding: 0;
+    }
+    .bot_txt {
+        padding-top: 0;
+    }
+}
+
+/******* IPAD Pro Media Query **********/
+
+/******* IPAD Media Query **********/
+
+@media only screen and (min-width: 768px)and (max-width: 1023px)  {
+    ::ng-deep .mat-tab-label {
+        margin: 0 1.5rem;
+    }
+
+    ::ng-deep .mat-tab-labels:before {
+        width: 100%;
+        left: 0;
+    }
+    .icon_card img.dropbox {
+        width: 90%;
+    }
+    .category_sec {
+        padding: 1rem;
+    }
+    .category_sec .col-md-2 {
+        padding: 0;
+    }
+    .padding_area {
+        padding: 3rem 0;
+    }
+    .bot_txt {
+        padding-top: 0;
+    }
+    .spreadsheet_detail img {
+        width: 100%;
+    }
+}
+
+/******* IPAD Media Query **********/
+
+/******* Mobile Media Query **********/
+@media only screen and (max-width: 767px) {
+    ::ng-deep .mat-tab-labels:before {
+        width: 100%;
+        left: 0;
+        top: 18px;
+    }
+    ::ng-deep .mat-tab-label {
+        margin: 0 0.5rem;
+        height: 40px !important;
+        width: 40px !important;
+    }
+    ::ng-deep .mat-tab-label .mat-tab-label-content {
+        font-size: 16px;
+    }
+    .category_btn {
+        padding-top: 0;
+        margin: 2rem 0;
+    }
+    .padding_area {
+        padding: 3rem 0;
+    }
+    .p_t_note {
+        padding-top: 0;
+    }
+}
+/******* Mobile Media Query **********/
