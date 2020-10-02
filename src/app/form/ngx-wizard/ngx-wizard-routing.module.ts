@@ -44,14 +44,14 @@ const routes: Routes = [
           title: 'Description'
         }
       },
-      {
-        //path: 'photo/:id',
-        path: 'photo',
-        component: PhotoComponent,
-        data: {
-          title: 'Photo/Featured Dish'
-        }
-      },
+      // {
+      //   //path: 'photo/:id',
+      //   path: 'photo',
+      //   component: PhotoComponent,
+      //   data: {
+      //     title: 'Photo/Featured Dish'
+      //   }
+      // },
 
       {
         path: 'wizard',

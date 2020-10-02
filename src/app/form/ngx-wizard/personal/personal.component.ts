@@ -7,6 +7,9 @@ import { STEPS } from "../workflow/workflow.model";
 import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from '../../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { ProfileService } from 'src/app/services/profile.service';
+import { CommonFunctionsService } from 'src/app/services';
+
 
 
 @Component({
@@ -20,13 +23,24 @@ export class PersonalComponent implements OnInit {
     personal: Personal;
     form: any;
     countryList : any[]=[];
-
+    business_address: string;
+    city : string;
+    state : string;
+    // form: any;
+    companyId : any;
+    files: File[] = [];
+    feathuredfiles: File[] = [];
+    user : any;
 
     constructor(private router: Router,
         private _AuthService:AuthService,
         private toastr: ToastrService,
         private route: ActivatedRoute, private formDataService: FormDataService,
-        private workflowService: WorkflowService) {
+        private workflowService: WorkflowService,
+        private _ProfileService:ProfileService,
+ 
+        private _CommonFunctionsService : CommonFunctionsService,
+) {
     }
 
     ngOnInit() {
@@ -66,8 +80,63 @@ export class PersonalComponent implements OnInit {
     // }
 
     save(){
-        this.router.navigateByUrl('/forms/ngx/photo', { relativeTo: this.route.parent, skipLocationChange: true });
+        this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
     }
 
 
+    uploadCompanyProfile(formData){
+      this.user = this._CommonFunctionsService.checkUser().user;
+       this._ProfileService.uploadCompanyProfile(this.user.company_id,formData).subscribe((res:any)=>{
+         this.toastr.success('Photo upload successfully!')
+       },error=>{
+          this.toastr.error('failed to upload, please try again later')
+       })
+    }
+    
+    uploadFeaturePhoto(formData){
+      this.user = this._CommonFunctionsService.checkUser().user;
+       this._ProfileService.uploadFeaturePhoto(this.user.company_id,formData).subscribe((res:any)=>{
+          this.toastr.success('Feathured dish upload successfully!')
+      },error=>{
+          this.toastr.error('failed to upload, please try again later')
+       })
+    }
+
+    onSelectfeathured(event) {
+      console.log(event);
+      this.feathuredfiles.push(...event.addedFiles);
+      const formData = new FormData();
+      formData.append('file',event.addedFiles[0]);
+      this.uploadFeaturePhoto(formData);
+    }
+     
+    onRemovefeathured(event) {
+      console.log(event);
+      this.feathuredfiles.splice(this.feathuredfiles.indexOf(event), 1);
+    }
+
+  onSelect(event) {
+      console.log(event);
+      this.files.push(...event.addedFiles);
+      const formData = new FormData();
+      formData.append('file',event.addedFiles[0]);
+      this.uploadCompanyProfile(formData);
+    }
+     
+    onRemove(event) {
+      console.log(event);
+      this.files.splice(this.files.indexOf(event), 1);
+    }
+
+  //Save button event Starts
+  save1() {
+      this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+  }
+  //Save button event Ends
+
+  //Cancel button event Starts
+  cancel() {
+      this.router.navigateByUrl('/forms/ngx/wizard', { relativeTo: this.route.parent, skipLocationChange: true });
+  }
+  //Cancel button event Ends
 }

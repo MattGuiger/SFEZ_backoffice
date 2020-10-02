@@ -57,7 +57,7 @@ uploadGoogleMenuSheet(){
  }
 
  getDescription(description){
-   return description.length > 35 ? description.substr(0,35)+"..." : description
+   return description.length > 25 ? description.substr(0,25)+"..." : description
  }
  getTitle(description){
   return description.length > 10 ? description.substr(0,10)+"..." : description

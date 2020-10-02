@@ -6,6 +6,8 @@ import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/confirm-dialog.component';
 
 declare var require: any;
 const data: any = require('./company.json');
@@ -20,7 +22,11 @@ export class FoodParkComponent {
   temp = [...data];
   drivertemp = [...data];
   managertemp = [...data];
-
+  bgColor = 'rgba(0,0,0,0.5)'; // overlay background color
+  confirmHeading = '';
+  confirmContent = "Are you sure want to delete tsddshis?";
+  confirmCanceltext = "Cancel";
+  confirmOkaytext = "Okay";
 
   territory: any[] = [];
   drivers: any[] = [];
@@ -45,37 +51,37 @@ export class FoodParkComponent {
   huborlocation: boolean = false;
   showManagerTab: boolean = false;
   allManager: any[] = [];
-  allUnitList:any[] = [];
+  allUnitList: any[] = [];
 
   hubData = [
     {
-      "name":"KLM",
-      "manager":"Manger Name",
-      "deliveryIcon":true,
-      "codIcon":true,
-      "takeoutIcon":true,
+      "name": "KLM",
+      "manager": "Manger Name",
+      "deliveryIcon": true,
+      "codIcon": true,
+      "takeoutIcon": true,
     },
     {
-      "name":"PQR",
-      "manager":"Manger Name",
-      "deliveryIcon":true,
-      "codIcon":true,
-      "takeoutIcon":true,
+      "name": "PQR",
+      "manager": "Manger Name",
+      "deliveryIcon": true,
+      "codIcon": true,
+      "takeoutIcon": true,
     }
   ];
-  registerVendor:any[] = [
+  registerVendor: any[] = [
     {
-      name:"Vendor name",
-      manager:"Manager name",
+      name: "Vendor name",
+      manager: "Manager name",
     }
   ];
-
-  driverData = [
-    {
-      "name": "Kid Rock",
-      "phone": "480-921-8847",
-    }
-  ];
+  driverData: any
+  // driverData = [
+  //   {
+  //     "name": "Kid Rock",
+  //     "phone": "480-921-8847",
+  //   }
+  // ];
   registerDriver = [
     {
       "name": "Jimmy Hendricks",
@@ -85,12 +91,15 @@ export class FoodParkComponent {
 
 
   @ViewChild(FoodParkComponent, { static: false }) table: FoodParkComponent;
+  UnitList: any;
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService,
     private router: Router,
+    public dialog: MatDialog,
     private _CommonFunctionsService: CommonFunctionsService,
     private modalService: NgbModal,
     private route: ActivatedRoute) {
+    this.user = this._CommonFunctionsService.checkUser().user;
     this.getAllTerritory();
     this.getAllFoodPark();
     this.formInit();
@@ -98,7 +107,9 @@ export class FoodParkComponent {
     this.managerFormInit();
     this.getallfoodparkmgr();
     this.getAllUnitList();
-    this.user = this._CommonFunctionsService.checkUser().user;
+    this.getAllUnitWithFoodParkId();
+    this.getAllDriversWithFoodParkId();
+
     if (this.user.role == 'FOODPARKMGR' || this.user.role == 'OWNER') {
       this.showManagerTab = true;
     }
@@ -166,9 +177,10 @@ export class FoodParkComponent {
   /** end */
 
   /** get all unit list */
-  getAllUnitList(){
+  getAllUnitList() {
     this._ProfileService.getAllUnitListData().subscribe(
-      (response:any) => {
+      (response: any) => {
+        console.log('allunit list', response.data)
         this.allUnitList = response.data;
       },
       (error) => {
@@ -178,6 +190,117 @@ export class FoodParkComponent {
   }
   /** end */
 
+  getAllUnitWithFoodParkId() {
+    console.log('this.useris', this.user);
+
+    if (this.user.food_park_id) {
+      this._ProfileService.getAllUnitsListWithFoodParkId(this.user.food_park_id).subscribe(
+        (response: any) => {
+          console.log('uints per foodparid list', response.data)
+          this.UnitList = response.data;
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    }
+  }
+
+  getAllDriversWithFoodParkId() {
+
+    if (this.user.food_park_id) {
+      this._ProfileService.getAllDriversListWithFoodParkId(this.user.food_park_id).subscribe(
+        (response: any) => {
+          console.log('DrvierData per foodparid list', response.data)
+          this.driverData = response.data;
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    }
+  }
+
+  removeUnit(unitId) {
+
+    const message = `Are you sure you want to do this?`;
+
+    const dialogData = new ConfirmDialogModel("Confirm Action", message);
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "500px",
+      data: dialogData
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      // this.result = dialogResult;
+      console.log('dialogResultdialogResult', dialogResult);
+      if (dialogResult) {
+        if (this.user.food_park_id) {
+          let unit_data = {
+            foodparkId: this.user.food_park_id,
+            unitId: unitId
+          }
+          this._ProfileService.deleteUnitsListWithFoodParkId(unit_data).subscribe(
+            (response: any) => {
+              console.log('Remove dataaa', response)
+              // this.UnitList = response.data;
+              this.getAllUnitWithFoodParkId()
+              this.toastr.error(response.message)
+
+            },
+            (error) => {
+              console.log(error);
+              this.toastr.error(error)
+
+            }
+          )
+        }
+      } else {
+        // this.toastr.error('Please select the hub and manager')
+
+      }
+    });
+
+
+  }
+
+
+  removeDriver(userId) {
+
+    const message = `Are you sure you want to do this?`;
+
+    const dialogData = new ConfirmDialogModel("Confirm Action", message);
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "500px",
+      data: dialogData
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      // this.result = dialogResult;
+      console.log('dialogResultdialogResult', dialogResult);
+      if (dialogResult) {
+        if (this.user.food_park_id && userId) {
+          let unit_data = {
+            foodparkId: this.user.food_park_id,
+            userId: userId
+          }
+          this._ProfileService.deleteDriversWithFoodParkId(unit_data).subscribe(
+            (response: any) => {
+              console.log('Remove dataaa', response)
+              // this.UnitList = response.data;
+              this.getAllDriversWithFoodParkId()
+            },
+            (error) => {
+              console.log(error);
+            }
+          )
+        }
+      }
+    })
+  
+  }
   getallfoodparkmgr() {
     this._ProfileService.getallfoodparkmgr().subscribe((res: any) => {
       this.foodparkmgrList = res.data;
@@ -202,6 +325,8 @@ export class FoodParkComponent {
       this.drivers = res.data;
       // this.rows = this.drivers;
       this.drivertemp = [...this.drivers];
+      console.log(' this.drivertemp', this.drivertemp);
+
     })
   }
 
@@ -261,14 +386,14 @@ export class FoodParkComponent {
         this.toastr.error(res.message)
       }
     },
-    error => {
+      error => {
         this.toastr.error(error.error.message)
-    })
+      })
   }
 
   /** manager tab*/
-  territoryName:any;
-  getSingleTerritory(){
+  territoryName: any;
+  getSingleTerritory() {
     this._ProfileService.getSingleTerritory(this.user.territory_id).subscribe(
       (territoryResponse) => {
         this.territoryName = territoryResponse.territory;
@@ -301,12 +426,12 @@ export class FoodParkComponent {
   onManagerSubmit() {
     this.managerForm.value.manager_id = this.user.manager_id;
     this.managerForm.value.food_park_id = this.user.food_park_id;
-    
-    if(this.managerForm.value.unitId == null){
+
+    if (this.managerForm.value.unitId == null) {
       console.log('if');
       this.managerForm.value.territory_id = this.user.territory_id;
       delete this.managerForm.value.unitId;
-    }else{
+    } else {
       console.log('else');
       delete this.managerForm.value.territory_id;
       delete this.managerForm.value.food_park_id;
@@ -314,7 +439,7 @@ export class FoodParkComponent {
     return console.log(this.managerForm.value);
     this._ProfileService.addManagers(this.managerForm.value).subscribe((res: any) => {
       if (res.status == 200) {
-        this.toastr.success('Manager created successfully'); 
+        this.toastr.success('Manager created successfully');
         this.toastr.success('Email sent successfully');
         this.huborlocation = false;
         document.getElementById("closeModal").click();
@@ -330,25 +455,25 @@ export class FoodParkComponent {
     this.managerForm.reset();
   }
 
-  deleteManager($event, row){
+  deleteManager($event, row) {
     console.log(row);
-    let data; 
-    if(row?.unit?.id){
+    let data;
+    if (row?.unit?.id) {
       console.log('if');
-        data = {
-          "user_id": row.id,
-          "unit_id":row.unit.id
-        }
-    }else{
+      data = {
+        "user_id": row.id,
+        "unit_id": row.unit.id
+      }
+    } else {
       console.log('else');
       data = {
         "user_id": row.id,
-        "food_park_id":this.user.food_park_id
+        "food_park_id": this.user.food_park_id
       }
     }
     this._ProfileService.deleteManager(data).subscribe(
       (response) => {
-        if(response.status == 200){
+        if (response.status == 200) {
           this.toastr.success('Manager deleted successfull');
           this.getAllManger();
         }
@@ -409,8 +534,13 @@ export class FoodParkComponent {
     this._ProfileService.getAllFoodPark().subscribe((res: any) => {
       // this.territory = res;
       this.rows = res;
+
+      console.log('this.rows', res);
+
       this.temp = [...this.rows];
       this.selectedHub = parseInt(res[0].id);
+      console.log(' this.drivertemp', this.selectedHub);
+
       this.getAllDrivers(res[0].id)
     })
   }

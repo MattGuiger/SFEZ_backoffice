@@ -33,13 +33,17 @@ import {CompanyviewComponent} from './companyview/companyview.component'
 import {ViewunitComponent} from './viewunits/viewunits.component'
 import {UnitorderComponent} from './unitsorder/unitsorder.component'
 import {FoodpckmgrorderComponent} from './foodpckmgrorder/foodpckmgrorder.component'
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { Ng5SliderModule } from 'ng5-slider';
 import { TagInputModule } from 'ngx-chips';
 import { AgmCoreModule } from '@agm/core';
 import { CustompipePipe } from './custompipe.pipe';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 
+import { CustomMaterialModule } from '../custom-material/custom-material.module';
 
 
 @NgModule({
@@ -48,11 +52,21 @@ import { CustompipePipe } from './custompipe.pipe';
             apiKey: 'AIzaSyBLXlb_YUHwakS59P-aI5_xJHRwXBtA_hE',//'AIzaSyBl-UKKzfU6aOgD-aixzgRy_yJ7_BIvbms',
             libraries: ['places','visualization','drawing', 'geometry']
           }),
-        FormsModule,NgxDatatableModule,TagInputModule, NGXFormWizardModule, NgMultiSelectDropDownModule, NgbModule, CustomFormsModule, ReactiveFormsModule],
+        FormsModule,
+        NgxDatatableModule,
+        TagInputModule,
+         NGXFormWizardModule,
+          NgMultiSelectDropDownModule,
+           NgbModule, 
+           CustomMaterialModule,
+           CustomFormsModule,
+           ConfirmDialogModule, 
+           ReactiveFormsModule],
     declarations: [
         FormBasicComponent,
         FormvalComponent,
         CheckradioComponent,
+        ConfirmDialogComponent,
         ForminputsComponent,
         GridsComponent,
         InputgroupsComponent,
@@ -75,6 +89,9 @@ import { CustompipePipe } from './custompipe.pipe';
         UnitorderComponent,
         FoodpckmgrorderComponent,
         CustompipePipe
-    ]
+    ],
+    providers:[ConfirmationService],
+    entryComponents: [ConfirmDialogComponent],
+
 })
 export class FormModule { }

@@ -109,6 +109,22 @@ export class ProfileService {
   getAllFoodPark(): Observable<any> {
     return this.http.get(this.foodparkURL);
   }
+
+  getAllUnitsListWithFoodParkId(foodparkId): Observable<any> {
+    return this.http.get(this.foodparkURL+'/'+foodparkId+'/units');
+  }
+ deleteUnitsListWithFoodParkId(data): Observable<any> {
+    return this.http.delete(this.foodparkURL+'/'+data.foodparkId+'/units'+'/'+data.unitId);
+  }
+
+  getAllDriversListWithFoodParkId(foodparkId): Observable<any> {
+    return this.http.get(this.foodparkURL+'/'+foodparkId+'/drivers');
+  }
+  deleteDriversWithFoodParkId(data): Observable<any> {
+    console.log('dataataaa',data);
+    
+    return this.http.delete(this.foodparkURL+'/'+data.foodparkId+'/drivers'+'/'+data.userId);
+  }
   getallfoodparkmgr(): Observable<any> {
     return this.http.get(this.foodparkmgrURL);
   }

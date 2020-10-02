@@ -129,12 +129,56 @@
                     
                     <label for="exampleInputEmail1">Vendor Name</label>
                     <input type="text" class="form-control" id="exampleInputEmail1">
-                    <small id="emailHelp" class="form-text text-muted">Helper Text  ex. Miso Soupy</small>    
-                    <button type="button" uiSref="work" class="mt-3 btn btn-raised"
-                        (click)="save()" style="background: #34a6bf;color:#fff;"> Next </button>    
+                    <small id="emailHelp" class="form-text text-muted">Helper Text  ex. Miso Soupy</small>   
+                    
+                  
+                    <!-- <button type="button" uiSref="work" class="mt-3 btn btn-raised"
+                        (click)="save()" style="background: #34a6bf;color:#fff;"> Next </button>     -->
                 </div>
             </div>
         </div>
-    </div>
+        <div class='row'>
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <label class="form-control-label" for="street">Add a Logo <img src="/assets/images/paco.png" /></label>  
+                    <ngx-dropzone (change)="onSelect($event)">
+                        <ngx-dropzone-label>Click here to Upload!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                    <!-- <div style="display: inline !important;" >
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" style="display: inline !important;">
+                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                      </ngx-dropzone-image-preview>
+                    </div> -->
+                    
+                </div>   
+            </div>
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <label class="form-control-label" for="street">Favorite dish <img src="/assets/images/dish.jpg" /></label>  
+                    <ngx-dropzone (change)="onSelectfeathured($event)">
+                        <ngx-dropzone-label>Click here to Upload!</ngx-dropzone-label>
+                        <ngx-dropzone-preview *ngFor="let f of feathuredfiles" [removable]="true" (removed)="onRemovefeathured(f)">
+                            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                        </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                    <!-- <div style="display: inline !important;" >
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" style="display: inline !important;">
+                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                      </ngx-dropzone-image-preview>
+                    </div> -->
+                    
+                </div>   
+                <div class='row'>
+                <div class="form-group text-center">
+                    <!-- <button uiSref="work" type="button" class="btn btn-raised btn-secondary mr-1" (click)="cancel()">Previous</button> -->
+                    <button uiSref="result" type="button" class="btn btn-raised btn-info" (click)="save()" style="background: #34a6bf;color:#fff;"> Next </button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>s
 </form>
 <!-- Personal Tab Form Ends -->
