@@ -44,6 +44,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
+import { ManagerEditComponent } from './manager-edit/manager-edit.component';
 
 
 @NgModule({
@@ -88,7 +89,8 @@ import { CustomMaterialModule } from '../custom-material/custom-material.module'
         ViewunitComponent,
         UnitorderComponent,
         FoodpckmgrorderComponent,
-        CustompipePipe
+        CustompipePipe,
+        ManagerEditComponent
     ],
     providers:[ConfirmationService],
     entryComponents: [ConfirmDialogComponent],

@@ -66,7 +66,7 @@
 
                   <ngx-datatable-column name="Action" prop="Action" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <button type="button" class="btn btn-success btn-sm"><i class="ti-pencil"></i></button>
+                      <button type="button" class="btn btn-success btn-sm" (click)="openEditDeilveryHub(content5)"><i class="ti-pencil"></i></button>
                     </ng-template>
                   </ngx-datatable-column>
                 </ngx-datatable>
@@ -129,7 +129,7 @@
                   <ngx-datatable-column name="Takeout">
                     <ng-template let-row="row" ngx-datatable-header-template let-value="value">
                       <img src="../../../assets/images/takeout-01.png" alt="Icon" style="height: 30px;" />
-                     
+
                     </ng-template>
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                       <div class="">
@@ -176,7 +176,8 @@
                   <ngx-datatable-column name="Action" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
 
-                      <button type="button" class="btn btn-danger btn-sm" (click)=removeUnit(row.id)>Remove Vendor</button>
+                      <button type="button" class="btn btn-danger btn-sm" (click)=removeUnit(row.id)>Remove
+                        Vendor</button>
                     </ng-template>
                   </ngx-datatable-column>
 
@@ -290,8 +291,8 @@
                   </ngx-datatable-column>
                   <ngx-datatable-column name="Action" prop="Action" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <button type="button" class="btn btn-success btn-sm"><i class="ti-pencil"></i></button> &nbsp;
-                      <button type="button" class="btn btn-danger btn-sm"><i class="ti-close"></i></button>
+                      <button type="button" class="btn btn-success btn-sm" (click)="openEditLocations(content6)"><i class="ti-pencil"></i></button> &nbsp;
+                      <button type="button" class="btn btn-danger btn-sm" (click)="deleteLocation(row)"><i class="ti-close"></i></button>
                     </ng-template>
                   </ngx-datatable-column>
                 </ngx-datatable>
@@ -380,16 +381,21 @@
 
                         <button type="button"
                           class="btn btn-sm btn-success btn-icon btn-pure btn-outline delete-row-btn"
-                          data-toggle="tooltip" data-original-title="View" (click)="viewCompany($event,row,'edit')">
+                          data-toggle="tooltip" data-original-title="View" (click)="viewManager($event,row,'edit')">
                           <i class="ti-pencil" aria-hidden="true"></i>
                         </button>&nbsp;&nbsp;
 
                         <button type="button" class="btn btn-sm btn-icon btn-danger btn-pure btn-outline delete-row-btn"
                           data-toggle="tooltip" data-original-title="Delete" (click)="deleteManager($event,row)">
                           <i class="ti-close" aria-hidden="true"></i>
-                        </button>
+                        </button>&nbsp;&nbsp;
                         <!-- <input class="btn btn-danger btn-raised" type="button" value="Delete" (click)="deleteCompany($event,row)"/>
                           <i class="ti-close" aria-hidden="true"></i> -->
+                        <!-- <button type="button"
+                          class="btn btn-sm btn-success btn-icon btn-pure btn-outline delete-row-btn"
+                          data-toggle="tooltip" data-original-title="Send Email" (click)="sendEmail($event,row)">
+                          Send Email
+                        </button> -->
                       </ng-template>
                     </ngx-datatable-column>
 
@@ -460,7 +466,8 @@
 
                   <ngx-datatable-column name="Active" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <button type="button" class="btn btn-danger btn-sm" (click)=removeDriver(row.id)>Remove Driver</button>
+                      <button type="button" class="btn btn-danger btn-sm" (click)=removeDriver(row.id)>Remove
+                        Driver</button>
                     </ng-template>
                   </ngx-datatable-column>
                 </ngx-datatable>
@@ -483,7 +490,7 @@
 
                   <ngx-datatable-column name="Active" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <button type="button" class="btn btn-success btn-sm">Add Driver</button>
+                      <button type="button" class="btn btn-success btn-sm"  (click)=addDriver(row.  )>Add Driver</button>
                     </ng-template>
                   </ngx-datatable-column>
 
@@ -828,13 +835,10 @@
             <div class="input-group-prepend">
               <div class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
             </div>
-            <select class="form-control" (change)="selectHubOrLoc($event)">
-              <option>Hub #1 Delhi-sector 48</option>
-              <option>Hub #2</option>
-              <option>Hub #3 Delhi-sector 48</option>
-              <option>Hub #4</option>
-              <option>Hub #5 Delhi-sector 50</option>
-              <option>Hub #6</option>
+            <select class="form-control" (change)="selectLocationOrHub($event,row,value)">
+              <option value="">Select</option>
+              <option *ngFor="let hub_location of selectArry " value="{{hub_location.name}}">{{hub_location.name}}
+              </option>
             </select>
           </div>
         </div>
@@ -981,7 +985,112 @@
       </div>
     </form>
   </div>
-<!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog> -->
+  <!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog> -->
 
 </ng-template>
 
+<ng-template #content5 let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Edit Unit</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="foodParkForm" (ngSubmit)="onDeliveryHubSubmit()">
+      <div class="form-group">
+        <label for="name">Delivery Time Window</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="1000"
+        min="1"
+        max="15"></mat-slider>
+     
+     
+        <label for="name"> Delivery Range</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="1000"
+        min="1"
+        step="5"
+        max="15"></mat-slider>
+ 
+
+      
+      
+     
+        <label for="name">Short Delivery (km/mi)  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="1000"
+        min="1"
+        max="100000"></mat-slider>
+
+        <label for="name">Medium Delivery (km/mi)  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="1000"
+        min="1"
+        max="100000"></mat-slider>
+  
+    
+        <label for="name">Long Delivery (R$)</label>&nbsp;
+        <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="1000"
+        min="1"
+        max="100000"></mat-slider>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark">Save</button>&nbsp;
+        <button type="submit" class="btn btn-outline-dark">Cancel</button>
+
+      </div>
+    </form>
+  </div>
+
+</ng-template>
+
+
+
+<ng-template #content6 let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Edit Location</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="foodParkForm" (ngSubmit)="onLocationEditSubmit()">
+      <div class="form-group">
+        <label for="name">Customer Order Window</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="1000"
+        min="1"
+        max="15"></mat-slider>
+        <label for="name">Type</label>
+        <div class="input-group">
+          <input id="type" class="form-control" name="type" type="text" formControlName="type ">
+        </div>
+        <label for="name">Territory</label>
+        <div class="input-group">
+          <input id="territory" class="form-control" name="territory" type="text" formControlName="territory">
+        </div>
+      </div>
+    
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark">Save</button>&nbsp;
+        <button type="submit" class="btn btn-outline-dark">Cancel</button>
+
+      </div>
+    </form>
+  </div>
+
+</ng-template>

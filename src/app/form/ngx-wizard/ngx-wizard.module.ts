@@ -26,13 +26,15 @@ import { CommonModule } from "@angular/common";
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TagsComponent } from './tags/tags.component';
+import { CustomMaterialModule } from 'src/app/custom-material/custom-material.module';
 
 @NgModule({
     imports: [CommonModule,
         FormsModule,
         NGXWizardRoutingModule,
         NgxDropzoneModule,
-        NgbModule
+        NgbModule,
+        CustomMaterialModule
         // NgxDatatableModule,
     ],
     providers: [{ provide: FormDataService, useClass: FormDataService },

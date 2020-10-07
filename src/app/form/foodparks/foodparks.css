@@ -61,3 +61,7 @@ input:checked + .slider:before {
   width: 50px;
   height: 20px;
 }
+
+mat-slider {
+  width: 300px;
+}

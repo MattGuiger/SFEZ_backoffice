@@ -42,6 +42,7 @@ export class ProfileService {
   private createWagesUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/ord/create-wage/';
   private voidOrderUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/ord/delete-order/';
   private singleTerritoryUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories/';
+  private googldriveUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/google/';
 
   constructor(private http: HttpClient) { }
 
@@ -209,6 +210,12 @@ export class ProfileService {
   }
   getAllProductList(id) : Observable<any> {
     return this.http.get(this.productListUrl+id+'/menuitems');
+  }
+  getGoogleAuthenication() : Observable<any> {
+    return this.http.get(this.googldriveUrl+'auth');
+  }
+  createfolderInGoogleDrive(data) : Observable<any> {
+    return this.http.post(this.googldriveUrl+'createfolder',data);
   }
   getCategory(companyId) : Observable<any> {
     return this.http.get(this.productListUrl+companyId+'/getactivecategoriesnames');

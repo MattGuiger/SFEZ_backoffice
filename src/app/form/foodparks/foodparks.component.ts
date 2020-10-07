@@ -89,7 +89,7 @@ export class FoodParkComponent {
     }
   ];
 
-
+selectArry=[]
   @ViewChild(FoodParkComponent, { static: false }) table: FoodParkComponent;
   UnitList: any;
   constructor(private _ProfileService: ProfileService,
@@ -264,7 +264,44 @@ export class FoodParkComponent {
 
 
   }
+  deleteLocation(unitId){
+    const message = `Are you sure you want to do this?`;
+    const dialogData = new ConfirmDialogModel("Confirm Action", message);
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "500px",
+      data: dialogData
+    });
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      // this.result = dialogResult;
+      console.log('dialogResultdialogResult', dialogResult);
+      if (dialogResult) {
+        if (this.user.food_park_id) {
+          let unit_data = {
+            foodparkId: this.user.food_park_id,
+            unitId: unitId
+          }
+          return
+          this._ProfileService.deleteUnitsListWithFoodParkId(unit_data).subscribe(
+            (response: any) => {
+              console.log('Remove dataaa', response)
+              // this.UnitList = response.data;
+              this.getAllUnitWithFoodParkId()
+              this.toastr.error(response.message)
 
+            },
+            (error) => {
+              console.log(error);
+              this.toastr.error(error)
+
+            }
+          )
+        }
+      } else {
+        // this.toastr.error('Please select the hub and manager')
+
+      }
+    });
+  }
 
   removeDriver(userId) {
 
@@ -421,8 +458,16 @@ export class FoodParkComponent {
         //this.toastr.error(error.error.message)
       })
   }
+  editDeliveryHub(){
 
+  }
+  formatLabel(value: number) {
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'k';
+    }
 
+    return value;
+  }
   onManagerSubmit() {
     this.managerForm.value.manager_id = this.user.manager_id;
     this.managerForm.value.food_park_id = this.user.food_park_id;
@@ -436,7 +481,7 @@ export class FoodParkComponent {
       delete this.managerForm.value.territory_id;
       delete this.managerForm.value.food_park_id;
     }
-    return console.log(this.managerForm.value);
+    return console.log('ggggggggggggggggggggggg',this.managerForm.value);
     this._ProfileService.addManagers(this.managerForm.value).subscribe((res: any) => {
       if (res.status == 200) {
         this.toastr.success('Manager created successfully');
@@ -454,7 +499,9 @@ export class FoodParkComponent {
 
     this.managerForm.reset();
   }
-
+  selectLocationOrHub(event,row,value){
+console.log(event,row,value,'event,row,value')
+  }
   deleteManager($event, row) {
     console.log(row);
     let data;
@@ -515,7 +562,20 @@ export class FoodParkComponent {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
-
+  openEditLocations(content4) {
+    this.modalService.open(content4, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  openEditDeilveryHub(content4) {
+    this.modalService.open(content4, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -542,8 +602,20 @@ export class FoodParkComponent {
       console.log(' this.drivertemp', this.selectedHub);
 
       this.getAllDrivers(res[0].id)
+
+
+      // select in manager tab
+      this.temp.filter((value,index)=>{
+        this.selectArry.push({name:value.name})
+      })
+      this.temp.filter((value,index)=>{
+        this.selectArry.push({name:value.name})
+      })
+    console.log(' this.selectArry', this.selectArry)  
     })
   }
+
+
 
   updateDriverFilter(event) {
     const val = event.target.value.toLowerCase();
@@ -588,5 +660,13 @@ export class FoodParkComponent {
     this.rows[rowIndex][cell] = event.target.value;
     this.rows = [...this.rows];
     console.log('UPDATED!', this.rows[rowIndex][cell]);
+  }
+
+  viewManager(event,row,type){
+    this.router.navigateByUrl('/forms/manager/'+row.id+"/"+type);
+  }
+
+  sendEmail(event,row,type){
+    // this.router.navigateByUrl('/forms/manager/'+row.id+"/"+type);
   }
 }

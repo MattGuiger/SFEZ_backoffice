@@ -24,6 +24,7 @@ import {CompanyviewComponent} from './companyview/companyview.component'
 import {ViewunitComponent} from './viewunits/viewunits.component'
 import {UnitorderComponent} from './unitsorder/unitsorder.component'
 import {FoodpckmgrorderComponent} from './foodpckmgrorder/foodpckmgrorder.component'
+import { ManagerEditComponent } from './manager-edit/manager-edit.component';
 
 export const FormsRoutes: Routes = [
   {
@@ -90,6 +91,13 @@ export const FormsRoutes: Routes = [
         component: CompanyviewComponent,
         data: {
           title: 'Company View'
+        }
+      },
+      {
+        path: 'manager/:id/:type',
+        component: ManagerEditComponent,
+        data: {
+          title: 'Manager Edit'
         }
       },
       {

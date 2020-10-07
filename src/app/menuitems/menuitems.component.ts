@@ -21,6 +21,7 @@ export class MenuitemsComponent implements OnInit{
   ngOnInit(){
     this.getAllProductList();
     this.getCompanyProfile();
+    this.getgoogleauthntication()
   }
   getAllProductList(){
     this.processing = true;
@@ -32,7 +33,10 @@ export class MenuitemsComponent implements OnInit{
       //debugger
     })
  }
-
+ getgoogleauthntication(){
+ let googgleData = this._ProfileService.getGoogleAuthenication();
+console.log('googgleData',googgleData)
+}
  getCompanyProfile(){
   this.user = this._CommonFunctionsService.checkUser().user;
   this._ProfileService.getCompanyprofile(this.user.unit_id).subscribe((res:any)=>{
