@@ -141,15 +141,18 @@
                                                                   <mat-form-field appearance="fill">
                                                                     <input matInput placeholder="Search" class="form-control">
                                                                   </mat-form-field>
-                                                                  <mat-checkbox>Appetizers</mat-checkbox>
-                                                                  <mat-checkbox>Salads</mat-checkbox>
-                                                                  <mat-checkbox>
-                                                                    Entrées
-                                                                  </mat-checkbox>
-                                                                  <mat-checkbox>Beverages</mat-checkbox>
-                                                                  <mat-checkbox>Sandwiches</mat-checkbox>
-                                                                  <mat-checkbox>Burgers</mat-checkbox>
-                                                                  <mat-checkbox>Noodles</mat-checkbox>
+                                                                  <div *ngFor="let category of categories">
+                                                                    <mat-checkbox>{{category.category}}</mat-checkbox>
+                                                                    <!-- <mat-checkbox>Salads</mat-checkbox>
+                                                                    <mat-checkbox>
+                                                                      Entrées
+                                                                    </mat-checkbox>
+                                                                    <mat-checkbox>Beverages</mat-checkbox>
+                                                                    <mat-checkbox>Sandwiches</mat-checkbox>
+                                                                    <mat-checkbox>Burgers</mat-checkbox>
+                                                                    <mat-checkbox>Noodles</mat-checkbox> -->
+                                                                  </div>
+                                                             
                                                                 </div>
                                                               </div>
                                                             </div>

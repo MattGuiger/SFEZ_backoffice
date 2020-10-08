@@ -490,7 +490,7 @@
 
                   <ngx-datatable-column name="Active" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <button type="button" class="btn btn-success btn-sm"  (click)=addDriver(row.  )>Add Driver</button>
+                      <button type="button" class="btn btn-success btn-sm"  (click)=addDriver(row)>Add Driver</button>
                     </ng-template>
                   </ngx-datatable-column>
 
@@ -990,8 +990,8 @@
 </ng-template>
 
 <ng-template #content5 let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Edit Unit</h4>
+  <div class="modal-header" style="background-color: #7460ee;">
+    <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Edit Unit</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -999,52 +999,74 @@
   <div class="modal-body">
     <form [formGroup]="foodParkForm" (ngSubmit)="onDeliveryHubSubmit()">
       <div class="form-group">
-        <label for="name">Delivery Time Window</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <mat-slider
+        <label for="name" style="display: block;">Delivery Time Window(min)</label>
+        <!-- <mat-slider
         thumbLabel
         [displayWith]="formatLabel"
         tickInterval="1000"
         min="1"
-        max="15"></mat-slider>
-     
-     
-        <label for="name"> Delivery Range</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        max="15"></mat-slider> -->
         <mat-slider
+        thumbLabel 
+        min="1"
+        max="15" 
+        step="5"
+        [displayWith]="formatLabel"
+
+                tickInterval="5"
+        (input)="minDaysValue = $event.value"
+        [value]="minDaysValue">
+    </mat-slider>
+     
+     
+        <label for="name" style="display: block;"> Delivery Range</label>
+        <!-- <mat-slider
         thumbLabel
         [displayWith]="formatLabel"
         tickInterval="1000"
         min="1"
         step="5"
-        max="15"></mat-slider>
+        max="15"></mat-slider> -->
  
-
+        <mat-slider
+        thumbLabel 
+        min="0"
+        max="15" 
+        step="5"
+        [displayWith]="formatLabel"
+        tickInterval="5"
+        (input)="minDaysValue = $event.value"
+        [value]="minDaysValue">
+    </mat-slider>
       
       
      
-        <label for="name">Short Delivery (km/mi)  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="name" style="display: block;">Standard Delivery (0-5 mi/km) </label>
         <mat-slider
-        thumbLabel
-        [displayWith]="formatLabel"
-        tickInterval="1000"
-        min="1"
-        max="100000"></mat-slider>
-
-        <label for="name">Medium Delivery (km/mi)  </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        thumbLabel 
+        min="0"
+        max="5" 
+        step="0.5"
+        [displayWith]="formatLabel1"
+       >
+</mat-slider>
+        <label for="name" style="display: block;">Long Delivery (5-10 mi/km)  </label>
         <mat-slider
-        thumbLabel
-        [displayWith]="formatLabel"
-        tickInterval="1000"
-        min="1"
-        max="100000"></mat-slider>
+        thumbLabel 
+        min="5"
+        max="10" 
+        step="0.5"
+        [displayWith]="formatLabel2"
+        >
   
-    
-        <label for="name">Long Delivery (R$)</label>&nbsp;
+      </mat-slider>
+        <label for="name" style="display: block;">Custom</label>
         <mat-slider
         thumbLabel
-        [displayWith]="formatLabel"
-        tickInterval="1000"
-        min="1"
-        max="100000"></mat-slider>
+        [displayWith]="formatLabel3"
+   
+        min="0"
+        max="15"></mat-slider>
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-outline-dark">Save</button>&nbsp;
@@ -1059,8 +1081,8 @@
 
 
 <ng-template #content6 let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Edit Location</h4>
+  <div class="modal-header" style="background-color: #7460ee;">
+    <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Edit Location</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -1068,7 +1090,7 @@
   <div class="modal-body">
     <form [formGroup]="foodParkForm" (ngSubmit)="onLocationEditSubmit()">
       <div class="form-group">
-        <label for="name">Customer Order Window</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="name" style="display: block;">Customer Order Window</label>
         <mat-slider
         thumbLabel
         [displayWith]="formatLabel"

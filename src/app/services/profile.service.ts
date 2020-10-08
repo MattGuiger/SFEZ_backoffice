@@ -22,7 +22,9 @@ export class ProfileService {
   private territoryURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories';  
   private addUnitURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/companies/';  
   private foodparkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks'; 
-  private addFoodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks';  
+  private addFoodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks';
+  private Category = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/category';  
+
   private foodparkmgrURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/foodparkmgr';  
   private setManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/setfoodparkmgrtohub';  
   private setDriverManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/setfooddrivertohub';  
@@ -143,6 +145,10 @@ export class ProfileService {
   }
   getAllDrivers(foodParkId): Observable<any> {
     return this.http.get(this.foodparkURL+'/'+foodParkId+"/drivers");
+  }
+
+  getAllCategories(): Observable<any> {
+    return this.http.get(this.Category);
   }
   getunitById(companyId,id): Observable<any> {
     return this.http.get(this.unitURL+'/'+companyId+"/units/"+id);

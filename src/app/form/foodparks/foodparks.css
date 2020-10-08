@@ -63,5 +63,12 @@ input:checked + .slider:before {
 }
 
 mat-slider {
-  width: 300px;
+  width: 100%;
+}
+::ng-deep .mat-slider-min-value.mat-slider-thumb-label-showing .mat-slider-thumb, 
+::ng-deep .mat-slider-min-value.mat-slider-thumb-label-showing .mat-slider-thumb-label,
+::ng-deep .mat-accent .mat-slider-track-fill, 
+::ng-deep .mat-accent .mat-slider-thumb, 
+::ng-deep .mat-accent .mat-slider-thumb-label {
+  background-color: #7460ee;
 }

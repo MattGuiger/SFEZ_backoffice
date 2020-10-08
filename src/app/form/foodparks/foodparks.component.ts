@@ -27,7 +27,7 @@ export class FoodParkComponent {
   confirmContent = "Are you sure want to delete tsddshis?";
   confirmCanceltext = "Cancel";
   confirmOkaytext = "Okay";
-
+  minDaysValue=10;
   territory: any[] = [];
   drivers: any[] = [];
   foodparkmgrList: any[] = [];
@@ -220,7 +220,13 @@ selectArry=[]
       )
     }
   }
+  // formatLabel(value: number) {
+  //   if (value >= 1000) {
+  //     return Math.round(value / 1000) + 'k';
+  //   }
 
+  //   return value;
+  // }
   removeUnit(unitId) {
 
     const message = `Are you sure you want to do this?`;
@@ -461,12 +467,26 @@ selectArry=[]
   editDeliveryHub(){
 
   }
-  formatLabel(value: number) {
-    if (value >= 1000) {
-      return Math.round(value / 1000) + 'k';
-    }
+  formatLabel1(value: number) {
+    console.log('value',value);
+    
+    // if (value <= 15) {
+    //   return (value*4.25);
+    // }
 
-    return value;
+    return '$'+value*4.25;
+  }
+  formatLabel2(value: number) {
+    console.log('value',value);
+   
+    return '$'+value*7;
+  }
+  formatLabel3(value: number) {
+    console.log('value',value);
+    
+ 
+
+    return '$'+value;
   }
   onManagerSubmit() {
     this.managerForm.value.manager_id = this.user.manager_id;
@@ -668,5 +688,9 @@ console.log(event,row,value,'event,row,value')
 
   sendEmail(event,row,type){
     // this.router.navigateByUrl('/forms/manager/'+row.id+"/"+type);
+  }
+
+  onLocationEditSubmit(){
+    
   }
 }
