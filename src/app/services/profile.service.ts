@@ -221,6 +221,7 @@ export class ProfileService {
     return this.http.get(this.googldriveUrl+'auth');
   }
   createfolderInGoogleDrive(data) : Observable<any> {
+    console.log('dataaaa',data)
     return this.http.post(this.googldriveUrl+'createfolder',data);
   }
   getCategory(companyId) : Observable<any> {
