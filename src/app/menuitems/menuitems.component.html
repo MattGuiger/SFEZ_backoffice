@@ -142,7 +142,9 @@
                                                                     <input matInput placeholder="Search" class="form-control">
                                                                   </mat-form-field>
                                                                   <div *ngFor="let category of categories">
-                                                                    <mat-checkbox>{{category.category}}</mat-checkbox>
+                                                                    <mat-checkbox  #ref
+                                                                    [checked]="checked"   
+                                                                    (click)="onClick($event)">{{category.category}}</mat-checkbox>
                                                                     <!-- <mat-checkbox>Salads</mat-checkbox>
                                                                     <mat-checkbox>
                                                                       Entrées

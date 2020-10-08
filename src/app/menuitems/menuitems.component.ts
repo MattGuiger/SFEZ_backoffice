@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, ViewChild } from '@angular/core';
 import {ProfileService} from '../services/profile.service'
 import {CommonFunctionsService} from '../services/commonFunctions.service'
 import {Router} from '@angular/router'
@@ -14,6 +14,8 @@ export class MenuitemsComponent implements OnInit{
   productList : any[]=[];
   processing : boolean = false;
   profile : any;
+  categories: any;
+  @ViewChild('ref') ref;
   constructor(private toastr: ToastrService,private _ProfileService: ProfileService,private slimLoader: SlimLoadingBarService,private _CommonFunctionsService:CommonFunctionsService,private _Router:Router){
 
   }
@@ -22,6 +24,7 @@ export class MenuitemsComponent implements OnInit{
     this.getAllProductList();
     this.getCompanyProfile();
     this.getgoogleauthntication()
+    this.getAllCategories();
   }
   getAllProductList(){
     this.processing = true;
@@ -36,6 +39,14 @@ export class MenuitemsComponent implements OnInit{
  getgoogleauthntication(){
  let googgleData = this._ProfileService.getGoogleAuthenication();
 console.log('googgleData',googgleData)
+}
+onClick(event) {
+  event.preventDefault();
+//  console.log('onClick event.checked ' + event.checked);
+// console.log('onClick event.target.checked '+event.target.checked);
+  console.log('onClick this.ref._checked '+ this.ref._checked);
+
+  this.ref._checked = !this.ref._checked;
 }
  getCompanyProfile(){
   this.user = this._CommonFunctionsService.checkUser().user;
@@ -55,7 +66,11 @@ uploadGoogleMenuSheet(){
    this.toastr.error('Failed to upload, please try again later')
  })
 }
-
+getAllCategories(){
+  this._ProfileService.getAllCategories().subscribe(res=>{
+    this.categories=res.data
+  })
+}
  openProduct(item){
    this._Router.navigateByUrl('menuitems/view/'+item.category+'/'+item.id)
  }
