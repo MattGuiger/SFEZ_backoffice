@@ -15,13 +15,16 @@ export class MenuitemsComponent implements OnInit{
   processing : boolean = false;
   profile : any;
   authentication_url
+  categories: any;
+
   constructor(private toastr: ToastrService,private _ProfileService: ProfileService,private slimLoader: SlimLoadingBarService,private _CommonFunctionsService:CommonFunctionsService,private _Router:Router){
 
   }
 
   ngOnInit(){
     this.getgoogleauthntication()
-
+this.listCategory()
+this.getAllCategories();
     // this.getAllProductList();
     // this.getCompanyProfile();
   }
@@ -36,6 +39,12 @@ export class MenuitemsComponent implements OnInit{
       //debugger
     })
  }
+
+ listCategory(){
+  this.processing = true;
+  this.user = this._ProfileService.createDriverWages
+}
+
  getgoogleauthntication(){
  this._ProfileService.getGoogleAuthenication().subscribe((res:any)=>{
   console.log('googgleData',res)
@@ -52,7 +61,11 @@ export class MenuitemsComponent implements OnInit{
    //  
   })
 }
-
+getAllCategories(){
+  this._ProfileService.getAllCategories().subscribe(res=>{
+    this.categories=res.data
+  })
+}
 uploadGoogleMenuSheet(){
  this._ProfileService.uploadGoogleMenuSheet().subscribe((res:any)=>{
    this.toastr.success(res.success);
