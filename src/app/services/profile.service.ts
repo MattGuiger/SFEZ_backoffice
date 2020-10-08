@@ -200,7 +200,7 @@ export class ProfileService {
   getCompanyprofile(id): Observable<any> {
     return this.http.get(this.getProfileURL+id);
   }
-  
+ 
   updateGoogleSheetDetails(id,data)  : Observable<any> {
     return this.http.put(this.updateUsergooglesheetUrl+id,data);
   }

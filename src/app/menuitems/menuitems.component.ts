@@ -14,15 +14,18 @@ export class MenuitemsComponent implements OnInit{
   productList : any[]=[];
   processing : boolean = false;
   profile : any;
+  authentication_url
   constructor(private toastr: ToastrService,private _ProfileService: ProfileService,private slimLoader: SlimLoadingBarService,private _CommonFunctionsService:CommonFunctionsService,private _Router:Router){
 
   }
 
   ngOnInit(){
-    this.getAllProductList();
-    this.getCompanyProfile();
     this.getgoogleauthntication()
+
+    // this.getAllProductList();
+    // this.getCompanyProfile();
   }
+
   getAllProductList(){
     this.processing = true;
     this.user = this._CommonFunctionsService.checkUser().user;
@@ -34,8 +37,11 @@ export class MenuitemsComponent implements OnInit{
     })
  }
  getgoogleauthntication(){
- let googgleData = this._ProfileService.getGoogleAuthenication();
-console.log('googgleData',googgleData)
+ this._ProfileService.getGoogleAuthenication().subscribe((res:any)=>{
+  console.log('googgleData',res)
+  this.authentication_url=res.data
+ });
+
 }
  getCompanyProfile(){
   this.user = this._CommonFunctionsService.checkUser().user;
