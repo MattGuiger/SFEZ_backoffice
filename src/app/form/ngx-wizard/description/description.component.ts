@@ -1,3 +1,4 @@
+import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 import { FormDataService } from '../data/formData.service';
@@ -20,6 +21,9 @@ export class DescriptionComponent implements OnInit {
     description : string;
     form: any;
     companyId :any;
+    descriptionFormData = new FormGroup({
+        description: new FormControl()       
+        });
 
     constructor(private router: Router,
         private _AuthService:AuthService,
@@ -51,7 +55,9 @@ export class DescriptionComponent implements OnInit {
         
     // }
 
-    save(){
+    onSubmit(){
+        console.log("work"+ JSON.stringify(this.descriptionFormData.value));
+  const data = localStorage.setItem('descriptionFormData', JSON.stringify(this.descriptionFormData.value));
         this.router.navigateByUrl('/forms/ngx/schedule', { relativeTo: this.route.parent, skipLocationChange: true });
     }
 

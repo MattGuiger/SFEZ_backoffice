@@ -1,5 +1,5 @@
 
-<form #workForm="ngForm" class="editForm" novalidate>
+<form #descriptionForm="ngForm" [formGroup]="descriptionFormData" (ngSubmit)="onSubmit()">
     <div >
         <div class="tab-pane active">
             <h4 class="head text-center">{{title}}</h4>
@@ -20,12 +20,12 @@
            
             <div class="form-group col-4 offset-4 mt-4">
                 <label class="form-control-label" for="description">Description</label>  
-                <textarea rows="" class="form-control form-control-line" class="form-control input-md" id="description" name="description" placeholder="Homemade tortillas, stuffed lime-marinated lengua, smothered in avocado and our famous melt your face salsa."></textarea>
+                <textarea rows="" class="form-control form-control-line" formControlName="description" class="form-control input-md" id="description" name="description" placeholder="Homemade tortillas, stuffed lime-marinated lengua, smothered in avocado and our famous melt your face salsa."></textarea>
 
                 <!-- <small class="text-muted formt-text">Helper Text:  Homemade tortillas, stuffed lime-marinated lengua, smothered in avocado and our famous melt your face salsa. </small><br> -->
                 <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1 mt-3" (click)="cancel()"> Previous</button>
                 <!-- <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button> -->
-                <button uiSref="address" type="button" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" (click)="save()"> Next </button>
+                <button uiSref="address" type="submit" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" > Next </button>
             </div>
         </div>
     </div>

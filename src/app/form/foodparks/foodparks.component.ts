@@ -1,13 +1,16 @@
-import { Component, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
+import { map, startWith } from 'rxjs/operators';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { ProfileService } from '../../services/profile.service';
 import { CommonFunctionsService } from '../../services/commonFunctions.service';
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from "@angular/router";
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/confirm-dialog.component';
+import { forkJoin } from 'rxjs';
 
 declare var require: any;
 const data: any = require('./company.json');
@@ -16,7 +19,7 @@ const data: any = require('./company.json');
   templateUrl: './foodparks.component.html',
   styleUrls: ['./foodparks.css']
 })
-export class FoodParkComponent {
+export class FoodParkComponent implements OnInit{
   editing = {};
   rows = [];
   temp = [...data];
@@ -28,18 +31,21 @@ export class FoodParkComponent {
   confirmCanceltext = "Cancel";
   confirmOkaytext = "Okay";
   minDaysValue=10;
+  singleTerritory: any[] = [];
   territory: any[] = [];
+  states: any[] = [];
+  countries: any[] = [];
   drivers: any[] = [];
   foodparkmgrList: any[] = [];
   setManager: any[] = [];
   setdriverManager: any[] = [];
+  companyId : any;
   user: any;
   selectedHub: any;
   loadingIndicator = true;
   reorderable = true;
   closeResult: string;
   columns = [{ name: 'Name' }, { prop: 'country' }, { name: 'State' }, { name: 'City' }];
-  foodParkForm: FormGroup;
   driverForm: FormGroup;
   managerForm: FormGroup;
   managerRole: string = 'FOODPARKMGR';
@@ -52,6 +58,35 @@ export class FoodParkComponent {
   showManagerTab: boolean = false;
   allManager: any[] = [];
   allUnitList: any[] = [];
+  type: any[]= [];
+  types = [
+    "RESTAURANT",
+    "Cafe",
+    "BEER",
+    "WINE",
+    "FOOD TRUCK",
+    "PIZZA",
+    "FARMER",
+    "CHEF",
+    "GHOST KITCHEN"
+    ];
+
+    foodParkForm: FormGroup;
+
+    hubFoodParkForm = new FormGroup({
+    state_id: new FormControl('', Validators.required),
+    territory_id: new FormControl(),
+    name: new FormControl('', [Validators.required])
+    });
+
+  locationFoodParkForm = new FormGroup({
+    country_id: new FormControl('', Validators.required),
+    state_id: new FormControl('', Validators.required),
+    territory_id: new FormControl(),
+    name: new FormControl('', [Validators.required]),
+    type: new FormControl(' ', Validators.required)
+  });
+  filteredStateOptions: Observable<string[]>;
 
   hubData = [
     {
@@ -89,9 +124,11 @@ export class FoodParkComponent {
     }
   ];
 
-selectArry=[]
+  selectArry=[]
+
   @ViewChild(FoodParkComponent, { static: false }) table: FoodParkComponent;
   UnitList: any;
+
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService,
     private router: Router,
@@ -100,7 +137,9 @@ selectArry=[]
     private modalService: NgbModal,
     private route: ActivatedRoute) {
     this.user = this._CommonFunctionsService.checkUser().user;
+    this.getAllState();
     this.getAllTerritory();
+    this.getAllCountries();
     this.getAllFoodPark();
     this.formInit();
     this.driverformInit();
@@ -122,7 +161,19 @@ selectArry=[]
     this.getSingleTerritory();
   }
 
+  ngOnInit() {
+    // this.filteredStateOptions = this.myControl.valueChanges
+    //   .pipe(
+    //     startWith(''),
+    //     map(value => this._filter(value))
+    //   );
+  }
 
+  // private _filter(value: string): string[] {
+  //   const filterValue = value.toLowerCase();
+
+  //   return this.states.filter(option => option.toLowerCase().includes(filterValue));
+  // }
 
   formInit() {
     this.foodParkForm = new FormGroup({
@@ -130,6 +181,7 @@ selectArry=[]
       territory_id: new FormControl(null),
       latitude: new FormControl(null),
       longitude: new FormControl(null),
+      
     });
   }
   driverformInit() {
@@ -358,11 +410,41 @@ selectArry=[]
   }
 
   getAllTerritory() {
-    // this.user = this._CommonFunctionsService.checkUser().user;
-    this._ProfileService.getAllTerritory().subscribe((res: any) => {
-      this.territory = res;
+    // var obj = {
+    //   country_id: event.target.value
+    // }
+    // this._ProfileService.getAllTerritory(obj).subscribe((res: any) => {
+    //   console.log(res);
+    //   this.territory = res;
+    // })
+  }
+
+  getTerritory(event) {
+    const state_id = event.target.value;
+    this._ProfileService.getTerritory(state_id).subscribe((res: any) => {
+      console.log(res);
+      this.singleTerritory = res;
     })
   }
+
+  getAllState() {
+    var obj = {
+      stateSearch: ""
+    }
+    this._ProfileService.getAllState(obj).subscribe((res: any) => {
+      this.states = res;
+    })
+  }
+  getAllCountries() {
+    this._ProfileService.getAllCountries().subscribe((res: any) => {
+      this.countries = res;
+    })
+  }
+
+  foodParkSFormSaveData(data) {
+    console.log("Ash" + data);
+  }
+
   getAllDrivers(foodParkId) {
     this._ProfileService.getAllDrivers(foodParkId).subscribe((res: any) => {
       this.drivers = res.data;
@@ -404,7 +486,20 @@ selectArry=[]
     }
   }
 
-
+  onSubmitLocationForm() {
+    // this.locationFoodParkForm.value.latitude = 12.032;
+    // this.locationFoodParkForm.value.longitude = 12.032;
+    this.locationFoodParkForm.value.territory_id = 42;
+    this._ProfileService.addUnit(this.locationFoodParkForm.value, this.user.company_id).subscribe((res: any) => {
+      this.toastr.success('Territory Created successfully');
+      document.getElementById("closeModal").click();
+      this.getAllFoodPark();
+    },
+      error => {
+        this.toastr.error(error.error.message);
+      })
+  }
+  
   onSubmit() {
     this.foodParkForm.value.latitude = 12.032;
     this.foodParkForm.value.longitude = 12.032;
@@ -488,6 +583,46 @@ selectArry=[]
 
     return '$'+value;
   }
+   getAllFoodPark() {
+    forkJoin([
+      this._ProfileService.getAllFoodPark(),
+      this._ProfileService.getAllUnitListData()
+    ]).subscribe(
+      ([allFoodParkResponse, allUnitListResponse]) => {
+        // const tempArray = [allFoodParkResponse.data, ...allUnitListResponse.data]
+        allFoodParkResponse.filter((value)=>{
+          this.selectArry.push({name:value.name})
+        })
+        allUnitListResponse.data.filter((value)=>{
+          this.selectArry.push({name:value.name})
+        })
+        console.log(' this.selectArry', this.selectArry) 
+      })
+    
+    // this.user = this._CommonFunctionsService.checkUser().user;
+    // this._ProfileService.getAllFoodPark().subscribe((res: any) => {
+      // this.territory = res;
+      // this.rows = res;
+
+      // console.log('this.rows', res);
+
+      // this.temp = [...this.rows];
+      // this.selectedHub = parseInt(res[0].id);
+      // console.log(' this.drivertemp', this.selectedHub);
+
+      // this.getAllDrivers(res[0].id)
+
+
+      // select in manager tab
+      // this.temp.filter((value,index)=>{
+      //   this.selectArry.push({name:value.name})
+      // })
+      
+     
+    // })
+  }
+
+
   onManagerSubmit() {
     this.managerForm.value.manager_id = this.user.manager_id;
     this.managerForm.value.food_park_id = this.user.food_park_id;
@@ -501,7 +636,7 @@ selectArry=[]
       delete this.managerForm.value.territory_id;
       delete this.managerForm.value.food_park_id;
     }
-    return console.log('ggggggggggggggggggggggg',this.managerForm.value);
+    // return console.log('ggggggggggggggggggggggg',this.managerForm.value);
     this._ProfileService.addManagers(this.managerForm.value).subscribe((res: any) => {
       if (res.status == 200) {
         this.toastr.success('Manager created successfully');
@@ -609,33 +744,7 @@ console.log(event,row,value,'event,row,value')
     debugger
   }
 
-  getAllFoodPark() {
-    // this.user = this._CommonFunctionsService.checkUser().user;
-    this._ProfileService.getAllFoodPark().subscribe((res: any) => {
-      // this.territory = res;
-      this.rows = res;
-
-      console.log('this.rows', res);
-
-      this.temp = [...this.rows];
-      this.selectedHub = parseInt(res[0].id);
-      console.log(' this.drivertemp', this.selectedHub);
-
-      this.getAllDrivers(res[0].id)
-
-
-      // select in manager tab
-      this.temp.filter((value,index)=>{
-        this.selectArry.push({name:value.name})
-      })
-      this.temp.filter((value,index)=>{
-        this.selectArry.push({name:value.name})
-      })
-    console.log(' this.selectArry', this.selectArry)  
-    })
-  }
-
-
+ 
 
   updateDriverFilter(event) {
     const val = event.target.value.toLowerCase();

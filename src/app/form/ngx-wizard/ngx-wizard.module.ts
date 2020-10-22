@@ -1,7 +1,9 @@
+import { NgxMaskModule } from 'ngx-mask';
+import { TextMaskModule } from 'angular2-text-mask';
 import { NgModule } from '@angular/core';
 
 import { NGXWizardRoutingModule } from "./ngx-wizard-routing.module";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /* App Root */
 import { NGXFormWizardComponent } from './ngx-wizard.component';
@@ -31,10 +33,13 @@ import { CustomMaterialModule } from 'src/app/custom-material/custom-material.mo
 @NgModule({
     imports: [CommonModule,
         FormsModule,
+        ReactiveFormsModule,
+        // TextMaskModule,
         NGXWizardRoutingModule,
         NgxDropzoneModule,
         NgbModule,
-        CustomMaterialModule
+        CustomMaterialModule,
+        // NgxMaskModule.forRoot()
         // NgxDatatableModule,
     ],
     providers: [{ provide: FormDataService, useClass: FormDataService },

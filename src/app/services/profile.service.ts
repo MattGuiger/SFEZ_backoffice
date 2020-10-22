@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { config } from '../app.config';
 import { Observable } from 'rxjs';
 
@@ -18,11 +18,11 @@ export class ProfileService {
   private updatecompanyProfileURl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/updateCompanyDetails/';  
   
   private companyFeaturedProfileURl = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/companies/';  
-  private unitURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/companies/';  
-  private territoryURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories';  
+  private unitURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/companies/';   
   private addUnitURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/companies/';  
-  private foodparkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks'; 
+  private foodparkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks';
   private addFoodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks';
+  private addTeleURL = config.getEnvironmentVariable('endPoint') + 'api/v1/bot/telegram-group'; 
   private Category = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/category';  
 
   private foodparkmgrURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/foodparkmgr';  
@@ -44,7 +44,15 @@ export class ProfileService {
   private createWagesUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/ord/create-wage/';
   private voidOrderUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/ord/delete-order/';
   private singleTerritoryUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories/';
+  private territoryURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories';
   private googldriveUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/google/';
+  
+  private countriesURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/countries';
+  private statesURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories/stateSearch';
+  private authAccessURL = 'https://api.moltin.com/oauth/access_token';
+  private fileUploadURL = 'https://api.moltin.com/v2/files';
+  
+
 
   constructor(private http: HttpClient) { }
 
@@ -54,6 +62,16 @@ export class ProfileService {
   getSingleTerritory(id):Observable<any>{
     return this.http.get(this.singleTerritoryUrl+id);
   }
+  // getAuthToken(data):Observable<any>{
+  //   return this.http.post(this.authAccessURL, data);
+  // }
+  // fileUpload(data, authObject):Observable<any>{
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'multipart/form-data',
+  //     'Authorization': `Bearer ${authObject.auth_token}`
+  //   })
+  //   return this.http.post(this.fileUploadURL, { headers: headers });
+  // }
   voidOrder(id):Observable<any>{
     return this.http.get(this.voidOrderUrl+id);
   }
@@ -139,6 +157,15 @@ export class ProfileService {
   getAllTerritory(): Observable<any> {
     return this.http.get(this.territoryURL);
   }
+  getAllCountries(): Observable<any> {
+    return this.http.get(this.countriesURL);
+  }
+  getAllState(data): Observable<any> {
+    return this.http.post(this.statesURL, data);
+  }
+  getTerritory(data): Observable<any> {
+    return this.http.get(`${this.singleTerritoryUrl}filter/${data}`);
+  }
   getAllCompany(): Observable<any> {
     return this.http.get(this.companyURL);
   }
@@ -193,6 +220,9 @@ export class ProfileService {
   
   addFoodPark(data): Observable<any> {
     return this.http.post(this.addFoodParkURL,data);
+  }
+  addTele(data): Observable<any> {
+    return this.http.post(this.addTeleURL,data);
   }
   addDriver(data): Observable<any> {
     return this.http.post(this.addDriverURL,data);

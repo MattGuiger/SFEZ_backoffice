@@ -1,3 +1,4 @@
+import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router'
 
@@ -8,13 +9,18 @@ import { Router, ActivatedRoute } from '@angular/router'
 })
 export class TagsComponent implements OnInit {
   title:string = "Step #3 Tags";
+  tagsFormData = new FormGroup({
+    tags: new FormControl()       
+    });
 
   constructor(private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
   }
 
-  save(){
+  onSubmit(){
+    console.log("work"+ JSON.stringify(this.tagsFormData.value));
+  const data = localStorage.setItem('tagsFormData', JSON.stringify(this.tagsFormData.value));
     this.router.navigateByUrl('/forms/ngx/description', { relativeTo: this.route.parent, skipLocationChange: true });
 }
 

@@ -1,5 +1,5 @@
 
-<form #workForm="ngForm" class="editForm" novalidate>
+<form #workForm="ngForm" [formGroup]="workFormData" (ngSubmit)="onSubmit()">
     <div >
         <div class="tab-pane active">
             <h4 class="head text-center">{{title}}</h4>
@@ -10,7 +10,7 @@
             </div>
            
             <div class="form-group col-4 offset-4 mt-4">
-                <label for="exampleInputEmail1">Select Type</label>
+                <label for="workType">Select Type</label>
                 <!-- <select class="form-control" id="exampleFormControlSelect1">
                     <option>RESTAURANT</option>
                     <option>CAFÉ</option>
@@ -23,26 +23,24 @@
                     <option>GHOST KITCHEN</option>
                 </select> -->
                 <mat-form-field appearance="fill">
-                    <mat-label>Cars</mat-label>
-                    <mat-select matNativeControl required>
-                      <mat-option value="volvo">RESTAURANT <img src="../../../../assets/images/icon-500-bar-restaurant.png"></mat-option>
-                      <mat-option value="saab">CAFÉ <img src="../../../../assets/images/icon-500-cafe.png"></mat-option>
-                      <mat-option value="mercedes">BEER <img src="../../../../assets/images/icon-500-beer.png"></mat-option>
-                      <mat-option value="audi">WINE <img src="../../../../assets/images/icon-500-wine.png"></mat-option>
-                      <mat-option value="audi">FOOD TRUCK <img src="../../../../assets/images/icon-500-food-truck.png"></mat-option>
-                      <mat-option value="audi">PIZZA <img src="../../../../assets/images/icon"></mat-option>
-                      <mat-option value="audi">FARMER <img src="../assets/img/google-drive@1x.png"></mat-option>
-                      <mat-option value="audi">CHEF <img src="../../../../assets/images/pizza.svg"></mat-option>
-                      <mat-option value="audi">GHOST KITCHEN <img src="../../../../assets/images/Ghost-Kitchen.png"></mat-option>
-                    
-                   
-                   
+                    <mat-label>Type</mat-label>
+                    <mat-select matNativeControl required formControlName="workType">
+                      <mat-option value="restaurant">RESTAURANT <img src="../../../../assets/images/icon-500-bar-restaurant.png"></mat-option>
+                      <mat-option value="cafe">CAFÉ <img src="../../../../assets/images/icon-500-cafe.png"></mat-option>
+                      <mat-option value="beer">BEER <img src="../../../../assets/images/icon-500-beer.png"></mat-option>
+                      <mat-option value="wine">WINE <img src="../../../../assets/images/icon-500-wine.png"></mat-option>
+                      <mat-option value="food_truck">FOOD TRUCK <img src="../../../../assets/images/icon-500-food-truck.png"></mat-option>
+                      <mat-option value="pizza">PIZZA <img src="../../../../assets/images/icon"></mat-option>
+                      <mat-option value="farmer">FARMER <img src="../assets/img/google-drive@1x.png"></mat-option>
+                      <mat-option value="chef">CHEF <img src="../../../../assets/images/pizza.svg"></mat-option>
+                      <mat-option value="ghost_kitchen">GHOST KITCHEN <img src="../../../../assets/images/Ghost-Kitchen.png"></mat-option>
+  
                     </mat-select>
                   </mat-form-field>
                 <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1 mt-3" (click)="cancel()"> Previous</button>
                 <!-- <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button> -->
 
-                <button uiSref="address" type="button" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" (click)="save()"> Next </button>
+                <button uiSref="address" type="submit" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" > Next </button>
 
             </div>
         </div>
