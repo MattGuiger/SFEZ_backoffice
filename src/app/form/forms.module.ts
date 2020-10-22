@@ -1,3 +1,4 @@
+import { TextMaskModule } from 'angular2-text-mask';
 import { NgModule, Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -7,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsRoutes } from './forms.routing';
 import { CustomFormsModule } from 'ngx-custom-validators';
 import { NGXFormWizardModule } from "./ngx-wizard/ngx-wizard.module";
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { FormBasicComponent } from './form-basic/basic.component';
 import { FormvalComponent } from './form-validation/form-validation.component';
@@ -45,6 +47,7 @@ import {ConfirmationService} from 'primeng/api';
 
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
 import { ManagerEditComponent } from './manager-edit/manager-edit.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -54,7 +57,10 @@ import { ManagerEditComponent } from './manager-edit/manager-edit.component';
             libraries: ['places','visualization','drawing', 'geometry']
           }),
         FormsModule,
+        ReactiveFormsModule,
+        TextMaskModule,
         NgxDatatableModule,
+        NgxMaskModule.forRoot(),
         TagInputModule,
          NGXFormWizardModule,
           NgMultiSelectDropDownModule,
@@ -62,7 +68,9 @@ import { ManagerEditComponent } from './manager-edit/manager-edit.component';
            CustomMaterialModule,
            CustomFormsModule,
            ConfirmDialogModule, 
-           ReactiveFormsModule],
+           ReactiveFormsModule,
+           MatAutocompleteModule
+        ],
     declarations: [
         FormBasicComponent,
         FormvalComponent,

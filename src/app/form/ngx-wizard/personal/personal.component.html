@@ -1,5 +1,6 @@
 <!-- Personal Tab Form Starts -->
-<form #personalForm="ngForm" class="editForm" novalidate>
+<!-- class="editForm" novalidate -->
+<form #personalForm="ngForm" [formGroup]="personalDetailsForm" (ngSubmit)="onSubmit()">
     <div class="tab-pane active">
         <h4 class="font-medium-2 text-center">{{title}}</h4>
         <br />
@@ -121,20 +122,105 @@
                 </div> -->
                 <div class="text-center">
                     <img src="/assets/images/vendor.png" height="190"/>
-                </div>    
+                </div> 
+                <div class="text-left">
+                        <div class="row">
+                                <div class='col-12 col-sm-4 offset-4'>
+                                  <div class="form-group">
+                                    <label class="form-control-label" for="firstname">First Name</label>
+                                    <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                        <button class="btn mr-0 btn-info" type="button" style="background: #34a6bf;color:#fff;">
+                                          <i class=" icon-User"></i>
+                                        </button>
+                                      </div>
+                                      <!-- <input class="form-control input-md" #firstname="ngModel" required id="firstname" name="firstname"
+                                        type="text" [(ngModel)]="personal.first_name"> -->
+                                        <input class="form-control input-md" formControlName="firstname">
+                                    </div>
+                                    <!-- <small class="form-text text-muted danger"
+                                      *ngIf="!firstname.valid && (firstname.dirty || firstname.touched)">This field is
+                                      required!</small> -->
+                                  </div>
+                                </div>
+                              </div> 
+                              <div class="row"> 
+                                <div class='col-12 col-sm-4 offset-4'>
+                                  <div class="form-group">
+                                    <label class="form-control-label" for="lastname">Last Name</label>
+                                    <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                        <button class="btn mr-0 btn-info" type="button" style="background: #34a6bf;color:#fff;">
+                                          <i class=" icon-User"></i>
+                                        </button>
+                                      </div>
+                                      <!-- <input class="form-control input-md" #lastname="ngModel" required id="lastname" name="lastname"
+                                        type="text" [(ngModel)]="personal.last_name"> -->
+                                        <input class="form-control input-md" formControlName="lastname">
+                                    </div>
+                                    <!-- <small class="form-text text-muted danger"
+                                      *ngIf="!lastname.valid && (lastname.dirty || lastname.touched)">This field is
+                                      required!</small> -->
+                                  </div>
+                                </div>
+                              </div>
+                    
+                              <div class="row">
+                                <div class='col-12 col-sm-4 offset-4'>
+                                  <div class="form-group">
+                                    <label class="form-control-label" for="email">Email</label>
+                                    <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                        <button class="btn mr-0 btn-info" type="button" style="background: #34a6bf;color:#fff;">
+                                          <i class="icon-Email"></i>
+                                        </button>
+                                      </div>
+                                      <!-- <input class="form-control input-md" #email="ngModel" required email id="email" name="email"
+                                        type="text" [(ngModel)]="personal.email"> -->
+                                        <input class="form-control input-md" formControlName="email">
+                                    </div>
+                                    <!-- <small class="form-text text-danger" *ngIf="!email.valid && (email.dirty || email.touched)">Please enter
+                                      a valid
+                                      email!</small> -->
+                                  </div>
+                                </div>
+                              </div> 
+                              <div class="row"> 
+                                <div class='col-12 col-sm-4 offset-4'>
+                                  <div class="form-group">
+                                    <label class="form-control-label" for="password">Password</label>
+                                    <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                        <button class="btn mr-0 btn-info" type="button" style="background: #34a6bf;color:#fff;">
+                                          <i class="icon-Password-shopping"></i>
+                                        </button>
+                                      </div>
+                                      <!-- <input class="form-control input-md" #password="ngModel" required id="password" name="password"
+                                        type="password" [(ngModel)]="personal.password"> -->
+                                        <input class="form-control input-md" formControlName="password">
+                                    </div>
+                                    <!-- <small class="form-text text-muted danger"
+                                      *ngIf="!password.valid && (password.dirty || password.touched)">This field is
+                                      required!</small> -->
+                                  </div>
+                                </div>
+                              </div>
+                </div>
+                   
 
                 <div class="form-group col-4 offset-4 mt-4">
                     <!-- <button type="button" uiSref="work" class="btn btn-success btn-raised"
                         [disabled]="!personalForm.valid" (click)="save(personalForm)"> Next </button> -->
                     
-                    <label for="exampleInputEmail1">Vendor Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Miso Soupy">
+                    <label for="vendor_name">Vendor Name</label>
+                    <input type="text" class="form-control" id="vendor_name" formControlName="vendor_name" placeholder="Miso Soupy">
                     <!-- <small id="emailHelp" class="form-text text-muted">Helper Text  ex. Miso Soupy</small>    -->
                     
                   
                     <!-- <button type="button" uiSref="work" class="mt-3 btn btn-raised"
                         (click)="save()" style="background: #34a6bf;color:#fff;"> Next </button>     -->
                 </div>
+                
             </div>
         </div>
         <div class='row'>
@@ -142,7 +228,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="street">Add a Logo <img src="/assets/images/paco.png" /></label>  
                     <ngx-dropzone (change)="onSelect($event)">
-                        <ngx-dropzone-label>Click here to Upload!</ngx-dropzone-label>
+                        <ngx-dropzone-label >Click here to Upload!</ngx-dropzone-label>
                         <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
                             <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
                         </ngx-dropzone-preview>
@@ -173,12 +259,13 @@
                 </div>   
                 <div class='row'>
                 <div class="form-group text-center">
+                        <!-- (click)="save()" type="button" -->
                     <!-- <button uiSref="work" type="button" class="btn btn-raised btn-secondary mr-1" (click)="cancel()">Previous</button> -->
-                    <button uiSref="result" type="button" class="btn btn-raised btn-info" (click)="save()" style="background: #34a6bf;color:#fff;"> Next </button>
+                    <button uiSref="result" type="submit" class="btn btn-raised btn-info"  style="background: #34a6bf;color:#fff;"> Next </button>
                 </div>
             </div>
             </div>
         </div>
-    </div>s
+    </div>
 </form>
 <!-- Personal Tab Form Ends -->

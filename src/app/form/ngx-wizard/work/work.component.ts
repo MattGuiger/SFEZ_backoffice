@@ -1,3 +1,4 @@
+import { FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 import { FormDataService } from '../data/formData.service';
@@ -24,6 +25,11 @@ export class WorkComponent implements OnInit {
     tags = ['Pizza', 'Pasta', 'Parmesan'];
     form: any;
     companyId :any;
+    workFormData = new FormGroup({
+        workType: new FormControl(),
+        schedule: new FormControl(),
+        schedulehour: new FormControl()       
+        });
 
     constructor(private router: Router,
         private _AuthService:AuthService,
@@ -62,7 +68,9 @@ export class WorkComponent implements OnInit {
         
     // }
 
-    save(){
+    onSubmit(){
+        console.log("work"+ JSON.stringify(this.workFormData.value));
+      const data = localStorage.setItem('workFormData', JSON.stringify(this.workFormData.value));
         this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });  
     }
 

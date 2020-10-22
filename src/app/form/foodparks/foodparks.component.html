@@ -1,4 +1,4 @@
-<div class="row">
+<div clfss="row">
   <!-- column -->
 
   <div class="col-md-12">
@@ -645,20 +645,24 @@
     </button>
   </div>
   <div class="modal-body">
-    <form [formGroup]="foodParkForm" (ngSubmit)="onSubmit()">
+    <form #myForm="ngForm" [formGroup]="hubFoodParkForm" (ngSubmit)="onSubmit(); myForm.reset()">
       <div class="form-group">
         <label for="name">Name</label>
         <div class="input-group">
           <input id="name" class="form-control" name="dp" type="text" formControlName="name">
         </div>
-        <label for="name">State</label>
+       
+        <label for="state">State</label>
         <div class="input-group">
-          <input id="name" class="form-control" name="state_search" type="text" formControlName="state_search">
+          <select formControlName="state_id" class="form-control" (change)="getTerritory($event)">
+            <option *ngFor="let item of states.state" value="{{item.id}}">{{item.name}}</option>
+          </select>
         </div>
+
         <label for="territory">Territory</label>
         <div class="input-group">
           <select formControlName="territory_id" class="form-control">
-            <option *ngFor="let item of territory" value="{{item.id}}">{{item.territory}}</option>
+            <option *ngFor="let item of singleTerritory.territory" value="{{item.id}}">{{item.city}}</option>
           </select>
         </div>
 
@@ -686,7 +690,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-dark">Create Hub</button>
+        <button type="submit" class="btn btn-outline-dark" [disabled]="!myForm.valid" >Create Hub</button>
       </div>
     </form>
   </div>
@@ -702,35 +706,44 @@
     </button>
   </div>
   <div class="modal-body">
-    <form [formGroup]="foodParkForm" (ngSubmit)="onSubmit()">
+    <form #myForm2="ngForm" [formGroup]="locationFoodParkForm" (ngSubmit)="onSubmitLocationForm(); myForm2.reset()">
       <div class="form-group">
         <label for="name">Name</label>
         <div class="input-group">
           <input id="name" class="form-control" name="dp" type="text" formControlName="name">
         </div>
 
-        <label for="name">Type</label>
+        <label for="type">Type</label>
         <div class="input-group">
-          <input id="type" class="form-control" name="type" type="text" formControlName="territory">
+          <select formControlName="type" class="form-control">
+              <option value="none" selected hidden>  </option>  
+            <option *ngFor="let item of types">{{item}}</option>
+          </select>
+        </div>
+        
+        <label for="country">Country</label>
+        <div class="input-group">
+          <select formControlName="country_id" class="form-control">
+            <option *ngFor="let item of countries" value="{{item.id}}">{{item.name}}</option>
+          </select>
+        </div>
+
+
+        <label for="state">State</label>
+        <div class="input-group">
+          <select formControlName="state_id" class="form-control" (change)="getTerritory($event)">
+            <option *ngFor="let item of states.state" value="{{item.id}}">{{item.name}}</option>
+          </select>
         </div>
 
         <label for="territory">Territory</label>
         <div class="input-group">
           <select formControlName="territory_id" class="form-control">
-            <option *ngFor="let item of territory" value="{{item.id}}">{{item.territory}}</option>
+            <option *ngFor="let item of singleTerritory.territory" value="{{item.id}}">{{item.city}}</option>
           </select>
         </div>
-
-        <label for="name">State</label>
-        <div class="input-group">
-          <input id="name" class="form-control" name="state_search" type="text" formControlName="state_search">
-        </div>
-
-        <label for="name">Country</label>
-        <div class="input-group">
-          <input id="country" class="form-control" name="country" type="text" formControlName="country">
-        </div>
-
+      
+        
 
         <!-- <label for="territory">Select Location</label>
         <div class="form-group mapmarker">
@@ -756,7 +769,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-dark">Save</button>
+        <button type="submit" class="btn btn-outline-dark" [disabled]="!myForm2.valid">Save</button>
       </div>
     </form>
   </div>
@@ -924,23 +937,6 @@
             </div>
           </div>
         </div>
-
-        <div class="form-group">
-          <div class="form-group row">
-            <label for="name" class="col-md-3 col-form-label">Password</label>
-            <div class="col-md-9">
-              <div class="input-group mb-2">
-                <div class="input-group-prepend">
-                  <div class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></div>
-                </div>
-                <input class="form-control" name="dp" type="password" formControlName="password">
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
 
 
         <!-- <label for="name">Last Name</label>

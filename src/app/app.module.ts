@@ -1,3 +1,4 @@
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './AuthInterceptor';
@@ -9,7 +10,8 @@ import {
     HashLocationStrategy
 } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { Routes, RouterModule } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -38,6 +40,8 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { HttpModule } from '@angular/http';
+// import { NgxMaskModule } from 'ngx-mask';
+// import { TextMaskModule } from 'angular2-text-mask';
 import { GreenmoneyComponent } from './greenmoney/greenmoney.component';
 
 import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
@@ -66,9 +70,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     imports: [
         CommonModule,
         BrowserModule,
-        
+        MatAutocompleteModule,
+        // TextMaskModule,
         BrowserAnimationsModule,
         FormsModule,
+        ReactiveFormsModule,
         HttpClientModule,
         HttpModule,
         NgbModule,
@@ -79,7 +85,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         PerfectScrollbarModule,
         Ng2SearchPipeModule,
         NgMultiSelectDropDownModule.forRoot(),
-        AgmCoreModule.forRoot({ apiKey: 'AIzaSyBUb3jDWJQ28vDJhuQZxkC0NXr_zycm8D0' })
+        AgmCoreModule.forRoot({ apiKey: 'AIzaSyBUb3jDWJQ28vDJhuQZxkC0NXr_zycm8D0' }),
+        // NgxMaskModule.forRoot()
+    ],
+    exports: [
+        MatAutocompleteModule
     ],
     providers: [
         {

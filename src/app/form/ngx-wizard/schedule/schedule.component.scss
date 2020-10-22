@@ -1,0 +1,8 @@
+.calendar{
+    background-color: blue($color: #000000);
+    padding: 20px;
+}
+.ButtonState{display:none}
+.Button{padding:3px; margin:4px; background:#CCC; border:1px solid #333; cursor:pointer;}
+.ButtonState:checked + .Button{background: rgb(57, 175, 230);}
+

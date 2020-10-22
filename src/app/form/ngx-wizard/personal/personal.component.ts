@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { CommonFunctionsService } from './../../../services/commonFunctions.service';
+import { Component, OnInit, Input, AbstractType } from '@angular/core';
 
 import { Personal } from '../data/formData.model';
 import { FormDataService } from '../data/formData.service';
@@ -8,7 +10,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from '../../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { ProfileService } from 'src/app/services/profile.service';
-import { CommonFunctionsService } from 'src/app/services';
+
 
 
 
@@ -19,6 +21,7 @@ import { CommonFunctionsService } from 'src/app/services';
 })
 
 export class PersonalComponent implements OnInit {
+    @Input() tempFileData: any;
     title = 'Step #1 Vendor';
     personal: Personal;
     form: any;
@@ -27,7 +30,15 @@ export class PersonalComponent implements OnInit {
     city : string;
     state : string;
     // form: any;
+    data: any[]=[];
     companyId : any;
+    personalDetailsForm = new FormGroup({
+      firstname: new FormControl(),
+      lastname: new FormControl(),
+      email: new FormControl(),
+      password: new FormControl(),
+      vendor_name: new FormControl()
+      });
     files: File[] = [];
     feathuredfiles: File[] = [];
     user : any;
@@ -36,9 +47,9 @@ export class PersonalComponent implements OnInit {
         private _AuthService:AuthService,
         private toastr: ToastrService,
         private route: ActivatedRoute, private formDataService: FormDataService,
+        private commonFunctionsService: CommonFunctionsService,
         private workflowService: WorkflowService,
         private _ProfileService:ProfileService,
- 
         private _CommonFunctionsService : CommonFunctionsService,
 ) {
     }
@@ -79,10 +90,25 @@ export class PersonalComponent implements OnInit {
     //     };       
     // }
 
-    save(){
-        this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+    onSubmit(){
+      console.log("personal"+ JSON.stringify(this.personalDetailsForm.value));
+      const data = localStorage.setItem('personalFormData', JSON.stringify(this.personalDetailsForm.value));
+      this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
     }
 
+    // save(){
+    //     this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+    // }
+
+
+    // uploadCompanyProfile(formData, authObject){
+    //   this.user = this._CommonFunctionsService.checkUser().user;
+    //    this._ProfileService.fileUpload(formData, authObject).subscribe((res:any)=>{
+    //      this.toastr.success('Photo upload successfully!')
+    //    },error=>{
+    //       this.toastr.error('failed to upload, please try again later')
+    //    })
+    // }
 
     uploadCompanyProfile(formData){
       this.user = this._CommonFunctionsService.checkUser().user;
@@ -107,7 +133,8 @@ export class PersonalComponent implements OnInit {
       this.feathuredfiles.push(...event.addedFiles);
       const formData = new FormData();
       formData.append('file',event.addedFiles[0]);
-      this.uploadFeaturePhoto(formData);
+      localStorage.setItem('fileData', JSON.stringify(formData));
+      // this.uploadFeaturePhoto(formData);
     }
      
     onRemovefeathured(event) {
@@ -115,13 +142,35 @@ export class PersonalComponent implements OnInit {
       this.feathuredfiles.splice(this.feathuredfiles.indexOf(event), 1);
     }
 
+  // onSelect(event) {
+  //     console.log(event);
+  //     let authObject;
+  //     const data = {
+  //         "client_id": "eDlPjoMabiu84tszlmr9gcpgm1YJXOJoSZxCBooYuW",
+  //         "grant_type": "client_credentials",
+  //         "client_secret": "hqvxfSwzIz9RP3nTLP3SbDZUUDDpfMteRJtfm3rOv3"
+  //     }
+  //     this._ProfileService.getAuthToken(data).subscribe((res:any)=>{
+  //       this.toastr.success('token created successfully')
+  //       authObject = res;
+  //       this.files.push(...event.addedFiles);
+  //     const formData = new FormData();
+  //     formData.append('file',event.addedFiles[0]);
+  //     this.uploadCompanyProfile(formData, authObject);
+  //   },error=>{
+  //       this.toastr.error('Unable to get token')
+  //    })
+  //   }
+
   onSelect(event) {
-      console.log(event);
-      this.files.push(...event.addedFiles);
-      const formData = new FormData();
-      formData.append('file',event.addedFiles[0]);
-      this.uploadCompanyProfile(formData);
-    }
+    console.log(event);
+    this.files.push(...event.addedFiles);
+    const formData = new FormData();
+    formData.append('file',event.addedFiles[0]);
+    this.tempFileData = formData;
+    // localStorage.setItem('fileData', JSON.stringify(formData));
+    // this.uploadCompanyProfile(formData);
+  }
      
     onRemove(event) {
       console.log(event);

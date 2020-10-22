@@ -1,4 +1,4 @@
-<form #workForm="ngForm" class="editForm" novalidate>
+<form #tagForm="ngForm" [formGroup]="tagsFormData" (ngSubmit)="onSubmit()">
     <div >
         <div class="tab-pane active">
             <h4 class="head text-center">{{title}}</h4>
@@ -9,14 +9,14 @@
             </div>
            
             <div class="form-group col-4 offset-4 mt-4">
-                <label for="exampleInputEmail1">Tags</label>
-                <input type="text" class="form-control" placeholder="Mexican, Carne Asada, Tacos" >
+                <label for="tags">Tags</label>
+                <input type="text" class="form-control" formControlName="tags" placeholder="Mexican, Carne Asada, Tacos" >
                 <!-- <small class="form-text text-muted">Helper Text:  Mexican, Carne Asada, Tacos</small> -->
 
                 <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1 mt-3" (click)="cancel()"> Previous</button>
                 <!-- <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button> -->
 
-                <button uiSref="address" type="button" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" (click)="save()"> Next </button>
+                <button uiSref="address" type="submit" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" > Next </button>
 
             </div>
         </div>
