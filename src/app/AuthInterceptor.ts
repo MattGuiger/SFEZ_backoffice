@@ -23,6 +23,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // this.globals.apiCounter++;
     let routerArray = this.router.url.split('/');
+    console.log(this.router.url,'router URL')
     // req = req.clone({ headers: req.headers.set('Browser', this.deviceInfo.browser) });
 
     // if (this.router.url != '/dashboard') {
@@ -48,7 +49,8 @@ export class AuthInterceptor implements HttpInterceptor {
     let token = '';
     const value: string = localStorage.getItem('user');
     const currentUser = JSON.parse(value);
-
+    
+console.log('req.origin')
     const endPoint = config.getEnvironmentVariable('endPoint');
     if (currentUser && currentUser.token) {
       token = currentUser.token;

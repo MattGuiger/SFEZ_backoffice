@@ -110,7 +110,14 @@
                                                     <h4>Select Google Drive or Dropbox</h4>
                                                     <div class="row">
                                                       <div class="col-6 col-md-4 offset-md-2 col-lg-2 offset-lg-4">
-                                                        <div class="icon_card">
+                                                        <!-- <div class="icon_card" (click)="getgmailuser()">
+                                                          <a href={{authentication_url}}>
+                                                            <img src="../../assets/images/google-drive@1X.png" alt="  " class="drive">
+                                                            <p>Google Drive</p>
+                                                          </a>
+                                                         
+                                                        </div> -->
+                                                        <div class="icon_card" >
                                                           <a href={{authentication_url}}>
                                                             <img src="../../assets/images/google-drive@1X.png" alt="  " class="drive">
                                                             <p>Google Drive</p>
@@ -212,19 +219,22 @@
                                                       <div class="col-md-6 offset-md-2">
                                                         <div class="step_three_right">
                                                           <h5>Category:</h5>
-                                                          <ul>
+                                                          <ul *ngFor="let folder of drivefolders">
                                                             <li>
                                                               <img src="../../assets/images/folder@1X.png" alt="">
-                                                              <p>Lunch</p>
-                                                            </li>
-                                                            <li>
+                                                              <p>{{folder.foldername}}</p>
+                                                              <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" id="customFile" (change)="onFileSelect($event,folder.folderid)">
+                                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                                              </div>                                                            </li>
+                                                            <!-- <li>
                                                               <img src="../../assets/images/folder@1X.png" alt="">
                                                               <p>Salads</p>
                                                             </li>
                                                             <li>
                                                               <img src="../../assets/images/folder@1X.png" alt="">
                                                               <p>Soup</p>
-                                                            </li>
+                                                            </li> -->
                                                           </ul>
                                                         </div>
                                                       </div>

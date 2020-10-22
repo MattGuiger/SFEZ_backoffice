@@ -71,6 +71,11 @@ export class ProfileService {
   getParticularUnitData(id):Observable<any>{
     return this.http.get(this.particularUnitUrl+id);
   }
+  uploadImageTodrive(companyId,data):Observable<any>{
+    //this.companyProfileURl+companyId+"/"+"images"
+    return this.http.post(this.googldriveUrl+companyId+"/"+'imageuploadtodrive',data);
+  }
+
   foodParkUnits(id):Observable<any> {
     return this.http.get(this.foodParkUnitsUrl+id);
   }
@@ -223,6 +228,10 @@ export class ProfileService {
   createfolderInGoogleDrive(data) : Observable<any> {
     console.log('dataaaa',data)
     return this.http.post(this.googldriveUrl+'createfolder',data);
+  }
+  getFoldersCreatedInDrive(data) : Observable<any> {
+    console.log('dataaaa',data)
+    return this.http.post(this.googldriveUrl+'fetchfolderscreated',data);
   }
   getCategory(companyId) : Observable<any> {
     return this.http.get(this.productListUrl+companyId+'/getactivecategoriesnames');
