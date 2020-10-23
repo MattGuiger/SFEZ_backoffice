@@ -25,12 +25,19 @@ export class WorkComponent implements OnInit {
     tags = ['Pizza', 'Pasta', 'Parmesan'];
     form: any;
     companyId :any;
-    workFormData = new FormGroup({
-        workType: new FormControl(),
-        schedule: new FormControl(),
-        schedulehour: new FormControl()       
-        });
+    // workFormData = new FormGroup({
+    //     workType: new FormControl(),
+    //     schedule: new FormControl(),
+    //     schedulehour: new FormControl()       
+    //     });
+        workFormData = new FormGroup({
+            name: new FormControl(),
+            username: new FormControl(),
+            password: new FormControl()  ,
+            type: new FormControl()    
 
+
+            });
     constructor(private router: Router,
         private _AuthService:AuthService,
         private toastr: ToastrService,
@@ -70,8 +77,24 @@ export class WorkComponent implements OnInit {
 
     onSubmit(){
         console.log("work"+ JSON.stringify(this.workFormData.value));
-      const data = localStorage.setItem('workFormData', JSON.stringify(this.workFormData.value));
-        this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });  
+        // {
+        //     "name": "ww",
+        //    "username": "ww",
+        //    "password": "vvv",
+        //     "type": "RESTAURANT",
+        //     "territory_id":  "41",
+        //     "number": 1
+        // } 
+        const comapany_id= localStorage.getItem('companyId')
+        this.workFormData.value.territory_id='41'
+        this.workFormData.value.number='1'
+        this._ProfileService.addUnit(this.workFormData.value,comapany_id).subscribe(res=>{
+            const data = localStorage.setItem('workFormData', JSON.stringify(this.workFormData.value));
+            this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
+        })
+
+        /**
+         *  */ 
     }
 
     cancel() {
