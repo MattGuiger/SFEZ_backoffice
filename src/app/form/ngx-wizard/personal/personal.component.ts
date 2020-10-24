@@ -113,22 +113,31 @@ export class PersonalComponent implements OnInit {
       this.personalDetailsForm.value.country_id=this.user.country_id;
       this.personalDetailsForm.value.latitude = 40.058174;
       this.personalDetailsForm.value.longitude = -121.315308;
+
       // this.personalDetailsForm.value.country_id=4;
       // this.personalDetailsForm.value.distance_range=4
       // const data = localStorage.setItem('personalFormData', JSON.stringify(this.personalDetailsForm.value));
-      this._ProfileService.vendorRegister(this.personalDetailsForm.value).subscribe(res=>{
-        if(res.status==200 || res.status==400){
-         
+      this._ProfileService.vendorRegister(this.personalDetailsForm.value).subscribe((res: any)=>{
+        if(res.status==200){
+         console.log("Testing personal")
           localStorage.setItem('companyId',res.user.company_id)
-          localStorage.setItem('companyId', res.user.first_name)
+          localStorage.setItem('first_name', res.user.first_name)
           this._ProfileService.getCompanyprofile(res.user.company_id).subscribe(res=>{
             localStorage.setItem('company_name', res.name);
           })
-          // this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+          this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
 
+        } else {
+        //   localStorage.setItem('companyId', '11179')
+        // localStorage.setItem('first_name', 'Smartdata')
+        // this._ProfileService.getCompanyprofile('11179').subscribe(res=>{
+        //   localStorage.setItem('company_name', res.name);
+        // })
+        // this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+          this.toastr.error(res.message)
         }
       })
-      this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+      // this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
     }
     // onSubmit(){
     //   this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });

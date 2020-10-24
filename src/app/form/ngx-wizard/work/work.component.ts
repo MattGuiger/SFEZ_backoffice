@@ -21,7 +21,8 @@ export class WorkComponent implements OnInit {
     // title = 'E-Commerce (Google Sheets) Details';
     title = 'STEP #2 Type';
     google_api_key: string;
-    google_sheet_url :string;
+    google_sheet_url: string;
+    unitName: string;
     google_sheet_tab_name : string;
     tags = ['Pizza', 'Pasta', 'Parmesan'];
     form: any;
@@ -33,7 +34,7 @@ export class WorkComponent implements OnInit {
     //     schedulehour: new FormControl()       
     //     });
         workFormData = new FormGroup({
-            name: new FormControl(),
+            name: new FormControl(localStorage.getItem('first_name')+ ' LOC'),
             username: new FormControl(),
             password: new FormControl()  ,
             type: new FormControl(),
@@ -56,6 +57,7 @@ export class WorkComponent implements OnInit {
         this.route.params.subscribe(params => {
             this.companyId = +params['id'];
          });
+         
     }
 
     // save(form: any) {
@@ -81,38 +83,38 @@ export class WorkComponent implements OnInit {
         
     // }
 
-    onSubmit(){
-        this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
-    }
-
     // onSubmit(){
-    //     console.log("work"+ JSON.stringify(this.workFormData.value));
-    //     console.log(this.user.role);
-    //     // {
-    //     //     "name": "ww",
-    //     //    "username": "ww",
-    //     //    "password": "vvv",
-    //     //     "type": "RESTAURANT",
-    //     //     "territory_id":  "41",
-    //     //     "number": 1
-    //     // } 
-    //     const comapany_id= 11179
-    //     this.workFormData.value.customer_order_window =20
-    //     this.workFormData.value.delivery_time_offset=15
-    //     // this.workFormData.value.number='1'
-
-    //     this.workFormData.value.delivery_radius =5
-    //     this.workFormData.value.territory_id= 41
-    //     this.workFormData.value.number=1
-    //     // this._ProfileService.addUnit(this.workFormData.value).subscribe(res=>{
-    //     this._ProfileService.addUnit(this.workFormData.value,comapany_id).subscribe(res=>{
-    //     //    const data = localStorage.setItem('workFormData', JSON.stringify(this.workFormData.value));
-    //         this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
-    //     })
-
-        
+    //     this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
     // }
 
+    onSubmit(){
+        console.log("work"+ JSON.stringify(this.workFormData.value));
+        console.log(this.user.role);
+        
+        const comapany_id= localStorage.getItem('companyId');
+        this.workFormData.value.customer_order_window =20
+        this.workFormData.value.delivery_time_offset=15
+        // this.workFormData.value.number='1'
+
+        this.workFormData.value.delivery_radius =5
+        this.workFormData.value.territory_id=this.user.territory_id;
+        this.workFormData.value.number=1
+        // this._ProfileService.addUnit(this.workFormData.value).subscribe(res=>{
+        this._ProfileService.addUnit(this.workFormData.value,comapany_id).subscribe(res=>{
+           const data = localStorage.setItem('workFormData', JSON.stringify(this.workFormData.value));
+            this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
+        })
+        // this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
+        
+    }
+// {
+        //     "name": "ww",
+        //    "username": "ww",
+        //    "password": "vvv",
+        //     "type": "RESTAURANT",
+        //     "territory_id":  "41",
+        //     "number": 1
+        // } 
     cancel() {
         this.router.navigate(['wizard'], { relativeTo: this.route.parent, skipLocationChange: true });
     }
