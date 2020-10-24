@@ -178,12 +178,12 @@
               </p>
             </div>
 
-            <form #myForm="ngForm" [formGroup]="MerchantForm" >
+            <form #myForm="ngForm" [formGroup]="MerchantForm" (ngSubmit)="onSubmit()">
                 <div class="form-group row">
-                  <label for="company" class="col-sm-2 col-form-label">Type of Company</label>
+                  <label for="type" class="col-sm-2 col-form-label">Type of Company</label>
                   <div class="col-sm-5">
-                      <select class="form-control">
-                          
+                      <select class="form-control" formControlName="type" >
+                        <option value="none" selected hidden>  </option> 
                           <option *ngFor="let item of data" value="{{item}}">{{item}}</option>
                         </select>
                   </div>
@@ -192,87 +192,136 @@
                     <label for="tax_id" class="col-sm-2 col-form-label">Tax ID</label>
                     <div class="col-sm-5">                        
                         <!-- <input class="form-control input-md" formControlName="tax_id" placeholder="XX-XXXXXXX">  -->
-                        <input type="text" [textMask]="mask" [(ngModel)]="myData" placeholder="XX-XXXXXXX">
-                        <div>{{myData}}</div>
+                        <input type="text" [textMask]="mask" formControlName="tax_id"  placeholder="XX-XXXXXXX">
+                        <div *ngIf="MerchantForm.get('tax_id').touched && MerchantForm.get('tax_id').invalid" class="alert alert-danger">
+                          <div  *ngIf=" MerchantForm.get('tax_id').errors.required ">
+                            Tax_id is required
+                        </div>
+                          <div  *ngIf=" MerchantForm.get('tax_id').errors.pattern ">
+                              Please follow the pattern: XX-XXXXXXX(9 digits)
+                          </div>
+                       </div>
                     </div>
                     
                   </div>
                   <div class="form-group row">
                       <label for="ssn" class="col-sm-2 col-form-label">SSN of Principal</label>
                       <div class="col-sm-5">
-                          <input class="form-control input-md" placeholder="AAA-GG-SSSSS"> 
+                          <input class="form-control input-md" placeholder="AAA-GG-SSSSS" formControlName="ssn" > 
+                          <div *ngIf="MerchantForm.get('ssn').touched && MerchantForm.get('ssn').invalid" class="alert alert-danger">
+                            <div  *ngIf=" MerchantForm.get('ssn').errors.required ">
+                              Years active is required
+                          </div>
+                            <div  *ngIf=" MerchantForm.get('ssn').errors.pattern ">
+                                Please follow the pattern: AAA-GG-SSSS(9digits)
+                            </div>
+                         </div>
                       </div>
                     </div>
                     <div class="form-group row">
-                        <label for="ssn" class="col-sm-2 col-form-label">Buissness Address</label>
-                        <div class="col-sm-5">
+                        <label for="buissness_address" class="col-sm-2 col-form-label">Buissness Address</label>
+                       
+                        
                             
-                        </div><div class="form-group row">
-                            <label for="ssn" class="col-sm-2 col-form-label">Country</label>
-                            <div class="col-sm-5">
-                                <input class="form-control input-md" placeholder="Ex: UK,US"> 
+                        <div class="form-group row">
+                            <!-- <label for="country" class="col-sm-2 col-form-label">Country</label>
+                            <div class="col-sm-8">
+                                <input class="form-control input-md" formControlName="country" placeholder="Ex: UK,US"> 
+                            </div> -->
+                            <label for="country" class="col-sm-3 col-form-label">Country</label>
+                            <div class="col-sm-6">
+                                <input class="form-control input-md" formControlName="country" placeholder="Ex: UK,US"> 
                             </div>
                           </div>
                           <div class="form-group row">
-                              <label for="ssn" class="col-sm-2 col-form-label">State</label>
-                              <div class="col-sm-5">
-                                  <input class="form-control input-md" placeholder="Ex: OR, CA"> 
-                              </div>
+                            <label for="state" class="col-sm-2 col-form-label">State</label>
+                            <div class="col-sm-5">
+                                <input class="form-control input-md" formControlName="state" placeholder="Ex: OR, CA"> 
                             </div>
-                            <div class="form-group row">
-                                <label for="ssn" class="col-sm-2 col-form-label">Street</label>
-                                <div class="col-sm-5">
-                                    <input class="form-control input-md" placeholder="Ex: 1234 Some Street"> 
-                                </div>
-                              </div>
-                              <div class="form-group row">
-                                  <label for="ssn" class="col-sm-2 col-form-label">City</label>
-                                  <div class="col-sm-5">
-                                      <input class="form-control input-md" placeholder="Ex: Atlanta"> 
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="ssn" class="col-sm-2 col-form-label">Zip</label>
-                                    <div class="col-sm-5">
-                                        <input class="form-control input-md" placeholder="Ex: 97756"> 
-                                    </div>
-                                  </div>
-
-
-                      </div>
-                    <div class="form-group row">
-                        <label for="company" class="col-sm-2 col-form-label">Checking Account Number</label>
-                        <div class="col-sm-5">
-                            <input class="form-control input-md"> 
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                          <label for="company" class="col-sm-2 col-form-label">Routing Number  </label>
-                          <div class="col-sm-5">
-                              <input class="form-control input-md"> 
                           </div>
                         </div>
                         <div class="form-group row">
-                            <label for="company" class="col-sm-2 col-form-label">Cell Phone</label>
+                          <label for="street" class="col-sm-2 col-form-label"></label>
+                          <div class="form-group row">
+                            <label for="street" class="col-sm-3 col-form-label">Street</label>
+                            <div class="col-sm-8">
+                                <input class="form-control input-md" formControlName="street" placeholder="Ex: 1234 Some Street"> 
+                            </div>
+                           
+                          </div>
+                          <div class="form-group row">
+                            <label for="city" class="col-sm-2 col-form-label">City</label>
                             <div class="col-sm-5">
-                                <input class="form-control input-md"> 
+                                <input class="form-control input-md" formControlName="city" placeholder="Ex: Atlanta"> 
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="zip" class="col-sm-2 col-form-label">Zip</label>
+                            <div class="col-sm-6">
+                                <input class="form-control input-md" formControlName="zip" placeholder="Ex: 97756"> 
+                                
+                            </div>
+                           
+                          </div>
+                          
+                        </div>
+                        
+                          
+                          <div class="col-sm-5">  
+
+                      </div>
+                      
+                    <div class="form-group row">
+                        <label for="account_no" class="col-sm-2 col-form-label">Checking Account Number</label>
+                        <div class="col-sm-5">
+                            <input class="form-control input-md" formControlName="account_no"> 
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="routing_no" class="col-sm-2 col-form-label">Routing Number  </label>
+                          <div class="col-sm-5">
+                              <input class="form-control input-md" formControlName="routing_no"> 
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Phone" class="col-sm-2 col-form-label">Cell Phone</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control input-md" formControlName="Phone"> 
+                                <div *ngIf="MerchantForm.get('Phone').touched && MerchantForm.get('Phone').invalid" class="alert alert-danger">
+                                  <div  *ngIf=" MerchantForm.get('Phone').errors.required ">
+                                    Years active is required
+                                </div>
+                                  <div  *ngIf=" MerchantForm.get('Phone').errors.pattern ">
+                                      Please follow the pattern: ###-###-#### or ########## 
+                                  </div>
+                               </div>
                             </div>
                           </div>
                           <div class="form-group row">
                               <label for="years" class="col-sm-2 col-form-label">Years Active </label>
                               <div class="col-sm-5">
                                                               
-                            <input type="text" [(ngModel)]="age" />
-                            <button type="button" (click)="ageCalculator()">Calculator </button>
-
-
+                            <input type="text" formControlName="years" (change)="ageCalculator($event)" required placeholder="Ex: 2021,2022,etc">
+                            <div *ngIf="MerchantForm.get('years').touched && MerchantForm.get('years').invalid" class="alert alert-danger">
+                                    <div  *ngIf=" MerchantForm.get('years').errors.required ">
+                                      Years active is required
+                                  </div>
+                                    <div  *ngIf=" MerchantForm.get('years').errors.pattern ">
+                                        Please follow the pattern: 2020, 2021, etc.
+                                    </div>
+                                 </div>
 
                               </div>
                             </div>
                             <div class="form-group row">
-                                <label for="company" class="col-sm-2 col-form-label">Identification Verification </label>
+                                <label for="id_no" class="col-sm-2 col-form-label">Identification Verification </label>
                                 <div class="col-sm-5">
-                                    <input class="form-control input-md"> 
+                                    <input class="form-control input-md" formControlName="id_no"> 
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12 col-sm-4 offset-4 text-center">
+                                  <button type="submit" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;">Save</button>
                                 </div>
                               </div>
               </form>    
