@@ -87,7 +87,7 @@ export class ScheduleComponent implements OnInit {
     //  this.mergeLocalStorageData(this.newStorage, this.scheduleFormData);
     this.allData = this.mergeData();
 
-
+console.log('all megre data',this.allData)
       //post request with all the data
     this._ProfileService.addTele(this.allData).subscribe((res: any) => {
       this.toastr.success('Telegram group Created successfully');

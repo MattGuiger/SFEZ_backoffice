@@ -136,7 +136,7 @@
                                       </div>
                                       <!-- <input class="form-control input-md" #firstname="ngModel" required id="firstname" name="firstname"
                                         type="text" [(ngModel)]="personal.first_name"> -->
-                                        <input class="form-control input-md" formControlName="firstname">
+                                        <input class="form-control input-md" formControlName="first_name">
                                     </div>
                                     <!-- <small class="form-text text-muted danger"
                                       *ngIf="!firstname.valid && (firstname.dirty || firstname.touched)">This field is
@@ -156,7 +156,7 @@
                                       </div>
                                       <!-- <input class="form-control input-md" #lastname="ngModel" required id="lastname" name="lastname"
                                         type="text" [(ngModel)]="personal.last_name"> -->
-                                        <input class="form-control input-md" formControlName="lastname">
+                                        <input class="form-control input-md" formControlName="last_name">
                                     </div>
                                     <!-- <small class="form-text text-muted danger"
                                       *ngIf="!lastname.valid && (lastname.dirty || lastname.touched)">This field is
@@ -197,7 +197,7 @@
                                       </div>
                                       <!-- <input class="form-control input-md" #password="ngModel" required id="password" name="password"
                                         type="password" [(ngModel)]="personal.password"> -->
-                                        <input class="form-control input-md" formControlName="password">
+                                        <input class="form-control input-md" type="password" formControlName="password">
                                     </div>
                                     <!-- <small class="form-text text-muted danger"
                                       *ngIf="!password.valid && (password.dirty || password.touched)">This field is
@@ -213,7 +213,7 @@
                         [disabled]="!personalForm.valid" (click)="save(personalForm)"> Next </button> -->
                     
                     <label for="vendor_name">Vendor Name</label>
-                    <input type="text" class="form-control" id="vendor_name" formControlName="vendor_name" placeholder="Miso Soupy">
+                    <input type="text" class="form-control" id="company_name" formControlName="company_name" placeholder="Miso Soupy">
                     <!-- <small id="emailHelp" class="form-text text-muted">Helper Text  ex. Miso Soupy</small>    -->
                     
                   

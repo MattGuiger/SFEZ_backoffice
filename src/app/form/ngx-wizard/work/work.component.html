@@ -24,19 +24,34 @@
                 </select> -->
                 <mat-form-field appearance="fill">
                     <mat-label>Type</mat-label>
-                    <mat-select matNativeControl required formControlName="workType">
-                      <mat-option value="restaurant">RESTAURANT <img src="../../../../assets/images/icon-500-bar-restaurant.png"></mat-option>
-                      <mat-option value="cafe">CAFÉ <img src="../../../../assets/images/icon-500-cafe.png"></mat-option>
-                      <mat-option value="beer">BEER <img src="../../../../assets/images/icon-500-beer.png"></mat-option>
-                      <mat-option value="wine">WINE <img src="../../../../assets/images/icon-500-wine.png"></mat-option>
-                      <mat-option value="food_truck">FOOD TRUCK <img src="../../../../assets/images/icon-500-food-truck.png"></mat-option>
-                      <mat-option value="pizza">PIZZA <img src="../../../../assets/images/icon"></mat-option>
-                      <mat-option value="farmer">FARMER <img src="../assets/img/google-drive@1x.png"></mat-option>
-                      <mat-option value="chef">CHEF <img src="../../../../assets/images/pizza.svg"></mat-option>
-                      <mat-option value="ghost_kitchen">GHOST KITCHEN <img src="../../../../assets/images/Ghost-Kitchen.png"></mat-option>
+                    <mat-select matNativeControl required formControlName="type">
+                      <mat-option value="RESTAURANT">RESTAURANT <img src="../../../../assets/images/icon-500-bar-restaurant.png"></mat-option>
+                      <mat-option value="CAFE">CAFÉ <img src="../../../../assets/images/icon-500-cafe.png"></mat-option>
+                      <mat-option value="BEER">BEER <img src="../../../../assets/images/icon-500-beer.png"></mat-option>
+                      <mat-option value="WINE">WINE <img src="../../../../assets/images/icon-500-wine.png"></mat-option>
+                      <mat-option value="TRUCK">FOOD TRUCK <img src="../../../../assets/images/icon-500-food-truck.png"></mat-option>
+                      <mat-option value="PIZZA">PIZZA <img src="../../../../assets/images/icon"></mat-option>
+                      <mat-option value="FARMER">FARMER <img src="../assets/img/google-drive@1x.png"></mat-option>
+                      <mat-option value="CHEF">CHEF <img src="../../../../assets/images/pizza.svg"></mat-option>
+                      <mat-option value="GHOST_KITCHEN">GHOST KITCHEN <img src="../../../../assets/images/Ghost-Kitchen.png"></mat-option>
   
                     </mat-select>
                   </mat-form-field>
+                  
+                <div class="form-group col-4 offset-4 mt-4">
+                  
+                    <label for="unit_name">Unit Name</label>
+                    <input type="text" class="form-control" id="company_name" formControlName="name" placeholder="">
+                  
+                </div>
+                <div class="form-group col-4 offset-4 mt-4">
+                    <label for="unit_name">Username</label>
+                    <input type="text" class="form-control" id="company_name" formControlName="username" placeholder="">
+                </div>
+                <div class="form-group col-4 offset-4 mt-4">
+                    <label for="unit_name">password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password" placeholder="">
+                </div>
                 <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1 mt-3" (click)="cancel()"> Previous</button>
                 <!-- <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button> -->
 

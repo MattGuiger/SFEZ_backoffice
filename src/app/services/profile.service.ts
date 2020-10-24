@@ -212,7 +212,9 @@ export class ProfileService {
   addFoodParkmgr(data): Observable<any> {
     return this.http.post(this.addDriverURL,data);
   }
-  
+  vendorRegister(data): Observable<any> {
+    return this.http.post(this.addDriverURL,data);
+  }
   addFoodPark(data): Observable<any> {
     return this.http.post(this.addFoodParkURL,data);
   }
