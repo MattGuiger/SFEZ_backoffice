@@ -31,9 +31,9 @@ export class ScheduleComponent implements OnInit {
     // weekDay = [{ day: "S" }, { day: "M" }, { day: "T" }, { day: 'W' }, { day: "Th" }, { day: "F" }, { day: "Sa" }]
 
     scheduleFormData = new FormGroup({
-      hour: new FormControl(),
-      name: new FormControl(),
-      schedule: new FormControl(),
+      hours: new FormControl(),
+      // name: new FormControl(),
+      // schedule: new FormControl(),
       // button1: new FormControl(),
       // button2: new FormControl(),
       // button3: new FormControl(),
@@ -89,8 +89,15 @@ export class ScheduleComponent implements OnInit {
 
 console.log('all megre data',this.allData)
       //post request with all the data
-    this._ProfileService.addTele(this.allData).subscribe((res: any) => {
-      this.toastr.success('Telegram group Created successfully');
+      const company_id= 11179;
+      this.scheduleFormData.value.facebook = "www.facebook.com/machotacos";
+      this.scheduleFormData.value.schedule = "0,1,2,3,4,5";
+      this.scheduleFormData.value.featured_dish = "https://commercecdn.com/1544371371390271966/57c95dfd-f6b7-4f12-8059-9b6ca857b246.jpeg";
+      this.scheduleFormData.value.photo = "https://commercecdn.com/1544371371390271966/30ad622a-4fc2-4f1f-87e2-37ae672f2492.jpeg";
+
+    this._ProfileService.updateCompanyCredentials(company_id, this.allData).subscribe((res: any) => {
+      // this.toastr.success('Telegram group Created successfully');
+      this.toastr.success('Data successfully updated');
       document.getElementById("closeModal").click();
       
     },
@@ -107,13 +114,14 @@ console.log('all megre data',this.allData)
 
    
     
-    const personalFormData = JSON.parse(localStorage.getItem("personalFormData"));
-    const workFormData = JSON.parse(localStorage.getItem("workFormData"));
+    // const personalFormData = JSON.parse(localStorage.getItem("personalFormData"));
+    // const workFormData = JSON.parse(localStorage.getItem("workFormData"));
     const tagsFormData = JSON.parse(localStorage.getItem("tagsFormData"));
     const descriptionFormData = JSON.parse(localStorage.getItem("descriptionFormData"));
     const scheduleFormData = this.scheduleFormData.value;
     // const dayData = this.onChange;
-    const combinedObject = {...personalFormData, ...workFormData, ...tagsFormData, ...descriptionFormData, ...scheduleFormData};
+    // const combinedObject = {...personalFormData, ...workFormData, ...tagsFormData, ...descriptionFormData, ...scheduleFormData};
+    const combinedObject = {...tagsFormData, ...descriptionFormData, ...scheduleFormData};
 
     return combinedObject;
     

@@ -25,7 +25,13 @@ export class PersonalComponent implements OnInit {
     title = 'Step #1 Vendor';
     personal: Personal;
     form: any;
+    countries: any[] = [];
     countryList : any[]=[];
+    lat = -34.397;
+  lng = 150.644;
+  latA = -34.754764;
+  lngA = 149.736246;
+  zoom = 8;
     business_address: string;
     city : string;
     state : string;
@@ -37,23 +43,32 @@ export class PersonalComponent implements OnInit {
       first_name: new FormControl(),
       last_name: new FormControl(),
       email: new FormControl(),
+      // country_id: new FormControl(),
       password: new FormControl(),
       company_name: new FormControl(),
+      distance_range: new FormControl(),
+      
       });
     files: File[] = [];
     feathuredfiles: File[] = [];
     user : any;
+    
 
     constructor(private router: Router,
         private _AuthService:AuthService,
         private toastr: ToastrService,
-        private route: ActivatedRoute, private formDataService: FormDataService,
+         private formDataService: FormDataService,
         private commonFunctionsService: CommonFunctionsService,
         private workflowService: WorkflowService,
         private _ProfileService:ProfileService,
         private _CommonFunctionsService : CommonFunctionsService,
-) {
-    }
+        private route: ActivatedRoute) {
+          this.user = this._CommonFunctionsService.checkUser().user;
+          this.getAllCountries();
+          
+        }
+
+
 
     ngOnInit() {
         this.personal = this.formDataService.getPersonal();
@@ -93,20 +108,37 @@ export class PersonalComponent implements OnInit {
 
     onSubmit(){
       console.log("personal"+ JSON.stringify(this.personalDetailsForm.value));
-      this.personalDetailsForm.value.role='OWNER'
-      this.personalDetailsForm.value.country_id='4'
+      // this.personalDetailsForm.value.role="OWNER";
+      this.personalDetailsForm.value.role=this.user.role;
+      this.personalDetailsForm.value.country_id=this.user.country_id;
+      this.personalDetailsForm.value.latitude = 40.058174;
+      this.personalDetailsForm.value.longitude = -121.315308;
+      // this.personalDetailsForm.value.country_id=4;
+      // this.personalDetailsForm.value.distance_range=4
       // const data = localStorage.setItem('personalFormData', JSON.stringify(this.personalDetailsForm.value));
       this._ProfileService.vendorRegister(this.personalDetailsForm.value).subscribe(res=>{
-        if(res.status==200){
-       
+        if(res.status==200 || res.status==400){
+         
           localStorage.setItem('companyId',res.user.company_id)
+          localStorage.setItem('companyId', res.user.first_name)
           this._ProfileService.getCompanyprofile(res.user.company_id).subscribe(res=>{
             localStorage.setItem('company_name', res.name);
           })
-          this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+          // this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
 
         }
       })
+      this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+    }
+    // onSubmit(){
+    //   this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+    // }
+
+    placeMarker($event) {
+      this.lat = $event.coords.lat;
+      this.lng = $event.coords.lng;
+      this.personalDetailsForm.value.latitude = this.lat;
+      this.personalDetailsForm.value.longitude = this.lng;
     }
 
 
@@ -123,6 +155,12 @@ export class PersonalComponent implements OnInit {
     //       this.toastr.error('failed to upload, please try again later')
     //    })
     // }
+
+    getAllCountries() {
+      this._ProfileService.getAllCountries().subscribe((res: any) => {
+        this.countries = res;
+      })
+    }
 
     uploadCompanyProfile(formData){
       this.user = this._CommonFunctionsService.checkUser().user;

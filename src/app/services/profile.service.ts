@@ -221,6 +221,9 @@ export class ProfileService {
   addTele(data): Observable<any> {
     return this.http.post(this.addTeleURL,data);
   }
+  updateCompanyCredentials(companyId,data): Observable<any> {
+    return this.http.put(this.unitURL+companyId,data);
+  }
   addDriver(data): Observable<any> {
     return this.http.post(this.addDriverURL,data);
   }

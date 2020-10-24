@@ -1,3 +1,4 @@
+import { CommonFunctionsService } from './../../../services/commonFunctions.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -25,6 +26,7 @@ export class WorkComponent implements OnInit {
     tags = ['Pizza', 'Pasta', 'Parmesan'];
     form: any;
     companyId :any;
+    user: any;
     // workFormData = new FormGroup({
     //     workType: new FormControl(),
     //     schedule: new FormControl(),
@@ -34,16 +36,20 @@ export class WorkComponent implements OnInit {
             name: new FormControl(),
             username: new FormControl(),
             password: new FormControl()  ,
-            type: new FormControl()    
+            type: new FormControl(),
+            // unit: new FormControl() ,
+            // email: new FormControl()
 
 
             });
     constructor(private router: Router,
         private _AuthService:AuthService,
         private toastr: ToastrService,
+        private _CommonFunctionsService: CommonFunctionsService,
         private _ProfileService:ProfileService,
         private route: ActivatedRoute, private formDataService: FormDataService,
         private workflowService: WorkflowService) {
+            this.user = this._CommonFunctionsService.checkUser().user;
     }
 
     ngOnInit() {
@@ -76,26 +82,36 @@ export class WorkComponent implements OnInit {
     // }
 
     onSubmit(){
-        console.log("work"+ JSON.stringify(this.workFormData.value));
-        // {
-        //     "name": "ww",
-        //    "username": "ww",
-        //    "password": "vvv",
-        //     "type": "RESTAURANT",
-        //     "territory_id":  "41",
-        //     "number": 1
-        // } 
-        const comapany_id= localStorage.getItem('companyId')
-        this.workFormData.value.territory_id='41'
-        this.workFormData.value.number='1'
-        this._ProfileService.addUnit(this.workFormData.value,comapany_id).subscribe(res=>{
-            const data = localStorage.setItem('workFormData', JSON.stringify(this.workFormData.value));
-            this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
-        })
-
-        /**
-         *  */ 
+        this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
     }
+
+    // onSubmit(){
+    //     console.log("work"+ JSON.stringify(this.workFormData.value));
+    //     console.log(this.user.role);
+    //     // {
+    //     //     "name": "ww",
+    //     //    "username": "ww",
+    //     //    "password": "vvv",
+    //     //     "type": "RESTAURANT",
+    //     //     "territory_id":  "41",
+    //     //     "number": 1
+    //     // } 
+    //     const comapany_id= 11179
+    //     this.workFormData.value.customer_order_window =20
+    //     this.workFormData.value.delivery_time_offset=15
+    //     // this.workFormData.value.number='1'
+
+    //     this.workFormData.value.delivery_radius =5
+    //     this.workFormData.value.territory_id= 41
+    //     this.workFormData.value.number=1
+    //     // this._ProfileService.addUnit(this.workFormData.value).subscribe(res=>{
+    //     this._ProfileService.addUnit(this.workFormData.value,comapany_id).subscribe(res=>{
+    //     //    const data = localStorage.setItem('workFormData', JSON.stringify(this.workFormData.value));
+    //         this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
+    //     })
+
+        
+    // }
 
     cancel() {
         this.router.navigate(['wizard'], { relativeTo: this.route.parent, skipLocationChange: true });
