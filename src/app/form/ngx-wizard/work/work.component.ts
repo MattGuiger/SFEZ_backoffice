@@ -83,30 +83,29 @@ export class WorkComponent implements OnInit {
         
     // }
 
-    // onSubmit(){
-    //     this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
-    // }
-
     onSubmit(){
-        console.log("work"+ JSON.stringify(this.workFormData.value));
-        console.log(this.user.role);
-        
-        const comapany_id= localStorage.getItem('companyId');
-        this.workFormData.value.customer_order_window =20
-        this.workFormData.value.delivery_time_offset=15
-        // this.workFormData.value.number='1'
-
-        this.workFormData.value.delivery_radius =5
-        this.workFormData.value.territory_id=this.user.territory_id;
-        this.workFormData.value.number=1
-        // this._ProfileService.addUnit(this.workFormData.value).subscribe(res=>{
-        this._ProfileService.addUnit(this.workFormData.value,comapany_id).subscribe(res=>{
-           const data = localStorage.setItem('workFormData', JSON.stringify(this.workFormData.value));
-            this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
-        })
-        // this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
-        
+        this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
     }
+
+    // onSubmit(){
+    //     console.log("work"+ JSON.stringify(this.workFormData.value));
+    //     console.log(this.user.role);
+        
+    //     const comapany_id= localStorage.getItem('companyId');
+    //     this.workFormData.value.customer_order_window =20
+    //     this.workFormData.value.delivery_time_offset=15
+    //     // this.workFormData.value.number='1'
+
+    //     this.workFormData.value.delivery_radius =5
+    //     this.workFormData.value.territory_id=this.user.territory_id;
+    //     this.workFormData.value.number=1
+    //     // this._ProfileService.addUnit(this.workFormData.value).subscribe(res=>{
+    //     this._ProfileService.addUnit(this.workFormData.value,comapany_id).subscribe(res=>{
+    //        const data = localStorage.setItem('workFormData', JSON.stringify(this.workFormData.value));
+    //         this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
+    //     })
+        // this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });   
+    // }
 // {
         //     "name": "ww",
         //    "username": "ww",

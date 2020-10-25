@@ -19,29 +19,30 @@ import { local } from 'd3';
 
 export class ScheduleComponent implements OnInit {
     title = 'STEP #5 Business Details';
-    schedule: string;
+    
     hours :string;
     facebook : string;
     allData:any;
+    schedule: any[] = [];
     form: any;
     result:any[]=[];
     // dayArr :any[]= [];
     companyId :any;
     selectedIndex:number=1;
-    // weekDay = [{ day: "S" }, { day: "M" }, { day: "T" }, { day: 'W' }, { day: "Th" }, { day: "F" }, { day: "Sa" }]
+    
 
     scheduleFormData = new FormGroup({
       hours: new FormControl(),
       // name: new FormControl(),
-      // schedule: new FormControl(),
+      schedule: new FormControl(this.schedule),
+      facebook: new FormControl('www.facebook.com/'),
       // button1: new FormControl(),
       // button2: new FormControl(),
       // button3: new FormControl(),
       // button4: new FormControl(),
       // button5: new FormControl(),
       // button6: new FormControl(),
-      // button7: new FormControl(),
-      // button8: new FormControl()       
+      // button7: new FormControl()      
       });
       
     data: any[] = [];
@@ -89,16 +90,18 @@ export class ScheduleComponent implements OnInit {
 
 console.log('all megre data',this.allData)
       //post request with all the data
-      const company_id= 11179;
-      this.scheduleFormData.value.facebook = "www.facebook.com/machotacos";
-      this.scheduleFormData.value.schedule = "0,1,2,3,4,5";
+      const company_id= localStorage.getItem('companyId');
+      // this.scheduleFormData.value.facebook = "www.facebook.com/machotacos";
+      // this.scheduleFormData.value.schedule = "0,1,2,3,4,5";
       this.scheduleFormData.value.featured_dish = "https://commercecdn.com/1544371371390271966/57c95dfd-f6b7-4f12-8059-9b6ca857b246.jpeg";
       this.scheduleFormData.value.photo = "https://commercecdn.com/1544371371390271966/30ad622a-4fc2-4f1f-87e2-37ae672f2492.jpeg";
 
     this._ProfileService.updateCompanyCredentials(company_id, this.allData).subscribe((res: any) => {
       // this.toastr.success('Telegram group Created successfully');
-      this.toastr.success('Data successfully updated');
+      this.toastr.success('User is registered successfully');
+      // window.localStorage.clear();
       document.getElementById("closeModal").click();
+    
       
     },
       error => {
@@ -160,7 +163,28 @@ console.log('all megre data',this.allData)
     //       }
     //    localStorage.setItem( name, JSON.stringify(oldData.concat(data)));
     //      }
-    
+    // schedule[]
+    weekday(event){
+        // console.log(event.target.value)
+        // console.log(event.target.checked)
+        if(event.target.checked){
+         this.addValue(event.target)
+          } else {
+            this.removeValue(event.target)
+          }
+    }
+    addValue(val){
+      this.schedule.push(val.value)
+      console.log(this.schedule)
+    }
+    removeValue(val){
+      let index = this.schedule.indexOf(val.value)
+      if (index > -1){
+        this.schedule.splice(index, 1)
+      }
+      console.log(this.schedule)
+    }
+
 
     save(form: any) {
         console.log("telegram save");

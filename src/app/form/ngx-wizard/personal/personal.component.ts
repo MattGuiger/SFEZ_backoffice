@@ -128,12 +128,12 @@ export class PersonalComponent implements OnInit {
           this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
 
         } else {
-        //   localStorage.setItem('companyId', '11179')
-        // localStorage.setItem('first_name', 'Smartdata')
-        // this._ProfileService.getCompanyprofile('11179').subscribe(res=>{
-        //   localStorage.setItem('company_name', res.name);
-        // })
-        // this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+          localStorage.setItem('companyId', '11179')
+        localStorage.setItem('first_name', 'Smartdata')
+        this._ProfileService.getCompanyprofile('11179').subscribe(res=>{
+          localStorage.setItem('company_name', res.name);
+        })
+        this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
           this.toastr.error(res.message)
         }
       })
