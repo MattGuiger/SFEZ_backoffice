@@ -158,6 +158,7 @@ export class FoodParkComponent implements OnInit{
       this.showManagerTab = true;
     }
     this.getAllManger();
+    
     // this.rows = data;
     // this.temp = [...data];
     // setTimeout(() => {
