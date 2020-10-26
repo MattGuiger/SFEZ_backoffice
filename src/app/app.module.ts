@@ -1,9 +1,10 @@
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './AuthInterceptor';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+ 
 import {
     CommonModule,
     LocationStrategy,
@@ -78,6 +79,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         HttpClientModule,
         HttpModule,
         NgbModule,
+        MatTabsModule,
         AccordionModule,
         ToastrModule.forRoot(),
         SlimLoadingBarModule.forRoot(),

@@ -14,7 +14,9 @@ export class NGXFormWizardComponent implements OnInit {
   selectedIndex:number=1;
   showAge: any;
   myData: any;
-
+  checkingId:any="1";
+  checkId = localStorage.getItem('DisableRegForm');
+  
   // public mask = {
   //   guide: true,
   //   showMask: true,
@@ -31,6 +33,7 @@ export class NGXFormWizardComponent implements OnInit {
         this.userName = localStorageItem.user.username;
         console.log("username"+ this.userName);
         this.router.navigate(['/forms/ngx/wizard'], { skipLocationChange: true });
+         this.checkingId ="2";
     }
     MerchantForm = new FormGroup({
       tax_id: new FormControl('', [Validators.required,  Validators.pattern("^[0-9]{2}-?[0-9]{7}$")]),
@@ -57,6 +60,8 @@ export class NGXFormWizardComponent implements OnInit {
         console.log(showAge)
       }
     }
+
+   
    
     onSubmit(){
       console.log(this.MerchantForm.value);

@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../services/auth.service';
 import { ProfileService} from '../../../services/profile.service'
 import { local } from 'd3';
+import { scheduled } from 'rxjs';
 
 
 @Component({
@@ -27,25 +28,26 @@ export class ScheduleComponent implements OnInit {
     schedule: any[] = [];
     form: any;
     result:any[]=[];
-    // dayArr :any[]= [];
+    // dayArr :any[] = [];
     companyId :any;
     selectedIndex:number=1;
-    hoursArr: FormArray;
+    hoursArr: any[] = [];
+    scheduleFormData: FormGroup;
     
 
-    scheduleFormData = new FormGroup({
-      hours: new FormControl('', Validators.required),
-      // name: new FormControl(),
-      schedule: new FormControl(this.schedule),
-      facebook: new FormControl('www.facebook.com/'),
-      // button1: new FormControl(),
-      // button2: new FormControl(),
-      // button3: new FormControl(),
-      // button4: new FormControl(),
-      // button5: new FormControl(),
-      // button6: new FormControl(),
-      // button7: new FormControl()      
-      });
+    // scheduleFormData = new FormGroup({
+    //   hours: new FormControl('', Validators.required),
+    //   // name: new FormControl(),
+    //   schedule: new FormControl(this.schedule),
+    //   facebook: new FormControl('www.facebook.com/'),
+    //   // button1: new FormControl(),
+    //   // button2: new FormControl(),
+    //   // button3: new FormControl(),
+    //   // button4: new FormControl(),
+    //   // button5: new FormControl(),
+    //   // button6: new FormControl(),
+    //   // button7: new FormControl()      
+    //   });
       
     data: any[] = [];
     newStorage:any[]=[];
@@ -62,11 +64,16 @@ export class ScheduleComponent implements OnInit {
 
     ngOnInit() {
         this.route.params.subscribe(params => {
-            this.companyId = +params['id'];
+            this.companyId = + params['id'];
          });
-        //  this.scheduleFormData = this.fb.group({
-        //   dayArr: this.fb.array([])
-        // });
+         this.scheduleFormData = this.fb.group({
+          schedule: [null, Validators.required],
+          facebook: ['www.facebook.com/'],
+          hours: [null, Validators.required]
+        });
+        (this.scheduleFormData.get('hours') as FormArray).push(
+            this.fb.control(null)
+          )
     }
 
     // onChange(day: string, isChecked: boolean) {
@@ -101,6 +108,7 @@ console.log('all megre data',this.allData)
     this._ProfileService.updateCompanyCredentials(company_id, this.allData).subscribe((res: any) => {
       // this.toastr.success('Telegram group Created successfully');
       this.toastr.success('Success');
+      const data = localStorage.setItem('DisableRegForm', JSON.stringify("true"));
       this.clearLocalstorage();
       this.router.navigate(['/forms']);
       document.getElementById("closeModal").click();
@@ -203,17 +211,22 @@ console.log('all megre data',this.allData)
       }
       console.log(this.schedule)
     }
-    onAddHours(){
-      this.hoursArr.push(this.createItemFormGroup());
+    onAddHours(): void {
+      // (this.scheduleFormData.get('hours') as FormArray).push(
+      //   this.fb.control(null)
+      // )
+    
+
+      let arr = {
+        hours: new FormControl('', Validators.required),
+        schedule: new FormControl(this.schedule)
+      }
+      this.hoursArr.push(arr);
+     
+      // console.log(this.hoursArr)
     }
 
-    createItemFormGroup(): FormGroup{
-      return this.fb.group({
-        hours: null,
-      schedule: null,
-      facebook: null,
-      });
-    }
+    
     
 
     save(form: any) {
