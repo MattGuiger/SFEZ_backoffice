@@ -186,6 +186,11 @@
                         <option value="none" selected hidden>  </option> 
                           <option *ngFor="let item of data" value="{{item}}">{{item}}</option>
                         </select>
+                        <div *ngIf="MerchantForm.get('type').touched && MerchantForm.get('type').invalid" class="alert alert-danger">
+                          <div  *ngIf=" MerchantForm.get('type').errors.required ">
+                            Company type is required
+                        </div>
+                       </div>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -231,12 +236,24 @@
                             <label for="country" class="col-sm-3 col-form-label">Country</label>
                             <div class="col-sm-6">
                                 <input class="form-control input-md" formControlName="country" placeholder="Ex: UK,US"> 
+                                <div *ngIf="MerchantForm.get('country').touched && MerchantForm.get('country').invalid" class="alert alert-danger">
+                                  <div  *ngIf=" MerchantForm.get('country').errors.required ">
+                                    Required
+                                </div>
+                                 
+                               </div>
                             </div>
                           </div>
                           <div class="form-group row">
                             <label for="state" class="col-sm-2 col-form-label">State</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-6">
                                 <input class="form-control input-md" formControlName="state" placeholder="Ex: OR, CA"> 
+                                <!-- <div *ngIf="MerchantForm.get('state').touched && MerchantForm.get('state').invalid" class="alert alert-danger">
+                                  <div  *ngIf=" MerchantForm.get('state').errors.required ">
+                                    Required
+                                </div>
+                                 
+                               </div> -->
                             </div>
                           </div>
                         </div>
@@ -246,20 +263,37 @@
                             <label for="street" class="col-sm-3 col-form-label">Street</label>
                             <div class="col-sm-8">
                                 <input class="form-control input-md" formControlName="street" placeholder="Ex: 1234 Some Street"> 
-                            </div>
+                                <div *ngIf="MerchantForm.get('street').touched && MerchantForm.get('street').invalid" class="alert alert-danger">
+                                  <div  *ngIf=" MerchantForm.get('street').errors.required ">
+                                    Required
+                                </div>
+                                 
+                               </div>
+                              </div>
                            
                           </div>
                           <div class="form-group row">
                             <label for="city" class="col-sm-2 col-form-label">City</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-6">
                                 <input class="form-control input-md" formControlName="city" placeholder="Ex: Atlanta"> 
+                                <div *ngIf="MerchantForm.get('city').touched && MerchantForm.get('city').invalid" class="alert alert-danger">
+                                  <div  *ngIf=" MerchantForm.get('city').errors.required ">
+                                    Required
+                                </div>
+                                 
+                               </div>
                             </div>
                           </div>
                           <div class="form-group row">
                             <label for="zip" class="col-sm-2 col-form-label">Zip</label>
                             <div class="col-sm-6">
                                 <input class="form-control input-md" formControlName="zip" placeholder="Ex: 97756"> 
-                                
+                                <div *ngIf="MerchantForm.get('zip').touched && MerchantForm.get('zip').invalid" class="alert alert-danger">
+                                  <div  *ngIf=" MerchantForm.get('zip').errors.required ">
+                                    Required
+                                </div>
+                                 
+                               </div>
                             </div>
                            
                           </div>
@@ -272,15 +306,27 @@
                       </div>
                       
                     <div class="form-group row">
-                        <label for="account_no" class="col-sm-2 col-form-label">Checking Account Number</label>
+                        <label for="account_no" class="col-sm-2 col-form-label">Account Number</label>
                         <div class="col-sm-5">
                             <input class="form-control input-md" formControlName="account_no"> 
+                            <div *ngIf="MerchantForm.get('account_no').touched && MerchantForm.get('account_no').invalid" class="alert alert-danger">
+                              <div  *ngIf=" MerchantForm.get('account_no').errors.required ">
+                               Account Number is Required
+                            </div>
+                             
+                           </div>
                         </div>
                       </div>
                       <div class="form-group row">
                           <label for="routing_no" class="col-sm-2 col-form-label">Routing Number  </label>
                           <div class="col-sm-5">
                               <input class="form-control input-md" formControlName="routing_no"> 
+                              <div *ngIf="MerchantForm.get('routing_no').touched && MerchantForm.get('routing_no').invalid" class="alert alert-danger">
+                                <div  *ngIf=" MerchantForm.get('routing_no').errors.required ">
+                                  Account Number is Required
+                              </div>
+                               
+                             </div>
                           </div>
                         </div>
                         <div class="form-group row">
@@ -317,11 +363,17 @@
                                 <label for="id_no" class="col-sm-2 col-form-label">Identification Verification </label>
                                 <div class="col-sm-5">
                                     <input class="form-control input-md" formControlName="id_no"> 
+                                    <div *ngIf="MerchantForm.get('id_no').touched && MerchantForm.get('id_no').invalid" class="alert alert-danger">
+                                      <div  *ngIf=" MerchantForm.get('id_no').errors.required ">
+                                        Verification is Required [Enter Driving License or Passport Number]
+                                    </div>
+                                     
+                                   </div>
                                 </div>
                               </div>
                               <div class="row">
                                 <div class="col-12 col-sm-4 offset-4 text-center">
-                                  <button type="submit" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;">Save</button>
+                                  <button type="submit" [disabled]="MerchantForm.invalid" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;">Save</button>
                                 </div>
                               </div>
               </form>    

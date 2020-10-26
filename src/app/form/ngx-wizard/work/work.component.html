@@ -1,5 +1,5 @@
 
-<form #workForm="ngForm" [formGroup]="workFormData" (ngSubmit)="onSubmit()">
+<form #workForm="ngForm" [formGroup]="workFormData"  (ngSubmit)="onSubmit()">
     <div >
         <div class="tab-pane active">
             <h4 class="head text-center">{{title}}</h4>
@@ -26,9 +26,20 @@
                 <input type="text" class="form-control" id="name" formControlName="name" readonly>
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" formControlName="username" >
+                  <div *ngIf="workFormData.get('username').touched && workFormData.get('username').invalid" class="alert alert-danger">
+                                  <div  *ngIf=" workFormData.get('username').errors.required ">
+                                    Username is Required
+                                </div>
+                                 
+                               </div>
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" formControlName="password" >
-
+                <div *ngIf="workFormData.get('password').touched && workFormData.get('password').invalid" class="alert alert-danger">
+                    <div  *ngIf=" workFormData.get('password').errors.required ">
+                      Password is Required
+                  </div>
+                   
+                 </div>
                 <label for="workType">Select Type</label>
                 <mat-form-field appearance="fill">
                     <mat-label>Type</mat-label>
@@ -46,18 +57,19 @@
                     </mat-select>
                   </mat-form-field>
                   
-                
+                  <div *ngIf="workFormData.get('type').touched && workFormData.get('type').invalid" class="alert alert-danger">
+                    <div  *ngIf=" workFormData.get('type').errors.required ">
+                      Type is Required
+                  </div>
                    
-
-                
-                
+                 </div>  
             </div>
             <div class="col-md-12 text-center">
 
             <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1 mt-3" (click)="cancel()"> Previous</button>
                 <!-- <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button> -->
 
-                <button uiSref="address" type="submit" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" > Next </button>
+                <button uiSref="address" type="submit" [disabled]="workFormData.invalid" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" > Next </button>
             </div>
         </div>
     </div>

@@ -1,3 +1,4 @@
+import { routes } from './../../../apps/email/mail.module';
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -29,10 +30,11 @@ export class ScheduleComponent implements OnInit {
     // dayArr :any[]= [];
     companyId :any;
     selectedIndex:number=1;
+    hoursArr: FormArray;
     
 
     scheduleFormData = new FormGroup({
-      hours: new FormControl(),
+      hours: new FormControl('', Validators.required),
       // name: new FormControl(),
       schedule: new FormControl(this.schedule),
       facebook: new FormControl('www.facebook.com/'),
@@ -93,20 +95,37 @@ console.log('all megre data',this.allData)
       const company_id= localStorage.getItem('companyId');
       // this.scheduleFormData.value.facebook = "www.facebook.com/machotacos";
       // this.scheduleFormData.value.schedule = "0,1,2,3,4,5";
-      this.scheduleFormData.value.featured_dish = "https://commercecdn.com/1544371371390271966/57c95dfd-f6b7-4f12-8059-9b6ca857b246.jpeg";
-      this.scheduleFormData.value.photo = "https://commercecdn.com/1544371371390271966/30ad622a-4fc2-4f1f-87e2-37ae672f2492.jpeg";
+      this.scheduleFormData.value.featured_dish = localStorage.getItem('featured_dish');
+      this.scheduleFormData.value.photo = localStorage.getItem('photo');
 
     this._ProfileService.updateCompanyCredentials(company_id, this.allData).subscribe((res: any) => {
       // this.toastr.success('Telegram group Created successfully');
-      this.toastr.success('User is registered successfully');
-      // window.localStorage.clear();
+      this.toastr.success('Success');
+      this.clearLocalstorage();
+      this.router.navigate(['/forms']);
       document.getElementById("closeModal").click();
-    
+      
+      // window.localStorage.removeItem("tagsFormData")
+      // window.localStorage.removeItem("descriptionFormData")
+      // window.localStorage.removeItem("companyId")
+      // window.localStorage.removeItem("first_name")
+      // window.localStorage.removeItem("featured_dish")
+      // window.localStorage.removeItem("photo")
+      // window.localStorage.removeItem("company_name")
+      // window.localStorage.removeItem("company_name1")
+      
+      
       
     },
       error => {
         this.toastr.error(error.error.message)
       })
+     
+    }
+
+    clearLocalstorage() {
+      let removeKeys = ["tagsFormData", "descriptionFormData", "companyId", "first_name", "featured_dish", "photo", "company_name", "company_name1"]
+      removeKeys.forEach(k => localStorage.removeItem(k))
     }
 
     mergeData(){
@@ -184,7 +203,18 @@ console.log('all megre data',this.allData)
       }
       console.log(this.schedule)
     }
+    onAddHours(){
+      this.hoursArr.push(this.createItemFormGroup());
+    }
 
+    createItemFormGroup(): FormGroup{
+      return this.fb.group({
+        hours: null,
+      schedule: null,
+      facebook: null,
+      });
+    }
+    
 
     save(form: any) {
         console.log("telegram save");

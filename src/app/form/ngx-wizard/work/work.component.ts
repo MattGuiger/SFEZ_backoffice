@@ -1,5 +1,5 @@
 import { CommonFunctionsService } from './../../../services/commonFunctions.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 import { FormDataService } from '../data/formData.service';
@@ -34,10 +34,13 @@ export class WorkComponent implements OnInit {
     //     schedulehour: new FormControl()       
     //     });
         workFormData = new FormGroup({
-            name: new FormControl(localStorage.getItem('first_name')+ ' LOC'),
-            username: new FormControl(),
-            password: new FormControl()  ,
-            type: new FormControl(),
+            // name: new FormControl(localStorage.getItem('first_name')+ ' LOC'),
+            name: new FormControl(localStorage.getItem('company_name1')+ ' LOC'),
+            username: new FormControl('', Validators.required),
+            // username: new FormControl(),
+            // password: new FormControl(),
+            password: new FormControl('', Validators.required)  ,
+            type: new FormControl('', Validators.required),
             // unit: new FormControl() ,
             // email: new FormControl()
 
@@ -83,38 +86,40 @@ export class WorkComponent implements OnInit {
         
     // }
 
+    // onSubmit(){
+    //     this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
+    // }
+
     onSubmit(){
-        this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
+        console.log("work"+ JSON.stringify(this.workFormData.value));
+        console.log(this.user.role);
+        
+        const comapany_id= localStorage.getItem('companyId');
+        this.workFormData.value.customer_order_window =""
+        this.workFormData.value.delivery_time_offset=""
+        // this.workFormData.value.number='1'
+
+        this.workFormData.value.delivery_radius =""
+        this.workFormData.value.territory_id=this.user.territory_id;
+        this.workFormData.value.number=""
+        // this._ProfileService.addUnit(this.workFormData.value).subscribe(res=>{
+        this._ProfileService.addUnit(this.workFormData.value,comapany_id).subscribe(res=>{
+           const data = localStorage.setItem('workFormData', JSON.stringify(this.workFormData.value));
+            // this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
+        })
+        this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });   
     }
 
-    // onSubmit(){
-    //     console.log("work"+ JSON.stringify(this.workFormData.value));
-    //     console.log(this.user.role);
-        
-    //     const comapany_id= localStorage.getItem('companyId');
-    //     this.workFormData.value.customer_order_window =20
-    //     this.workFormData.value.delivery_time_offset=15
-    //     // this.workFormData.value.number='1'
-
-    //     this.workFormData.value.delivery_radius =5
-    //     this.workFormData.value.territory_id=this.user.territory_id;
-    //     this.workFormData.value.number=1
-    //     // this._ProfileService.addUnit(this.workFormData.value).subscribe(res=>{
-    //     this._ProfileService.addUnit(this.workFormData.value,comapany_id).subscribe(res=>{
-    //        const data = localStorage.setItem('workFormData', JSON.stringify(this.workFormData.value));
-    //         this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
-    //     })
-        // this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });   
-    // }
-// {
-        //     "name": "ww",
-        //    "username": "ww",
-        //    "password": "vvv",
-        //     "type": "RESTAURANT",
-        //     "territory_id":  "41",
-        //     "number": 1
-        // } 
     cancel() {
         this.router.navigate(['wizard'], { relativeTo: this.route.parent, skipLocationChange: true });
     }
 }
+
+// {
+    //             "name": "ww",
+    //            "username": "ww",
+    //            "password": "vvv",
+    //             "type": "RESTAURANT",
+    //             "territory_id":  "41",
+    //             "number": 1
+    //         } 

@@ -99,9 +99,15 @@
             <div class="md-form form-sm">
                             <label for="hours" class="sr-only">Time</label>
                             <input class="form-control" id="hour" formControlName="hours" placeholder="Ex: 8:00 AM - 10 PM">
+                            <div *ngIf="scheduleFormData.get('hours').touched && scheduleFormData.get('hours').invalid" class="alert alert-danger">
+                                <div  *ngIf=" scheduleFormData.get('hours').errors.required ">
+                                   Required
+                              </div>
+                               
+                             </div>
                   </div>
-
-            <button type="button" class="btn btn-link" >Add Hours</button>
+            <!-- <button type="button" class="btn btn-link" >Add Hours</button> -->
+            <button type="button" class="btn btn-link" (click)="onAddHours()">Add Hours</button>
 
                 <!-- <div class="input-group mb-3">
                     <div class="input-group-prepend">

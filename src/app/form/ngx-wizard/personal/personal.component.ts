@@ -1,3 +1,4 @@
+import { routes } from './../../../apps/email/mail.module';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { CommonFunctionsService } from './../../../services/commonFunctions.service';
 import { Component, OnInit, Input, AbstractType } from '@angular/core';
@@ -40,13 +41,13 @@ export class PersonalComponent implements OnInit {
     companyId : any;
     formVal={}
     personalDetailsForm = new FormGroup({
-      first_name: new FormControl(),
-      last_name: new FormControl(),
-      email: new FormControl(),
-      // country_id: new FormControl(),
-      password: new FormControl(),
-      company_name: new FormControl(),
-      distance_range: new FormControl(),
+      first_name: new FormControl('', Validators.required),
+      last_name: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      // country_id: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+      company_name: new FormControl('', Validators.required),
+      distance_range: new FormControl('', Validators.required),
       
       });
     files: File[] = [];
@@ -108,11 +109,12 @@ export class PersonalComponent implements OnInit {
 
     onSubmit(){
       console.log("personal"+ JSON.stringify(this.personalDetailsForm.value));
+     
       // this.personalDetailsForm.value.role="OWNER";
       this.personalDetailsForm.value.role=this.user.role;
       this.personalDetailsForm.value.country_id=this.user.country_id;
-      this.personalDetailsForm.value.latitude = 40.058174;
-      this.personalDetailsForm.value.longitude = -121.315308;
+      this.personalDetailsForm.value.latitude = "40.058174";
+      this.personalDetailsForm.value.longitude = "-121.315308";
 
       // this.personalDetailsForm.value.country_id=4;
       // this.personalDetailsForm.value.distance_range=4
@@ -122,19 +124,22 @@ export class PersonalComponent implements OnInit {
          console.log("Testing personal")
           localStorage.setItem('companyId',res.user.company_id)
           localStorage.setItem('first_name', res.user.first_name)
+          localStorage.setItem('company_name1', this.personalDetailsForm.value.company_name)
           this._ProfileService.getCompanyprofile(res.user.company_id).subscribe(res=>{
             localStorage.setItem('company_name', res.name);
+            
           })
           this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
 
         } else {
-          localStorage.setItem('companyId', '11179')
-        localStorage.setItem('first_name', 'Smartdata')
-        this._ProfileService.getCompanyprofile('11179').subscribe(res=>{
-          localStorage.setItem('company_name', res.name);
-        })
-        this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
-          this.toastr.error(res.message)
+          console.log('error step1');
+        //   localStorage.setItem('companyId', '11179')
+        // localStorage.setItem('first_name', 'Malibu')
+        // this._ProfileService.getCompanyprofile('11179').subscribe(res=>{
+        //   localStorage.setItem('company_name', res.name);
+        // })
+        // this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+        //   this.toastr.error(res.message)
         }
       })
       // this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });

@@ -35,6 +35,7 @@ export class FoodParkComponent implements OnInit{
   territory: any[] = [];
   states: any[] = [];
   countries: any[] = [];
+  selectArry: any[] = [];
   drivers: any[] = [];
   foodparkmgrList: any[] = [];
   setManager: any[] = [];
@@ -124,7 +125,7 @@ export class FoodParkComponent implements OnInit{
     }
   ];
 
-  selectArry=[]
+  
 
   @ViewChild(FoodParkComponent, { static: false }) table: FoodParkComponent;
   UnitList: any;
@@ -293,7 +294,7 @@ getlocationOnTerritoryId(){
     console.log('thisssss locations',res.data)
     this.locations=res.data
       }else{
-    
+        console.log("operation Failed ")
       }
     })
   }
@@ -509,6 +510,57 @@ getlocationsAndHub(){
       this.countries = res;
     })
   }
+  
+  getAllFoodPark() {
+    // forkJoin([
+    //   this._ProfileService.getAllFoodPark(),
+    //   this._ProfileService.getAllUnitListData()
+    // ]).subscribe(
+    //   ([allFoodParkResponse, allUnitListResponse]) => {
+    //     // const tempArray = [allFoodParkResponse.data, ...allUnitListResponse.data]
+    //     allFoodParkResponse.filter((value)=>{
+    //       this.selectArry.push({name:value.name})
+    //     })
+    //     allUnitListResponse.data.filter((value)=>{
+    //       this.selectArry.push({name:value.name})
+    //     })
+    //     console.log(' this.selectArry', this.selectArry) 
+    //   })
+    
+  
+    // this._ProfileService.getHubwithTerriID(this.user.territory_id).subscribe((res: any) => {
+    //   // this.selectArry = res;
+    //   res.filter((value)=>{
+    //           this.selectArry.push({name:value.name})
+    //         })
+    // })
+    // this._ProfileService.getAllUnitListData().subscribe((res: any) => {
+    //   this.selectArry = res;
+    // })
+
+
+    // this.user = this._CommonFunctionsService.checkUser().user;
+    // this._ProfileService.getAllFoodPark().subscribe((res: any) => {
+      // this.territory = res;
+      // this.rows = res;
+
+      // console.log('this.rows', res);
+
+      // this.temp = [...this.rows];
+      // this.selectedHub = parseInt(res[0].id);
+      // console.log(' this.drivertemp', this.selectedHub);
+
+      // this.getAllDrivers(res[0].id)
+
+
+      // select in manager tab
+      // this.temp.filter((value,index)=>{
+      //   this.selectArry.push({name:value.name})
+      // })
+      
+     
+    // })
+  }
 
   foodParkSFormSaveData(data) {
     console.log("Ash" + data);
@@ -558,11 +610,12 @@ getlocationsAndHub(){
   onSubmitLocationForm() {
     // this.locationFoodParkForm.value.latitude = 12.032;
     // this.locationFoodParkForm.value.longitude = 12.032;
-    this.locationFoodParkForm.value.territory_id = 42;
+    // this.locationFoodParkForm.value.territory_id = this.user.territory_id;
     this._ProfileService.addUnit(this.locationFoodParkForm.value, this.user.company_id).subscribe((res: any) => {
       this.toastr.success('Territory Created successfully');
       document.getElementById("closeModal").click();
       this.getAllFoodPark();
+      
     },
       error => {
         this.toastr.error(error.error.message);
@@ -572,10 +625,13 @@ getlocationsAndHub(){
   onSubmit() {
     this.foodParkForm.value.latitude = 12.032;
     this.foodParkForm.value.longitude = 12.032;
+    
     this._ProfileService.addFoodPark(this.foodParkForm.value).subscribe((res: any) => {
       this.toastr.success('Territory Created successfully');
       document.getElementById("closeModal").click();
       this.getAllFoodPark();
+     
+      
     },
       error => {
         this.toastr.error(error.error.message)
@@ -652,44 +708,7 @@ getlocationsAndHub(){
 
     return '$'+value;
   }
-   getAllFoodPark() {
-    forkJoin([
-      this._ProfileService.getAllFoodPark(),
-      this._ProfileService.getAllUnitListData()
-    ]).subscribe(
-      ([allFoodParkResponse, allUnitListResponse]) => {
-        // const tempArray = [allFoodParkResponse.data, ...allUnitListResponse.data]
-        allFoodParkResponse.filter((value)=>{
-          this.selectArry.push({name:value.name})
-        })
-        allUnitListResponse.data.filter((value)=>{
-          this.selectArry.push({name:value.name})
-        })
-        console.log(' this.selectArry', this.selectArry) 
-      })
-    
-    // this.user = this._CommonFunctionsService.checkUser().user;
-    // this._ProfileService.getAllFoodPark().subscribe((res: any) => {
-      // this.territory = res;
-      // this.rows = res;
 
-      // console.log('this.rows', res);
-
-      // this.temp = [...this.rows];
-      // this.selectedHub = parseInt(res[0].id);
-      // console.log(' this.drivertemp', this.selectedHub);
-
-      // this.getAllDrivers(res[0].id)
-
-
-      // select in manager tab
-      // this.temp.filter((value,index)=>{
-      //   this.selectArry.push({name:value.name})
-      // })
-      
-     
-    // })
-  }
 
 
   onManagerSubmit() {
@@ -725,6 +744,8 @@ getlocationsAndHub(){
   }
   selectLocationOrHub(event,row,value){
 console.log(event,row,value,'event,row,value')
+
+    
   }
   deleteManager($event, row) {
     console.log(row);
