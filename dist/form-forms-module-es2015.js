@@ -44901,7 +44901,7 @@ class PersonalComponent {
     // }
     onSubmit() {
         console.log("personal" + JSON.stringify(this.personalDetailsForm.value));
-        const data = localStorage.setItem('personalFormData', JSON.stringify(this.personalDetailsForm.value));
+        // const data = localStorage.setItem('personalFormData', JSON.stringify(this.personalDetailsForm.value));
         this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
     }
     // save(){
@@ -44937,7 +44937,7 @@ class PersonalComponent {
         const formData = new FormData();
         formData.append('file', event.addedFiles[0]);
         localStorage.setItem('fileData', JSON.stringify(formData));
-        // this.uploadFeaturePhoto(formData);
+        this.uploadFeaturePhoto(formData);
     }
     onRemovefeathured(event) {
         console.log(event);
@@ -44969,7 +44969,7 @@ class PersonalComponent {
         formData.append('file', event.addedFiles[0]);
         this.tempFileData = formData;
         // localStorage.setItem('fileData', JSON.stringify(formData));
-        // this.uploadCompanyProfile(formData);
+        this.uploadCompanyProfile(formData);
     }
     onRemove(event) {
         console.log(event);
@@ -44984,9 +44984,13 @@ class PersonalComponent {
     cancel() {
         this.router.navigateByUrl('/forms/ngx/wizard', { relativeTo: this.route.parent, skipLocationChange: true });
     }
+    //Cancel button event Ends
+    registerVendor() {
+        console.log('personalDetailsForm', this.personalDetailsForm.value);
+    }
 }
 PersonalComponent.ɵfac = function PersonalComponent_Factory(t) { return new (t || PersonalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_services_auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](ngx_toastr__WEBPACK_IMPORTED_MODULE_7__["ToastrService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_data_formData_service__WEBPACK_IMPORTED_MODULE_3__["FormDataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_services_commonFunctions_service__WEBPACK_IMPORTED_MODULE_1__["CommonFunctionsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_workflow_workflow_service__WEBPACK_IMPORTED_MODULE_4__["WorkflowService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_services_profile_service__WEBPACK_IMPORTED_MODULE_8__["ProfileService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_services_commonFunctions_service__WEBPACK_IMPORTED_MODULE_1__["CommonFunctionsService"])); };
-PersonalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: PersonalComponent, selectors: [["mt-wizard-personal"]], inputs: { tempFileData: "tempFileData" }, decls: 78, vars: 4, consts: [[3, "formGroup", "ngSubmit"], ["personalForm", "ngForm"], [1, "tab-pane", "active"], [1, "font-medium-2", "text-center"], [1, "row"], [1, "col-12"], [1, "text-center"], ["src", "/assets/images/vendor.png", "height", "190"], [1, "text-left"], [1, "col-12", "col-sm-4", "offset-4"], [1, "form-group"], ["for", "firstname", 1, "form-control-label"], [1, "input-group", "mb-3"], [1, "input-group-prepend"], ["type", "button", 1, "btn", "mr-0", "btn-info", 2, "background", "#34a6bf", "color", "#fff"], [1, "icon-User"], ["formControlName", "firstname", 1, "form-control", "input-md"], ["for", "lastname", 1, "form-control-label"], ["formControlName", "lastname", 1, "form-control", "input-md"], ["for", "email", 1, "form-control-label"], [1, "icon-Email"], ["formControlName", "email", 1, "form-control", "input-md"], ["for", "password", 1, "form-control-label"], [1, "icon-Password-shopping"], ["formControlName", "password", 1, "form-control", "input-md"], [1, "form-group", "col-4", "offset-4", "mt-4"], ["for", "vendor_name"], ["type", "text", "id", "vendor_name", "formControlName", "vendor_name", "placeholder", "Miso Soupy", 1, "form-control"], [1, "col-sm-6"], ["for", "street", 1, "form-control-label"], ["src", "/assets/images/paco.png"], [3, "change"], [3, "removable", "removed", 4, "ngFor", "ngForOf"], ["src", "/assets/images/dish.jpg"], [1, "form-group", "text-center"], ["uiSref", "result", "type", "submit", 1, "btn", "btn-raised", "btn-info", 2, "background", "#34a6bf", "color", "#fff"], [3, "removable", "removed"]], template: function PersonalComponent_Template(rf, ctx) { if (rf & 1) {
+PersonalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: PersonalComponent, selectors: [["mt-wizard-personal"]], inputs: { tempFileData: "tempFileData" }, decls: 78, vars: 4, consts: [[3, "formGroup", "ngSubmit"], ["personalForm", "ngForm"], [1, "tab-pane", "active"], [1, "font-medium-2", "text-center"], [1, "row"], [1, "col-12"], [1, "text-center"], ["src", "/assets/images/vendor.png", "height", "190"], [1, "text-left"], [1, "col-12", "col-sm-4", "offset-4"], [1, "form-group"], ["for", "firstname", 1, "form-control-label"], [1, "input-group", "mb-3"], [1, "input-group-prepend"], ["type", "button", 1, "btn", "mr-0", "btn-info", 2, "background", "#34a6bf", "color", "#fff"], [1, "icon-User"], ["formControlName", "firstname", 1, "form-control", "input-md"], ["for", "lastname", 1, "form-control-label"], ["formControlName", "lastname", 1, "form-control", "input-md"], ["for", "email", 1, "form-control-label"], [1, "icon-Email"], ["formControlName", "email", 1, "form-control", "input-md"], ["for", "password", 1, "form-control-label"], [1, "icon-Password-shopping"], ["formControlName", "password", 1, "form-control", "input-md"], [1, "form-group", "col-4", "offset-4", "mt-4"], ["for", "vendor_name"], ["type", "text", "id", "vendor_name", "formControlName", "vendor_name", "placeholder", "Miso Soupy", 1, "form-control"], [1, "col-sm-6"], ["for", "street", 1, "form-control-label"], ["src", "/assets/images/paco.png"], [3, "change"], [3, "removable", "removed", 4, "ngFor", "ngForOf"], ["src", "/assets/images/dish.jpg"], [1, "form-group", "text-center"], ["uiSref", "result", "type", "submit", 1, "btn", "btn-raised", "btn-info", 2, "background", "#34a6bf", "color", "#fff", 3, "click"], [3, "removable", "removed"]], template: function PersonalComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "form", 0, 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngSubmit", function PersonalComponent_Template_form_ngSubmit_0_listener() { return ctx.onSubmit(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "div", 2);
@@ -45110,6 +45114,7 @@ PersonalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](74, "div", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](75, "div", 34);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](76, "button", 35);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function PersonalComponent_Template_button_click_76_listener() { return ctx.registerVendor(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](77, " Next ");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();

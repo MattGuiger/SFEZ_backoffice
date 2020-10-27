@@ -35466,7 +35466,7 @@ function MenuitemsComponent_ng_template_11_Template(rf, ctx) { if (rf & 1) {
 function MenuitemsComponent_ng_template_13_div_54_Template(rf, ctx) { if (rf & 1) {
     const _r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-checkbox", 101);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-checkbox", 102);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function MenuitemsComponent_ng_template_13_div_54_Template_mat_checkbox_change_1_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r13); const category_r11 = ctx.$implicit; const ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); ctx_r12.onChange($event, category_r11.category); return false; });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -35482,7 +35482,7 @@ function MenuitemsComponent_ng_template_13_div_54_Template(rf, ctx) { if (rf & 1
 function MenuitemsComponent_ng_template_13_div_69_Template(rf, ctx) { if (rf & 1) {
     const _r16 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-checkbox", 101);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-checkbox", 102);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function MenuitemsComponent_ng_template_13_div_69_Template_mat_checkbox_change_1_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r16); const addeditem_r14 = ctx.$implicit; const ctx_r15 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); ctx_r15.onChange1($event, addeditem_r14); return false; });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -35499,13 +35499,13 @@ function MenuitemsComponent_ng_template_13_ul_90_Template(rf, ctx) { if (rf & 1)
     const _r19 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ul");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "li");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "img", 102);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "img", 103);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 74);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "input", 103);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function MenuitemsComponent_ng_template_13_ul_90_Template_input_change_6_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r19); const folder_r17 = ctx.$implicit; const ctx_r18 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); return ctx_r18.onFileSelect($event, folder_r17.folderid); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "input", 104);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function MenuitemsComponent_ng_template_13_ul_90_Template_input_change_6_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r19); const folder_r17 = ctx.$implicit; const ctx_r18 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); return ctx_r18.onFileSelect($event, folder_r17.folderid, folder_r17.foldername); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "label", 76);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Choose file");
@@ -35671,6 +35671,7 @@ function MenuitemsComponent_ng_template_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](91, "div", 2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](92, "div", 66);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](93, "button", 67);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function MenuitemsComponent_ng_template_13_Template_button_click_93_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r21); const ctx_r23 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r23.uploadGoogleMenuSheet(); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](94, "Sync to Google Sheets ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](95, "img", 68);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -35753,7 +35754,7 @@ function MenuitemsComponent_ng_template_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](141, "div", 2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](142, "div", 66);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](143, "button", 67);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](143, "button", 88);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](144, "Sync to Google Sheets ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](145, "img", 68);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -35761,7 +35762,7 @@ function MenuitemsComponent_ng_template_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](146, "div", 88);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](146, "div", 89);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](147, "h2");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](148, "Google Spreadsheet Details");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -35778,11 +35779,11 @@ function MenuitemsComponent_ng_template_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](156, "4. Image");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](157, "div", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](158, "div", 89);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](159, "img", 90);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](158, "div", 90);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](159, "img", 91);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](160, "div", 89);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](161, "p", 91);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](160, "div", 90);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](161, "p", 92);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](162, "Note:");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](163, "p");
@@ -35799,7 +35800,7 @@ function MenuitemsComponent_ng_template_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](169, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](170, "7. Category Image:");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](171, "img", 92);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](171, "img", 93);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](172, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](173, "8. Add-Ons: Extra Meat, Curly Fries, Chips & Guacamole");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -35820,7 +35821,7 @@ function MenuitemsComponent_ng_template_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](184, "mat-tab", 93);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](184, "mat-tab", 94);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](185, "div", 70);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](186, "h2");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](187, "Manual Copy of Image URL's");
@@ -35828,9 +35829,9 @@ function MenuitemsComponent_ng_template_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](188, "h4");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](189, "For those of you that are tech savvy, owners can copy the Image URL's from both Google Drive or Dropbox and paste them into the Google Sheets Spreadsheet.");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](190, "div", 94);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](190, "div", 95);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](191, "div", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](192, "div", 95);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](192, "div", 96);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](193, "div", 41);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](194, "img", 43);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](195, "p");
@@ -35838,15 +35839,15 @@ function MenuitemsComponent_ng_template_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](197, "div", 96);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](197, "div", 97);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](198, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](199, "1. Login to Google Drive and upload all of your images first. Use folders for the Menu Categories (lunch, dinner, soups, etc.) if you wish. ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](200, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](201, "2. After the images have been uploaded, select each image and click the \u201CShare Image\u201D button.");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](202, "img", 97);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](203, "img", 98);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](202, "img", 98);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](203, "img", 99);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](204, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](205, "Copy the link (as shown above) and paste the URL into Google Sheets (the one we created for you). Example URL: https://drive.google.com/file/d/1UAsbJZb66kBcaETVBT7nClg0B5k0c7yr/view?usp=sharing");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -35856,17 +35857,17 @@ function MenuitemsComponent_ng_template_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](208, "div", 94);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](208, "div", 95);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](209, "div", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](210, "div", 95);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](210, "div", 96);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](211, "div", 41);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](212, "img", 99);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](212, "img", 100);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](213, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](214, "Dropbox");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](215, "div", 96);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](215, "div", 97);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](216, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](217, "1. Login to Dropbox and upload all of your images first. Use folders for the Menu Categories (lunch, dinner, soups, etc.) if you wish.");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -35886,9 +35887,9 @@ function MenuitemsComponent_ng_template_13_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](222, "div", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](223, "div", 100);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](224, "div", 100);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](225, "div", 100);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](223, "div", 101);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](224, "div", 101);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](225, "div", 101);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
@@ -35974,33 +35975,25 @@ class MenuitemsComponent {
             });
         }
     }
-    onFileSelect(event, folderId) {
+    onFileSelect(event, folderId, category) {
         if (event.target.files.length > 0) {
             console.log(event.target.files[0]);
             const file = event.target.files[0];
             const formData = new FormData();
             formData.append('file', file);
-            this.uploadImageToDrive(formData, folderId);
+            formData.append('folderId', folderId);
+            formData.append('email', this.googleEmail);
+            formData.append('category', category);
+            this.uploadImageToDrive(formData, folderId, category);
         }
     }
-    uploadImageToDrive(formData, folderId) {
-        const data = {
-            formData: formData,
-            folderId: folderId,
-            email: this.googleEmail
-        };
+    uploadImageToDrive(formData, folderId, category) {
         this.user = this._CommonFunctionsService.checkUser().user;
         this._ProfileService.uploadImageTodrive(this.user.company_id, formData).subscribe(res => {
             console.log('googgleData', res.data);
             this.authentication_url = res.data;
         });
     }
-    // this.user = this._CommonFunctionsService.checkUser().user;
-    // this._ProfileService.uploadCompanyProfile(this.user.company_id,formData).subscribe((res:any)=>{
-    //   this.getCompanyProfile();
-    // },error=>{
-    //   debugger
-    // })
     getAllProductList() {
         this.processing = true;
         this.user = this._CommonFunctionsService.checkUser().user;
@@ -36091,7 +36084,7 @@ MenuitemsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
     } if (rf & 2) {
         var _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.ref = _t.first);
-    } }, decls: 14, vars: 1, consts: [[1, "row", "el-element-overlay"], [4, "ngIf"], [1, "col-md-12"], [1, "card"], [1, "card-body"], [1, "card-title"], [1, "card-subtitle"], ["title", "Menu Items"], ["ngbTabContent", ""], ["title", "Google Sheet | images"], [1, "card", "card-body"], ["class", "mt-5", 4, "ngIf"], [1, "row"], ["class", "col-lg-3 col-md-6", 4, "ngFor", "ngForOf"], [1, "mt-5"], [1, "col-lg-3", "col-md-6"], [1, "card", 3, "click"], [1, "el-card-item"], [1, "el-card-avatar", "el-overlay-1"], ["alt", "user", 1, "productimg", 3, "src"], [1, "el-overlay"], [1, "list-style-none", "el-info"], [1, "el-item"], ["href", "javascript:void(0);", 1, "btn", "default", "btn-outline", "el-link"], [1, "icon-link"], [1, "d-flex", "no-block", "align-items-center"], [1, "m-l-15"], [1, "m-b-0", "fix-ht-h4"], [1, "text-muted", "fix-ht-spn"], [1, "ml-auto", "m-r-15"], ["type", "button", 1, "btn", "btn-dark", "btn-circle"], [1, "hero_section"], [1, "container"], [1, "col-md-10", "offset-md-1"], [1, "hero_content"], [1, "text-center"], ["src", "../../assets/images/Layer-1@1X.png", "alt", "", 1, "hero_img"], [1, "step_tabs"], ["label", "1"], [1, "step_one"], [1, "col-6", "col-md-4", "offset-md-2", "col-lg-2", "offset-lg-4"], [1, "icon_card"], [3, "href"], ["src", "../../assets/images/google-drive@1X.png", "alt", "  ", 1, "drive"], [1, "col-6", "col-md-4", "col-lg-2"], ["src", "../../assets/images/dropbox@1X.png", "alt", "  ", 1, "dropbox"], ["label", "2"], [1, "col-md-12", "col-lg-10", "offset-lg-1"], [1, "category_sec"], [1, "col-md-5"], [1, "category_area"], [1, "category_head"], [1, "category_checkbox"], ["appearance", "fill"], ["matInput", "", "placeholder", "Search", 1, "form-control"], [4, "ngFor", "ngForOf"], [1, "col-md-2"], [1, "category_btn"], ["mat-raised-button", "", 1, "btn", "btn-primary", "btn-block", 3, "click"], ["mat-raised-button", "", 1, "btn", "btn-secondary", "btn-block"], ["label", "3"], [1, "col-md-4"], [1, "step_three_left"], ["src", "../../assets/images/Chicken-Teriyaki.png", "alt", ""], [1, "col-md-6", "offset-md-2"], [1, "step_three_right"], [1, "sync_btn"], ["mat-raised-button", "", 1, "btn"], ["src", "../../assets/images/google-sheets-icon.png", "alt", ""], ["label", "4"], [1, "step_one", "padding_area"], [1, "step_four"], [1, "form-group"], ["for", "", 1, "label-control"], [1, "custom-file"], ["type", "file", "id", "customFile", 1, "custom-file-input"], ["for", "customFile", 1, "custom-file-label"], [1, "add_btn"], ["mat-raised-button", "", 1, "btn", "btn-primary"], [1, "col-md-4", "col-lg-3"], [1, "bot_img"], ["src", "../../assets/images/Bot.png", "alt", ""], [1, "col-md-8", "col-lg-8", "offset-lg-1"], [1, "bot_txt"], ["label", "5"], [1, "step_five"], ["src", "../../assets/images/Layer-2@1X.png"], ["src", "../../assets/images/Layer-3@1X.png"], [1, "spreadsheet_detail"], [1, "col-12", "col-md-6", "col-lg-4"], ["src", "../../assets/images/Cheez-Whiz-Philly-Cheese-Steak-Sandwich-photo.png", "alt", ""], [1, "p_t_note"], ["src", "../../assets/images/Best-Burger.png"], ["label", "6"], [1, "step_six"], [1, "col-md-3"], [1, "col-md-9"], ["src", "../../assets/images/Layer-5@1X.png", "alt", ""], ["src", "../../assets/images/Layer-6@1X.png", "alt", ""], ["src", "../../assets/images/dropbox@1X.png", "alt", "  ", 1, "drive"], [1, "col-sm-4"], [3, "checked", "change"], ["src", "../../assets/images/folder@1X.png", "alt", ""], ["type", "file", "id", "customFile", 1, "custom-file-input", 3, "change"]], template: function MenuitemsComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 14, vars: 1, consts: [[1, "row", "el-element-overlay"], [4, "ngIf"], [1, "col-md-12"], [1, "card"], [1, "card-body"], [1, "card-title"], [1, "card-subtitle"], ["title", "Menu Items"], ["ngbTabContent", ""], ["title", "Google Sheet | images"], [1, "card", "card-body"], ["class", "mt-5", 4, "ngIf"], [1, "row"], ["class", "col-lg-3 col-md-6", 4, "ngFor", "ngForOf"], [1, "mt-5"], [1, "col-lg-3", "col-md-6"], [1, "card", 3, "click"], [1, "el-card-item"], [1, "el-card-avatar", "el-overlay-1"], ["alt", "user", 1, "productimg", 3, "src"], [1, "el-overlay"], [1, "list-style-none", "el-info"], [1, "el-item"], ["href", "javascript:void(0);", 1, "btn", "default", "btn-outline", "el-link"], [1, "icon-link"], [1, "d-flex", "no-block", "align-items-center"], [1, "m-l-15"], [1, "m-b-0", "fix-ht-h4"], [1, "text-muted", "fix-ht-spn"], [1, "ml-auto", "m-r-15"], ["type", "button", 1, "btn", "btn-dark", "btn-circle"], [1, "hero_section"], [1, "container"], [1, "col-md-10", "offset-md-1"], [1, "hero_content"], [1, "text-center"], ["src", "../../assets/images/Layer-1@1X.png", "alt", "", 1, "hero_img"], [1, "step_tabs"], ["label", "1"], [1, "step_one"], [1, "col-6", "col-md-4", "offset-md-2", "col-lg-2", "offset-lg-4"], [1, "icon_card"], [3, "href"], ["src", "../../assets/images/google-drive@1X.png", "alt", "  ", 1, "drive"], [1, "col-6", "col-md-4", "col-lg-2"], ["src", "../../assets/images/dropbox@1X.png", "alt", "  ", 1, "dropbox"], ["label", "2"], [1, "col-md-12", "col-lg-10", "offset-lg-1"], [1, "category_sec"], [1, "col-md-5"], [1, "category_area"], [1, "category_head"], [1, "category_checkbox"], ["appearance", "fill"], ["matInput", "", "placeholder", "Search", 1, "form-control"], [4, "ngFor", "ngForOf"], [1, "col-md-2"], [1, "category_btn"], ["mat-raised-button", "", 1, "btn", "btn-primary", "btn-block", 3, "click"], ["mat-raised-button", "", 1, "btn", "btn-secondary", "btn-block"], ["label", "3"], [1, "col-md-4"], [1, "step_three_left"], ["src", "../../assets/images/Chicken-Teriyaki.png", "alt", ""], [1, "col-md-6", "offset-md-2"], [1, "step_three_right"], [1, "sync_btn"], ["mat-raised-button", "", 1, "btn", 3, "click"], ["src", "../../assets/images/google-sheets-icon.png", "alt", ""], ["label", "4"], [1, "step_one", "padding_area"], [1, "step_four"], [1, "form-group"], ["for", "", 1, "label-control"], [1, "custom-file"], ["type", "file", "id", "customFile", 1, "custom-file-input"], ["for", "customFile", 1, "custom-file-label"], [1, "add_btn"], ["mat-raised-button", "", 1, "btn", "btn-primary"], [1, "col-md-4", "col-lg-3"], [1, "bot_img"], ["src", "../../assets/images/Bot.png", "alt", ""], [1, "col-md-8", "col-lg-8", "offset-lg-1"], [1, "bot_txt"], ["label", "5"], [1, "step_five"], ["src", "../../assets/images/Layer-2@1X.png"], ["src", "../../assets/images/Layer-3@1X.png"], ["mat-raised-button", "", 1, "btn"], [1, "spreadsheet_detail"], [1, "col-12", "col-md-6", "col-lg-4"], ["src", "../../assets/images/Cheez-Whiz-Philly-Cheese-Steak-Sandwich-photo.png", "alt", ""], [1, "p_t_note"], ["src", "../../assets/images/Best-Burger.png"], ["label", "6"], [1, "step_six"], [1, "col-md-3"], [1, "col-md-9"], ["src", "../../assets/images/Layer-5@1X.png", "alt", ""], ["src", "../../assets/images/Layer-6@1X.png", "alt", ""], ["src", "../../assets/images/dropbox@1X.png", "alt", "  ", 1, "drive"], [1, "col-sm-4"], [3, "checked", "change"], ["src", "../../assets/images/folder@1X.png", "alt", ""], ["type", "file", "name", "file", "id", "customFile", 1, "custom-file-input", 3, "change"]], template: function MenuitemsComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, MenuitemsComponent_div_1_Template, 2, 0, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);

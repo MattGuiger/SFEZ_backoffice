@@ -73604,8 +73604,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          console.log("personal" + JSON.stringify(this.personalDetailsForm.value));
-          var data = localStorage.setItem('personalFormData', JSON.stringify(this.personalDetailsForm.value));
+          console.log("personal" + JSON.stringify(this.personalDetailsForm.value)); // const data = localStorage.setItem('personalFormData', JSON.stringify(this.personalDetailsForm.value));
+
           this.router.navigateByUrl('/forms/ngx/work', {
             relativeTo: this.route.parent,
             skipLocationChange: true
@@ -73659,7 +73659,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           var formData = new FormData();
           formData.append('file', event.addedFiles[0]);
-          localStorage.setItem('fileData', JSON.stringify(formData)); // this.uploadFeaturePhoto(formData);
+          localStorage.setItem('fileData', JSON.stringify(formData));
+          this.uploadFeaturePhoto(formData);
         }
       }, {
         key: "onRemovefeathured",
@@ -73698,7 +73699,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var formData = new FormData();
           formData.append('file', event.addedFiles[0]);
           this.tempFileData = formData; // localStorage.setItem('fileData', JSON.stringify(formData));
-          // this.uploadCompanyProfile(formData);
+
+          this.uploadCompanyProfile(formData);
         }
       }, {
         key: "onRemove",
@@ -73724,6 +73726,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             relativeTo: this.route.parent,
             skipLocationChange: true
           });
+        } //Cancel button event Ends
+
+      }, {
+        key: "registerVendor",
+        value: function registerVendor() {
+          console.log('personalDetailsForm', this.personalDetailsForm.value);
         }
       }]);
 
@@ -73742,7 +73750,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       },
       decls: 78,
       vars: 4,
-      consts: [[3, "formGroup", "ngSubmit"], ["personalForm", "ngForm"], [1, "tab-pane", "active"], [1, "font-medium-2", "text-center"], [1, "row"], [1, "col-12"], [1, "text-center"], ["src", "/assets/images/vendor.png", "height", "190"], [1, "text-left"], [1, "col-12", "col-sm-4", "offset-4"], [1, "form-group"], ["for", "firstname", 1, "form-control-label"], [1, "input-group", "mb-3"], [1, "input-group-prepend"], ["type", "button", 1, "btn", "mr-0", "btn-info", 2, "background", "#34a6bf", "color", "#fff"], [1, "icon-User"], ["formControlName", "firstname", 1, "form-control", "input-md"], ["for", "lastname", 1, "form-control-label"], ["formControlName", "lastname", 1, "form-control", "input-md"], ["for", "email", 1, "form-control-label"], [1, "icon-Email"], ["formControlName", "email", 1, "form-control", "input-md"], ["for", "password", 1, "form-control-label"], [1, "icon-Password-shopping"], ["formControlName", "password", 1, "form-control", "input-md"], [1, "form-group", "col-4", "offset-4", "mt-4"], ["for", "vendor_name"], ["type", "text", "id", "vendor_name", "formControlName", "vendor_name", "placeholder", "Miso Soupy", 1, "form-control"], [1, "col-sm-6"], ["for", "street", 1, "form-control-label"], ["src", "/assets/images/paco.png"], [3, "change"], [3, "removable", "removed", 4, "ngFor", "ngForOf"], ["src", "/assets/images/dish.jpg"], [1, "form-group", "text-center"], ["uiSref", "result", "type", "submit", 1, "btn", "btn-raised", "btn-info", 2, "background", "#34a6bf", "color", "#fff"], [3, "removable", "removed"]],
+      consts: [[3, "formGroup", "ngSubmit"], ["personalForm", "ngForm"], [1, "tab-pane", "active"], [1, "font-medium-2", "text-center"], [1, "row"], [1, "col-12"], [1, "text-center"], ["src", "/assets/images/vendor.png", "height", "190"], [1, "text-left"], [1, "col-12", "col-sm-4", "offset-4"], [1, "form-group"], ["for", "firstname", 1, "form-control-label"], [1, "input-group", "mb-3"], [1, "input-group-prepend"], ["type", "button", 1, "btn", "mr-0", "btn-info", 2, "background", "#34a6bf", "color", "#fff"], [1, "icon-User"], ["formControlName", "firstname", 1, "form-control", "input-md"], ["for", "lastname", 1, "form-control-label"], ["formControlName", "lastname", 1, "form-control", "input-md"], ["for", "email", 1, "form-control-label"], [1, "icon-Email"], ["formControlName", "email", 1, "form-control", "input-md"], ["for", "password", 1, "form-control-label"], [1, "icon-Password-shopping"], ["formControlName", "password", 1, "form-control", "input-md"], [1, "form-group", "col-4", "offset-4", "mt-4"], ["for", "vendor_name"], ["type", "text", "id", "vendor_name", "formControlName", "vendor_name", "placeholder", "Miso Soupy", 1, "form-control"], [1, "col-sm-6"], ["for", "street", 1, "form-control-label"], ["src", "/assets/images/paco.png"], [3, "change"], [3, "removable", "removed", 4, "ngFor", "ngForOf"], ["src", "/assets/images/dish.jpg"], [1, "form-group", "text-center"], ["uiSref", "result", "type", "submit", 1, "btn", "btn-raised", "btn-info", 2, "background", "#34a6bf", "color", "#fff", 3, "click"], [3, "removable", "removed"]],
       template: function PersonalComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "form", 0, 1);
@@ -73996,6 +74004,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](75, "div", 34);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](76, "button", 35);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("click", function PersonalComponent_Template_button_click_76_listener() {
+            return ctx.registerVendor();
+          });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](77, " Next ");
 
