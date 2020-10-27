@@ -1,3 +1,4 @@
+import { routes } from './../../../apps/email/mail.module';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { CommonFunctionsService } from './../../../services/commonFunctions.service';
 import { Component, OnInit, Input, AbstractType } from '@angular/core';
@@ -25,34 +26,50 @@ export class PersonalComponent implements OnInit {
     title = 'Step #1 Vendor';
     personal: Personal;
     form: any;
+    countries: any[] = [];
     countryList : any[]=[];
+    lat = -34.397;
+  lng = 150.644;
+  latA = -34.754764;
+  lngA = 149.736246;
+  zoom = 8;
     business_address: string;
     city : string;
     state : string;
     // form: any;
     data: any[]=[];
     companyId : any;
+    formVal={}
     personalDetailsForm = new FormGroup({
-      firstname: new FormControl(),
-      lastname: new FormControl(),
-      email: new FormControl(),
-      password: new FormControl(),
-      vendor_name: new FormControl()
+      first_name: new FormControl('', Validators.required),
+      last_name: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      // country_id: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+      company_name: new FormControl('', Validators.required),
+      distance_range: new FormControl('', Validators.required),
+      
       });
     files: File[] = [];
     feathuredfiles: File[] = [];
     user : any;
+    
 
     constructor(private router: Router,
         private _AuthService:AuthService,
         private toastr: ToastrService,
-        private route: ActivatedRoute, private formDataService: FormDataService,
+         private formDataService: FormDataService,
         private commonFunctionsService: CommonFunctionsService,
         private workflowService: WorkflowService,
         private _ProfileService:ProfileService,
         private _CommonFunctionsService : CommonFunctionsService,
-) {
-    }
+        private route: ActivatedRoute) {
+          this.user = this._CommonFunctionsService.checkUser().user;
+          this.getAllCountries();
+          
+        }
+
+
 
     ngOnInit() {
         this.personal = this.formDataService.getPersonal();
@@ -92,9 +109,52 @@ export class PersonalComponent implements OnInit {
 
     onSubmit(){
       console.log("personal"+ JSON.stringify(this.personalDetailsForm.value));
-      const data = localStorage.setItem('personalFormData', JSON.stringify(this.personalDetailsForm.value));
-      this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+     
+      // this.personalDetailsForm.value.role="OWNER";
+      this.personalDetailsForm.value.role=this.user.role;
+      this.personalDetailsForm.value.country_id=this.user.country_id;
+      this.personalDetailsForm.value.latitude = "40.058174";
+      this.personalDetailsForm.value.longitude = "-121.315308";
+
+      // this.personalDetailsForm.value.country_id=4;
+      // this.personalDetailsForm.value.distance_range=4
+      // const data = localStorage.setItem('personalFormData', JSON.stringify(this.personalDetailsForm.value));
+      this._ProfileService.vendorRegister(this.personalDetailsForm.value).subscribe((res: any)=>{
+        if(res.status==200){
+         console.log("Testing personal")
+          localStorage.setItem('companyId',res.user.company_id)
+          localStorage.setItem('first_name', res.user.first_name)
+          localStorage.setItem('company_name1', this.personalDetailsForm.value.company_name)
+          this._ProfileService.getCompanyprofile(res.user.company_id).subscribe(res=>{
+            localStorage.setItem('company_name', res.name);
+            
+          })
+          this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+
+        } else {
+          console.log('error step1');
+        //   localStorage.setItem('companyId', '11179')
+        // localStorage.setItem('first_name', 'Malibu')
+        // this._ProfileService.getCompanyprofile('11179').subscribe(res=>{
+        //   localStorage.setItem('company_name', res.name);
+        // })
+        // this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+        //   this.toastr.error(res.message)
+        }
+      })
+      // this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
     }
+    // onSubmit(){
+    //   this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+    // }
+
+    placeMarker($event) {
+      this.lat = $event.coords.lat;
+      this.lng = $event.coords.lng;
+      this.personalDetailsForm.value.latitude = this.lat;
+      this.personalDetailsForm.value.longitude = this.lng;
+    }
+
 
     // save(){
     //     this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
@@ -110,18 +170,36 @@ export class PersonalComponent implements OnInit {
     //    })
     // }
 
+    getAllCountries() {
+      this._ProfileService.getAllCountries().subscribe((res: any) => {
+        this.countries = res;
+      })
+    }
+
     uploadCompanyProfile(formData){
       this.user = this._CommonFunctionsService.checkUser().user;
        this._ProfileService.uploadCompanyProfile(this.user.company_id,formData).subscribe((res:any)=>{
+         console.log('resss ',res.data[0].photo)
+         localStorage.setItem('photo',res.data[0].photo );
          this.toastr.success('Photo upload successfully!')
        },error=>{
           this.toastr.error('failed to upload, please try again later')
        })
     }
-    
+    onSelect(event) {
+      console.log(event);
+      this.files.push(...event.addedFiles);
+      const formData = new FormData();
+      formData.append('file',event.addedFiles[0]);
+      this.tempFileData = formData;
+      // localStorage.setItem('fileData', JSON.stringify(formData));
+      this.uploadCompanyProfile(formData);
+    }
     uploadFeaturePhoto(formData){
       this.user = this._CommonFunctionsService.checkUser().user;
        this._ProfileService.uploadFeaturePhoto(this.user.company_id,formData).subscribe((res:any)=>{
+        console.log('resss ',res.data[0].photo)
+        localStorage.setItem('featured_dish',res.data[0].featured_dish );
           this.toastr.success('Feathured dish upload successfully!')
       },error=>{
           this.toastr.error('failed to upload, please try again later')
@@ -134,7 +212,7 @@ export class PersonalComponent implements OnInit {
       const formData = new FormData();
       formData.append('file',event.addedFiles[0]);
       localStorage.setItem('fileData', JSON.stringify(formData));
-      // this.uploadFeaturePhoto(formData);
+      this.uploadFeaturePhoto(formData);
     }
      
     onRemovefeathured(event) {
@@ -162,15 +240,7 @@ export class PersonalComponent implements OnInit {
   //    })
   //   }
 
-  onSelect(event) {
-    console.log(event);
-    this.files.push(...event.addedFiles);
-    const formData = new FormData();
-    formData.append('file',event.addedFiles[0]);
-    this.tempFileData = formData;
-    // localStorage.setItem('fileData', JSON.stringify(formData));
-    // this.uploadCompanyProfile(formData);
-  }
+ 
      
     onRemove(event) {
       console.log(event);

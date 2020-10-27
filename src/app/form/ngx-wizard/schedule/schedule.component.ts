@@ -1,3 +1,4 @@
+import { routes } from './../../../apps/email/mail.module';
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../services/auth.service';
 import { ProfileService} from '../../../services/profile.service'
 import { local } from 'd3';
+import { scheduled } from 'rxjs';
 
 
 @Component({
@@ -19,30 +21,33 @@ import { local } from 'd3';
 
 export class ScheduleComponent implements OnInit {
     title = 'STEP #5 Business Details';
-    schedule: string;
+    
     hours :string;
     facebook : string;
     allData:any;
+    schedule: any[] = [];
     form: any;
     result:any[]=[];
-    // dayArr :any[]= [];
+    // dayArr :any[] = [];
     companyId :any;
     selectedIndex:number=1;
-    // weekDay = [{ day: "S" }, { day: "M" }, { day: "T" }, { day: 'W' }, { day: "Th" }, { day: "F" }, { day: "Sa" }]
+    hoursArr: any[] = [];
+    scheduleFormData: FormGroup;
+    
 
-    scheduleFormData = new FormGroup({
-      hour: new FormControl(),
-      name: new FormControl(),
-      schedule: new FormControl(),
-      // button1: new FormControl(),
-      // button2: new FormControl(),
-      // button3: new FormControl(),
-      // button4: new FormControl(),
-      // button5: new FormControl(),
-      // button6: new FormControl(),
-      // button7: new FormControl(),
-      // button8: new FormControl()       
-      });
+    // scheduleFormData = new FormGroup({
+    //   hours: new FormControl('', Validators.required),
+    //   // name: new FormControl(),
+    //   schedule: new FormControl(this.schedule),
+    //   facebook: new FormControl('www.facebook.com/'),
+    //   // button1: new FormControl(),
+    //   // button2: new FormControl(),
+    //   // button3: new FormControl(),
+    //   // button4: new FormControl(),
+    //   // button5: new FormControl(),
+    //   // button6: new FormControl(),
+    //   // button7: new FormControl()      
+    //   });
       
     data: any[] = [];
     newStorage:any[]=[];
@@ -59,11 +64,16 @@ export class ScheduleComponent implements OnInit {
 
     ngOnInit() {
         this.route.params.subscribe(params => {
-            this.companyId = +params['id'];
+            this.companyId = + params['id'];
          });
-        //  this.scheduleFormData = this.fb.group({
-        //   dayArr: this.fb.array([])
-        // });
+         this.scheduleFormData = this.fb.group({
+          schedule: [null, Validators.required],
+          facebook: ['www.facebook.com/'],
+          hours: [null, Validators.required]
+        });
+        (this.scheduleFormData.get('hours') as FormArray).push(
+            this.fb.control(null)
+          )
     }
 
     // onChange(day: string, isChecked: boolean) {
@@ -87,16 +97,43 @@ export class ScheduleComponent implements OnInit {
     //  this.mergeLocalStorageData(this.newStorage, this.scheduleFormData);
     this.allData = this.mergeData();
 
-
+console.log('all megre data',this.allData)
       //post request with all the data
-    this._ProfileService.addTele(this.allData).subscribe((res: any) => {
-      this.toastr.success('Telegram group Created successfully');
+      const company_id= localStorage.getItem('companyId');
+      // this.scheduleFormData.value.facebook = "www.facebook.com/machotacos";
+      // this.scheduleFormData.value.schedule = "0,1,2,3,4,5";
+      this.scheduleFormData.value.featured_dish = localStorage.getItem('featured_dish');
+      this.scheduleFormData.value.photo = localStorage.getItem('photo');
+
+    this._ProfileService.updateCompanyCredentials(company_id, this.allData).subscribe((res: any) => {
+      // this.toastr.success('Telegram group Created successfully');
+      this.toastr.success('Success');
+      const data = localStorage.setItem('DisableRegForm', JSON.stringify("true"));
+      this.clearLocalstorage();
+      this.router.navigate(['/forms']);
       document.getElementById("closeModal").click();
+      
+      // window.localStorage.removeItem("tagsFormData")
+      // window.localStorage.removeItem("descriptionFormData")
+      // window.localStorage.removeItem("companyId")
+      // window.localStorage.removeItem("first_name")
+      // window.localStorage.removeItem("featured_dish")
+      // window.localStorage.removeItem("photo")
+      // window.localStorage.removeItem("company_name")
+      // window.localStorage.removeItem("company_name1")
+      
+      
       
     },
       error => {
         this.toastr.error(error.error.message)
       })
+     
+    }
+
+    clearLocalstorage() {
+      let removeKeys = ["tagsFormData", "descriptionFormData", "companyId", "first_name", "featured_dish", "photo", "company_name", "company_name1"]
+      removeKeys.forEach(k => localStorage.removeItem(k))
     }
 
     mergeData(){
@@ -107,13 +144,14 @@ export class ScheduleComponent implements OnInit {
 
    
     
-    const personalFormData = JSON.parse(localStorage.getItem("personalFormData"));
-    const workFormData = JSON.parse(localStorage.getItem("workFormData"));
+    // const personalFormData = JSON.parse(localStorage.getItem("personalFormData"));
+    // const workFormData = JSON.parse(localStorage.getItem("workFormData"));
     const tagsFormData = JSON.parse(localStorage.getItem("tagsFormData"));
     const descriptionFormData = JSON.parse(localStorage.getItem("descriptionFormData"));
     const scheduleFormData = this.scheduleFormData.value;
     // const dayData = this.onChange;
-    const combinedObject = {...personalFormData, ...workFormData, ...tagsFormData, ...descriptionFormData, ...scheduleFormData};
+    // const combinedObject = {...personalFormData, ...workFormData, ...tagsFormData, ...descriptionFormData, ...scheduleFormData};
+    const combinedObject = {...tagsFormData, ...descriptionFormData, ...scheduleFormData};
 
     return combinedObject;
     
@@ -152,6 +190,43 @@ export class ScheduleComponent implements OnInit {
     //       }
     //    localStorage.setItem( name, JSON.stringify(oldData.concat(data)));
     //      }
+    // schedule[]
+    weekday(event){
+        // console.log(event.target.value)
+        // console.log(event.target.checked)
+        if(event.target.checked){
+         this.addValue(event.target)
+          } else {
+            this.removeValue(event.target)
+          }
+    }
+    addValue(val){
+      this.schedule.push(val.value)
+      console.log(this.schedule)
+    }
+    removeValue(val){
+      let index = this.schedule.indexOf(val.value)
+      if (index > -1){
+        this.schedule.splice(index, 1)
+      }
+      console.log(this.schedule)
+    }
+    onAddHours(): void {
+      // (this.scheduleFormData.get('hours') as FormArray).push(
+      //   this.fb.control(null)
+      // )
+    
+
+      let arr = {
+        hours: new FormControl('', Validators.required),
+        schedule: new FormControl(this.schedule)
+      }
+      this.hoursArr.push(arr);
+     
+      // console.log(this.hoursArr)
+    }
+
+    
     
 
     save(form: any) {

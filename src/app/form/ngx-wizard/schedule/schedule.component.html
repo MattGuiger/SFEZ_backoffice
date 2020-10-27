@@ -55,37 +55,60 @@
             
             <div class="form-group col-4 offset-4 mt-4">
                 <label class="form-control-label" for="facebook">Facebook Handle</label>  
+                <input class="form-control"  formControlName="facebook">
                 <div class="input-group mb-3">
                     <img src="/assets/images/fb.png" />
                    
                 </div>
 
-            <div class="day" >
-                <input type="checkbox" name="Button" formControlName="Button1" value="Sun"  class="ButtonState"  id="Button1"/>
-                <label class="Button" value="Sun"  for="Button1">Sun</label>
-                <input type="checkbox" name="Button" formControlName="Button2" class="ButtonState" id="Button2" value="2"/>
+            <!-- <div class="day" >
+                <input type="checkbox" name="Button1" formControlName="Button1" value="0" (change)="weekday($event)" class="ButtonState"  id="Button1"/>
+                <label class="Button"   for="Button1">Sun</label>
+                <input type="checkbox" name="Button2" formControlName="Button2" class="ButtonState" (change)="weekday($event)" id="Button2" value="1"/>
                 <label class="Button" for="Button2">Mon</label>
-                <input type="checkbox" name="Button" formControlName="Button3" class="ButtonState" id="Button3" value="3"/>
+                <input type="checkbox" name="Button3" formControlName="Button3" class="ButtonState" (change)="weekday($event)" id="Button3" value="2"/>
                 <label class="Button" for="Button3">Tue</label>
-                <input type="checkbox" name="Button" formControlName="Button4" class="ButtonState" id="Button4" value="4"/>
+                <input type="checkbox" name="Button4" formControlName="Button4" class="ButtonState" (change)="weekday($event)" id="Button4" value="3"/>
                 <label class="Button" for="Button4">Wed</label>
-                <input type="checkbox" name="Button" formControlName="Button5" class="ButtonState" id="Button5" value="5"/>
+                <input type="checkbox" name="Button5" formControlName="Button5" class="ButtonState" (change)="weekday($event)" (change)="weekday($event)" id="Button5" value="4"/>
                 <label class="Button" for="Button5">Thu</label>
-                <input type="checkbox" name="Button" formControlName="Button6" class="ButtonState" id="Button6" value="6"/>
+                <input type="checkbox" name="Button6" formControlName="Button6" class="ButtonState" (change)="weekday($event)" id="Button6" value="5"/>
                 <label class="Button" for="Button6">Fri</label>
-                <input type="checkbox" name="Button" formControlName="Button7" class="ButtonState" id="Button7" value="7"/>
+                <input type="checkbox" name="Button7" formControlName="Button7" class="ButtonState" (change)="weekday($event)" id="Button7" value="6"/>
                 <label class="Button" for="Button7">Sat</label>
+            </div> -->
+
+            <div class="day" formGroupName="schedule">
+               
+                <input type="checkbox" name="Button0"  class="ButtonState" (change)="weekday($event)" id="Button0" value="0"/>
+                <label class="Button" for="Button0">Mon</label>
+                <input type="checkbox" name="Button1"  class="ButtonState" (change)="weekday($event)" id="Button1" value="1"/>
+                <label class="Button" for="Button1">Tue</label>
+                <input type="checkbox" name="Button2"  class="ButtonState" (change)="weekday($event)" id="Button2" value="2"/>
+                <label class="Button" for="Button2">Wed</label>
+                <input type="checkbox" name="Button3"  class="ButtonState"  (change)="weekday($event)" id="Button3" value="3"/>
+                <label class="Button" for="Button3">Thu</label>
+                <input type="checkbox" name="Button4"  class="ButtonState" (change)="weekday($event)" id="Button4" value="4"/>
+                <label class="Button" for="Button4">Fri</label>
+                <input type="checkbox" name="Button5"  class="ButtonState" (change)="weekday($event)" id="Button5" value="5"/>
+                <label class="Button" for="Button5">Sat</label>
+                <input type="checkbox" name="Button6"  value="6" (change)="weekday($event)" class="ButtonState"  id="Button6"/>
+                <label class="Button"   for="Button6">Sun</label>
             </div>
-            <!-- <div *ngFor="let data of weekDay">
-                    <input type="checkbox" (change)="onChange(data.day, $event.target.checked)"> {{data.day}}<br>
-                </div> -->
+    
             <!-- Material input -->
             <div class="md-form form-sm">
-                            <label for="hour" class="sr-only">Time</label>
-                            <input class="form-control" id="hour" formControlName="hour" placeholder="Ex: 8:00 AM - 10 PM">
+                            <label for="hours" class="sr-only">Time</label>
+                            <input class="form-control" id="hour" formControlName="hours" placeholder="Ex: 8:00 AM - 10 PM">
+                            <div *ngIf="scheduleFormData.get('hours').touched && scheduleFormData.get('hours').invalid" class="alert alert-danger">
+                                <div  *ngIf=" scheduleFormData.get('hours').errors.required ">
+                                   Required
+                              </div>
+                               
+                             </div>
                   </div>
-
-            <button type="button" class="btn btn-link" >Add Hours</button>
+            <!-- <button type="button" class="btn btn-link" >Add Hours</button> -->
+            <button type="button" class="btn btn-link" (click)="onAddHours()">Add Hours</button>
 
                 <!-- <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -124,9 +147,9 @@
                 </form> -->
 
 
-                <label class="form-control-label" for="name">Telegram Group Name</label>
+                <!-- <label class="form-control-label" for="name">Telegram Group Name</label> -->
                 
-                <input class="form-control form-control-sm" formControlName="name" type="text" formControlName="name">
+                <!-- <input class="form-control form-control-sm" formControlName="name" type="text" formControlName="name"> -->
 
                 <!-- <label class="form-control-label" for="description">Business Address</label>  
                 <textarea rows="" class="form-control form-control-line" class="form-control input-md" id="description" name="description"></textarea> -->

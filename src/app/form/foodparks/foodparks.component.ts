@@ -35,6 +35,7 @@ export class FoodParkComponent implements OnInit{
   territory: any[] = [];
   states: any[] = [];
   countries: any[] = [];
+  selectArry: any[] = [];
   drivers: any[] = [];
   foodparkmgrList: any[] = [];
   setManager: any[] = [];
@@ -124,10 +125,13 @@ export class FoodParkComponent implements OnInit{
     }
   ];
 
-  selectArry=[]
+  
 
   @ViewChild(FoodParkComponent, { static: false }) table: FoodParkComponent;
   UnitList: any;
+  locations: any;
+  deliveryHub: any;
+  deliveryHubUnits: any;
 
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService,
@@ -148,11 +152,14 @@ export class FoodParkComponent implements OnInit{
     this.getAllUnitList();
     this.getAllUnitWithFoodParkId();
     this.getAllDriversWithFoodParkId();
-
+    this.getlocationOnTerritoryId()
+    this.getlocationsAndHub()
+    this.gethubswithterriId()
     if (this.user.role == 'FOODPARKMGR' || this.user.role == 'OWNER') {
       this.showManagerTab = true;
     }
     this.getAllManger();
+    
     // this.rows = data;
     // this.temp = [...data];
     // setTimeout(() => {
@@ -279,7 +286,73 @@ export class FoodParkComponent implements OnInit{
 
   //   return value;
   // }
-  removeUnit(unitId) {
+
+getlocationOnTerritoryId(){
+  if(this.user.territory_id){
+    this._ProfileService.getLocationswithTerriID(this.user.territory_id).subscribe(res=>{
+      if(res.status==200){
+    console.log('thisssss locations',res.data)
+    this.locations=res.data
+      }else{
+        console.log("operation Failed ")
+      }
+    })
+  }
+
+}
+
+gethubswithterriId(){
+  if(this.user.territory_id){
+    this._ProfileService.getHubwithTerriID(this.user.territory_id).subscribe(res=>{
+      if(res.status==200){
+        console.log('thisssss deliveryHub',res.data)
+    this.deliveryHub=res.data
+      }else{
+        
+      }
+    })
+  }
+}
+addVendor(foodParkId,unitId){
+const data={
+  unit_id:unitId
+}
+
+this._ProfileService.addUnitToHub(foodParkId,data).subscribe(res=>{
+  console.log(res,'resssssssssssssssssssssss')
+  if(res["status"]==200){
+    this.toastr.success("Vendor added to hub")
+    // this.getlocationOnTerritoryId()
+    this.getlocationsAndHub()
+    // this.gethubswithterriId()
+  }else{
+    this.toastr.success("Error Vendor adding to hub")
+
+  }
+})
+  
+
+}
+
+getlocationsAndHub(){
+  if(this.user.territory_id){
+    this._ProfileService.getHubwithUnits(this.user.territory_id).subscribe(res=>{
+      if(res.status==200){
+        console.log('thisssss deliveryHubUnits',res.data)
+        this.deliveryHubUnits=res.data
+      }else{
+        
+      }
+    })
+  }
+
+}
+
+
+
+
+
+  removeUnit(unitId,foodparkId) {
 
     const message = `Are you sure you want to do this?`;
 
@@ -294,18 +367,19 @@ export class FoodParkComponent implements OnInit{
       // this.result = dialogResult;
       console.log('dialogResultdialogResult', dialogResult);
       if (dialogResult) {
-        if (this.user.food_park_id) {
           let unit_data = {
-            foodparkId: this.user.food_park_id,
+            foodparkId:foodparkId,
             unitId: unitId
           }
           this._ProfileService.deleteUnitsListWithFoodParkId(unit_data).subscribe(
             (response: any) => {
               console.log('Remove dataaa', response)
               // this.UnitList = response.data;
-              this.getAllUnitWithFoodParkId()
-              this.toastr.error(response.message)
-
+              // this.getAllUnitWithFoodParkId()
+              this.toastr.success(response.message)
+              // this.getlocationOnTerritoryId()
+              this.getlocationsAndHub()
+              // this.gethubswithterriId()
             },
             (error) => {
               console.log(error);
@@ -313,11 +387,7 @@ export class FoodParkComponent implements OnInit{
 
             }
           )
-        }
-      } else {
-        // this.toastr.error('Please select the hub and manager')
-
-      }
+          }
     });
 
 
@@ -440,6 +510,57 @@ export class FoodParkComponent implements OnInit{
       this.countries = res;
     })
   }
+  
+  getAllFoodPark() {
+    // forkJoin([
+    //   this._ProfileService.getAllFoodPark(),
+    //   this._ProfileService.getAllUnitListData()
+    // ]).subscribe(
+    //   ([allFoodParkResponse, allUnitListResponse]) => {
+    //     // const tempArray = [allFoodParkResponse.data, ...allUnitListResponse.data]
+    //     allFoodParkResponse.filter((value)=>{
+    //       this.selectArry.push({name:value.name})
+    //     })
+    //     allUnitListResponse.data.filter((value)=>{
+    //       this.selectArry.push({name:value.name})
+    //     })
+    //     console.log(' this.selectArry', this.selectArry) 
+    //   })
+    
+  
+    // this._ProfileService.getHubwithTerriID(this.user.territory_id).subscribe((res: any) => {
+    //   // this.selectArry = res;
+    //   res.filter((value)=>{
+    //           this.selectArry.push({name:value.name})
+    //         })
+    // })
+    // this._ProfileService.getAllUnitListData().subscribe((res: any) => {
+    //   this.selectArry = res;
+    // })
+
+
+    // this.user = this._CommonFunctionsService.checkUser().user;
+    // this._ProfileService.getAllFoodPark().subscribe((res: any) => {
+      // this.territory = res;
+      // this.rows = res;
+
+      // console.log('this.rows', res);
+
+      // this.temp = [...this.rows];
+      // this.selectedHub = parseInt(res[0].id);
+      // console.log(' this.drivertemp', this.selectedHub);
+
+      // this.getAllDrivers(res[0].id)
+
+
+      // select in manager tab
+      // this.temp.filter((value,index)=>{
+      //   this.selectArry.push({name:value.name})
+      // })
+      
+     
+    // })
+  }
 
   foodParkSFormSaveData(data) {
     console.log("Ash" + data);
@@ -489,11 +610,12 @@ export class FoodParkComponent implements OnInit{
   onSubmitLocationForm() {
     // this.locationFoodParkForm.value.latitude = 12.032;
     // this.locationFoodParkForm.value.longitude = 12.032;
-    this.locationFoodParkForm.value.territory_id = 42;
+    // this.locationFoodParkForm.value.territory_id = this.user.territory_id;
     this._ProfileService.addUnit(this.locationFoodParkForm.value, this.user.company_id).subscribe((res: any) => {
       this.toastr.success('Territory Created successfully');
       document.getElementById("closeModal").click();
       this.getAllFoodPark();
+      
     },
       error => {
         this.toastr.error(error.error.message);
@@ -503,10 +625,13 @@ export class FoodParkComponent implements OnInit{
   onSubmit() {
     this.foodParkForm.value.latitude = 12.032;
     this.foodParkForm.value.longitude = 12.032;
+    
     this._ProfileService.addFoodPark(this.foodParkForm.value).subscribe((res: any) => {
       this.toastr.success('Territory Created successfully');
       document.getElementById("closeModal").click();
       this.getAllFoodPark();
+     
+      
     },
       error => {
         this.toastr.error(error.error.message)
@@ -583,44 +708,7 @@ export class FoodParkComponent implements OnInit{
 
     return '$'+value;
   }
-   getAllFoodPark() {
-    forkJoin([
-      this._ProfileService.getAllFoodPark(),
-      this._ProfileService.getAllUnitListData()
-    ]).subscribe(
-      ([allFoodParkResponse, allUnitListResponse]) => {
-        // const tempArray = [allFoodParkResponse.data, ...allUnitListResponse.data]
-        allFoodParkResponse.filter((value)=>{
-          this.selectArry.push({name:value.name})
-        })
-        allUnitListResponse.data.filter((value)=>{
-          this.selectArry.push({name:value.name})
-        })
-        console.log(' this.selectArry', this.selectArry) 
-      })
-    
-    // this.user = this._CommonFunctionsService.checkUser().user;
-    // this._ProfileService.getAllFoodPark().subscribe((res: any) => {
-      // this.territory = res;
-      // this.rows = res;
 
-      // console.log('this.rows', res);
-
-      // this.temp = [...this.rows];
-      // this.selectedHub = parseInt(res[0].id);
-      // console.log(' this.drivertemp', this.selectedHub);
-
-      // this.getAllDrivers(res[0].id)
-
-
-      // select in manager tab
-      // this.temp.filter((value,index)=>{
-      //   this.selectArry.push({name:value.name})
-      // })
-      
-     
-    // })
-  }
 
 
   onManagerSubmit() {
@@ -656,6 +744,8 @@ export class FoodParkComponent implements OnInit{
   }
   selectLocationOrHub(event,row,value){
 console.log(event,row,value,'event,row,value')
+
+    
   }
   deleteManager($event, row) {
     console.log(row);

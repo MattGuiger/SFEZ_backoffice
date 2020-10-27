@@ -1,4 +1,5 @@
-import { FormControl, FormGroup } from '@angular/forms';
+import { CommonFunctionsService } from './../../../services/commonFunctions.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 import { FormDataService } from '../data/formData.service';
@@ -20,29 +21,46 @@ export class WorkComponent implements OnInit {
     // title = 'E-Commerce (Google Sheets) Details';
     title = 'STEP #2 Type';
     google_api_key: string;
-    google_sheet_url :string;
+    google_sheet_url: string;
+    unitName: string;
     google_sheet_tab_name : string;
     tags = ['Pizza', 'Pasta', 'Parmesan'];
     form: any;
     companyId :any;
-    workFormData = new FormGroup({
-        workType: new FormControl(),
-        schedule: new FormControl(),
-        schedulehour: new FormControl()       
-        });
+    user: any;
+    // workFormData = new FormGroup({
+    //     workType: new FormControl(),
+    //     schedule: new FormControl(),
+    //     schedulehour: new FormControl()       
+    //     });
+        workFormData = new FormGroup({
+            // name: new FormControl(localStorage.getItem('first_name')+ ' LOC'),
+            name: new FormControl(localStorage.getItem('company_name1')+ ' LOC'),
+            username: new FormControl('', Validators.required),
+            // username: new FormControl(),
+            // password: new FormControl(),
+            password: new FormControl('', Validators.required)  ,
+            type: new FormControl('', Validators.required),
+            // unit: new FormControl() ,
+            // email: new FormControl()
 
+
+            });
     constructor(private router: Router,
         private _AuthService:AuthService,
         private toastr: ToastrService,
+        private _CommonFunctionsService: CommonFunctionsService,
         private _ProfileService:ProfileService,
         private route: ActivatedRoute, private formDataService: FormDataService,
         private workflowService: WorkflowService) {
+            this.user = this._CommonFunctionsService.checkUser().user;
     }
 
     ngOnInit() {
         this.route.params.subscribe(params => {
             this.companyId = +params['id'];
          });
+         
     }
 
     // save(form: any) {
@@ -68,13 +86,40 @@ export class WorkComponent implements OnInit {
         
     // }
 
+    // onSubmit(){
+    //     this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
+    // }
+
     onSubmit(){
         console.log("work"+ JSON.stringify(this.workFormData.value));
-      const data = localStorage.setItem('workFormData', JSON.stringify(this.workFormData.value));
-        this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });  
+        console.log(this.user.role);
+        
+        const comapany_id= localStorage.getItem('companyId');
+        this.workFormData.value.customer_order_window =""
+        this.workFormData.value.delivery_time_offset=""
+        // this.workFormData.value.number='1'
+
+        this.workFormData.value.delivery_radius =""
+        this.workFormData.value.territory_id=this.user.territory_id;
+        this.workFormData.value.number=""
+        // this._ProfileService.addUnit(this.workFormData.value).subscribe(res=>{
+        this._ProfileService.addUnit(this.workFormData.value,comapany_id).subscribe(res=>{
+           const data = localStorage.setItem('workFormData', JSON.stringify(this.workFormData.value));
+            // this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
+        })
+        this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });   
     }
 
     cancel() {
         this.router.navigate(['wizard'], { relativeTo: this.route.parent, skipLocationChange: true });
     }
 }
+
+// {
+    //             "name": "ww",
+    //            "username": "ww",
+    //            "password": "vvv",
+    //             "type": "RESTAURANT",
+    //             "territory_id":  "41",
+    //             "number": 1
+    //         } 
