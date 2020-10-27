@@ -46,6 +46,8 @@ export class ProfileService {
   private singleTerritoryUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories/';
   private territoryURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories';
   private googldriveUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/google/';
+  private unitLocationsHub = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/unit_locations/';
+
   
   private countriesURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/countries';
   private statesURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories/stateSearch';
@@ -75,7 +77,17 @@ export class ProfileService {
   voidOrder(id):Observable<any>{
     return this.http.get(this.voidOrderUrl+id);
   }
+getHubwithUnits(id):Observable<any>{
+  return this.http.get(this.unitLocationsHub+id);
+}
 
+getHubwithTerriID(id):Observable<any>{
+  return this.http.get(this.foodparkURL+"/hubs/"+id);
+}
+
+getLocationswithTerriID(id):Observable<any>{
+  return this.http.get(this.foodparkURL+"/units/"+id);
+}
   createDriverWages(id,data):Observable<any>{
     return this.http.post(this.createWagesUrl+id, data);
   }
@@ -199,7 +211,9 @@ export class ProfileService {
   getOrderProductDetails():Observable<any> {
     return this.http.get('https://api.instamarkt.co/api/v1/ord/list-unit-order-items/2164');
   }
-
+addUnitToHub(foodParkId,unitId){
+  return this.http.post(this.foodparkURL+"/"+foodParkId+"/"+"units",unitId)
+}
   getDailyPayoutList():Observable<any> {
     return this.http.get(this.dailyPayout);
   }
@@ -217,12 +231,17 @@ export class ProfileService {
   addFoodParkmgr(data): Observable<any> {
     return this.http.post(this.addDriverURL,data);
   }
-  
+  vendorRegister(data): Observable<any> {
+    return this.http.post(this.addDriverURL,data);
+  }
   addFoodPark(data): Observable<any> {
     return this.http.post(this.addFoodParkURL,data);
   }
   addTele(data): Observable<any> {
     return this.http.post(this.addTeleURL,data);
+  }
+  updateCompanyCredentials(companyId,data): Observable<any> {
+    return this.http.put(this.unitURL+companyId,data);
   }
   addDriver(data): Observable<any> {
     return this.http.post(this.addDriverURL,data);

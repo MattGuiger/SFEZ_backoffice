@@ -1,4 +1,4 @@
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 import { FormDataService } from '../data/formData.service';
@@ -22,7 +22,8 @@ export class DescriptionComponent implements OnInit {
     form: any;
     companyId :any;
     descriptionFormData = new FormGroup({
-        description: new FormControl()       
+        // description: new FormControl(),
+        description: new FormControl('', Validators.required)       
         });
 
     constructor(private router: Router,
