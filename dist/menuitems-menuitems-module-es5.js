@@ -58617,43 +58617,55 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _form_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../form/confirm-dialog/confirm-dialog.component */
+    "./src/app/form/confirm-dialog/confirm-dialog.component.ts");
+    /* harmony import */
+
+
+    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @angular/material/dialog */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
-    var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @ng-bootstrap/ng-bootstrap */
     "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm2015/ng-bootstrap.js");
     /* harmony import */
 
 
-    var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! @angular/material/tabs */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/tabs.js");
     /* harmony import */
 
 
-    var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! @angular/material/form-field */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/form-field.js");
     /* harmony import */
 
 
-    var _angular_material_input__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _angular_material_input__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! @angular/material/input */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/input.js");
     /* harmony import */
 
 
-    var _angular_material_button__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _angular_material_button__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! @angular/material/button */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/button.js");
     /* harmony import */
 
 
-    var _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    var _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! @angular/material/checkbox */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/checkbox.js");
 
@@ -58815,23 +58827,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     }
 
-    function MenuitemsComponent_ng_template_13_div_53_Template(rf, ctx) {
+    function MenuitemsComponent_ng_template_13_div_54_Template(rf, ctx) {
       if (rf & 1) {
-        var _r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-checkbox", 101, 102);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-checkbox", 101);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function MenuitemsComponent_ng_template_13_div_53_Template_mat_checkbox_click_1_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function MenuitemsComponent_ng_template_13_div_54_Template_mat_checkbox_change_1_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r13);
 
-          var ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var category_r11 = ctx.$implicit;
 
-          return ctx_r11.onClick($event);
+          var ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+
+          ctx_r12.onChange($event, category_r11.category);
+          return false;
         });
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -58839,7 +58854,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var category_r9 = ctx.$implicit;
+        var category_r11 = ctx.$implicit;
 
         var ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
@@ -58847,14 +58862,111 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", ctx_r8.checked);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](category_r9.category);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](category_r11.category);
+      }
+    }
+
+    function MenuitemsComponent_ng_template_13_div_69_Template(rf, ctx) {
+      if (rf & 1) {
+        var _r16 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-checkbox", 101);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function MenuitemsComponent_ng_template_13_div_69_Template_mat_checkbox_change_1_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r16);
+
+          var addeditem_r14 = ctx.$implicit;
+
+          var ctx_r15 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+
+          ctx_r15.onChange1($event, addeditem_r14);
+          return false;
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var addeditem_r14 = ctx.$implicit;
+
+        var ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", ctx_r9.checked);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](addeditem_r14);
+      }
+    }
+
+    function MenuitemsComponent_ng_template_13_ul_90_Template(rf, ctx) {
+      if (rf & 1) {
+        var _r19 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ul");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "li");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "img", 102);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 74);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "input", 103);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function MenuitemsComponent_ng_template_13_ul_90_Template_input_change_6_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r19);
+
+          var folder_r17 = ctx.$implicit;
+
+          var ctx_r18 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+
+          return ctx_r18.onFileSelect($event, folder_r17.folderid);
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "label", 76);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Choose file");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var folder_r17 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](folder_r17.foldername);
       }
     }
 
     function MenuitemsComponent_ng_template_13_Template(rf, ctx) {
       if (rf & 1) {
+        var _r21 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 10);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "section", 31);
@@ -58931,27 +59043,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "div", 41);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](27, "img", 42);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "a", 42);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](28, "img", 43);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, "Google Drive");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 43);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "div", 41);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](32, "img", 44);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](34, "Dropbox");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](30, "Google Drive");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -58961,127 +59059,133 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "div", 44);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "div", 41);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](33, "img", 45);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](35, "Dropbox");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "mat-tab", 45);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "div", 39);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "h2");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](38, "Step 2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "h4");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](40, "Select Your Categories");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "mat-tab", 46);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "div", 39);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "h2");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](39, "Step 2");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](41, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "h4");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "div", 46);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](41, "Select Your Categories");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "div", 12);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](43, "div", 47);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](44, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](44, "div", 48);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "div", 48);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "div", 12);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "div", 49);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "div", 50);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](48, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](48, "div", 51);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](49, "Available Categories");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](49, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](50, "div", 51);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](51, "mat-form-field", 52);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](52, "input", 53);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](53, MenuitemsComponent_ng_template_13_div_53_Template, 4, 2, "div", 54);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](50, "Available Categories");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](51, "div", 52);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "mat-form-field", 53);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](53, "input", 54);
+
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](54, "div", 55);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](54, MenuitemsComponent_ng_template_13_div_54_Template, 3, 2, "div", 55);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](55, "div", 56);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](56, "button", 57);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](56, "div", 57);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](57, "Add >");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](57, "button", 58);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function MenuitemsComponent_ng_template_13_Template_button_click_57_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r21);
+
+          var ctx_r20 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r20.addItems();
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](58, "Add >");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](58, "button", 58);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](59, "button", 59);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](59, "< Remove");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](60, "< Remove");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](60, "div", 48);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](61, "div", 49);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](62, "div", 50);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](63, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](63, "div", 51);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](64, "Selected Categories (Up to 7)");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](64, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](65, "div", 51);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](66, "mat-form-field", 52);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](67, "input", 53);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](65, "Selected Categories (Up to 7)");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](68, "mat-checkbox");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](69, "Appetizers");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](66, "div", 52);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](67, "mat-form-field", 53);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](68, "input", 54);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](70, "mat-checkbox");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](71, "Salads");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](72, "mat-checkbox");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](73, " Entr\xE9es ");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](74, "mat-checkbox");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](75, "Beverages");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](69, MenuitemsComponent_ng_template_13_div_69_Template, 3, 2, "div", 55);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -59090,6 +59194,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](70, "button", 58);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function MenuitemsComponent_ng_template_13_Template_button_click_70_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r21);
+
+          var ctx_r22 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r22.createFolderinDrive();
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](71, "Create Folder in Drive");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -59103,89 +59219,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](76, "mat-tab", 59);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](72, "mat-tab", 60);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](77, "div", 39);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](73, "div", 39);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](78, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](74, "h2");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](79, "Step 3");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](80, "h4");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](81, "Upload images in their respective folder (or category) as shown below:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](75, "Step 3");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](82, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](76, "h4");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](83, "div", 60);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](84, "div", 61);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](85, "h5");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](86, "Image Name:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](77, "Upload images in their respective folder (or category) as shown below:");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](87, "img", 62);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](78, "div", 12);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](88, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](79, "div", 61);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](89, "chicken-teriyaki.png");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](80, "div", 62);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](81, "h5");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](90, "div", 63);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](91, "div", 64);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](92, "h5");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](93, "Category:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](82, "Image Name:");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](94, "ul");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](83, "img", 63);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](95, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](84, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](96, "img", 65);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](97, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](98, "Lunch");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](99, "li");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](100, "img", 65);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](101, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](102, "Salads");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](103, "li");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](104, "img", 65);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](105, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](106, "Soup");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](85, "chicken-teriyaki.png");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -59193,19 +59259,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](86, "div", 64);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](87, "div", 65);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](88, "h5");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](89, "Category:");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](90, MenuitemsComponent_ng_template_13_ul_90_Template, 9, 1, "ul", 55);
+
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](107, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](91, "div", 2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](108, "div", 66);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](92, "div", 66);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](109, "button", 67);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](93, "button", 67);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](110, "Sync to Google Sheets ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](94, "Sync to Google Sheets ");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](111, "img", 68);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](95, "img", 68);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -59219,47 +59297,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](112, "mat-tab", 69);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](96, "mat-tab", 69);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](113, "div", 70);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](97, "div", 70);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](114, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](98, "h2");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](115, "Step 4");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](116, "h4");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](117, "Upload Menu (jpg or png)");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](99, "Step 4");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](118, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](100, "h4");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](119, "div", 2);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](120, "div", 71);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](121, "div", 72);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](122, "label", 73);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](123, "Upload Files");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](101, "Upload Menu (jpg or png)");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](124, "div", 74);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](102, "div", 12);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](125, "input", 75);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](103, "div", 2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](126, "label", 76);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](104, "div", 71);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](127, "Choose file");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](105, "div", 72);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](106, "label", 73);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](107, "Upload Files");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](108, "div", 74);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](109, "input", 75);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](110, "label", 76);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](111, "Choose file");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -59267,47 +59341,99 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](128, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](129, "div", 77);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](130, "button", 78);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](112, "div", 2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](131, "Add More Menu Files");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](113, "div", 77);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](114, "button", 78);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](115, "Add More Menu Files");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](116, "div", 12);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](117, "div", 79);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](118, "div", 80);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](119, "img", 81);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](120, "div", 82);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](121, "div", 83);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](122, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](123, "Please upload 1 or more pictures of your menu that includes descriptions, pricing, add-ons, special instructions, beverages, etc. We will also use this information in our Customer Ordering Bot.");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](124, "mat-tab", 84);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](125, "div", 70);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](126, "h2");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](127, "Step 5");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](128, "h4");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](129, "Custom Google Sheets Spreadsheet");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](130, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](131, "Thank you for providing these menu item details! InstaMarkt Support will finish creating your menu in Google Sheets. We will schedule a time with you to confirm that all this information is correct.");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](132, "div", 12);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](133, "div", 79);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](133, "div", 2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](134, "div", 80);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](134, "div", 85);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](135, "img", 81);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](135, "img", 86);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](136, "img", 87);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](137, "h4");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](136, "div", 82);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](137, "div", 83);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](138, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](139, "Please upload 1 or more pictures of your menu that includes descriptions, pricing, add-ons, special instructions, beverages, etc. We will also use this information in our Customer Ordering Bot.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](138, "Google Sheets Link (URL)");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](139, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](140, "Vendors can make changes directly to their menu in Google Sheets by clicking on this shared link. Once ready, use the button below to update the menu.");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -59315,125 +59441,137 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](140, "mat-tab", 84);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](141, "div", 2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](141, "div", 70);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](142, "div", 66);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](142, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](143, "button", 67);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](143, "Step 5");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](144, "Sync to Google Sheets ");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](144, "h4");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](145, "Custom Google Sheets Spreadsheet");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](145, "img", 68);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](146, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](147, "Thank you for providing these menu item details! InstaMarkt Support will finish creating your menu in Google Sheets. We will schedule a time with you to confirm that all this information is correct.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](148, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](149, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](150, "div", 85);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](146, "div", 88);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](151, "img", 86);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](147, "h2");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](152, "img", 87);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](148, "Google Spreadsheet Details");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](153, "h4");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](154, "Google Sheets Link (URL)");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](149, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](150, "1. Menu Item Name: Philly Steak Sandwich ");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](151, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](152, "2. Menu Item Description: Sandwich made with super thinly sliced ribeye steak, caramelized onion, and provolone cheese");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](153, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](154, "3. Menu Item Price: $12.00");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](155, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](156, "Vendors can make changes directly to their menu in Google Sheets by clicking on this shared link. Once ready, use the button below to update the menu.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](156, "4. Image");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](157, "div", 12);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](158, "div", 89);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](159, "img", 90);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](160, "div", 89);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](161, "p", 91);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](162, "Note:");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](163, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](164, "Vendors can use Google Drive or Dropbox to upload and share images.");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](157, "div", 2);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](158, "div", 66);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](159, "button", 67);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](160, "Sync to Google Sheets ");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](161, "img", 68);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](162, "div", 88);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](163, "h2");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](164, "Google Spreadsheet Details");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](165, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](166, "1. Menu Item Name: Philly Steak Sandwich ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](166, "5. Category: Sandwiches (Categories like \u201CLunch\u201D, \u201CDinner\u201D, \u201CSoups\u201D can be used)");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](167, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](168, "2. Menu Item Description: Sandwich made with super thinly sliced ribeye steak, caramelized onion, and provolone cheese");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](168, "6. Category Description: Choose from our classic Philly, Buffalo Chicken, Sliders and Vegetarian Sandwiches.");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](169, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](170, "3. Menu Item Price: $12.00");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](170, "7. Category Image:");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](171, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](171, "img", 92);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](172, "4. Image");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](172, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](173, "div", 12);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](174, "div", 89);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](175, "img", 90);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](173, "8. Add-Ons: Extra Meat, Curly Fries, Chips & Guacamole");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](176, "div", 89);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](174, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](177, "p", 91);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](178, "Note:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](175, "9. Add-Ons Price: 3.00, 4.00, 2.50 Note: \u201C3.00\u201D corresponds to \u201CExtra Meat\u201D ($3.00), \u201C4.00\u201D corresponds to \u201CCurly Fries\u201D ($4.00), etc.");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](179, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](176, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](180, "Vendors can use Google Drive or Dropbox to upload and share images.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](177, "10. Required Category: Size");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](178, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](179, "11. Required Selections: Regular, Large Note: Other \u201CRequired Categories\u201D can be used. \u201CMeat\u201D (Required Category) could have selections for \u201CBeef\u201D, \u201CChicken\u201D or \u201CPork\u201D. All possible selections are listed. ");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](180, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](181, "12. Required Price: 0, 1.80 Note: \u201CRegular\u201D size would have no additional charge ($0). \u201CLarge\u201D size would be +$1.80.");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](182, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](183, "13. Instructions: Gluten-Free, Spicy, Extra Sauce Note: 1 or more instructions can be selected for any \u201CMenu Item, Add-On and Required Selection\u201D bundle. ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -59441,59 +59579,69 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](181, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](184, "mat-tab", 93);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](182, "5. Category: Sandwiches (Categories like \u201CLunch\u201D, \u201CDinner\u201D, \u201CSoups\u201D can be used)");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](185, "div", 70);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](186, "h2");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](183, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](184, "6. Category Description: Choose from our classic Philly, Buffalo Chicken, Sliders and Vegetarian Sandwiches.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](187, "Manual Copy of Image URL's");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](185, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](188, "h4");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](186, "7. Category Image:");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](187, "img", 92);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](188, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](189, "8. Add-Ons: Extra Meat, Curly Fries, Chips & Guacamole");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](189, "For those of you that are tech savvy, owners can copy the Image URL's from both Google Drive or Dropbox and paste them into the Google Sheets Spreadsheet.");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](190, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](190, "div", 94);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](191, "9. Add-Ons Price: 3.00, 4.00, 2.50 Note: \u201C3.00\u201D corresponds to \u201CExtra Meat\u201D ($3.00), \u201C4.00\u201D corresponds to \u201CCurly Fries\u201D ($4.00), etc.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](191, "div", 12);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](192, "div", 95);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](192, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](193, "div", 41);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](193, "10. Required Category: Size");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](194, "img", 43);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](195, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](194, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](195, "11. Required Selections: Regular, Large Note: Other \u201CRequired Categories\u201D can be used. \u201CMeat\u201D (Required Category) could have selections for \u201CBeef\u201D, \u201CChicken\u201D or \u201CPork\u201D. All possible selections are listed. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](196, "Google Drive");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](196, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](197, "12. Required Price: 0, 1.80 Note: \u201CRegular\u201D size would have no additional charge ($0). \u201CLarge\u201D size would be +$1.80.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](197, "div", 96);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](198, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](199, "13. Instructions: Gluten-Free, Spicy, Extra Sauce Note: 1 or more instructions can be selected for any \u201CMenu Item, Add-On and Required Selection\u201D bundle. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](199, "1. Login to Google Drive and upload all of your images first. Use folders for the Menu Categories (lunch, dinner, soups, etc.) if you wish. ");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](200, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](201, "2. After the images have been uploaded, select each image and click the \u201CShare Image\u201D button.");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](202, "img", 97);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](203, "img", 98);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](204, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](205, "Copy the link (as shown above) and paste the URL into Google Sheets (the one we created for you). Example URL: https://drive.google.com/file/d/1UAsbJZb66kBcaETVBT7nClg0B5k0c7yr/view?usp=sharing");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](206, "p");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](207, "1. Login to Dropbox and upload all of your images first. Use folders for the Menu Categories (lunch, dinner, soups, etc.) if you wish. 2. After the images have been uploaded, select each image, right click and share that image. Please copy the URL (share link) and after paste it into Google Sheets (the one we created for you). 3. Example URL: https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0 ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -59501,35 +59649,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](200, "mat-tab", 93);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](201, "div", 70);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](202, "h2");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](203, "Manual Copy of Image URL's");
-
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](204, "h4");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](208, "div", 94);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](205, "For those of you that are tech savvy, owners can copy the Image URL's from both Google Drive or Dropbox and paste them into the Google Sheets Spreadsheet.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](209, "div", 12);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](210, "div", 95);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](206, "div", 94);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](211, "div", 41);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](207, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](212, "img", 99);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](208, "div", 95);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](213, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](209, "div", 41);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](210, "img", 42);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](211, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](212, "Google Drive");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](214, "Dropbox");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -59537,79 +59671,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](213, "div", 96);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](214, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](215, "1. Login to Google Drive and upload all of your images first. Use folders for the Menu Categories (lunch, dinner, soups, etc.) if you wish. ");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](215, "div", 96);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](216, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](217, "2. After the images have been uploaded, select each image and click the \u201CShare Image\u201D button.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](217, "1. Login to Dropbox and upload all of your images first. Use folders for the Menu Categories (lunch, dinner, soups, etc.) if you wish.");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](218, "img", 97);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](218, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](219, "img", 98);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](219, "2. After the images have been uploaded, select each image, right click and share that image. Please copy the URL (share link) and after paste it into Google Sheets (the one we created for you). ");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](220, "p");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](221, "Copy the link (as shown above) and paste the URL into Google Sheets (the one we created for you). Example URL: https://drive.google.com/file/d/1UAsbJZb66kBcaETVBT7nClg0B5k0c7yr/view?usp=sharing");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](222, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](223, "1. Login to Dropbox and upload all of your images first. Use folders for the Menu Categories (lunch, dinner, soups, etc.) if you wish. 2. After the images have been uploaded, select each image, right click and share that image. Please copy the URL (share link) and after paste it into Google Sheets (the one we created for you). 3. Example URL: https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0 ");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](224, "div", 94);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](225, "div", 12);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](226, "div", 95);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](227, "div", 41);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](228, "img", 99);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](229, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](230, "Dropbox");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](231, "div", 96);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](232, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](233, "1. Login to Dropbox and upload all of your images first. Use folders for the Menu Categories (lunch, dinner, soups, etc.) if you wish.");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](234, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](235, "2. After the images have been uploaded, select each image, right click and share that image. Please copy the URL (share link) and after paste it into Google Sheets (the one we created for you). ");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](236, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](237, "3. Example URL: https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](221, "3. Example URL: https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -59631,13 +59709,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](238, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](222, "div", 12);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](239, "div", 100);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](223, "div", 100);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](240, "div", 100);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](224, "div", 100);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](241, "div", 100);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](225, "div", 100);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
@@ -59645,55 +59723,199 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       if (rf & 2) {
         var ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](53);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](27);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("href", ctx_r2.authentication_url, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](27);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r2.categories);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](15);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r2.addedItems);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](21);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r2.drivefolders);
       }
     }
 
     var MenuitemsComponent =
     /*#__PURE__*/
     function () {
-      function MenuitemsComponent(toastr, _ProfileService, slimLoader, _CommonFunctionsService, _Router) {
+      function MenuitemsComponent(toastr, dialog, route, _ProfileService, slimLoader, _CommonFunctionsService, _Router) {
         _classCallCheck(this, MenuitemsComponent);
 
         this.toastr = toastr;
+        this.dialog = dialog;
+        this.route = route;
         this._ProfileService = _ProfileService;
         this.slimLoader = slimLoader;
         this._CommonFunctionsService = _CommonFunctionsService;
         this._Router = _Router;
         this.productList = [];
         this.processing = false;
+        this.addedItems = [];
+        this.addedCategories = [];
       }
 
       _createClass(MenuitemsComponent, [{
+        key: "onChange",
+        value: function onChange(event, item) {
+          // can't event.preventDefault();
+          console.log('onChange event.checked ' + event.checked, item);
+
+          if (event.checked) {
+            this.addedCategories.push(item);
+          } else {
+            this.removeItemFromArray(item);
+          }
+        }
+      }, {
+        key: "addItems",
+        value: function addItems() {
+          console.log('addedItems', this.addedCategories);
+          this.addedItems = this.addedCategories;
+        }
+      }, {
+        key: "onChange1",
+        value: function onChange1(event, item) {
+          // can't event.preventDefault();
+          console.log('onChange event.checked ' + event.checked, item);
+
+          if (event.checked) {
+            this.removeItemFromArray(item);
+          }
+        }
+      }, {
+        key: "removeCategories",
+        value: function removeCategories() {
+          this.addedItems = this.addedCategories;
+        }
+      }, {
+        key: "removeItemFromArray",
+        value: function removeItemFromArray(item) {
+          var index = this.addedCategories.indexOf(item);
+
+          if (index > -1) {
+            this.addedCategories.splice(index, 1);
+          }
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
+          var _this193 = this;
+
           this.getAllProductList();
           this.getCompanyProfile();
           this.getgoogleauthntication();
           this.getAllCategories();
+          this.route.params.subscribe(function (data) {
+            console.log('emailllll', data);
+            _this193.googleEmail = data.email;
+          });
+          this.getFolderbyEmail();
         }
+      }, {
+        key: "onSelect",
+        value: function onSelect(event) {
+          console.log(event); // this.feathuredfiles.push(...event.addedFiles);
+
+          var formData = new FormData();
+          formData.append('file', event.addedFiles[0]); // this.uploadFeaturePhoto(formData);
+        }
+      }, {
+        key: "getFolderbyEmail",
+        value: function getFolderbyEmail() {
+          var _this194 = this;
+
+          if (this.googleEmail) {
+            var data = {
+              email: this.googleEmail
+            };
+
+            this._ProfileService.getFoldersCreatedInDrive(data).subscribe(function (res) {
+              console.log('resssssss getFoldersCreatedInDrive', res);
+              _this194.drivefolders = res.data;
+            });
+          }
+        }
+      }, {
+        key: "onFileSelect",
+        value: function onFileSelect(event, folderId) {
+          if (event.target.files.length > 0) {
+            console.log(event.target.files[0]);
+            var file = event.target.files[0];
+            var formData = new FormData();
+            formData.append('file', file);
+            this.uploadImageToDrive(formData, folderId);
+          }
+        }
+      }, {
+        key: "uploadImageToDrive",
+        value: function uploadImageToDrive(formData, folderId) {
+          var _this195 = this;
+
+          var data = {
+            formData: formData,
+            folderId: folderId,
+            email: this.googleEmail
+          };
+          this.user = this._CommonFunctionsService.checkUser().user;
+
+          this._ProfileService.uploadImageTodrive(this.user.company_id, formData).subscribe(function (res) {
+            console.log('googgleData', res.data);
+            _this195.authentication_url = res.data;
+          });
+        } // this.user = this._CommonFunctionsService.checkUser().user;
+        // this._ProfileService.uploadCompanyProfile(this.user.company_id,formData).subscribe((res:any)=>{
+        //   this.getCompanyProfile();
+        // },error=>{
+        //   debugger
+        // })
+
       }, {
         key: "getAllProductList",
         value: function getAllProductList() {
-          var _this193 = this;
+          var _this196 = this;
 
           this.processing = true;
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.getAllProductList(this.user.unit_id).subscribe(function (res) {
-            _this193.productList = res.data;
-            _this193.processing = false;
+            _this196.productList = res.data;
+            _this196.processing = false;
           }, function (error) {//debugger
           });
         }
       }, {
         key: "getgoogleauthntication",
         value: function getgoogleauthntication() {
-          var googgleData = this._ProfileService.getGoogleAuthenication();
+          var _this197 = this;
 
-          console.log('googgleData', googgleData);
+          this._ProfileService.getGoogleAuthenication().subscribe(function (res) {
+            console.log('googgleData', res.data);
+            _this197.authentication_url = res.data;
+          });
+        }
+      }, {
+        key: "createFolderinDrive",
+        value: function createFolderinDrive() {
+          var _this198 = this;
+
+          var data = {
+            folder: this.addedItems,
+            email: this.googleEmail,
+            user_id: '11744'
+          };
+          console.log('folderss data', data);
+
+          this._ProfileService.createfolderInGoogleDrive(data).subscribe(function (res) {
+            console.log('folderss', res);
+
+            _this198.getFolderbyEmail();
+          });
         }
       }, {
         key: "onClick",
@@ -59707,36 +59929,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getCompanyProfile",
         value: function getCompanyProfile() {
-          var _this194 = this;
+          var _this199 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.getCompanyprofile(this.user.unit_id).subscribe(function (res) {
-            _this194.profile = res.data;
-            console.log(_this194.profile);
+            _this199.profile = res.data;
+            console.log(_this199.profile);
           }, function (error) {//  
           });
         }
       }, {
         key: "uploadGoogleMenuSheet",
         value: function uploadGoogleMenuSheet() {
-          var _this195 = this;
+          var _this200 = this;
 
           this._ProfileService.uploadGoogleMenuSheet().subscribe(function (res) {
-            _this195.toastr.success(res.success);
+            _this200.toastr.success(res.success);
 
-            _this195.getAllProductList();
+            _this200.getAllProductList();
           }, function (error) {
-            _this195.toastr.error('Failed to upload, please try again later');
+            _this200.toastr.error('Failed to upload, please try again later');
           });
         }
       }, {
         key: "getAllCategories",
         value: function getAllCategories() {
-          var _this196 = this;
+          var _this201 = this;
 
           this._ProfileService.getAllCategories().subscribe(function (res) {
-            _this196.categories = res.data;
+            _this201.categories = res.data;
           });
         }
       }, {
@@ -59754,13 +59976,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getTitle(description) {
           return description.length > 10 ? description.substr(0, 10) + "..." : description;
         }
+      }, {
+        key: "getgmailuser",
+        value: function getgmailuser() {
+          var _this202 = this;
+
+          var message = "Please get authenticated with gmail account";
+          var dialogData = new _form_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmDialogModel"]("Confirm Action", message);
+          var dialogRef = this.dialog.open(_form_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmDialogComponent"], {
+            maxWidth: "500px",
+            data: dialogData
+          });
+          dialogRef.afterClosed().subscribe(function (dialogResult) {
+            // this.result = dialogResult;
+            console.log('dialogResultdialogResult', dialogResult);
+
+            if (dialogResult) {
+              _this202._ProfileService.getGoogleAuthenication().subscribe(function (res) {
+                _this202.authentication_url = res.data;
+              });
+            }
+          });
+        }
       }]);
 
       return MenuitemsComponent;
     }();
 
     MenuitemsComponent.ɵfac = function MenuitemsComponent_Factory(t) {
-      return new (t || MenuitemsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_profile_service__WEBPACK_IMPORTED_MODULE_1__["ProfileService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_4__["SlimLoadingBarService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_commonFunctions_service__WEBPACK_IMPORTED_MODULE_2__["CommonFunctionsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]));
+      return new (t || MenuitemsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_profile_service__WEBPACK_IMPORTED_MODULE_1__["ProfileService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_4__["SlimLoadingBarService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_commonFunctions_service__WEBPACK_IMPORTED_MODULE_2__["CommonFunctionsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]));
     };
 
     MenuitemsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
@@ -59779,7 +60023,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       },
       decls: 14,
       vars: 1,
-      consts: [[1, "row", "el-element-overlay"], [4, "ngIf"], [1, "col-md-12"], [1, "card"], [1, "card-body"], [1, "card-title"], [1, "card-subtitle"], ["title", "Menu Items"], ["ngbTabContent", ""], ["title", "Google Sheet | images"], [1, "card", "card-body"], ["class", "mt-5", 4, "ngIf"], [1, "row"], ["class", "col-lg-3 col-md-6", 4, "ngFor", "ngForOf"], [1, "mt-5"], [1, "col-lg-3", "col-md-6"], [1, "card", 3, "click"], [1, "el-card-item"], [1, "el-card-avatar", "el-overlay-1"], ["alt", "user", 1, "productimg", 3, "src"], [1, "el-overlay"], [1, "list-style-none", "el-info"], [1, "el-item"], ["href", "javascript:void(0);", 1, "btn", "default", "btn-outline", "el-link"], [1, "icon-link"], [1, "d-flex", "no-block", "align-items-center"], [1, "m-l-15"], [1, "m-b-0", "fix-ht-h4"], [1, "text-muted", "fix-ht-spn"], [1, "ml-auto", "m-r-15"], ["type", "button", 1, "btn", "btn-dark", "btn-circle"], [1, "hero_section"], [1, "container"], [1, "col-md-10", "offset-md-1"], [1, "hero_content"], [1, "text-center"], ["src", "../../assets/images/Layer-1@1X.png", "alt", "", 1, "hero_img"], [1, "step_tabs"], ["label", "1"], [1, "step_one"], [1, "col-6", "col-md-4", "offset-md-2", "col-lg-2", "offset-lg-4"], [1, "icon_card"], ["src", "../../assets/images/google-drive@1X.png", "alt", "  ", 1, "drive"], [1, "col-6", "col-md-4", "col-lg-2"], ["src", "../../assets/images/dropbox@1X.png", "alt", "  ", 1, "dropbox"], ["label", "2"], [1, "col-md-12", "col-lg-10", "offset-lg-1"], [1, "category_sec"], [1, "col-md-5"], [1, "category_area"], [1, "category_head"], [1, "category_checkbox"], ["appearance", "fill"], ["matInput", "", "placeholder", "Search", 1, "form-control"], [4, "ngFor", "ngForOf"], [1, "col-md-2"], [1, "category_btn"], ["mat-raised-button", "", 1, "btn", "btn-primary", "btn-block"], ["mat-raised-button", "", 1, "btn", "btn-secondary", "btn-block"], ["label", "3"], [1, "col-md-4"], [1, "step_three_left"], ["src", "../../assets/images/Chicken-Teriyaki.png", "alt", ""], [1, "col-md-6", "offset-md-2"], [1, "step_three_right"], ["src", "../../assets/images/folder@1X.png", "alt", ""], [1, "sync_btn"], ["mat-raised-button", "", 1, "btn"], ["src", "../../assets/images/google-sheets-icon.png", "alt", ""], ["label", "4"], [1, "step_one", "padding_area"], [1, "step_four"], [1, "form-group"], ["for", "", 1, "label-control"], [1, "custom-file"], ["type", "file", "id", "customFile", 1, "custom-file-input"], ["for", "customFile", 1, "custom-file-label"], [1, "add_btn"], ["mat-raised-button", "", 1, "btn", "btn-primary"], [1, "col-md-4", "col-lg-3"], [1, "bot_img"], ["src", "../../assets/images/Bot.png", "alt", ""], [1, "col-md-8", "col-lg-8", "offset-lg-1"], [1, "bot_txt"], ["label", "5"], [1, "step_five"], ["src", "../../assets/images/Layer-2@1X.png"], ["src", "../../assets/images/Layer-3@1X.png"], [1, "spreadsheet_detail"], [1, "col-12", "col-md-6", "col-lg-4"], ["src", "../../assets/images/Cheez-Whiz-Philly-Cheese-Steak-Sandwich-photo.png", "alt", ""], [1, "p_t_note"], ["src", "../../assets/images/Best-Burger.png"], ["label", "6"], [1, "step_six"], [1, "col-md-3"], [1, "col-md-9"], ["src", "../../assets/images/Layer-5@1X.png", "alt", ""], ["src", "../../assets/images/Layer-6@1X.png", "alt", ""], ["src", "../../assets/images/dropbox@1X.png", "alt", "  ", 1, "drive"], [1, "col-sm-4"], [3, "checked", "click"], ["ref", ""]],
+      consts: [[1, "row", "el-element-overlay"], [4, "ngIf"], [1, "col-md-12"], [1, "card"], [1, "card-body"], [1, "card-title"], [1, "card-subtitle"], ["title", "Menu Items"], ["ngbTabContent", ""], ["title", "Google Sheet | images"], [1, "card", "card-body"], ["class", "mt-5", 4, "ngIf"], [1, "row"], ["class", "col-lg-3 col-md-6", 4, "ngFor", "ngForOf"], [1, "mt-5"], [1, "col-lg-3", "col-md-6"], [1, "card", 3, "click"], [1, "el-card-item"], [1, "el-card-avatar", "el-overlay-1"], ["alt", "user", 1, "productimg", 3, "src"], [1, "el-overlay"], [1, "list-style-none", "el-info"], [1, "el-item"], ["href", "javascript:void(0);", 1, "btn", "default", "btn-outline", "el-link"], [1, "icon-link"], [1, "d-flex", "no-block", "align-items-center"], [1, "m-l-15"], [1, "m-b-0", "fix-ht-h4"], [1, "text-muted", "fix-ht-spn"], [1, "ml-auto", "m-r-15"], ["type", "button", 1, "btn", "btn-dark", "btn-circle"], [1, "hero_section"], [1, "container"], [1, "col-md-10", "offset-md-1"], [1, "hero_content"], [1, "text-center"], ["src", "../../assets/images/Layer-1@1X.png", "alt", "", 1, "hero_img"], [1, "step_tabs"], ["label", "1"], [1, "step_one"], [1, "col-6", "col-md-4", "offset-md-2", "col-lg-2", "offset-lg-4"], [1, "icon_card"], [3, "href"], ["src", "../../assets/images/google-drive@1X.png", "alt", "  ", 1, "drive"], [1, "col-6", "col-md-4", "col-lg-2"], ["src", "../../assets/images/dropbox@1X.png", "alt", "  ", 1, "dropbox"], ["label", "2"], [1, "col-md-12", "col-lg-10", "offset-lg-1"], [1, "category_sec"], [1, "col-md-5"], [1, "category_area"], [1, "category_head"], [1, "category_checkbox"], ["appearance", "fill"], ["matInput", "", "placeholder", "Search", 1, "form-control"], [4, "ngFor", "ngForOf"], [1, "col-md-2"], [1, "category_btn"], ["mat-raised-button", "", 1, "btn", "btn-primary", "btn-block", 3, "click"], ["mat-raised-button", "", 1, "btn", "btn-secondary", "btn-block"], ["label", "3"], [1, "col-md-4"], [1, "step_three_left"], ["src", "../../assets/images/Chicken-Teriyaki.png", "alt", ""], [1, "col-md-6", "offset-md-2"], [1, "step_three_right"], [1, "sync_btn"], ["mat-raised-button", "", 1, "btn"], ["src", "../../assets/images/google-sheets-icon.png", "alt", ""], ["label", "4"], [1, "step_one", "padding_area"], [1, "step_four"], [1, "form-group"], ["for", "", 1, "label-control"], [1, "custom-file"], ["type", "file", "id", "customFile", 1, "custom-file-input"], ["for", "customFile", 1, "custom-file-label"], [1, "add_btn"], ["mat-raised-button", "", 1, "btn", "btn-primary"], [1, "col-md-4", "col-lg-3"], [1, "bot_img"], ["src", "../../assets/images/Bot.png", "alt", ""], [1, "col-md-8", "col-lg-8", "offset-lg-1"], [1, "bot_txt"], ["label", "5"], [1, "step_five"], ["src", "../../assets/images/Layer-2@1X.png"], ["src", "../../assets/images/Layer-3@1X.png"], [1, "spreadsheet_detail"], [1, "col-12", "col-md-6", "col-lg-4"], ["src", "../../assets/images/Cheez-Whiz-Philly-Cheese-Steak-Sandwich-photo.png", "alt", ""], [1, "p_t_note"], ["src", "../../assets/images/Best-Burger.png"], ["label", "6"], [1, "step_six"], [1, "col-md-3"], [1, "col-md-9"], ["src", "../../assets/images/Layer-5@1X.png", "alt", ""], ["src", "../../assets/images/Layer-6@1X.png", "alt", ""], ["src", "../../assets/images/dropbox@1X.png", "alt", "  ", 1, "drive"], [1, "col-sm-4"], [3, "checked", "change"], ["src", "../../assets/images/folder@1X.png", "alt", ""], ["type", "file", "id", "customFile", 1, "custom-file-input", 3, "change"]],
       template: function MenuitemsComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -59814,7 +60058,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "ngb-tab", 9);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](13, MenuitemsComponent_ng_template_13_Template, 242, 1, "ng-template", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](13, MenuitemsComponent_ng_template_13_Template, 226, 4, "ng-template", 8);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -59835,7 +60079,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.productList.length);
         }
       },
-      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbTabset"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbTab"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbTabContent"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_8__["MatTabGroup"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_8__["MatTab"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormField"], _angular_material_input__WEBPACK_IMPORTED_MODULE_10__["MatInput"], _angular_material_button__WEBPACK_IMPORTED_MODULE_11__["MatButton"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_12__["MatCheckbox"]],
+      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_8__["NgIf"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__["NgbTabset"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__["NgbTab"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__["NgbTabContent"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["NgForOf"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_10__["MatTabGroup"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_10__["MatTab"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__["MatFormField"], _angular_material_input__WEBPACK_IMPORTED_MODULE_12__["MatInput"], _angular_material_button__WEBPACK_IMPORTED_MODULE_13__["MatButton"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_14__["MatCheckbox"]],
       styles: ["*[_ngcontent-%COMP%], html[_ngcontent-%COMP%], body[_ngcontent-%COMP%] {\n    font-family: 'Poppins', sans-serif;\n}\nh1[_ngcontent-%COMP%], h2[_ngcontent-%COMP%], h3[_ngcontent-%COMP%], h4[_ngcontent-%COMP%], h5[_ngcontent-%COMP%], h6[_ngcontent-%COMP%], p[_ngcontent-%COMP%] {\n    font-family: 'Poppins', sans-serif;\n}\np[_ngcontent-%COMP%] {\n    font-size: 16px;\n    line-height: 28px;\n    font-weight: 500;\n}\n\n.hero_section[_ngcontent-%COMP%] {\n    background: url('Rectangle-img.png');\n    background-size: cover;\n    background-repeat: no-repeat;\n    padding: 4rem 0;\n}\n.hero_content[_ngcontent-%COMP%]   .hero_img[_ngcontent-%COMP%] {\n    width: 100%;\n    margin-bottom: 2rem;\n}\n.hero_content[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n    font-size: 28px;\n    color: #fff;\n    font-weight: 600;\n    margin-bottom: 2rem;\n}\n.hero_content[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n    font-size: 18px;\n    color: #fff;\n    margin-bottom: 2rem;\n    line-height: 28px;\n}\n.hero_content[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n    font-size: 22px;\n    color: #fff;\n    font-weight: 600;\n    margin-bottom: 2rem;\n}\n\n\n.step_tabs[_ngcontent-%COMP%] {\n    padding: 4rem 0;\n}\n  .mat-tab-label {\n    width: 60px;\n    height: 60px !important;\n    font-weight: 700;\n    padding: 0 !important;\n    background: #ddd;\n    margin: 0 2.5rem;\n    border-radius: 50px;\n    opacity: 1 !important;\n    min-width: auto !important;\n    color: #111;\n}\n  .mat-tab-label-active {\n    background-color: #2196f3;\n    color: #fff;\n}\n  .mat-tab-group.mat-primary .mat-ink-bar {\n    display: none;\n}\n  .mat-tab-labels {\n    justify-content: center;\n}\n  .mat-tab-label .mat-tab-label-content {\n    font-size: 24px;\n}\n  .mat-tab-labels {\n    position: relative;\n}\n  .mat-tab-labels:before {\n    content: '';\n    position: absolute;\n    top: 28px;\n    left: 10%;\n    border-bottom: 4px solid #ddd;\n    width: 80%;\n}\n  .mat-tab-body-content {\n    padding: 0 1rem;\n}\n  .mat-tab-nav-bar,   .mat-tab-header {\n    border-bottom: none !important;\n}\n\n\n.step_one[_ngcontent-%COMP%] {\n    text-align: center;\n    padding: 3rem 0;\n}\n.step_one[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n    font-size: 28px;\n    font-weight: 600;\n    margin-bottom: 2.5rem;\n}\n.step_one[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n    font-size: 22px;\n    font-weight: 500;\n    margin-bottom: 2.5rem;\n}\n.icon_card[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n    width: 100%;\n    border: 1px solid #2196f3;\n    border-radius: 10px;\n    padding: 1.4rem;\n    margin-bottom: 1rem;\n    height: 129px;\n}\n.icon_card[_ngcontent-%COMP%]   img.dropbox[_ngcontent-%COMP%] {\n    width: 145px;\n}\n.icon_card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n    font-size: 16px;\n    margin-bottom: 2rem;\n    line-height: 28px;\n    font-weight: 600;\n    color: #2196f3;\n}\n\n\n  .mat-checkbox-inner-container {\n    \n}\n.category_area[_ngcontent-%COMP%] {\n    border: 1px solid #eee;\n}\n.category_head[_ngcontent-%COMP%] {\n    text-align: center;\n    padding: 1rem;\n    border-bottom: 1px solid #eee;\n}\n.category_head[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n    margin: 0;\n    font-weight: 600;\n}\n.category_checkbox[_ngcontent-%COMP%] {\n    text-align: left;\n    padding: 1rem;\n}\n.form-control[_ngcontent-%COMP%] {\n    border: 1px solid #d5d5d5;\n    border-radius: 4px;\n    height: 40px;\n    padding-left: 0.5rem;\n    font-family: 'Montserrat', sans-serif;\n}\n  .mat-form-field-underline {\n    display: none;\n}\n  .mat-form-field-appearance-fill .mat-form-field-flex {\n    padding: 0 !important;\n}\n  .mat-form-field {\n    width: 100% !important;\n}\n  .mat-checkbox-layout .mat-checkbox-label {\n    font-family: 'Montserrat', sans-serif;\n    font-weight: 500;\n}\n.category_sec[_ngcontent-%COMP%] {\n    border: 1px solid #dedede;\n    padding: 2rem;\n}\n  .mat-checkbox {\n    width: 100%;\n    display: block;\n}\n.category_btn[_ngcontent-%COMP%] {\n    padding-top: 8rem;\n}\n\n\n.step_three_left[_ngcontent-%COMP%] {\n    text-align: left;\n}\n.step_three_left[_ngcontent-%COMP%]   h5[_ngcontent-%COMP%] {\n    font-weight: 700;\n    font-size: 18px;\n}\n.step_three_left[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n    width: 100px;\n    margin-bottom: 1rem;\n}\n.step_three_right[_ngcontent-%COMP%] {\n    text-align: left;\n}\n.step_three_left[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n    font-size: 16px;\n    font-weight: 500;\n}\n.step_three_right[_ngcontent-%COMP%]   h5[_ngcontent-%COMP%] {\n    font-size: 18px;\n    font-weight: 700;\n}\n.step_three_right[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%] {\n    display: flex;\n    margin: 0;\n    padding: 0;\n    list-style: none;\n}\n.step_three_right[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n    margin-right: 1rem;\n}\n.step_three_right[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n    width: 70px;\n    margin-bottom: 1rem;\n}\n.step_three_right[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n    font-size: 16px;\n    font-weight: 500;\n}\n.sync_btn[_ngcontent-%COMP%] {\n    text-align: center;\n    margin-top: 2rem;\n}\n.sync_btn[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n    background: #eee;\n    padding: 3px 30px;\n    box-shadow: none;\n}\n\n\n.step_four[_ngcontent-%COMP%] {\n    text-align: left;\n}\n.label-control[_ngcontent-%COMP%] {\n    font-weight: 500;\n}\n.bot_img[_ngcontent-%COMP%] {\n    border: 1px solid #dedede;\n    padding: 1rem;\n}\n.bot_img[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n    width: 100%;\n}\n.bot_txt[_ngcontent-%COMP%] {\n    text-align: left;\n    padding-top: 5rem;\n}\n.bot_txt[_ngcontent-%COMP%]   p[_ngcontent-%COMP%]{\n    font-weight: 500;\n    font-size: 18px;\n}\n.add_btn[_ngcontent-%COMP%] {\n    text-align: center;\n    margin: 2rem 0;\n}\n\n\n.step_five[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n    width: 100%;\n    margin-bottom: 2rem;\n}\n.padding_area[_ngcontent-%COMP%] {\n    padding: 3rem 5rem;\n}\n.spreadsheet_detail[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {    \n    font-size: 28px;\n    font-weight: 600;\n    margin-bottom: 2.5rem;\n    text-align: center;\n    padding: 4rem 0;\n}\n.spreadsheet_detail[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n    text-align: left;\n    font-size: 18px;\n}\n.spreadsheet_detail[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n    width: 300px;\n    margin-bottom: 2rem;\n}\n.p_t_note[_ngcontent-%COMP%] {\n    padding-top: 8rem;\n}\n\n\n.step_six[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n    margin-bottom: 2rem;\n    font-size: 14px;\n}\n.step_six[_ngcontent-%COMP%] {\n    text-align: left;\n}\n.step_six[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n    width: 70%;\n    margin-bottom: 2rem;\n}\n.step_six[_ngcontent-%COMP%]   .icon_card[_ngcontent-%COMP%] {\n    text-align: center;\n}\n\n\n@media only screen and (min-width: 1024px)and (max-width: 1365px)  {\n    .icon_card[_ngcontent-%COMP%]   img.dropbox[_ngcontent-%COMP%] {\n        width: 90%;\n    }\n    .category_sec[_ngcontent-%COMP%] {\n        padding: 1rem;\n    }\n    .category_sec[_ngcontent-%COMP%]   .col-md-2[_ngcontent-%COMP%] {\n        padding: 0;\n    }\n    .bot_txt[_ngcontent-%COMP%] {\n        padding-top: 0;\n    }\n}\n\n\n@media only screen and (min-width: 768px)and (max-width: 1023px)  {\n      .mat-tab-label {\n        margin: 0 1.5rem;\n    }\n\n      .mat-tab-labels:before {\n        width: 100%;\n        left: 0;\n    }\n    .icon_card[_ngcontent-%COMP%]   img.dropbox[_ngcontent-%COMP%] {\n        width: 90%;\n    }\n    .category_sec[_ngcontent-%COMP%] {\n        padding: 1rem;\n    }\n    .category_sec[_ngcontent-%COMP%]   .col-md-2[_ngcontent-%COMP%] {\n        padding: 0;\n    }\n    .padding_area[_ngcontent-%COMP%] {\n        padding: 3rem 0;\n    }\n    .bot_txt[_ngcontent-%COMP%] {\n        padding-top: 0;\n    }\n    .spreadsheet_detail[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n        width: 100%;\n    }\n}\n\n\n@media only screen and (max-width: 767px) {\n      .mat-tab-labels:before {\n        width: 100%;\n        left: 0;\n        top: 18px;\n    }\n      .mat-tab-label {\n        margin: 0 0.5rem;\n        height: 40px !important;\n        width: 40px !important;\n    }\n      .mat-tab-label .mat-tab-label-content {\n        font-size: 16px;\n    }\n    .category_btn[_ngcontent-%COMP%] {\n        padding-top: 0;\n        margin: 2rem 0;\n    }\n    .padding_area[_ngcontent-%COMP%] {\n        padding: 3rem 0;\n    }\n    .p_t_note[_ngcontent-%COMP%] {\n        padding-top: 0;\n    }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVudWl0ZW1zL21lbnVpdGVtcy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksa0NBQWtDO0FBQ3RDO0FBQ0E7SUFDSSxrQ0FBa0M7QUFDdEM7QUFDQTtJQUNJLGVBQWU7SUFDZixpQkFBaUI7SUFDakIsZ0JBQWdCO0FBQ3BCO0FBQ0EsK0JBQStCO0FBQy9CO0lBQ0ksb0NBQXdEO0lBQ3hELHNCQUFzQjtJQUN0Qiw0QkFBNEI7SUFDNUIsZUFBZTtBQUNuQjtBQUNBO0lBQ0ksV0FBVztJQUNYLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksZUFBZTtJQUNmLFdBQVc7SUFDWCxnQkFBZ0I7SUFDaEIsbUJBQW1CO0FBQ3ZCO0FBQ0E7SUFDSSxlQUFlO0lBQ2YsV0FBVztJQUNYLG1CQUFtQjtJQUNuQixpQkFBaUI7QUFDckI7QUFDQTtJQUNJLGVBQWU7SUFDZixXQUFXO0lBQ1gsZ0JBQWdCO0lBQ2hCLG1CQUFtQjtBQUN2QjtBQUNBLCtCQUErQjtBQUkvQiwyQkFBMkI7QUFDM0I7SUFDSSxlQUFlO0FBQ25CO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsdUJBQXVCO0lBQ3ZCLGdCQUFnQjtJQUNoQixxQkFBcUI7SUFDckIsZ0JBQWdCO0lBQ2hCLGdCQUFnQjtJQUNoQixtQkFBbUI7SUFDbkIscUJBQXFCO0lBQ3JCLDBCQUEwQjtJQUMxQixXQUFXO0FBQ2Y7QUFDQTtJQUNJLHlCQUF5QjtJQUN6QixXQUFXO0FBQ2Y7QUFDQTtJQUNJLGFBQWE7QUFDakI7QUFDQTtJQUNJLHVCQUF1QjtBQUMzQjtBQUNBO0lBQ0ksZUFBZTtBQUNuQjtBQUNBO0lBQ0ksa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLFNBQVM7SUFDVCxTQUFTO0lBQ1QsNkJBQTZCO0lBQzdCLFVBQVU7QUFDZDtBQUNBO0lBQ0ksZUFBZTtBQUNuQjtBQUNBOztJQUVJLDhCQUE4QjtBQUNsQztBQUNBLDJCQUEyQjtBQUczQiwyQkFBMkI7QUFDM0I7SUFDSSxrQkFBa0I7SUFDbEIsZUFBZTtBQUNuQjtBQUNBO0lBQ0ksZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixxQkFBcUI7QUFDekI7QUFDQTtJQUNJLGVBQWU7SUFDZixnQkFBZ0I7SUFDaEIscUJBQXFCO0FBQ3pCO0FBQ0E7SUFDSSxXQUFXO0lBQ1gseUJBQXlCO0lBQ3pCLG1CQUFtQjtJQUNuQixlQUFlO0lBQ2YsbUJBQW1CO0lBQ25CLGFBQWE7QUFDakI7QUFDQTtJQUNJLFlBQVk7QUFDaEI7QUFDQTtJQUNJLGVBQWU7SUFDZixtQkFBbUI7SUFDbkIsaUJBQWlCO0lBQ2pCLGdCQUFnQjtJQUNoQixjQUFjO0FBQ2xCO0FBQ0EsMkJBQTJCO0FBRzNCLDJCQUEyQjtBQUMzQjtJQUNJO3dCQUNvQjtBQUN4QjtBQUNBO0lBQ0ksc0JBQXNCO0FBQzFCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsYUFBYTtJQUNiLDZCQUE2QjtBQUNqQztBQUNBO0lBQ0ksU0FBUztJQUNULGdCQUFnQjtBQUNwQjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGFBQWE7QUFDakI7QUFDQTtJQUNJLHlCQUF5QjtJQUN6QixrQkFBa0I7SUFDbEIsWUFBWTtJQUNaLG9CQUFvQjtJQUNwQixxQ0FBcUM7QUFDekM7QUFDQTtJQUNJLGFBQWE7QUFDakI7QUFDQTtJQUNJLHFCQUFxQjtBQUN6QjtBQUNBO0lBQ0ksc0JBQXNCO0FBQzFCO0FBQ0E7SUFDSSxxQ0FBcUM7SUFDckMsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSx5QkFBeUI7SUFDekIsYUFBYTtBQUNqQjtBQUNBO0lBQ0ksV0FBVztJQUNYLGNBQWM7QUFDbEI7QUFDQTtJQUNJLGlCQUFpQjtBQUNyQjtBQUNBLDJCQUEyQjtBQUczQiw2QkFBNkI7QUFDN0I7SUFDSSxnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixlQUFlO0FBQ25CO0FBQ0E7SUFDSSxZQUFZO0lBQ1osbUJBQW1CO0FBQ3ZCO0FBQ0E7SUFDSSxnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLGVBQWU7SUFDZixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLGVBQWU7SUFDZixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLGFBQWE7SUFDYixTQUFTO0lBQ1QsVUFBVTtJQUNWLGdCQUFnQjtBQUNwQjtBQUNBO0lBQ0ksa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsbUJBQW1CO0FBQ3ZCO0FBQ0E7SUFDSSxlQUFlO0lBQ2YsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxrQkFBa0I7SUFDbEIsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsaUJBQWlCO0lBQ2pCLGdCQUFnQjtBQUNwQjtBQUNBLDZCQUE2QjtBQUc3Qiw0QkFBNEI7QUFDNUI7SUFDSSxnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLGdCQUFnQjtBQUNwQjtBQUNBO0lBQ0kseUJBQXlCO0lBQ3pCLGFBQWE7QUFDakI7QUFDQTtJQUNJLFdBQVc7QUFDZjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGlCQUFpQjtBQUNyQjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGVBQWU7QUFDbkI7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixjQUFjO0FBQ2xCO0FBQ0EsNEJBQTRCO0FBRzVCLDRCQUE0QjtBQUM1QjtJQUNJLFdBQVc7SUFDWCxtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksZUFBZTtJQUNmLGdCQUFnQjtJQUNoQixxQkFBcUI7SUFDckIsa0JBQWtCO0lBQ2xCLGVBQWU7QUFDbkI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixlQUFlO0FBQ25CO0FBQ0E7SUFDSSxZQUFZO0lBQ1osbUJBQW1CO0FBQ3ZCO0FBQ0E7SUFDSSxpQkFBaUI7QUFDckI7QUFDQSw0QkFBNEI7QUFHNUIsMkJBQTJCO0FBQzNCO0lBQ0ksbUJBQW1CO0lBQ25CLGVBQWU7QUFDbkI7QUFDQTtJQUNJLGdCQUFnQjtBQUNwQjtBQUNBO0lBQ0ksVUFBVTtJQUNWLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksa0JBQWtCO0FBQ3RCO0FBQ0EsMkJBQTJCO0FBRTNCLHdDQUF3QztBQUV4QztJQUNJO1FBQ0ksVUFBVTtJQUNkO0lBQ0E7UUFDSSxhQUFhO0lBQ2pCO0lBQ0E7UUFDSSxVQUFVO0lBQ2Q7SUFDQTtRQUNJLGNBQWM7SUFDbEI7QUFDSjtBQUVBLHdDQUF3QztBQUV4QyxvQ0FBb0M7QUFFcEM7SUFDSTtRQUNJLGdCQUFnQjtJQUNwQjs7SUFFQTtRQUNJLFdBQVc7UUFDWCxPQUFPO0lBQ1g7SUFDQTtRQUNJLFVBQVU7SUFDZDtJQUNBO1FBQ0ksYUFBYTtJQUNqQjtJQUNBO1FBQ0ksVUFBVTtJQUNkO0lBQ0E7UUFDSSxlQUFlO0lBQ25CO0lBQ0E7UUFDSSxjQUFjO0lBQ2xCO0lBQ0E7UUFDSSxXQUFXO0lBQ2Y7QUFDSjtBQUVBLG9DQUFvQztBQUVwQyxzQ0FBc0M7QUFDdEM7SUFDSTtRQUNJLFdBQVc7UUFDWCxPQUFPO1FBQ1AsU0FBUztJQUNiO0lBQ0E7UUFDSSxnQkFBZ0I7UUFDaEIsdUJBQXVCO1FBQ3ZCLHNCQUFzQjtJQUMxQjtJQUNBO1FBQ0ksZUFBZTtJQUNuQjtJQUNBO1FBQ0ksY0FBYztRQUNkLGNBQWM7SUFDbEI7SUFDQTtRQUNJLGVBQWU7SUFDbkI7SUFDQTtRQUNJLGNBQWM7SUFDbEI7QUFDSjtBQUNBLHNDQUFzQyIsImZpbGUiOiJzcmMvYXBwL21lbnVpdGVtcy9tZW51aXRlbXMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIiosIGh0bWwsIGJvZHkge1xuICAgIGZvbnQtZmFtaWx5OiAnUG9wcGlucycsIHNhbnMtc2VyaWY7XG59XG5oMSwgaDIsIGgzLCBoNCwgaDUsIGg2ICxwIHtcbiAgICBmb250LWZhbWlseTogJ1BvcHBpbnMnLCBzYW5zLXNlcmlmO1xufVxucCB7XG4gICAgZm9udC1zaXplOiAxNnB4O1xuICAgIGxpbmUtaGVpZ2h0OiAyOHB4O1xuICAgIGZvbnQtd2VpZ2h0OiA1MDA7XG59XG4vKioqKiogSGVybyBTZWN0aW9uIENTUyAqKioqKioqL1xuLmhlcm9fc2VjdGlvbiB7XG4gICAgYmFja2dyb3VuZDogdXJsKCcuLi8uLi9hc3NldHMvaW1hZ2VzL1JlY3RhbmdsZS1pbWcucG5nJyk7XG4gICAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuICAgIHBhZGRpbmc6IDRyZW0gMDtcbn1cbi5oZXJvX2NvbnRlbnQgLmhlcm9faW1nIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBtYXJnaW4tYm90dG9tOiAycmVtO1xufVxuLmhlcm9fY29udGVudCBoMiB7XG4gICAgZm9udC1zaXplOiAyOHB4O1xuICAgIGNvbG9yOiAjZmZmO1xuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gICAgbWFyZ2luLWJvdHRvbTogMnJlbTtcbn1cbi5oZXJvX2NvbnRlbnQgcCB7XG4gICAgZm9udC1zaXplOiAxOHB4O1xuICAgIGNvbG9yOiAjZmZmO1xuICAgIG1hcmdpbi1ib3R0b206IDJyZW07XG4gICAgbGluZS1oZWlnaHQ6IDI4cHg7XG59XG4uaGVyb19jb250ZW50IGg0IHtcbiAgICBmb250LXNpemU6IDIycHg7XG4gICAgY29sb3I6ICNmZmY7XG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgICBtYXJnaW4tYm90dG9tOiAycmVtO1xufVxuLyoqKioqIEhlcm8gU2VjdGlvbiBDU1MgKioqKioqKi9cblxuXG5cbi8qKioqKiBNYXQgVGFicyBDU1MgKioqKioqKi9cbi5zdGVwX3RhYnMge1xuICAgIHBhZGRpbmc6IDRyZW0gMDtcbn1cbjo6bmctZGVlcCAubWF0LXRhYi1sYWJlbCB7XG4gICAgd2lkdGg6IDYwcHg7XG4gICAgaGVpZ2h0OiA2MHB4ICFpbXBvcnRhbnQ7XG4gICAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgICBwYWRkaW5nOiAwICFpbXBvcnRhbnQ7XG4gICAgYmFja2dyb3VuZDogI2RkZDtcbiAgICBtYXJnaW46IDAgMi41cmVtO1xuICAgIGJvcmRlci1yYWRpdXM6IDUwcHg7XG4gICAgb3BhY2l0eTogMSAhaW1wb3J0YW50O1xuICAgIG1pbi13aWR0aDogYXV0byAhaW1wb3J0YW50O1xuICAgIGNvbG9yOiAjMTExO1xufVxuOjpuZy1kZWVwIC5tYXQtdGFiLWxhYmVsLWFjdGl2ZSB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzIxOTZmMztcbiAgICBjb2xvcjogI2ZmZjtcbn1cbjo6bmctZGVlcCAubWF0LXRhYi1ncm91cC5tYXQtcHJpbWFyeSAubWF0LWluay1iYXIge1xuICAgIGRpc3BsYXk6IG5vbmU7XG59XG46Om5nLWRlZXAgLm1hdC10YWItbGFiZWxzIHtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbn1cbjo6bmctZGVlcCAubWF0LXRhYi1sYWJlbCAubWF0LXRhYi1sYWJlbC1jb250ZW50IHtcbiAgICBmb250LXNpemU6IDI0cHg7XG59XG46Om5nLWRlZXAgLm1hdC10YWItbGFiZWxzIHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG59XG46Om5nLWRlZXAgLm1hdC10YWItbGFiZWxzOmJlZm9yZSB7XG4gICAgY29udGVudDogJyc7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMjhweDtcbiAgICBsZWZ0OiAxMCU7XG4gICAgYm9yZGVyLWJvdHRvbTogNHB4IHNvbGlkICNkZGQ7XG4gICAgd2lkdGg6IDgwJTtcbn1cbjo6bmctZGVlcCAubWF0LXRhYi1ib2R5LWNvbnRlbnQge1xuICAgIHBhZGRpbmc6IDAgMXJlbTtcbn1cbjo6bmctZGVlcCAubWF0LXRhYi1uYXYtYmFyLCBcbjo6bmctZGVlcCAubWF0LXRhYi1oZWFkZXIge1xuICAgIGJvcmRlci1ib3R0b206IG5vbmUgIWltcG9ydGFudDtcbn1cbi8qKioqKiBNYXQgVGFicyBDU1MgKioqKioqKi9cblxuXG4vKioqKiogU3RlcCBPbmUgQ1NTICoqKioqKiovXG4uc3RlcF9vbmUge1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBwYWRkaW5nOiAzcmVtIDA7XG59XG4uc3RlcF9vbmUgaDIge1xuICAgIGZvbnQtc2l6ZTogMjhweDtcbiAgICBmb250LXdlaWdodDogNjAwO1xuICAgIG1hcmdpbi1ib3R0b206IDIuNXJlbTtcbn1cbi5zdGVwX29uZSBoNCB7XG4gICAgZm9udC1zaXplOiAyMnB4O1xuICAgIGZvbnQtd2VpZ2h0OiA1MDA7XG4gICAgbWFyZ2luLWJvdHRvbTogMi41cmVtO1xufVxuLmljb25fY2FyZCBpbWcge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGJvcmRlcjogMXB4IHNvbGlkICMyMTk2ZjM7XG4gICAgYm9yZGVyLXJhZGl1czogMTBweDtcbiAgICBwYWRkaW5nOiAxLjRyZW07XG4gICAgbWFyZ2luLWJvdHRvbTogMXJlbTtcbiAgICBoZWlnaHQ6IDEyOXB4O1xufVxuLmljb25fY2FyZCBpbWcuZHJvcGJveCB7XG4gICAgd2lkdGg6IDE0NXB4O1xufVxuLmljb25fY2FyZCBwIHtcbiAgICBmb250LXNpemU6IDE2cHg7XG4gICAgbWFyZ2luLWJvdHRvbTogMnJlbTtcbiAgICBsaW5lLWhlaWdodDogMjhweDtcbiAgICBmb250LXdlaWdodDogNjAwO1xuICAgIGNvbG9yOiAjMjE5NmYzO1xufVxuLyoqKioqIFN0ZXAgT25lIENTUyAqKioqKioqL1xuXG5cbi8qKioqKiBTdGVwIFR3byBDU1MgKioqKioqKi9cbjo6bmctZGVlcCAubWF0LWNoZWNrYm94LWlubmVyLWNvbnRhaW5lciB7XG4gICAgLyogYm9yZGVyOiAxcHggc29saWQgIzMzMztcbiAgICBib3JkZXItcmFkaXVzOiA0cHggKi9cbn1cbi5jYXRlZ29yeV9hcmVhIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZWVlO1xufVxuLmNhdGVnb3J5X2hlYWQge1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBwYWRkaW5nOiAxcmVtO1xuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZWVlO1xufVxuLmNhdGVnb3J5X2hlYWQgcCB7XG4gICAgbWFyZ2luOiAwO1xuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG59XG4uY2F0ZWdvcnlfY2hlY2tib3gge1xuICAgIHRleHQtYWxpZ246IGxlZnQ7XG4gICAgcGFkZGluZzogMXJlbTtcbn1cbi5mb3JtLWNvbnRyb2wge1xuICAgIGJvcmRlcjogMXB4IHNvbGlkICNkNWQ1ZDU7XG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgIGhlaWdodDogNDBweDtcbiAgICBwYWRkaW5nLWxlZnQ6IDAuNXJlbTtcbiAgICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xufVxuOjpuZy1kZWVwIC5tYXQtZm9ybS1maWVsZC11bmRlcmxpbmUge1xuICAgIGRpc3BsYXk6IG5vbmU7XG59XG46Om5nLWRlZXAgLm1hdC1mb3JtLWZpZWxkLWFwcGVhcmFuY2UtZmlsbCAubWF0LWZvcm0tZmllbGQtZmxleCB7XG4gICAgcGFkZGluZzogMCAhaW1wb3J0YW50O1xufVxuOjpuZy1kZWVwIC5tYXQtZm9ybS1maWVsZCB7XG4gICAgd2lkdGg6IDEwMCUgIWltcG9ydGFudDtcbn1cbjo6bmctZGVlcCAubWF0LWNoZWNrYm94LWxheW91dCAubWF0LWNoZWNrYm94LWxhYmVsIHtcbiAgICBmb250LWZhbWlseTogJ01vbnRzZXJyYXQnLCBzYW5zLXNlcmlmO1xuICAgIGZvbnQtd2VpZ2h0OiA1MDA7XG59XG4uY2F0ZWdvcnlfc2VjIHtcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZGVkZWRlO1xuICAgIHBhZGRpbmc6IDJyZW07XG59XG46Om5nLWRlZXAgLm1hdC1jaGVja2JveCB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgZGlzcGxheTogYmxvY2s7XG59XG4uY2F0ZWdvcnlfYnRuIHtcbiAgICBwYWRkaW5nLXRvcDogOHJlbTtcbn1cbi8qKioqKiBTdGVwIFR3byBDU1MgKioqKioqKi9cblxuXG4vKioqKiogU3RlcCBUaHJlZSBDU1MgKioqKioqKi9cbi5zdGVwX3RocmVlX2xlZnQge1xuICAgIHRleHQtYWxpZ246IGxlZnQ7XG59XG4uc3RlcF90aHJlZV9sZWZ0IGg1IHtcbiAgICBmb250LXdlaWdodDogNzAwO1xuICAgIGZvbnQtc2l6ZTogMThweDtcbn0gXG4uc3RlcF90aHJlZV9sZWZ0IGltZyB7XG4gICAgd2lkdGg6IDEwMHB4O1xuICAgIG1hcmdpbi1ib3R0b206IDFyZW07XG59XG4uc3RlcF90aHJlZV9yaWdodCB7XG4gICAgdGV4dC1hbGlnbjogbGVmdDtcbn1cbi5zdGVwX3RocmVlX2xlZnQgcCB7XG4gICAgZm9udC1zaXplOiAxNnB4O1xuICAgIGZvbnQtd2VpZ2h0OiA1MDA7XG59XG4uc3RlcF90aHJlZV9yaWdodCBoNSB7XG4gICAgZm9udC1zaXplOiAxOHB4O1xuICAgIGZvbnQtd2VpZ2h0OiA3MDA7XG59XG4uc3RlcF90aHJlZV9yaWdodCB1bCB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBtYXJnaW46IDA7XG4gICAgcGFkZGluZzogMDtcbiAgICBsaXN0LXN0eWxlOiBub25lO1xufVxuLnN0ZXBfdGhyZWVfcmlnaHQgbGkge1xuICAgIG1hcmdpbi1yaWdodDogMXJlbTtcbn1cbi5zdGVwX3RocmVlX3JpZ2h0IGltZyB7XG4gICAgd2lkdGg6IDcwcHg7XG4gICAgbWFyZ2luLWJvdHRvbTogMXJlbTtcbn1cbi5zdGVwX3RocmVlX3JpZ2h0IGxpIHAge1xuICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICBmb250LXdlaWdodDogNTAwO1xufVxuLnN5bmNfYnRuIHtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgbWFyZ2luLXRvcDogMnJlbTtcbn1cbi5zeW5jX2J0biBidXR0b24ge1xuICAgIGJhY2tncm91bmQ6ICNlZWU7XG4gICAgcGFkZGluZzogM3B4IDMwcHg7XG4gICAgYm94LXNoYWRvdzogbm9uZTtcbn1cbi8qKioqKiBTdGVwIFRocmVlIENTUyAqKioqKioqL1xuXG5cbi8qKioqKiBTdGVwIEZvdXIgQ1NTICoqKioqKiovXG4uc3RlcF9mb3VyIHtcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xufVxuLmxhYmVsLWNvbnRyb2wge1xuICAgIGZvbnQtd2VpZ2h0OiA1MDA7XG59XG4uYm90X2ltZyB7XG4gICAgYm9yZGVyOiAxcHggc29saWQgI2RlZGVkZTtcbiAgICBwYWRkaW5nOiAxcmVtO1xufVxuLmJvdF9pbWcgaW1nIHtcbiAgICB3aWR0aDogMTAwJTtcbn1cbi5ib3RfdHh0IHtcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xuICAgIHBhZGRpbmctdG9wOiA1cmVtO1xufVxuLmJvdF90eHQgcHtcbiAgICBmb250LXdlaWdodDogNTAwO1xuICAgIGZvbnQtc2l6ZTogMThweDtcbn1cbi5hZGRfYnRuIHtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgbWFyZ2luOiAycmVtIDA7XG59XG4vKioqKiogU3RlcCBGb3VyIENTUyAqKioqKioqL1xuXG5cbi8qKioqKiBTdGVwIEZpdmUgQ1NTICoqKioqKiovXG4uc3RlcF9maXZlIGltZyB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgbWFyZ2luLWJvdHRvbTogMnJlbTtcbn1cbi5wYWRkaW5nX2FyZWEge1xuICAgIHBhZGRpbmc6IDNyZW0gNXJlbTtcbn1cbi5zcHJlYWRzaGVldF9kZXRhaWwgaDIgeyAgICBcbiAgICBmb250LXNpemU6IDI4cHg7XG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgICBtYXJnaW4tYm90dG9tOiAyLjVyZW07XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIHBhZGRpbmc6IDRyZW0gMDtcbn1cbi5zcHJlYWRzaGVldF9kZXRhaWwgcCB7XG4gICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgICBmb250LXNpemU6IDE4cHg7XG59XG4uc3ByZWFkc2hlZXRfZGV0YWlsIGltZyB7XG4gICAgd2lkdGg6IDMwMHB4O1xuICAgIG1hcmdpbi1ib3R0b206IDJyZW07XG59XG4ucF90X25vdGUge1xuICAgIHBhZGRpbmctdG9wOiA4cmVtO1xufVxuLyoqKioqIFN0ZXAgRml2ZSBDU1MgKioqKioqKi9cblxuXG4vKioqKiogU3RlcCBTaXggQ1NTICoqKioqKiovXG4uc3RlcF9zaXggcCB7XG4gICAgbWFyZ2luLWJvdHRvbTogMnJlbTtcbiAgICBmb250LXNpemU6IDE0cHg7XG59XG4uc3RlcF9zaXgge1xuICAgIHRleHQtYWxpZ246IGxlZnQ7XG59XG4uc3RlcF9zaXggaW1nIHtcbiAgICB3aWR0aDogNzAlO1xuICAgIG1hcmdpbi1ib3R0b206IDJyZW07XG59XG4uc3RlcF9zaXggLmljb25fY2FyZCB7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLyoqKioqIFN0ZXAgU2l4IENTUyAqKioqKioqL1xuXG4vKioqKioqKiBJUEFEIFBybyBNZWRpYSBRdWVyeSAqKioqKioqKioqL1xuXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDEwMjRweClhbmQgKG1heC13aWR0aDogMTM2NXB4KSAge1xuICAgIC5pY29uX2NhcmQgaW1nLmRyb3Bib3gge1xuICAgICAgICB3aWR0aDogOTAlO1xuICAgIH1cbiAgICAuY2F0ZWdvcnlfc2VjIHtcbiAgICAgICAgcGFkZGluZzogMXJlbTtcbiAgICB9XG4gICAgLmNhdGVnb3J5X3NlYyAuY29sLW1kLTIge1xuICAgICAgICBwYWRkaW5nOiAwO1xuICAgIH1cbiAgICAuYm90X3R4dCB7XG4gICAgICAgIHBhZGRpbmctdG9wOiAwO1xuICAgIH1cbn1cblxuLyoqKioqKiogSVBBRCBQcm8gTWVkaWEgUXVlcnkgKioqKioqKioqKi9cblxuLyoqKioqKiogSVBBRCBNZWRpYSBRdWVyeSAqKioqKioqKioqL1xuXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDc2OHB4KWFuZCAobWF4LXdpZHRoOiAxMDIzcHgpICB7XG4gICAgOjpuZy1kZWVwIC5tYXQtdGFiLWxhYmVsIHtcbiAgICAgICAgbWFyZ2luOiAwIDEuNXJlbTtcbiAgICB9XG5cbiAgICA6Om5nLWRlZXAgLm1hdC10YWItbGFiZWxzOmJlZm9yZSB7XG4gICAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgICBsZWZ0OiAwO1xuICAgIH1cbiAgICAuaWNvbl9jYXJkIGltZy5kcm9wYm94IHtcbiAgICAgICAgd2lkdGg6IDkwJTtcbiAgICB9XG4gICAgLmNhdGVnb3J5X3NlYyB7XG4gICAgICAgIHBhZGRpbmc6IDFyZW07XG4gICAgfVxuICAgIC5jYXRlZ29yeV9zZWMgLmNvbC1tZC0yIHtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICB9XG4gICAgLnBhZGRpbmdfYXJlYSB7XG4gICAgICAgIHBhZGRpbmc6IDNyZW0gMDtcbiAgICB9XG4gICAgLmJvdF90eHQge1xuICAgICAgICBwYWRkaW5nLXRvcDogMDtcbiAgICB9XG4gICAgLnNwcmVhZHNoZWV0X2RldGFpbCBpbWcge1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICB9XG59XG5cbi8qKioqKioqIElQQUQgTWVkaWEgUXVlcnkgKioqKioqKioqKi9cblxuLyoqKioqKiogTW9iaWxlIE1lZGlhIFF1ZXJ5ICoqKioqKioqKiovXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2N3B4KSB7XG4gICAgOjpuZy1kZWVwIC5tYXQtdGFiLWxhYmVsczpiZWZvcmUge1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgbGVmdDogMDtcbiAgICAgICAgdG9wOiAxOHB4O1xuICAgIH1cbiAgICA6Om5nLWRlZXAgLm1hdC10YWItbGFiZWwge1xuICAgICAgICBtYXJnaW46IDAgMC41cmVtO1xuICAgICAgICBoZWlnaHQ6IDQwcHggIWltcG9ydGFudDtcbiAgICAgICAgd2lkdGg6IDQwcHggIWltcG9ydGFudDtcbiAgICB9XG4gICAgOjpuZy1kZWVwIC5tYXQtdGFiLWxhYmVsIC5tYXQtdGFiLWxhYmVsLWNvbnRlbnQge1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgfVxuICAgIC5jYXRlZ29yeV9idG4ge1xuICAgICAgICBwYWRkaW5nLXRvcDogMDtcbiAgICAgICAgbWFyZ2luOiAycmVtIDA7XG4gICAgfVxuICAgIC5wYWRkaW5nX2FyZWEge1xuICAgICAgICBwYWRkaW5nOiAzcmVtIDA7XG4gICAgfVxuICAgIC5wX3Rfbm90ZSB7XG4gICAgICAgIHBhZGRpbmctdG9wOiAwO1xuICAgIH1cbn1cbi8qKioqKioqIE1vYmlsZSBNZWRpYSBRdWVyeSAqKioqKioqKioqL1xuIl19 */"]
     });
     /*@__PURE__*/
@@ -59850,6 +60094,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }], function () {
         return [{
           type: ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"]
+        }, {
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
         }, {
           type: _services_profile_service__WEBPACK_IMPORTED_MODULE_1__["ProfileService"]
         }, {
@@ -60047,6 +60295,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         path: '',
+        component: _menuitems_component__WEBPACK_IMPORTED_MODULE_0__["MenuitemsComponent"]
+      }, {
+        path: 'auth/:email',
         component: _menuitems_component__WEBPACK_IMPORTED_MODULE_0__["MenuitemsComponent"]
       }]
     }];

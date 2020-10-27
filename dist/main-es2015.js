@@ -69,6 +69,7 @@ class AuthInterceptor {
     intercept(req, next) {
         // this.globals.apiCounter++;
         let routerArray = this.router.url.split('/');
+        console.log(this.router.url, 'router URL');
         // req = req.clone({ headers: req.headers.set('Browser', this.deviceInfo.browser) });
         // if (this.router.url != '/dashboard') {
         //   if (this.globals.apiCounter == 1) {
@@ -92,6 +93,7 @@ class AuthInterceptor {
         let token = '';
         const value = localStorage.getItem('user');
         const currentUser = JSON.parse(value);
+        console.log('req.origin');
         const endPoint = _app_config__WEBPACK_IMPORTED_MODULE_5__["config"].getEnvironmentVariable('endPoint');
         if (currentUser && currentUser.token) {
             token = currentUser.token;
@@ -316,12 +318,11 @@ __webpack_require__.r(__webpack_exports__);
 
 class config {
     static getEnvironmentVariable(value) {
-        let serverip = 'https://api.instamarkt.co/';
-        //let serverip = 'http://161.35.1.231:1337/';
+        let serverip = 'https://api.instamarkt.co/'; // let serverip = 'http://161.35.1.231:1337/';
         //  let serverip = 'http://localhost:1337/';
         if (_environments_deployment__WEBPACK_IMPORTED_MODULE_1__["Production"]) {
             serverip = 'https://api.instamarkt.co/';
-            //serverip = 'http://161.35.1.231:1337/';
+            // serverip = 'http://161.35.1.231:1337/';
             // serverip = 'http://localhost:1337/';
         }
         return serverip;
@@ -2042,6 +2043,10 @@ class ProfileService {
     getParticularUnitData(id) {
         return this.http.get(this.particularUnitUrl + id);
     }
+    uploadImageTodrive(companyId, data) {
+        //this.companyProfileURl+companyId+"/"+"images"
+        return this.http.post(this.googldriveUrl + companyId + "/" + 'imageuploadtodrive', data);
+    }
     foodParkUnits(id) {
         return this.http.get(this.foodParkUnitsUrl + id);
     }
@@ -2182,7 +2187,12 @@ class ProfileService {
         return this.http.get(this.googldriveUrl + 'auth');
     }
     createfolderInGoogleDrive(data) {
+        console.log('dataaaa', data);
         return this.http.post(this.googldriveUrl + 'createfolder', data);
+    }
+    getFoldersCreatedInDrive(data) {
+        console.log('dataaaa', data);
+        return this.http.post(this.googldriveUrl + 'fetchfolderscreated', data);
     }
     getCategory(companyId) {
         return this.http.get(this.productListUrl + companyId + '/getactivecategoriesnames');
@@ -3364,7 +3374,7 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["platformBrowser"]().boot
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/ashutoshsingh/Projects/InstaMarkrt/SFEZ_backoffice/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/vaishnaviu/DayUser/vaishnavi/Project/BD/InstaMarket/backoffice/SFEZ_backoffice/src/main.ts */"./src/main.ts");
 
 
 /***/ })

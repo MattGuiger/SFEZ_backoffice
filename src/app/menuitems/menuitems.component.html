@@ -224,7 +224,8 @@
                                                               <img src="../../assets/images/folder@1X.png" alt="">
                                                               <p>{{folder.foldername}}</p>
                                                               <div class="custom-file">
-                                                                <input type="file" class="custom-file-input" id="customFile" (change)="onFileSelect($event,folder.folderid)">
+                                                                <input type="file" name="file"class="custom-file-input" id="customFile" 
+                                                                (change)="onFileSelect($event,folder.folderid,folder.foldername)">
                                                                 <label class="custom-file-label" for="customFile">Choose file</label>
                                                               </div>                                                            </li>
                                                             <!-- <li>
@@ -240,8 +241,9 @@
                                                       </div>
                                                       <div class="col-md-12">
                                                         <div class="sync_btn">
-                                                          <button mat-raised-button class="btn">Sync to Google Sheets <img
-                                                              src="../../assets/images/google-sheets-icon.png" alt=""></button>
+                                                          <button mat-raised-button class="btn"
+                                                          (click)="uploadGoogleMenuSheet()">Sync to Google Sheets <img
+                                                              src="../../assets/images/google-sheets-icon.png" alt="" ></button>
                                                         </div>
                                                       </div>
                                                     </div>

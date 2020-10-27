@@ -92,7 +92,7 @@ export class PersonalComponent implements OnInit {
 
     onSubmit(){
       console.log("personal"+ JSON.stringify(this.personalDetailsForm.value));
-      const data = localStorage.setItem('personalFormData', JSON.stringify(this.personalDetailsForm.value));
+      // const data = localStorage.setItem('personalFormData', JSON.stringify(this.personalDetailsForm.value));
       this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
     }
 
@@ -134,7 +134,7 @@ export class PersonalComponent implements OnInit {
       const formData = new FormData();
       formData.append('file',event.addedFiles[0]);
       localStorage.setItem('fileData', JSON.stringify(formData));
-      // this.uploadFeaturePhoto(formData);
+      this.uploadFeaturePhoto(formData);
     }
      
     onRemovefeathured(event) {
@@ -169,7 +169,7 @@ export class PersonalComponent implements OnInit {
     formData.append('file',event.addedFiles[0]);
     this.tempFileData = formData;
     // localStorage.setItem('fileData', JSON.stringify(formData));
-    // this.uploadCompanyProfile(formData);
+    this.uploadCompanyProfile(formData);
   }
      
     onRemove(event) {
@@ -188,4 +188,7 @@ export class PersonalComponent implements OnInit {
       this.router.navigateByUrl('/forms/ngx/wizard', { relativeTo: this.route.parent, skipLocationChange: true });
   }
   //Cancel button event Ends
+  registerVendor(){
+console.log('personalDetailsForm',this.personalDetailsForm.value)
+  }
 }

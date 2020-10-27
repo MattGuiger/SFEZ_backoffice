@@ -95,22 +95,22 @@ export class MenuitemsComponent implements OnInit {
     }
   }
 
-  onFileSelect(event,folderId) {
+  onFileSelect(event,folderId,category) {
     if (event.target.files.length > 0) {
       console.log(event.target.files[0])
       const file = event.target.files[0];
       const formData = new FormData();
       formData.append('file',file);
-      this.uploadImageToDrive(formData,folderId);
+      formData.append('folderId',folderId);
+      formData.append('email',this.googleEmail);
+      formData.append('category',category);
+
+      this.uploadImageToDrive(formData,folderId,category);
     }
   }
 
-  uploadImageToDrive(formData,folderId) {
-    const data={
-      formData:formData,
-      folderId:folderId,
-      email:this.googleEmail
-    }
+  uploadImageToDrive(formData,folderId,category) {
+    
     this.user = this._CommonFunctionsService.checkUser().user;
     this._ProfileService.uploadImageTodrive(this.user.company_id,formData).subscribe(res => {
       console.log('googgleData', res.data)
@@ -118,12 +118,7 @@ export class MenuitemsComponent implements OnInit {
     });
 
   }
-  // this.user = this._CommonFunctionsService.checkUser().user;
-  // this._ProfileService.uploadCompanyProfile(this.user.company_id,formData).subscribe((res:any)=>{
-  //   this.getCompanyProfile();
-  // },error=>{
-  //   debugger
-  // })
+ 
 
   getAllProductList() {
     this.processing = true;

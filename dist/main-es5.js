@@ -129,7 +129,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this = this;
 
           // this.globals.apiCounter++;
-          var routerArray = this.router.url.split('/'); // req = req.clone({ headers: req.headers.set('Browser', this.deviceInfo.browser) });
+          var routerArray = this.router.url.split('/');
+          console.log(this.router.url, 'router URL'); // req = req.clone({ headers: req.headers.set('Browser', this.deviceInfo.browser) });
           // if (this.router.url != '/dashboard') {
           //   if (this.globals.apiCounter == 1) {
           //     document.getElementById('siteLoader').classList.add('is-active');
@@ -153,6 +154,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var token = '';
           var value = localStorage.getItem('user');
           var currentUser = JSON.parse(value);
+          console.log('req.origin');
 
           var endPoint = _app_config__WEBPACK_IMPORTED_MODULE_5__["config"].getEnvironmentVariable('endPoint');
 
@@ -674,11 +676,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(config, null, [{
         key: "getEnvironmentVariable",
         value: function getEnvironmentVariable(value) {
-          var serverip = 'https://api.instamarkt.co/'; //let serverip = 'http://161.35.1.231:1337/';
+          var serverip = 'https://api.instamarkt.co/'; // let serverip = 'http://161.35.1.231:1337/';
           //  let serverip = 'http://localhost:1337/';
 
           if (_environments_deployment__WEBPACK_IMPORTED_MODULE_1__["Production"]) {
-            serverip = 'https://api.instamarkt.co/'; //serverip = 'http://161.35.1.231:1337/';
+            serverip = 'https://api.instamarkt.co/'; // serverip = 'http://161.35.1.231:1337/';
             // serverip = 'http://localhost:1337/';
           }
 
@@ -4055,6 +4057,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.http.get(this.particularUnitUrl + id);
         }
       }, {
+        key: "uploadImageTodrive",
+        value: function uploadImageTodrive(companyId, data) {
+          //this.companyProfileURl+companyId+"/"+"images"
+          return this.http.post(this.googldriveUrl + companyId + "/" + 'imageuploadtodrive', data);
+        }
+      }, {
         key: "foodParkUnits",
         value: function foodParkUnits(id) {
           return this.http.get(this.foodParkUnitsUrl + id);
@@ -4288,7 +4296,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "createfolderInGoogleDrive",
         value: function createfolderInGoogleDrive(data) {
+          console.log('dataaaa', data);
           return this.http.post(this.googldriveUrl + 'createfolder', data);
+        }
+      }, {
+        key: "getFoldersCreatedInDrive",
+        value: function getFoldersCreatedInDrive(data) {
+          console.log('dataaaa', data);
+          return this.http.post(this.googldriveUrl + 'fetchfolderscreated', data);
         }
       }, {
         key: "getCategory",
@@ -6386,7 +6401,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   /***/
   function _(module, exports, __webpack_require__) {
     module.exports = __webpack_require__(
-    /*! /home/ashutoshsingh/Projects/InstaMarkrt/SFEZ_backoffice/src/main.ts */
+    /*! /home/vaishnaviu/DayUser/vaishnavi/Project/BD/InstaMarket/backoffice/SFEZ_backoffice/src/main.ts */
     "./src/main.ts");
     /***/
   }
