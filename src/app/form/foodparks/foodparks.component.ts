@@ -56,11 +56,14 @@ export class FoodParkComponent implements OnInit{
   driverForm: FormGroup;
   managerForm: FormGroup;
   managerRole: string = 'FOODPARKMGR';
-  lat = -34.397;
-  lng = 150.644;
+  // lat = 44.058174;
+  // lng = -121.315308;
+  lat=0
+  lng=0
   latA = -34.754764;
   lngA = 149.736246;
   zoom = 8;
+  selectedTerritory:any
   huborlocation: boolean = false;
   showManagerTab: boolean = false;
   allManager: any[] = [];
@@ -81,8 +84,8 @@ export class FoodParkComponent implements OnInit{
     foodParkForm: FormGroup;
 
     hubFoodParkForm = new FormGroup({
-    // stateid: new FormControl('', Validators.required),
-    // territoryid: new FormControl(),
+    stateid: new FormControl('', Validators.required),
+    territory_id: new FormControl('', Validators.required),
     type: new FormControl(' ', Validators.required),
     name: new FormControl('', Validators.required)
     });
@@ -224,11 +227,11 @@ export class FoodParkComponent implements OnInit{
   onCheckboxChangeFn(event, row) {
     this.router.navigateByUrl('/forms/foodparks/' + row.id)
   }
-  placeMarker($event) {
-    this.lat = $event.coords.lat;
-    this.lng = $event.coords.lng;
-    this.foodParkForm.value.latitude = this.lat;
-    this.foodParkForm.value.longitude = this.lng;
+  placeMarker(event) {
+    this.lat = event.coords.lat;
+    this.lng = event.coords.lng;
+    this.hubFoodParkForm.value.latitude = this.lat;
+    this.hubFoodParkForm.value.longitude = this.lng;
   }
 
   /** select hub or location */
@@ -510,10 +513,16 @@ getlocationsAndHub(){
     const state_id = this.stateAndTerritoryObject.id;
     this._ProfileService.getTerritory(state_id).subscribe((res: any) => {
       console.log(res);
+      
       this.singleTerritory = res;
     })
   }
-
+  getLatLong(event){
+    console.log('eventtttt',event.target.value,this.selectedTerritory)
+    this.lat=this.selectedTerritory.latitude
+    this.lng=this.selectedTerritory.longitude
+    this.hubFoodParkForm.value.territory_id=this.selectedTerritory.id
+  }
   
   getState(event) {
     const country_id = event.target.value;
@@ -681,10 +690,10 @@ getlocationsAndHub(){
   }
   
   onSubmit() {
-    this.hubFoodParkForm.value.latitude = 12.032;
-    this.hubFoodParkForm.value.longitude = 12.032;
+    // this.hubFoodParkForm.value.latitude = 12.032;
+    // this.hubFoodParkForm.value.longitude = 12.032;
      this.hubFoodParkForm.value.company_id = this.user.company_id;
-     this.hubFoodParkForm.value.territory_id = this.user.territory_id;
+    //  this.hubFoodParkForm.value.territory_id = this.user.territory_id;
     this._ProfileService.addFoodPark(this.hubFoodParkForm.value).subscribe((res: any) => {
       this.toastr.success('Territory Created successfully');
       document.getElementById("closeModal").click();

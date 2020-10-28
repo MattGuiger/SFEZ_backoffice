@@ -609,7 +609,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <form #myForm="ngForm" [formGroup]="hubFoodParkForm" (ngSubmit)="onSubmit(); myForm.reset()">
+    <form #myForm="ngForm" [formGroup]="hubFoodParkForm" (ngSubmit)="onSubmit(); hubFoodParkForm.reset()">
       <div class="form-group">
         <label for="name">Name</label>
         <div class="input-group">
@@ -633,8 +633,8 @@
 
         <label for="territoryid">Territory</label>
         <div class="input-group">
-          <select formControlName="territoryid" class="form-control">
-            <option *ngFor="let item of singleTerritory.territory" value="{{item.id}}">{{item.city}}</option>
+          <select formControlName="territory_id" [(ngModel)]="selectedTerritory" class="form-control" (change)="getLatLong($event)">
+            <option *ngFor="let item of singleTerritory.territory" [ngValue]="item">{{item.city}}</option>
           </select>
         </div>
 

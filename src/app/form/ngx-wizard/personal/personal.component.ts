@@ -109,7 +109,13 @@ export class PersonalComponent implements OnInit {
     //     if (firstState.length > 0) {          
     //     };       
     // }
-
+    // placeMarker(event) {
+    //   this.lat = event.coords.lat;
+    //   this.lng = event.coords.lng;
+    //   this.hubFoodParkForm.value.latitude = this.lat;
+    //   this.hubFoodParkForm.value.longitude = this.lng;
+    // }
+  
     onSubmit(){
       console.log("personal"+ JSON.stringify(this.personalDetailsForm.value));
      
