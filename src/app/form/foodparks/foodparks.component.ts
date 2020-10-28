@@ -25,6 +25,7 @@ export class FoodParkComponent implements OnInit{
   temp = [...data];
   drivertemp = [...data];
   managertemp = [...data];
+  locationOrHubObject : any;
   bgColor = 'rgba(0,0,0,0.5)'; // overlay background color
   confirmHeading = '';
   confirmContent = "Are you sure want to delete tsddshis?";
@@ -42,6 +43,8 @@ export class FoodParkComponent implements OnInit{
   setdriverManager: any[] = [];
   companyId : any;
   user: any;
+  tempHubResponse: any[] = [];
+  tempLocationResponse: any[] = [];
   selectedHub: any;
   loadingIndicator = true;
   reorderable = true;
@@ -75,16 +78,18 @@ export class FoodParkComponent implements OnInit{
     foodParkForm: FormGroup;
 
     hubFoodParkForm = new FormGroup({
-    state_id: new FormControl('', Validators.required),
-    territory_id: new FormControl(),
-    name: new FormControl('', [Validators.required])
+    stateid: new FormControl('', Validators.required),
+    territoryid: new FormControl(),
+    name: new FormControl('', Validators.required)
     });
 
   locationFoodParkForm = new FormGroup({
-    country_id: new FormControl('', Validators.required),
-    state_id: new FormControl('', Validators.required),
+    // country_id: new FormControl('', Validators.required),
+    // state_id: new FormControl('', Validators.required),
     territory_id: new FormControl(),
+    username: new FormControl(),
     name: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
     type: new FormControl(' ', Validators.required)
   });
   filteredStateOptions: Observable<string[]>;
@@ -207,9 +212,9 @@ export class FoodParkComponent implements OnInit{
       first_name: new FormControl(null),
       last_name: new FormControl(null),
       username: new FormControl(null),
-      password: new FormControl(null),
-      unitId: new FormControl(null),
-      territory_id: new FormControl(null)
+      // password: new FormControl(null),
+      // unitId: new FormControl(null),
+      // territory_id: new FormControl(null)
     });
   }
   onCheckboxChangeFn(event, row) {
@@ -526,14 +531,28 @@ getlocationsAndHub(){
     //     })
     //     console.log(' this.selectArry', this.selectArry) 
     //   })
+
     
+    
+    forkJoin([
+      this._ProfileService.getHubwithTerriID(this.user.territory_id),
+      this._ProfileService.getLocationswithTerriID(this.user.territory_id)
+    ]).subscribe(
+      ([hubResponse, locationResponse]) => {
+        // const tempArray = [allFoodParkResponse.data, ...allUnitListResponse.data]
+        hubResponse.data.filter((value)=>{
+          this.tempHubResponse.push(value)
+          this.selectArry.push({name:value.name, id: value.food_park_id, type:'hub'})
+        })
+        locationResponse.data.filter((value)=>{
+          this.tempLocationResponse.push(value)
+          this.selectArry.push({name:value.unit_name, id: value.unit_id, type:'loc'})
+        })
+        console.log(' this.selectArry', this.selectArry) 
+      })
+      
   
-    // this._ProfileService.getHubwithTerriID(this.user.territory_id).subscribe((res: any) => {
-    //   // this.selectArry = res;
-    //   res.filter((value)=>{
-    //           this.selectArry.push({name:value.name})
-    //         })
-    // })
+    
     // this._ProfileService.getAllUnitListData().subscribe((res: any) => {
     //   this.selectArry = res;
     // })
@@ -610,7 +629,7 @@ getlocationsAndHub(){
   onSubmitLocationForm() {
     // this.locationFoodParkForm.value.latitude = 12.032;
     // this.locationFoodParkForm.value.longitude = 12.032;
-    // this.locationFoodParkForm.value.territory_id = this.user.territory_id;
+    this.locationFoodParkForm.value.territory_id = this.user.territory_id;
     this._ProfileService.addUnit(this.locationFoodParkForm.value, this.user.company_id).subscribe((res: any) => {
       this.toastr.success('Territory Created successfully');
       document.getElementById("closeModal").click();
@@ -629,9 +648,7 @@ getlocationsAndHub(){
     this._ProfileService.addFoodPark(this.foodParkForm.value).subscribe((res: any) => {
       this.toastr.success('Territory Created successfully');
       document.getElementById("closeModal").click();
-      this.getAllFoodPark();
-     
-      
+      this.getAllFoodPark();  
     },
       error => {
         this.toastr.error(error.error.message)
@@ -712,18 +729,21 @@ getlocationsAndHub(){
 
 
   onManagerSubmit() {
-    this.managerForm.value.manager_id = this.user.manager_id;
-    this.managerForm.value.food_park_id = this.user.food_park_id;
+    // this.managerForm.value.manager_id = this.user.manager_id;
+    // this.managerForm.value.food_park_id = this.user.food_park_id;
 
-    if (this.managerForm.value.unitId == null) {
-      console.log('if');
-      this.managerForm.value.territory_id = this.user.territory_id;
-      delete this.managerForm.value.unitId;
-    } else {
-      console.log('else');
-      delete this.managerForm.value.territory_id;
-      delete this.managerForm.value.food_park_id;
-    }
+    // if (this.managerForm.value.unitId == null) {
+    //   console.log('if');
+      // this.managerForm.value.territory_id = this.user.territory_id;
+    //   delete this.managerForm.value.unitId;
+    // } else {
+    //   console.log('else');
+    //   delete this.managerForm.value.territory_id;
+    //   delete this.managerForm.value.food_park_id;
+    // }
+    // this.managerForm.value.name = this.locationOrHubObject.name;
+    this.managerForm.value.unitId = this.locationOrHubObject.id;
+    // this.managerForm.value.type = this.locationOrHubObject.type;
     // return console.log('ggggggggggggggggggggggg',this.managerForm.value);
     this._ProfileService.addManagers(this.managerForm.value).subscribe((res: any) => {
       if (res.status == 200) {
@@ -742,10 +762,15 @@ getlocationsAndHub(){
 
     this.managerForm.reset();
   }
-  selectLocationOrHub(event,row,value){
-console.log(event,row,value,'event,row,value')
-
-    
+  selectLocationOrHub(event){
+    let data = event.target.value;
+    const strData = data.split(",");
+    console.log(strData);
+    this.locationOrHubObject = {
+      name: strData[0],
+      id: strData[1],
+      type: strData[2]
+    }
   }
   deleteManager($event, row) {
     console.log(row);

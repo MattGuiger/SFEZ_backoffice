@@ -616,16 +616,16 @@
           <input id="name" class="form-control" name="dp" type="text" formControlName="name">
         </div>
 
-        <label for="state">State</label>
+        <label for="stateid">State</label>
         <div class="input-group">
-          <select formControlName="state_id" class="form-control" (change)="getTerritory($event)">
+          <select formControlName="stateid" class="form-control" (change)="getTerritory($event)">
             <option *ngFor="let item of states.state" value="{{item.id}}">{{item.name}}</option>
           </select>
         </div>
 
-        <label for="territory">Territory</label>
+        <label for="territoryid">Territory</label>
         <div class="input-group">
-          <select formControlName="territory_id" class="form-control">
+          <select formControlName="territoryid" class="form-control">
             <option *ngFor="let item of singleTerritory.territory" value="{{item.id}}">{{item.city}}</option>
           </select>
         </div>
@@ -675,6 +675,14 @@
         <label for="name">Name</label>
         <div class="input-group">
           <input id="name" class="form-control" name="dp" type="text" formControlName="name">
+        </div>
+        <label for="username">Username</label>
+        <div class="input-group">
+          <input id="username" class="form-control" name="dp" type="text" formControlName="username">
+        </div>
+        <label for="password">Password</label>
+        <div class="input-group">
+          <input id="password" class="form-control" name="dp1" type="password" formControlName="password">
         </div>
 
         <label for="type">Type</label>
@@ -812,9 +820,9 @@
             <div class="input-group-prepend">
               <div class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
             </div>
-            <select class="form-control" (change)="selectLocationOrHub($event,row,value)">
+            <select class="form-control"  (change)="selectLocationOrHub($event)">
               <option value="">Select</option>
-              <option *ngFor="let hub_location of selectArry " value="{{hub_location.name}}">{{hub_location.name}}
+              <option *ngFor="let hub_location of selectArry "  value="{{hub_location.name}}, {{hub_location.id}}, {{hub_location.type}}">{{hub_location.name}}
               </option>
             </select>
           </div>
@@ -861,7 +869,7 @@
 
         <div class="form-group">
           <div class="form-group row">
-            <label for="name" class="col-md-3 col-form-label">First Name</label>
+            <label for="first_name" class="col-md-3 col-form-label">First Name</label>
             <div class="col-md-9">
               <div class="input-group mb-2">
                 <div class="input-group-prepend">
@@ -876,7 +884,7 @@
 
         <div class="form-group">
           <div class="form-group row">
-            <label for="name" class="col-md-3 col-form-label">Last Name</label>
+            <label for="last_name" class="col-md-3 col-form-label">Last Name</label>
             <div class="col-md-9">
               <div class="input-group mb-2">
                 <div class="input-group-prepend">
@@ -890,7 +898,7 @@
 
         <div class="form-group">
           <div class="form-group row">
-            <label for="name" class="col-md-3 col-form-label">Email</label>
+            <label for="username" class="col-md-3 col-form-label">Email</label>
             <div class="col-md-9">
               <div class="input-group mb-2">
                 <div class="input-group-prepend">
