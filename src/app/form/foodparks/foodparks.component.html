@@ -616,6 +616,14 @@
           <input id="name" class="form-control" name="dp" type="text" formControlName="name">
         </div>
 
+        <label for="type">Type</label>
+        <div class="input-group">
+          <select formControlName="type" class="form-control">
+            <option value="none" selected hidden> </option>
+            <option *ngFor="let item of types">{{item}}</option>
+          </select>
+        </div>
+
         <label for="stateid">State</label>
         <div class="input-group">
           <select formControlName="stateid" class="form-control" (change)="getTerritory($event)">
@@ -695,7 +703,7 @@
 
         <label for="country">Country</label>
         <div class="input-group">
-          <select formControlName="country_id" class="form-control">
+          <select formControlName="country_id" class="form-control"  (change)="getState($event)">
             <option *ngFor="let item of countries" value="{{item.id}}">{{item.name}}</option>
           </select>
         </div>
@@ -704,7 +712,7 @@
         <label for="state">State</label>
         <div class="input-group">
           <select formControlName="state_id" class="form-control" (change)="getTerritory($event)">
-            <option *ngFor="let item of states.state" value="{{item.id}}">{{item.name}}</option>
+            <option *ngFor="let item of singleState.data" value="{{item.id}} , {{item.name}}">{{item.name}}</option>
           </select>
         </div>
 

@@ -47,7 +47,7 @@ export class PersonalComponent implements OnInit {
       // country_id: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       company_name: new FormControl('', Validators.required),
-      distance_range: new FormControl('', Validators.required),
+      // distance_range: new FormControl('', Validators.required),
       
       });
     files: File[] = [];

@@ -32,6 +32,9 @@ export class FoodParkComponent implements OnInit{
   confirmCanceltext = "Cancel";
   confirmOkaytext = "Okay";
   minDaysValue=10;
+  singleState: any[] = [];
+  stateAndTerritoryObject: any;
+  state: any[] = [];
   singleTerritory: any[] = [];
   territory: any[] = [];
   states: any[] = [];
@@ -78,8 +81,9 @@ export class FoodParkComponent implements OnInit{
     foodParkForm: FormGroup;
 
     hubFoodParkForm = new FormGroup({
-    stateid: new FormControl('', Validators.required),
-    territoryid: new FormControl(),
+    // stateid: new FormControl('', Validators.required),
+    // territoryid: new FormControl(),
+    type: new FormControl(' ', Validators.required),
     name: new FormControl('', Validators.required)
     });
 
@@ -495,10 +499,27 @@ getlocationsAndHub(){
   }
 
   getTerritory(event) {
-    const state_id = event.target.value;
+
+    let stateData = event.target.value;
+    const strData = stateData.split(",");
+    console.log(strData);
+    this.stateAndTerritoryObject = {
+      id: strData[0],
+      name: strData[1]
+    }
+    const state_id = this.stateAndTerritoryObject.id;
     this._ProfileService.getTerritory(state_id).subscribe((res: any) => {
       console.log(res);
       this.singleTerritory = res;
+    })
+  }
+
+  
+  getState(event) {
+    const country_id = event.target.value;
+    this._ProfileService.getState(country_id).subscribe((res: any) => {
+      console.log(res);
+      this.singleState = res;
     })
   }
 
@@ -533,23 +554,40 @@ getlocationsAndHub(){
     //   })
 
     
-    
     forkJoin([
-      this._ProfileService.getHubwithTerriID(this.user.territory_id),
-      this._ProfileService.getLocationswithTerriID(this.user.territory_id)
+      this._ProfileService.getHubwithTerrId(this.user.company_id),
+      this._ProfileService.getLocationwithTerrId(this.user.company_id)
     ]).subscribe(
       ([hubResponse, locationResponse]) => {
         // const tempArray = [allFoodParkResponse.data, ...allUnitListResponse.data]
         hubResponse.data.filter((value)=>{
           this.tempHubResponse.push(value)
-          this.selectArry.push({name:value.name, id: value.food_park_id, type:'hub'})
+          this.selectArry.push({name:value.name, id: value.id, type:'hub'})
         })
         locationResponse.data.filter((value)=>{
           this.tempLocationResponse.push(value)
-          this.selectArry.push({name:value.unit_name, id: value.unit_id, type:'loc'})
+          this.selectArry.push({name:value.name, id: value.id, type:'loc'})
         })
         console.log(' this.selectArry', this.selectArry) 
       })
+
+    
+    // forkJoin([
+      // this._ProfileService.getHubwithTerriID(this.user.territory_id),
+    //   this._ProfileService.getLocationswithTerriID(this.user.territory_id)
+    // ]).subscribe(
+    //   ([hubResponse, locationResponse]) => {
+    //     // const tempArray = [allFoodParkResponse.data, ...allUnitListResponse.data]
+    //     hubResponse.data.filter((value)=>{
+    //       this.tempHubResponse.push(value)
+    //       this.selectArry.push({name:value.name, id: value.food_park_id, type:'hub'})
+    //     })
+    //     locationResponse.data.filter((value)=>{
+    //       this.tempLocationResponse.push(value)
+    //       this.selectArry.push({name:value.unit_name, id: value.unit_id, type:'loc'})
+    //     })
+    //     console.log(' this.selectArry', this.selectArry) 
+    //   })
       
   
     
@@ -629,6 +667,7 @@ getlocationsAndHub(){
   onSubmitLocationForm() {
     // this.locationFoodParkForm.value.latitude = 12.032;
     // this.locationFoodParkForm.value.longitude = 12.032;
+
     this.locationFoodParkForm.value.territory_id = this.user.territory_id;
     this._ProfileService.addUnit(this.locationFoodParkForm.value, this.user.company_id).subscribe((res: any) => {
       this.toastr.success('Territory Created successfully');
@@ -642,10 +681,11 @@ getlocationsAndHub(){
   }
   
   onSubmit() {
-    this.foodParkForm.value.latitude = 12.032;
-    this.foodParkForm.value.longitude = 12.032;
-    
-    this._ProfileService.addFoodPark(this.foodParkForm.value).subscribe((res: any) => {
+    this.hubFoodParkForm.value.latitude = 12.032;
+    this.hubFoodParkForm.value.longitude = 12.032;
+     this.hubFoodParkForm.value.company_id = this.user.company_id;
+     this.hubFoodParkForm.value.territory_id = this.user.territory_id;
+    this._ProfileService.addFoodPark(this.hubFoodParkForm.value).subscribe((res: any) => {
       this.toastr.success('Territory Created successfully');
       document.getElementById("closeModal").click();
       this.getAllFoodPark();  
@@ -742,7 +782,7 @@ getlocationsAndHub(){
     //   delete this.managerForm.value.food_park_id;
     // }
     // this.managerForm.value.name = this.locationOrHubObject.name;
-    this.managerForm.value.unitId = this.locationOrHubObject.id;
+    this.managerForm.value.id = this.locationOrHubObject.id;
     // this.managerForm.value.type = this.locationOrHubObject.type;
     // return console.log('ggggggggggggggggggggggg',this.managerForm.value);
     this._ProfileService.addManagers(this.managerForm.value).subscribe((res: any) => {
