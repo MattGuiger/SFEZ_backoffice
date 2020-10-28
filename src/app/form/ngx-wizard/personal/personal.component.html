@@ -245,22 +245,15 @@
                             </div>
                             
                           </div>
-                    <!-- <small id="emailHelp" class="form-text text-muted">Helper Text  ex. Miso Soupy</small>    -->
 
-                    <label for="country_id">Country</label>
+                    <label for="country_id">State</label>
                     <div class="input-group">
                       <select formControlName="country_id" class="form-control">
                         <option *ngFor="let item of countries" value="{{item.id}}">{{item.name}}</option>
                       </select>
-                      <!-- <div *ngIf="personalDetailsForm.get('country_id').touched && personalDetailsForm.get('country_id').invalid" class="alert alert-danger">
-                          <div  *ngIf=" personalDetailsForm.get('country_id').errors.required ">
-                                Required
-                              </div>
-                              
-                            </div> -->
                     </div>
 
-                    <!-- <label for="territory">Select Location</label>
+                    <label for="territory">Select Location</label>
                     <div class="form-group mapmarker">
                       <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [style.height.px]="300"
                         (mapClick)="placeMarker($event)">
@@ -270,18 +263,17 @@
             
                     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
                       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                    </agm-map> -->
+                    </agm-map>
                   
-                    <label for="distance_range">Distance Range</label>
+                    <!-- <label for="distance_range">Distance Range</label>
                     <input type="text" class="form-control" id="distance_range" formControlName="distance_range" placeholder="">
                     <div *ngIf="personalDetailsForm.get('distance_range').touched && personalDetailsForm.get('distance_range').invalid" class="alert alert-danger">
                         <div  *ngIf=" personalDetailsForm.get('distance_range').errors.required ">
                               Required
                             </div>
                             
-                          </div>
-                    <!-- <button type="button" uiSref="work" class="mt-3 btn btn-raised"
-                        (click)="save()" style="background: #34a6bf;color:#fff;"> Next </button>     -->
+                          </div> -->
+                
                 </div>
                 
             </div>
