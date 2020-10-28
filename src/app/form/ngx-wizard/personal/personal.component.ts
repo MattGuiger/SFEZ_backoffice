@@ -36,6 +36,7 @@ export class PersonalComponent implements OnInit {
     business_address: string;
     city : string;
     state : string;
+   
     // form: any;
     data: any[]=[];
     companyId : any;
@@ -74,6 +75,8 @@ export class PersonalComponent implements OnInit {
     ngOnInit() {
         this.personal = this.formDataService.getPersonal();
         this.getcountryList();
+        
+        
     }
     
       getcountryList(){

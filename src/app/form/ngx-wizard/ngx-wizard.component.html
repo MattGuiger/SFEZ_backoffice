@@ -20,7 +20,7 @@
                   </div>
                   <!-- <input class="form-control input-md" #firstname="ngModel" required id="firstname" name="firstname"
                     type="text" [(ngModel)]="personal.first_name"> -->
-                    <input class="form-control input-md">
+                    <input class="form-control input-md" value="{{firstName}}" readonly>
                 </div>
                 <!-- <small class="form-text text-muted danger"
                   *ngIf="!firstname.valid && (firstname.dirty || firstname.touched)">This field is
@@ -40,7 +40,7 @@
                   </div>
                   <!-- <input class="form-control input-md" #lastname="ngModel" required id="lastname" name="lastname"
                     type="text" [(ngModel)]="personal.last_name"> -->
-                    <input class="form-control input-md" />
+                    <input class="form-control input-md" value="{{lastName}}" readonly/>
                 </div>
                 <!-- <small class="form-text text-muted danger"
                   *ngIf="!lastname.valid && (lastname.dirty || lastname.touched)">This field is
@@ -61,7 +61,7 @@
                   </div>
                   <!-- <input class="form-control input-md" #email="ngModel" required email id="email" name="email"
                     type="text" [(ngModel)]="personal.email"> -->
-                    <input class="form-control input-md">
+                    <input class="form-control input-md" value="{{userName}}" >
                 </div>
                 <!-- <small class="form-text text-danger" *ngIf="!email.valid && (email.dirty || email.touched)">Please enter
                   a valid
