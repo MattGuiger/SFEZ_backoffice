@@ -80,12 +80,28 @@ export class FoodParkComponent implements OnInit{
     "CHEF",
     "GHOST KITCHEN"
     ];
+    typesForHub = [
+      "RESTAURANT",
+    "Cafe",
+    "BEER",
+    "WINE",
+    "FOOD TRUCK",
+    "PIZZA",
+    "FARMER",
+    "CHEF",
+    "GHOST KITCHEN",
+    "MALL",
+    "HOTEL",
+    "EVENT",
+    "FOODPARK",
+    "FARMER"
+    ]
 
     foodParkForm: FormGroup;
 
     hubFoodParkForm = new FormGroup({
     stateid: new FormControl('', Validators.required),
-    territory_id: new FormControl('', Validators.required),
+    territory_id: new FormControl(),
     type: new FormControl(' ', Validators.required),
     name: new FormControl('', Validators.required)
     });
