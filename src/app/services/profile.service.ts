@@ -47,12 +47,12 @@ export class ProfileService {
   private territoryURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories';
   private googldriveUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/google/';
   private unitLocationsHub = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/unit_locations/';
-
-  
+  private foodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel';
   private countriesURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/countries';
   private statesURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories/stateSearch';
   private authAccessURL = 'https://api.moltin.com/oauth/access_token';
   private fileUploadURL = 'https://api.moltin.com/v2/files';
+  private singleStateUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/states/';
   
 
 
@@ -79,6 +79,14 @@ export class ProfileService {
   }
 getHubwithUnits(id):Observable<any>{
   return this.http.get(this.unitLocationsHub+id);
+}
+
+getHubwithTerrId(id):Observable<any>{
+  return this.http.get(this.foodParkURL+"/listlocations/"+id);
+}
+
+getLocationwithTerrId(id):Observable<any>{
+  return this.http.get(this.foodParkURL+"/listhubs/"+id);
 }
 
 getHubwithTerriID(id):Observable<any>{
@@ -174,6 +182,9 @@ getLocationswithTerriID(id):Observable<any>{
   }
   getAllState(data): Observable<any> {
     return this.http.post(this.statesURL, data);
+  }
+  getState(data): Observable<any> {
+    return this.http.get(`${this.singleStateUrl}filter/${data}`);
   }
   getTerritory(data): Observable<any> {
     return this.http.get(`${this.singleTerritoryUrl}filter/${data}`);

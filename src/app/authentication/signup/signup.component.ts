@@ -31,6 +31,40 @@ export class SignupComponent implements OnInit {
       this.msg = 'Password and Confirm password should be same.';
       return;
     }
+    if(first_name === null || first_name === ""){
+      this.msg = 'First name is required';
+      return;
+    }
+    if(first_name){
+      this.msg = 'First name is required';
+      return;
+    }
+    if(last_name === null || last_name === ""){
+      this.msg = 'Last name is required';
+      return;
+    }
+    if(email === null || email === ""){
+      this.msg = 'Email is required';
+      return;
+    }
+    if(password === null || password === ""){
+      this.msg = 'Password is required';
+      return;
+    }
+    if(confirmpassword === null || confirmpassword === ""){
+      this.msg = 'Confirmpassword is required';
+      return;
+    }
+    if(country_id === null || country_id === ""){
+      this.msg = 'Country is required';
+      return;
+    }
+    if(company_name === null || company_name === ""){
+      this.msg = 'Vendor name is required';
+      return;
+    }
+    
+
     this._AuthService.vendorRegistration({first_name:first_name,last_name:last_name,email:email,password:password,company_name:company_name,role:'OWNER',country_id:country_id}).subscribe((data:any)=>{
       this.toastr.success('Vendor Register Successfully!');
       this.routes.navigate(['/authentication/login']);

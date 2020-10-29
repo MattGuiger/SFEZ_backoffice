@@ -353,13 +353,14 @@
                           data-toggle="tooltip" data-original-title="Delete" (click)="deleteManager($event,row)">
                           <i class="ti-close" aria-hidden="true"></i>
                         </button>&nbsp;&nbsp;
+
                         <!-- <input class="btn btn-danger btn-raised" type="button" value="Delete" (click)="deleteCompany($event,row)"/>
                           <i class="ti-close" aria-hidden="true"></i> -->
-                        <!-- <button type="button"
+                        <button type="button"
                           class="btn btn-sm btn-success btn-icon btn-pure btn-outline delete-row-btn"
                           data-toggle="tooltip" data-original-title="Send Email" (click)="sendEmail($event,row)">
                           Send Email
-                        </button> -->
+                        </button>
                       </ng-template>
                     </ngx-datatable-column>
 
@@ -609,24 +610,32 @@
     </button>
   </div>
   <div class="modal-body">
-    <form #myForm="ngForm" [formGroup]="hubFoodParkForm" (ngSubmit)="onSubmit(); myForm.reset()">
+    <form #myForm="ngForm" [formGroup]="hubFoodParkForm" (ngSubmit)="onSubmit(); hubFoodParkForm.reset()">
       <div class="form-group">
         <label for="name">Name</label>
         <div class="input-group">
           <input id="name" class="form-control" name="dp" type="text" formControlName="name">
         </div>
 
-        <label for="state">State</label>
+        <label for="type">Type</label>
         <div class="input-group">
-          <select formControlName="state_id" class="form-control" (change)="getTerritory($event)">
+          <select formControlName="type" class="form-control">
+            <option value="none" selected hidden> </option>
+            <option *ngFor="let item of typesForHub">{{item}}</option>
+          </select>
+        </div>
+
+        <label for="stateid">State</label>
+        <div class="input-group">
+          <select formControlName="stateid" class="form-control" (change)="getTerritory($event)">
             <option *ngFor="let item of states.state" value="{{item.id}}">{{item.name}}</option>
           </select>
         </div>
 
-        <label for="territory">Territory</label>
+        <label for="territoryid">Territory</label>
         <div class="input-group">
-          <select formControlName="territory_id" class="form-control">
-            <option *ngFor="let item of singleTerritory.territory" value="{{item.id}}">{{item.city}}</option>
+          <select formControlName="territory_id" [(ngModel)]="selectedTerritory" class="form-control" (change)="getLatLong($event)">
+            <option *ngFor="let item of singleTerritory.territory" [ngValue]="item">{{item.city}}</option>
           </select>
         </div>
 
@@ -676,6 +685,14 @@
         <div class="input-group">
           <input id="name" class="form-control" name="dp" type="text" formControlName="name">
         </div>
+        <label for="username">Username</label>
+        <div class="input-group">
+          <input id="username" class="form-control" name="dp" type="text" formControlName="username">
+        </div>
+        <label for="password">Password</label>
+        <div class="input-group">
+          <input id="password" class="form-control" name="dp1" type="password" formControlName="password">
+        </div>
 
         <label for="type">Type</label>
         <div class="input-group">
@@ -687,7 +704,7 @@
 
         <label for="country">Country</label>
         <div class="input-group">
-          <select formControlName="country_id" class="form-control">
+          <select formControlName="country_id" class="form-control"  (change)="getState($event)">
             <option *ngFor="let item of countries" value="{{item.id}}">{{item.name}}</option>
           </select>
         </div>
@@ -696,7 +713,7 @@
         <label for="state">State</label>
         <div class="input-group">
           <select formControlName="state_id" class="form-control" (change)="getTerritory($event)">
-            <option *ngFor="let item of states.state" value="{{item.id}}">{{item.name}}</option>
+            <option *ngFor="let item of singleState.data" value="{{item.id}} , {{item.name}}">{{item.name}}</option>
           </select>
         </div>
 
@@ -812,9 +829,9 @@
             <div class="input-group-prepend">
               <div class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
             </div>
-            <select class="form-control" (change)="selectLocationOrHub($event,row,value)">
+            <select class="form-control"  (change)="selectLocationOrHub($event)">
               <option value="">Select</option>
-              <option *ngFor="let hub_location of selectArry " value="{{hub_location.name}}">{{hub_location.name}}
+              <option *ngFor="let hub_location of selectArry "  value="{{hub_location.name}}, {{hub_location.id}}, {{hub_location.type}}">{{hub_location.name}}
               </option>
             </select>
           </div>
@@ -861,7 +878,7 @@
 
         <div class="form-group">
           <div class="form-group row">
-            <label for="name" class="col-md-3 col-form-label">First Name</label>
+            <label for="first_name" class="col-md-3 col-form-label">First Name</label>
             <div class="col-md-9">
               <div class="input-group mb-2">
                 <div class="input-group-prepend">
@@ -876,7 +893,7 @@
 
         <div class="form-group">
           <div class="form-group row">
-            <label for="name" class="col-md-3 col-form-label">Last Name</label>
+            <label for="last_name" class="col-md-3 col-form-label">Last Name</label>
             <div class="col-md-9">
               <div class="input-group mb-2">
                 <div class="input-group-prepend">
@@ -890,7 +907,7 @@
 
         <div class="form-group">
           <div class="form-group row">
-            <label for="name" class="col-md-3 col-form-label">Email</label>
+            <label for="username" class="col-md-3 col-form-label">Email</label>
             <div class="col-md-9">
               <div class="input-group mb-2">
                 <div class="input-group-prepend">
@@ -951,7 +968,7 @@
 
 <ng-template #content5 let-modal>
   <div class="modal-header" style="background-color: #7460ee;">
-    <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Edit Unit</h4>
+    <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Edit Delivery Hub</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -966,7 +983,7 @@
         tickInterval="1000"
         min="1"
         max="15"></mat-slider> -->
-        <mat-slider thumbLabel min="1" max="15" step="5" [displayWith]="formatLabel" tickInterval="5"
+        <mat-slider thumbLabel min="0" max="20" step="5" [displayWith]="formatLabel" tickInterval="10"
           (input)="minDaysValue = $event.value" [value]="minDaysValue">
         </mat-slider>
 
@@ -980,22 +997,38 @@
         step="5"
         max="15"></mat-slider> -->
 
-        <mat-slider thumbLabel min="0" max="15" step="5" [displayWith]="formatLabel" tickInterval="5"
+        <mat-slider thumbLabel min="0" max="15" step="5" [displayWith]="formatLabel" tickInterval="10"
           (input)="minDaysValue = $event.value" [value]="minDaysValue">
         </mat-slider>
 
 
 
         <label for="name" style="display: block;">Standard Delivery (0-5 mi/km) </label>
-        <mat-slider thumbLabel min="0" max="5" step="0.5" [displayWith]="formatLabel1">
+        <mat-slider thumbLabel min="0" max="5" step="1" [displayWith]="formatLabel1" tickInterval="5">
         </mat-slider>
         <label for="name" style="display: block;">Long Delivery (5-10 mi/km) </label>
-        <mat-slider thumbLabel min="5" max="10" step="0.5" [displayWith]="formatLabel2">
+        <mat-slider thumbLabel min="5" max="10" step="1" [displayWith]="formatLabel2" tickInterval="10">
 
+            
         </mat-slider>
-        <label for="name" style="display: block;">Custom</label>
-        <mat-slider thumbLabel [displayWith]="formatLabel3" min="0" max="15"></mat-slider>
+
+        <!-- <label for="name" style="display: block;">Custom</label>
+        <mat-slider thumbLabel [displayWith]="formatLabel3" min="0" max="15"></mat-slider> -->
+        <label for="stateid">State</label>
+        <div class="input-group">
+          <select formControlName="stateid" class="form-control" (change)="getTerritory($event)">
+            <option *ngFor="let item of states.state" value="{{item.id}}">{{item.name}}</option>
+          </select>
+        </div>
+
+        <label for="territoryid">Territory</label>
+        <div class="input-group">
+          <select formControlName="territory_id" [(ngModel)]="selectedTerritory" class="form-control" (change)="getLatLong($event)">
+            <option *ngFor="let item of singleTerritory.territory" [ngValue]="item">{{item.city}}</option>
+          </select>
+        </div>
       </div>
+
       <div class="modal-footer">
         <button type="submit" class="btn btn-outline-dark">Save</button>&nbsp;
         <button type="submit" class="btn btn-outline-dark">Cancel</button>
@@ -1018,15 +1051,29 @@
   <div class="modal-body">
     <form [formGroup]="foodParkForm" (ngSubmit)="onLocationEditSubmit()">
       <div class="form-group">
+
         <label for="name" style="display: block;">Customer Order Window</label>
-        <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="15"></mat-slider>
-        <label for="name">Type</label>
+        <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="15" min="1" max="15" step="5"></mat-slider>
+        <label for="type">Type</label>
         <div class="input-group">
-          <input id="type" class="form-control" name="type" type="text" formControlName="type ">
+          <select formControlName="type" class="form-control">
+            <option value="none" selected hidden> </option>
+            <option *ngFor="let item of types">{{item}}</option>
+          </select>
         </div>
-        <label for="name">Territory</label>
+
+        <label for="stateid">State</label>
         <div class="input-group">
-          <input id="territory" class="form-control" name="territory" type="text" formControlName="territory">
+          <select formControlName="stateid" class="form-control" (change)="getTerritory($event)">
+            <option *ngFor="let item of states.state" value="{{item.id}}">{{item.name}}</option>
+          </select>
+        </div>
+
+        <label for="territoryid">Territory</label>
+        <div class="input-group">
+          <select formControlName="territory_id" [(ngModel)]="selectedTerritory" class="form-control" (change)="getLatLong($event)">
+            <option *ngFor="let item of singleTerritory.territory" [ngValue]="item">{{item.city}}</option>
+          </select>
         </div>
       </div>
 

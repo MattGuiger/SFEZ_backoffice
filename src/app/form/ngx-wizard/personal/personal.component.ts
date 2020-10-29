@@ -36,6 +36,7 @@ export class PersonalComponent implements OnInit {
     business_address: string;
     city : string;
     state : string;
+   
     // form: any;
     data: any[]=[];
     companyId : any;
@@ -47,7 +48,7 @@ export class PersonalComponent implements OnInit {
       // country_id: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       company_name: new FormControl('', Validators.required),
-      distance_range: new FormControl('', Validators.required),
+      // distance_range: new FormControl('', Validators.required),
       
       });
     files: File[] = [];
@@ -74,6 +75,8 @@ export class PersonalComponent implements OnInit {
     ngOnInit() {
         this.personal = this.formDataService.getPersonal();
         this.getcountryList();
+        
+        
     }
     
       getcountryList(){
@@ -106,7 +109,13 @@ export class PersonalComponent implements OnInit {
     //     if (firstState.length > 0) {          
     //     };       
     // }
-
+    // placeMarker(event) {
+    //   this.lat = event.coords.lat;
+    //   this.lng = event.coords.lng;
+    //   this.hubFoodParkForm.value.latitude = this.lat;
+    //   this.hubFoodParkForm.value.longitude = this.lng;
+    // }
+  
     onSubmit(){
       console.log("personal"+ JSON.stringify(this.personalDetailsForm.value));
      

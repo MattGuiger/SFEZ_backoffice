@@ -1,0 +1,69 @@
+img {
+    position: absolute;
+    right: 262px;
+    top: 34px;
+}
+
+#up {
+    position: absolute;
+    left: 199px;
+    top: 59px;
+    // left: 586px;
+    // top: 102px;
+    // right: 316px;
+}
+
+
+#upl {
+    position: absolute;
+    left: 272px;
+    top: 100px;
+    // left: 586px;
+    // top: 102px;
+    // right: 316px;
+}
+
+
+#logo {
+    position: absolute;
+    left: 302px;
+    top: -35px;
+    font-size: 2rem;
+}
+#logo_text {
+    position: absolute;
+    left: 250px;
+    top: 80px;
+}
+
+#dish {
+    position: absolute;
+    left: 302px;
+    top: -35px;
+    font-size: 2rem;
+}
+#dish_text {
+    position: absolute;
+    left: 220px;
+    top: 70px;
+}
+.h2{
+    position: absolute;
+    left: 302px;
+    top: -25px;
+}
+.h3{
+    position: absolute;
+    right: 372px; 
+}
+#next{
+    position: absolute;
+    left: -23px;
+}
+.custom-dropzone {
+	height: 180px;
+	color: rgb(70, 67, 67);
+	// border: 5px dashed rgb(19, 15, 15);
+	// border-radius: 5px;
+	font-size: 20px;
+}

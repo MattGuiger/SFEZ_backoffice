@@ -28,6 +28,7 @@ import { CommonModule } from "@angular/common";
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TagsComponent } from './tags/tags.component';
+import { AgmCoreModule } from '@agm/core';
 import { CustomMaterialModule } from 'src/app/custom-material/custom-material.module';
 
 @NgModule({
@@ -39,6 +40,10 @@ import { CustomMaterialModule } from 'src/app/custom-material/custom-material.mo
         NgxDropzoneModule,
         NgbModule,
         CustomMaterialModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyBLXlb_YUHwakS59P-aI5_xJHRwXBtA_hE',//'AIzaSyBl-UKKzfU6aOgD-aixzgRy_yJ7_BIvbms',
+            libraries: ['places','visualization','drawing', 'geometry']
+          }),
         // NgxMaskModule.forRoot()
         // NgxDatatableModule,
     ],
