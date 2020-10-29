@@ -370,37 +370,39 @@ class config {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
-/* harmony import */ var _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/material/autocomplete */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/autocomplete.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/animations.js");
-/* harmony import */ var _AuthInterceptor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AuthInterceptor */ "./src/app/AuthInterceptor.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm2015/ng-bootstrap.js");
-/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/__ivy_ngcc__/fesm2015/agm-core.js");
-/* harmony import */ var ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ng2-slim-loading-bar */ "./node_modules/ng2-slim-loading-bar/__ivy_ngcc__/index.js");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
-/* harmony import */ var _services_index__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/index */ "./src/app/services/index.ts");
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./globals */ "./src/app/globals.ts");
-/* harmony import */ var _layouts_full_full_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./layouts/full/full.component */ "./src/app/layouts/full/full.component.ts");
-/* harmony import */ var _layouts_blank_blank_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./layouts/blank/blank.component */ "./src/app/layouts/blank/blank.component.ts");
-/* harmony import */ var ng_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ng-multiselect-dropdown */ "./node_modules/ng-multiselect-dropdown/__ivy_ngcc__/fesm2015/ng-multiselect-dropdown.js");
-/* harmony import */ var ng2_search_filter__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ng2-search-filter */ "./node_modules/ng2-search-filter/__ivy_ngcc__/ng2-search-filter.js");
-/* harmony import */ var _shared_header_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./shared/header-navigation/navigation.component */ "./src/app/shared/header-navigation/navigation.component.ts");
-/* harmony import */ var _shared_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./shared/sidebar/sidebar.component */ "./src/app/shared/sidebar/sidebar.component.ts");
-/* harmony import */ var _shared_breadcrumb_breadcrumb_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./shared/breadcrumb/breadcrumb.component */ "./src/app/shared/breadcrumb/breadcrumb.component.ts");
-/* harmony import */ var _app_login_login_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../app/login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _services_error_message_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./services/error-message.service */ "./src/app/services/error-message.service.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _shared_spinner_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./shared/spinner.component */ "./src/app/shared/spinner.component.ts");
-/* harmony import */ var ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ngx-perfect-scrollbar */ "./node_modules/ngx-perfect-scrollbar/__ivy_ngcc__/fesm2015/ngx-perfect-scrollbar.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/__ivy_ngcc__/fesm2015/http.js");
-/* harmony import */ var _greenmoney_greenmoney_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./greenmoney/greenmoney.component */ "./src/app/greenmoney/greenmoney.component.ts");
-/* harmony import */ var primeng_accordion__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! primeng/accordion */ "./node_modules/primeng/__ivy_ngcc__/fesm2015/primeng-accordion.js");
+/* harmony import */ var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/material/tabs */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/tabs.js");
+/* harmony import */ var _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material/autocomplete */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/autocomplete.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/animations.js");
+/* harmony import */ var _AuthInterceptor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AuthInterceptor */ "./src/app/AuthInterceptor.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/__ivy_ngcc__/fesm2015/ng-bootstrap.js");
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/__ivy_ngcc__/fesm2015/agm-core.js");
+/* harmony import */ var ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ng2-slim-loading-bar */ "./node_modules/ng2-slim-loading-bar/__ivy_ngcc__/index.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
+/* harmony import */ var _services_index__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/index */ "./src/app/services/index.ts");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./globals */ "./src/app/globals.ts");
+/* harmony import */ var _layouts_full_full_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./layouts/full/full.component */ "./src/app/layouts/full/full.component.ts");
+/* harmony import */ var _layouts_blank_blank_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./layouts/blank/blank.component */ "./src/app/layouts/blank/blank.component.ts");
+/* harmony import */ var ng_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ng-multiselect-dropdown */ "./node_modules/ng-multiselect-dropdown/__ivy_ngcc__/fesm2015/ng-multiselect-dropdown.js");
+/* harmony import */ var ng2_search_filter__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ng2-search-filter */ "./node_modules/ng2-search-filter/__ivy_ngcc__/ng2-search-filter.js");
+/* harmony import */ var _shared_header_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./shared/header-navigation/navigation.component */ "./src/app/shared/header-navigation/navigation.component.ts");
+/* harmony import */ var _shared_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./shared/sidebar/sidebar.component */ "./src/app/shared/sidebar/sidebar.component.ts");
+/* harmony import */ var _shared_breadcrumb_breadcrumb_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./shared/breadcrumb/breadcrumb.component */ "./src/app/shared/breadcrumb/breadcrumb.component.ts");
+/* harmony import */ var _app_login_login_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../app/login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _services_error_message_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./services/error-message.service */ "./src/app/services/error-message.service.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _shared_spinner_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./shared/spinner.component */ "./src/app/shared/spinner.component.ts");
+/* harmony import */ var ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ngx-perfect-scrollbar */ "./node_modules/ngx-perfect-scrollbar/__ivy_ngcc__/fesm2015/ngx-perfect-scrollbar.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _greenmoney_greenmoney_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./greenmoney/greenmoney.component */ "./src/app/greenmoney/greenmoney.component.ts");
+/* harmony import */ var primeng_accordion__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! primeng/accordion */ "./node_modules/primeng/__ivy_ngcc__/fesm2015/primeng-accordion.js");
+
 
 
 
@@ -450,124 +452,127 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG = {
 };
 class AppModule {
 }
-AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_25__["AppComponent"]] });
-AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [
+AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_26__["AppComponent"]] });
+AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineInjector"]({ factory: function AppModule_Factory(t) { return new (t || AppModule)(); }, providers: [
         {
-            provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"],
-            useClass: _AuthInterceptor__WEBPACK_IMPORTED_MODULE_3__["AuthInterceptor"],
+            provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"],
+            useClass: _AuthInterceptor__WEBPACK_IMPORTED_MODULE_4__["AuthInterceptor"],
             multi: true,
         },
         {
-            provide: ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_27__["PERFECT_SCROLLBAR_CONFIG"],
+            provide: ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_28__["PERFECT_SCROLLBAR_CONFIG"],
             useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
         },
         {
-            provide: _angular_common__WEBPACK_IMPORTED_MODULE_5__["LocationStrategy"],
-            useClass: _angular_common__WEBPACK_IMPORTED_MODULE_5__["HashLocationStrategy"]
+            provide: _angular_common__WEBPACK_IMPORTED_MODULE_6__["LocationStrategy"],
+            useClass: _angular_common__WEBPACK_IMPORTED_MODULE_6__["HashLocationStrategy"]
         },
-        _services_index__WEBPACK_IMPORTED_MODULE_13__["CommonFunctionsService"],
-        _globals__WEBPACK_IMPORTED_MODULE_14__["Globals"],
-        _services_error_message_service__WEBPACK_IMPORTED_MODULE_23__["ErrorMessageService"]
+        _services_index__WEBPACK_IMPORTED_MODULE_14__["CommonFunctionsService"],
+        _globals__WEBPACK_IMPORTED_MODULE_15__["Globals"],
+        _services_error_message_service__WEBPACK_IMPORTED_MODULE_24__["ErrorMessageService"]
     ], imports: [[
-            _angular_common__WEBPACK_IMPORTED_MODULE_5__["CommonModule"],
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_0__["MatAutocompleteModule"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_6__["CommonModule"],
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
+            _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_1__["MatAutocompleteModule"],
             // TextMaskModule,
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-            _angular_http__WEBPACK_IMPORTED_MODULE_28__["HttpModule"],
-            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__["NgbModule"],
-            primeng_accordion__WEBPACK_IMPORTED_MODULE_30__["AccordionModule"],
-            ngx_toastr__WEBPACK_IMPORTED_MODULE_12__["ToastrModule"].forRoot(),
-            ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_11__["SlimLoadingBarModule"].forRoot(),
-            _angular_router__WEBPACK_IMPORTED_MODULE_8__["RouterModule"].forRoot(_app_routing_module__WEBPACK_IMPORTED_MODULE_24__["Approutes"], { useHash: false }),
-            ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_27__["PerfectScrollbarModule"],
-            ng2_search_filter__WEBPACK_IMPORTED_MODULE_18__["Ng2SearchPipeModule"],
-            ng_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_17__["NgMultiSelectDropDownModule"].forRoot(),
-            _agm_core__WEBPACK_IMPORTED_MODULE_10__["AgmCoreModule"].forRoot({ apiKey: 'AIzaSyBUb3jDWJQ28vDJhuQZxkC0NXr_zycm8D0' }),
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
+            _angular_http__WEBPACK_IMPORTED_MODULE_29__["HttpModule"],
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_10__["NgbModule"],
+            _angular_material_tabs__WEBPACK_IMPORTED_MODULE_0__["MatTabsModule"],
+            primeng_accordion__WEBPACK_IMPORTED_MODULE_31__["AccordionModule"],
+            ngx_toastr__WEBPACK_IMPORTED_MODULE_13__["ToastrModule"].forRoot(),
+            ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_12__["SlimLoadingBarModule"].forRoot(),
+            _angular_router__WEBPACK_IMPORTED_MODULE_9__["RouterModule"].forRoot(_app_routing_module__WEBPACK_IMPORTED_MODULE_25__["Approutes"], { useHash: false }),
+            ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_28__["PerfectScrollbarModule"],
+            ng2_search_filter__WEBPACK_IMPORTED_MODULE_19__["Ng2SearchPipeModule"],
+            ng_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_18__["NgMultiSelectDropDownModule"].forRoot(),
+            _agm_core__WEBPACK_IMPORTED_MODULE_11__["AgmCoreModule"].forRoot({ apiKey: 'AIzaSyBUb3jDWJQ28vDJhuQZxkC0NXr_zycm8D0' }),
         ],
-        _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_0__["MatAutocompleteModule"]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_25__["AppComponent"],
-        _shared_spinner_component__WEBPACK_IMPORTED_MODULE_26__["SpinnerComponent"],
-        _layouts_full_full_component__WEBPACK_IMPORTED_MODULE_15__["FullComponent"],
-        _layouts_blank_blank_component__WEBPACK_IMPORTED_MODULE_16__["BlankComponent"],
-        _shared_header_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_19__["NavigationComponent"],
-        _shared_breadcrumb_breadcrumb_component__WEBPACK_IMPORTED_MODULE_21__["BreadcrumbComponent"],
-        _shared_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_20__["SidebarComponent"],
-        _app_login_login_component__WEBPACK_IMPORTED_MODULE_22__["LoginComponent"],
-        _greenmoney_greenmoney_component__WEBPACK_IMPORTED_MODULE_29__["GreenmoneyComponent"]
+        _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_1__["MatAutocompleteModule"]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_26__["AppComponent"],
+        _shared_spinner_component__WEBPACK_IMPORTED_MODULE_27__["SpinnerComponent"],
+        _layouts_full_full_component__WEBPACK_IMPORTED_MODULE_16__["FullComponent"],
+        _layouts_blank_blank_component__WEBPACK_IMPORTED_MODULE_17__["BlankComponent"],
+        _shared_header_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_20__["NavigationComponent"],
+        _shared_breadcrumb_breadcrumb_component__WEBPACK_IMPORTED_MODULE_22__["BreadcrumbComponent"],
+        _shared_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_21__["SidebarComponent"],
+        _app_login_login_component__WEBPACK_IMPORTED_MODULE_23__["LoginComponent"],
+        _greenmoney_greenmoney_component__WEBPACK_IMPORTED_MODULE_30__["GreenmoneyComponent"]
         // SignupComponent
-    ], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["CommonModule"],
-        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-        _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_0__["MatAutocompleteModule"],
+    ], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["CommonModule"],
+        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
+        _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_1__["MatAutocompleteModule"],
         // TextMaskModule,
-        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
-        _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
-        _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
-        _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-        _angular_http__WEBPACK_IMPORTED_MODULE_28__["HttpModule"],
-        _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__["NgbModule"],
-        primeng_accordion__WEBPACK_IMPORTED_MODULE_30__["AccordionModule"], ngx_toastr__WEBPACK_IMPORTED_MODULE_12__["ToastrModule"], ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_11__["SlimLoadingBarModule"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["RouterModule"], ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_27__["PerfectScrollbarModule"],
-        ng2_search_filter__WEBPACK_IMPORTED_MODULE_18__["Ng2SearchPipeModule"], ng_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_17__["NgMultiSelectDropDownModule"], _agm_core__WEBPACK_IMPORTED_MODULE_10__["AgmCoreModule"]], exports: [_angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_0__["MatAutocompleteModule"]] }); })();
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵsetClassMetadata"](AppModule, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_6__["NgModule"],
+        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"],
+        _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
+        _angular_http__WEBPACK_IMPORTED_MODULE_29__["HttpModule"],
+        _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_10__["NgbModule"],
+        _angular_material_tabs__WEBPACK_IMPORTED_MODULE_0__["MatTabsModule"],
+        primeng_accordion__WEBPACK_IMPORTED_MODULE_31__["AccordionModule"], ngx_toastr__WEBPACK_IMPORTED_MODULE_13__["ToastrModule"], ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_12__["SlimLoadingBarModule"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["RouterModule"], ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_28__["PerfectScrollbarModule"],
+        ng2_search_filter__WEBPACK_IMPORTED_MODULE_19__["Ng2SearchPipeModule"], ng_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_18__["NgMultiSelectDropDownModule"], _agm_core__WEBPACK_IMPORTED_MODULE_11__["AgmCoreModule"]], exports: [_angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_1__["MatAutocompleteModule"]] }); })();
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵsetClassMetadata"](AppModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_7__["NgModule"],
         args: [{
                 declarations: [
-                    _app_component__WEBPACK_IMPORTED_MODULE_25__["AppComponent"],
-                    _shared_spinner_component__WEBPACK_IMPORTED_MODULE_26__["SpinnerComponent"],
-                    _layouts_full_full_component__WEBPACK_IMPORTED_MODULE_15__["FullComponent"],
-                    _layouts_blank_blank_component__WEBPACK_IMPORTED_MODULE_16__["BlankComponent"],
-                    _shared_header_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_19__["NavigationComponent"],
-                    _shared_breadcrumb_breadcrumb_component__WEBPACK_IMPORTED_MODULE_21__["BreadcrumbComponent"],
-                    _shared_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_20__["SidebarComponent"],
-                    _app_login_login_component__WEBPACK_IMPORTED_MODULE_22__["LoginComponent"],
-                    _greenmoney_greenmoney_component__WEBPACK_IMPORTED_MODULE_29__["GreenmoneyComponent"]
+                    _app_component__WEBPACK_IMPORTED_MODULE_26__["AppComponent"],
+                    _shared_spinner_component__WEBPACK_IMPORTED_MODULE_27__["SpinnerComponent"],
+                    _layouts_full_full_component__WEBPACK_IMPORTED_MODULE_16__["FullComponent"],
+                    _layouts_blank_blank_component__WEBPACK_IMPORTED_MODULE_17__["BlankComponent"],
+                    _shared_header_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_20__["NavigationComponent"],
+                    _shared_breadcrumb_breadcrumb_component__WEBPACK_IMPORTED_MODULE_22__["BreadcrumbComponent"],
+                    _shared_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_21__["SidebarComponent"],
+                    _app_login_login_component__WEBPACK_IMPORTED_MODULE_23__["LoginComponent"],
+                    _greenmoney_greenmoney_component__WEBPACK_IMPORTED_MODULE_30__["GreenmoneyComponent"]
                     // SignupComponent
                 ],
                 imports: [
-                    _angular_common__WEBPACK_IMPORTED_MODULE_5__["CommonModule"],
-                    _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-                    _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_0__["MatAutocompleteModule"],
+                    _angular_common__WEBPACK_IMPORTED_MODULE_6__["CommonModule"],
+                    _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
+                    _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_1__["MatAutocompleteModule"],
                     // TextMaskModule,
-                    _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
-                    _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-                    _angular_http__WEBPACK_IMPORTED_MODULE_28__["HttpModule"],
-                    _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__["NgbModule"],
-                    primeng_accordion__WEBPACK_IMPORTED_MODULE_30__["AccordionModule"],
-                    ngx_toastr__WEBPACK_IMPORTED_MODULE_12__["ToastrModule"].forRoot(),
-                    ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_11__["SlimLoadingBarModule"].forRoot(),
-                    _angular_router__WEBPACK_IMPORTED_MODULE_8__["RouterModule"].forRoot(_app_routing_module__WEBPACK_IMPORTED_MODULE_24__["Approutes"], { useHash: false }),
-                    ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_27__["PerfectScrollbarModule"],
-                    ng2_search_filter__WEBPACK_IMPORTED_MODULE_18__["Ng2SearchPipeModule"],
-                    ng_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_17__["NgMultiSelectDropDownModule"].forRoot(),
-                    _agm_core__WEBPACK_IMPORTED_MODULE_10__["AgmCoreModule"].forRoot({ apiKey: 'AIzaSyBUb3jDWJQ28vDJhuQZxkC0NXr_zycm8D0' }),
+                    _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_3__["BrowserAnimationsModule"],
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"],
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"],
+                    _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
+                    _angular_http__WEBPACK_IMPORTED_MODULE_29__["HttpModule"],
+                    _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_10__["NgbModule"],
+                    _angular_material_tabs__WEBPACK_IMPORTED_MODULE_0__["MatTabsModule"],
+                    primeng_accordion__WEBPACK_IMPORTED_MODULE_31__["AccordionModule"],
+                    ngx_toastr__WEBPACK_IMPORTED_MODULE_13__["ToastrModule"].forRoot(),
+                    ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_12__["SlimLoadingBarModule"].forRoot(),
+                    _angular_router__WEBPACK_IMPORTED_MODULE_9__["RouterModule"].forRoot(_app_routing_module__WEBPACK_IMPORTED_MODULE_25__["Approutes"], { useHash: false }),
+                    ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_28__["PerfectScrollbarModule"],
+                    ng2_search_filter__WEBPACK_IMPORTED_MODULE_19__["Ng2SearchPipeModule"],
+                    ng_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_18__["NgMultiSelectDropDownModule"].forRoot(),
+                    _agm_core__WEBPACK_IMPORTED_MODULE_11__["AgmCoreModule"].forRoot({ apiKey: 'AIzaSyBUb3jDWJQ28vDJhuQZxkC0NXr_zycm8D0' }),
                 ],
                 exports: [
-                    _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_0__["MatAutocompleteModule"]
+                    _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_1__["MatAutocompleteModule"]
                 ],
                 providers: [
                     {
-                        provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"],
-                        useClass: _AuthInterceptor__WEBPACK_IMPORTED_MODULE_3__["AuthInterceptor"],
+                        provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HTTP_INTERCEPTORS"],
+                        useClass: _AuthInterceptor__WEBPACK_IMPORTED_MODULE_4__["AuthInterceptor"],
                         multi: true,
                     },
                     {
-                        provide: ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_27__["PERFECT_SCROLLBAR_CONFIG"],
+                        provide: ngx_perfect_scrollbar__WEBPACK_IMPORTED_MODULE_28__["PERFECT_SCROLLBAR_CONFIG"],
                         useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
                     },
                     {
-                        provide: _angular_common__WEBPACK_IMPORTED_MODULE_5__["LocationStrategy"],
-                        useClass: _angular_common__WEBPACK_IMPORTED_MODULE_5__["HashLocationStrategy"]
+                        provide: _angular_common__WEBPACK_IMPORTED_MODULE_6__["LocationStrategy"],
+                        useClass: _angular_common__WEBPACK_IMPORTED_MODULE_6__["HashLocationStrategy"]
                     },
-                    _services_index__WEBPACK_IMPORTED_MODULE_13__["CommonFunctionsService"],
-                    _globals__WEBPACK_IMPORTED_MODULE_14__["Globals"],
-                    _services_error_message_service__WEBPACK_IMPORTED_MODULE_23__["ErrorMessageService"]
+                    _services_index__WEBPACK_IMPORTED_MODULE_14__["CommonFunctionsService"],
+                    _globals__WEBPACK_IMPORTED_MODULE_15__["Globals"],
+                    _services_error_message_service__WEBPACK_IMPORTED_MODULE_24__["ErrorMessageService"]
                 ],
-                bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_25__["AppComponent"]]
+                bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_26__["AppComponent"]]
             }]
     }], null, null); })();
 
@@ -2007,6 +2012,7 @@ class ProfileService {
         this.singleTerritoryUrl = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/territories/';
         this.territoryURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/territories';
         this.googldriveUrl = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/google/';
+        this.unitLocationsHub = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/unit_locations/';
         this.countriesURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/countries';
         this.statesURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/territories/stateSearch';
         this.authAccessURL = 'https://api.moltin.com/oauth/access_token';
@@ -2030,6 +2036,15 @@ class ProfileService {
     // }
     voidOrder(id) {
         return this.http.get(this.voidOrderUrl + id);
+    }
+    getHubwithUnits(id) {
+        return this.http.get(this.unitLocationsHub + id);
+    }
+    getHubwithTerriID(id) {
+        return this.http.get(this.foodparkURL + "/hubs/" + id);
+    }
+    getLocationswithTerriID(id) {
+        return this.http.get(this.foodparkURL + "/units/" + id);
     }
     createDriverWages(id, data) {
         return this.http.post(this.createWagesUrl + id, data);
@@ -2138,6 +2153,9 @@ class ProfileService {
     getOrderProductDetails() {
         return this.http.get('https://api.instamarkt.co/api/v1/ord/list-unit-order-items/2164');
     }
+    addUnitToHub(foodParkId, unitId) {
+        return this.http.post(this.foodparkURL + "/" + foodParkId + "/" + "units", unitId);
+    }
     getDailyPayoutList() {
         return this.http.get(this.dailyPayout);
     }
@@ -2153,11 +2171,17 @@ class ProfileService {
     addFoodParkmgr(data) {
         return this.http.post(this.addDriverURL, data);
     }
+    vendorRegister(data) {
+        return this.http.post(this.addDriverURL, data);
+    }
     addFoodPark(data) {
         return this.http.post(this.addFoodParkURL, data);
     }
     addTele(data) {
         return this.http.post(this.addTeleURL, data);
+    }
+    updateCompanyCredentials(companyId, data) {
+        return this.http.put(this.unitURL + companyId, data);
     }
     addDriver(data) {
         return this.http.post(this.addDriverURL, data);
