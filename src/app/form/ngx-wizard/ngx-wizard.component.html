@@ -20,7 +20,7 @@
                   </div>
                   <!-- <input class="form-control input-md" #firstname="ngModel" required id="firstname" name="firstname"
                     type="text" [(ngModel)]="personal.first_name"> -->
-                    <input class="form-control input-md">
+                    <input class="form-control input-md" value="{{firstName}}" readonly>
                 </div>
                 <!-- <small class="form-text text-muted danger"
                   *ngIf="!firstname.valid && (firstname.dirty || firstname.touched)">This field is
@@ -40,7 +40,7 @@
                   </div>
                   <!-- <input class="form-control input-md" #lastname="ngModel" required id="lastname" name="lastname"
                     type="text" [(ngModel)]="personal.last_name"> -->
-                    <input class="form-control input-md" />
+                    <input class="form-control input-md" value="{{lastName}}" readonly/>
                 </div>
                 <!-- <small class="form-text text-muted danger"
                   *ngIf="!lastname.valid && (lastname.dirty || lastname.touched)">This field is
@@ -61,7 +61,7 @@
                   </div>
                   <!-- <input class="form-control input-md" #email="ngModel" required email id="email" name="email"
                     type="text" [(ngModel)]="personal.email"> -->
-                    <input class="form-control input-md">
+                    <input class="form-control input-md" value="{{userName}}" >
                 </div>
                 <!-- <small class="form-text text-danger" *ngIf="!email.valid && (email.dirty || email.touched)">Please enter
                   a valid
@@ -362,15 +362,32 @@
                             <div class="form-group row">
                                 <label for="id_no" class="col-sm-2 col-form-label">Identification Verification </label>
                                 <div class="col-sm-5">
-                                    <input class="form-control input-md" formControlName="id_no"> 
-                                    <div *ngIf="MerchantForm.get('id_no').touched && MerchantForm.get('id_no').invalid" class="alert alert-danger">
-                                      <div  *ngIf=" MerchantForm.get('id_no').errors.required ">
-                                        Verification is Required [Enter Driving License or Passport Number]
-                                    </div>
-                                     
-                                   </div>
+                                  <!-- <div class='col-sm-2'> -->
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="selfimage">Selfie Image</label>  
+                                        <ngx-dropzone (change)="onSelect($event)">
+                                            <ngx-dropzone-label >Click here to Upload!</ngx-dropzone-label>
+                                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                            </ngx-dropzone-preview>
+                                        </ngx-dropzone>
+                                       
+                                    </div>   
+                                <!-- </div> -->
                                 </div>
+                                <div class='col-sm-5'>
+                                  <div class="form-group">
+                                      <label class="form-control-label" for="drivlicen">Driving License</label>  
+                                      <ngx-dropzone (change)="onSelectfeathured($event)">
+                                          <ngx-dropzone-label>Click here to Upload!</ngx-dropzone-label>
+                                          <ngx-dropzone-preview *ngFor="let f of feathuredfiles" [removable]="true" (removed)="onRemovefeathured(f)">
+                                              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                          </ngx-dropzone-preview>
+                                      </ngx-dropzone>
+                                     </div>
+                                  </div>   
                               </div>
+                             
                               <div class="row">
                                 <div class="col-12 col-sm-4 offset-4 text-center">
                                   <button type="submit" [disabled]="MerchantForm.invalid" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;">Save</button>
@@ -378,7 +395,6 @@
                               </div>
               </form>    
               
-
       </ng-template>
   </ngb-tab>
   

@@ -31,8 +31,9 @@ export class ScheduleComponent implements OnInit {
     // dayArr :any[] = [];
     companyId :any;
     selectedIndex:number=1;
-    hoursArr: any[] = [];
+    hoursArr: FormArray;
     scheduleFormData: FormGroup;
+    itemForm: FormGroup;
     
 
     // scheduleFormData = new FormGroup({
@@ -66,14 +67,14 @@ export class ScheduleComponent implements OnInit {
         this.route.params.subscribe(params => {
             this.companyId = + params['id'];
          });
-         this.scheduleFormData = this.fb.group({
-          schedule: [null, Validators.required],
+        //  this.scheduleFormData = this.fb.group({
+        //   hoursArr: this.fb.array([this.createItem()]) })
+        this.scheduleFormData = this.fb.group({
           facebook: ['www.facebook.com/'],
-          hours: [null, Validators.required]
-        });
-        (this.scheduleFormData.get('hours') as FormArray).push(
-            this.fb.control(null)
-          )
+              schedule: [this.schedule],
+              hours: ['', Validators.required]
+        })
+      
     }
 
     // onChange(day: string, isChecked: boolean) {
@@ -211,23 +212,19 @@ console.log('all megre data',this.allData)
       }
       console.log(this.schedule)
     }
-    onAddHours(): void {
-      // (this.scheduleFormData.get('hours') as FormArray).push(
-      //   this.fb.control(null)
-      // )
-    
 
-      let arr = {
-        hours: new FormControl('', Validators.required),
-        schedule: new FormControl(this.schedule)
-      }
-      this.hoursArr.push(arr);
-     
-      // console.log(this.hoursArr)
+    // createItem(){
+    //   return this.fb.group({
+    //     facebook: ['', Validators.required],
+    //     schedule: ['', Validators.required],
+    //     hoursArr: ['', Validators.required]
+    //   })
+    // }
+
+    onAddHours() {
+    // this.hoursArr = this.scheduleFormData.get('hoursArr') as FormArray;
+    // this.hoursArr.push(this.createItem())
     }
-
-    
-    
 
     save(form: any) {
         console.log("telegram save");
