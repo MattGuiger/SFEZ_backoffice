@@ -32,13 +32,14 @@ export class SignupComponent implements OnInit {
       return;
     }
     if(first_name === null || first_name === ""){
+      console.log('first_name',first_name)
       this.msg = 'First name is required';
       return;
     }
-    if(first_name){
-      this.msg = 'First name is required';
-      return;
-    }
+    // if(first_name){
+    //   this.msg = 'First name is required';
+    //   return;
+    // }
     if(last_name === null || last_name === ""){
       this.msg = 'Last name is required';
       return;
