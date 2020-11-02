@@ -1,5 +1,5 @@
 <ngb-tabset [activeId]="checkingId">
-  <ngb-tab    >
+  <ngb-tab >
     <ng-template ngbTabTitle>Account</ng-template>
     <ng-template ngbTabContent>
 
@@ -7,7 +7,6 @@
         <p>Account Profile</p>
       </div>
 
-      
           <div class="row">
             <div class='col-12 col-sm-4 offset-4'>
               <div class="form-group">
@@ -61,7 +60,7 @@
                   </div>
                   <!-- <input class="form-control input-md" #email="ngModel" required email id="email" name="email"
                     type="text" [(ngModel)]="personal.email"> -->
-                    <input class="form-control input-md" value="{{userName}}" >
+                    <input class="form-control input-md" value="{{userName}}" readonly>
                 </div>
                 <!-- <small class="form-text text-danger" *ngIf="!email.valid && (email.dirty || email.touched)">Please enter
                   a valid
@@ -139,7 +138,7 @@
   </ngb-tab>
    
   
-  <ngb-tab   [disabled] = checkId   title="Registration Wizard" >
+  <ngb-tab title="Registration Wizard" >
     <ng-template ngbTabContent>
       <section id="ngx" class="mt-3">
         <div class="card">
@@ -203,7 +202,7 @@
                             Tax_id is required
                         </div>
                           <div  *ngIf=" MerchantForm.get('tax_id').errors.pattern ">
-                              Please follow the pattern: XX-XXXXXXX(9 digits)
+                              Please follow the pattern: XX-XXXXXXX (9 digits)
                           </div>
                        </div>
                     </div>
@@ -215,19 +214,17 @@
                           <input class="form-control input-md" placeholder="AAA-GG-SSSSS" formControlName="ssn" > 
                           <div *ngIf="MerchantForm.get('ssn').touched && MerchantForm.get('ssn').invalid" class="alert alert-danger">
                             <div  *ngIf=" MerchantForm.get('ssn').errors.required ">
-                              Years active is required
+                              This field is required
                           </div>
                             <div  *ngIf=" MerchantForm.get('ssn').errors.pattern ">
-                                Please follow the pattern: AAA-GG-SSSS(9digits)
+                                Please follow the pattern: AAA-GG-SSSS (9digits)
                             </div>
                          </div>
                       </div>
                     </div>
                     <div class="form-group row">
                         <label for="buissness_address" class="col-sm-2 col-form-label">Buissness Address</label>
-                       
-                        
-                            
+     
                         <div class="form-group row">
                             <!-- <label for="country" class="col-sm-2 col-form-label">Country</label>
                             <div class="col-sm-8">
@@ -240,7 +237,6 @@
                                   <div  *ngIf=" MerchantForm.get('country').errors.required ">
                                     Required
                                 </div>
-                                 
                                </div>
                             </div>
                           </div>
@@ -252,7 +248,6 @@
                                   <div  *ngIf=" MerchantForm.get('state').errors.required ">
                                     Required
                                 </div>
-                                 
                                </div> -->
                             </div>
                           </div>
@@ -267,10 +262,8 @@
                                   <div  *ngIf=" MerchantForm.get('street').errors.required ">
                                     Required
                                 </div>
-                                 
                                </div>
                               </div>
-                           
                           </div>
                           <div class="form-group row">
                             <label for="city" class="col-sm-2 col-form-label">City</label>
@@ -280,7 +273,6 @@
                                   <div  *ngIf=" MerchantForm.get('city').errors.required ">
                                     Required
                                 </div>
-                                 
                                </div>
                             </div>
                           </div>
@@ -292,19 +284,12 @@
                                   <div  *ngIf=" MerchantForm.get('zip').errors.required ">
                                     Required
                                 </div>
-                                 
                                </div>
                             </div>
-                           
                           </div>
-                          
-                        </div>
-                        
-                          
+                        </div> 
                           <div class="col-sm-5">  
-
                       </div>
-                      
                     <div class="form-group row">
                         <label for="account_no" class="col-sm-2 col-form-label">Account Number</label>
                         <div class="col-sm-5">
@@ -313,7 +298,6 @@
                               <div  *ngIf=" MerchantForm.get('account_no').errors.required ">
                                Account Number is Required
                             </div>
-                             
                            </div>
                         </div>
                       </div>
@@ -323,9 +307,8 @@
                               <input class="form-control input-md" formControlName="routing_no"> 
                               <div *ngIf="MerchantForm.get('routing_no').touched && MerchantForm.get('routing_no').invalid" class="alert alert-danger">
                                 <div  *ngIf=" MerchantForm.get('routing_no').errors.required ">
-                                  Account Number is Required
+                                  Routing Number is Required
                               </div>
-                               
                              </div>
                           </div>
                         </div>
@@ -335,10 +318,10 @@
                                 <input type="text" class="form-control input-md" formControlName="Phone"> 
                                 <div *ngIf="MerchantForm.get('Phone').touched && MerchantForm.get('Phone').invalid" class="alert alert-danger">
                                   <div  *ngIf=" MerchantForm.get('Phone').errors.required ">
-                                    Years active is required
+                                   Cell phone number is is required
                                 </div>
                                   <div  *ngIf=" MerchantForm.get('Phone').errors.pattern ">
-                                      Please follow the pattern: ###-###-#### or ########## 
+                                      Please follow the pattern: ###-###-#### or ########## (10 digits)
                                   </div>
                                </div>
                             </div>
@@ -346,7 +329,6 @@
                           <div class="form-group row">
                               <label for="years" class="col-sm-2 col-form-label">Years Active </label>
                               <div class="col-sm-5">
-                                                              
                             <input type="text" formControlName="years" (change)="ageCalculator($event)" required placeholder="Ex: 2021,2022,etc">
                             <div *ngIf="MerchantForm.get('years').touched && MerchantForm.get('years').invalid" class="alert alert-danger">
                                     <div  *ngIf=" MerchantForm.get('years').errors.required ">
@@ -356,7 +338,6 @@
                                         Please follow the pattern: 2020, 2021, etc.
                                     </div>
                                  </div>
-
                               </div>
                             </div>
                             <div class="form-group row">
@@ -364,40 +345,56 @@
                                 <div class="col-sm-5">
                                   <!-- <div class='col-sm-2'> -->
                                     <div class="form-group">
-                                        <label class="form-control-label" for="selfimage">Selfie Image</label>  
+                                        <!-- <label class="form-control-label" for="selfimage">Selfie Image</label>  
                                         <ngx-dropzone (change)="onSelect($event)">
                                             <ngx-dropzone-label >Click here to Upload!</ngx-dropzone-label>
                                             <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
                                                 <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
                                             </ngx-dropzone-preview>
-                                        </ngx-dropzone>
-                                       
+                                        </ngx-dropzone> -->
+                                            <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
+                                              <ngx-dropzone-label>
+                                                  <div id="logo_text">
+                                                      <h3>Click here to Upload your photograph!</h3>
+                                                    </div>
+                                              </ngx-dropzone-label>
+                                              <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                              </ngx-dropzone-image-preview>
+                                            </div>
                                     </div>   
                                 <!-- </div> -->
                                 </div>
                                 <div class='col-sm-5'>
                                   <div class="form-group">
-                                      <label class="form-control-label" for="drivlicen">Driving License</label>  
+                                      <!-- <label class="form-control-label" for="drivlicen">Driving License</label>  
                                       <ngx-dropzone (change)="onSelectfeathured($event)">
                                           <ngx-dropzone-label>Click here to Upload!</ngx-dropzone-label>
                                           <ngx-dropzone-preview *ngFor="let f of feathuredfiles" [removable]="true" (removed)="onRemovefeathured(f)">
                                               <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
                                           </ngx-dropzone-preview>
-                                      </ngx-dropzone>
+                                      </ngx-dropzone> -->
+                                          <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelectfeathured($event)">
+                                            <ngx-dropzone-label>
+                                                <div id="logo_text">
+                                                    <h3>Click here to Upload your Driving License or Passport!</h3>
+                                                  </div>
+                                            </ngx-dropzone-label>
+                                            <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of feathuredfiles" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                                              <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                            </ngx-dropzone-image-preview>
+                                          </div>
                                      </div>
                                   </div>   
                               </div>
-                             
                               <div class="row">
                                 <div class="col-12 col-sm-4 offset-4 text-center">
-                                  <button type="submit" [disabled]="MerchantForm.invalid" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;">Save</button>
+                                  <button type="submit" [disabled]="MerchantForm.invalid" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff; position: relative; left: 140px;">Save</button>
                                 </div>
                               </div>
               </form>    
-              
       </ng-template>
-  </ngb-tab>
-  
+  </ngb-tab> 
 </ngb-tabset>
 
  

@@ -13,7 +13,10 @@ export class MenuitemsComponent implements OnInit{
   user:any;
   productList : any[]=[];
   processing : boolean = false;
+  googleSheet: any;
   profile : any;
+  date = "";
+  arr: any;
   categories: any;
   @ViewChild('ref') ref;
   constructor(private toastr: ToastrService,private _ProfileService: ProfileService,private slimLoader: SlimLoadingBarService,private _CommonFunctionsService:CommonFunctionsService,private _Router:Router){
@@ -25,6 +28,7 @@ export class MenuitemsComponent implements OnInit{
     this.getCompanyProfile();
     this.getgoogleauthntication()
     this.getAllCategories();
+    this.getAllGoogleSheetDetails()
   }
   getAllProductList(){
     this.processing = true;
@@ -35,6 +39,15 @@ export class MenuitemsComponent implements OnInit{
     },error=>{
       //debugger
     })
+ }
+ getAllGoogleSheetDetails(){
+  this.user = this._CommonFunctionsService.checkUser().user;
+  this._ProfileService.getAllGoogleSheetDetails(this.date).subscribe((res:any)=>{
+    this.googleSheet = res.data;
+    console.log('Google Sheet'+this.googleSheet)
+  },error=>{
+   //  
+  })
  }
  getgoogleauthntication(){
  let googgleData = this._ProfileService.getGoogleAuthenication();

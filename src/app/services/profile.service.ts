@@ -46,6 +46,7 @@ export class ProfileService {
   private singleTerritoryUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories/';
   private territoryURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories';
   private googldriveUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/google/';
+   private googlsheetUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/google/googlesheetdetail';
   private unitLocationsHub = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/unit_locations/';
   private foodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel';
   private countriesURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/countries';
@@ -80,13 +81,16 @@ export class ProfileService {
 getHubwithUnits(id):Observable<any>{
   return this.http.get(this.unitLocationsHub+id);
 }
+getEditUnits(company_id,id,data): Observable<any> {
+  return this.http.put(this.unitURL+company_id+"/units/"+id,data);
+}
 
 getHubwithTerrId(id):Observable<any>{
-  return this.http.get(this.foodParkURL+"/listlocations/"+id);
+  return this.http.get(this.foodParkURL+"listhubs/"+id);
 }
 
 getLocationwithTerrId(id):Observable<any>{
-  return this.http.get(this.foodParkURL+"/listhubs/"+id);
+  return this.http.get(this.foodParkURL+"/listlocations/"+id);
 }
 
 getHubwithTerriID(id):Observable<any>{
@@ -282,6 +286,9 @@ addUnitToHub(foodParkId,unitId){
   }
   createfolderInGoogleDrive(data) : Observable<any> {
     return this.http.post(this.googldriveUrl+'createfolder',data);
+  }
+  getAllGoogleSheetDetails(data) : Observable<any> {
+    return this.http.post(this.googlsheetUrl,data);
   }
   getCategory(companyId) : Observable<any> {
     return this.http.get(this.productListUrl+companyId+'/getactivecategoriesnames');

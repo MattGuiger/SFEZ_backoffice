@@ -27,7 +27,12 @@ export class PersonalComponent implements OnInit {
     personal: Personal;
     form: any;
     countries: any[] = [];
+    states: any[] = [];
+    state: any[] = [];
     countryList : any[]=[];
+    singleTerritory: any[] = [];
+    stateAndTerritoryObject: any;
+    territory:any = [];
     lat = -34.397;
   lng = 150.644;
   latA = -34.754764;
@@ -35,7 +40,7 @@ export class PersonalComponent implements OnInit {
   zoom = 8;
     business_address: string;
     city : string;
-    state : string;
+    singleState: any[] = [];
    
     // form: any;
     data: any[]=[];
@@ -45,8 +50,9 @@ export class PersonalComponent implements OnInit {
       first_name: new FormControl('', Validators.required),
       last_name: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
-      // country_id: new FormControl('', Validators.required),
+      territory_id: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
+      state_id: new FormControl('', Validators.required),
       company_name: new FormControl('', Validators.required),
       // distance_range: new FormControl('', Validators.required),
       
@@ -67,6 +73,7 @@ export class PersonalComponent implements OnInit {
         private route: ActivatedRoute) {
           this.user = this._CommonFunctionsService.checkUser().user;
           this.getAllCountries();
+          this.getAllStates();
           
         }
 
@@ -84,7 +91,22 @@ export class PersonalComponent implements OnInit {
           this.countryList = res;
         })
       }
-    
+      getTerritory(event) {
+
+        let stateData = event.target.value;
+        const strData = stateData.split(",");
+        console.log(strData);
+        this.stateAndTerritoryObject = {
+          id: strData[0],
+          name: strData[1]
+        }
+        const state_id = this.stateAndTerritoryObject.id;
+        this._ProfileService.getTerritory(state_id).subscribe((res: any) => {
+          console.log(res);
+          
+          this.singleTerritory = res.territory;
+        })
+      }
     changeCountry(event){
         console.log('changeCountry',event.target.value)
         this.personal.country_id=event.target.value
@@ -125,8 +147,6 @@ export class PersonalComponent implements OnInit {
       this.personalDetailsForm.value.latitude = "40.058174";
       this.personalDetailsForm.value.longitude = "-121.315308";
 
-      // this.personalDetailsForm.value.country_id=4;
-      // this.personalDetailsForm.value.distance_range=4
       // const data = localStorage.setItem('personalFormData', JSON.stringify(this.personalDetailsForm.value));
       this._ProfileService.vendorRegister(this.personalDetailsForm.value).subscribe((res: any)=>{
         if(res.status==200){
@@ -182,6 +202,18 @@ export class PersonalComponent implements OnInit {
     getAllCountries() {
       this._ProfileService.getAllCountries().subscribe((res: any) => {
         this.countries = res;
+      })
+    }
+    getAllStates() {
+      this._ProfileService.getState(this.user.country_id).subscribe((res: any) => {
+        this.states = res.data;
+      })
+    }
+    getState(event) {
+      const country_id = event.target.value;
+      this._ProfileService.getState(country_id).subscribe((res: any) => {
+        console.log(res);
+        this.singleState = res.territory;
       })
     }
 
@@ -248,9 +280,6 @@ export class PersonalComponent implements OnInit {
   //       this.toastr.error('Unable to get token')
   //    })
   //   }
-
- 
-     
     onRemove(event) {
       console.log(event);
       this.files.splice(this.files.indexOf(event), 1);

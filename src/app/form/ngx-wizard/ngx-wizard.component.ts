@@ -21,7 +21,7 @@ export class NGXFormWizardComponent implements OnInit {
   showAge: any;
   myData: any;
   checkingId:any="1";
-  checkId = localStorage.getItem('DisableRegForm');
+  // checkId = localStorage.getItem('DisableRegForm');
   files: File[] = [];
   firstName: any;
   lastName: any;
@@ -129,8 +129,7 @@ export class NGXFormWizardComponent implements OnInit {
     onRemove(event) {
       console.log(event);
       this.files.splice(this.files.indexOf(event), 1);
-    }
-   
+    } 
     onSubmit(){
       console.log(this.MerchantForm.value);
     }
