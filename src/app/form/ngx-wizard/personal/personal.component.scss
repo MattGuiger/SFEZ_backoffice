@@ -1,9 +1,12 @@
-img {
-    position: absolute;
-    right: 262px;
-    top: 34px;
+#paco{
+    position: relative;
+    left: 40px;
+    top: -20px;
 }
-
+#dishImg{
+    position: relative;
+    right: -40px;
+}
 #up {
     position: absolute;
     left: 199px;
@@ -12,8 +15,6 @@ img {
     // top: 102px;
     // right: 316px;
 }
-
-
 #upl {
     position: absolute;
     left: 272px;
@@ -22,8 +23,6 @@ img {
     // top: 102px;
     // right: 316px;
 }
-
-
 #logo {
     position: absolute;
     left: 302px;
@@ -32,10 +31,13 @@ img {
 }
 #logo_text {
     position: absolute;
-    left: 250px;
+    left: 219px;
     top: 80px;
 }
-
+#err{
+    position: relative;
+    top: -160x;
+}
 #dish {
     position: absolute;
     left: 302px;
@@ -44,7 +46,7 @@ img {
 }
 #dish_text {
     position: absolute;
-    left: 220px;
+    left: 190px;
     top: 70px;
 }
 .h2{

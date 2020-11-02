@@ -12,11 +12,14 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: 'menuitems.component.html',
   styleUrls: ['./menuitems.component.css']
 })
-export class MenuitemsComponent implements OnInit {
-  user: any;
-  productList: any[] = [];
-  processing: boolean = false;
-  profile: any;
+export class MenuitemsComponent implements OnInit{
+  user:any;
+  productList : any[]=[];
+  processing : boolean = false;
+  googleSheet: any;
+  profile : any;
+  date = "";
+  arr: any;
   categories: any;
   addedItems = []
   addedCategories = []
@@ -117,6 +120,7 @@ export class MenuitemsComponent implements OnInit {
       this.authentication_url = res.data
     });
 
+    this.getAllGoogleSheetDetails()
   }
   // this.user = this._CommonFunctionsService.checkUser().user;
   // this._ProfileService.uploadCompanyProfile(this.user.company_id,formData).subscribe((res:any)=>{
@@ -140,8 +144,27 @@ export class MenuitemsComponent implements OnInit {
       console.log('googgleData', res.data)
       this.authentication_url = res.data
     });
+ }
+ getAllGoogleSheetDetails(){
+  this.user = this._CommonFunctionsService.checkUser().user;
+  this._ProfileService.getAllGoogleSheetDetails(this.date).subscribe((res:any)=>{
+    this.googleSheet = res.data;
+    console.log('Google Sheet'+this.googleSheet)
+  },error=>{
+   //  
+  })
+ }
+//  getgoogleauthntication(){
+//  let googgleData = this._ProfileService.getGoogleAuthenication();
+// console.log('googgleData',googgleData)
+// }
+// onClick(event) {
+//   event.preventDefault();
+// //  console.log('onClick event.checked ' + event.checked);
+// // console.log('onClick event.target.checked '+event.target.checked);
+//   console.log('onClick this.ref._checked '+ this.ref._checked);
 
-  }
+//   }
   createFolderinDrive() {
     const data = {
       folder: this.addedItems,

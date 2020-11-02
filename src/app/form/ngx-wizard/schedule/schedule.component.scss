@@ -5,4 +5,25 @@
 .ButtonState{display:none}
 .Button{padding:3px; margin:4px; background:#CCC; border:1px solid #333; cursor:pointer;}
 .ButtonState:checked + .Button{background: rgb(57, 175, 230);}
+.btn-fb{color: white; background-color: rgb(57, 175, 230);}
 
+.col-sm-8 {
+  position: relative;
+  left: 90xp;
+  right: -50px;
+  top: -90px;
+}
+#telegramImg{
+  position: relative;
+  left: -190px;
+}
+.show{
+  background-color: cadetblue;
+}
+::ng-deep .tooltip-inner {
+  // white-space:pre;
+  // background-color: rgb(57, 175, 230);
+}
+img:hover {
+  cursor: pointer;
+}

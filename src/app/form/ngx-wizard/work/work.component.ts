@@ -95,13 +95,13 @@ export class WorkComponent implements OnInit {
         console.log(this.user.role);
         
         const comapany_id= localStorage.getItem('companyId');
-        this.workFormData.value.customer_order_window =""
-        this.workFormData.value.delivery_time_offset=""
+        // this.workFormData.value.customer_order_window =""
+        // this.workFormData.value.delivery_time_offset=""
         // this.workFormData.value.number='1'
 
-        this.workFormData.value.delivery_radius =""
+        // this.workFormData.value.delivery_radius =""
         this.workFormData.value.territory_id=this.user.territory_id;
-        this.workFormData.value.number=""
+        // this.workFormData.value.number=""
         // this._ProfileService.addUnit(this.workFormData.value).subscribe(res=>{
         this._ProfileService.addUnit(this.workFormData.value,comapany_id).subscribe(res=>{
            const data = localStorage.setItem('workFormData', JSON.stringify(this.workFormData.value));
