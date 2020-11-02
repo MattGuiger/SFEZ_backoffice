@@ -19,6 +19,7 @@ export class ProfileService {
   
   private companyFeaturedProfileURl = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/companies/';  
   private unitURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/companies/';   
+  private editHubURL = config.getEnvironmentVariable('endPoint') + '/api/v1/rel/food_parks/editdeliveryhub/';  
   private addUnitURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/companies/';  
   private foodparkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks';
   private addFoodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks';
@@ -49,6 +50,7 @@ export class ProfileService {
    private googlsheetUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/google/googlesheetdetail';
   private unitLocationsHub = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/unit_locations/';
   private foodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel';
+  private emailManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/send-email-manager';
   private countriesURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/countries';
   private statesURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories/stateSearch';
   private authAccessURL = 'https://api.moltin.com/oauth/access_token';
@@ -84,19 +86,21 @@ getHubwithUnits(id):Observable<any>{
 getEditUnits(company_id,id,data): Observable<any> {
   return this.http.put(this.unitURL+company_id+"/units/"+id,data);
 }
-
+getEditHub(id,data): Observable<any> {
+  return this.http.put(this.editHubURL+id,data);
+}
+onManagerEmailSubmit(data):Observable<any>{
+  return this.http.post(this.emailManagerURL, data);
+}
 getHubwithTerrId(id):Observable<any>{
   return this.http.get(this.foodParkURL+"listhubs/"+id);
 }
-
 getLocationwithTerrId(id):Observable<any>{
   return this.http.get(this.foodParkURL+"/listlocations/"+id);
 }
-
 getHubwithTerriID(id):Observable<any>{
   return this.http.get(this.foodparkURL+"/hubs/"+id);
 }
-
 getLocationswithTerriID(id):Observable<any>{
   return this.http.get(this.foodparkURL+"/units/"+id);
 }
@@ -109,7 +113,6 @@ getLocationswithTerriID(id):Observable<any>{
   getUnitsDriver(data):Observable<any>{
     return this.http.post(this.unitsDriverUrl, data);
   }
-
   getParticularUnitData(id):Observable<any>{
     return this.http.get(this.particularUnitUrl+id);
   }

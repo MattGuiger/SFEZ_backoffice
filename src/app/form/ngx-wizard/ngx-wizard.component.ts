@@ -107,12 +107,11 @@ export class NGXFormWizardComponent implements OnInit {
        this._ProfileService.uploadFeaturePhoto(this.user.company_id,formData).subscribe((res:any)=>{
         console.log('resss ',res.data[0].photo)
         localStorage.setItem('driving_license',res.data[0].featured_dish );
-          this.toastr.success('driving_license upload successfully!')
+          this.toastr.success('Successfully uploaded!')
       },error=>{
           this.toastr.error('failed to upload, please try again later')
        })
     } 
-
     onSelectfeathured(event) {
       console.log(event);
       this.feathuredfiles.push(...event.addedFiles);
@@ -120,8 +119,7 @@ export class NGXFormWizardComponent implements OnInit {
       formData.append('file',event.addedFiles[0]);
       localStorage.setItem('fileData', JSON.stringify(formData));
       this.uploadFeaturePhoto(formData);
-    }
-     
+    }   
     onRemovefeathured(event) {
       console.log(event);
       this.feathuredfiles.splice(this.feathuredfiles.indexOf(event), 1);

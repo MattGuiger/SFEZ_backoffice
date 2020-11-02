@@ -329,7 +329,7 @@
                                                       Required Selection” bundle.
                                                     </p>
                                                   </div> -->
-                                                  <h2 style="text-align: center;">Google Spreadsheet Details</h2>
+                                                  <h2 style="text-align: center;"><b>Spreadsheet Details</b></h2>
                                                   <div class="spreadsheet_detail" *ngFor="let item of googleSheet | keyvalue:0; let i = index">
                                                    <br><br>
                                                       <p>1. Menu Item Name: {{item.value.menuItemName}}
@@ -341,7 +341,7 @@
                                                         <div class="col-12 col-md-6 col-lg-4">
                                                           <img [src]="item.value.image" alt="">
                                                         </div>
-                                                        <div class="col-12 col-md-6 col-lg-4" style="top:20px">
+                                                        <div class="col-12 col-md-6 col-lg-4" style="position: relative;top:-95px">
                                                           <p class="p_t_note">Note:</p>
                                                           <p>Vendors can use Google Drive or Dropbox to upload and share images.</p>
                                                         </div>
@@ -355,6 +355,7 @@
                                                       <p>10. Required Price: {{item.value.optionSinglePrice}}</p>
                                                       <p>11. Instructions: {{item.value.instructions}}
                                                       </p>
+                                                      <br>
                                                       <br>
                                                       <br>
                                                     </div>

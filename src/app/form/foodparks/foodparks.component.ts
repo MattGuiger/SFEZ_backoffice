@@ -35,6 +35,8 @@ export class FoodParkComponent implements OnInit{
   minDaysValue=10;
   minDaysValuse=5;
   selectedLocationRecord: any;
+  selectedManagerRecord: any;
+  selectedHubRecord: any;
   singleState: any[] = [];
   stateAndTerritoryObject: any;
   state: any[] = [];
@@ -93,13 +95,18 @@ export class FoodParkComponent implements OnInit{
     "FARMER"
     ]
 
-    foodParkForm: FormGroup;
-    // foodParkForm = new FormGroup({
-    //   stateid: new FormControl('', Validators.required),
-    //   territory_id: new FormControl(),
-    //   type: new FormControl(' ', Validators.required),
-    //   name: new FormControl('', Validators.required)
-    //   });
+    // onLocationEditForm: FormGroup;
+    onLocationEditForm = new FormGroup({
+      delivery_time_offset: new FormControl(''),
+      customer_order_window: new FormControl(''),
+      delivery_radius: new FormControl('')
+        });
+    foodParkForm = new FormGroup({
+      delivery_time_window: new FormControl('', Validators.required)
+      });
+    emailManageForm = new FormGroup({
+      email: new FormControl('', Validators.required)
+    })
     hubFoodParkForm = new FormGroup({
     stateid: new FormControl('', Validators.required),
     territory_id: new FormControl(),
@@ -213,7 +220,7 @@ export class FoodParkComponent implements OnInit{
   // }
 
   formInit() {
-    this.foodParkForm = new FormGroup({});
+    // this.onLocationEditForm = new FormGroup({});
   }
   driverformInit() {
     this.driverForm = new FormGroup({
@@ -364,29 +371,18 @@ getlocationsAndHub(){
       if(res.status==200){
         console.log('thisssss deliveryHubUnits',res.data)
         this.deliveryHubUnits=res.data
-      }else{
-        
+      }else{        
       }
     })
   }
-
 }
-
-
-
-
-
   removeUnit(unitId,foodparkId) {
-
-    const message = `Are you sure you want to do this?`;
-
+  const message = `Are you sure you want to do this?`;
     const dialogData = new ConfirmDialogModel("Confirm Action", message);
-
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       maxWidth: "500px",
       data: dialogData
     });
-
     dialogRef.afterClosed().subscribe(dialogResult => {
       // this.result = dialogResult;
       console.log('dialogResultdialogResult', dialogResult);
@@ -857,7 +853,9 @@ getlocationsAndHub(){
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
-  openEditDeilveryHub(content4) {
+  openEditDeilveryHub(content4, row) {
+    console.log(row)
+    this.selectedHubRecord = row;
     this.modalService.open(content4, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -876,10 +874,7 @@ getlocationsAndHub(){
   onSelectRed(item) {
     debugger
   }
-
- 
-
-  updateDriverFilter(event) {
+    updateDriverFilter(event) {
     const val = event.target.value.toLowerCase();
     // filter our data
     const drivertemp = this.drivertemp.filter(function (d) {
@@ -928,9 +923,10 @@ getlocationsAndHub(){
     this.router.navigateByUrl('/forms/manager/'+row.id+"/"+type);
   }
 
-  sendEmail(data,row){
+  sendEmail(event,data,row){
     // this.router.navigateByUrl('/forms/manager/'+row.id+"/"+type);
-    // this.selectedLocationRecord = row;
+    this.selectedManagerRecord = row;
+    console.log(this.selectedManagerRecord)
     this.modalService.open(data, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -938,27 +934,45 @@ getlocationsAndHub(){
     });
   }
   onDeliveryHubSubmit(){
-
-  }
-  onLocationEditSubmit(){
-    this.selectedLocationRecord
-    this._ProfileService.getEditUnits(this.user.company_id,this.selectedLocationRecord.unit_id , this.foodParkForm.value).subscribe(res=>{
+    this.foodParkForm.value.state = this.selectedHubRecord.state_name;
+    this.foodParkForm.value.territory_id = this.selectedHubRecord.territory_id;
+    this._ProfileService.getEditHub(this.selectedHubRecord.food_park_id , this.foodParkForm.value).subscribe(res=>{
+      // this.modalService.dismissAll()
       if(res.status==200){
         console.log('Edit ',res.data)
-        this.deliveryHubUnits=res.data
-        
+        this.deliveryHubUnits = res.data
+        this.toastr.success(res.message)
+        this.modalService.dismissAll()
       }else{
+        this.toastr.error(res.error)
+        this.modalService.dismissAll()
+      }
+    })
+  }
+  onLocationEditSubmit(){
+    this._ProfileService.getEditUnits(this.user.company_id,this.selectedLocationRecord.unit_id , this.onLocationEditForm.value).subscribe(res=>{
+      // this.modalService.dismissAll()
+      if(res.status==200){
+        console.log('Edit ',res.data)
+        this.deliveryHubUnits = res.data
+        this.toastr.success(res.message)
+        this.modalService.dismissAll()
+      }else{
+        this.toastr.error(res.error)
+        this.modalService.dismissAll()
       }
     })
   }
 onManagerEmailSubmit(){
-//   this._ProfileService.getEditUnits(this.user.company_id,this.locOrHubArr[0] , this.foodParkForm.value).subscribe(res=>{
-//     if(res.status==200){
-//       console.log('Edit ',res.data)
-//       this.deliveryHubUnits=res.data
-//     }else{
-      
-//     }
-//   })
+  this._ProfileService.onManagerEmailSubmit(this.emailManageForm.value).subscribe(res=>{
+    if(res.status==200){
+      console.log('Edit ',res.data)
+      this.deliveryHubUnits=res.data
+      this.toastr.success(res.message)
+      this.modalService.dismissAll()
+    }else{
+      this.toastr.error(res.error)
+    }
+  })
 }
 }

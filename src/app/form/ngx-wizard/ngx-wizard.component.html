@@ -93,10 +93,7 @@
               <button type="button" type="button" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;">Save</button>
             </div>
           </div>
-
           <p class="text-center mt-4" style="font-weight:500; font-size:17px;">Owner Login Authorization</p>
-
-      
       <div class="d-flex justify-content-center">
         <div class="mr-3" style="width: 100px;font-weight:500;">Delivery Hubs:</div>
         <div class="mr-3" style="width: 145px;">PHO House HUB #1</div>
@@ -202,7 +199,7 @@
                             Tax_id is required
                         </div>
                           <div  *ngIf=" MerchantForm.get('tax_id').errors.pattern ">
-                              Please follow the pattern: XX-XXXXXXX (9 digits)
+                              Please follow the pattern: XX-XXXXXXX (9 digits) only numbers are allowed
                           </div>
                        </div>
                     </div>
@@ -217,7 +214,7 @@
                               This field is required
                           </div>
                             <div  *ngIf=" MerchantForm.get('ssn').errors.pattern ">
-                                Please follow the pattern: AAA-GG-SSSS (9digits)
+                                Please follow the pattern: AAA-GG-SSSS (9digits) only numbers are allowed
                             </div>
                          </div>
                       </div>
@@ -318,7 +315,7 @@
                                 <input type="text" class="form-control input-md" formControlName="Phone"> 
                                 <div *ngIf="MerchantForm.get('Phone').touched && MerchantForm.get('Phone').invalid" class="alert alert-danger">
                                   <div  *ngIf=" MerchantForm.get('Phone').errors.required ">
-                                   Cell phone number is is required
+                                   Cell phone number is required
                                 </div>
                                   <div  *ngIf=" MerchantForm.get('Phone').errors.pattern ">
                                       Please follow the pattern: ###-###-#### or ########## (10 digits)
@@ -374,7 +371,7 @@
                                               <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
                                           </ngx-dropzone-preview>
                                       </ngx-dropzone> -->
-                                          <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelectfeathured($event)">
+                                          <div class="custom-dropzone" id="idProofBox" ngx-dropzone [accept]="'image/*'" (change)="onSelectfeathured($event)">
                                             <ngx-dropzone-label>
                                                 <div id="logo_text">
                                                     <h3>Click here to Upload your Driving License or Passport!</h3>
@@ -389,7 +386,7 @@
                               </div>
                               <div class="row">
                                 <div class="col-12 col-sm-4 offset-4 text-center">
-                                  <button type="submit" [disabled]="MerchantForm.invalid" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff; position: relative; left: 140px;">Save</button>
+                                  <button type="submit" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff; position: relative; left: 140px;">Save</button>
                                 </div>
                               </div>
               </form>    
