@@ -123,12 +123,15 @@ export class MenuitemsComponent implements OnInit {
   getAllProductList() {
     this.processing = true;
     this.user = this._CommonFunctionsService.checkUser().user;
-    this._ProfileService.getAllProductList(this.user.unit_id).subscribe((res: any) => {
-      this.productList = res.data;
-      this.processing = false;
-    }, error => {
-      //debugger
-    })
+    if(this.user.unit_id){
+      this._ProfileService.getAllProductList(this.user.unit_id).subscribe((res: any) => {
+        this.productList = res.data;
+        this.processing = false;
+      }, error => {
+        //debugger
+      })
+    }
+
   }
   getgoogleauthntication() {
     this._ProfileService.getGoogleAuthenication().subscribe(res => {
@@ -171,8 +174,13 @@ export class MenuitemsComponent implements OnInit {
 
   uploadGoogleMenuSheet() {
     this._ProfileService.uploadGoogleMenuSheet().subscribe((res: any) => {
-      this.toastr.success(res.success);
-      this.getAllProductList();
+      if(res.error[0].status==409){
+        this._ProfileService.uploadGoogleMenuSheet().subscribe((res: any) => {
+          this.toastr.success(res.success);
+          this.getAllProductList();
+        })
+      }
+   
     }, error => {
       this.toastr.error('Failed to upload, please try again later')
     })
