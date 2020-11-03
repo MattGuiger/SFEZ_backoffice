@@ -143,7 +143,7 @@ export class PersonalComponent implements OnInit {
      
       // this.personalDetailsForm.value.role="OWNER";
       this.personalDetailsForm.value.role=this.user.role;
-      this.personalDetailsForm.value.country_id=this.user.country_id;
+      this.personalDetailsForm.value.country_id = this.user.country_id;
       this.personalDetailsForm.value.latitude = "40.058174";
       this.personalDetailsForm.value.longitude = "-121.315308";
 
@@ -152,6 +152,7 @@ export class PersonalComponent implements OnInit {
         if(res.status==200){
          console.log("Testing personal")
           localStorage.setItem('companyId',res.user.company_id)
+          localStorage.setItem('Id',res.user.id)
           localStorage.setItem('first_name', res.user.first_name)
           localStorage.setItem('company_name1', this.personalDetailsForm.value.company_name)
           this._ProfileService.getCompanyprofile(res.user.company_id).subscribe(res=>{

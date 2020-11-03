@@ -22,7 +22,7 @@
                     <option>CHEF</option>
                     <option>GHOST KITCHEN</option>
                 </select> -->
-                <label for="name">Unit Name</label>
+                <!-- <label for="name">Unit Name</label>
                 <input type="text" class="form-control" id="name" formControlName="name" readonly>
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" formControlName="username" >
@@ -30,7 +30,6 @@
                                   <div  *ngIf=" workFormData.get('username').errors.required ">
                                     Username is Required
                                 </div>
-                                 
                                </div>
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" formControlName="password" >
@@ -38,11 +37,10 @@
                     <div  *ngIf=" workFormData.get('password').errors.required ">
                       Password is Required
                   </div>
-                   
-                 </div>
-                <label for="workType">Select Type</label>
-                <mat-form-field appearance="fill">
-                    <mat-label>Type</mat-label>
+                 </div> -->
+                <label for="type"></label>
+                <mat-form-field >
+                    <mat-label>Select type</mat-label>
                     <mat-select matNativeControl required formControlName="type">
                       <mat-option value="RESTAURANT">RESTAURANT <img src="../../../../assets/images/icon-500-bar-restaurant.png"></mat-option>
                       <mat-option value="CAFE">CAFÉ <img src="../../../../assets/images/icon-500-cafe.png"></mat-option>
@@ -56,7 +54,6 @@
   
                     </mat-select>
                   </mat-form-field>
-                  
                   <div *ngIf="workFormData.get('type').touched && workFormData.get('type').invalid" class="alert alert-danger">
                     <div  *ngIf=" workFormData.get('type').errors.required ">
                       Type is Required

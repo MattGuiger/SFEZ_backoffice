@@ -93,7 +93,7 @@ onManagerEmailSubmit(data):Observable<any>{
   return this.http.post(this.emailManagerURL, data);
 }
 getHubwithTerrId(id):Observable<any>{
-  return this.http.get(this.foodParkURL+"listhubs/"+id);
+  return this.http.get(this.foodParkURL+"/listhubs/"+id);
 }
 getLocationwithTerrId(id):Observable<any>{
   return this.http.get(this.foodParkURL+"/listlocations/"+id);
@@ -239,7 +239,9 @@ addUnitToHub(foodParkId,unitId){
   setDriverToOrder(id,driverId,orderId): Observable<any> {
     return this.http.put(this.foodparkURL+"/"+id+"/orders/"+orderId,{driver_id:driverId});
   }
-
+  getCompany_unitid(id,updateId): Observable<any> {
+    return this.http.put(this.unitURL+id+"/updateunitid",updateId);
+  }
   addTerritory(data): Observable<any> {
     return this.http.post(this.territoryURL,data);
   }
