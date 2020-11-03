@@ -27,6 +27,7 @@ export class WorkComponent implements OnInit {
     tags = ['Pizza', 'Pasta', 'Parmesan'];
     form: any;
     companyId :any;
+    pass: any;
     user: any;
     // workFormData = new FormGroup({
     //     workType: new FormControl(),
@@ -35,11 +36,11 @@ export class WorkComponent implements OnInit {
     //     });
         workFormData = new FormGroup({
             // name: new FormControl(localStorage.getItem('first_name')+ ' LOC'),
-            name: new FormControl(localStorage.getItem('company_name1')+ ' LOC'),
-            username: new FormControl('', Validators.required),
+            // name: new FormControl(localStorage.getItem('company_name1')+ ' LOC'),
+            // username: new FormControl('', Validators.required),
             // username: new FormControl(),
             // password: new FormControl(),
-            password: new FormControl('', Validators.required)  ,
+            // password: new FormControl('', Validators.required),
             type: new FormControl('', Validators.required),
             // unit: new FormControl() ,
             // email: new FormControl()
@@ -81,40 +82,52 @@ export class WorkComponent implements OnInit {
     //         this.router.navigateByUrl('/forms/ngx/description/'+this.companyId, { relativeTo: this.route.parent, skipLocationChange: true });
     //     })
     //     // this.router.navigateByUrl('/forms/ngx/description/11152', { relativeTo: this.route.parent, skipLocationChange: true });
-        
     //     let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);       
-        
     // }
-
     // onSubmit(){
     //     this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
     // }
-
+    generateP() {
+            var pass = '';
+            var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+                'abcdefghijklmnopqrstuvwxyz0123456789@#$';
+        let i;
+            for (i = 1; i <= 8; i++) {
+                var char = Math.floor(Math.random()
+                    * str.length + 1);
+                pass += str.charAt(char)
+            }
+          return pass;
+    }
     onSubmit(){
         console.log("work"+ JSON.stringify(this.workFormData.value));
         console.log(this.user.role);
-        
+        this.workFormData.value.name = localStorage.getItem('first_name')+ ' LOC';
         const comapany_id= localStorage.getItem('companyId');
-        // this.workFormData.value.customer_order_window =""
-        // this.workFormData.value.delivery_time_offset=""
-        // this.workFormData.value.number='1'
-
+        const id= localStorage.getItem('Id');
+        const fname = localStorage.getItem('first_name').split('');
+        const fName = fname[0]+fname[1]+fname[2];
+        this.workFormData.value.username = fName + "_mgr1@gmail.com";
+        this.workFormData.value.password = this.generateP();
         // this.workFormData.value.delivery_radius =""
         this.workFormData.value.territory_id=this.user.territory_id;
         // this.workFormData.value.number=""
         // this._ProfileService.addUnit(this.workFormData.value).subscribe(res=>{
         this._ProfileService.addUnit(this.workFormData.value,comapany_id).subscribe(res=>{
-           const data = localStorage.setItem('workFormData', JSON.stringify(this.workFormData.value));
-            // this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true }); 
+            if(res.status==200){
+                //  this._ProfileService.getCompany_unitid(id, res.user.id).subscribe(res=>{
+                //   res.user.unit_id = res.user.id
+                //   this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
+                //  })
+                this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
+               }  
         })
-        this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });   
+        // this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });   
     }
-
-    cancel() {
-        this.router.navigate(['wizard'], { relativeTo: this.route.parent, skipLocationChange: true });
+        cancel() {
+            this.router.navigate(['wizard'], { relativeTo: this.route.parent, skipLocationChange: true });
     }
 }
-
 // {
     //             "name": "ww",
     //            "username": "ww",

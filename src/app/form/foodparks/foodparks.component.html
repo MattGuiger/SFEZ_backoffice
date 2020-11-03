@@ -967,13 +967,13 @@
         <div class="form-group">
             <label for="delivery_time_window" style="display: block;">Delivery Time Window</label>
             <!-- <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="15" min="1" max="15" step="5"></mat-slider> -->
-            <mat-slider thumbLabel min="0" max="15" step="5" [displayWith]="formatLabel" tickInterval="15" class="cdk-focused"
+            <mat-slider thumbLabel min="0" max="15" step="5" formControlName="delivery_time_window"  [displayWith]="formatLabel" tickInterval="15" class="cdk-focused"
             (input)="minDaysValue = $event.value" [value]="minDaysValue">
           </mat-slider>
               <label for="type">Type</label>
             <div class="input-group">
-              <select formControlName="delivery_time_window" class="form-control">
-                <!-- <option value="selectedHubRecord.type" [selected]="selectedHubRecord.type == item" selected >{{selectedHubRecord.type }}</option>  -->
+              <select formControlName="type" class="form-control">
+                <!-- <option value="selectedHubRecord.type" [selected]="selectedHubRecord.type === item" selected >{{selectedHubRecord.type }}</option>  -->
                 <option value="none" selected hidden> </option>
                 <option *ngFor="let item of typesForHub" >{{item}}</option>
               </select>
@@ -982,7 +982,7 @@
             <div class="input-group">
               <select formControlName="stateid" class="form-control" (change)="getTerritoryForEdit($event)">
                 <!-- <option value="selectedHubRecord.type" selected >{{selectedHubRecord.type }}</option> -->
-                <option *ngFor="let item of states2"  value="{{item.id}}" [selected]="selectedHubRecord.state_name == item.name">{{item.name}}</option>
+                <option *ngFor="let item of states2" [selected]="selectedHubRecord.state_name == item.name">{{item.name}}</option>
               </select>
             </div>
             <label for="territoryid">Territory</label>
@@ -1012,24 +1012,18 @@
      
       <div class="form-group">
           <label for="customer_order_window" style="display: block;">Customer Time Window(min)</label>
-          <!-- <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="15"></mat-slider> -->
-          <mat-slider thumbLabel formcontrol="customer_order_window" min="0" max="20" step="5" [displayWith]="formatLabel" tickInterval="10" class="cdk-focused"
+          <mat-slider thumbLabel formcontrolName="customer_order_window" min="0" max="20" step="5" [displayWith]="formatLabel" tickInterval="5" class="cdk-focused"
             (input)="minDaysValue = $event.value" [value]="minDaysValue">
           </mat-slider>
           <label for="delivery_radius" style="display: block;"> Delivery Range(mi)</label>
-          <!-- <mat-slider thumbLabel  [displayWith]="formatLabel" tickInterval="1000" min="1" step="5" max="15"></mat-slider> -->
-          <mat-slider thumbLabel min="0" max="15" step="5" formControlName="delivery_radius" [displayWith]="formatLabel" tickInterval="10" class="cdk-focused"
+          <mat-slider thumbLabel formControlName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel" tickInterval="10" class="cdk-focused"
             (input)="minDaysValue = $event.value" [value]="minDaysValue">
           </mat-slider>
-  
-          <label for="name" style="display: block;">Standard Delivery (0-5 km/mi) </label>
-          <!-- <mat-slider thumbLabel min="0" max="5" step="1" [displayWith]="formatLabel1" tickInterval="5">
-          </mat-slider> -->
+          <label for="standard_delivery" style="display: block;">Standard Delivery (0-5 km/mi) </label>
           <mat-slider thumbLabel min="0" max="5" step="1" [displayWith]="formatLabel" tickInterval="5" class="cdk-focused"
             [value]="minDaysValuse">
           </mat-slider>
-          <label for="name" style="display: block;">Long Delivery (5-10 km/mi) </label>
-          <!-- <mat-slider thumbLabel min="5" max="10" step="1" [displayWith]="formatLabel2" tickInterval="10"> -->
+          <label for="long_delivery" style="display: block;">Long Delivery (5-10 km/mi) </label>
               <mat-slider thumbLabel min="5" max="10" step="1" [displayWith]="formatLabel" tickInterval="10" class="cdk-focused"
               [value]="minDaysValue">
             </mat-slider>

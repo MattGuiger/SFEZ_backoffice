@@ -65,8 +65,9 @@ export class ScheduleComponent implements OnInit {
             this.companyId = + params['id'];
          });
         this.scheduleFormData = this.fb.group({
-          facebook: ['https://www.facebook.com/'],
-          group_name:['InstaMarkt ',Validators.required],
+          facebook: [''],
+          // group_name:['InstaMarkt ',Validators.required],
+          group_name:[''],
               schedule: [this.schedule],
               hours: [this.getTime],
               arr: this.fb.array([this.createItem()])

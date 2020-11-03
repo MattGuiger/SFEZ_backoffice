@@ -148,7 +148,8 @@
                             </div>
                           </div>
                           <label for="password">Password </label>
-                    <input type="text" class="form-control" id="password" formControlName="password" placeholder="">
+                    <input type="password
+                    " class="form-control" id="password" formControlName="password" placeholder="">
                     <div *ngIf="personalDetailsForm.get('password').touched && personalDetailsForm.get('password').invalid" class="alert alert-danger">
                         <div  *ngIf=" personalDetailsForm.get('password').errors.required ">
                               Required

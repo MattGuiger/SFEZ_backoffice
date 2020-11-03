@@ -94,15 +94,13 @@ export class FoodParkComponent implements OnInit{
     "FOODPARK",
     "FARMER"
     ]
-
-    // onLocationEditForm: FormGroup;
     onLocationEditForm = new FormGroup({
-      delivery_time_offset: new FormControl(''),
-      customer_order_window: new FormControl(''),
-      delivery_radius: new FormControl('')
+      // delivery_time_offset: new FormControl(event),
+      customer_order_window: new FormControl(event),
+      delivery_radius: new FormControl(event)
         });
     foodParkForm = new FormGroup({
-      delivery_time_window: new FormControl('', Validators.required)
+      delivery_time_window: new FormControl(event)
       });
     emailManageForm = new FormGroup({
       email: new FormControl('', Validators.required)
@@ -329,9 +327,7 @@ getlocationOnTerritoryId(){
       }
     })
   }
-
 }
-
 gethubswithterriId(){
   if(this.user.territory_id){
     this._ProfileService.getHubwithTerriID(this.user.territory_id).subscribe(res=>{
@@ -714,32 +710,22 @@ getlocationsAndHub(){
       })
   }
   editDeliveryHub(){
-
   }
   formatLabel1(value: number) {
     console.log('value',value);
-    
     // if (value <= 15) {
     //   return (value*4.25);
     // }
-
     return '$'+value*4.25;
   }
   formatLabel2(value: number) {
     console.log('value',value);
-   
     return '$'+value*7;
   }
   formatLabel3(value: number) {
     console.log('value',value);
-    
- 
-
     return '$'+value;
   }
-
-
-
   onManagerSubmit() {
     // this.managerForm.value.manager_id = this.user.manager_id;
     // this.managerForm.value.food_park_id = this.user.food_park_id;

@@ -1,11 +1,15 @@
 #paco{
     position: relative;
     left: 40px;
-    top: -20px;
+    top: -10px;
+    -webkit-filter: blur(1.5px); 
+    filter: blur(1.5px);
 }
 #dishImg{
     position: relative;
     right: -40px;
+    -webkit-filter: blur(1px); 
+    filter: blur(1px);
 }
 #up {
     position: absolute;
@@ -26,13 +30,13 @@
 #logo {
     position: absolute;
     left: 302px;
-    top: -35px;
+    top: -34px;
     font-size: 2rem;
 }
 #logo_text {
     position: absolute;
     left: 219px;
-    top: 80px;
+    top: 70px;
 }
 #err{
     position: relative;
@@ -63,7 +67,7 @@
     left: -23px;
 }
 .custom-dropzone {
-	height: 180px;
+	height: 160px;
 	color: rgb(70, 67, 67);
 	// border: 5px dashed rgb(19, 15, 15);
 	// border-radius: 5px;
