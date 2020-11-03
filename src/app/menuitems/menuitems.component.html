@@ -131,7 +131,8 @@
                                                           <p>Dropbox</p>
                                                         </div>
                                                       </div>
-                                                    </div>
+                                                    </div><br>
+                                                    <h2>Google Sheets URL </h2> <p>"https://docs.google.com/spreadsheets/d/10H5pkAdRbjbJN3JJ0p3nIRFJbt1nuDXJNlQj0lhxy18/edit"</p>
                                                   </div>
                                                 </mat-tab>
                                                 <mat-tab label="2">
@@ -312,7 +313,7 @@
                                                       </div>
                                                     </div>
                                                   </div>
-                                                  <div class="spreadsheet_detail">
+                                                  <!-- <div class="spreadsheet_detail">
                                                     <h2>Google Spreadsheet Details</h2>
                                                     <p>1. Menu Item Name: Philly Steak Sandwich
                                                     </p>
@@ -349,7 +350,55 @@
                                                       Note: 1 or more instructions can be selected for any “Menu Item, Add-On and
                                                       Required Selection” bundle.
                                                     </p>
-                                                  </div>
+                                                  </div> -->
+                                                  <h2 style="text-align: center;"><b>Spreadsheet Details</b></h2>
+                                                  <div class="spreadsheet_detail" *ngFor="let item of googleSheet | keyvalue:0; let i = index">
+                                                   <br><br>
+                                                      <p>1. Menu Item Name: {{item.value.menuItemName}}
+                                                      </p>
+                                                      <p>2. Menu Item Description: {{item.value.menuItemDescription}}</p>
+                                                      <p>3. Menu Item Price: {{item.value.menuItemPrice}}</p>
+                                                      <p>4. Image</p>
+                                                      <div class="row">
+                                                        <div class="col-12 col-md-6 col-lg-4">
+                                                          <img [src]="item.value.image" alt="">
+                                                        </div>
+                                                        <div class="col-12 col-md-6 col-lg-4" style="position: relative;top:-95px">
+                                                          <p class="p_t_note">Note:</p>
+                                                          <p>Vendors can use Google Drive or Dropbox to upload and share images.</p>
+                                                        </div>
+                                                      </div>          
+                                                      <p>5. Category:{{item.value.category}}</p>
+                                                      <!-- <p>6. Category Description: {{item.value.addOnMultiple}}</p> -->
+                                                      <p>6. Add-Ons: {{item.value.addOnMultiple}}</p>
+                                                      <p>7. Add-Ons Price: {{item.value.addOnPrice}}</p>
+                                                      <p>8. Required Category:  {{item.value.category}}</p>
+                                                      <p>9. Required Selections: {{item.value.optionSingle}} </p>
+                                                      <p>10. Required Price: {{item.value.optionSinglePrice}}</p>
+                                                      <p>11. Instructions: {{item.value.instructions}}
+                                                      </p>
+                                                      <br>
+                                                      <br>
+                                                      <br>
+                                                    </div>
+                                                  <!-- <div class="spreadsheet_detail">
+                                                      <h2>Google Spreadsheet Details</h2>
+                                                          <div *ngFor="let item of googleSheet | keyvalue:0; let i = index">
+                                                         <p>{{i+1}} Menu Item Name: {{item.value.menuItemName}}</p>
+                                                         <p>{{i+2}} Menu Item Description: {{item.value.menuItemDescription}}</p>
+                                                         <p>{{i+3}} Menu Item Price: {{item.value.menuItemPrice}}</p>
+                                                         <p>{{i+4}} Image: Image: <img [src]="item.value.image"></p>
+                                                         <p>{{i+5}} Category: {{item.value.category}}</p>
+                                                         <p>{{i+6}} Add on multiple {{item.value.addOnMultiple}}</p>
+                                                         <p>{{i+7}} Add on Price: {{item.value.addOnPrice}}</p>
+                                                         <p>{{i+8}} Category: {{item.value.optionCategory}}</p>
+                                                         <p>{{i+9}} Required Selection: {{item.value.optionSingle}}</p>
+                                                         <p>{{i+10}} Required Price: {{item.value.optionSinglePrice}}</p>
+                                                         <p>{{i+11}} Instructions: {{item.value.instructions}}</p>
+
+ 
+                                                      </div>
+                                                    </div> -->
                                                 </mat-tab>
                                                 <mat-tab label="6">
                                                   <div class="step_one padding_area">

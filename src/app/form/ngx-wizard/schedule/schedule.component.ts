@@ -22,32 +22,29 @@ import { scheduled } from 'rxjs';
 export class ScheduleComponent implements OnInit {
     title = 'STEP #5 Business Details';
     
-    hours :string;
+    hours : number[ ] = [ ];
+    getTime: number[ ] = [ ];
     facebook : string;
     allData:any;
-    schedule: any[] = [];
+    schedule: any[]=[];
     form: any;
     result:any[]=[];
     // dayArr :any[] = [];
     companyId :any;
     selectedIndex:number=1;
     hoursArr: FormArray;
+    teleGroupName: any;
     scheduleFormData: FormGroup;
     itemForm: FormGroup;
+    myForm: FormGroup;
+    arr: FormArray;
     
 
     // scheduleFormData = new FormGroup({
     //   hours: new FormControl('', Validators.required),
     //   // name: new FormControl(),
     //   schedule: new FormControl(this.schedule),
-    //   facebook: new FormControl('www.facebook.com/'),
-    //   // button1: new FormControl(),
-    //   // button2: new FormControl(),
-    //   // button3: new FormControl(),
-    //   // button4: new FormControl(),
-    //   // button5: new FormControl(),
-    //   // button6: new FormControl(),
-    //   // button7: new FormControl()      
+    //   facebook: new FormControl('www.facebook.com/'),     
     //   });
       
     data: any[] = [];
@@ -67,16 +64,16 @@ export class ScheduleComponent implements OnInit {
         this.route.params.subscribe(params => {
             this.companyId = + params['id'];
          });
-        //  this.scheduleFormData = this.fb.group({
-        //   hoursArr: this.fb.array([this.createItem()]) })
         this.scheduleFormData = this.fb.group({
-          facebook: ['www.facebook.com/'],
+          facebook: [''],
+          // group_name:['InstaMarkt ',Validators.required],
+          group_name:[''],
               schedule: [this.schedule],
-              hours: ['', Validators.required]
+              hours: [this.getTime],
+              arr: this.fb.array([this.createItem()])
         })
-      
+        // arr: this.fb.array([this.createItem()])
     }
-
     // onChange(day: string, isChecked: boolean) {
     //   const userFormArray = <FormArray>this.scheduleFormData.controls.dayArr;
     //   if (isChecked) {
@@ -88,12 +85,7 @@ export class ScheduleComponent implements OnInit {
     //     console.log(userFormArray)
     //   }
     // }
-
     onSubmit(){
-      //store data in localstorage
-  //     console.log("work"+ JSON.stringify(this.scheduleFormData.value));
-  // const data = localStorage.setItem('scheduleFormData', JSON.stringify(this.scheduleFormData.value));
-
      //merge local storage data
     //  this.mergeLocalStorageData(this.newStorage, this.scheduleFormData);
     this.allData = this.mergeData();
@@ -101,50 +93,25 @@ export class ScheduleComponent implements OnInit {
 console.log('all megre data',this.allData)
       //post request with all the data
       const company_id= localStorage.getItem('companyId');
-      // this.scheduleFormData.value.facebook = "www.facebook.com/machotacos";
-      // this.scheduleFormData.value.schedule = "0,1,2,3,4,5";
       this.scheduleFormData.value.featured_dish = localStorage.getItem('featured_dish');
       this.scheduleFormData.value.photo = localStorage.getItem('photo');
-
     this._ProfileService.updateCompanyCredentials(company_id, this.allData).subscribe((res: any) => {
       // this.toastr.success('Telegram group Created successfully');
       this.toastr.success('Success');
-      const data = localStorage.setItem('DisableRegForm', JSON.stringify("true"));
+      // const data = localStorage.setItem('DisableRegForm', JSON.stringify("true"));
       this.clearLocalstorage();
       this.router.navigate(['/forms']);
-      document.getElementById("closeModal").click();
-      
-      // window.localStorage.removeItem("tagsFormData")
-      // window.localStorage.removeItem("descriptionFormData")
-      // window.localStorage.removeItem("companyId")
-      // window.localStorage.removeItem("first_name")
-      // window.localStorage.removeItem("featured_dish")
-      // window.localStorage.removeItem("photo")
-      // window.localStorage.removeItem("company_name")
-      // window.localStorage.removeItem("company_name1")
-      
-      
-      
+      document.getElementById("closeModal").click();      
     },
       error => {
         this.toastr.error(error.error.message)
       })
-     
     }
-
     clearLocalstorage() {
       let removeKeys = ["tagsFormData", "descriptionFormData", "companyId", "first_name", "featured_dish", "photo", "company_name", "company_name1"]
       removeKeys.forEach(k => localStorage.removeItem(k))
     }
-
     mergeData(){
-    //   this.newStorage.push(this.scheduleFormData.value);
-    // localStorage.setItem("New Storage", JSON.stringify(this.newStorage));
-    // this.result= JSON.parse(localStorage.getItem("New Storage"));
-    //  stored.push(this.newStorage2);
-
-   
-    
     // const personalFormData = JSON.parse(localStorage.getItem("personalFormData"));
     // const workFormData = JSON.parse(localStorage.getItem("workFormData"));
     const tagsFormData = JSON.parse(localStorage.getItem("tagsFormData"));
@@ -153,48 +120,14 @@ console.log('all megre data',this.allData)
     // const dayData = this.onChange;
     // const combinedObject = {...personalFormData, ...workFormData, ...tagsFormData, ...descriptionFormData, ...scheduleFormData};
     const combinedObject = {...tagsFormData, ...descriptionFormData, ...scheduleFormData};
-
     return combinedObject;
-    
-    // this.result.push(JSON.parse(localStorage.getItem("tagsFormData")));
-    //  localStorage.setItem("New Storage", JSON.stringify(this.result));
-    //  let result1 = JSON.parse(localStorage.getItem("New Storage"));
-    //  console.log(result1);
-
-    //   this.result.push(JSON.parse(localStorage.getItem("descriptionFormData")));
-    //  localStorage.setItem("New Storage", JSON.stringify(this.result));
-    //  let result2= JSON.parse(localStorage.getItem("New Storage"));
-
-    //  this.result.push(JSON.parse(localStorage.getItem("workFormData")));
-    //  localStorage.setItem("New Storage", JSON.stringify(this.result));
-    //  let result3 = JSON.parse(localStorage.getItem("New Storage"));
-
-    //  this.result.push(JSON.parse(localStorage.getItem("scheduleFormData")));
-    //  localStorage.setItem("New Storage", JSON.stringify(this.result));
-    //  let result4 = JSON.parse(localStorage.getItem("New Storage"));
-
-    //  this.result.push(JSON.parse(localStorage.getItem("personalFormData")));
-    //  localStorage.setItem("New Storage", JSON.stringify(this.result));
-    //  let result5 = JSON.parse(localStorage.getItem("New Storage"));
-    //  console.log(result5);
     }
-
-    //merging all the data in local storage
-    // mergeLocalStorageData(name, data) {
-      
-    //    let oldData: any = localStorage.getItem(name);
-    //    try{
-    //         oldData = JSON.parse(oldData);
-    //    }
-    //    catch(e) {
-    //     oldData = [];
-    //       }
-    //    localStorage.setItem( name, JSON.stringify(oldData.concat(data)));
-    //      }
-    // schedule[]
+    
+    getHours(event){
+      console.log(event.target.value)
+      this.getTime.push(event.target.value)
+    }
     weekday(event){
-        // console.log(event.target.value)
-        // console.log(event.target.checked)
         if(event.target.checked){
          this.addValue(event.target)
           } else {
@@ -212,20 +145,25 @@ console.log('all megre data',this.allData)
       }
       console.log(this.schedule)
     }
-
-    // createItem(){
-    //   return this.fb.group({
-    //     facebook: ['', Validators.required],
-    //     schedule: ['', Validators.required],
-    //     hoursArr: ['', Validators.required]
-    //   })
-    // }
-
+    createItem() {
+      return this.fb.group({
+        schedule: [this.schedule],
+        hours: [this.getTime]
+      })
+    }
+    addItem() {
+      this.arr = this.scheduleFormData.get('arr') as FormArray;
+      this.arr.push(this.createItem());
+    }
     onAddHours() {
     // this.hoursArr = this.scheduleFormData.get('hoursArr') as FormArray;
     // this.hoursArr.push(this.createItem())
     }
-
+    // telegramGroupName(event) {
+      
+    //   this.teleGroupName = "InstaMarkt" + event.target.value
+    //   console.log(this.teleGroupName)
+    // }
     save(form: any) {
         console.log("telegram save");
         if (!form.valid)
@@ -243,19 +181,36 @@ console.log('all megre data',this.allData)
         // this.router.navigateByUrl('/forms/ngx/address/11152', { relativeTo: this.route.parent, skipLocationChange: true });
         let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);   
         this.selectedIndex=0;    
-        
-        //telegram
-        this._ProfileService.addTele(this.result).subscribe((res: any) => {
+        //telegram group name
+        this._ProfileService.addTele(this.scheduleFormData.value.telegramGpName).subscribe((res: any) => {
             this.toastr.success('Telegram group Created successfully');
             document.getElementById("closeModal").click();
-            
           },
             error => {
               this.toastr.error(error.error.message)
             })
-
     }
-
+    routeToFb() {
+      console.log(this.scheduleFormData.value.facebook)
+      // window.location.href = this.scheduleFormData.value.facebook;
+      window.open(this.scheduleFormData.value.facebook, "_blank")
+    }
+    routeToTelegram() {                  
+      console.log("Telegram")
+      // window.location.href = 'https://telegram.org/#t9gram.com';
+      window.open("https://telegram.org/#t9gram.com", "_blank")
+    }
+    addGroupName() {
+      //    this.teleGroupName = "InstaMarkt " + this.scheduleFormData.value.group_name;
+      // console.log( this.teleGroupName)
+    //   this._ProfileService.addTele(this.teleGroupName).subscribe((res: any) => {
+    //     this.toastr.success('Telegram group Created successfully');
+    //     document.getElementById("closeModal").click();
+    //   },
+    //   error => {
+    //     this.toastr.error(error.error.message)
+    //   })
+    }   
     cancel() {
         this.router.navigate(['wizard'], { relativeTo: this.route.parent, skipLocationChange: true });
     }

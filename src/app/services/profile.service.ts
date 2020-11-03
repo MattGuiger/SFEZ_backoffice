@@ -19,6 +19,7 @@ export class ProfileService {
   
   private companyFeaturedProfileURl = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/companies/';  
   private unitURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/companies/';   
+  private editHubURL = config.getEnvironmentVariable('endPoint') + '/api/v1/rel/food_parks/editdeliveryhub/';  
   private addUnitURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/companies/';  
   private foodparkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks';
   private addFoodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks';
@@ -46,8 +47,10 @@ export class ProfileService {
   private singleTerritoryUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories/';
   private territoryURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories';
   private googldriveUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/google/';
+   private googlsheetUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/google/googlesheetdetail';
   private unitLocationsHub = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/unit_locations/';
   private foodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel';
+  private emailManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/send-email-manager';
   private countriesURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/countries';
   private statesURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories/stateSearch';
   private authAccessURL = 'https://api.moltin.com/oauth/access_token';
@@ -80,19 +83,24 @@ export class ProfileService {
 getHubwithUnits(id):Observable<any>{
   return this.http.get(this.unitLocationsHub+id);
 }
-
-getHubwithTerrId(id):Observable<any>{
-  return this.http.get(this.foodParkURL+"/listlocations/"+id);
+getEditUnits(company_id,id,data): Observable<any> {
+  return this.http.put(this.unitURL+company_id+"/units/"+id,data);
 }
-
-getLocationwithTerrId(id):Observable<any>{
+getEditHub(id,data): Observable<any> {
+  return this.http.put(this.editHubURL+id,data);
+}
+onManagerEmailSubmit(data):Observable<any>{
+  return this.http.post(this.emailManagerURL, data);
+}
+getHubwithTerrId(id):Observable<any>{
   return this.http.get(this.foodParkURL+"/listhubs/"+id);
 }
-
+getLocationwithTerrId(id):Observable<any>{
+  return this.http.get(this.foodParkURL+"/listlocations/"+id);
+}
 getHubwithTerriID(id):Observable<any>{
   return this.http.get(this.foodparkURL+"/hubs/"+id);
 }
-
 getLocationswithTerriID(id):Observable<any>{
   return this.http.get(this.foodparkURL+"/units/"+id);
 }
@@ -105,7 +113,6 @@ getLocationswithTerriID(id):Observable<any>{
   getUnitsDriver(data):Observable<any>{
     return this.http.post(this.unitsDriverUrl, data);
   }
-
   getParticularUnitData(id):Observable<any>{
     return this.http.get(this.particularUnitUrl+id);
   }
@@ -232,7 +239,9 @@ addUnitToHub(foodParkId,unitId){
   setDriverToOrder(id,driverId,orderId): Observable<any> {
     return this.http.put(this.foodparkURL+"/"+id+"/orders/"+orderId,{driver_id:driverId});
   }
-
+  getCompany_unitid(id,updateId): Observable<any> {
+    return this.http.put(this.unitURL+id+"/updateunitid",updateId);
+  }
   addTerritory(data): Observable<any> {
     return this.http.post(this.territoryURL,data);
   }
@@ -291,7 +300,11 @@ addUnitToHub(foodParkId,unitId){
   }
   getFoldersCreatedInDrive(data) : Observable<any> {
     console.log('dataaaa',data)
+  
     return this.http.post(this.googldriveUrl+'fetchfolderscreated',data);
+  }
+  getAllGoogleSheetDetails(data) : Observable<any> {
+    return this.http.post(this.googlsheetUrl,data);
   }
   getCategory(companyId) : Observable<any> {
     return this.http.get(this.productListUrl+companyId+'/getactivecategoriesnames');
