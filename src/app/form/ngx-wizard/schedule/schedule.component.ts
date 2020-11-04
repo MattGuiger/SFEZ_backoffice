@@ -11,6 +11,7 @@ import { AuthService } from '../../../services/auth.service';
 import { ProfileService} from '../../../services/profile.service'
 import { local } from 'd3';
 import { scheduled } from 'rxjs';
+import { CommonFunctionsService } from 'src/app/services';
 
 
 @Component({
@@ -50,14 +51,17 @@ export class ScheduleComponent implements OnInit {
     data: any[] = [];
     newStorage:any[]=[];
     // newStorage2:any[]=[11,22,"Ef"];
-
+    user:any
     constructor(private router: Router,
         private _AuthService:AuthService,
         private fb: FormBuilder,
         private toastr: ToastrService,
+        private _CommonFunctionsService: CommonFunctionsService,
         private _ProfileService:ProfileService,
         private route: ActivatedRoute, private formDataService: FormDataService,
-        private workflowService: WorkflowService) {
+        private workflowService: WorkflowService,
+        ) {
+          this.user = this._CommonFunctionsService.checkUser().user;
     }
 
     ngOnInit() {
@@ -95,7 +99,7 @@ console.log('all megre data',this.allData)
       const company_id= localStorage.getItem('companyId');
       this.scheduleFormData.value.featured_dish = localStorage.getItem('featured_dish');
       this.scheduleFormData.value.photo = localStorage.getItem('photo');
-    this._ProfileService.updateCompanyCredentials(company_id, this.allData).subscribe((res: any) => {
+    this._ProfileService.updateCompanyCredentials(this.user.company_id, this.allData).subscribe((res: any) => {
       // this.toastr.success('Telegram group Created successfully');
       this.toastr.success('Success');
       // const data = localStorage.setItem('DisableRegForm', JSON.stringify("true"));
