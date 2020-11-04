@@ -1,10 +1,9 @@
 import { Component,OnInit, ViewChild } from '@angular/core';
 import {ProfileService} from '../services/profile.service'
 import {CommonFunctionsService} from '../services/commonFunctions.service'
-import {ActivatedRoute, Router} from '@angular/router'
+import {Router} from '@angular/router'
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { ToastrService } from 'ngx-toastr';
-import { Route } from '@angular/compiler/src/core';
 
 @Component({
   templateUrl: 'menuitems.component.html',
@@ -19,14 +18,8 @@ export class MenuitemsComponent implements OnInit{
   date = "";
   arr: any;
   categories: any;
-  myroute:any
   @ViewChild('ref') ref;
-  constructor(private toastr: ToastrService,
-    private _ProfileService: ProfileService,
-    private slimLoader: SlimLoadingBarService,
-    private _CommonFunctionsService:CommonFunctionsService,
-    private route:ActivatedRoute,
-    private _Router:Router){
+  constructor(private toastr: ToastrService,private _ProfileService: ProfileService,private slimLoader: SlimLoadingBarService,private _CommonFunctionsService:CommonFunctionsService,private _Router:Router){
 
   }
 
@@ -36,11 +29,6 @@ export class MenuitemsComponent implements OnInit{
     this.getgoogleauthntication()
     this.getAllCategories();
     this.getAllGoogleSheetDetails()
-    // this.route.params.subscribe(res=>{
-    //   console.log('res msumm',res)
-    // })
-   let resttt= this._Router.url
-   console.log('res msumm',resttt)
   }
   getAllProductList(){
     this.processing = true;

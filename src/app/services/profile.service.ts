@@ -275,7 +275,7 @@ addUnitToHub(foodParkId,unitId){
   getCompanyprofile(id): Observable<any> {
     return this.http.get(this.getProfileURL+id);
   }
-  
+ 
   updateGoogleSheetDetails(id,data)  : Observable<any> {
     return this.http.put(this.updateUsergooglesheetUrl+id,data);
   }
@@ -290,6 +290,7 @@ addUnitToHub(foodParkId,unitId){
     return this.http.get(this.googldriveUrl+'auth');
   }
   createfolderInGoogleDrive(data) : Observable<any> {
+    console.log('dataaaa',data)
     return this.http.post(this.googldriveUrl+'createfolder',data);
   }
   getAllGoogleSheetDetails(data) : Observable<any> {
