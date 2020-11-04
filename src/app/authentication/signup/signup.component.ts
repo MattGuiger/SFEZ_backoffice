@@ -5,6 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { AgmMap, MouseEvent, MapsAPILoader } from '@agm/core';
 import { } from 'googlemaps';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -87,6 +88,12 @@ export class SignupComponent implements OnInit {
 
   }
 
+  /**
+   * "username": "bestmenu111@yopmail.com",
+"password": "123456"
+https://api.instamarkt.co/api/v1/rel/territories/filter-territory/:country_code/state/:state_code
+   */
+
   signupform = true;
   recoverform = false;
 
@@ -132,5 +139,7 @@ export class SignupComponent implements OnInit {
 
 
   }
+
+
 
 }

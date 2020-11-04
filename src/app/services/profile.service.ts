@@ -280,6 +280,9 @@ addUnitToHub(foodParkId,unitId){
   getCompanyprofile(id): Observable<any> {
     return this.http.get(this.getProfileURL+id);
   }
+ uploadaddons(data,id){
+  return this.http.post(this.googldriveUrl+id+'/uploadmenu',data);
+ }
  
   updateGoogleSheetDetails(id,data)  : Observable<any> {
     return this.http.put(this.updateUsergooglesheetUrl+id,data);

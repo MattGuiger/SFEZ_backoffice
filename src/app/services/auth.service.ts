@@ -26,6 +26,8 @@ export class AuthService {
   getcountryList(): Observable<any> {
     return this.http.get(this.countryURL);
   }
-  
+  getIP(): Observable<any>{
+   return this.http.get("http://api.ipify.org/?format=json")
+  }
   
 }
