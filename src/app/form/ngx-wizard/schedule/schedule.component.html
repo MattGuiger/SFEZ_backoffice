@@ -52,14 +52,14 @@
                 <img src="/assets/images/business.png" />
             </div> -->          
             <div class="form-group col-4 offset-4 mt-4">
-                <label class="form-control-label" for="facebook">Facebook</label>  
+                    <div class="input-group mb-3">
+                            <!-- <img src="/assets/images/fb.png" /> -->
+                            <img src="assets/images/facebook icon.png" width="50" height="60">
+                            <!-- <button type="button" class="btn btn-fb" (click)="routeToFb()"><i class="fab fa-facebook-f pr-1"></i> Facebook</button> -->
+                        </div>
                 <input class="form-control"  formControlName="facebook" placeholder="https://www.facebook.com/machotacos">
-                <div class="input-group mb-3">
-                    <!-- <img src="/assets/images/fb.png" /> -->
-                    <img src="assets/images/facebook icon.png" width="50" height="60">
-                    <!-- <button type="button" class="btn btn-fb" (click)="routeToFb()"><i class="fab fa-facebook-f pr-1"></i> Facebook</button> -->
-                </div>
                 <!-- <div formArrayName="arr" *ngFor="let a of scheduleFormData.get('arr')['controls'] ; let i = index"> -->
+                       <br>
                         <label  class="orm-control-label">Schedule</label>
             <div formArrayName="arr" *ngFor="let a of scheduleFormData.get('arr')['controls'] ; let i = index">
                     <!-- <div [formGroupName]="i" style="margin-bottom: 10px;"> -->
@@ -131,7 +131,7 @@
                                     <div class="social">
                                         <button class="btn btn-facebook m-r-10" style="background-color:#fff;" placement="top" ngbTooltip=" Step 1: Download the Telegram App. 
                                         Step 2: Open the Telegram App. 
-                                        Step 3: Sign Up and Register your Telegram Account">  <img id="telegramImg" src="/assets/images/business.png" /> </button>
+                                        Step 3: Sign Up and Register your Telegram Account">  <img id="telegramImg" (click)="routeToTelegram()" src="/assets/images/business.png" /> </button>
                                     </div>
                             </div> 
                       <label class="form-control-label" for="group_name">Choose Group Name</label>

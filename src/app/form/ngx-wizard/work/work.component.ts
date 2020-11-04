@@ -101,7 +101,7 @@ export class WorkComponent implements OnInit {
     }
     onSubmit(){
         console.log("work"+ JSON.stringify(this.workFormData.value));
-        console.log(this.user.role);
+        console.log(this.user.role); 
         this.workFormData.value.name = localStorage.getItem('first_name')+ ' LOC';
         const comapany_id= localStorage.getItem('companyId');
         const id= localStorage.getItem('Id');

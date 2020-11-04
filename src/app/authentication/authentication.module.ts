@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
+import { AgmCoreModule } from '@agm/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { NotfoundComponent } from './404/not-found.component';
@@ -17,6 +17,7 @@ import { AuthenticationRoutes } from './authentication.routing';
   imports: [
     CommonModule,
     RouterModule.forChild(AuthenticationRoutes),
+    AgmCoreModule,
     NgbModule
   ],
   declarations: [

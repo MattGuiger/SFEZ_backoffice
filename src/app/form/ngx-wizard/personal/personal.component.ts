@@ -47,11 +47,11 @@ export class PersonalComponent implements OnInit {
     companyId : any;
     formVal={}
     personalDetailsForm = new FormGroup({
-      first_name: new FormControl('', Validators.required),
-      last_name: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
+      // first_name: new FormControl('', Validators.required),
+      // last_name: new FormControl('', Validators.required),
+      // email: new FormControl('', Validators.required),
       territory_id: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
+      // password: new FormControl('', Validators.required),
       state_id: new FormControl('', Validators.required),
       company_name: new FormControl('', Validators.required),
       // distance_range: new FormControl('', Validators.required),
@@ -141,7 +141,9 @@ export class PersonalComponent implements OnInit {
     onSubmit(){
       console.log("personal"+ JSON.stringify(this.personalDetailsForm.value));
      
-      // this.personalDetailsForm.value.role="OWNER";
+      this.personalDetailsForm.value.first_name=this.user.first_name;
+      this.personalDetailsForm.value.last_name=this.user.last_name;
+      this.personalDetailsForm.value.email=this.user.username;
       this.personalDetailsForm.value.role=this.user.role;
       this.personalDetailsForm.value.country_id = this.user.country_id;
       this.personalDetailsForm.value.latitude = "40.058174";
@@ -157,10 +159,8 @@ export class PersonalComponent implements OnInit {
           localStorage.setItem('company_name1', this.personalDetailsForm.value.company_name)
           this._ProfileService.getCompanyprofile(res.user.company_id).subscribe(res=>{
             localStorage.setItem('company_name', res.name);
-            
           })
           this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
-
         } else {
           console.log('error step1');
         //   localStorage.setItem('companyId', '11179')

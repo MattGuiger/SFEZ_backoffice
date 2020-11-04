@@ -1,72 +1,63 @@
 #paco{
     position: relative;
-    left: 40px;
-    top: -10px;
     -webkit-filter: blur(1.5px); 
     filter: blur(1.5px);
 }
+#paco img {
+    width: 100px;
+}
 #dishImg{
     position: relative;
-    right: -40px;
     -webkit-filter: blur(1px); 
     filter: blur(1px);
 }
-#up {
-    position: absolute;
-    left: 199px;
-    top: 59px;
-    // left: 586px;
-    // top: 102px;
-    // right: 316px;
-}
-#upl {
-    position: absolute;
-    left: 272px;
-    top: 100px;
-    // left: 586px;
-    // top: 102px;
-    // right: 316px;
-}
 #logo {
-    position: absolute;
-    left: 302px;
-    top: -34px;
     font-size: 2rem;
+    text-align: center;
 }
-#logo_text {
-    position: absolute;
-    left: 219px;
-    top: 70px;
+ngx-dropzone-label {
+    margin: 2px auto !important;
+}
+// ngx-dropzone-label {
+//     // visibility: hidden;
+//     position: relative;
+// }
+.ngx_img_upload img {
+    z-index: 9999;
+    opacity: 1;
+}
+.ngx_lbl {
+    display: block;
+    visibility: hidden;
 }
 #err{
     position: relative;
     top: -160x;
 }
 #dish {
-    position: absolute;
-    left: 302px;
-    top: -35px;
+    text-align: center;
     font-size: 2rem;
 }
 #dish_text {
-    position: absolute;
-    left: 190px;
-    top: 70px;
+    position: relative;
+    top: -10px;
+}
+#logo_text {
+    position: relative;
+    top: -5px;
 }
 .h2{
-    position: absolute;
+    position: relative;
     left: 302px;
     top: -25px;
 }
 .h3{
-    position: absolute;
+    position: relative;
     right: 372px; 
 }
-#next{
-    position: absolute;
-    left: -23px;
-}
+
 .custom-dropzone {
+    position: relative;
 	height: 160px;
 	color: rgb(70, 67, 67);
 	// border: 5px dashed rgb(19, 15, 15);

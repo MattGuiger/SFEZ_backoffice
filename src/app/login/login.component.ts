@@ -21,9 +21,11 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Login Successfully!');
         localStorage.setItem('user',JSON.stringify(data))
       if(data.user.profile_updated == false){
-        this.routes.navigate(['/sample-pages/profile']);  
+        // this.routes.navigate(['/sample-pages/profile']);  
+        this.routes.navigate(['/forms']);
       }else{
-        this.routes.navigate(['/dashboard/dashboard2']);
+        // this.routes.navigate(['/dashboard/dashboard2']);
+        this.routes.navigate(['/forms']);
       }
       }else{
         this.msg=data.message;

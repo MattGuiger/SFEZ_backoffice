@@ -982,7 +982,7 @@
             <div class="input-group">
               <select formControlName="stateid" class="form-control" (change)="getTerritoryForEdit($event)">
                 <!-- <option value="selectedHubRecord.type" selected >{{selectedHubRecord.type }}</option> -->
-                <option *ngFor="let item of states2" [selected]="selectedHubRecord.state_name == item.name">{{item.name}}</option>
+                <option *ngFor="let item of states2" value="{{item.id}}" [selected]="selectedHubRecord.state_name == item.name">{{item.name}}</option>
               </select>
             </div>
             <label for="territoryid">Territory</label>
