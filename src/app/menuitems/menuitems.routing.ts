@@ -19,7 +19,18 @@ export const EcomRoutes: Routes = [
       {
         path: '',
         component: MenuitemsComponent,
-      }
+      },
+      {
+        path: 'auth/:email',
+        component: MenuitemsComponent,
+        // data: {
+        //   title: 'Auth',
+        //   urls: [
+        //     { title: 'Dashboard', url: '/dashboard' },
+        //     { title: 'View Product' }
+        //   ]
+        // }
+      },
     ]
   }
 ];
