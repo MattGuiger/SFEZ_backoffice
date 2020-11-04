@@ -22,12 +22,13 @@ export class MenuitemsComponent implements OnInit{
   arr: any;
   categories: any;
   addedItems = []
+  google_sheet_url:any
   addedCategories = []
   googleEmail: any;
   @ViewChild('ref') ref;
   authentication_url: any;
   drivefolders: any;
-  public demo1TabIndex = 1;
+  public demo1TabIndex = 0;
   private tabSet: ViewContainerRef;
 
   @ViewChild(NgbTabset) set content(content: ViewContainerRef) {
@@ -86,7 +87,10 @@ export class MenuitemsComponent implements OnInit{
       console.log('emailllll', data)
       this.googleEmail = data.email
       if(data.email){
+      console.log('emailllll4444444444444444')
 
+        const tabCount = 1;
+        this.demo1TabIndex = tabCount;
       }
     })
     this.getFolderbyEmail()
@@ -172,9 +176,9 @@ export class MenuitemsComponent implements OnInit{
     this._ProfileService.getGoogleAuthenication().subscribe(res => {
       console.log('googgleData', res.data)
       this.authentication_url = res.data
-      this.toastr.success('Google account verified please move to step 2')
-      const tabCount = 1;
-      this.demo1TabIndex = tabCount;
+      // this.toastr.success('Google account verified please move to step 2')
+    
+    
     });
  }
  getAllGoogleSheetDetails(){
@@ -198,10 +202,7 @@ export class MenuitemsComponent implements OnInit{
 
 //   }
 
-demo1BtnClick() {
-  const tabCount = 3;
-  this.demo1TabIndex = tabCount;
-}
+
   createFolderinDrive() {
     const data = {
       folder: this.addedItems,
@@ -229,6 +230,7 @@ demo1BtnClick() {
     this.user = this._CommonFunctionsService.checkUser().user;
     this._ProfileService.getCompanyprofile(this.user.unit_id).subscribe((res: any) => {
       this.profile = res.data;
+      this.google_sheet_url=res.data.google_sheet_url
       console.log(this.profile)
     }, error => {
       //  
@@ -285,3 +287,5 @@ demo1BtnClick() {
   }
 
 }
+
+
