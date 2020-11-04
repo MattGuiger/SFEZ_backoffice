@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {AgmMap, MouseEvent,MapsAPILoader  } from '@agm/core'; 
 import { AgmCoreModule } from '@agm/core';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { ToastrModule } from 'ngx-toastr';

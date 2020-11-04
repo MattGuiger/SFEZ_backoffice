@@ -126,7 +126,7 @@
                 <div class="form-group col-4 offset-4 mt-4">
                     <!-- <button type="button" uiSref="work" class="btn btn-success btn-raised"
                         [disabled]="!personalForm.valid" (click)="save(personalForm)"> Next </button> -->
-                    <label for="first_name">First Name</label>
+                    <!-- <label for="first_name">First Name</label>
                     <input type="text" class="form-control" id="first_name" formControlName="first_name" placeholder="">
                     <div *ngIf="personalDetailsForm.get('first_name').touched && personalDetailsForm.get('first_name').invalid" class="alert alert-danger">
                         <div  *ngIf=" personalDetailsForm.get('first_name').errors.required ">
@@ -148,39 +148,38 @@
                             </div>
                           </div>
                           <label for="password">Password </label>
-                    <input type="password
-                    " class="form-control" id="password" formControlName="password" placeholder="">
+                    <input type="password" class="form-control" id="password" formControlName="password" placeholder="">
                     <div *ngIf="personalDetailsForm.get('password').touched && personalDetailsForm.get('password').invalid" class="alert alert-danger">
                         <div  *ngIf=" personalDetailsForm.get('password').errors.required ">
                               Required
                             </div>
-                          </div>
+                          </div> -->
                     <label for="company_name">Vendor Name</label>
-                    <input type="text" class="form-control" id="company_name" formControlName="company_name" placeholder="">
+                    <input type="text" class="form-control" id="company_name" formControlName="company_name" [(ngModel)]=vndr_name>
                     <div *ngIf="personalDetailsForm.get('company_name').touched && personalDetailsForm.get('company_name').invalid" class="alert alert-danger">
                         <div  *ngIf=" personalDetailsForm.get('company_name').errors.required ">
                               Required
                             </div>
                           </div>
-                          <label for="state_id">State</label>
+                          <!-- <label for="state_id">State</label>
                           <div class="input-group">
                             <select formControlName="state_id" class="form-control" (change)="getTerritory($event)">
                               <option *ngFor="let item of states" value="{{item.id}} , {{item.name}}">{{item.name}}</option>
                             </select>
-                          </div>
-                          <label for="territory_id">Territory</label>
+                          </div> -->
+                          <!-- <label for="territory_id">Territory</label>
                           <div class="input-group">
                             <select formControlName="territory_id" class="form-control">
                               <option *ngFor="let item of singleTerritory" value="{{item.id}}">{{item.city}}</option>
                             </select>
-                          </div>
+                          </div> -->
                     <!-- <label for="country_id">State</label>
                     <div class="input-group">
                       <select formControlName="country_id" class="form-control">
                         <option *ngFor="let item of countries" value="{{item.id}}">{{item.name}}</option>
                       </select>
                     </div> -->
-                    <label for="territory">Select Location</label>
+                    <!-- <label for="territory">Select Location</label>
                     <div class="form-group mapmarker">
                       <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [style.height.px]="300"
                         (mapClick)="placeMarker($event)">
@@ -189,7 +188,7 @@
                     </div>
                     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
                       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                    </agm-map>
+                    </agm-map> -->
                     <!-- <button type="button" uiSref="work" class="mt-3 btn btn-raised"
                         (click)="save()" style="background: #34a6bf;color:#fff;"> Next </button>     -->
                     <!-- <label for="distance_range">Distance Range</label>
@@ -203,7 +202,7 @@
             </div>
         </div>
         <div class='row'>
-            <div class='col-sm-6'>
+            <div class='col-sm-2 offset-sm-4'>
                 <div class="form-group">
                     <!-- <label class="form-control-label" id="logo" for="street">Add a Logo </label>  
                    <ngx-dropzone (change)="onSelect($event)">
@@ -228,8 +227,8 @@
                                                   <img src="/assets/images/paco.png" />
                                                 </div>
                                         </ngx-dropzone-label>
-                                        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
-                                          <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                        <ngx-dropzone-image-preview class="ngx_img_upload" ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                                          <ngx-dropzone-label class="ngx_lbl">{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
                                         </ngx-dropzone-image-preview>
                                       </div>
                     <!-- <div style="display: inline !important;" >
@@ -239,10 +238,10 @@
                     </div> -->
                 </div>   
             </div>
-            <div class='col-sm-6'>
+            <div class='col-sm-2'>
                  <div class="form-group">
                     <div id="dish">
-                        <h2>Favourite Dish </h2>
+                        <h2>Favorite Dish </h2>
                       </div> 
                     <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelectfeathured($event)">
                       <ngx-dropzone-label>
@@ -253,8 +252,8 @@
                               <img src="/assets/images/dish.jpg" />
                             </div>
                       </ngx-dropzone-label>
-                      <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of feathuredfiles" [file]="f" [removable]="true" (removed)="onRemovefeathured(f)">
-                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                      <ngx-dropzone-image-preview class="ngx_img_upload" ngProjectAs="ngx-dropzone-preview" *ngFor="let f of feathuredfiles" [file]="f" [removable]="true" (removed)="onRemovefeathured(f)">
+                        <ngx-dropzone-label class="ngx_lbl">{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
                       </ngx-dropzone-image-preview>
                     </div>
                     <!-- <ngx-dropzone (change)="onSelectfeathured($event)">
@@ -272,14 +271,16 @@
                         <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
                       </ngx-dropzone-image-preview>
                     </div> -->
-                </div>    
-                <div class='row'>
+                </div>  
+            </div>
+        </div>  
+        <div class='row'>
+            <div class="col-md-12">
                 <div class="form-group text-center">
                         <!-- (click)="save()" type="button" -->
                     <!-- <button uiSref="work" type="button" class="btn btn-raised btn-secondary mr-1" (click)="cancel()">Previous</button> -->
                     <button uiSref="result" id="next" type="submit" class="btn btn-raised btn-info"  style="background: #34a6bf;color:#fff;"> Next </button>
                 </div>
-            </div>
             </div>
         </div>
     </div>

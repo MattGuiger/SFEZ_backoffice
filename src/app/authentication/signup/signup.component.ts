@@ -1,9 +1,12 @@
 
-import { Component, OnInit } from '@angular/core';
-import { RouterModule, Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { AgmMap, MouseEvent, MapsAPILoader } from '@agm/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {AgmMap, MouseEvent,MapsAPILoader  } from '@agm/core'; 
+import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
+
 import { } from 'googlemaps';
 
 @Component({
@@ -12,13 +15,19 @@ import { } from 'googlemaps';
   // providers: [MyserviceService]
 })
 export class SignupComponent implements OnInit {
-  msg = '';
-  countryList: any[] = [];
-  showcountryInput: Boolean = false
-  currentLocation: any
-  lat: any
-  lng: any
-  constructor(private routes: Router,
+  @ViewChild(AgmMap,{static: true}) public agmMap: AgmMap;  
+    private sub: any;
+    getAddress: any;
+    lat: any;
+    lng: any;
+    latitude: any;
+    longitude: any;
+    zoom: any;
+    msg = '';
+    countryList: any[] = [];
+    showcountryInput: Boolean = false;
+    currentLocation: any;
+    constructor(private routes: Router,
     private _AuthService: AuthService,
     private toastr: ToastrService,
     private apiloader: MapsAPILoader
@@ -109,6 +118,8 @@ https://api.instamarkt.co/api/v1/rel/territories/filter-territory/:country_code/
       console.log('lng', resp.coords.longitude, 'lat', resp.coords.latitude)
       this.lat = resp.coords.latitude
       this.lng = resp.coords.longitude
+      localStorage.setItem('Latitude',this.lat)
+      localStorage.setItem('Longitude',this.lng)
       // this.apiloader.load().then(() => {
       //   let geocoder = new google.maps.Geocoder;
       //   let latlng = {lat: resp.coords.longitude, lng:resp.coords.latitude};

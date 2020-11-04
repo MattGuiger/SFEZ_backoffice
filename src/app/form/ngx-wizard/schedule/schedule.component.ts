@@ -146,14 +146,14 @@ console.log('all megre data',this.allData)
       console.log(this.schedule)
     }
     createItem() {
-      return this.fb.group({
-        schedule: [this.schedule],
-        hours: [this.getTime]
-      })
+      // return this.fb.group({
+      //   schedule: [this.schedule],
+      //   hours: [this.getTime]
+      // })
     }
     addItem() {
-      this.arr = this.scheduleFormData.get('arr') as FormArray;
-      this.arr.push(this.createItem());
+      // this.arr = this.scheduleFormData.get('arr') as FormArray;
+      // this.arr.push(this.createItem());
     }
     onAddHours() {
     // this.hoursArr = this.scheduleFormData.get('hoursArr') as FormArray;
@@ -182,23 +182,23 @@ console.log('all megre data',this.allData)
         let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);   
         this.selectedIndex=0;    
         //telegram group name
-        this._ProfileService.addTele(this.scheduleFormData.value.telegramGpName).subscribe((res: any) => {
-            this.toastr.success('Telegram group Created successfully');
-            document.getElementById("closeModal").click();
-          },
-            error => {
-              this.toastr.error(error.error.message)
-            })
+        // this._ProfileService.addTele(this.scheduleFormData.value.telegramGpName).subscribe((res: any) => {
+        //     this.toastr.success('Telegram group Created successfully');
+        //     document.getElementById("closeModal").click();
+        //   },
+        //     error => {
+        //       this.toastr.error(error.error.message)
+        //     })
     }
     routeToFb() {
       console.log(this.scheduleFormData.value.facebook)
       // window.location.href = this.scheduleFormData.value.facebook;
-      window.open(this.scheduleFormData.value.facebook, "_blank")
+      window.open(this.scheduleFormData.value.facebook)
     }
     routeToTelegram() {                  
       console.log("Telegram")
       // window.location.href = 'https://telegram.org/#t9gram.com';
-      window.open("https://telegram.org/#t9gram.com", "_blank")
+      window.open("https://telegram.org/#t9gram.com")
     }
     addGroupName() {
       //    this.teleGroupName = "InstaMarkt " + this.scheduleFormData.value.group_name;
@@ -212,6 +212,6 @@ console.log('all megre data',this.allData)
     //   })
     }   
     cancel() {
-        this.router.navigate(['wizard'], { relativeTo: this.route.parent, skipLocationChange: true });
+      this.router.navigateByUrl('/forms/ngx/description', { relativeTo: this.route.parent, skipLocationChange: true });
     }
 }

@@ -33,27 +33,31 @@ export class PersonalComponent implements OnInit {
     singleTerritory: any[] = [];
     stateAndTerritoryObject: any;
     territory:any = [];
+    latt: any;
+    long:any;
     lat = -34.397;
   lng = 150.644;
   latA = -34.754764;
   lngA = 149.736246;
   zoom = 8;
     business_address: string;
+    territoryid: any;
     city : string;
     singleState: any[] = [];
    
     // form: any;
     data: any[]=[];
     companyId : any;
+    vndr_name: any;
     formVal={}
     personalDetailsForm = new FormGroup({
-      first_name: new FormControl('', Validators.required),
-      last_name: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      territory_id: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-      state_id: new FormControl('', Validators.required),
-      company_name: new FormControl('', Validators.required),
+      // first_name: new FormControl('', Validators.required),
+      // last_name: new FormControl('', Validators.required),
+      // email: new FormControl('', Validators.required),
+      // territory_id: new FormControl('', Validators.required),
+      // password: new FormControl('', Validators.required),
+      // state_id: new FormControl('', Validators.required),
+      company_name: new FormControl(),
       // distance_range: new FormControl('', Validators.required),
       
       });
@@ -76,23 +80,35 @@ export class PersonalComponent implements OnInit {
           this.getAllStates();
           
         }
-
-
-
     ngOnInit() {
         this.personal = this.formDataService.getPersonal();
         this.getcountryList();
-        
-        
+        this.territory_id();
+        this.vendor_name();
     }
-    
+    vendor_name(){
+      this._AuthService.getVendrName(this.user.company_id).subscribe((res:any)=>{
+        this.vndr_name = res.name;
+      })
+    }
       getcountryList(){
         this._AuthService.getcountryList().subscribe((res:any)=>{
           this.countryList = res;
         })
       }
+      territory_id(){
+        this.latt = localStorage.getItem('latitude');
+        this.long = localStorage.getItem('longitude');
+        let data= {
+          latitude: this.latt,
+          longitude: this.long
+        }
+        this._AuthService.territory_id( this.user.country,this.user.state,data).subscribe((res:any)=>{
+          this.territoryid = res.id;
+          console.log("territory_id"+ this.territoryid);
+        })
+    }
       getTerritory(event) {
-
         let stateData = event.target.value;
         const strData = stateData.split(",");
         console.log(strData);
@@ -141,11 +157,14 @@ export class PersonalComponent implements OnInit {
     onSubmit(){
       console.log("personal"+ JSON.stringify(this.personalDetailsForm.value));
      
-      // this.personalDetailsForm.value.role="OWNER";
+      this.personalDetailsForm.value.first_name=this.user.first_name;
+      this.personalDetailsForm.value.last_name=this.user.last_name;
+      this.personalDetailsForm.value.email=this.user.username;
       this.personalDetailsForm.value.role=this.user.role;
       this.personalDetailsForm.value.country_id = this.user.country_id;
-      this.personalDetailsForm.value.latitude = "40.058174";
-      this.personalDetailsForm.value.longitude = "-121.315308";
+      this.personalDetailsForm.value.territory_id =  this.territoryid;
+      this.personalDetailsForm.value.latitude =  this.latt;
+      this.personalDetailsForm.value.longitude =  this.long;
 
       // const data = localStorage.setItem('personalFormData', JSON.stringify(this.personalDetailsForm.value));
       this._ProfileService.vendorRegister(this.personalDetailsForm.value).subscribe((res: any)=>{
@@ -157,10 +176,8 @@ export class PersonalComponent implements OnInit {
           localStorage.setItem('company_name1', this.personalDetailsForm.value.company_name)
           this._ProfileService.getCompanyprofile(res.user.company_id).subscribe(res=>{
             localStorage.setItem('company_name', res.name);
-            
           })
           this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
-
         } else {
           console.log('error step1');
         //   localStorage.setItem('companyId', '11179')
