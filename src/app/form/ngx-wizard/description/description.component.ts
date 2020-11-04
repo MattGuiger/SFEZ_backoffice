@@ -58,11 +58,11 @@ export class DescriptionComponent implements OnInit {
 
     onSubmit(){
         console.log("work"+ JSON.stringify(this.descriptionFormData.value));
-  const data = localStorage.setItem('descriptionFormData', JSON.stringify(this.descriptionFormData.value));
+        const data = localStorage.setItem('descriptionFormData', JSON.stringify(this.descriptionFormData.value));
         this.router.navigateByUrl('/forms/ngx/schedule', { relativeTo: this.route.parent, skipLocationChange: true });
     }
 
     cancel() {
-        this.router.navigate(['wizard'], { relativeTo: this.route.parent, skipLocationChange: true });
+        this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
     }
 }

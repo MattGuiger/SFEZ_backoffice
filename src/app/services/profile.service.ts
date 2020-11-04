@@ -31,6 +31,8 @@ export class ProfileService {
   private setDriverManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/setfooddrivertohub';  
   private addDriverURL = config.getEnvironmentVariable('endPoint') + 'auth/register'; 
   private companyURL = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/companies'; 
+  private companyURL1 = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/companies';
+
   private dailyPayout = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/getVendorDriverWagesForOrders';
   private getManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/getfoodparkmgrs';
   //private greenMoneyURL = config.getEnvironmentVariable('endPoint') + 'api/v1/payment/green-money-generate-widget/';
@@ -280,6 +282,9 @@ addUnitToHub(foodParkId,unitId){
   getCompanyprofile(id): Observable<any> {
     return this.http.get(this.getProfileURL+id);
   }
+ uploadaddons(data,id){
+  return this.http.post(this.googldriveUrl+id+'/uploadmenu',data);
+ }
  
   updateGoogleSheetDetails(id,data)  : Observable<any> {
     return this.http.put(this.updateUsergooglesheetUrl+id,data);
@@ -314,5 +319,9 @@ addUnitToHub(foodParkId,unitId){
   }
   getCompanyById(id) : Observable<any> {
     return this.http.get(this.companyURL+"/"+id);
+  }
+
+  getCompanyById1(id) : Observable<any> {
+    return this.http.get(this.companyURL1+"/"+id);
   }
 }

@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { ProfileService } from '../services/profile.service'
 import { CommonFunctionsService } from '../services/commonFunctions.service'
 import { Router, ActivatedRoute } from '@angular/router'
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../form/confirm-dialog/confirm-dialog.component';
-
+import { NgbTabset } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -22,11 +22,18 @@ export class MenuitemsComponent implements OnInit{
   arr: any;
   categories: any;
   addedItems = []
+  google_sheet_url:any
   addedCategories = []
   googleEmail: any;
   @ViewChild('ref') ref;
   authentication_url: any;
   drivefolders: any;
+  public demo1TabIndex = 0;
+  private tabSet: ViewContainerRef;
+
+  @ViewChild(NgbTabset) set content(content: ViewContainerRef) {
+    this.tabSet = content;
+  };
   constructor(private toastr: ToastrService,
     public dialog: MatDialog,
     private route: ActivatedRoute,
@@ -43,7 +50,13 @@ export class MenuitemsComponent implements OnInit{
     }
 
   }
+  ngAfterViewInit() {
+    console.log(this.tabSet['activeId'],'ppppppp');
+    if(this.googleEmail){
+      this.tabSet['activeId']='tb2'
 
+    }
+  }
   addItems() {
     console.log('addedItems', this.addedCategories)
     this.addedItems = this.addedCategories
@@ -73,6 +86,12 @@ export class MenuitemsComponent implements OnInit{
     this.route.params.subscribe(data => {
       console.log('emailllll', data)
       this.googleEmail = data.email
+      if(data.email){
+      console.log('emailllll4444444444444444')
+
+        const tabCount = 1;
+        this.demo1TabIndex = tabCount;
+      }
     })
     this.getFolderbyEmail()
 
@@ -93,6 +112,8 @@ export class MenuitemsComponent implements OnInit{
       this._ProfileService.getFoldersCreatedInDrive(data).subscribe(res => {
         console.log('resssssss getFoldersCreatedInDrive', res)
         this.drivefolders=res.data
+        const tabCount = 2;
+        this.demo1TabIndex = tabCount;
       })
 
     }
@@ -111,7 +132,21 @@ export class MenuitemsComponent implements OnInit{
       this.uploadImageToDrive(formData,folderId,category);
     }
   }
-
+  onFileSelect1(event) {
+    if (event.target.files.length > 0) {
+      console.log(event.target.files[0])
+      const file = event.target.files[0];
+      const formData = new FormData();
+      formData.append('file',file);
+      // formData.append('folderId',folderId);
+      // formData.append('email',this.googleEmail);
+      // formData.append('category',category);
+      this.user = this._CommonFunctionsService.checkUser().user;
+      this._ProfileService.uploadaddons(formData,this.user.company_id).subscribe(res => {
+      console.log('responese',res)
+      });;
+    }
+  }
   uploadImageToDrive(formData,folderId,category) {
     
     this.user = this._CommonFunctionsService.checkUser().user;
@@ -141,6 +176,9 @@ export class MenuitemsComponent implements OnInit{
     this._ProfileService.getGoogleAuthenication().subscribe(res => {
       console.log('googgleData', res.data)
       this.authentication_url = res.data
+      // this.toastr.success('Google account verified please move to step 2')
+    
+    
     });
  }
  getAllGoogleSheetDetails(){
@@ -163,6 +201,8 @@ export class MenuitemsComponent implements OnInit{
 //   console.log('onClick this.ref._checked '+ this.ref._checked);
 
 //   }
+
+
   createFolderinDrive() {
     const data = {
       folder: this.addedItems,
@@ -173,6 +213,7 @@ export class MenuitemsComponent implements OnInit{
 
     this._ProfileService.createfolderInGoogleDrive(data).subscribe(res => {
       console.log('folderss', res)
+      
       this.getFolderbyEmail()
     })
   }
@@ -189,6 +230,7 @@ export class MenuitemsComponent implements OnInit{
     this.user = this._CommonFunctionsService.checkUser().user;
     this._ProfileService.getCompanyprofile(this.user.unit_id).subscribe((res: any) => {
       this.profile = res.data;
+      this.google_sheet_url=res.data.google_sheet_url
       console.log(this.profile)
     }, error => {
       //  
@@ -245,3 +287,4 @@ export class MenuitemsComponent implements OnInit{
   }
 
 }
+
