@@ -1,794 +1,807 @@
 <div class="row el-element-overlay">
-        <div *ngIf="!productList.length">
-           <app-spinner></app-spinner>
-       </div>
-      
+  <div *ngIf="!productList.length">
+     <app-spinner></app-spinner>
+ </div>
 
-        <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Menu Items Management</h4>
-                        <h6 class="card-subtitle">A Menuitems listed here, and we can maname Menuitems by importing/syncing them from google spreadsheet.</h6>
-                        <ngb-tabset>
-                          <ngb-tab title="Menu Items">
-                            <ng-template ngbTabContent>
-                              <div class="card card-body">
-                              
-                                <!-- <div *ngIf="productList.length==0">
-                                        <h4>No Menu Items available!</h4>
-                                </div> -->
-                                 <div *ngIf="processing" class="mt-5">
-                                        <h6>Menu Items Loading...! Please wait</h6>
-                                </div>
-                                <div class="row">
-                                <div class="col-lg-3 col-md-6" *ngFor="let item of productList">
-                                    <div class="card" (click)="openProduct(item)">
-                                        <div class="el-card-item">
-                                            <div class="el-card-avatar el-overlay-1">
-                                                <img src="{{item.image ? item.image :'assets/images/gallery/noProduct.png'}}" alt="user" class="productimg"/>
-                                                <div class="el-overlay">
-                                                    <ul class="list-style-none el-info">
-                                                        <li class="el-item">
-                                                            <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                                                <i class="icon-link"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex no-block align-items-center">
-                                                <div class="m-l-15">
-                                                    <h4 class="m-b-0 fix-ht-h4">{{getTitle(item.name)}}</h4>
-                                                    <span class="text-muted fix-ht-spn">{{getDescription(item.description)}}</span>
-                                                </div>
-                                                <div class="ml-auto m-r-15">
-                                                    <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD' ? '$' : item.price[0].currency}} {{item.price[0].amount}}</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
 
+  <div class="col-md-12">
+          <div class="card">
+              <div class="card-body">
+                  <h4 class="card-title">Menu Items Management</h4>
+                  <h6 class="card-subtitle">A Menuitems listed here, and we can maname Menuitems by importing/syncing them from google spreadsheet.</h6>
+                  <ngb-tabset  #t="ngbTabset">
+                    <ngb-tab title="Menu Items" id="tb1">
+                      <ng-template ngbTabContent>
+                        <div class="card card-body">
+                        
+                          <!-- <div *ngIf="productList.length==0">
+                                  <h4>No Menu Items available!</h4>
+                          </div> -->
+                           <div *ngIf="processing" class="mt-5">
+                                  <h6>Menu Items Loading...! Please wait</h6>
+                          </div>
+                          <div class="row">
+                          <div class="col-lg-3 col-md-6" *ngFor="let item of productList">
+                              <div class="card" (click)="openProduct(item)">
+                                  <div class="el-card-item">
+                                      <div class="el-card-avatar el-overlay-1">
+                                          <img src="{{item.image ? item.image :'assets/images/gallery/noProduct.png'}}" alt="user" class="productimg"/>
+                                          <div class="el-overlay">
+                                              <ul class="list-style-none el-info">
+                                                  <li class="el-item">
+                                                      <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                                          <i class="icon-link"></i>
+                                                      </a>
+                                                  </li>
+                                              </ul>
+                                          </div>
+                                      </div>
+                                      <div class="d-flex no-block align-items-center">
+                                          <div class="m-l-15">
+                                              <h4 class="m-b-0 fix-ht-h4">{{getTitle(item.name)}}</h4>
+                                              <span class="text-muted fix-ht-spn">{{getDescription(item.description)}}</span>
+                                          </div>
+                                          <div class="ml-auto m-r-15">
+                                              <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD' ? '$' : item.price[0].currency}} {{item.price[0].amount}}</button>
+                                          </div>
+                                      </div>
+                                  </div>
                               </div>
-                            </ng-template>
-                          </ngb-tab>
-        
-                          <ngb-tab title="Google Sheet | images">
-                            <ng-template ngbTabContent>
-                              <div class="card card-body">
-                                    <!-- <form class="form-horizontal form-material">
-                                            <div class="form-group">
-                                                <label class="col-md-12">Name</label>
-                                                <div class="col-md-12">
-                                                    <input type="text" value="{{profile.name}}" class="form-control form-control-line" disabled>
-                                                </div>
+                          </div>
+                          </div>
+
+                        </div>
+                      </ng-template>
+                    </ngb-tab>
+  
+                    <ngb-tab title="Google Sheet | images" id="tb2">
+                      <ng-template ngbTabContent>
+                        <div class="card card-body">
+                              <!-- <form class="form-horizontal form-material">
+                                      <div class="form-group">
+                                          <label class="col-md-12">Name</label>
+                                          <div class="col-md-12">
+                                              <input type="text" value="{{profile.name}}" class="form-control form-control-line" disabled>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="example-email" class="col-md-12">Email</label>
+                                          <div class="col-md-12">
+                                              <input type="email"  value="{{profile.email}}" class="form-control form-control-line" name="example-email" id="example-email" disabled>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label class="col-md-12">Google Sheet URL</label>
+                                          <div class="col-md-12">
+                                              <a href="{{profile.google_sheet_url}}" target="_blank">{{profile.google_sheet_url}}</a>
+                                          </div>
+                                      </div>
+      
+                                      <div class="form-group">
+                                          <div class="col-sm-8">
+                                              <button class="btn btn-success" (click)="uploadGoogleMenuSheet()" *ngIf="profile.google_sheet_url">Sync Google Menu Items</button>
+                                          </div>
+                                      </div>
+                                  </form> -->
+                                  <section class="hero_section">
+                                      <div class="container">
+                                        <div class="row">
+                                          <div class="col-md-10 offset-md-1">
+                                            <div class="hero_content">
+                                              <h2>Google Sheets Tutorial</h2>
+                                              <p class="text-center">InstaMarkt uses one central location (Google Sheets) to store a vendor's menu.
+                                                This includes menu item names (or products), pricing, description, add-ons, categories, s
+                                                pecial instructions, etc. This is a step-by-step tutorial for how to upload these menu item details.</p>
+                                              <h4 class="text-center">Example Spreadsheet Below:</h4>
+                                              <img src="../../assets/images/Layer-1@1X.png" alt="" class="hero_img">
+                                              <h2 class="text-center">Onboarding Workflow (Similar to Vendor Registration):</h2>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="example-email" class="col-md-12">Email</label>
-                                                <div class="col-md-12">
-                                                    <input type="email"  value="{{profile.email}}" class="form-control form-control-line" name="example-email" id="example-email" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-12">Google Sheet URL</label>
-                                                <div class="col-md-12">
-                                                    <a href="{{profile.google_sheet_url}}" target="_blank">{{profile.google_sheet_url}}</a>
-                                                </div>
-                                            </div>
-            
-                                            <div class="form-group">
-                                                <div class="col-sm-8">
-                                                    <button class="btn btn-success" (click)="uploadGoogleMenuSheet()" *ngIf="profile.google_sheet_url">Sync Google Menu Items</button>
-                                                </div>
-                                            </div>
-                                        </form> -->
-                                        <section class="hero_section">
-                                            <div class="container">
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </section>
+                                    
+                                    <section class="step_tabs">
+                                      <div class="container">
+                                        <mat-tab-group [(selectedIndex)]="demo1TabIndex">
+                                          <mat-tab label="1">
+                                            <div class="step_one">
+                                              <h2>Step 1</h2>
+                                              <h4>Select Google Drive or Dropbox</h4>
                                               <div class="row">
-                                                <div class="col-md-10 offset-md-1">
-                                                  <div class="hero_content">
-                                                    <h2>Google Sheets Tutorial</h2>
-                                                    <p class="text-center">InstaMarkt uses one central location (Google Sheets) to store a vendor's menu.
-                                                      This includes menu item names (or products), pricing, description, add-ons, categories, s
-                                                      pecial instructions, etc. This is a step-by-step tutorial for how to upload these menu item details.</p>
-                                                    <h4 class="text-center">Example Spreadsheet Below:</h4>
-                                                    <img src="../../assets/images/Layer-1@1X.png" alt="" class="hero_img">
-                                                    <h2 class="text-center">Onboarding Workflow (Similar to Vendor Registration):</h2>
+                                                <div class="col-6 col-md-4 offset-md-2 col-lg-2 offset-lg-4">
+                                                  <!-- <div class="icon_card" (click)="getgmailuser()">
+                                                    <a href={{authentication_url}}>
+                                                      <img src="../../assets/images/google-drive@1X.png" alt="  " class="drive">
+                                                      <p>Google Drive</p>
+                                                    </a>
+                                                   
+                                                  </div> -->
+                                                  <div class="icon_card" >
+                                                    <a href={{authentication_url}}>
+                                                      <img src="../../assets/images/google-drive@1X.png" alt="  " class="drive">
+                                                      <p>Google Drive</p>
+                                                    </a>
+                                                   
+                                                  </div>
+                                                </div>
+                                                <div class="col-6 col-md-4 col-lg-2">
+                                                  <div class="icon_card">
+                                                    <img src="../../assets/images/dropbox@1X.png" alt="  " class="dropbox">
+                                                    <p>Dropbox</p>
+                                                  </div>
+                                                </div>
+                                              </div><br>
+                                              <h2>Google Sheets URL </h2> <p>"https://docs.google.com/spreadsheets/d/10H5pkAdRbjbJN3JJ0p3nIRFJbt1nuDXJNlQj0lhxy18/edit"</p>
+                                            </div>
+                                          </mat-tab>
+                                          <mat-tab label="2">
+                                            <div class="step_one">
+                                              <h2>Step 2</h2>
+                                              <h4>Select Your Categories</h4>
+                                              <div class="row">
+                                                <div class="col-md-12 col-lg-10 offset-lg-1">
+                                                  <div class="category_sec">
+                                                    <div class="row">
+                                                      <div class="col-md-5">
+                                                        <div class="category_area">
+                                                          <div class="category_head">
+                                                            <p>Available Categories</p>
+                                                          </div>
+                                                          <div class="category_checkbox">
+                                                            <mat-form-field appearance="fill">
+                                                              <input matInput placeholder="Search" class="form-control">
+                                                            </mat-form-field>
+                                                
+                                                            <div *ngFor="let category of categories">
+                                                              <mat-checkbox 
+                                                              [checked]="checked"
+                                                              (change)="onChange($event,category.category); false"
+                                                            >{{category.category}}</mat-checkbox>
+                                                              <!-- <mat-checkbox>Salads</mat-checkbox>
+                                                              <mat-checkbox>
+                                                                Entrées
+                                                              </mat-checkbox>
+                                                              <mat-checkbox>Beverages</mat-checkbox>
+                                                              <mat-checkbox>Sandwiches</mat-checkbox>
+                                                              <mat-checkbox>Burgers</mat-checkbox>
+                                                              <mat-checkbox>Noodles</mat-checkbox> -->
+                                                            </div>
+                                                       
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-2">
+                                                        <div class="category_btn">
+                                                          <button mat-raised-button class="btn btn-primary btn-block"(click)="addItems()">Add &gt;</button>
+                                                          <button mat-raised-button class="btn btn-secondary btn-block">&lt; Remove</button>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-5">
+                                                        <div class="category_area">
+                                                          <div class="category_head">
+                                                            <p>Selected Categories (Up to 7)</p>
+                                                          </div>
+                                                          <div class="category_checkbox">
+                                                            <mat-form-field appearance="fill">
+                                                              <input matInput placeholder="Search" class="form-control">
+                                                            </mat-form-field>
+                                                            <div *ngFor="let addeditem of  addedItems">
+                                                              <mat-checkbox 
+                                                              [checked]="checked"
+                                                              (change)="onChange1($event,addeditem); false"
+                                                            >{{addeditem}}</mat-checkbox>
+                                                            </div>
+                                                            
+                                                         
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <button mat-raised-button class="btn btn-primary btn-block"(click)="createFolderinDrive()">Create Folder in Drive</button>
+
                                                   </div>
                                                 </div>
                                               </div>
                                             </div>
-                                          </section>
-                                          
-                                          <section class="step_tabs">
-                                            <div class="container">
-                                              <mat-tab-group>
-                                                <mat-tab label="1">
-                                                  <div class="step_one">
-                                                    <h2>Step 1</h2>
-                                                    <h4>Select Google Drive or Dropbox</h4>
-                                                    <div class="row">
-                                                      <div class="col-6 col-md-4 offset-md-2 col-lg-2 offset-lg-4">
-                                                        <div class="icon_card">
-                                                          <a href={{authentication_url}}>
-                                                            <img src="../../assets/images/google-drive@1X.png" alt="  " class="drive">
-                                                            <p>Google Drive</p>
-                                                          </a>
-                                                         
-                                                        </div>
-                                                      </div>
-                                                      <div class="col-6 col-md-4 col-lg-2">
-                                                        <div class="icon_card">
-                                                          <img src="../../assets/images/dropbox@1X.png" alt="  " class="dropbox">
-                                                          <p>Dropbox</p>
-                                                        </div>
-                                                      </div>
-                                                    </div><br>
-                                                    <h2>Google Sheets URL </h2> <p>"https://docs.google.com/spreadsheets/d/10H5pkAdRbjbJN3JJ0p3nIRFJbt1nuDXJNlQj0lhxy18/edit"</p>
+                                          </mat-tab>
+                                          <mat-tab label="3">
+                                            <div class="step_one">
+                                              <h2>Step 3</h2>
+                                              <h4>Upload images in their respective folder (or category) as shown below:</h4>
+                                              <div class="row">
+                                                <div class="col-md-4">
+                                                  <div class="step_three_left">
+                                                    <h5>Image Name:</h5>
+                                                    <img src="../../assets/images/Chicken-Teriyaki.png" alt="">
+                                                    <p>chicken-teriyaki.png</p>
                                                   </div>
-                                                </mat-tab>
-                                                <mat-tab label="2">
-                                                  <div class="step_one">
-                                                    <h2>Step 2</h2>
-                                                    <h4>Select Your Categories</h4>
-                                                    <div class="row">
-                                                      <div class="col-md-12 col-lg-10 offset-lg-1">
-                                                        <div class="category_sec">
-                                                          <div class="row">
-                                                            <div class="col-md-5">
-                                                              <div class="category_area">
-                                                                <div class="category_head">
-                                                                  <p>Available Categories</p>
-                                                                </div>
-                                                                <div class="category_checkbox">
-                                                                  <mat-form-field appearance="fill">
-                                                                    <input matInput placeholder="Search" class="form-control">
-                                                                  </mat-form-field>
-                                                      
-                                                                  <div *ngFor="let category of categories">
-                                                                    <mat-checkbox 
-                                                                    [checked]="checked"
-                                                                    (change)="onChange($event,category.category); false"
-                                                                  >{{category.category}}</mat-checkbox>
-                                                                    <!-- <mat-checkbox>Salads</mat-checkbox>
-                                                                    <mat-checkbox>
-                                                                      Entrées
-                                                                    </mat-checkbox>
-                                                                    <mat-checkbox>Beverages</mat-checkbox>
-                                                                    <mat-checkbox>Sandwiches</mat-checkbox>
-                                                                    <mat-checkbox>Burgers</mat-checkbox>
-                                                                    <mat-checkbox>Noodles</mat-checkbox> -->
-                                                                  </div>
-                                                             
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-2">
-                                                              <div class="category_btn">
-                                                                <button mat-raised-button class="btn btn-primary btn-block"(click)="addItems()">Add &gt;</button>
-                                                                <button mat-raised-button class="btn btn-secondary btn-block">&lt; Remove</button>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-md-5">
-                                                              <div class="category_area">
-                                                                <div class="category_head">
-                                                                  <p>Selected Categories (Up to 7)</p>
-                                                                </div>
-                                                                <div class="category_checkbox">
-                                                                  <mat-form-field appearance="fill">
-                                                                    <input matInput placeholder="Search" class="form-control">
-                                                                  </mat-form-field>
-                                                                  <div *ngFor="let addeditem of  addedItems">
-                                                                    <mat-checkbox 
-                                                                    [checked]="checked"
-                                                                    (change)="onChange1($event,addeditem); false"
-                                                                  >{{addeditem}}</mat-checkbox>
-                                                                  </div>
-                                                                  
-                                                               
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <button mat-raised-button class="btn btn-primary btn-block"(click)="createFolderinDrive()">Create Folder in Drive</button>
-
-                                                        </div>
-                                                      </div>
-                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 offset-md-2">
+                                                  <div class="step_three_right">
+                                                    <h5>Category:</h5>
+                                                    <ul *ngFor="let folder of drivefolders">
+                                                      <li>
+                                                        <img src="../../assets/images/folder@1X.png" alt="">
+                                                        <p>{{folder.foldername}}</p>
+                                                        <div class="custom-file">
+                                                          <input type="file" name="file"class="custom-file-input" id="customFile" 
+                                                          (change)="onFileSelect($event,folder.folderid,folder.foldername)">
+                                                          <label class="custom-file-label" for="customFile">Choose file</label>
+                                                        </div>                                                            </li>
+                                                      <!-- <li>
+                                                        <img src="../../assets/images/folder@1X.png" alt="">
+                                                        <p>Salads</p>
+                                                      </li>
+                                                      <li>
+                                                        <img src="../../assets/images/folder@1X.png" alt="">
+                                                        <p>Soup</p>
+                                                      </li> -->
+                                                    </ul>
                                                   </div>
-                                                </mat-tab>
-                                                <mat-tab label="3">
-                                                  <div class="step_one">
-                                                    <h2>Step 3</h2>
-                                                    <h4>Upload images in their respective folder (or category) as shown below:</h4>
-                                                    <div class="row">
-                                                      <div class="col-md-4">
-                                                        <div class="step_three_left">
-                                                          <h5>Image Name:</h5>
-                                                          <img src="../../assets/images/Chicken-Teriyaki.png" alt="">
-                                                          <p>chicken-teriyaki.png</p>
-                                                        </div>
-                                                      </div>
-                                                      <div class="col-md-6 offset-md-2">
-                                                        <div class="step_three_right">
-                                                          <h5>Category:</h5>
-                                                          <ul>
-                                                            <li>
-                                                              <img src="../../assets/images/folder@1X.png" alt="">
-                                                              <p>Lunch</p>
-                                                            </li>
-                                                            <li>
-                                                              <img src="../../assets/images/folder@1X.png" alt="">
-                                                              <p>Salads</p>
-                                                            </li>
-                                                            <li>
-                                                              <img src="../../assets/images/folder@1X.png" alt="">
-                                                              <p>Soup</p>
-                                                            </li>
-                                                          </ul>
-                                                        </div>
-                                                      </div>
-                                                      <div class="col-md-12">
-                                                        <div class="sync_btn">
-                                                          <button mat-raised-button class="btn">Sync to Google Sheets <img
-                                                              src="../../assets/images/google-sheets-icon.png" alt=""></button>
-                                                        </div>
-                                                      </div>
-                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                  <div class="sync_btn">
+                                                    <button mat-raised-button class="btn"
+                                                    (click)="uploadGoogleMenuSheet()">Sync to Google Sheets <img
+                                                        src="../../assets/images/google-sheets-icon.png" alt="" ></button>
                                                   </div>
-                                                </mat-tab>
-                                                <mat-tab label="4">
-                                                  <div class="step_one padding_area">
-                                                    <h2>Step 4</h2>
-                                                    <h4>Upload Menu (jpg or png)</h4>
-                                                    <div class="row">
-                                                      <div class="col-md-12">
-                                                        <div class="step_four">
-                                                          <div class="form-group">
-                                                            <label for="" class="label-control">Upload Files</label>
-                                                            <div class="custom-file">
-                                                              <input type="file" class="custom-file-input" id="customFile">
-                                                              <label class="custom-file-label" for="customFile">Choose file</label>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                      <div class="col-md-12">
-                                                        <div class="add_btn">
-                                                          <button mat-raised-button class="btn btn-primary">Add More Menu Files</button>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                    <div class="row">
-                                                      <div class="col-md-4 col-lg-3">
-                                                        <div class="bot_img">
-                                                          <img src="../../assets/images/Bot.png" alt="">
-                                                        </div>
-                                                      </div>
-                                                      <div class="col-md-8 col-lg-8 offset-lg-1">
-                                                        <div class="bot_txt">
-                                                          <p>Please upload 1 or more pictures of your menu that includes
-                                                            descriptions, pricing, add-ons, special instructions, beverages, etc.
-                                                            We will also use this information in our Customer Ordering Bot.</p>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </mat-tab>
-                                                <mat-tab label="5">
-                                                  <div class="step_one padding_area">
-                                                    <h2>Step 5</h2>
-                                                    <h4>Custom Google Sheets Spreadsheet</h4>
-                                                    <p>Thank you for providing these menu item details! InstaMarkt Support will finish
-                                                      creating your menu in Google Sheets. We will schedule a time with you to confirm
-                                                      that all this information is correct.</p>
-                                                    <div class="row">
-                                                      <div class="col-md-12">
-                                                        <div class="step_five">
-                                                          <img src="../../assets/images/Layer-2@1X.png">
-                                                          <img src="../../assets/images/Layer-3@1X.png">
-                                                          <h4>Google Sheets Link (URL)</h4>
-                                                          <p>Vendors can make changes directly to their menu in Google Sheets by clicking on
-                                                            this shared link. Once ready, use the button below to update the menu.</p>
-                                                        </div>
-                                                      </div>
-                                                      <div class="col-md-12">
-                                                        <div class="sync_btn">
-                                                          <button mat-raised-button class="btn">Sync to Google Sheets <img
-                                                              src="../../assets/images/google-sheets-icon.png" alt=""></button>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                  <!-- <div class="spreadsheet_detail">
-                                                    <h2>Google Spreadsheet Details</h2>
-                                                    <p>1. Menu Item Name: Philly Steak Sandwich
-                                                    </p>
-                                                    <p>2. Menu Item Description: Sandwich made with super thinly sliced ribeye steak, caramelized onion, and
-                                                      provolone cheese</p>
-                                                    <p>3. Menu Item Price: $12.00</p>
-                                                    <p>4. Image</p>
-                                                    <div class="row">
-                                                      <div class="col-12 col-md-6 col-lg-4">
-                                                        <img src="../../assets/images/Cheez-Whiz-Philly-Cheese-Steak-Sandwich-photo.png" alt="">
-                                                      </div>
-                                                      <div class="col-12 col-md-6 col-lg-4">
-                                                        <p class="p_t_note">Note:</p>
-                                                        <p>Vendors can use Google Drive or Dropbox to upload and share images.</p>
-                                                      </div>
-                                                    </div>          
-                                                    <p>5. Category: Sandwiches (Categories like “Lunch”, “Dinner”, “Soups” can be used)</p>
-                                                    <p>6. Category Description: Choose from our classic Philly, Buffalo Chicken, Sliders and
-                                                      Vegetarian Sandwiches.</p>
-                                                    <p>7. Category Image:</p>
-                                                    <img src="../../assets/images/Best-Burger.png">
-                                                    <p>8. Add-Ons: Extra Meat, Curly Fries, Chips & Guacamole</p>
-                                                    <p>9. Add-Ons Price: 3.00, 4.00, 2.50
-                                                      Note: “3.00” corresponds to “Extra Meat” ($3.00), “4.00” corresponds to “Curly Fries”
-                                                      ($4.00), etc.</p>
-                                                    <p>10. Required Category: Size</p>
-                                                    <p>11. Required Selections: Regular, Large
-                                                      Note: Other “Required Categories” can be used. “Meat” (Required Category) could
-                                                      have selections for “Beef”, “Chicken” or “Pork”. All possible selections are listed. </p>
-                                                    <p>12. Required Price: 0, 1.80
-                                                      Note: “Regular” size would have no additional charge ($0). “Large” size would be
-                                                      +$1.80.</p>
-                                                    <p>13. Instructions: Gluten-Free, Spicy, Extra Sauce
-                                                      Note: 1 or more instructions can be selected for any “Menu Item, Add-On and
-                                                      Required Selection” bundle.
-                                                    </p>
-                                                  </div> -->
-                                                  <h2 style="text-align: center;"><b>Spreadsheet Details</b></h2>
-                                                  <div class="spreadsheet_detail" *ngFor="let item of googleSheet | keyvalue:0; let i = index">
-                                                   <br><br>
-                                                      <p>1. Menu Item Name: {{item.value.menuItemName}}
-                                                      </p>
-                                                      <p>2. Menu Item Description: {{item.value.menuItemDescription}}</p>
-                                                      <p>3. Menu Item Price: {{item.value.menuItemPrice}}</p>
-                                                      <p>4. Image</p>
-                                                      <div class="row">
-                                                        <div class="col-12 col-md-6 col-lg-4">
-                                                          <img [src]="item.value.image" alt="">
-                                                        </div>
-                                                        <div class="col-12 col-md-6 col-lg-4" style="position: relative;top:-95px">
-                                                          <p class="p_t_note">Note:</p>
-                                                          <p>Vendors can use Google Drive or Dropbox to upload and share images.</p>
-                                                        </div>
-                                                      </div>          
-                                                      <p>5. Category:{{item.value.category}}</p>
-                                                      <!-- <p>6. Category Description: {{item.value.addOnMultiple}}</p> -->
-                                                      <p>6. Add-Ons: {{item.value.addOnMultiple}}</p>
-                                                      <p>7. Add-Ons Price: {{item.value.addOnPrice}}</p>
-                                                      <p>8. Required Category:  {{item.value.category}}</p>
-                                                      <p>9. Required Selections: {{item.value.optionSingle}} </p>
-                                                      <p>10. Required Price: {{item.value.optionSinglePrice}}</p>
-                                                      <p>11. Instructions: {{item.value.instructions}}
-                                                      </p>
-                                                      <br>
-                                                      <br>
-                                                      <br>
-                                                    </div>
-                                                  <!-- <div class="spreadsheet_detail">
-                                                      <h2>Google Spreadsheet Details</h2>
-                                                          <div *ngFor="let item of googleSheet | keyvalue:0; let i = index">
-                                                         <p>{{i+1}} Menu Item Name: {{item.value.menuItemName}}</p>
-                                                         <p>{{i+2}} Menu Item Description: {{item.value.menuItemDescription}}</p>
-                                                         <p>{{i+3}} Menu Item Price: {{item.value.menuItemPrice}}</p>
-                                                         <p>{{i+4}} Image: Image: <img [src]="item.value.image"></p>
-                                                         <p>{{i+5}} Category: {{item.value.category}}</p>
-                                                         <p>{{i+6}} Add on multiple {{item.value.addOnMultiple}}</p>
-                                                         <p>{{i+7}} Add on Price: {{item.value.addOnPrice}}</p>
-                                                         <p>{{i+8}} Category: {{item.value.optionCategory}}</p>
-                                                         <p>{{i+9}} Required Selection: {{item.value.optionSingle}}</p>
-                                                         <p>{{i+10}} Required Price: {{item.value.optionSinglePrice}}</p>
-                                                         <p>{{i+11}} Instructions: {{item.value.instructions}}</p>
-
- 
-                                                      </div>
-                                                    </div> -->
-                                                </mat-tab>
-                                                <mat-tab label="6">
-                                                  <div class="step_one padding_area">
-                                                    <h2>Manual Copy of Image URL's</h2>
-                                                    <h4>For those of you that are tech savvy, owners can copy the Image URL's from
-                                                      both Google Drive or Dropbox and paste them into the Google Sheets Spreadsheet.</h4>
-                                                    <div class="step_six">
-                                                      <div class="row">
-                                                        <div class="col-md-3">
-                                                          <div class="icon_card">
-                                                            <img src="../../assets/images/google-drive@1X.png" alt="  " class="drive">
-                                                            <p>Google Drive</p>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-md-9">
-                                                          <p>1. Login to Google Drive and upload all of your images first. Use folders for the Menu Categories
-                                                            (lunch, dinner, soups, etc.) if you wish. </p>
-                                                          <p>2. After the images have been uploaded, select each image and click the “Share Image” button.</p>
-                                                          <img src="../../assets/images/Layer-5@1X.png" alt="">
-                                                          <img src="../../assets/images/Layer-6@1X.png" alt="">
-                                                          <p>Copy the link (as shown above) and paste the URL into Google Sheets (the one we created for you).
-                                                            Example URL: https://drive.google.com/file/d/1UAsbJZb66kBcaETVBT7nClg0B5k0c7yr/view?usp=sharing</p>
-                                                          <p>1. Login to Dropbox and upload all of your images first. Use folders for the Menu Categories
-                                                            (lunch, dinner, soups, etc.) if you wish.
-                                          
-                                                            2. After the images have been uploaded, select each image, right click and share that image.
-                                                            Please copy the URL (share link) and after paste it into Google Sheets (the one we created for you).
-                                          
-                                                            3. Example URL:
-                                                            https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0
-                                                          </p>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                    <div class="step_six">
-                                                      <div class="row">
-                                                        <div class="col-md-3">
-                                                          <div class="icon_card">
-                                                            <img src="../../assets/images/dropbox@1X.png" alt="  " class="drive">
-                                                            <p>Dropbox</p>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col-md-9">
-                                                          <p>1. Login to Dropbox and upload all of your images first. Use folders for the Menu Categories (lunch,
-                                                            dinner, soups, etc.) if you wish.</p>
-                                                          <p>2. After the images have been uploaded, select each image, right click and share that image.
-                                                            Please copy the URL (share link) and after paste it into Google Sheets (the one we created for you).
-                                                          </p>
-                                                          <p>3. Example URL:
-                                                            https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0</p>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </mat-tab>
-                                              </mat-tab-group>
-                                          
+                                                </div>
+                                              </div>
                                             </div>
-                                          </section>
-                                    </div>
-                              <div class="row">
-                                  <div class="col-sm-4"></div>
-                              <div class="col-sm-4">
+                                          </mat-tab>
+                                          <mat-tab label="4">
+                                            <div class="step_one padding_area">
+                                              <h2>Step 4</h2>
+                                              <h4>Upload Menu (jpg or png)</h4>
+                                              <div class="row">
+                                                <div class="col-md-12">
+                                                  <div class="step_four">
+                                                    <div class="form-group">
+                                                      <label for="" class="label-control">Upload Files</label>
+                                                      <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFile"
+                                                        (change)="onFileSelect1($event)">
+                                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                  <div class="add_btn">
+                                                    <button mat-raised-button class="btn btn-primary">Add More Menu Files</button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="col-md-4 col-lg-3">
+                                                  <div class="bot_img">
+                                                    <img src="../../assets/images/Bot.png" alt="">
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-8 col-lg-8 offset-lg-1">
+                                                  <div class="bot_txt">
+                                                    <p>Please upload 1 or more pictures of your menu that includes
+                                                      descriptions, pricing, add-ons, special instructions, beverages, etc.
+                                                      We will also use this information in our Customer Ordering Bot.</p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </mat-tab>
+                                          <mat-tab label="5">
+                                            <div class="step_one padding_area">
+                                              <h2>Step 5</h2>
+                                              <h4>Custom Google Sheets Spreadsheet</h4>
+                                              <p>Thank you for providing these menu item details! InstaMarkt Support will finish
+                                                creating your menu in Google Sheets. We will schedule a time with you to confirm
+                                                that all this information is correct.</p>
+                                              <div class="row">
+                                                <div class="col-md-12">
+                                                  <div class="step_five">
+                                                    <img src="../../assets/images/Layer-2@1X.png">
+                                                    <img src="../../assets/images/Layer-3@1X.png">
+                                                    <h4>Google Sheets Link (URL)</h4>
+                                                    <p>Vendors can make changes directly to their menu in Google Sheets by clicking on
+                                                      this shared link. Once ready, use the button below to update the menu.</p>
+                                                  </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                  <div class="sync_btn">
+                                                    <button mat-raised-button class="btn">Sync to Google Sheets <img
+                                                        src="../../assets/images/google-sheets-icon.png" alt=""></button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <!-- <div class="spreadsheet_detail">
+                                              <h2>Google Spreadsheet Details</h2>
+                                              <p>1. Menu Item Name: Philly Steak Sandwich
+                                              </p>
+                                              <p>2. Menu Item Description: Sandwich made with super thinly sliced ribeye steak, caramelized onion, and
+                                                provolone cheese</p>
+                                              <p>3. Menu Item Price: $12.00</p>
+                                              <p>4. Image</p>
+                                              <div class="row">
+                                                <div class="col-12 col-md-6 col-lg-4">
+                                                  <img src="../../assets/images/Cheez-Whiz-Philly-Cheese-Steak-Sandwich-photo.png" alt="">
+                                                </div>
+                                                <div class="col-12 col-md-6 col-lg-4">
+                                                  <p class="p_t_note">Note:</p>
+                                                  <p>Vendors can use Google Drive or Dropbox to upload and share images.</p>
+                                                </div>
+                                              </div>          
+                                              <p>5. Category: Sandwiches (Categories like “Lunch”, “Dinner”, “Soups” can be used)</p>
+                                              <p>6. Category Description: Choose from our classic Philly, Buffalo Chicken, Sliders and
+                                                Vegetarian Sandwiches.</p>
+                                              <p>7. Category Image:</p>
+                                              <img src="../../assets/images/Best-Burger.png">
+                                              <p>8. Add-Ons: Extra Meat, Curly Fries, Chips & Guacamole</p>
+                                              <p>9. Add-Ons Price: 3.00, 4.00, 2.50
+                                                Note: “3.00” corresponds to “Extra Meat” ($3.00), “4.00” corresponds to “Curly Fries”
+                                                ($4.00), etc.</p>
+                                              <p>10. Required Category: Size</p>
+                                              <p>11. Required Selections: Regular, Large
+                                                Note: Other “Required Categories” can be used. “Meat” (Required Category) could
+                                                have selections for “Beef”, “Chicken” or “Pork”. All possible selections are listed. </p>
+                                              <p>12. Required Price: 0, 1.80
+                                                Note: “Regular” size would have no additional charge ($0). “Large” size would be
+                                                +$1.80.</p>
+                                              <p>13. Instructions: Gluten-Free, Spicy, Extra Sauce
+                                                Note: 1 or more instructions can be selected for any “Menu Item, Add-On and
+                                                Required Selection” bundle.
+                                              </p>
+                                            </div> -->
+                                            <h2 style="text-align: center;"><b>Spreadsheet Details</b></h2>
+                                            <div class="spreadsheet_detail" *ngFor="let item of googleSheet | keyvalue:0; let i = index">
+                                             <br><br>
+                                                <p>1. Menu Item Name: {{item.value.menuItemName}}
+                                                </p>
+                                                <p>2. Menu Item Description: {{item.value.menuItemDescription}}</p>
+                                                <p>3. Menu Item Price: {{item.value.menuItemPrice}}</p>
+                                                <p>4. Image</p>
+                                                <div class="row">
+                                                  <div class="col-12 col-md-6 col-lg-4">
+                                                    <img [src]="item.value.image" alt="">
+                                                  </div>
+                                                  <div class="col-12 col-md-6 col-lg-4" style="position: relative;top:-95px">
+                                                    <p class="p_t_note">Note:</p>
+                                                    <p>Vendors can use Google Drive or Dropbox to upload and share images.</p>
+                                                  </div>
+                                                </div>          
+                                                <p>5. Category:{{item.value.category}}</p>
+                                                <!-- <p>6. Category Description: {{item.value.addOnMultiple}}</p> -->
+                                                <p>6. Add-Ons: {{item.value.addOnMultiple}}</p>
+                                                <p>7. Add-Ons Price: {{item.value.addOnPrice}}</p>
+                                                <p>8. Required Category:  {{item.value.category}}</p>
+                                                <p>9. Required Selections: {{item.value.optionSingle}} </p>
+                                                <p>10. Required Price: {{item.value.optionSinglePrice}}</p>
+                                                <p>11. Instructions: {{item.value.instructions}}
+                                                </p>
+                                                <br>
+                                                <br>
+                                                <br>
+                                              </div>
+                                            <!-- <div class="spreadsheet_detail">
+                                                <h2>Google Spreadsheet Details</h2>
+                                                    <div *ngFor="let item of googleSheet | keyvalue:0; let i = index">
+                                                   <p>{{i+1}} Menu Item Name: {{item.value.menuItemName}}</p>
+                                                   <p>{{i+2}} Menu Item Description: {{item.value.menuItemDescription}}</p>
+                                                   <p>{{i+3}} Menu Item Price: {{item.value.menuItemPrice}}</p>
+                                                   <p>{{i+4}} Image: Image: <img [src]="item.value.image"></p>
+                                                   <p>{{i+5}} Category: {{item.value.category}}</p>
+                                                   <p>{{i+6}} Add on multiple {{item.value.addOnMultiple}}</p>
+                                                   <p>{{i+7}} Add on Price: {{item.value.addOnPrice}}</p>
+                                                   <p>{{i+8}} Category: {{item.value.optionCategory}}</p>
+                                                   <p>{{i+9}} Required Selection: {{item.value.optionSingle}}</p>
+                                                   <p>{{i+10}} Required Price: {{item.value.optionSinglePrice}}</p>
+                                                   <p>{{i+11}} Instructions: {{item.value.instructions}}</p>
+
+
+                                                </div>
+                                              </div> -->
+                                          </mat-tab>
+                                          <mat-tab label="6">
+                                            <div class="step_one padding_area">
+                                              <h2>Manual Copy of Image URL's</h2>
+                                              <h4>For those of you that are tech savvy, owners can copy the Image URL's from
+                                                both Google Drive or Dropbox and paste them into the Google Sheets Spreadsheet.</h4>
+                                              <div class="step_six">
+                                                <div class="row">
+                                                  <div class="col-md-3">
+                                                    <div class="icon_card">
+                                                      <img src="../../assets/images/google-drive@1X.png" alt="  " class="drive">
+                                                      <p>Google Drive</p>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-9">
+                                                    <p>1. Login to Google Drive and upload all of your images first. Use folders for the Menu Categories
+                                                      (lunch, dinner, soups, etc.) if you wish. </p>
+                                                    <p>2. After the images have been uploaded, select each image and click the “Share Image” button.</p>
+                                                    <img src="../../assets/images/Layer-5@1X.png" alt="">
+                                                    <img src="../../assets/images/Layer-6@1X.png" alt="">
+                                                    <p>Copy the link (as shown above) and paste the URL into Google Sheets (the one we created for you).
+                                                      Example URL: https://drive.google.com/file/d/1UAsbJZb66kBcaETVBT7nClg0B5k0c7yr/view?usp=sharing</p>
+                                                    <p>1. Login to Dropbox and upload all of your images first. Use folders for the Menu Categories
+                                                      (lunch, dinner, soups, etc.) if you wish.
+                                    
+                                                      2. After the images have been uploaded, select each image, right click and share that image.
+                                                      Please copy the URL (share link) and after paste it into Google Sheets (the one we created for you).
+                                    
+                                                      3. Example URL:
+                                                      https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0
+                                                    </p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class="step_six">
+                                                <div class="row">
+                                                  <div class="col-md-3">
+                                                    <div class="icon_card">
+                                                      <img src="../../assets/images/dropbox@1X.png" alt="  " class="drive">
+                                                      <p>Dropbox</p>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-9">
+                                                    <p>1. Login to Dropbox and upload all of your images first. Use folders for the Menu Categories (lunch,
+                                                      dinner, soups, etc.) if you wish.</p>
+                                                    <p>2. After the images have been uploaded, select each image, right click and share that image.
+                                                      Please copy the URL (share link) and after paste it into Google Sheets (the one we created for you).
+                                                    </p>
+                                                    <p>3. Example URL:
+                                                      https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0</p>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </mat-tab>
+                                        </mat-tab-group>
+                                    
+                                      </div>
+                                    </section>
                               </div>
-                              <div class="col-sm-4">
-                                  <!-- <button class="btn btn-success btn-raised" (click)="setDriverManagers()" style="margin-right: 4%;float: right;">Save</button> -->
-                              </div>
-                            </div>
-                            </ng-template>
-                          </ngb-tab>
-                        </ngb-tabset>
-                        
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-4">
+                            <!-- <button class="btn btn-success btn-raised" (click)="setDriverManagers()" style="margin-right: 4%;float: right;">Save</button> -->
+                        </div>
                       </div>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                  
                 </div>
-            </div>
+          </div>
+      </div>
 
 
 <!-- 
-    <div class="col-lg-3 col-md-6" *ngFor="let item of productList">
-        <div class="card" (click)="openProduct(item)">
-            <div class="el-card-item">
-                <div class="el-card-avatar el-overlay-1">
-                    <img src="{{item.image ? item.image : 'assets/images/gallery/noProduct.png'}}" alt="user" class="productimg"/>
-                    <div class="el-overlay">
-                        <ul class="list-style-none el-info">
-                            <li class="el-item">
-                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                    <i class="icon-link"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-flex no-block align-items-center">
-                    <div class="m-l-15">
-                        <h4 class="m-b-0">{{item.name}}</h4>
-                        <span class="text-muted">{{getDescription(item.description)}}</span>
-                    </div>
-                    <div class="ml-auto m-r-15">
-                        <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD' ? '$' : item.price[0].currency}} {{item.price[0].amount}}</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
+<div class="col-lg-3 col-md-6" *ngFor="let item of productList">
+  <div class="card" (click)="openProduct(item)">
+      <div class="el-card-item">
+          <div class="el-card-avatar el-overlay-1">
+              <img src="{{item.image ? item.image : 'assets/images/gallery/noProduct.png'}}" alt="user" class="productimg"/>
+              <div class="el-overlay">
+                  <ul class="list-style-none el-info">
+                      <li class="el-item">
+                          <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                              <i class="icon-link"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="d-flex no-block align-items-center">
+              <div class="m-l-15">
+                  <h4 class="m-b-0">{{item.name}}</h4>
+                  <span class="text-muted">{{getDescription(item.description)}}</span>
+              </div>
+              <div class="ml-auto m-r-15">
+                  <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD' ? '$' : item.price[0].currency}} {{item.price[0].amount}}</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div> -->
 
 
-    <!-- <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="el-card-item">
-                <div class="el-card-avatar el-overlay-1">
-                    <img src="assets/images/gallery/chair2.jpg" alt="user" />
-                    <div class="el-overlay">
-                        <ul class="list-style-none el-info">
-                            <li class="el-item">
-                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                    <i class="icon-link"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-flex no-block align-items-center">
-                    <div class="m-l-15">
-                        <h4 class="m-b-0">Rounded Chair</h4>
-                        <span class="text-muted">globe type chair for rest</span>
-                    </div>
-                    <div class="ml-auto m-r-15">
-                        <button type="button" class="btn btn-success btn-circle">$15</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="el-card-item">
-                <div class="el-card-avatar el-overlay-1">
-                    <img src="assets/images/gallery/chair3.jpg" alt="user" />
-                    <div class="el-overlay">
-                        <ul class="list-style-none el-info">
-                            <li class="el-item">
-                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                    <i class="icon-link"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-flex no-block align-items-center">
-                    <div class="m-l-15">
-                        <h4 class="m-b-0">Rounded Chair</h4>
-                        <span class="text-muted">globe type chair for rest</span>
-                    </div>
-                    <div class="ml-auto m-r-15">
-                        <button type="button" class="btn btn-dark btn-circle">$15</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="el-card-item">
-                <div class="el-card-avatar el-overlay-1">
-                    <img src="assets/images/gallery/chair4.jpg" alt="user" />
-                    <div class="el-overlay">
-                        <ul class="list-style-none el-info">
-                            <li class="el-item">
-                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                    <i class="icon-link"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-flex no-block align-items-center">
-                    <div class="m-l-15">
-                        <h4 class="m-b-0">Rounded Chair</h4>
-                        <span class="text-muted">globe type chair for rest</span>
-                    </div>
-                    <div class="ml-auto m-r-15">
-                        <button type="button" class="btn btn-info btn-circle">$15</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="el-card-item">
-                <div class="el-card-avatar el-overlay-1">
-                    <img src="assets/images/gallery/chair4.jpg" alt="user" />
-                    <div class="el-overlay">
-                        <ul class="list-style-none el-info">
-                            <li class="el-item">
-                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                    <i class="icon-link"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-flex no-block align-items-center">
-                    <div class="m-l-15">
-                        <h4 class="m-b-0">Rounded Chair</h4>
-                        <span class="text-muted">globe type chair for rest</span>
-                    </div>
-                    <div class="ml-auto m-r-15">
-                        <button type="button" class="btn btn-success btn-circle">$15</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="el-card-item">
-                <div class="el-card-avatar el-overlay-1">
-                    <img src="assets/images/gallery/chair3.jpg" alt="user" />
-                    <div class="el-overlay">
-                        <ul class="list-style-none el-info">
-                            <li class="el-item">
-                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                    <i class="icon-link"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-flex no-block align-items-center">
-                    <div class="m-l-15">
-                        <h4 class="m-b-0">Rounded Chair</h4>
-                        <span class="text-muted">globe type chair for rest</span>
-                    </div>
-                    <div class="ml-auto m-r-15">
-                        <button type="button" class="btn btn-info btn-circle">$15</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="el-card-item">
-                <div class="el-card-avatar el-overlay-1">
-                    <img src="assets/images/gallery/chair2.jpg" alt="user" />
-                    <div class="el-overlay">
-                        <ul class="list-style-none el-info">
-                            <li class="el-item">
-                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                    <i class="icon-link"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-flex no-block align-items-center">
-                    <div class="m-l-15">
-                        <h4 class="m-b-0">Rounded Chair</h4>
-                        <span class="text-muted">globe type chair for rest</span>
-                    </div>
-                    <div class="ml-auto m-r-15">
-                        <button type="button" class="btn btn-warning btn-circle">$15</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="el-card-item">
-                <div class="el-card-avatar el-overlay-1">
-                    <img src="assets/images/gallery/chair.jpg" alt="user" />
-                    <div class="el-overlay">
-                        <ul class="list-style-none el-info">
-                            <li class="el-item">
-                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                    <i class="icon-link"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-flex no-block align-items-center">
-                    <div class="m-l-15">
-                        <h4 class="m-b-0">Rounded Chair</h4>
-                        <span class="text-muted">globe type chair for rest</span>
-                    </div>
-                    <div class="ml-auto m-r-15">
-                        <button type="button" class="btn btn-secondary btn-circle">$15</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="el-card-item">
-                <div class="el-card-avatar el-overlay-1">
-                    <img src="assets/images/gallery/chair2.jpg" alt="user" />
-                    <div class="el-overlay">
-                        <ul class="list-style-none el-info">
-                            <li class="el-item">
-                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                    <i class="icon-link"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-flex no-block align-items-center">
-                    <div class="m-l-15">
-                        <h4 class="m-b-0">Rounded Chair</h4>
-                        <span class="text-muted">globe type chair for rest</span>
-                    </div>
-                    <div class="ml-auto m-r-15">
-                        <button type="button" class="btn btn-dark btn-circle">$15</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="el-card-item">
-                <div class="el-card-avatar el-overlay-1">
-                    <img src="assets/images/gallery/chair3.jpg" alt="user" />
-                    <div class="el-overlay">
-                        <ul class="list-style-none el-info">
-                            <li class="el-item">
-                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                    <i class="icon-link"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-flex no-block align-items-center">
-                    <div class="m-l-15">
-                        <h4 class="m-b-0">Rounded Chair</h4>
-                        <span class="text-muted">globe type chair for rest</span>
-                    </div>
-                    <div class="ml-auto m-r-15">
-                        <button type="button" class="btn btn-danger btn-circle">$15</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="el-card-item">
-                <div class="el-card-avatar el-overlay-1">
-                    <img src="assets/images/gallery/chair4.jpg" alt="user" />
-                    <div class="el-overlay">
-                        <ul class="list-style-none el-info">
-                            <li class="el-item">
-                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                    <i class="icon-link"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-flex no-block align-items-center">
-                    <div class="m-l-15">
-                        <h4 class="m-b-0">Rounded Chair</h4>
-                        <span class="text-muted">globe type chair for rest</span>
-                    </div>
-                    <div class="ml-auto m-r-15">
-                        <button type="button" class="btn btn-success btn-circle">$15</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="card">
-            <div class="el-card-item">
-                <div class="el-card-avatar el-overlay-1">
-                    <img src="assets/images/gallery/chair2.jpg" alt="user" />
-                    <div class="el-overlay">
-                        <ul class="list-style-none el-info">
-                            <li class="el-item">
-                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                    <i class="icon-link"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="d-flex no-block align-items-center">
-                    <div class="m-l-15">
-                        <h4 class="m-b-0">Rounded Chair</h4>
-                        <span class="text-muted">globe type chair for rest</span>
-                    </div>
-                    <div class="ml-auto m-r-15">
-                        <button type="button" class="btn btn-dark btn-circle">$15</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
+<!-- <div class="col-lg-3 col-md-6">
+  <div class="card">
+      <div class="el-card-item">
+          <div class="el-card-avatar el-overlay-1">
+              <img src="assets/images/gallery/chair2.jpg" alt="user" />
+              <div class="el-overlay">
+                  <ul class="list-style-none el-info">
+                      <li class="el-item">
+                          <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                              <i class="icon-link"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="d-flex no-block align-items-center">
+              <div class="m-l-15">
+                  <h4 class="m-b-0">Rounded Chair</h4>
+                  <span class="text-muted">globe type chair for rest</span>
+              </div>
+              <div class="ml-auto m-r-15">
+                  <button type="button" class="btn btn-success btn-circle">$15</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-lg-3 col-md-6">
+  <div class="card">
+      <div class="el-card-item">
+          <div class="el-card-avatar el-overlay-1">
+              <img src="assets/images/gallery/chair3.jpg" alt="user" />
+              <div class="el-overlay">
+                  <ul class="list-style-none el-info">
+                      <li class="el-item">
+                          <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                              <i class="icon-link"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="d-flex no-block align-items-center">
+              <div class="m-l-15">
+                  <h4 class="m-b-0">Rounded Chair</h4>
+                  <span class="text-muted">globe type chair for rest</span>
+              </div>
+              <div class="ml-auto m-r-15">
+                  <button type="button" class="btn btn-dark btn-circle">$15</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-lg-3 col-md-6">
+  <div class="card">
+      <div class="el-card-item">
+          <div class="el-card-avatar el-overlay-1">
+              <img src="assets/images/gallery/chair4.jpg" alt="user" />
+              <div class="el-overlay">
+                  <ul class="list-style-none el-info">
+                      <li class="el-item">
+                          <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                              <i class="icon-link"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="d-flex no-block align-items-center">
+              <div class="m-l-15">
+                  <h4 class="m-b-0">Rounded Chair</h4>
+                  <span class="text-muted">globe type chair for rest</span>
+              </div>
+              <div class="ml-auto m-r-15">
+                  <button type="button" class="btn btn-info btn-circle">$15</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-lg-3 col-md-6">
+  <div class="card">
+      <div class="el-card-item">
+          <div class="el-card-avatar el-overlay-1">
+              <img src="assets/images/gallery/chair4.jpg" alt="user" />
+              <div class="el-overlay">
+                  <ul class="list-style-none el-info">
+                      <li class="el-item">
+                          <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                              <i class="icon-link"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="d-flex no-block align-items-center">
+              <div class="m-l-15">
+                  <h4 class="m-b-0">Rounded Chair</h4>
+                  <span class="text-muted">globe type chair for rest</span>
+              </div>
+              <div class="ml-auto m-r-15">
+                  <button type="button" class="btn btn-success btn-circle">$15</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-lg-3 col-md-6">
+  <div class="card">
+      <div class="el-card-item">
+          <div class="el-card-avatar el-overlay-1">
+              <img src="assets/images/gallery/chair3.jpg" alt="user" />
+              <div class="el-overlay">
+                  <ul class="list-style-none el-info">
+                      <li class="el-item">
+                          <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                              <i class="icon-link"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="d-flex no-block align-items-center">
+              <div class="m-l-15">
+                  <h4 class="m-b-0">Rounded Chair</h4>
+                  <span class="text-muted">globe type chair for rest</span>
+              </div>
+              <div class="ml-auto m-r-15">
+                  <button type="button" class="btn btn-info btn-circle">$15</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-lg-3 col-md-6">
+  <div class="card">
+      <div class="el-card-item">
+          <div class="el-card-avatar el-overlay-1">
+              <img src="assets/images/gallery/chair2.jpg" alt="user" />
+              <div class="el-overlay">
+                  <ul class="list-style-none el-info">
+                      <li class="el-item">
+                          <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                              <i class="icon-link"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="d-flex no-block align-items-center">
+              <div class="m-l-15">
+                  <h4 class="m-b-0">Rounded Chair</h4>
+                  <span class="text-muted">globe type chair for rest</span>
+              </div>
+              <div class="ml-auto m-r-15">
+                  <button type="button" class="btn btn-warning btn-circle">$15</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-lg-3 col-md-6">
+  <div class="card">
+      <div class="el-card-item">
+          <div class="el-card-avatar el-overlay-1">
+              <img src="assets/images/gallery/chair.jpg" alt="user" />
+              <div class="el-overlay">
+                  <ul class="list-style-none el-info">
+                      <li class="el-item">
+                          <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                              <i class="icon-link"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="d-flex no-block align-items-center">
+              <div class="m-l-15">
+                  <h4 class="m-b-0">Rounded Chair</h4>
+                  <span class="text-muted">globe type chair for rest</span>
+              </div>
+              <div class="ml-auto m-r-15">
+                  <button type="button" class="btn btn-secondary btn-circle">$15</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-lg-3 col-md-6">
+  <div class="card">
+      <div class="el-card-item">
+          <div class="el-card-avatar el-overlay-1">
+              <img src="assets/images/gallery/chair2.jpg" alt="user" />
+              <div class="el-overlay">
+                  <ul class="list-style-none el-info">
+                      <li class="el-item">
+                          <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                              <i class="icon-link"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="d-flex no-block align-items-center">
+              <div class="m-l-15">
+                  <h4 class="m-b-0">Rounded Chair</h4>
+                  <span class="text-muted">globe type chair for rest</span>
+              </div>
+              <div class="ml-auto m-r-15">
+                  <button type="button" class="btn btn-dark btn-circle">$15</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-lg-3 col-md-6">
+  <div class="card">
+      <div class="el-card-item">
+          <div class="el-card-avatar el-overlay-1">
+              <img src="assets/images/gallery/chair3.jpg" alt="user" />
+              <div class="el-overlay">
+                  <ul class="list-style-none el-info">
+                      <li class="el-item">
+                          <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                              <i class="icon-link"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="d-flex no-block align-items-center">
+              <div class="m-l-15">
+                  <h4 class="m-b-0">Rounded Chair</h4>
+                  <span class="text-muted">globe type chair for rest</span>
+              </div>
+              <div class="ml-auto m-r-15">
+                  <button type="button" class="btn btn-danger btn-circle">$15</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-lg-3 col-md-6">
+  <div class="card">
+      <div class="el-card-item">
+          <div class="el-card-avatar el-overlay-1">
+              <img src="assets/images/gallery/chair4.jpg" alt="user" />
+              <div class="el-overlay">
+                  <ul class="list-style-none el-info">
+                      <li class="el-item">
+                          <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                              <i class="icon-link"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="d-flex no-block align-items-center">
+              <div class="m-l-15">
+                  <h4 class="m-b-0">Rounded Chair</h4>
+                  <span class="text-muted">globe type chair for rest</span>
+              </div>
+              <div class="ml-auto m-r-15">
+                  <button type="button" class="btn btn-success btn-circle">$15</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-lg-3 col-md-6">
+  <div class="card">
+      <div class="el-card-item">
+          <div class="el-card-avatar el-overlay-1">
+              <img src="assets/images/gallery/chair2.jpg" alt="user" />
+              <div class="el-overlay">
+                  <ul class="list-style-none el-info">
+                      <li class="el-item">
+                          <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                              <i class="icon-link"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <div class="d-flex no-block align-items-center">
+              <div class="m-l-15">
+                  <h4 class="m-b-0">Rounded Chair</h4>
+                  <span class="text-muted">globe type chair for rest</span>
+              </div>
+              <div class="ml-auto m-r-15">
+                  <button type="button" class="btn btn-dark btn-circle">$15</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div> -->
 </div>

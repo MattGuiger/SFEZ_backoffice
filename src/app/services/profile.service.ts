@@ -116,6 +116,11 @@ getLocationswithTerriID(id):Observable<any>{
   getParticularUnitData(id):Observable<any>{
     return this.http.get(this.particularUnitUrl+id);
   }
+  uploadImageTodrive(companyId,data):Observable<any>{
+    //this.companyProfileURl+companyId+"/"+"images"
+    return this.http.post(this.googldriveUrl+companyId+"/"+'imageuploadtodrive',data);
+  }
+
   foodParkUnits(id):Observable<any> {
     return this.http.get(this.foodParkUnitsUrl+id);
   }
@@ -275,6 +280,9 @@ addUnitToHub(foodParkId,unitId){
   getCompanyprofile(id): Observable<any> {
     return this.http.get(this.getProfileURL+id);
   }
+ uploadaddons(data,id){
+  return this.http.post(this.googldriveUrl+id+'/uploadmenu',data);
+ }
  
   updateGoogleSheetDetails(id,data)  : Observable<any> {
     return this.http.put(this.updateUsergooglesheetUrl+id,data);
@@ -292,6 +300,11 @@ addUnitToHub(foodParkId,unitId){
   createfolderInGoogleDrive(data) : Observable<any> {
     console.log('dataaaa',data)
     return this.http.post(this.googldriveUrl+'createfolder',data);
+  }
+  getFoldersCreatedInDrive(data) : Observable<any> {
+    console.log('dataaaa',data)
+  
+    return this.http.post(this.googldriveUrl+'fetchfolderscreated',data);
   }
   getAllGoogleSheetDetails(data) : Observable<any> {
     return this.http.post(this.googlsheetUrl,data);
