@@ -22,6 +22,7 @@ const data: any = require('./company.json');
 export class FoodParkComponent implements OnInit{
   editing = {};
   rows = [];
+  locOrHubArr = [];
   temp = [...data];
   drivertemp = [...data];
   managertemp = [...data];
@@ -32,13 +33,19 @@ export class FoodParkComponent implements OnInit{
   confirmCanceltext = "Cancel";
   confirmOkaytext = "Okay";
   minDaysValue=10;
+  minDaysValuse=5;
+  selectedLocationRecord: any;
+  selectedManagerRecord: any;
+  selectedHubRecord: any;
   singleState: any[] = [];
   stateAndTerritoryObject: any;
   state: any[] = [];
   singleTerritory: any[] = [];
   territory: any[] = [];
   states: any[] = [];
+  states2: any[] = [];
   countries: any[] = [];
+  selectedState: any[] = [];
   selectArry: any[] = [];
   drivers: any[] = [];
   foodparkmgrList: any[] = [];
@@ -81,24 +88,23 @@ export class FoodParkComponent implements OnInit{
     "GHOST KITCHEN"
     ];
     typesForHub = [
-      "RESTAURANT",
-    "Cafe",
-    "BEER",
-    "WINE",
-    "FOOD TRUCK",
-    "PIZZA",
-    "FARMER",
-    "CHEF",
-    "GHOST KITCHEN",
     "MALL",
     "HOTEL",
     "EVENT",
     "FOODPARK",
     "FARMER"
     ]
-
-    foodParkForm: FormGroup;
-
+    onLocationEditForm = new FormGroup({
+      // delivery_time_offset: new FormControl(event),
+      customer_order_window: new FormControl(event),
+      delivery_radius: new FormControl(event)
+        });
+    foodParkForm = new FormGroup({
+      delivery_time_window: new FormControl(event)
+      });
+    emailManageForm = new FormGroup({
+      email: new FormControl('', Validators.required)
+    })
     hubFoodParkForm = new FormGroup({
     stateid: new FormControl('', Validators.required),
     territory_id: new FormControl(),
@@ -172,6 +178,7 @@ export class FoodParkComponent implements OnInit{
     this.getAllState();
     this.getAllTerritory();
     this.getAllCountries();
+    this.getAllStates();
     this.getAllFoodPark();
     this.formInit();
     this.driverformInit();
@@ -211,13 +218,7 @@ export class FoodParkComponent implements OnInit{
   // }
 
   formInit() {
-    this.foodParkForm = new FormGroup({
-      name: new FormControl(null),
-      territory_id: new FormControl(null),
-      latitude: new FormControl(null),
-      longitude: new FormControl(null),
-      
-    });
+    // this.onLocationEditForm = new FormGroup({});
   }
   driverformInit() {
     this.driverForm = new FormGroup({
@@ -326,9 +327,7 @@ getlocationOnTerritoryId(){
       }
     })
   }
-
 }
-
 gethubswithterriId(){
   if(this.user.territory_id){
     this._ProfileService.getHubwithTerriID(this.user.territory_id).subscribe(res=>{
@@ -368,29 +367,18 @@ getlocationsAndHub(){
       if(res.status==200){
         console.log('thisssss deliveryHubUnits',res.data)
         this.deliveryHubUnits=res.data
-      }else{
-        
+      }else{        
       }
     })
   }
-
 }
-
-
-
-
-
   removeUnit(unitId,foodparkId) {
-
-    const message = `Are you sure you want to do this?`;
-
+  const message = `Are you sure you want to do this?`;
     const dialogData = new ConfirmDialogModel("Confirm Action", message);
-
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       maxWidth: "500px",
       data: dialogData
     });
-
     dialogRef.afterClosed().subscribe(dialogResult => {
       // this.result = dialogResult;
       console.log('dialogResultdialogResult', dialogResult);
@@ -533,6 +521,17 @@ getlocationsAndHub(){
       this.singleTerritory = res;
     })
   }
+  getTerritoryForEdit(event) {
+
+    let state_id = event.target.value;
+    
+    this._ProfileService.getTerritory(state_id).subscribe((res: any) => {
+      console.log(res);
+      
+      this.singleTerritory = res;
+    })
+  }
+
   getLatLong(event){
     console.log('eventtttt',event.target.value,this.selectedTerritory)
     this.lat=this.selectedTerritory.latitude
@@ -561,7 +560,11 @@ getlocationsAndHub(){
       this.countries = res;
     })
   }
-  
+  getAllStates() {
+    this._ProfileService.getState(this.user.country_id).subscribe((res: any) => {
+      this.states2 = res.data;
+    })
+  }
   getAllFoodPark() {
     // forkJoin([
     //   this._ProfileService.getAllFoodPark(),
@@ -577,8 +580,6 @@ getlocationsAndHub(){
     //     })
     //     console.log(' this.selectArry', this.selectArry) 
     //   })
-
-    
     forkJoin([
       this._ProfileService.getHubwithTerrId(this.user.company_id),
       this._ProfileService.getLocationwithTerrId(this.user.company_id)
@@ -595,69 +596,18 @@ getlocationsAndHub(){
         })
         console.log(' this.selectArry', this.selectArry) 
       })
-
-    
-    // forkJoin([
-      // this._ProfileService.getHubwithTerriID(this.user.territory_id),
-    //   this._ProfileService.getLocationswithTerriID(this.user.territory_id)
-    // ]).subscribe(
-    //   ([hubResponse, locationResponse]) => {
-    //     // const tempArray = [allFoodParkResponse.data, ...allUnitListResponse.data]
-    //     hubResponse.data.filter((value)=>{
-    //       this.tempHubResponse.push(value)
-    //       this.selectArry.push({name:value.name, id: value.food_park_id, type:'hub'})
-    //     })
-    //     locationResponse.data.filter((value)=>{
-    //       this.tempLocationResponse.push(value)
-    //       this.selectArry.push({name:value.unit_name, id: value.unit_id, type:'loc'})
-    //     })
-    //     console.log(' this.selectArry', this.selectArry) 
-    //   })
-      
-  
-    
-    // this._ProfileService.getAllUnitListData().subscribe((res: any) => {
-    //   this.selectArry = res;
-    // })
-
-
-    // this.user = this._CommonFunctionsService.checkUser().user;
-    // this._ProfileService.getAllFoodPark().subscribe((res: any) => {
-      // this.territory = res;
-      // this.rows = res;
-
-      // console.log('this.rows', res);
-
-      // this.temp = [...this.rows];
-      // this.selectedHub = parseInt(res[0].id);
-      // console.log(' this.drivertemp', this.selectedHub);
-
-      // this.getAllDrivers(res[0].id)
-
-
-      // select in manager tab
-      // this.temp.filter((value,index)=>{
-      //   this.selectArry.push({name:value.name})
-      // })
-      
-     
-    // })
   }
-
   foodParkSFormSaveData(data) {
     console.log("Ash" + data);
   }
-
   getAllDrivers(foodParkId) {
     this._ProfileService.getAllDrivers(foodParkId).subscribe((res: any) => {
       this.drivers = res.data;
       // this.rows = this.drivers;
       this.drivertemp = [...this.drivers];
       console.log(' this.drivertemp', this.drivertemp);
-
     })
   }
-
   setManagers() {
     if (this.setManager.length > 0) {
       this._ProfileService.setManagers({ list: this.setManager }).subscribe((res: any) => {
@@ -690,15 +640,11 @@ getlocationsAndHub(){
   }
 
   onSubmitLocationForm() {
-    // this.locationFoodParkForm.value.latitude = 12.032;
-    // this.locationFoodParkForm.value.longitude = 12.032;
-
     this.locationFoodParkForm.value.territory_id = this.user.territory_id;
     this._ProfileService.addUnit(this.locationFoodParkForm.value, this.user.company_id).subscribe((res: any) => {
       this.toastr.success('Territory Created successfully');
       document.getElementById("closeModal").click();
       this.getAllFoodPark();
-      
     },
       error => {
         this.toastr.error(error.error.message);
@@ -706,10 +652,7 @@ getlocationsAndHub(){
   }
   
   onSubmit() {
-    // this.hubFoodParkForm.value.latitude = 12.032;
-    // this.hubFoodParkForm.value.longitude = 12.032;
      this.hubFoodParkForm.value.company_id = this.user.company_id;
-    //  this.hubFoodParkForm.value.territory_id = this.user.territory_id;
     this._ProfileService.addFoodPark(this.hubFoodParkForm.value).subscribe((res: any) => {
       this.toastr.success('Territory Created successfully');
       document.getElementById("closeModal").click();
@@ -767,32 +710,22 @@ getlocationsAndHub(){
       })
   }
   editDeliveryHub(){
-
   }
   formatLabel1(value: number) {
     console.log('value',value);
-    
     // if (value <= 15) {
     //   return (value*4.25);
     // }
-
     return '$'+value*4.25;
   }
   formatLabel2(value: number) {
     console.log('value',value);
-   
     return '$'+value*7;
   }
   formatLabel3(value: number) {
     console.log('value',value);
-    
- 
-
     return '$'+value;
   }
-
-
-
   onManagerSubmit() {
     // this.managerForm.value.manager_id = this.user.manager_id;
     // this.managerForm.value.food_park_id = this.user.food_park_id;
@@ -897,14 +830,18 @@ getlocationsAndHub(){
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
-  openEditLocations(content4) {
+  openEditLocations(content4, row) {
+    console.log(row);
+    this.selectedLocationRecord = row;
     this.modalService.open(content4, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
-  openEditDeilveryHub(content4) {
+  openEditDeilveryHub(content4, row) {
+    console.log(row)
+    this.selectedHubRecord = row;
     this.modalService.open(content4, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -923,10 +860,7 @@ getlocationsAndHub(){
   onSelectRed(item) {
     debugger
   }
-
- 
-
-  updateDriverFilter(event) {
+    updateDriverFilter(event) {
     const val = event.target.value.toLowerCase();
     // filter our data
     const drivertemp = this.drivertemp.filter(function (d) {
@@ -975,11 +909,56 @@ getlocationsAndHub(){
     this.router.navigateByUrl('/forms/manager/'+row.id+"/"+type);
   }
 
-  sendEmail(event,row,type){
+  sendEmail(event,data,row){
     // this.router.navigateByUrl('/forms/manager/'+row.id+"/"+type);
+    this.selectedManagerRecord = row;
+    console.log(this.selectedManagerRecord)
+    this.modalService.open(data, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
   }
-
+  onDeliveryHubSubmit(){
+    this.foodParkForm.value.state = this.selectedHubRecord.state_name;
+    this.foodParkForm.value.territory_id = this.selectedHubRecord.territory_id;
+    this._ProfileService.getEditHub(this.selectedHubRecord.food_park_id , this.foodParkForm.value).subscribe(res=>{
+      // this.modalService.dismissAll()
+      if(res.status==200){
+        console.log('Edit ',res.data)
+        this.deliveryHubUnits = res.data
+        this.toastr.success(res.message)
+        this.modalService.dismissAll()
+      }else{
+        this.toastr.error(res.error)
+        this.modalService.dismissAll()
+      }
+    })
+  }
   onLocationEditSubmit(){
-    
+    this._ProfileService.getEditUnits(this.user.company_id,this.selectedLocationRecord.unit_id , this.onLocationEditForm.value).subscribe(res=>{
+      // this.modalService.dismissAll()
+      if(res.status==200){
+        console.log('Edit ',res.data)
+        this.deliveryHubUnits = res.data
+        this.toastr.success(res.message)
+        this.modalService.dismissAll()
+      }else{
+        this.toastr.error(res.error)
+        this.modalService.dismissAll()
+      }
+    })
   }
+onManagerEmailSubmit(){
+  this._ProfileService.onManagerEmailSubmit(this.emailManageForm.value).subscribe(res=>{
+    if(res.status==200){
+      console.log('Edit ',res.data)
+      this.deliveryHubUnits=res.data
+      this.toastr.success(res.message)
+      this.modalService.dismissAll()
+    }else{
+      this.toastr.error(res.error)
+    }
+  })
+}
 }
