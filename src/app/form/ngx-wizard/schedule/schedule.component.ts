@@ -11,6 +11,7 @@ import { AuthService } from '../../../services/auth.service';
 import { ProfileService} from '../../../services/profile.service'
 import { local } from 'd3';
 import { scheduled } from 'rxjs';
+import { CommonFunctionsService } from 'src/app/services';
 
 
 @Component({
@@ -50,14 +51,17 @@ export class ScheduleComponent implements OnInit {
     data: any[] = [];
     newStorage:any[]=[];
     // newStorage2:any[]=[11,22,"Ef"];
-
+    user:any
     constructor(private router: Router,
         private _AuthService:AuthService,
         private fb: FormBuilder,
         private toastr: ToastrService,
+        private _CommonFunctionsService: CommonFunctionsService,
         private _ProfileService:ProfileService,
         private route: ActivatedRoute, private formDataService: FormDataService,
-        private workflowService: WorkflowService) {
+        private workflowService: WorkflowService,
+        ) {
+          this.user = this._CommonFunctionsService.checkUser().user;
     }
 
     ngOnInit() {
@@ -95,7 +99,7 @@ console.log('all megre data',this.allData)
       const company_id= localStorage.getItem('companyId');
       this.scheduleFormData.value.featured_dish = localStorage.getItem('featured_dish');
       this.scheduleFormData.value.photo = localStorage.getItem('photo');
-    this._ProfileService.updateCompanyCredentials(company_id, this.allData).subscribe((res: any) => {
+    this._ProfileService.updateCompanyCredentials(this.user.company_id, this.allData).subscribe((res: any) => {
       // this.toastr.success('Telegram group Created successfully');
       this.toastr.success('Success');
       // const data = localStorage.setItem('DisableRegForm', JSON.stringify("true"));
@@ -146,14 +150,14 @@ console.log('all megre data',this.allData)
       console.log(this.schedule)
     }
     createItem() {
-      return this.fb.group({
-        schedule: [this.schedule],
-        hours: [this.getTime]
-      })
+      // return this.fb.group({
+      //   schedule: [this.schedule],
+      //   hours: [this.getTime]
+      // })
     }
     addItem() {
-      this.arr = this.scheduleFormData.get('arr') as FormArray;
-      this.arr.push(this.createItem());
+      // this.arr = this.scheduleFormData.get('arr') as FormArray;
+      // this.arr.push(this.createItem());
     }
     onAddHours() {
     // this.hoursArr = this.scheduleFormData.get('hoursArr') as FormArray;
@@ -182,23 +186,23 @@ console.log('all megre data',this.allData)
         let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);   
         this.selectedIndex=0;    
         //telegram group name
-        this._ProfileService.addTele(this.scheduleFormData.value.telegramGpName).subscribe((res: any) => {
-            this.toastr.success('Telegram group Created successfully');
-            document.getElementById("closeModal").click();
-          },
-            error => {
-              this.toastr.error(error.error.message)
-            })
+        // this._ProfileService.addTele(this.scheduleFormData.value.telegramGpName).subscribe((res: any) => {
+        //     this.toastr.success('Telegram group Created successfully');
+        //     document.getElementById("closeModal").click();
+        //   },
+        //     error => {
+        //       this.toastr.error(error.error.message)
+        //     })
     }
     routeToFb() {
       console.log(this.scheduleFormData.value.facebook)
       // window.location.href = this.scheduleFormData.value.facebook;
-      window.open(this.scheduleFormData.value.facebook, "_blank")
+      window.open(this.scheduleFormData.value.facebook)
     }
     routeToTelegram() {                  
       console.log("Telegram")
       // window.location.href = 'https://telegram.org/#t9gram.com';
-      window.open("https://telegram.org/#t9gram.com", "_blank")
+      window.open("https://telegram.org/#t9gram.com")
     }
     addGroupName() {
       //    this.teleGroupName = "InstaMarkt " + this.scheduleFormData.value.group_name;
@@ -212,6 +216,6 @@ console.log('all megre data',this.allData)
     //   })
     }   
     cancel() {
-        this.router.navigate(['wizard'], { relativeTo: this.route.parent, skipLocationChange: true });
+      this.router.navigateByUrl('/forms/ngx/description', { relativeTo: this.route.parent, skipLocationChange: true });
     }
 }

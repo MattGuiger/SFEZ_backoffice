@@ -29,6 +29,7 @@ export class WorkComponent implements OnInit {
     companyId :any;
     pass: any;
     user: any;
+    comapnydata:any
     // workFormData = new FormGroup({
     //     workType: new FormControl(),
     //     schedule: new FormControl(),
@@ -47,6 +48,9 @@ export class WorkComponent implements OnInit {
 
 
             });
+    latt: string;
+    long: string;
+    territory_id1:any
     constructor(private router: Router,
         private _AuthService:AuthService,
         private toastr: ToastrService,
@@ -61,7 +65,10 @@ export class WorkComponent implements OnInit {
         this.route.params.subscribe(params => {
             this.companyId = +params['id'];
          });
-         
+     this._ProfileService.getCompanyById1(this.user.company_id).subscribe(res=>{
+this.comapnydata=res
+console.log('reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',res)
+  })
     }
 
     // save(form: any) {
@@ -99,29 +106,53 @@ export class WorkComponent implements OnInit {
             }
           return pass;
     }
-    onSubmit(){
-        console.log("work"+ JSON.stringify(this.workFormData.value));
-        console.log(this.user.role);
-        this.workFormData.value.name = localStorage.getItem('first_name')+ ' LOC';
-        const comapany_id= localStorage.getItem('companyId');
-        const id= localStorage.getItem('Id');
-        const fname = localStorage.getItem('first_name').split('');
-        const fName = fname[0]+fname[1]+fname[2];
-        this.workFormData.value.username = fName + "_mgr1@gmail.com";
-        this.workFormData.value.password = this.generateP();
-        // this.workFormData.value.delivery_radius =""
-        this.workFormData.value.territory_id=this.user.territory_id;
-        // this.workFormData.value.number=""
-        // this._ProfileService.addUnit(this.workFormData.value).subscribe(res=>{
-        this._ProfileService.addUnit(this.workFormData.value,comapany_id).subscribe(res=>{
-            if(res.status==200){
-                //  this._ProfileService.getCompany_unitid(id, res.user.id).subscribe(res=>{
-                //   res.user.unit_id = res.user.id
-                //   this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
-                //  })
-                this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
-               }  
+
+
+    territory_id() {
+        this.latt = localStorage.getItem('latitude');
+        this.long = localStorage.getItem('longitude');
+        let data = {
+          latitude: this.latt,
+          longitude: this.long
+        }
+        this._AuthService.territory_id(this.user.country, this.user.state, data).subscribe((res: any) => {
+          this.territory_id1 = res.data.id;
+          console.log("territory_id" + this.territory_id1);
+          localStorage.setItem("territory_id",this.territory_id1)
         })
+      }
+
+
+
+    onSubmit(){
+        if(this.comapnydata){
+            console.log("work"+ JSON.stringify(this.workFormData.value));
+            console.log(this.user.role); 
+            this.workFormData.value.name =this.comapnydata.name+ ' LOC111222';
+            const comapany_id= this.comapnydata.id;
+            console.log('comapany_idcomapany_idcomapany_id',comapany_id)
+            // const id= localStorage.getItem('Id');
+            // const fname = localStorage.getItem('first_name').split('');
+            // const fName = fname[0]+fname[1]+fname[2];
+            this.workFormData.value.username = this.comapnydata.name + "_mgr11331";
+            this.workFormData.value.password = this.generateP();
+            console.log('workFormData',this.workFormData)
+            // this.workFormData.value.delivery_radius =""
+            this.workFormData.value.territory_id=localStorage.getItem('territory_id');
+            this.workFormData.value.number=1
+            // this._ProfileService.addUnit(this.workFormData.value).subscribe(res=>{
+            this._ProfileService.addUnit(this.workFormData.value,this.comapnydata.id).subscribe(res=>{
+                if(res.status==200){
+                     this._ProfileService.getCompany_unitid(this.comapnydata.id, {unit_id:res.data[0].id}).subscribe(res=>{
+                      console.log('res ofu uunittt',res)
+                      this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
+                     })
+                    // console.log('xvxsdfsdas',res)
+                    // this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
+                   }  
+            })
+        }
+      
         // this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });   
     }
         cancel() {

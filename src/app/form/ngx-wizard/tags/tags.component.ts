@@ -26,7 +26,7 @@ export class TagsComponent implements OnInit {
 }
 
 cancel() {
-    this.router.navigate(['wizard'], { relativeTo: this.route.parent, skipLocationChange: true });
+  this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
 }
 
 }
