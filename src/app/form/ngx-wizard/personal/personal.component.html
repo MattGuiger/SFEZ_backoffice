@@ -155,7 +155,7 @@
                             </div>
                           </div> -->
                     <label for="company_name">Vendor Name</label>
-                    <input type="text" class="form-control" id="company_name" formControlName="company_name" placeholder="">
+                    <input type="text" class="form-control" id="company_name" formControlName="company_name" [(ngModel)]=vndr_name>
                     <div *ngIf="personalDetailsForm.get('company_name').touched && personalDetailsForm.get('company_name').invalid" class="alert alert-danger">
                         <div  *ngIf=" personalDetailsForm.get('company_name').errors.required ">
                               Required
@@ -167,12 +167,12 @@
                               <option *ngFor="let item of states" value="{{item.id}} , {{item.name}}">{{item.name}}</option>
                             </select>
                           </div> -->
-                          <label for="territory_id">Territory</label>
+                          <!-- <label for="territory_id">Territory</label>
                           <div class="input-group">
                             <select formControlName="territory_id" class="form-control">
                               <option *ngFor="let item of singleTerritory" value="{{item.id}}">{{item.city}}</option>
                             </select>
-                          </div>
+                          </div> -->
                     <!-- <label for="country_id">State</label>
                     <div class="input-group">
                       <select formControlName="country_id" class="form-control">

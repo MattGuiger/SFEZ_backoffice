@@ -10,23 +10,17 @@ import { LoginComponent } from './login/login.component';
 import { Login2Component } from './login2/login2.component';
 import { SignupComponent } from './signup/signup.component';
 import { Signup2Component } from './signup2/signup2.component';
-import { AgmCoreModule } from '@agm/core';
 import { AuthenticationRoutes } from './authentication.routing';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AuthenticationRoutes),
-<<<<<<< HEAD
-    AgmCoreModule,
-    NgbModule
-=======
     NgbModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBLXlb_YUHwakS59P-aI5_xJHRwXBtA_hE',//'AIzaSyBl-UKKzfU6aOgD-aixzgRy_yJ7_BIvbms',
       libraries: ['places','visualization','drawing', 'geometry']
     }),
->>>>>>> e7df6cc449e109dc2bc7e9cd28bcd921311cc99a
   ],
   declarations: [
     NotfoundComponent,

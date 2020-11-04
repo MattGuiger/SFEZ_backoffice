@@ -56,27 +56,16 @@ export class LoginComponent implements OnInit {
     this._AuthService.login({ username: uname, password: p }).subscribe((data: any) => {
       if (data.status == 200) {
         this.toastr.success('Login Successfully!');
-<<<<<<< HEAD
-        localStorage.setItem('user',JSON.stringify(data))
-      if(data.user.profile_updated == false){
-        // this.routes.navigate(['/sample-pages/profile']);  
-        this.routes.navigate(['/forms']);
-      }else{
-        // this.routes.navigate(['/dashboard/dashboard2']);
-        this.routes.navigate(['/forms']);
-      }
-      }else{
-        this.msg=data.message;
-=======
         localStorage.setItem('user', JSON.stringify(data))
         if (data.user.profile_updated == false) {
-          this.routes.navigate(['/sample-pages/profile']);
+          // this.routes.navigate(['/sample-pages/profile']);
+          this.routes.navigate(['/forms']);
         } else {
-          this.routes.navigate(['/dashboard/dashboard2']);
+          // this.routes.navigate(['/dashboard/dashboard2']);
+          this.routes.navigate(['/forms']);
         }
       } else {
         this.msg = data.message;
->>>>>>> e7df6cc449e109dc2bc7e9cd28bcd921311cc99a
         this.toastr.error(data.message);
       }
     }, err => {
