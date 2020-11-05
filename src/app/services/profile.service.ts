@@ -321,7 +321,7 @@ addUnitToHub(foodParkId,unitId){
     return this.http.get(this.companyURL+"/"+id);
   }
 
-  getCompanyById1(id) : Observable<any> {
+  getCompanyByCompanyId(id) : Observable<any> {
     return this.http.get(this.companyURL1+"/"+id);
   }
 }

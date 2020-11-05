@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../form/confirm-dialog/confirm-dialog.component';
 import { NgbTabset } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog } from '@angular/material/dialog';
+import { local } from 'd3';
 
 @Component({
   templateUrl: 'menuitems.component.html',
@@ -162,7 +163,16 @@ export class MenuitemsComponent implements OnInit{
   getAllProductList() {
     this.processing = true;
     this.user = this._CommonFunctionsService.checkUser().user;
+   
     if(this.user.unit_id){
+      this._ProfileService.getAllProductList(this.user.unit_id).subscribe((res: any) => {
+        this.productList = res.data;
+        this.processing = false;
+      }, error => {
+        //debugger
+      })
+    }else{
+      this.user.unit_id=localStorage.getItem("unit_id")
       this._ProfileService.getAllProductList(this.user.unit_id).subscribe((res: any) => {
         this.productList = res.data;
         this.processing = false;
@@ -228,6 +238,18 @@ export class MenuitemsComponent implements OnInit{
   }
   getCompanyProfile() {
     this.user = this._CommonFunctionsService.checkUser().user;
+    if(this.user.unit_id){
+      
+      this._ProfileService.getCompanyprofile(this.user.unit_id).subscribe((res: any) => {
+        this.profile = res.data;
+        this.google_sheet_url=res.data.google_sheet_url
+        console.log(this.profile)
+      }, error => {
+        //  
+      })
+
+    }else{
+      this.user.unit_id=localStorage.getItem("unit_id")
     this._ProfileService.getCompanyprofile(this.user.unit_id).subscribe((res: any) => {
       this.profile = res.data;
       this.google_sheet_url=res.data.google_sheet_url
@@ -235,6 +257,8 @@ export class MenuitemsComponent implements OnInit{
     }, error => {
       //  
     })
+    }
+    
   }
 
   uploadGoogleMenuSheet() {

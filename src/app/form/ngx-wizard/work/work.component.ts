@@ -65,12 +65,16 @@ export class WorkComponent implements OnInit {
         this.route.params.subscribe(params => {
             this.companyId = +params['id'];
          });
-     this._ProfileService.getCompanyById1(this.user.company_id).subscribe(res=>{
-this.comapnydata=res
-console.log('reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',res)
-  })
+this.getCompanyInfo()
+this.territory_id()
     }
-
+getCompanyInfo(){
+             
+    this._ProfileService.getCompanyByCompanyId(this.user.company_id).subscribe(res=>{
+        this.comapnydata=res
+        console.log('reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',res)
+          })
+}
     // save(form: any) {
     //     if (!form.valid)
     //         return;
@@ -128,13 +132,13 @@ console.log('reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',res)
         if(this.comapnydata){
             console.log("work"+ JSON.stringify(this.workFormData.value));
             console.log(this.user.role); 
-            this.workFormData.value.name =this.comapnydata.name+ ' LOC111222';
+            this.workFormData.value.name =this.comapnydata.name+ ' LOC1';
             const comapany_id= this.comapnydata.id;
             console.log('comapany_idcomapany_idcomapany_id',comapany_id)
             // const id= localStorage.getItem('Id');
             // const fname = localStorage.getItem('first_name').split('');
             // const fName = fname[0]+fname[1]+fname[2];
-            this.workFormData.value.username = this.comapnydata.name + "_mgr11331";
+            this.workFormData.value.username = this.comapnydata.name + "_mgr1";
             this.workFormData.value.password = this.generateP();
             console.log('workFormData',this.workFormData)
             // this.workFormData.value.delivery_radius =""
@@ -142,7 +146,9 @@ console.log('reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',res)
             this.workFormData.value.number=1
             // this._ProfileService.addUnit(this.workFormData.value).subscribe(res=>{
             this._ProfileService.addUnit(this.workFormData.value,this.comapnydata.id).subscribe(res=>{
+                
                 if(res.status==200){
+                    localStorage.setItem("unit_id",res.data[0].id)
                      this._ProfileService.getCompany_unitid(this.comapnydata.id, {unit_id:res.data[0].id}).subscribe(res=>{
                       console.log('res ofu uunittt',res)
                       this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });

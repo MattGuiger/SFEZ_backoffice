@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import {AgmMap, MouseEvent,MapsAPILoader  } from '@agm/core'; 
 import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
+import { } from "googlemaps"
 
 @Component({
     selector: 'app-root',
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit,OnDestroy {
     latitude: any;
     longitude: any;
     zoom: any;
-    constructor(private slimLoader: SlimLoadingBarService, private router: Router, private apiloader: MapsAPILoader) {
+    constructor(private slimLoader: SlimLoadingBarService, private router: Router) {
         // Listen the navigation events to start or complete the slim bar loading
         this.sub = this.router.events.subscribe(event => {
             if (event instanceof NavigationStart) {
@@ -34,7 +35,7 @@ export class AppComponent implements OnInit,OnDestroy {
     ngOnInit()  
   {  
     this.get()  
-    this.agmMap.triggerResize(true);  
+    // this.agmMap.triggerResize(true);  
      this.zoom = 16;  
     } 
     ngOnDestroy(): any {
@@ -48,23 +49,23 @@ export class AppComponent implements OnInit,OnDestroy {
                     this.lng = position.coords.longitude;  
                     this.getAddress = (this.lat, this.lng)  
                     console.log(position)  
-                    this.apiloader.load().then(() => {  
-                        let geocoder = new google.maps.Geocoder;  
-                        let latlng = {  
-                            lat: this.lat,  
-                            lng: this.lng  
-                        };  
-                        geocoder.geocode({  
-                            'location': latlng  
-                        }, function(results) {  
-                            if (results[0]) {  
-                                this.currentLocation = results[0].formatted_address;  
-                                console.log(this.assgin);  
-                            } else {  
-                                console.log('Not found');  
-                            }  
-                        });  
-                    });  
+                    // this.apiloader.load().then(() => {  
+                    //     let geocoder = new google.maps.Geocoder;  
+                    //     let latlng = {  
+                    //         lat: this.lat,  
+                    //         lng: this.lng  
+                    //     };  
+                    //     geocoder.geocode({  
+                    //         'location': latlng  
+                    //     }, function(results) {  
+                    //         if (results[0]) {  
+                    //             this.currentLocation = results[0].formatted_address;  
+                    //             console.log(this.assgin);  
+                    //         } else {  
+                    //             console.log('Not found');  
+                    //         }  
+                    //     });  
+                    // });  
                 }  
             })  
         }  
@@ -72,22 +73,22 @@ export class AppComponent implements OnInit,OnDestroy {
     mapClicked($event: MouseEvent) {  
         this.latitude = $event.coords.lat,  
             this.longitude = $event.coords.lng  
-        this.apiloader.load().then(() => {  
-            let geocoder = new google.maps.Geocoder;  
-            let latlng = {  
-                lat: this.latitude,  
-                lng: this.longitude  
-            };  
-            geocoder.geocode({  
-                'location': latlng  
-            }, function(results) {  
-                if (results[0]) {  
-                    this.currentLocation = results[0].formatted_address;  
-                    console.log(this.currentLocation);  
-                } else {  
-                    console.log('Not found');  
-                }  
-            });  
-        });  
+        // this.apiloader.load().then(() => {  
+        //     // let geocoder = new google.maps.Geocoder;  
+        //     let latlng = {  
+        //         lat: this.latitude,  
+        //         lng: this.longitude  
+        //     };  
+        //     // geocoder.geocode({  
+        //         // 'location': latlng  
+        //     // }, function(results) {  
+        //     //     if (results[0]) {  
+        //     //         this.currentLocation = results[0].formatted_address;  
+        //     //         console.log(this.currentLocation);  
+        //     //     } else {  
+        //     //         console.log('Not found');  
+        //     //     }  
+        //     // });  
+        // });  
     } 
 }

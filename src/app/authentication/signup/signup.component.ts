@@ -58,11 +58,7 @@ export class SignupComponent implements OnInit {
     //   this.msg = 'First name is required';
     //   return;
     // }
-<<<<<<< HEAD
-    if(last_name === null || last_name === ""){
-=======
     if (last_name === null || last_name === "") {
->>>>>>> UI
       this.msg = 'Last name is required';
       return;
     }
