@@ -20,7 +20,9 @@
            
             <div class="form-group col-4 offset-4 mt-4">
                 <label class="form-control-label" for="description">Description</label>  
-                <textarea rows="" class="form-control form-control-line" formControlName="description" class="form-control input-md" id="description" name="description" placeholder="Homemade tortillas, stuffed lime-marinated lengua, smothered in avocado and our famous melt your face salsa."></textarea>
+                <textarea rows="" class="form-control form-control-line" formControlName="description" 
+                 class="form-control input-md" id="description" name="description" rows="6"
+                  placeholder="Homemade tortillas, stuffed lime-marinated lengua, smothered in avocado and our famous melt your face salsa."></textarea>
                 <div *ngIf="descriptionFormData.get('description').touched && descriptionFormData.get('description').invalid" class="alert alert-danger">
                     <div  *ngIf=" descriptionFormData.get('description').errors.required ">
                      Required
