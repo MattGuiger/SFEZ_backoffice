@@ -96,8 +96,12 @@ export class MenuitemsComponent implements OnInit{
     })
     this.getFolderbyEmail()
 
+  } 
+  googlesheetUrl(google_sheet_url){
+    console.log("Telegram")
+    // window.location.href = 'https://telegram.org/#t9gram.com';
+    window.open(google_sheet_url)
   }
-
   onSelect(event) {
     console.log(event);
     // this.feathuredfiles.push(...event.addedFiles);

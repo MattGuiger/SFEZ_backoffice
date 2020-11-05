@@ -11,6 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/confirm-dialog.component';
 import { forkJoin } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 declare var require: any;
 const data: any = require('./company.json');
@@ -63,6 +64,11 @@ export class FoodParkComponent implements OnInit{
   driverForm: FormGroup;
   managerForm: FormGroup;
   managerRole: string = 'FOODPARKMGR';
+  
+latt:any
+long:any
+territory_id1:any
+
   // lat = 44.058174;
   // lng = -121.315308;
   lat=0
@@ -166,30 +172,36 @@ export class FoodParkComponent implements OnInit{
   locations: any;
   deliveryHub: any;
   deliveryHubUnits: any;
+  Hublocations: any;
 
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService,
     private router: Router,
     public dialog: MatDialog,
+    private _AuthService:AuthService,
     private _CommonFunctionsService: CommonFunctionsService,
     private modalService: NgbModal,
     private route: ActivatedRoute) {
     this.user = this._CommonFunctionsService.checkUser().user;
-    this.getAllState();
+    this.territory_id()
+    // this.getAllState();
     this.getAllTerritory();
     this.getAllCountries();
     this.getAllStates();
-    this.getAllFoodPark();
+    // this.getAllFoodPark();
     this.formInit();
     this.driverformInit();
     this.managerFormInit();
     this.getallfoodparkmgr();
-    this.getAllUnitList();
+    // this.getAllUnitList();
     this.getAllUnitWithFoodParkId();
     this.getAllDriversWithFoodParkId();
-    this.getlocationOnTerritoryId()
-    this.getlocationsAndHub()
-    this.gethubswithterriId()
+  
+    // this.getlocationsAndHub()
+    // this.gethubswithterriId()
+    this.getDeliveryHubAndLocationsInCompany()
+this.getDeliveryHubinCompany()
+
     if (this.user.role == 'FOODPARKMGR' || this.user.role == 'OWNER') {
       this.showManagerTab = true;
     }
@@ -216,6 +228,67 @@ export class FoodParkComponent implements OnInit{
 
   //   return this.states.filter(option => option.toLowerCase().includes(filterValue));
   // }
+
+getDeliveryHubAndLocationsInCompany(){
+  if(this.user.company_id){
+    this._ProfileService.getDeliveryHubandUnits(this.user.company_id).subscribe(res=>{
+      console.log('getDeliveryHubAndLocationsInCompany',res)
+      if(res.status==200){
+        console.log('thisssss deliveryHubUnits',res.data)
+        this.deliveryHubUnits=res.data
+      }else{        
+      }
+    })
+  }
+
+}
+
+getDeliveryHubinCompany(){
+  if(this.user.company_id){
+    this._ProfileService.getDeliveryHubsInCompany(this.user.company_id).subscribe(res=>{
+      console.log('getDeliveryHubinCompany',res)
+      if(res.status==200){
+        console.log('thisssss deliveryHub',res.data)
+    this.deliveryHub=res.data
+      }else{
+        
+      }
+    })
+  }
+}
+
+
+getLocationInTerritoy(){
+  console.log('getDeliveryHubinCompany------getLocationInTerritoy')
+
+  if(this.territory_id1){
+  this._ProfileService.getLocationsInTerritory_id(this.territory_id1).subscribe(res=>{
+    console.log('getLocationInTerritoy',res)
+    this.Hublocations=res.data
+  })
+}
+}
+
+territory_id() {
+  this.latt = localStorage.getItem('latitude');
+  this.long = localStorage.getItem('longitude');
+  let data = {
+    latitude: this.latt,
+    longitude: this.long
+  }
+  this._AuthService.territory_id(this.user.country, this.user.state, data).subscribe((res: any) => {
+    if(res.status==200){
+      this.territory_id1 = res.data.id;
+      console.log("territory_id" + this.territory_id1);
+      this.getlocationOnTerritoryId()
+      this.getLocationInTerritoy()
+    }
+
+    // localStorage.setItem("territory_id",this.territory_id1)
+  })
+}
+
+
 
   formInit() {
     // this.onLocationEditForm = new FormGroup({});
@@ -317,10 +390,10 @@ export class FoodParkComponent implements OnInit{
   // }
 
 getlocationOnTerritoryId(){
-  if(this.user.territory_id){
-    this._ProfileService.getLocationswithTerriID(this.user.territory_id).subscribe(res=>{
+  if(this.territory_id1){
+    this._ProfileService.getLocationswithTerriID(this.territory_id1).subscribe(res=>{
       if(res.status==200){
-    console.log('thisssss locations',res.data)
+    console.log('thisssss locations getLocationswithTerriID**************************************',res.data)
     this.locations=res.data
       }else{
         console.log("operation Failed ")
@@ -656,7 +729,10 @@ getlocationsAndHub(){
     this._ProfileService.addFoodPark(this.hubFoodParkForm.value).subscribe((res: any) => {
       this.toastr.success('Territory Created successfully');
       document.getElementById("closeModal").click();
-      this.getAllFoodPark();  
+      // this.getAllFoodPark();  
+      this.getDeliveryHubinCompany()
+      this.getDeliveryHubAndLocationsInCompany()
+      this.getLocationInTerritoy()
     },
       error => {
         this.toastr.error(error.error.message)
@@ -682,14 +758,17 @@ getlocationsAndHub(){
   /** manager tab*/
   territoryName: any;
   getSingleTerritory() {
-    this._ProfileService.getSingleTerritory(this.user.territory_id).subscribe(
-      (territoryResponse) => {
-        this.territoryName = territoryResponse.territory;
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
+    if(this.user.territory_id){
+      this._ProfileService.getSingleTerritory(this.user.territory_id).subscribe(
+        (territoryResponse) => {
+          this.territoryName = territoryResponse.territory;
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    }
+
   }
   getAllManger() {
     let data = {

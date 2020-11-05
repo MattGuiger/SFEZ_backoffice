@@ -66,8 +66,8 @@
 
                   <ngx-datatable-column name="Action" prop="Action" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <button type="button" class="btn btn-success btn-sm" (click)="openEditDeilveryHub(content5,row)"><i
-                          class="ti-pencil"></i></button>
+                      <button type="button" class="btn btn-success btn-sm"
+                        (click)="openEditDeilveryHub(content5,row)"><i class="ti-pencil"></i></button>
                     </ng-template>
                   </ngx-datatable-column>
                 </ngx-datatable>
@@ -77,92 +77,92 @@
                   <p class="text-center" style="font-weight: 500;">{{hubunit.data[0]?.name}}</p>
                   <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
                     [footerHeight]="50" [rowHeight]="'auto'" [limit]="5" [rows]='hubunit.data'>
+               
+                      <ngx-datatable-column name="Name" [width]="150">
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value" >
+                          {{row?.unit_name}}
+                        </ng-template>
+                      </ngx-datatable-column>
+                      <ngx-datatable-column name="Manager" [width]="150">
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value"  >
+                          {{row?.hub_member}}
+                        </ng-template>
+                      </ngx-datatable-column>
+                      <ngx-datatable-column name="Delivery">
+                        <ng-template let-row="row" ngx-datatable-header-template let-value="value"  >
+                          <img src="../../../assets/images/delivery-01.png" alt="Icon" style="height: 36px;" />
+                        </ng-template>
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value"  >
+                          <div>
+                            <label class="switch">
+                              <input type="checkbox" [checked]=row.delivery>
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
+                        </ng-template>
+                      </ngx-datatable-column>
+                      <ngx-datatable-column name="Cod">
+                        <ng-template let-row="row" ngx-datatable-header-template let-value="value"  >
+                          <img src="../../../assets/images/cash.png" alt="Icon" style="height: 36px;" />
+                        </ng-template>
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                          <!-- {{row.codIcon}}
+-->
+                          <div>
+                            <label class="switch">
+                              <input type="checkbox" [checked]=row.cash_on_delivery>
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
+                        </ng-template>
+                      </ngx-datatable-column>
+                      <ngx-datatable-column name="Takeout">
+                        <ng-template let-row="row" ngx-datatable-header-template let-value="value">
+                          <img src="../../../assets/images/takeout-01.png" alt="Icon" style="height: 30px;" />
 
-                    <ngx-datatable-column name="Name" [width]="150">
-                      <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                        {{row?.unit_name}}
-                      </ng-template>
-                    </ngx-datatable-column>
-           
+                        </ng-template>
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                          <div class="">
+                            <label class="switch">
+                              <input type="checkbox" [checked]=row.takeout>
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
+                        </ng-template>
+                      </ngx-datatable-column>
+                      <ngx-datatable-column name="Action" [width]="150">
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value" >
 
-                    <ngx-datatable-column name="Manager" [width]="150">
-                      <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                        {{row?.hub_member}}
-                      </ng-template>
-                    </ngx-datatable-column>
-                    <ngx-datatable-column name="Delivery">
-                      <ng-template let-row="row" ngx-datatable-header-template let-value="value">
-                        <img src="../../../assets/images/delivery-01.png" alt="Icon" style="height: 36px;" />
-                      </ng-template>
-                      <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                        <div>
-                          <label class="switch">
-                            <input type="checkbox" [checked]=row.delivery>
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                      </ng-template>
-                    </ngx-datatable-column>
-                    <ngx-datatable-column name="Cod">
-                      <ng-template let-row="row" ngx-datatable-header-template let-value="value">
-                        <img src="../../../assets/images/cash.png" alt="Icon" style="height: 36px;" />
-                      </ng-template>
-                      <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                        <!-- {{row.codIcon}}
-           -->
-                        <div>
-                          <label class="switch">
-                            <input type="checkbox" [checked]=row.cash_on_delivery>
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                      </ng-template>
-                    </ngx-datatable-column>
-                    <ngx-datatable-column name="Takeout">
-                      <ng-template let-row="row" ngx-datatable-header-template let-value="value">
-                        <img src="../../../assets/images/takeout-01.png" alt="Icon" style="height: 30px;" />
+                          <button type="button" class="btn btn-danger btn-sm"
+                            (click)=removeUnit(row.unit_id,row.food_park_id)>Remove
+                            Vendor</button>
+                        </ng-template>
+                      </ngx-datatable-column>
 
-                      </ng-template>
-                      <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                        <div class="">
-                          <label class="switch">
-                            <input type="checkbox" [checked]=row.takeout>
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-                      </ng-template>
-                    </ngx-datatable-column>
-                 
-                    <ngx-datatable-column name="Action" [width]="150">
-                      <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-
-                        <button type="button" class="btn btn-danger btn-sm" (click)=removeUnit(row.unit_id,row.food_park_id)>Remove
-                          Vendor</button>
-                      </ng-template>
-                    </ngx-datatable-column>
-
+              
                   </ngx-datatable>
-                </div >
+                </div>
 
                 <div class="card-body">
                   <p class="text-center" style="font-weight: 500;">Register Vendors</p>
                   <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
-                    [footerHeight]="50" [rowHeight]="'auto'" [limit]="5" [rows]='locations'>
+                    [footerHeight]="50" [rowHeight]="'auto'" [limit]="5" [rows]='Hublocations'>
                     <ngx-datatable-column name="Name" [width]="150">
-                      <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <ng-template ngx-datatable-cell-template let-row="row" let-value="value" *ngIf="row?.food_park_id!=hubunit.data.food_park_id">
                         {{row?.unit_name}}
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Manager" [width]="150">
-                      <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <ng-template ngx-datatable-cell-template let-row="row" let-value="value" *ngIf=" row?.food_park_id!=hubunit.data.food_park_id ">
                         {{row?.hub_member}}
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Active" [width]="150">
-                      <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                        <button type="button" class="btn btn-success btn-sm" (click)="addVendor(hubunit.food_park_id,row.unit_id)">Add Vendor</button>
+                      <ng-template ngx-datatable-cell-template let-row="row" let-value="value" *ngIf="row?.food_park_id!=hubunit.data.food_park_id">
+                        <button type="button" class="btn btn-success btn-sm"
+                          (click)="addVendor(hubunit.food_park_id,row.unit_id)">Add Vendor</button>
                       </ng-template>
                     </ngx-datatable-column>
 
@@ -356,8 +356,10 @@
 
                         <!-- <input class="btn btn-danger btn-raised" type="button" value="Delete" (click)="deleteCompany($event,row)"/>
                           <i class="ti-close" aria-hidden="true"></i> -->
-                          <button type="button" class="btn btn-sm btn-icon btn-success btn-pure btn-outline delete-row-btn"
-                          data-toggle="tooltip" data-original-title="email" (click)="sendEmail($event, contentManagerEmail, row)">
+                        <button type="button"
+                          class="btn btn-sm btn-icon btn-success btn-pure btn-outline delete-row-btn"
+                          data-toggle="tooltip" data-original-title="email"
+                          (click)="sendEmail($event, contentManagerEmail, row)">
                           <i class="fa fa-envelope" aria-hidden="true"></i>
                         </button>&nbsp;&nbsp;
 
@@ -634,7 +636,8 @@
 
         <label for="territoryid">Territory</label>
         <div class="input-group">
-          <select formControlName="territory_id" [(ngModel)]="selectedTerritory" class="form-control" (change)="getLatLong($event)">
+          <select formControlName="territory_id" [(ngModel)]="selectedTerritory" class="form-control"
+            (change)="getLatLong($event)">
             <option *ngFor="let item of singleTerritory.territory" [ngValue]="item">{{item.city}}</option>
           </select>
         </div>
@@ -704,7 +707,7 @@
 
         <label for="country">Country</label>
         <div class="input-group">
-          <select formControlName="country_id" class="form-control"  (change)="getState($event)">
+          <select formControlName="country_id" class="form-control" (change)="getState($event)">
             <option *ngFor="let item of countries" value="{{item.id}}">{{item.name}}</option>
           </select>
         </div>
@@ -828,9 +831,10 @@
             <div class="input-group-prepend">
               <div class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
             </div>
-            <select class="form-control"  (change)="selectLocationOrHub($event)">
+            <select class="form-control" (change)="selectLocationOrHub($event)">
               <option value="">Select</option>
-              <option *ngFor="let hub_location of selectArry "  value="{{hub_location.name}}, {{hub_location.id}}, {{hub_location.type}}">{{hub_location.name}}
+              <option *ngFor="let hub_location of selectArry "
+                value="{{hub_location.name}}, {{hub_location.id}}, {{hub_location.type}}">{{hub_location.name}}
               </option>
             </select>
           </div>
@@ -914,7 +918,7 @@
             </div>
           </div>
         </div>
-     <!-- <label for="name">Last Name</label>
+        <!-- <label for="name">Last Name</label>
         <div class="input-group">
           <input id="name" class="form-control" name="dp" type="text" formControlName="last_name">
         </div>
@@ -947,7 +951,7 @@
             <option *ngFor="let manager of rows " value="{{manager.id}}">{{manager.name}}</option>
           </select>
         </div> -->
-          </div>
+      </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-outline-dark">Save</button>
       </div>
@@ -964,34 +968,37 @@
   </div>
   <div class="modal-body">
     <form [formGroup]="foodParkForm" (ngSubmit)="onDeliveryHubSubmit()">
-        <div class="form-group">
-            <label for="delivery_time_window" style="display: block;">Delivery Time Window</label>
-            <!-- <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="15" min="1" max="15" step="5"></mat-slider> -->
-            <mat-slider thumbLabel min="0" max="15" step="5" formControlName="delivery_time_window"  [displayWith]="formatLabel" tickInterval="15" class="cdk-focused"
-            (input)="minDaysValue = $event.value" [value]="minDaysValue">
-          </mat-slider>
-              <label for="type">Type</label>
-            <div class="input-group">
-              <select formControlName="type" class="form-control">
-                <!-- <option value="selectedHubRecord.type" [selected]="selectedHubRecord.type === item" selected >{{selectedHubRecord.type }}</option>  -->
-                <option value="none" selected hidden> </option>
-                <option *ngFor="let item of typesForHub" >{{item}}</option>
-              </select>
-            </div>
-            <label for="stateid">State</label>
-            <div class="input-group">
-              <select formControlName="stateid" class="form-control" (change)="getTerritoryForEdit($event)">
-                <!-- <option value="selectedHubRecord.type" selected >{{selectedHubRecord.type }}</option> -->
-                <option *ngFor="let item of states2" value="{{item.id}}" [selected]="selectedHubRecord.state_name == item.name">{{item.name}}</option>
-              </select>
-            </div>
-            <label for="territoryid">Territory</label>
-            <div class="input-group">
-              <select formControlName="territoryid" [(ngModel)]="selectedTerritory" class="form-control" >
-                <option *ngFor="let item of singleTerritory.territory" [selected]="selectedHubRecord.territory == item.city">{{item.city}}</option>
-              </select>
-            </div>
-          </div>
+      <div class="form-group">
+        <label for="delivery_time_window" style="display: block;">Delivery Time Window</label>
+        <!-- <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="15" min="1" max="15" step="5"></mat-slider> -->
+        <mat-slider thumbLabel min="0" max="15" step="5" formControlName="delivery_time_window"
+          [displayWith]="formatLabel" tickInterval="15" class="cdk-focused" (input)="minDaysValue = $event.value"
+          [value]="minDaysValue">
+        </mat-slider>
+        <label for="type">Type</label>
+        <div class="input-group">
+          <select formControlName="type" class="form-control">
+            <!-- <option value="selectedHubRecord.type" [selected]="selectedHubRecord.type === item" selected >{{selectedHubRecord.type }}</option>  -->
+            <option value="none" selected hidden> </option>
+            <option *ngFor="let item of typesForHub">{{item}}</option>
+          </select>
+        </div>
+        <label for="stateid">State</label>
+        <div class="input-group">
+          <select formControlName="stateid" class="form-control" (change)="getTerritoryForEdit($event)">
+            <!-- <option value="selectedHubRecord.type" selected >{{selectedHubRecord.type }}</option> -->
+            <option *ngFor="let item of states2" value="{{item.id}}"
+              [selected]="selectedHubRecord.state_name == item.name">{{item.name}}</option>
+          </select>
+        </div>
+        <label for="territoryid">Territory</label>
+        <div class="input-group">
+          <select formControlName="territoryid" [(ngModel)]="selectedTerritory" class="form-control">
+            <option *ngFor="let item of singleTerritory.territory"
+              [selected]="selectedHubRecord.territory == item.city">{{item.city}}</option>
+          </select>
+        </div>
+      </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-outline-dark">Save</button>&nbsp;
         <button type="submit" class="btn btn-outline-dark">Cancel</button>
@@ -1009,47 +1016,50 @@
   </div>
   <div class="modal-body">
     <form [formGroup]="onLocationEditForm" (ngSubmit)="onLocationEditSubmit(); ">
-     
+
       <div class="form-group">
-          <label for="customer_order_window" style="display: block;">Customer Time Window(min)</label>
-          <mat-slider thumbLabel formcontrolName="customer_order_window" min="0" max="20" step="5" [displayWith]="formatLabel" tickInterval="5" class="cdk-focused"
-            (input)="minDaysValue = $event.value" [value]="minDaysValue">
-          </mat-slider>
-          <label for="delivery_radius" style="display: block;"> Delivery Range(mi)</label>
-          <mat-slider thumbLabel formControlName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel" tickInterval="10" class="cdk-focused"
-            (input)="minDaysValue = $event.value" [value]="minDaysValue">
-          </mat-slider>
-          <label for="standard_delivery" style="display: block;">Standard Delivery (0-5 km/mi) </label>
-          <mat-slider thumbLabel min="0" max="5" step="1" [displayWith]="formatLabel" tickInterval="5" class="cdk-focused"
-            [value]="minDaysValuse">
-          </mat-slider>
-          <label for="long_delivery" style="display: block;">Long Delivery (5-10 km/mi) </label>
-              <mat-slider thumbLabel min="5" max="10" step="1" [displayWith]="formatLabel" tickInterval="10" class="cdk-focused"
-              [value]="minDaysValue">
-            </mat-slider>
-          <!-- </mat-slider> -->
-          <!-- <label for="name" style="display: block;">Custom</label>
+        <label for="customer_order_window" style="display: block;">Customer Time Window(min)</label>
+        <mat-slider thumbLabel formcontrolName="customer_order_window" min="0" max="20" step="5"
+          [displayWith]="formatLabel" tickInterval="5" class="cdk-focused" (input)="minDaysValue = $event.value"
+          [value]="minDaysValue">
+        </mat-slider>
+        <label for="delivery_radius" style="display: block;"> Delivery Range(mi)</label>
+        <mat-slider thumbLabel formControlName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel"
+          tickInterval="10" class="cdk-focused" (input)="minDaysValue = $event.value" [value]="minDaysValue">
+        </mat-slider>
+        <label for="standard_delivery" style="display: block;">Standard Delivery (0-5 km/mi) </label>
+        <mat-slider thumbLabel min="0" max="5" step="1" [displayWith]="formatLabel" tickInterval="5" class="cdk-focused"
+          [value]="minDaysValuse">
+        </mat-slider>
+        <label for="long_delivery" style="display: block;">Long Delivery (5-10 km/mi) </label>
+        <mat-slider thumbLabel min="5" max="10" step="1" [displayWith]="formatLabel" tickInterval="10"
+          class="cdk-focused" [value]="minDaysValue">
+        </mat-slider>
+        <!-- </mat-slider> -->
+        <!-- <label for="name" style="display: block;">Custom</label>
           <mat-slider thumbLabel [displayWith]="formatLabel3" min="0" max="15"></mat-slider> -->
-          <label for="stateid">State</label>
-          <div class="input-group">
-            <select formControlName="stateid" class="form-control" (change)="getTerritory($event)"> 
-              <!-- <option *ngFor="let item of states2" value="{{item.id}}">{{item.name}}</option> -->
-              <option *ngFor="let item of states2"  value="{{item.id}}" [selected]="selectedLocationRecord.state_name == item.name">{{item.name}}</option>
+        <label for="stateid">State</label>
+        <div class="input-group">
+          <select formControlName="stateid" class="form-control" (change)="getTerritory($event)">
+            <!-- <option *ngFor="let item of states2" value="{{item.id}}">{{item.name}}</option> -->
+            <option *ngFor="let item of states2" value="{{item.id}}"
+              [selected]="selectedLocationRecord.state_name == item.name">{{item.name}}</option>
             <!-- </select> -->
             <!-- <select formControlName="stateid" class="form-control" (change)="getTerritoryForEdit($event)"> -->
-                <!-- <option *ngFor="let item of states.state"  [selected]="selectedLocationRecord.state_name == item.name">{{item.name}}</option> -->
-              </select>
-          </div>
-  
-          <label for="territoryid">Territory</label>
-          <div class="input-group">
-            <select formControlName="territory_id" [(ngModel)]="selectedTerritory" class="form-control" (change)="getLatLong($event)">
-              <option *ngFor="let item of singleTerritory.territory" [ngValue]="item">{{item.city}}</option>
-            </select>
-          </div>
-  
-          
+            <!-- <option *ngFor="let item of states.state"  [selected]="selectedLocationRecord.state_name == item.name">{{item.name}}</option> -->
+          </select>
         </div>
+
+        <label for="territoryid">Territory</label>
+        <div class="input-group">
+          <select formControlName="territory_id" [(ngModel)]="selectedTerritory" class="form-control"
+            (change)="getLatLong($event)">
+            <option *ngFor="let item of singleTerritory.territory" [ngValue]="item">{{item.city}}</option>
+          </select>
+        </div>
+
+
+      </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-outline-dark">Save</button>&nbsp;
         <button type="submit" class="btn btn-outline-dark">Cancel</button>
@@ -1058,34 +1068,34 @@
   </div>
 </ng-template>
 <ng-template #contentManagerEmail let-modal>
-    <div class="modal-header" style="background-color: #7460ee;">
-      <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Send Email</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form [formGroup]="emailManageForm" (ngSubmit)="onManagerEmailSubmit(); emailManageForm.reset()">
+  <div class="modal-header" style="background-color: #7460ee;">
+    <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Send Email</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="emailManageForm" (ngSubmit)="onManagerEmailSubmit(); emailManageForm.reset()">
+      <div class="form-group">
         <div class="form-group">
-            <div class="form-group">
-                <div class="form-group row">
-                  <label for="email" class="col-md-3 col-form-label">Email</label>
-                  <div class="col-md-9">
-                    <div class="input-group mb-2">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-                      </div>
-                      <input class="form-control" name="dp" type="text" formControlName="email">
-                    </div>
-                  </div>
+          <div class="form-group row">
+            <label for="email" class="col-md-3 col-form-label">Email</label>
+            <div class="col-md-9">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                 </div>
+                <input class="form-control" name="dp" type="text" formControlName="email">
               </div>
+            </div>
+          </div>
+        </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-outline-dark">Send</button>&nbsp;
           <button type="submit" class="btn btn-outline-dark">Cancel</button>
-          </div>
         </div>
-      </form>
-    </div>
-  
-  </ng-template>
+      </div>
+    </form>
+  </div>
+
+</ng-template>

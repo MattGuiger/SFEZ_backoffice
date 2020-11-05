@@ -241,7 +241,7 @@
                                                   </div>
                                                 </div>
                                                 <div class="col-md-12">
-                                                  <a href="">{{google_sheet_url}}</a>
+                                                  <a (click)="googlesheetUrl(google_sheet_url)">{{google_sheet_url}}</a>
                                                   <div class="sync_btn">
                                                     <button mat-raised-button class="btn"
                                                     (click)="uploadGoogleMenuSheet()">Sync to Google Sheets <img
@@ -477,7 +477,7 @@
           </div>
       </div>
 
-
+    </div>
 <!-- 
 <div class="col-lg-3 col-md-6" *ngFor="let item of productList">
   <div class="card" (click)="openProduct(item)">
@@ -805,4 +805,3 @@
       </div>
   </div>
 </div> -->
-</div>

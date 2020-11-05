@@ -120,6 +120,7 @@ export class FoodpckmgrorderComponent {
     this.getAllOrder();
     this.getDailyPayout();
     this.foodParkUnits(); 
+    
     //this.getCurrentDate();
       
   }
