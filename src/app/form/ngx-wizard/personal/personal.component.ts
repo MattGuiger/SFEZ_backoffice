@@ -175,8 +175,6 @@ export class PersonalComponent implements OnInit {
         this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
       }
     })
-
-
     // this.personalDetailsForm.value.first_name=this.user.first_name;
     // this.personalDetailsForm.value.last_name=this.user.last_name;
     // this.personalDetailsForm.value.email=this.user.username;
@@ -260,7 +258,7 @@ export class PersonalComponent implements OnInit {
     this._ProfileService.uploadCompanyProfile(this.user.company_id, formData).subscribe((res: any) => {
       console.log('resss ', res.data[0].photo)
       localStorage.setItem('photo', res.data[0].photo);
-      this.toastr.success('Photo upload successfully!')
+      this.toastr.success('Photo uploaded successfully!')
     }, error => {
       this.toastr.error('failed to upload, please try again later')
     })
@@ -279,7 +277,7 @@ export class PersonalComponent implements OnInit {
     this._ProfileService.uploadFeaturePhoto(this.user.company_id, formData).subscribe((res: any) => {
       console.log('resss ', res.data[0].photo)
       localStorage.setItem('featured_dish', res.data[0].featured_dish);
-      this.toastr.success('Feathured dish upload successfully!')
+      this.toastr.success('Feathured dish uploaded successfully!')
     }, error => {
       this.toastr.error('failed to upload, please try again later')
     })

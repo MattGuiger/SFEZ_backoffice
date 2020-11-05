@@ -39,7 +39,7 @@ export class ScheduleComponent implements OnInit {
     itemForm: FormGroup;
     myForm: FormGroup;
     arr: FormArray;
-    
+    numbers: any[] = [];
 
     // scheduleFormData = new FormGroup({
     //   hours: new FormControl('', Validators.required),
@@ -47,7 +47,6 @@ export class ScheduleComponent implements OnInit {
     //   schedule: new FormControl(this.schedule),
     //   facebook: new FormControl('www.facebook.com/'),     
     //   });
-      
     data: any[] = [];
     newStorage:any[]=[];
     // newStorage2:any[]=[11,22,"Ef"];
@@ -62,8 +61,8 @@ export class ScheduleComponent implements OnInit {
         private workflowService: WorkflowService,
         ) {
           this.user = this._CommonFunctionsService.checkUser().user;
+          this.numbers = new Array(24).fill(1).map((x,i)=>i+1);
     }
-
     ngOnInit() {
         this.route.params.subscribe(params => {
             this.companyId = + params['id'];
@@ -126,7 +125,6 @@ console.log('all megre data',this.allData)
     const combinedObject = {...tagsFormData, ...descriptionFormData, ...scheduleFormData};
     return combinedObject;
     }
-    
     getHours(event){
       console.log(event.target.value)
       this.getTime.push(event.target.value)
@@ -200,9 +198,9 @@ console.log('all megre data',this.allData)
       window.open(this.scheduleFormData.value.facebook)
     }
     routeToTelegram() {                  
-      console.log("Telegram")
+      console.log("Telegram");
       // window.location.href = 'https://telegram.org/#t9gram.com';
-      window.open("https://telegram.org/#t9gram.com")
+      window.open("https://telegram.org/#t9gram.com");
     }
     addGroupName() {
       //    this.teleGroupName = "InstaMarkt " + this.scheduleFormData.value.group_name;

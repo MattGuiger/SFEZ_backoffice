@@ -24,6 +24,8 @@ export class MenuitemsComponent implements OnInit{
   categories: any;
   addedItems = []
   google_sheet_url:any
+  checkStatus = 1;
+  showPage = 1;
   addedCategories = []
   googleEmail: any;
   @ViewChild('ref') ref;
@@ -49,13 +51,11 @@ export class MenuitemsComponent implements OnInit{
     } else {
       this.removeItemFromArray(item)
     }
-
   }
   ngAfterViewInit() {
     console.log(this.tabSet['activeId'],'ppppppp');
     if(this.googleEmail){
       this.tabSet['activeId']='tb2'
-
     }
   }
   addItems() {
@@ -95,7 +95,6 @@ export class MenuitemsComponent implements OnInit{
       }
     })
     this.getFolderbyEmail()
-
   }
 
   onSelect(event) {
@@ -152,7 +151,7 @@ export class MenuitemsComponent implements OnInit{
     
     this.user = this._CommonFunctionsService.checkUser().user;
     this._ProfileService.uploadImageTodrive(this.user.company_id,formData).subscribe(res => {
-      console.log('googgleData', res.data)
+      console.log('googgleData3', res.data)
       this.authentication_url = res.data
     });
 
@@ -180,16 +179,24 @@ export class MenuitemsComponent implements OnInit{
         //debugger
       })
     }
-
   }
   getgoogleauthntication() {
     this._ProfileService.getGoogleAuthenication().subscribe(res => {
-      console.log('googgleData', res.data)
+      console.log('googgleData2', res.data)
+      console.log('1')
       this.authentication_url = res.data
-      // this.toastr.success('Google account verified please move to step 2')
-    
-    
+      //this.toastr.success('Google account verified please move to step 2')
     });
+    console.log('2')
+    if(this.authentication_url ){
+      this.showPage = 2;
+    }
+    console.log('3')
+    if(this.authentication_url ){
+      this.showPage = 2;}
+ }
+ onClickGetStarted() {
+    this.checkStatus = 2;
  }
  getAllGoogleSheetDetails(){
   this.user = this._CommonFunctionsService.checkUser().user;

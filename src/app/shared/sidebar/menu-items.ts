@@ -160,7 +160,6 @@ export const ROUTES: RouteInfo[] = [
     //     extralink: false,
     //     submenu: []
     // },
-    
     {
         path: '/forms',
         title: 'Vendor Registration',
@@ -172,7 +171,7 @@ export const ROUTES: RouteInfo[] = [
     },
     {
         path: '/menuitems',
-        title: 'Menu | Products',
+        title: 'Menu | Google Sheets',
         icon: '/assets/images/menu.png',
         class: '',
         extralink: false,
