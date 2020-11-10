@@ -23,3 +23,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     height: auto !important;
     min-height: auto !important;
 }
+ngx-dropzone-remove-badge {
+    left: 5px !important;
+    right: initial !important;
+}

@@ -57,14 +57,14 @@
                     <div  *ngIf=" workFormData.get('type').errors.required ">
                       Type is Required
                   </div>
-                   
+                  <!-- <div  *ngIf=" workFormData.get('type').errors.required ">
+                       Username already exist
+                    </div> -->
                  </div>  
             </div>
             <div class="col-md-12 text-center">
-
             <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1 mt-3" (click)="cancel()"> Previous</button>
                 <!-- <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button> -->
-
                 <button uiSref="address" type="submit"  class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" > Next </button>
             </div>
         </div>
