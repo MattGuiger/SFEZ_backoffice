@@ -164,10 +164,10 @@
                                                 <div class="step_one">
                                                   <h2>Step 3</h2>
                                                   <h4>Upload images in their respective folder (or category) as shown below:</h4>
-                                                  <a href="google_drive_url" style="cursor: pointer;color:rgb(67, 133, 238)" >{{google_drive_url}} </a>
-                                                  <!-- <span>
+                                                  <a (click)="googleDriveUrl()" style="cursor: pointer;color:rgb(67, 133, 238)" >{{google_drive_url}} </a>
+                                                  <span *ngIf=checkImageCountFlag>
                                                     Images count: {{imageCount}}
-                                                  </span> -->
+                                                  </span>
                                                   <div class="row">
                                                     <div class="col-md-4">
                                                       <div class="step_three_left">
@@ -200,7 +200,6 @@
                                                       </div>
                                                     </div>
                                                     <div class="col-md-12">
-                                                      <!-- <a href="">{{google_sheet_url}}</a> -->
                                                       <div class="sync_btn">
                                                         <button mat-raised-button class="btn"
                                                         (click)="uploadGoogleMenuSheet()">Sync to Google Sheets <img
@@ -361,8 +360,6 @@
                                                        <p>{{i+9}} Required Selection: {{item.value.optionSingle}}</p>
                                                        <p>{{i+10}} Required Price: {{item.value.optionSinglePrice}}</p>
                                                        <p>{{i+11}} Instructions: {{item.value.instructions}}</p>
-    
-    
                                                     </div>
                                                   </div> -->
                                               </mat-tab>

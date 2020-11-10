@@ -200,7 +200,6 @@ territory_id1:any
     this.getTerritoryDrivers();
     this.getlocationsAndHub()
     this.getlocationCompanyId()
-  
     // this.getlocationsAndHub()
     // this.gethubswithterriId()
     this.getDeliveryHubAndLocationsInCompany()
@@ -244,9 +243,7 @@ getDeliveryHubAndLocationsInCompany(){
       }
     })
   }
-
 }
-
 getDeliveryHubinCompany(){
   if(this.user.company_id){
     this._ProfileService.getDeliveryHubsInCompany(this.user.company_id).subscribe(res=>{
@@ -255,16 +252,12 @@ getDeliveryHubinCompany(){
         console.log('thisssss deliveryHub',res.data)
     this.deliveryHub=res.data
       }else{
-        
       }
     })
   }
 }
-
-
 getLocationInTerritoy(){
   console.log('getDeliveryHubinCompany------getLocationInTerritoy')
-
   if(this.territory_id1){
   this._ProfileService.getLocationsInTerritory_id(this.territory_id1).subscribe(res=>{
     console.log('getLocationInTerritoy',res)
@@ -405,7 +398,6 @@ territory_id() {
 
   //   return value;
   // }
-
 getlocationOnTerritoryId(){
   if(this.territory_id1){
     this._ProfileService.getLocationswithTerriID(this.territory_id1).subscribe(res=>{
@@ -433,8 +425,8 @@ getlocationCompanyId(){
 }
 getDriverswithCompanyId(){
   if(this.user.company_id){
-    const tempCompany_id = 11275
-    this._ProfileService.getDriverswithCompanyId(tempCompany_id).subscribe(res=>{
+    // const tempCompany_id = 11275
+    this._ProfileService.getDriverswithCompanyId(this.user.company_id).subscribe(res=>{
       if(res.status==200){
         console.log('getDriverswithCompanyId: ',res.data)
         // this.registerCompanyDriver = res.data[0].data
@@ -452,8 +444,8 @@ getDriverswithCompanyId(){
 }
 getDriverswithterriId(){
   if(this.territory_id1) {
-  const territory_id=41;
-    this._ProfileService.getDriverswithterriId(territory_id).subscribe(res=>{
+  // const territory_id=41;
+    this._ProfileService.getDriverswithterriId(this.territory_id1).subscribe(res=>{
       if(res.status==200){
         console.log('getDriverswithterriId: ',res.data)
     this.registerDriver=res.data
@@ -828,8 +820,8 @@ getlocationsAndHub(){
   }
   getManagerOnTerritoryid() {
     if(this.territory_id1) {
-      const territory_id=41;
-    this._ProfileService.getManagerOnTerritoryid(territory_id).subscribe((res: any) => {
+      // const territory_id=41;
+    this._ProfileService.getManagerOnTerritoryid(this.territory_id1).subscribe((res: any) => {
       if (res.status == 200) {
         this.showManager = res.data;
       } else {

@@ -128,10 +128,9 @@ export class FoodpckmgrorderComponent {
   /** Get Daily Payout */
   getDailyPayout(){
     let totalBalance = 0;
-    this.company_id = this.user.company_id;
-    const tempCompany_id = 11247
+    // const tempCompany_id = 11247
     const tempDate = ""
-    this._ProfileService.getDailyPayout(tempCompany_id, tempDate).subscribe(
+    this._ProfileService.getDailyPayout(this.user.company_id, tempDate).subscribe(
       // this._ProfileService.getDailyPayoutLists(this.company_id, this.data).subscribe(
       (res:any) => {
         this.dailyPayoutData = res.data[0].data;

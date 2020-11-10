@@ -25,6 +25,8 @@ export class MenuitemsComponent implements OnInit {
   categories: any;
   addedItems = []
   checkBool = false;
+  imageCount: any
+  checkImageCountFlag = false
   isChecked = 0;
   google_sheet_url: any
   checkStatus = 1;
@@ -32,6 +34,7 @@ export class MenuitemsComponent implements OnInit {
   addedCategories = []
   showTutorialTable = true;
   showBlueColoredTable = true;
+  checkSecondFlag = false
   google_drive_url: any;
   showZerothTab = false;
   showFirstTab = false;
@@ -113,8 +116,9 @@ export class MenuitemsComponent implements OnInit {
   ngOnInit() {
     this.getAllProductList();
     this.getCompanyProfile();
-    this.getgoogleauthntication()
+    this.getgoogleauthntication();
     this.getAllCategories();
+    this.getAllGoogleSheetDetails();
     this.route.params.subscribe(data => {
       console.log('emailllll', data)
       this.googleEmail = data.email
@@ -144,6 +148,10 @@ export class MenuitemsComponent implements OnInit {
         this.isChecked = 2;
         const tabCount = 1;
         this.demo1TabIndex = tabCount;
+        if(this.showFirstTab) {
+            const tabCount = 2;
+        this.demo1TabIndex = tabCount;
+        }
         this.showBlueColoredTable = false;
         this.showZerothTab = true;
         this.showFirstTab = true;
@@ -199,7 +207,6 @@ export class MenuitemsComponent implements OnInit {
   getAllProductList() {
     this.processing = true;
     this.user = this._CommonFunctionsService.checkUser().user;
-
     if (this.user.unit_id) {
       this._ProfileService.getAllProductList(this.user.unit_id).subscribe((res: any) => {
         this.productList = res.data;
@@ -233,13 +240,17 @@ export class MenuitemsComponent implements OnInit {
     this.showTutorialTable = false;
   }
   googlesheetUrl(google_sheet_url){
-
     window.open(google_sheet_url)
+  }
+  googleDriveUrl(){
+    window.open(this.google_drive_url)
   }
   getAllGoogleSheetDetails() {
     this.user = this._CommonFunctionsService.checkUser().user;
     this._ProfileService.getAllGoogleSheetDetails(this.date).subscribe((res: any) => {
       this.googleSheet = res.data;
+      this.imageCount = res.data.length+1;
+      this.checkImageCountFlag = true;
       console.log('Google Sheet' + this.googleSheet)
     }, error => {
       //  
@@ -260,11 +271,14 @@ export class MenuitemsComponent implements OnInit {
     const data = {
       folder: this.addedItems,
       email: this.googleEmail,
-      user_id: '11744'
+      // user_id: '11744'
+      user_id: ''
     }
     console.log('folderss data', data)
 
     this._ProfileService.createfolderInGoogleDrive(data).subscribe(res => {
+      // const tabCount = 2;
+      //   this.demo1TabIndex = tabCount;
       this.toastr.success('Folders created successfully');
       this.getFolderbyEmail()
     })
@@ -274,7 +288,6 @@ export class MenuitemsComponent implements OnInit {
     //  console.log('onClick event.checked ' + event.checked);
     // console.log('onClick event.target.checked '+event.target.checked);
     console.log('onClick this.ref._checked ' + this.ref._checked);
-
     this.ref._checked = !this.ref._checked;
   }
   getCompanyProfile() {
