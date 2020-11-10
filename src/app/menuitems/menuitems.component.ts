@@ -118,7 +118,6 @@ export class MenuitemsComponent implements OnInit {
     this.getCompanyProfile();
     this.getgoogleauthntication();
     this.getAllCategories();
-    this.getAllGoogleSheetDetails();
     this.route.params.subscribe(data => {
       console.log('emailllll', data)
       this.googleEmail = data.email
@@ -150,7 +149,7 @@ export class MenuitemsComponent implements OnInit {
         this.demo1TabIndex = tabCount;
         if(this.showFirstTab) {
             const tabCount = 2;
-        this.demo1TabIndex = tabCount;
+            this.demo1TabIndex = tabCount;
         }
         this.showBlueColoredTable = false;
         this.showZerothTab = true;

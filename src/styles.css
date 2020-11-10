@@ -15,7 +15,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 .ngx_img_upload img {
-    width: auto;
+    width: 100%;
     height: 128px;
 }
 .ngx_img_upload {
