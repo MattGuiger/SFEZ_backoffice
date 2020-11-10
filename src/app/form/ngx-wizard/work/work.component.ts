@@ -45,8 +45,6 @@ export class WorkComponent implements OnInit {
             type: new FormControl('', Validators.required),
             // unit: new FormControl() ,
             // email: new FormControl()
-
-
             });
     latt: string;
     long: string;
@@ -110,8 +108,6 @@ getCompanyInfo(){
             }
           return pass;
     }
-
-
     territory_id() {
         this.latt = localStorage.getItem('latitude');
         this.long = localStorage.getItem('longitude');
@@ -125,9 +121,6 @@ getCompanyInfo(){
           localStorage.setItem("territory_id",this.territory_id1)
         })
       }
-
-
-
     onSubmit(){
         if(this.comapnydata){
             console.log("work"+ JSON.stringify(this.workFormData.value));
@@ -143,6 +136,7 @@ getCompanyInfo(){
             console.log('workFormData',this.workFormData)
             // this.workFormData.value.delivery_radius =""
             this.workFormData.value.territory_id=localStorage.getItem('territory_id');
+            // this.workFormData.value.territory_id=41;
             this.workFormData.value.number=1
             // this._ProfileService.addUnit(this.workFormData.value).subscribe(res=>{
             this._ProfileService.addUnit(this.workFormData.value,this.comapnydata.id).subscribe(res=>{

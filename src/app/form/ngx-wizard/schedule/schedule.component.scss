@@ -7,16 +7,9 @@
 .ButtonState:checked + .Button{background: rgb(57, 175, 230);}
 .btn-fb{color: white; background-color: rgb(57, 175, 230);}
 
-.col-sm-8 {
-  position: relative;
-  left: 260xp;
-  right: -50px;
-  top: -90px;
-}
 #telegramImg{
-  position: relative;
-  left: -1px;
-  top: -13px;
+  width: 100px;
+  margin: 1rem 0;
 }
 .show{
   background-color: cadetblue;
@@ -27,4 +20,34 @@
 }
 img:hover {
   cursor: pointer;
+}
+.custom_tip {
+  position: absolute;
+    width: 360px;
+    padding: 10px;
+    right: -375px;
+    top: 15px;
+    background: #20252a;
+    text-align: left;
+    border-radius: 3px;
+    color: #fff;
+    pointer-events: none;
+    display: none;
+}
+.custom_tip p {
+  margin: 0;
+}
+.hovered_tip:hover .custom_tip {
+  display: block;
+}
+.custom_tip:before {
+  content: '';
+  width: 0;
+    position: absolute;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #20252a;
+    left: -8px;
+    top: 25px;
 }

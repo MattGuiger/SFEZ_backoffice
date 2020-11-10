@@ -11,3 +11,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.ngx_img_upload img {
+    width: auto;
+    height: 128px;
+}
+.ngx_img_upload {
+    margin: 0 auto !important;
+    height: auto !important;
+    min-height: auto !important;
+}

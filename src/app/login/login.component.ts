@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
   check(uname: string, p: string) {
     this._AuthService.login({ username: uname, password: p }).subscribe((data: any) => {
       if (data.status == 200) {
-        this.toastr.success('Login Successfully!');
+        this.toastr.success('Login Successful');
         localStorage.setItem('user', JSON.stringify(data))
         if (data.user.profile_updated == false) {
           // this.routes.navigate(['/sample-pages/profile']);

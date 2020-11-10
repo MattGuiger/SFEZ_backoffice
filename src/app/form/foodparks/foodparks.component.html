@@ -215,7 +215,7 @@
 
                 <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
                   [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [footerHeight]="50" [rowHeight]="'auto'"
-                  [limit]="10" [rows]='locations'>
+                  [limit]="10" [rows]='locations2'>
                   <ngx-datatable-column name="Name" prop="name" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                       {{row?.unit_name}}
@@ -297,7 +297,7 @@
                       </div>
                     </div>
                   </form>
-                  <ngx-datatable class="material" #table [rows]="allManager" [columnMode]="'force'" [headerHeight]="50"
+                  <ngx-datatable class="material" #table [rows]="showManager" [columnMode]="'force'" [headerHeight]="50"
                     [footerHeight]="50" [rowHeight]="auto" [limit]="10" [scrollbarH]="true">
                     <ngx-datatable-column name="First Name" [width]="150">
                       <ng-template let-row="row" ngx-datatable-cell-template>
@@ -325,7 +325,7 @@
 
                     <ngx-datatable-column name="Territory" [width]="150">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        {{row?.territory?.territory}}
+                        {{row?.territory}}
                       </ng-template>
                     </ngx-datatable-column>
 
@@ -394,8 +394,8 @@
                     </div>
                   </div>
                 </form> -->
-                <p class="text-center" style="font-weight: 500;">Territory: Central Oregon</p>
-                <p class="text-center" style="font-weight: 500;">Hub #1 Managed Driver</p>
+                <!-- <p class="text-center" style="font-weight: 500;">Territory: Central Oregon</p> -->
+                <p class="text-center" style="font-weight: 500;">Hub #1 
                 <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
                   [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='driverData'>
                   <!-- <ngx-datatable-column name="First Name" prop="first_name" [width]="150"></ngx-datatable-column>
@@ -443,7 +443,7 @@
 
                   <ngx-datatable-column name="Name" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      {{row.name}}
+                      {{row.first_name}}
                     </ng-template>
                   </ngx-datatable-column>
 
@@ -483,8 +483,8 @@
                     </div>
                   </div>
                 </form> -->
-                <p class="text-center" style="font-weight: 500;">Territory: Central Oregon</p>
-                <p class="text-center" style="font-weight: 500;">Hub #2 Managed Driver</p>
+                <!-- <p class="text-center" style="font-weight: 500;">Territory: Central Oregon</p> -->
+                <p class="text-center" style="font-weight: 500;">Hub #2  </p>
                 <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
                   [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='driverData'>
                   <!-- <ngx-datatable-column name="First Name" prop="first_name" [width]="150"></ngx-datatable-column>
@@ -508,7 +508,7 @@
                   </ngx-datatable-column>-->
                   <ngx-datatable-column name="Name" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      {{row.name}}
+                      {{row.first_name}}
                     </ng-template>
                   </ngx-datatable-column>
 
@@ -531,7 +531,7 @@
 
                   <ngx-datatable-column name="Name" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      {{row.name}}
+                      {{row.first_name}}
                     </ng-template>
                   </ngx-datatable-column>
 
@@ -638,24 +638,20 @@
             <option *ngFor="let item of singleTerritory.territory" [ngValue]="item">{{item.city}}</option>
           </select>
         </div>
-
-        <label for="territory">Select Location</label>
+        <!-- <label for="territory">Select Location</label>
         <div class="form-group mapmarker">
           <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [style.height.px]="300"
             (mapClick)="placeMarker($event)">
             <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
           </agm-map>
         </div>
-
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
           <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-        </agm-map>
-
+        </agm-map> -->
         <!-- <label for="latitude">Latitude</label>
         <div class="input-group">
           <input id="latitude" class="form-control"  name="dp" type="text" formControlName="latitude">
         </div>
-
         <label for="longitude">Longitude</label>
         <div class="input-group">
           <input id="longitude" class="form-control"  name="dp" type="text" formControlName="longitude">
@@ -667,10 +663,7 @@
       </div>
     </form>
   </div>
-
 </ng-template>
-
-
 <ng-template #content4 let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">New Location</h4>
@@ -1016,9 +1009,12 @@
             (input)="minDaysValue = $event.value" [value]="minDaysValue">
           </mat-slider>
           <label for="delivery_radius" style="display: block;"> Delivery Range(mi)</label>
-          <mat-slider thumbLabel formControlName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel" tickInterval="10" class="cdk-focused"
-            (input)="minDaysValue = $event.value" [value]="minDaysValue">
-          </mat-slider>
+          <!-- <mat-slider thumbLabel formControlName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel" tickInterval="10" class="cdk-focused"
+            (input)="minDaysValue = $event.value" [value]="minDaysValuse">
+          </mat-slider> -->
+          <mat-slider thumbLabel formcontrolName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel" tickInterval="5" class="cdk-focused"
+          (input)="minDaysValue = $event.value" [value]="minDaysValue">
+        </mat-slider>
           <label for="standard_delivery" style="display: block;">Standard Delivery (0-5 km/mi) </label>
           <mat-slider thumbLabel min="0" max="5" step="1" [displayWith]="formatLabel" tickInterval="5" class="cdk-focused"
             [value]="minDaysValuse">

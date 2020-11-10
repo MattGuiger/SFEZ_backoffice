@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { Observable } from 'rxjs/Rx';
 import { map, startWith } from 'rxjs/operators';
 import { Component, ViewChild, OnInit } from '@angular/core';
@@ -58,9 +59,11 @@ export class FoodParkComponent implements OnInit{
   selectedHub: any;
   loadingIndicator = true;
   reorderable = true;
+  registerCompanyDriver: any[] = []
   closeResult: string;
   columns = [{ name: 'Name' }, { prop: 'country' }, { name: 'State' }, { name: 'City' }];
   driverForm: FormGroup;
+  driverTerritory: any;
   managerForm: FormGroup;
   managerRole: string = 'FOODPARKMGR';
   // lat = 44.058174;
@@ -74,6 +77,10 @@ export class FoodParkComponent implements OnInit{
   huborlocation: boolean = false;
   showManagerTab: boolean = false;
   allManager: any[] = [];
+  showManager: any
+  latt: string;
+  long: string;
+  territory_id1:any
   allUnitList: any[] = [];
   type: any[]= [];
   types = [
@@ -97,7 +104,8 @@ export class FoodParkComponent implements OnInit{
     onLocationEditForm = new FormGroup({
       // delivery_time_offset: new FormControl(event),
       customer_order_window: new FormControl(event),
-      delivery_radius: new FormControl(event)
+      // delivery_radius: new FormControl(event)
+      delivery_radius: new FormControl()
         });
     foodParkForm = new FormGroup({
       delivery_time_window: new FormControl(event)
@@ -152,23 +160,18 @@ export class FoodParkComponent implements OnInit{
   //     "phone": "480-921-8847",
   //   }
   // ];
-  registerDriver = [
-    {
-      "name": "Jimmy Hendricks",
-      "phone": "541-439-0134",
-    }
-  ];
-
-  
+  registerDriver = [];
 
   @ViewChild(FoodParkComponent, { static: false }) table: FoodParkComponent;
   UnitList: any;
   locations: any;
+  locations2: any
   deliveryHub: any;
   deliveryHubUnits: any;
 
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService,
+    private _AuthService:AuthService,
     private router: Router,
     public dialog: MatDialog,
     private _CommonFunctionsService: CommonFunctionsService,
@@ -176,6 +179,7 @@ export class FoodParkComponent implements OnInit{
     private route: ActivatedRoute) {
     this.user = this._CommonFunctionsService.checkUser().user;
     this.getAllState();
+    this.getTerritory_id()
     this.getAllTerritory();
     this.getAllCountries();
     this.getAllStates();
@@ -188,8 +192,9 @@ export class FoodParkComponent implements OnInit{
     this.getAllUnitWithFoodParkId();
     this.getAllDriversWithFoodParkId();
     this.getlocationOnTerritoryId()
+    this.getTerritoryDrivers();
     this.getlocationsAndHub()
-    this.gethubswithterriId()
+    this.getlocationCompanyId()
     if (this.user.role == 'FOODPARKMGR' || this.user.role == 'OWNER') {
       this.showManagerTab = true;
     }
@@ -293,9 +298,22 @@ export class FoodParkComponent implements OnInit{
       )
     }
   }
-
+  getTerritory_id() {
+    this.latt = localStorage.getItem('latitude');
+    this.long = localStorage.getItem('longitude');
+    let data = {
+      latitude: this.latt,
+      longitude: this.long
+    }
+    this._AuthService.territory_id(this.user.country, this.user.state, data).subscribe((res: any) => {
+      this.territory_id1 = res.data.id;
+      console.log("territory_id" + this.territory_id1);
+      this.getDriverswithCompanyId()
+      this.getDriverswithterriId()
+      this.getManagerOnTerritoryid()
+    })
+  }
   getAllDriversWithFoodParkId() {
-
     if (this.user.food_park_id) {
       this._ProfileService.getAllDriversListWithFoodParkId(this.user.food_park_id).subscribe(
         (response: any) => {
@@ -328,14 +346,46 @@ getlocationOnTerritoryId(){
     })
   }
 }
-gethubswithterriId(){
-  if(this.user.territory_id){
-    this._ProfileService.getHubwithTerriID(this.user.territory_id).subscribe(res=>{
+getlocationCompanyId(){
+  if(this.user.country_id){
+    const tempCountryid = 11275
+    this._ProfileService.getlocationCompanyId(tempCountryid).subscribe(res=>{
       if(res.status==200){
-        console.log('thisssss deliveryHub',res.data)
-    this.deliveryHub=res.data
+    console.log('getlocationCompanyId ',res.data)
+    this.locations2=res.data
       }else{
-        
+        console.log("operation Failed ")
+      }
+    })
+  }
+}
+getDriverswithCompanyId(){
+  if(this.user.company_id){
+    const tempCompany_id = 11275
+    this._ProfileService.getDriverswithCompanyId(tempCompany_id).subscribe(res=>{
+      if(res.status==200){
+        console.log('getDriverswithCompanyId: ',res.data)
+        // this.registerCompanyDriver = res.data[0].data
+        // for(let i =0; i< res.data.length; i++){
+        // var arrofDriverWithCompanyid = []
+        // arrofDriverWithCompanyid.push(res.data[i].data)
+        // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
+        // }
+        // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
+        // this.registerCompanyDriver = arrofDriverWithCompanyid
+      }else{
+      }
+    })
+  }
+}
+getDriverswithterriId(){
+  if(this.territory_id1) {
+  const territory_id=41;
+    this._ProfileService.getDriverswithterriId(territory_id).subscribe(res=>{
+      if(res.status==200){
+        console.log('getDriverswithterriId: ',res.data)
+    this.registerDriver=res.data
+      }else{
       }
     })
   }
@@ -354,13 +404,20 @@ this._ProfileService.addUnitToHub(foodParkId,data).subscribe(res=>{
     // this.gethubswithterriId()
   }else{
     this.toastr.success("Error Vendor adding to hub")
-
   }
 })
-  
-
 }
-
+getTerritoryDrivers(){
+  if(this.territory_id1){
+    this._ProfileService.getTerritoryDrivers(this.territory_id1).subscribe(res=>{
+      if(res.status==200){
+        console.log('getTerritoryDrivers',res.data)
+        this.deliveryHubUnits=res.data
+      }else{        
+      }
+    })
+  }
+}
 getlocationsAndHub(){
   if(this.user.territory_id){
     this._ProfileService.getHubwithUnits(this.user.territory_id).subscribe(res=>{
@@ -561,7 +618,7 @@ getlocationsAndHub(){
     })
   }
   getAllStates() {
-    this._ProfileService.getState(this.user.country_id).subscribe((res: any) => {
+      this._ProfileService.getState(this.user.country_id).subscribe((res: any) => {
       this.states2 = res.data;
     })
   }
@@ -691,12 +748,26 @@ getlocationsAndHub(){
       }
     )
   }
+  getManagerOnTerritoryid() {
+    if(this.territory_id1) {
+      const territory_id=41;
+    this._ProfileService.getManagerOnTerritoryid(territory_id).subscribe((res: any) => {
+      if (res.status == 200) {
+        this.showManager = res.data;
+      } else {
+        this.toastr.error(res.message)
+      }
+    },
+      error => {
+        //this.toastr.error(error.error.message)
+      })
+    }
+  }
   getAllManger() {
     let data = {
       "managerId": this.user.manager_id,
       "user_id": this.user.id
     }
-
     this._ProfileService.getAllManager(data).subscribe((res: any) => {
       if (res.status == 200) {
         this.allManager = res.data;

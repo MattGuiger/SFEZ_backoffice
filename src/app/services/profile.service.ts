@@ -34,7 +34,9 @@ export class ProfileService {
   private companyURL1 = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/companies';
 
   private dailyPayout = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/getVendorDriverWagesForOrders';
+  private dailyPayoutURL = config.getEnvironmentVariable('endPoint') + '/api/v1/rel/payout/dailypayoutsfororders';
   private getManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/getfoodparkmgrs';
+  private getManagerOnTerritoryURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/managers';
   //private greenMoneyURL = config.getEnvironmentVariable('endPoint') + 'api/v1/payment/green-money-generate-widget/';
   private getUnitListURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/list-units';
   private addManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/create-manager';
@@ -51,6 +53,8 @@ export class ProfileService {
   private googldriveUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/google/';
    private googlsheetUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/google/googlesheetdetail';
   private unitLocationsHub = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/unit_locations/';
+  private territoryDriverURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/driversinterritory';
+  private companyDriverURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/drivers_company';
   private foodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel';
   private emailManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/send-email-manager';
   private countriesURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/countries';
@@ -85,6 +89,15 @@ export class ProfileService {
 getHubwithUnits(id):Observable<any>{
   return this.http.get(this.unitLocationsHub+id);
 }
+getDriverswithterriId(id):Observable<any>{
+  return this.http.get(this.territoryDriverURL+"/"+id);
+}
+getTerritoryDrivers(id):Observable<any>{
+  return this.http.get(this.territoryDriverURL+"/"+id);
+}
+getDriverswithCompanyId(id):Observable<any>{
+  return this.http.get(this.companyDriverURL+"/"+id);
+}
 getEditUnits(company_id,id,data): Observable<any> {
   return this.http.put(this.unitURL+company_id+"/units/"+id,data);
 }
@@ -105,6 +118,9 @@ getHubwithTerriID(id):Observable<any>{
 }
 getLocationswithTerriID(id):Observable<any>{
   return this.http.get(this.foodparkURL+"/units/"+id);
+}
+getlocationCompanyId(id):Observable<any>{
+  return this.http.get(this.foodparkURL+"/listlocation/"+id);
 }
   createDriverWages(id,data):Observable<any>{
     return this.http.post(this.createWagesUrl+id, data);
@@ -210,7 +226,6 @@ getLocationswithTerriID(id):Observable<any>{
   getAllDrivers(foodParkId): Observable<any> {
     return this.http.get(this.foodparkURL+'/'+foodParkId+"/drivers");
   }
-
   getAllCategories(): Observable<any> {
     return this.http.get(this.Category);
   }
@@ -237,7 +252,9 @@ addUnitToHub(foodParkId,unitId){
   getDailyPayoutList():Observable<any> {
     return this.http.get(this.dailyPayout);
   }
-
+  getDailyPayout(company_id, data): Observable<any> {
+    return this.http.post(this.dailyPayoutURL+"/"+ company_id, data);
+  }
   setDriverToOrder(id,driverId,orderId): Observable<any> {
     return this.http.put(this.foodparkURL+"/"+id+"/orders/"+orderId,{driver_id:driverId});
   }
@@ -274,11 +291,12 @@ addUnitToHub(foodParkId,unitId){
   setDriverManagers(data): Observable<any> {
     return this.http.post(this.setDriverManagersURL,data);
   }
-
   getAllManager(data):Observable<any>{
     return this.http.post(this.getManagerURL, data);
   }
-
+  getManagerOnTerritoryid(data):Observable<any>{
+    return this.http.get(this.getManagerOnTerritoryURL+"/"+ data);
+  }
   getCompanyprofile(id): Observable<any> {
     return this.http.get(this.getProfileURL+id);
   }

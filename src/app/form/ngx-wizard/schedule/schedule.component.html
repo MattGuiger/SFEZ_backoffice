@@ -84,7 +84,7 @@
                       <!-- <label  class="orm-control-label" for="hours">Time</label> -->
                       <!-- <input class="form-control form-control-sm" (change)="getHours($event)" style="border-color:#22c6ab;"  formControlName="hours" type="text" placeholder="Ex: 8:00 AM - 10 PM"> -->
                       <div class="row" style="margin-top: 1rem;" (change)="getHours($event)">
-                          <div class="col-md-5">
+                          <!-- <div class="col-md-5">
                               <label style="display: block;margin: 0" for="">From</label>
                               <select name="my-dropdown" style="width:100px;" [(ngModel)]="myDropdownModel">
                                     <option *ngFor="let number of numbers" [ngValue]="number">{{number}}</option>
@@ -95,16 +95,31 @@
                                 <select name="my-dropdown" style="width:100px;" [(ngModel)]="myDropdownModel">
                                         <option *ngFor="let number of numbers" [ngValue]="number">{{number}}</option>
                                     </select>
-                              </div>
+                              </div> -->
                       </div>
-                     
+                              <div>
+                                    <select 
+                                    (change)="onSelect($event.target.value)">
+                                    <option value="0" selected hidden></option>
+                                    <option [value]="type" *ngFor="let type of startTimeArray">
+                                      {{type}}
+                                    </option>
+                                  </select>
+                                  -
+                                  <select 
+                                    (change)="onSelect($event.target.value)">
+                                    <option value="0" selected hidden></option>
+                                    <option [value]="type" *ngFor="let type of startTimeArray">
+                                      {{type}}
+                                    </option>
+                                  </select>
+                              </div>
                         
                       <!-- <label class="form-control-label" for="hours" >Time</label>
                       <input class="form-control form-control-sm" id="hours" formControlName="hours" placeholder="Ex: 8:00 AM - 10 PM"> -->
                     <!-- </div> -->
                   <br>
                     <!-- <button type="button" class="btn btn-link" style="color:blue;" (click)="addItem()">Add Hours</button> -->
-                    <br>
                 </div>
                   <!-- <button type="button" (click)="addItem()" style="margin-right: 5px;">Add</button> -->
                   <!-- <button type="button" class="btn btn-link" (click)="addItem()">Add Hours</button>
@@ -128,29 +143,23 @@
                     </div>
                 <input class="form-control" id="hours" name="hours" type="text">    -->
                 <!-- </div> -->
-                    <br>
+                <br>
                 <label class="form-control-label" for="telegram">Telegram</label>
-                <!-- <div class="text-center" (click)="routeToTelegram()">
-                     <div class="col-sm-8" style="min-width: 150px">
-                            <div class="text-ellipsis" 
-                            ngbTooltip="
-                            Step 1: Download the Telegram App. 
-                            Step 2: Open the Telegram App. 
-                            Step 3: Sign Up and Register your Telegram Account  
-                           " 
-                            placement="top" container="body">
-                            <img id="telegramImg" src="/assets/images/business.png" />
+                <div class="text-center" (click)="routeToTelegram()">
+                     <div class="col-sm-3 offset-sm-1">
+                            <div class="text-ellipsis hovered_tip"  style="position: relative"
+                            placement="right" container="body">
+                            <img id="telegramImg" src="/assets/images/telegram.png" />
+                            <div class="custom_tip">
+                                <p>Step 1: Download the Telegram App.</p>
+                                <p>Step 2: Open the Telegram App.</p>
+                                <p>Step 3: Sign Up and Register your Telegram Account</p>
+                            </div>
                             </div>
                         </div>
-                 </div> -->
+                 </div>
                 <div>
-                        <div class="row">
-                                    <div class="social">
-                                        <button class="btn btn-facebook m-r-10" style="background-color:#fff;" placement="top" ngbTooltip=" Step 1: Download the Telegram App. 
-                                        Step 2: Open the Telegram App. 
-                                        Step 3: Sign Up and Register your Telegram Account">  <img id="telegramImg" (change)="routeToTelegram()" src="/assets/images/business.png" /> </button>
-                                    </div>
-                            </div> 
+                    <br>
                       <label class="form-control-label" for="group_name">Choose Group Name</label>
                       <!-- <input class="form-control form-control-sm" formControlName="group_name" type="text"> -->
                 <input class="form-control form-control-sm" formControlName="group_name" type="text">

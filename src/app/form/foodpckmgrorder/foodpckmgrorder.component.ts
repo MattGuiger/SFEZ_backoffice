@@ -54,9 +54,10 @@ export class FoodpckmgrorderComponent {
   };
   
   orderDetails:any[] = [];
+  company_id: any;
   rowWiseData:any[] = [];
   loadingData:boolean = true;
-
+  data = "";
   dailyPayoutData:any[] = [];
   codBalance:any;
 
@@ -126,10 +127,14 @@ export class FoodpckmgrorderComponent {
   /** Get Daily Payout */
   getDailyPayout(){
     let totalBalance = 0;
-    this._ProfileService.getDailyPayoutList().subscribe(
+    this.company_id = this.user.company_id;
+    const tempCompany_id = 11247
+    const tempDate = ""
+    this._ProfileService.getDailyPayout(tempCompany_id, tempDate).subscribe(
+      // this._ProfileService.getDailyPayoutLists(this.company_id, this.data).subscribe(
       (res:any) => {
-        this.dailyPayoutData = res.data;
-        res.data.forEach(function(val){
+        this.dailyPayoutData = res.data[0].data;
+        res.data[0].data.forEach(function(val){
           totalBalance = totalBalance+(val.amount-val.deduction);
         });
         this.codBalance = totalBalance;
@@ -139,13 +144,11 @@ export class FoodpckmgrorderComponent {
       }
     );
   }
-
   getAllDrivers(foodParkId) {
     this._ProfileService.getAllDrivers(foodParkId).subscribe((res: any) => {
       this.drivers = res.data;
     })
   }
-
   getAllOrder() {
     this.user = this._CommonFunctionsService.checkUser().user;
     this.getAllDrivers(this.user.food_park_id);

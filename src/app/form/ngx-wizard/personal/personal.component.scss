@@ -4,7 +4,8 @@
     filter: blur(1.5px);
 }
 #paco img {
-    width: 100px;
+    width: auto;
+    height: 100px;
 }
 #dishImg{
     position: relative;
@@ -46,6 +47,16 @@ ngx-dropzone-label {
     position: relative;
     top: -5px;
 }
+#logo_text h3 {
+    font-size: 16px;
+    line-height: 22px;
+    margin: 0;
+}
+#dish_text h3 {
+    font-size: 16px;
+    line-height: 22px;
+    margin: 0;
+}
 .h2{
     position: relative;
     left: 302px;
@@ -58,9 +69,16 @@ ngx-dropzone-label {
 
 .custom-dropzone {
     position: relative;
-	height: 160px;
+	height: auto;
 	color: rgb(70, 67, 67);
 	// border: 5px dashed rgb(19, 15, 15);
 	// border-radius: 5px;
-	font-size: 20px;
+    font-size: 20px;
+    padding: 10px;
+    height: 154px;
+    overflow: hidden;
+}
+#dishImg img {
+    width: auto;
+    height: 100px;
 }

@@ -35,12 +35,25 @@ export class ScheduleComponent implements OnInit {
     selectedIndex:number=1;
     hoursArr: FormArray;
     teleGroupName: any;
+    count = 0
     scheduleFormData: FormGroup;
     itemForm: FormGroup;
     myForm: FormGroup;
     arr: FormArray;
+    public startTimeArray: string[] = [
+      "12:00AM", "12:30AM",
+ "1:00 AM", "1:30 AM", "2:00 AM", "2:30 AM", "3:00 AM", 
+ "3:30 AM","4:00 AM", "4:30 AM",  "5:00 AM", "5:30 AM",
+ "6:00 AM", "6:30 AM", "7:00 AM", "7:30 AM", "8:00 AM", 
+ "8:30 AM",  "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", 
+ "11:00AM","11:30AM", "12:00PM", "12:30PM", "1:00 PM", 
+ "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM",
+ "4:00 PM", "4:30 PM",  "5:00 PM", "5:30 PM","6:00 PM", 
+ "6:30 PM", "7:00 PM", "7:30 PM", "8:00 PM", "8:30 PM",
+ "9:00 PM", "9:30 PM", "10:00 PM", "10:30 PM", "11:00PM",
+ "11:30PM"
+    ];
     numbers: any[] = [];
-
     // scheduleFormData = new FormGroup({
     //   hours: new FormControl('', Validators.required),
     //   // name: new FormControl(),
@@ -146,6 +159,14 @@ console.log('all megre data',this.allData)
         this.schedule.splice(index, 1)
       }
       console.log(this.schedule)
+    }
+    onSelect(time) {
+      console.log("Time")
+      if(this.count < 2) {
+      this.getTime.push(time)
+      this.count ++
+      console.log("time "+ this.getTime)
+      }
     }
     createItem() {
       // return this.fb.group({

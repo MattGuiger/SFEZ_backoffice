@@ -13,20 +13,32 @@ import { local } from 'd3';
   templateUrl: 'menuitems.component.html',
   styleUrls: ['./menuitems.component.css']
 })
-export class MenuitemsComponent implements OnInit{
-  user:any;
-  productList : any[]=[];
-  processing : boolean = false;
+export class MenuitemsComponent implements OnInit {
+  user: any;
+  productList: any[] = [];
+  processing: boolean = false;
   googleSheet: any;
-  profile : any;
+  profile: any;
   date = "";
   arr: any;
+  counter = 0;
   categories: any;
   addedItems = []
-  google_sheet_url:any
+  checkBool = false;
+  isChecked = 0;
+  google_sheet_url: any
   checkStatus = 1;
   showPage = 1;
   addedCategories = []
+  showTutorialTable = true;
+  showBlueColoredTable = true;
+  google_drive_url: any;
+  showZerothTab = false;
+  showFirstTab = false;
+  showSecondTab = false;
+  showThirdTab = false;
+  showFourthTab = false;
+  showFifthTab = false;
   googleEmail: any;
   @ViewChild('ref') ref;
   authentication_url: any;
@@ -43,19 +55,38 @@ export class MenuitemsComponent implements OnInit{
     private _ProfileService: ProfileService, private slimLoader: SlimLoadingBarService, private _CommonFunctionsService: CommonFunctionsService, private _Router: Router) {
 
   }
+  // onChange(event, item) {
+  //   // can't event.preventDefault();
+  //   console.log('onChange event.checked ' + event.checked, item)
+  //   if (event.checked) {
+  //     this.addedCategories.push(item)
+  //   } else {
+  //     this.removeItemFromArray(item)
+  //   }
+  // }
   onChange(event, item) {
     // can't event.preventDefault();
     console.log('onChange event.checked ' + event.checked, item)
-    if (event.checked) {
-      this.addedCategories.push(item)
-    } else {
+    if (event.checked == true) {
+      console.log("event.checked " + this.counter)
+      if (this.counter < 7) {
+        this.counter++
+        console.log("counter:" + this.counter)
+        this.addedCategories.push(item)
+      }else{ 
+        event.checked = false;
+        console.log("else block:" +  event.checked)
+      }
+    }
+    else {
+      console.log("event")
       this.removeItemFromArray(item)
     }
   }
   ngAfterViewInit() {
-    console.log(this.tabSet['activeId'],'ppppppp');
-    if(this.googleEmail){
-      this.tabSet['activeId']='tb2'
+    console.log(this.tabSet['activeId'], 'ppppppp');
+    if (this.googleEmail) {
+      this.tabSet['activeId'] = 'tb2'
     }
   }
   addItems() {
@@ -87,21 +118,19 @@ export class MenuitemsComponent implements OnInit{
     this.route.params.subscribe(data => {
       console.log('emailllll', data)
       this.googleEmail = data.email
-      if(data.email){
-      console.log('emailllll4444444444444444')
-
-        const tabCount = 1;
-        this.demo1TabIndex = tabCount;
+      if (data.email) {
+        console.log('emailllll4444444444444444')
+        // const tabCount = 1;
+        // this.demo1TabIndex = tabCount;
       }
     })
     this.getFolderbyEmail()
   }
-
   onSelect(event) {
     console.log(event);
     // this.feathuredfiles.push(...event.addedFiles);
     const formData = new FormData();
-    formData.append('file',event.addedFiles[0]);
+    formData.append('file', event.addedFiles[0]);
     // this.uploadFeaturePhoto(formData);
   }
   getFolderbyEmail() {
@@ -110,26 +139,31 @@ export class MenuitemsComponent implements OnInit{
         email: this.googleEmail
       }
       this._ProfileService.getFoldersCreatedInDrive(data).subscribe(res => {
-        console.log('resssssss getFoldersCreatedInDrive', res)
-        this.drivefolders=res.data
-        const tabCount = 2;
+        console.log('getFoldersCreatedInDrive', res)
+        this.drivefolders = res.data;
+        this.isChecked = 2;
+        const tabCount = 1;
         this.demo1TabIndex = tabCount;
+        this.showBlueColoredTable = false;
+        this.showZerothTab = true;
+        this.showFirstTab = true;
+        this.showSecondTab = true;
+        this.showThirdTab = true;
+        this.showFourthTab = true;
+        this.showFifthTab = true;
       })
-
     }
   }
-
-  onFileSelect(event,folderId,category) {
+  onFileSelect(event, folderId, category) {
     if (event.target.files.length > 0) {
       console.log(event.target.files[0])
       const file = event.target.files[0];
       const formData = new FormData();
-      formData.append('file',file);
-      formData.append('folderId',folderId);
-      formData.append('email',this.googleEmail);
-      formData.append('category',category);
-
-      this.uploadImageToDrive(formData,folderId,category);
+      formData.append('file', file);
+      formData.append('folderId', folderId);
+      formData.append('email', this.googleEmail);
+      formData.append('category', category);
+      this.uploadImageToDrive(formData, folderId, category);
     }
   }
   onFileSelect1(event) {
@@ -137,41 +171,44 @@ export class MenuitemsComponent implements OnInit{
       console.log(event.target.files[0])
       const file = event.target.files[0];
       const formData = new FormData();
-      formData.append('file',file);
+      formData.append('file', file);
       // formData.append('folderId',folderId);
       // formData.append('email',this.googleEmail);
       // formData.append('category',category);
       this.user = this._CommonFunctionsService.checkUser().user;
-      this._ProfileService.uploadaddons(formData,this.user.company_id).subscribe(res => {
-      console.log('responese',res)
+      this._ProfileService.uploadaddons(formData, this.user.company_id).subscribe(res => {
+        console.log('responese', res)
+        this.toastr.success('Upload Menu successfully');
       });;
     }
   }
-  uploadImageToDrive(formData,folderId,category) {
-    
+  uploadImageToDrive(formData, folderId, category) {
     this.user = this._CommonFunctionsService.checkUser().user;
-    this._ProfileService.uploadImageTodrive(this.user.company_id,formData).subscribe(res => {
+    this._ProfileService.uploadImageTodrive(this.user.company_id, formData).subscribe(res => {
       console.log('googgleData3', res.data)
       this.authentication_url = res.data
-    });
-
+      this.google_drive_url = res.data.drive_url
+      this.toastr.success('Upload successfull to drive');
+    }, error => {
+      this.toastr.error('Failed to upload, please try again later')
+    }) 
+    console.log("uploadImageToDrive123")
+    this.toastr.success('Upload successfull to drive');
     this.getAllGoogleSheetDetails()
   }
- 
-
   getAllProductList() {
     this.processing = true;
     this.user = this._CommonFunctionsService.checkUser().user;
-   
-    if(this.user.unit_id){
+
+    if (this.user.unit_id) {
       this._ProfileService.getAllProductList(this.user.unit_id).subscribe((res: any) => {
         this.productList = res.data;
         this.processing = false;
       }, error => {
         //debugger
       })
-    }else{
-      this.user.unit_id=localStorage.getItem("unit_id")
+    } else {
+      this.user.unit_id = localStorage.getItem("unit_id")
       this._ProfileService.getAllProductList(this.user.unit_id).subscribe((res: any) => {
         this.productList = res.data;
         this.processing = false;
@@ -183,58 +220,55 @@ export class MenuitemsComponent implements OnInit{
   getgoogleauthntication() {
     this._ProfileService.getGoogleAuthenication().subscribe(res => {
       console.log('googgleData2', res.data)
-      console.log('1')
+      console.log('1, ' + this.checkBool)
+      this.checkBool = true;
+      this.isChecked += 1
+      console.log("getgoogleauthntication: " + this.isChecked)
       this.authentication_url = res.data
       //this.toastr.success('Google account verified please move to step 2')
     });
-    console.log('2')
-    if(this.authentication_url ){
-      this.showPage = 2;
-    }
-    console.log('3')
-    if(this.authentication_url ){
-      this.showPage = 2;}
- }
- onClickGetStarted() {
-    this.checkStatus = 2;
- }
- getAllGoogleSheetDetails(){
-  this.user = this._CommonFunctionsService.checkUser().user;
-  this._ProfileService.getAllGoogleSheetDetails(this.date).subscribe((res:any)=>{
-    this.googleSheet = res.data;
-    console.log('Google Sheet'+this.googleSheet)
-  },error=>{
-   //  
-  })
- }
-//  getgoogleauthntication(){
-//  let googgleData = this._ProfileService.getGoogleAuthenication();
-// console.log('googgleData',googgleData)
-// }
-// onClick(event) {
-//   event.preventDefault();
-// //  console.log('onClick event.checked ' + event.checked);
-// // console.log('onClick event.target.checked '+event.target.checked);
-//   console.log('onClick this.ref._checked '+ this.ref._checked);
+  }
+  onClickGetStarted() {
+    this.showZerothTab = true;
+    this.showTutorialTable = false;
+  }
+  googlesheetUrl(google_sheet_url){
 
-//   }
+    window.open(google_sheet_url)
+  }
+  getAllGoogleSheetDetails() {
+    this.user = this._CommonFunctionsService.checkUser().user;
+    this._ProfileService.getAllGoogleSheetDetails(this.date).subscribe((res: any) => {
+      this.googleSheet = res.data;
+      console.log('Google Sheet' + this.googleSheet)
+    }, error => {
+      //  
+    })
+  }
+  //  getgoogleauthntication(){
+  //  let googgleData = this._ProfileService.getGoogleAuthenication();
+  // console.log('googgleData',googgleData)
+  // }
+  // onClick(event) {
+  //   event.preventDefault();
+  // //  console.log('onClick event.checked ' + event.checked);
+  // // console.log('onClick event.target.checked '+event.target.checked);
+  //   console.log('onClick this.ref._checked '+ this.ref._checked);
 
-
+  //   }
   createFolderinDrive() {
     const data = {
       folder: this.addedItems,
-      email:this.googleEmail,
-      user_id:'11744'
+      email: this.googleEmail,
+      user_id: '11744'
     }
     console.log('folderss data', data)
 
     this._ProfileService.createfolderInGoogleDrive(data).subscribe(res => {
-      console.log('folderss', res)
-      
+      this.toastr.success('Folders created successfully');
       this.getFolderbyEmail()
     })
   }
-
   onClick(event) {
     event.preventDefault();
     //  console.log('onClick event.checked ' + event.checked);
@@ -245,38 +279,42 @@ export class MenuitemsComponent implements OnInit{
   }
   getCompanyProfile() {
     this.user = this._CommonFunctionsService.checkUser().user;
-    if(this.user.unit_id){
-      
+    if (this.user.unit_id) {
+
       this._ProfileService.getCompanyprofile(this.user.unit_id).subscribe((res: any) => {
         this.profile = res.data;
-        this.google_sheet_url=res.data.google_sheet_url
+        this.google_sheet_url = res.data.google_sheet_url
         console.log(this.profile)
       }, error => {
         //  
       })
 
-    }else{
-      this.user.unit_id=localStorage.getItem("unit_id")
-    this._ProfileService.getCompanyprofile(this.user.unit_id).subscribe((res: any) => {
-      this.profile = res.data;
-      this.google_sheet_url=res.data.google_sheet_url
-      console.log(this.profile)
-    }, error => {
-      //  
-    })
+    } else {
+      this.user.unit_id = localStorage.getItem("unit_id")
+      this._ProfileService.getCompanyprofile(this.user.unit_id).subscribe((res: any) => {
+        this.profile = res.data;
+        this.google_sheet_url = res.data.google_sheet_url
+        console.log(this.profile)
+      }, error => {
+        //  
+      })
     }
-    
   }
-
+  getProductList (event) {
+    console.log("getAllProductList:")
+    if(event.activeId === 'tb2'){
+      this.getAllProductList()
+    }
+  }
   uploadGoogleMenuSheet() {
     this._ProfileService.uploadGoogleMenuSheet().subscribe((res: any) => {
-      if(res.error[0].status==409){
+      this.getAllProductList();
+      if (res.error[0].status == 409 || res.error) {
         this._ProfileService.uploadGoogleMenuSheet().subscribe((res: any) => {
           this.toastr.success(res.success);
           this.getAllProductList();
         })
-      }
-   
+      } 
     }, error => {
       this.toastr.error('Failed to upload, please try again later')
     })
@@ -287,6 +325,8 @@ export class MenuitemsComponent implements OnInit{
     })
   }
   openProduct(item) {
+    this.getAllProductList();
+    console.log("menuItems")
     this._Router.navigateByUrl('menuitems/view/' + item.category + '/' + item.id)
   }
 
@@ -312,6 +352,7 @@ export class MenuitemsComponent implements OnInit{
       if (dialogResult) {
         this._ProfileService.getGoogleAuthenication().subscribe(res => {
           this.authentication_url = res.data
+          console.log('getgmailuser123')
         })
       }
     })

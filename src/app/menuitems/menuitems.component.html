@@ -10,7 +10,7 @@
                   <h4 class="card-title">Menu Management</h4>
                   <h6 class="card-subtitle">A Menuitems listed here, and we can maname Menuitems by importing/syncing them from google spreadsheet.</h6>
                  
-                  <ngb-tabset  #t="ngbTabset">
+                  <ngb-tabset  (tabChange)="getProductList($event)" #t="ngbTabset">
                       <ngb-tab title="Google Sheet | images" id="tb2">
                           <ng-template ngbTabContent>
                             <div class="card card-body">
@@ -40,8 +40,8 @@
                                               </div>
                                           </div>
                                       </form> -->
-                                      <section class="hero_section">
-                                          <div *ngIf="showPage === 1" class="container">
+                                      <section *ngIf="showBlueColoredTable" class="hero_section">
+                                          <div class="container">
                                             <div class="row">
                                               <div class="col-md-10 offset-md-1">
                                                 <div class="hero_content">
@@ -49,8 +49,8 @@
                                                   <p class="text-center">InstaMarkt uses one central location (Google Sheets) to store a vendor's menu.
                                                     This includes menu item names (or products), pricing, description, add-ons, categories, s
                                                     pecial instructions, etc. This is a step-by-step tutorial for how to upload these menu item details.</p>
-                                                  <h4 *ngIf="checkStatus === 1" class="text-center">Example Spreadsheet Below:</h4>
-                                                  <img *ngIf="checkStatus === 1" src="../../assets/images/Layer-1@1X.png" alt="" class="hero_img">
+                                                  <h4 *ngIf="showTutorialTable" class="text-center">Example Spreadsheet Below:</h4>
+                                                  <img *ngIf="showTutorialTable" src="../../assets/images/Layer-1@1X.png" alt="" class="hero_img">
                                                   <!-- <h2 class="text-center">Onboarding Workflow (Similar to Vendor Registration):</h2> -->
                                                   <div class="col-md-12 text-center">
                                                   <button type="button" class="btn btn-light" (click)="onClickGetStarted()">Get started</button>
@@ -60,11 +60,10 @@
                                             </div>
                                           </div>
                                         </section>
-                                      
                                         <section class="step_tabs">
-                                          <div *ngIf="checkStatus === 2" class="container">
-                                            <mat-tab-group [(selectedIndex)]="demo1TabIndex">
-                                              <mat-tab label="1">
+                                          <div class="container">
+                                            <mat-tab-group  [selectedIndex]="demo1TabIndex">
+                                              <mat-tab *ngIf="showZerothTab" label="1">
                                                 <div class="step_one">
                                                   <h2>Step 1</h2>
                                                   <h4>Select Google Drive or Dropbox</h4>
@@ -75,7 +74,6 @@
                                                           <img src="../../assets/images/google-drive@1X.png" alt="  " class="drive">
                                                           <p>Google Drive</p>
                                                         </a>
-                                                       
                                                       </div> -->
                                                       <div class="icon_card" >
                                                         <a href={{authentication_url}}>
@@ -95,7 +93,7 @@
                                                   <!-- <h2>Google Sheets URL </h2> <p>"https://docs.google.com/spreadsheets/d/10H5pkAdRbjbJN3JJ0p3nIRFJbt1nuDXJNlQj0lhxy18/edit"</p> -->
                                                 </div>
                                               </mat-tab>
-                                              <mat-tab label="2">
+                                              <mat-tab  *ngIf="showFirstTab" label="2">
                                                 <div class="step_one">
                                                   <h2>Step 2</h2>
                                                   <h4>Select Your Categories</h4>
@@ -152,29 +150,30 @@
                                                                   (change)="onChange1($event,addeditem); false"
                                                                 >{{addeditem}}</mat-checkbox>
                                                                 </div>
-                                                                
-                                                             
                                                               </div>
                                                             </div>
                                                           </div>
                                                         </div>
-                                                        <button mat-raised-button class="btn btn-primary btn-block"(click)="createFolderinDrive()">Create Folder in Drive</button>
-    
+                                                        <button mat-raised-button class="btn btn-primary btn-block"(click)="createFolderinDrive()">Create Folders in Google Drive</button>
                                                       </div>
                                                     </div>
                                                   </div>
                                                 </div>
                                               </mat-tab>
-                                              <mat-tab label="3">
+                                              <mat-tab *ngIf="showSecondTab"  label="3">
                                                 <div class="step_one">
                                                   <h2>Step 3</h2>
                                                   <h4>Upload images in their respective folder (or category) as shown below:</h4>
+                                                  <a href="google_drive_url" style="cursor: pointer;color:rgb(67, 133, 238)" >{{google_drive_url}} </a>
+                                                  <!-- <span>
+                                                    Images count: {{imageCount}}
+                                                  </span> -->
                                                   <div class="row">
                                                     <div class="col-md-4">
                                                       <div class="step_three_left">
-                                                        <h5>Image Name:</h5>
+                                                        <h5>Image Example:</h5>
                                                         <img src="../../assets/images/Chicken-Teriyaki.png" alt="">
-                                                        <p>chicken-teriyaki.png</p>
+                                                        <p>Menu Name "Chicken Teriyaki"</p>
                                                       </div>
                                                     </div>
                                                     <div class="col-md-6 offset-md-2">
@@ -201,21 +200,24 @@
                                                       </div>
                                                     </div>
                                                     <div class="col-md-12">
-                                                      <a href="">{{google_sheet_url}}</a>
+                                                      <!-- <a href="">{{google_sheet_url}}</a> -->
                                                       <div class="sync_btn">
                                                         <button mat-raised-button class="btn"
                                                         (click)="uploadGoogleMenuSheet()">Sync to Google Sheets <img
-                                                            src="../../assets/images/google-sheets-icon.png" alt="" ></button>
+                                                            src="../../assets/images/google-sheets.png" style="width: 25px; margin: -2px 0 0 10px" alt="" ></button>
                                                       </div>
                                                     </div>
                                                   </div>
                                                 </div>
                                               </mat-tab>
-                                              <mat-tab label="4">
+                                              <mat-tab *ngIf="showThirdTab"  label="4">
                                                 <div class="step_one padding_area">
                                                   <h2>Step 4</h2>
                                                   <h4>Upload Menu (jpg or png)</h4>
                                                   <div class="row">
+                                                    <div class="col-md-12 text-center">
+                                                        <img src="/assets/images/menu-poster.jpg" style="width: 75%;margin-bottom: 0.5rem">
+                                                      </div>
                                                     <div class="col-md-12">
                                                       <div class="step_four">
                                                         <div class="form-group">
@@ -243,34 +245,36 @@
                                                     <div class="col-md-8 col-lg-8 offset-lg-1">
                                                       <div class="bot_txt">
                                                         <p>Please upload 1 or more pictures of your menu that includes
-                                                          descriptions, pricing, add-ons, special instructions, beverages, etc.
+                                                          descriptions, pricing, add-ons, special instructions, etc.
                                                           We will also use this information in our Customer Ordering Bot.</p>
                                                       </div>
                                                     </div>
                                                   </div>
                                                 </div>
                                               </mat-tab>
-                                              <mat-tab label="5">
+                                              <mat-tab *ngIf="showFourthTab"  label="5">
                                                 <div class="step_one padding_area">
                                                   <h2>Step 5</h2>
                                                   <h4>Custom Google Sheets Spreadsheet</h4>
-                                                  <p>Thank you for providing these menu item details! InstaMarkt Support will finish
-                                                    creating your menu in Google Sheets. We will schedule a time with you to confirm
-                                                    that all this information is correct.</p>
+                                                  <p>Thank you for providing your menu item details! 
+                                                     InstaMarkt will finish creating your menu in Google Sheets.
+                                                      We will schedule a time with you to review that all this information is correct. 
+                                                     Click on the link below to view menu details!</p>
                                                   <div class="row">
                                                     <div class="col-md-12">
                                                       <div class="step_five">
-                                                        <img src="../../assets/images/Layer-2@1X.png">
-                                                        <img src="../../assets/images/Layer-3@1X.png">
+                                                        <!-- <img src="../../assets/images/Layer-2@1X.png">
+                                                        <img src="../../assets/images/Layer-3@1X.png"> -->
                                                         <h4>Google Sheets Link (URL)</h4>
+                                                     <p><a (click)="googlesheetUrl(google_sheet_url)" style="cursor: pointer;color:rgb(67, 133, 238)" >{{google_sheet_url}} </a></p><br>
                                                         <p>Vendors can make changes directly to their menu in Google Sheets by clicking on
                                                           this shared link. Once ready, use the button below to update the menu.</p>
                                                       </div>
                                                     </div>
                                                     <div class="col-md-12">
                                                       <div class="sync_btn">
-                                                        <button mat-raised-button class="btn">Sync to Google Sheets <img
-                                                            src="../../assets/images/google-sheets-icon.png" alt=""></button>
+                                                        <button mat-raised-button (click)="uploadGoogleMenuSheet()" class="btn">Sync to Google Sheets <img
+                                                          src="../../assets/images/google-sheets.png" style="width: 25px; margin: -2px 0 0 10px" alt="" > </button>
                                                       </div>
                                                     </div>
                                                   </div>
@@ -321,7 +325,7 @@
                                                     <p>2. Menu Item Description: {{item.value.menuItemDescription}}</p>
                                                     <p>3. Menu Item Price: {{item.value.menuItemPrice}}</p>
                                                     <p>4. Image</p>
-                                                    <div class="row">
+                                                    <!-- <div class="row">
                                                       <div class="col-12 col-md-6 col-lg-4">
                                                         <img [src]="item.value.image" alt="">
                                                       </div>
@@ -329,7 +333,7 @@
                                                         <p class="p_t_note">Note:</p>
                                                         <p>Vendors can use Google Drive or Dropbox to upload and share images.</p>
                                                       </div>
-                                                    </div>          
+                                                    </div>           -->
                                                     <p>5. Category:{{item.value.category}}</p>
                                                     <!-- <p>6. Category Description: {{item.value.addOnMultiple}}</p> -->
                                                     <p>6. Add-Ons: {{item.value.addOnMultiple}}</p>
@@ -362,7 +366,7 @@
                                                     </div>
                                                   </div> -->
                                               </mat-tab>
-                                              <mat-tab label="6">
+                                              <mat-tab  *ngIf="showFifthTab" label="6">
                                                 <div class="step_one padding_area">
                                                   <h2>Manual Copy of Image URL's</h2>
                                                   <h4>For those of you that are tech savvy, owners can copy the Image URL's from
