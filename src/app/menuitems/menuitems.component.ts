@@ -125,7 +125,7 @@ export class MenuitemsComponent implements OnInit {
       }
     })
     this.getFolderbyEmail()
-  }
+  } 
   onSelect(event) {
     console.log(event);
     // this.feathuredfiles.push(...event.addedFiles);
@@ -193,7 +193,7 @@ export class MenuitemsComponent implements OnInit {
       this.toastr.error('Failed to upload, please try again later')
     }) 
     console.log("uploadImageToDrive123")
-    this.toastr.success('Upload successfull to drive');
+    // this.toastr.success('Upload successfull to drive');
     this.getAllGoogleSheetDetails()
   }
   getAllProductList() {

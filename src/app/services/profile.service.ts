@@ -55,6 +55,8 @@ export class ProfileService {
   private unitLocationsHub = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/unit_locations/';
   private territoryDriverURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/driversinterritory';
   private companyDriverURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/drivers_company';
+  private deliveryhub_units = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/deliveryhub_units/';
+
   private foodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel';
   private emailManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/send-email-manager';
   private countriesURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/countries';
@@ -87,7 +89,20 @@ export class ProfileService {
     return this.http.get(this.voidOrderUrl+id);
   }
 getHubwithUnits(id):Observable<any>{
-  return this.http.get(this.unitLocationsHub+id);
+  return this.http.get(this.unitLocationsHub+id);   
+}
+getDeliveryHubsInCompany(id):Observable<any>{
+  return this.http.get(this.foodparkURL+"/delivery_hubs/"+id);//onlu hubs
+}
+
+getLocationListInCompany(id):Observable<any>{
+  return this.http.get(this.foodparkURL+"/listlocation/"+id); //location with company id
+}
+getDeliveryHubandUnits(id):Observable<any>{
+  return this.http.get(this.deliveryhub_units+id); //deliveryhubs and location
+}
+getLocationsInTerritory_id(id):Observable<any>{
+  return this.http.get(this.foodparkURL+"/listlocationinterritory/"+id); //list locations in territoyid
 }
 getDriverswithterriId(id):Observable<any>{
   return this.http.get(this.territoryDriverURL+"/"+id);
@@ -342,4 +357,6 @@ addUnitToHub(foodParkId,unitId){
   getCompanyByCompanyId(id) : Observable<any> {
     return this.http.get(this.companyURL1+"/"+id);
   }
+
+ 
 }
