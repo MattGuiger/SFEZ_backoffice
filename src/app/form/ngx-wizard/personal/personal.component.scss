@@ -4,7 +4,7 @@
     filter: blur(1.5px);
 }
 #paco img {
-    width: auto;
+    width: 100%;
     height: 100px;
 }
 #dishImg{
@@ -79,6 +79,6 @@ ngx-dropzone-label {
     overflow: hidden;
 }
 #dishImg img {
-    width: auto;
+    width: 100%;
     height: 100px;
 }
