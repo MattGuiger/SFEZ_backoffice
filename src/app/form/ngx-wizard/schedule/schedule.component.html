@@ -97,10 +97,10 @@
                                     </select>
                               </div> -->
                       </div>
-                              <div>
+                              <div> 
                                     <select 
                                     (change)="onSelect($event.target.value)">
-                                    <option value="0" selected hidden></option>
+                                    <option value="0" selected hidden>From</option>
                                     <option [value]="type" *ngFor="let type of startTimeArray">
                                       {{type}}
                                     </option>
@@ -108,7 +108,7 @@
                                   -
                                   <select 
                                     (change)="onSelect($event.target.value)">
-                                    <option value="0" selected hidden></option>
+                                    <option value="0" selected hidden>To</option>
                                     <option [value]="type" *ngFor="let type of startTimeArray">
                                       {{type}}
                                     </option>
@@ -132,7 +132,6 @@
                     </div>
                 <input class="form-control input-md" id="schedule" name="schedule" type="text">   
                 </div>  --> 
-
                 <!-- <label class="form-control-label" for="hours">Hours:  10 am – 8 pm</label> -->
 
                 <!-- <div class="input-group mb-3"> -->
