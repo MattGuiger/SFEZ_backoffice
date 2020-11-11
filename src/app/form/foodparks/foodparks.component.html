@@ -146,7 +146,7 @@
                 <div class="card-body">
                   <p class="text-center" style="font-weight: 500;">Register Vendors</p>
                   <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
-                    [footerHeight]="50" [rowHeight]="'auto'" [limit]="5" [rows]='Hublocations'>
+                    [footerHeight]="50" [rowHeight]="'auto'" [limit]="5" [rows]='deliveryHub'>
                     <ngx-datatable-column name="Name" [width]="150">
                       <ng-template ngx-datatable-cell-template let-row="row" let-value="value" *ngIf="row?.food_park_id!=hubunit.data.food_park_id">
                         {{row?.unit_name}}
@@ -618,7 +618,6 @@
         <div class="input-group">
           <input id="name" class="form-control" name="dp" type="text" formControlName="name">
         </div>
-
         <label for="type">Type</label>
         <div class="input-group">
           <select formControlName="type" class="form-control">
@@ -626,14 +625,12 @@
             <option *ngFor="let item of typesForHub">{{item}}</option>
           </select>
         </div>
-
         <label for="stateid">State</label>
         <div class="input-group">
           <select formControlName="stateid" class="form-control" (change)="getTerritory($event)">
             <option *ngFor="let item of states2" value="{{item.id}}">{{item.name}}</option>
           </select>
         </div>
-
         <label for="territoryid">Territory</label>
         <div class="input-group">
           <select formControlName="territory_id" [(ngModel)]="selectedTerritory" class="form-control"
@@ -641,6 +638,13 @@
             <option *ngFor="let item of singleTerritory.territory" [ngValue]="item">{{item.city}}</option>
           </select>
         </div>
+        <label for="address">Provide Address Below</label>
+        <div class="input-group">
+          <input id="address" class="form-control" name="address" type="text" formControlName="address">
+        </div>
+        <div class="input-group">
+            <input id="address" class="form-control" name="address" type="text" formControlName="address">
+          </div>
         <!-- <label for="territory">Select Location</label>
         <div class="form-group mapmarker">
           <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [style.height.px]="300"
@@ -1022,11 +1026,11 @@
           <mat-slider thumbLabel formcontrolName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel" tickInterval="5" class="cdk-focused"
           (input)="minDaysValue = $event.value" [value]="minDaysValue">
         </mat-slider>
-          <label for="standard_delivery" style="display: block;">Standard Delivery (0-5 km/mi) </label>
+          <label for="standard_delivery" style="display: block;">Standard Delivery Charge(0-5 km/mi) </label>
           <mat-slider thumbLabel min="0" max="5" step="1" [displayWith]="formatLabel" tickInterval="5" class="cdk-focused"
             [value]="minDaysValuse">
           </mat-slider>
-          <label for="long_delivery" style="display: block;">Long Delivery (5-10 km/mi) </label>
+          <label for="long_delivery" style="display: block;">Long Delivery Charge(5-10 km/mi) </label>
               <mat-slider thumbLabel min="5" max="10" step="1" [displayWith]="formatLabel" tickInterval="10" class="cdk-focused"
               [value]="minDaysValue">
             </mat-slider>

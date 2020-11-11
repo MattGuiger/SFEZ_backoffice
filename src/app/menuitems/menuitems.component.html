@@ -80,7 +80,7 @@
                                                           <img src="../../assets/images/google-drive@1X.png" alt="  " class="drive">
                                                           <p>Google Drive</p>
                                                         </a>
-                                                       
+                                                        <b>Authenticated Email: </b>{{authEmail}}
                                                       </div>
                                                     </div>
                                                     <div class="col-6 col-md-4 col-lg-2">
@@ -164,38 +164,59 @@
                                                 <div class="step_one">
                                                   <h2>Step 3</h2>
                                                   <h4>Upload images in their respective folder (or category) as shown below:</h4>
-                                                  <a (click)="googleDriveUrl()" style="cursor: pointer;color:rgb(67, 133, 238)" >{{google_drive_url}} </a>
-                                                  <span *ngIf=checkImageCountFlag>
-                                                    Images count: {{imageCount}}
-                                                  </span>
+                                                  <br>
+                                                  <br>
                                                   <div class="row">
-                                                    <div class="col-md-4">
-                                                      <div class="step_three_left">
-                                                        <h5>Image Example:</h5>
-                                                        <img src="../../assets/images/Chicken-Teriyaki.png" alt="">
-                                                        <p>Menu Name "Chicken Teriyaki"</p>
+                                                      <div class="col-md-4 offset-md-4">
+                                                        <div class="step_three_left" style="text-align: center;">
+                                                          <h5>Image Example</h5>
+                                                          <img src="../../assets/images/Chicken-Teriyaki.png" alt="">
+                                                          <p style="font-size: 18px;">Menu Item Name: Chicken Teriyaki</p>
+                                                        </div>
                                                       </div>
-                                                    </div>
-                                                    <div class="col-md-6 offset-md-2">
+                                                  </div>
+                                                  <div class="row">
+                                                    <div class="col-md-8">
+                                                        <span *ngIf=checkImageCountFlag>
+                                                        <div style="text-align: left; font-size: 18px; margin-bottom: 1rem;">
+                                                        # of uploaded images: <b>{{imageCount}}</b></div>
+                                                          <!-- <div >
+                                                              <b>Recently uploaded image:</b> 
+                                                              <a (click)="googleDriveUrl(google_drive_url)" style="cursor: pointer;color:rgb(67, 133, 238)" >{{google_drive_url}} </a>
+                                                          </div>
+                                                           -->
+                                                        </span>
                                                       <div class="step_three_right">
                                                         <h5>Category:</h5>
-                                                        <ul *ngFor="let folder of drivefolders">
+                                                        <ul *ngFor="let folder of drivefolders; let index = index" style="margin-bottom: 1.5rem;">
                                                           <li>
-                                                            <img src="../../assets/images/folder@1X.png" alt="">
-                                                            <p>{{folder.foldername}}</p>
-                                                            <div class="custom-file">
-                                                              <input type="file" name="file"class="custom-file-input" id="customFile" 
-                                                              (change)="onFileSelect($event,folder.folderid,folder.foldername)">
-                                                              <label class="custom-file-label" for="customFile">Choose file</label>
-                                                            </div>                                                            </li>
-                                                          <!-- <li>
-                                                            <img src="../../assets/images/folder@1X.png" alt="">
-                                                            <p>Salads</p>
-                                                          </li>
-                                                          <li>
-                                                            <img src="../../assets/images/folder@1X.png" alt="">
-                                                            <p>Soup</p>
-                                                          </li> -->
+                                                            <div class="row">
+                                                              <div class="col-md-2">
+                                                                  <img src="../../assets/images/folder@1X.png" alt="">
+                                                              </div>
+                                                              <div class="col-md-8">
+                                                                  <p><b>{{folder.foldername}}</b></p>
+                                                                  <div class="custom-file">
+                                                                    <input type="file" name="file"class="custom-file-input" id="customFile" 
+                                                                    (change)="onFileSelect($event,folder.folderid,folder.foldername)">
+                                                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                                                  </div>    
+                                                              </div>
+                                                              <div class="col-md-2">
+                                                                <em (click)="deleteFolder(index)" class="fa fa-trash"></em>
+                                                              </div>
+                                                              <div class="col-md-12">
+                                                                  <p  (click)="googleDrive_url()" style="cursor: pointer;"><b>Google Drive URL</b></p>
+                                                                  <div *ngFor="let category of googleSheet">
+                                                                  <div *ngIf="checkGoogleDriveFlag">
+                                                                    <label *ngIf="category.category === folder.foldername">
+                                                                    <a href="category.image">{{category.image}}</a>  
+                                                                    </label>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                            </div>                                                    
+                                                           </li>
                                                         </ul>
                                                       </div>
                                                     </div>
@@ -259,6 +280,8 @@
                                                      InstaMarkt will finish creating your menu in Google Sheets.
                                                       We will schedule a time with you to review that all this information is correct. 
                                                      Click on the link below to view menu details!</p>
+                                                     <p>Vendors can make changes directly to their menu in Google Sheets by clicking on
+                                                        this shared link. Once ready, use the button below to update the menu.</p><br>
                                                   <div class="row">
                                                     <div class="col-md-12">
                                                       <div class="step_five">
@@ -266,13 +289,11 @@
                                                         <img src="../../assets/images/Layer-3@1X.png"> -->
                                                         <h4>Google Sheets Link (URL)</h4>
                                                      <p><a (click)="googlesheetUrl(google_sheet_url)" style="cursor: pointer;color:rgb(67, 133, 238)" >{{google_sheet_url}} </a></p><br>
-                                                        <p>Vendors can make changes directly to their menu in Google Sheets by clicking on
-                                                          this shared link. Once ready, use the button below to update the menu.</p>
-                                                      </div>
+                                                     </div>
                                                     </div>
                                                     <div class="col-md-12">
-                                                      <div class="sync_btn">
-                                                        <button mat-raised-button (click)="uploadGoogleMenuSheet()" class="btn">Sync to Google Sheets <img
+                                                      <div class="sync_btn" style="position:relative; top:-23px;">
+                                                        <button mat-raised-button class="btn">Sync to Google Sheets <img
                                                           src="../../assets/images/google-sheets.png" style="width: 25px; margin: -2px 0 0 10px" alt="" > </button>
                                                       </div>
                                                     </div>

@@ -338,7 +338,6 @@ addUnitToHub(foodParkId,unitId){
   }
   getFoldersCreatedInDrive(data) : Observable<any> {
     console.log('dataaaa',data)
-  
     return this.http.post(this.googldriveUrl+'fetchfolderscreated',data);
   }
   getAllGoogleSheetDetails(data) : Observable<any> {

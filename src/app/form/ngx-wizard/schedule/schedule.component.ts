@@ -82,6 +82,7 @@ export class ScheduleComponent implements OnInit {
          });
         this.scheduleFormData = this.fb.group({
           facebook: [''],
+          // telegram_id: [],
           // group_name:['InstaMarkt ',Validators.required],
           group_name:[''],
               schedule: [this.schedule],
@@ -213,6 +214,9 @@ console.log('all megre data',this.allData)
         //       this.toastr.error(error.error.message)
         //     })
     }
+    saveTelegram_id() {
+      console.log("save telegram id")
+    }
     routeToFb() {
       console.log(this.scheduleFormData.value.facebook)
       // window.location.href = this.scheduleFormData.value.facebook;
@@ -235,6 +239,6 @@ console.log('all megre data',this.allData)
     //   })
     }   
     cancel() {
-      this.router.navigateByUrl('/forms/ngx/description', { relativeTo: this.route.parent, skipLocationChange: true });
+        this.router.navigateByUrl('/forms/ngx/description', { relativeTo: this.route.parent, skipLocationChange: true });
     }
 }

@@ -57,8 +57,8 @@
                     <div  *ngIf=" workFormData.get('type').errors.required ">
                       Type is Required
                   </div>
-                  <!-- <div  *ngIf=" workFormData.get('type').errors.required ">
-                       Username already exist
+                  <!-- <div  *ngIf=" workFormData.get('type').errors['exists'] ">
+                       Username exist already. Please go to the location tab to create new unit in hub management.
                     </div> -->
                  </div>  
             </div>

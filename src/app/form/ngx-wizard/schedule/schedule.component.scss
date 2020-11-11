@@ -3,7 +3,16 @@
     padding: 20px;
 }
 .ButtonState{display:none}
-.Button{padding:3px; margin:4px; background:#CCC; border:1px solid #333; cursor:pointer;}
+.Button{
+  padding: 5px 10px;
+  margin: 4px;
+  background: #909090;
+  border: 1px solid #fff;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 2px;
+  font-weight: 600;
+}
 .ButtonState:checked + .Button{background: rgb(57, 175, 230);}
 .btn-fb{color: white; background-color: rgb(57, 175, 230);}
 
@@ -50,4 +59,7 @@ img:hover {
     border-right: 10px solid #20252a;
     left: -8px;
     top: 25px;
+}
+label {
+  font-size: 16px;
 }

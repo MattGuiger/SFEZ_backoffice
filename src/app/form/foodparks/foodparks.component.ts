@@ -265,7 +265,6 @@ getLocationInTerritoy(){
   })
 }
 }
-
 territory_id() {
   this.latt = localStorage.getItem('latitude');
   this.long = localStorage.getItem('longitude');

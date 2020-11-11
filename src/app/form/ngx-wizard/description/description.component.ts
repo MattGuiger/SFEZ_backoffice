@@ -53,15 +53,12 @@ export class DescriptionComponent implements OnInit {
     //     })
     //     // this.router.navigateByUrl('/forms/ngx/schedule/11152', { relativeTo: this.route.parent, skipLocationChange: true });
     //     let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);       
-        
     // }
-
     onSubmit(){
         console.log("work"+ JSON.stringify(this.descriptionFormData.value));
         const data = localStorage.setItem('descriptionFormData', JSON.stringify(this.descriptionFormData.value));
         this.router.navigateByUrl('/forms/ngx/schedule', { relativeTo: this.route.parent, skipLocationChange: true });
     }
-
     cancel() {
         this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
     }

@@ -97,22 +97,28 @@
                                     </select>
                               </div> -->
                       </div>
-                              <div> 
-                                    <select 
-                                    (change)="onSelect($event.target.value)">
-                                    <option value="0" selected hidden>From</option>
-                                    <option [value]="type" *ngFor="let type of startTimeArray">
-                                      {{type}}
-                                    </option>
-                                  </select>
-                                  -
-                                  <select 
+                              <div class="row">
+                                  <div class="col-md-4">
+                                        <select class="form-control"
+                                        (change)="onSelect($event.target.value)">
+                                        <option value="0" selected hidden>From</option>
+                                        <option [value]="type" *ngFor="let type of startTimeArray">
+                                          {{type}}
+                                        </option>
+                                      </select>
+                                  </div> 
+                                  <div class="col-md-1 text-center">
+                                      -
+                                  </div>
+                                  <div class="col-md-4">
+                                  <select class="form-control"
                                     (change)="onSelect($event.target.value)">
                                     <option value="0" selected hidden>To</option>
                                     <option [value]="type" *ngFor="let type of startTimeArray">
                                       {{type}}
                                     </option>
                                   </select>
+                                  </div>
                               </div>
                         
                       <!-- <label class="form-control-label" for="hours" >Time</label>
@@ -159,11 +165,17 @@
                  </div>
                 <div>
                     <br>
+                    <label class="form-control-label" for="telegram_id">Provide your Telegram ID below:</label>
+                    <!-- <input class="form-control form-control-sm" formControlName="group_name" type="text"> -->
+                        <input class="form-control form-control-sm" formControlName="telegram_id" type="text">
+                        <button type="button" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" (change)="saveTelegram_id()">Save</button>
+                        <br>
+                    <br>
                       <label class="form-control-label" for="group_name">Choose Group Name</label>
                       <!-- <input class="form-control form-control-sm" formControlName="group_name" type="text"> -->
-                <input class="form-control form-control-sm" formControlName="group_name" type="text">
-                <button type="button" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" (change)="addGroupName()">Create Group</button>
-                <br>
+                      <input class="form-control form-control-sm" formControlName="group_name" type="text">
+                      <button type="button" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" (change)="addGroupName()">Create Group</button>
+                    <br>
                 </div>
                 <br>
                 <!-- <form [formGroup]="foodParkForm" (ngSubmit)="onTelegramClick()">

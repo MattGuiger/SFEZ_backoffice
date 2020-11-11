@@ -25,12 +25,14 @@ export class MenuitemsComponent implements OnInit {
   categories: any;
   addedItems = []
   checkBool = false;
-  imageCount: any
+  imageCount = 0
   checkImageCountFlag = false
+  authEmail: any
   isChecked = 0;
   google_sheet_url: any
   checkStatus = 1;
   showPage = 1;
+  checkGoogleDriveFlag = false
   addedCategories = []
   showTutorialTable = true;
   showBlueColoredTable = true;
@@ -118,6 +120,7 @@ export class MenuitemsComponent implements OnInit {
     this.getCompanyProfile();
     this.getgoogleauthntication();
     this.getAllCategories();
+    this.getAllGoogleSheetDetails()
     this.route.params.subscribe(data => {
       console.log('emailllll', data)
       this.googleEmail = data.email
@@ -147,6 +150,7 @@ export class MenuitemsComponent implements OnInit {
         this.isChecked = 2;
         const tabCount = 1;
         this.demo1TabIndex = tabCount;
+        this.authEmail = res.data[0].email
         if(this.showFirstTab) {
             const tabCount = 2;
             this.demo1TabIndex = tabCount;
@@ -172,6 +176,9 @@ export class MenuitemsComponent implements OnInit {
       formData.append('category', category);
       this.uploadImageToDrive(formData, folderId, category);
     }
+  }
+  deleteFolder(index) {
+    this.drivefolders.splice(index,1)
   }
   onFileSelect1(event) {
     if (event.target.files.length > 0) {
@@ -241,14 +248,14 @@ export class MenuitemsComponent implements OnInit {
   googlesheetUrl(google_sheet_url){
     window.open(google_sheet_url)
   }
-  googleDriveUrl(){
-    window.open(this.google_drive_url)
+  googleDriveUrl(google_drive_url){
+    window.open(google_drive_url)
   }
   getAllGoogleSheetDetails() {
     this.user = this._CommonFunctionsService.checkUser().user;
     this._ProfileService.getAllGoogleSheetDetails(this.date).subscribe((res: any) => {
       this.googleSheet = res.data;
-      this.imageCount = res.data.length+1;
+      this.imageCount = res.data.length;
       this.checkImageCountFlag = true;
       console.log('Google Sheet' + this.googleSheet)
     }, error => {
@@ -318,6 +325,9 @@ export class MenuitemsComponent implements OnInit {
       this.getAllProductList()
     }
   }
+  googleDrive_url() {
+    this.checkGoogleDriveFlag = true
+  }
   uploadGoogleMenuSheet() {
     this._ProfileService.uploadGoogleMenuSheet().subscribe((res: any) => {
       this.getAllProductList();
@@ -328,7 +338,7 @@ export class MenuitemsComponent implements OnInit {
         })
       } 
     }, error => {
-      this.toastr.error('Failed to upload, please try again later')
+      this.toastr.error('Sync failed, Please try again later')
     })
   }
   getAllCategories() {
