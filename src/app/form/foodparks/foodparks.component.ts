@@ -762,7 +762,7 @@ getlocationsAndHub(){
   onSubmitLocationForm() {
     this.locationFoodParkForm.value.territory_id = this.user.territory_id;
     this._ProfileService.addUnit(this.locationFoodParkForm.value, this.user.company_id).subscribe((res: any) => {
-      this.toastr.success('Territory Created successfully');
+      this.toastr.success('Hub Created successfully');
       document.getElementById("closeModal").click();
       this.getAllFoodPark();
     },

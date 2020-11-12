@@ -334,9 +334,9 @@ export class MenuitemsComponent implements OnInit {
   uploadGoogleMenuSheet() {
     this._ProfileService.uploadGoogleMenuSheet().subscribe((res: any) => {
       this.getAllProductList();
-      if (res.status == 200) {
+      if (res.success) {
+        this.toastr.success("Sync successful");
         this._ProfileService.uploadGoogleMenuSheet().subscribe((res: any) => {
-          this.toastr.success(res.success);
           this.getAllProductList();
         })
       } 

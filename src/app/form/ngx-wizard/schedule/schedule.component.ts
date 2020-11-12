@@ -82,7 +82,7 @@ export class ScheduleComponent implements OnInit {
          });
         this.scheduleFormData = this.fb.group({
           facebook: [''],
-          // telegram_id: [],
+          telegram_id: [],
           // group_name:['InstaMarkt ',Validators.required],
           group_name:[''],
               schedule: [this.schedule],

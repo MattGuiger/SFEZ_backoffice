@@ -132,14 +132,12 @@
                       </ngx-datatable-column>
                       <ngx-datatable-column name="Action" [width]="150">
                         <ng-template ngx-datatable-cell-template let-row="row" let-value="value" >
-
                           <button type="button" class="btn btn-danger btn-sm"
                             (click)=removeUnit(row.unit_id,row.food_park_id)>Remove
                             Vendor</button>
                         </ng-template>
                       </ngx-datatable-column>
 
-              
                   </ngx-datatable>
                 </div>
 
@@ -163,9 +161,15 @@
                       <ng-template ngx-datatable-cell-template let-row="row" let-value="value" *ngIf="row?.food_park_id!=hubunit.data.food_park_id">
                         <button type="button" class="btn btn-success btn-sm"
                           (click)="addVendor(hubunit.food_park_id,row.unit_id)">Add Vendor</button>
+                          
                       </ng-template>
                     </ngx-datatable-column>
-
+                    <ngx-datatable-column name="Action" [width]="150">
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value" >
+                            <button type="button" class="btn btn-success btn-sm"
+                            (click)="addVendor(hubunit.food_park_id,row.unit_id)">Add Vendor</button>
+                        </ng-template>
+                      </ngx-datatable-column>
                   </ngx-datatable>
                 </div>
               </div>
