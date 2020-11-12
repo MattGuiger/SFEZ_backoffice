@@ -338,7 +338,7 @@
                                                   </p>
                                                 </div> -->
                                                 <h2 style="text-align: center;"><b>Spreadsheet Details</b></h2>
-                                                <div class="spreadsheet_detail" *ngFor="let item of googleSheet | keyvalue:0; let i = index">
+                                                <div class="spreadsheet_detail" *ngFor="let item of googleSheet | keyvalue: returnZero; let i = index">
                                                  <br><br>
                                                     <p>1. Menu Item Name: {{item.value.menuItemName}}
                                                     </p>

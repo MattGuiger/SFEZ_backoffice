@@ -180,6 +180,9 @@ export class MenuitemsComponent implements OnInit {
   deleteFolder(index) {
     this.drivefolders.splice(index,1)
   }
+  returnZero() {    
+     return 0;     
+  }
   onFileSelect1(event) {
     if (event.target.files.length > 0) {
       console.log(event.target.files[0])
@@ -331,7 +334,7 @@ export class MenuitemsComponent implements OnInit {
   uploadGoogleMenuSheet() {
     this._ProfileService.uploadGoogleMenuSheet().subscribe((res: any) => {
       this.getAllProductList();
-      if (res.error[0].status == 409 || res.error) {
+      if (res.status == 200) {
         this._ProfileService.uploadGoogleMenuSheet().subscribe((res: any) => {
           this.toastr.success(res.success);
           this.getAllProductList();
