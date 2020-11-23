@@ -108,10 +108,10 @@ territory_id1:any
       customer_order_window: new FormControl(event),
       // delivery_radius: new FormControl(event)
       delivery_radius: new FormControl()
-        });
+    });
     foodParkForm = new FormGroup({
       delivery_time_window: new FormControl(event)
-      });
+    });
     emailManageForm = new FormGroup({
       email: new FormControl('', Validators.required)
     })
@@ -119,7 +119,8 @@ territory_id1:any
     stateid: new FormControl('', Validators.required),
     territory_id: new FormControl(),
     type: new FormControl(' ', Validators.required),
-    name: new FormControl('', Validators.required)
+    name: new FormControl('', Validators.required),
+    address: new FormControl()
     });
 
   locationFoodParkForm = new FormGroup({
@@ -171,6 +172,7 @@ territory_id1:any
   deliveryHub: any;
   deliveryHubUnits: any;
   Hublocations: any;
+  hubDelivery: any
 
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService,
@@ -256,6 +258,18 @@ getDeliveryHubinCompany(){
     })
   }
 }
+getDeliveryHubCompany(){
+  if(this.user.company_id){
+    this._ProfileService.getDeliveryHubsCompany(this.user.company_id).subscribe(res=>{
+      console.log('getDeliveryHubinCompany',res)
+      if(res.status==200){
+        console.log('thisssss deliveryHub',res.data)
+    this.hubDelivery=res.data
+      }else{
+      }
+    })
+  }
+}
 getLocationInTerritoy(){
   console.log('getDeliveryHubinCompany------getLocationInTerritoy')
   if(this.territory_id1){
@@ -283,9 +297,6 @@ territory_id() {
     // localStorage.setItem("territory_id",this.territory_id1)
   })
 }
-
-
-
   formInit() {
     // this.onLocationEditForm = new FormGroup({});
   }
@@ -683,6 +694,7 @@ getlocationsAndHub(){
   getAllStates() {
       this._ProfileService.getState(this.user.country_id).subscribe((res: any) => {
       this.states2 = res.data;
+      console.log("getAllStates"+this.states2)
     })
   }
   getAllFoodPark() {
@@ -758,11 +770,12 @@ getlocationsAndHub(){
       this.toastr.error('Please select the hub and driver')
     }
   }
-
   onSubmitLocationForm() {
-    this.locationFoodParkForm.value.territory_id = this.user.territory_id;
+    this.locationFoodParkForm.value.territory_id = this.territory_id1;
+    this.locationFoodParkForm.value.number=1
     this._ProfileService.addUnit(this.locationFoodParkForm.value, this.user.company_id).subscribe((res: any) => {
-      this.toastr.success('Hub Created successfully');
+      this.toastr.success('Unit Created successfully');
+      this.locations2 = res.dat
       document.getElementById("closeModal").click();
       this.getAllFoodPark();
     },
@@ -971,7 +984,7 @@ getlocationsAndHub(){
     });
   }
   openEditLocations(content4, row) {
-    console.log(row);
+    console.log("selectedLocationRecord",row);
     this.selectedLocationRecord = row;
     this.modalService.open(content4, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -1011,7 +1024,9 @@ getlocationsAndHub(){
     // Whenever the filter changes, always go back to the first page
     this.table = data;
   }
-
+  cancelModal() {
+    // this.modalService.close(false)
+  }
   updateManagerFilter(event) {
     const val = event.target.value.toLowerCase();
     // filter our data
@@ -1023,8 +1038,6 @@ getlocationsAndHub(){
     // Whenever the filter changes, always go back to the first page
     this.table = data;
   }
-
-
   updateFilter(event) {
     const val = event.target.value.toLowerCase();
     // filter our data
@@ -1078,15 +1091,15 @@ getlocationsAndHub(){
   onLocationEditSubmit(){
     this._ProfileService.getEditUnits(this.user.company_id,this.selectedLocationRecord.unit_id , this.onLocationEditForm.value).subscribe(res=>{
       // this.modalService.dismissAll()
-      if(res.status==200){
+      // if(res.status==200){
         console.log('Edit ',res.data)
         this.deliveryHubUnits = res.data
         this.toastr.success(res.message)
         this.modalService.dismissAll()
-      }else{
+      // }else{
         this.toastr.error(res.error)
         this.modalService.dismissAll()
-      }
+      // }
     })
   }
 onManagerEmailSubmit(){

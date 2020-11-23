@@ -94,7 +94,9 @@ getHubwithUnits(id):Observable<any>{
 getDeliveryHubsInCompany(id):Observable<any>{
   return this.http.get(this.foodparkURL+"/delivery_hubs/"+id);//onlu hubs
 }
-
+getDeliveryHubsCompany(id):Observable<any>{
+  return this.http.get(this.foodparkURL+id+"/units");//onlu hubs
+}
 getLocationListInCompany(id):Observable<any>{
   return this.http.get(this.foodparkURL+"/listlocation/"+id); //location with company id
 }

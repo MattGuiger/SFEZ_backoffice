@@ -26,6 +26,7 @@ import { Globals} from './globals'
 import { FullComponent } from './layouts/full/full.component';
 import { BlankComponent } from './layouts/blank/blank.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NavigationComponent } from './shared/header-navigation/navigation.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
@@ -81,6 +82,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         HttpModule,
         NgbModule,
         MatTabsModule,
+        NgxUiLoaderModule,
         AccordionModule,
         ToastrModule.forRoot(),
         SlimLoadingBarModule.forRoot(),

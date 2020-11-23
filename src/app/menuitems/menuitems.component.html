@@ -79,7 +79,7 @@
                                                         <a href={{authentication_url}}>
                                                           <img src="../../assets/images/google-drive@1X.png" alt="  " class="drive">
                                                           <p>Google Drive</p>
-                                                        </a>{{authEmail}}
+                                                        </a>{{googleEmail}}
                                                       </div>
                                                     </div>
                                                     <div class="col-6 col-md-4 col-lg-2">
@@ -109,11 +109,12 @@
                                                                 <mat-form-field appearance="fill">
                                                                   <input matInput placeholder="Search" class="form-control">
                                                                 </mat-form-field>
-                                                    
+                                                                <!-- [checked] = "checkboxFlag"
+                                                                [checked]="checked"  -->
                                                                 <div *ngFor="let category of categories">
                                                                   <mat-checkbox 
-                                                                  [checked]="checked"
-                                                                  (change)="onChange($event,category.category); false"
+                                                                  [checked] = "testFetchFolder(category.category)"
+                                                                  (change)="onChange(category.category); false"
                                                                 >{{category.category}}</mat-checkbox>
                                                                   <!-- <mat-checkbox>Salads</mat-checkbox>
                                                                   <mat-checkbox>
@@ -124,7 +125,6 @@
                                                                   <mat-checkbox>Burgers</mat-checkbox>
                                                                   <mat-checkbox>Noodles</mat-checkbox> -->
                                                                 </div>
-                                                           
                                                               </div>
                                                             </div>
                                                           </div>
@@ -137,7 +137,7 @@
                                                           <div class="col-md-5">
                                                             <div class="category_area">
                                                               <div class="category_head">
-                                                                <p>Selected Categories (Up to 7)</p>
+                                                                <p>Selected Categories</p>
                                                               </div>
                                                               <div class="category_checkbox">
                                                                 <mat-form-field appearance="fill">
@@ -145,8 +145,8 @@
                                                                 </mat-form-field>
                                                                 <div *ngFor="let addeditem of  addedItems">
                                                                   <mat-checkbox 
-                                                                  [checked]="checked"
-                                                                  (change)="onChange1($event,addeditem); false"
+                                                                  [checked]="checkboxFlag"
+                                                                  (change)="onChange($event,addeditem); false"
                                                                 >{{addeditem}}</mat-checkbox>
                                                                 </div>
                                                               </div>
@@ -206,11 +206,11 @@
                                                                 <em (click)="deleteFolder(index)" class="fa fa-trash"></em>
                                                               </div>
                                                               <div class="col-md-12">
-                                                                  <p  (click)="googleDrive_url()" style="cursor: pointer;"><b>Google Drive URL</b></p>
-                                                                  <div *ngFor="let category of googleSheet">
-                                                                  <div *ngIf="checkGoogleDriveFlag">
+                                                                   <p  (click)="googleDrive_url($event,folder.foldername, index)" style="cursor: pointer;"><b>Google Drive URL</b></p>
+                                                                   <div *ngIf="checkGoogleDriveFlag === index">
+                                                                   <div *ngFor="let category of googleSheet;  let i = index">
                                                                     <label *ngIf="category.category === folder.foldername">
-                                                                    <a href="category.image">{{category.image}}</a>  
+                                                                    <a href="#">{{category.image}}</a>  
                                                                     </label>
                                                                   </div>
                                                                 </div>
@@ -452,6 +452,37 @@
                             </div>
                           </div>
                           </ng-template>
+                          <ng-template #content3 let-modal>
+                              <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Google Drive URL</h4>
+                                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <form [formGroup]="managerForm" (ngSubmit)="onManagerSubmit()">
+                                  <div class="form-group">
+                                    <div class="form-group">
+                                      <div class="form-group row">
+                                        <label for="username" class="col-md-3 col-form-label">Email</label>
+                                        <div class="col-md-9">
+                                          <div class="input-group mb-2">
+                                            <div class="input-group-prepend">
+                                              <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                                            </div>
+                                            <input class="form-control" name="dp" type="text" formControlName="username">
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="submit" class="btn btn-outline-dark">Save</button>
+                                  </div>
+                                </form>
+                              </div>
+                              <!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog> -->
+                            </ng-template>
                         </ngb-tab>
                     <ngb-tab title="Menu Items" id="tb1">
                       <ng-template ngbTabContent>

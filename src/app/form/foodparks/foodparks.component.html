@@ -646,9 +646,6 @@
         <div class="input-group">
           <input id="address" class="form-control" name="address" type="text" formControlName="address">
         </div>
-        <div class="input-group">
-            <input id="address" class="form-control" name="address" type="text" formControlName="address">
-          </div>
         <!-- <label for="territory">Select Location</label>
         <div class="form-group mapmarker">
           <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [style.height.px]="300"
@@ -979,14 +976,14 @@
         <label for="type">Type</label>
         <div class="input-group">
           <select formControlName="type" class="form-control">
-            <!-- <option value="selectedHubRecord.type" [selected]="selectedHubRecord.type === item" selected >{{selectedHubRecord.type }}</option>  -->
-            <option value="none" selected hidden> </option>
+            <option value="selectedHubRecord.type" [selected]="selectedHubRecord.type === item" selected >{{selectedHubRecord.type }}</option> 
+            <!-- <option value="none" selected hidden> </option> -->
             <option *ngFor="let item of typesForHub">{{item}}</option>
           </select>
         </div>
         <label for="stateid">State</label>
         <div class="input-group">
-          <select formControlName="stateid" class="form-control" (change)="getTerritoryForEdit($event)">
+          <select class="form-control" (change)="getTerritoryForEdit($event)">
             <!-- <option value="selectedHubRecord.type" selected >{{selectedHubRecord.type }}</option> -->
             <option *ngFor="let item of states2" value="{{item.id}}"
               [selected]="selectedHubRecord.state_name == item.name">{{item.name}}</option>
@@ -994,7 +991,7 @@
         </div>
         <label for="territoryid">Territory</label>
         <div class="input-group">
-          <select formControlName="territoryid" [(ngModel)]="selectedTerritory" class="form-control">
+          <select [(ngModel)]="selectedTerritory" class="form-control">
             <option *ngFor="let item of singleTerritory.territory"
               [selected]="selectedHubRecord.territory == item.city">{{item.city}}</option>
           </select>
@@ -1043,29 +1040,26 @@
           <mat-slider thumbLabel [displayWith]="formatLabel3" min="0" max="15"></mat-slider> -->
         <label for="stateid">State</label>
         <div class="input-group">
-          <select formControlName="stateid" class="form-control" (change)="getTerritory($event)">
+          <select class="form-control" (change)="getTerritory($event)">
             <!-- <option *ngFor="let item of states2" value="{{item.id}}">{{item.name}}</option> -->
-            <option *ngFor="let item of states2" value="{{item.id}}"
-              [selected]="selectedLocationRecord.state_name == item.name">{{item.name}}</option>
+            <option *ngFor="let item of states2" value="{{item.id}}" [(ngModel)]="selectedLocationRecord.state_name"
+              >{{item.name}}</option>
             <!-- </select> -->
             <!-- <select formControlName="stateid" class="form-control" (change)="getTerritoryForEdit($event)"> -->
             <!-- <option *ngFor="let item of states.state"  [selected]="selectedLocationRecord.state_name == item.name">{{item.name}}</option> -->
           </select>
         </div>
-
         <label for="territoryid">Territory</label>
         <div class="input-group">
-          <select formControlName="territory_id" [(ngModel)]="selectedTerritory" class="form-control"
+          <select class="form-control"
             (change)="getLatLong($event)">
             <option *ngFor="let item of singleTerritory.territory" [ngValue]="item">{{item.city}}</option>
           </select>
         </div>
-
-
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-outline-dark">Save</button>&nbsp;
-        <button type="submit" class="btn btn-outline-dark">Cancel</button>
+        <button type="submit" class="btn btn-outline-dark"  (click)="modal.dismiss('Cross click')">Cancel</button>
       </div>
     </form>
   </div>

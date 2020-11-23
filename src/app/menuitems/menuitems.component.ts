@@ -3,11 +3,13 @@ import { ProfileService } from '../services/profile.service'
 import { CommonFunctionsService } from '../services/commonFunctions.service'
 import { Router, ActivatedRoute } from '@angular/router'
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../form/confirm-dialog/confirm-dialog.component';
 import { NgbTabset } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog } from '@angular/material/dialog';
-import { local } from 'd3';
+import { local, values } from 'd3';
 
 @Component({
   templateUrl: 'menuitems.component.html',
@@ -23,6 +25,7 @@ export class MenuitemsComponent implements OnInit {
   arr: any;
   counter = 0;
   categories: any;
+  folderCategory: any
   addedItems = []
   checkBool = false;
   imageCount = 0
@@ -32,7 +35,10 @@ export class MenuitemsComponent implements OnInit {
   google_sheet_url: any
   checkStatus = 1;
   showPage = 1;
-  checkGoogleDriveFlag = false
+  checkboxFlag = false
+  testGoogleURl: any
+  checkGoogleDriveFlag: any
+  checkFolder: any[] = []
   addedCategories = []
   showTutorialTable = true;
   showBlueColoredTable = true;
@@ -57,6 +63,8 @@ export class MenuitemsComponent implements OnInit {
   constructor(private toastr: ToastrService,
     public dialog: MatDialog,
     private route: ActivatedRoute,
+    private ngxService: NgxUiLoaderService,
+    private modalService: NgbModal,
     private _ProfileService: ProfileService, private slimLoader: SlimLoadingBarService, private _CommonFunctionsService: CommonFunctionsService, private _Router: Router) {
 
   }
@@ -73,15 +81,15 @@ export class MenuitemsComponent implements OnInit {
     // can't event.preventDefault();
     console.log('onChange event.checked ' + event.checked, item)
     if (event.checked == true) {
-      console.log("event.checked " + this.counter)
-      if (this.counter < 7) {
-        this.counter++
-        console.log("counter:" + this.counter)
+      // console.log("event.checked " + this.counter)
+      // if (this.counter < 30) {
+      //   this.counter++
+      //   console.log("counter:" + this.counter)
         this.addedCategories.push(item)
-      }else{ 
-        event.checked = false;
-        console.log("else block:" +  event.checked)
-      }
+      // }else{ 
+      //   event.checked = false;
+      //   console.log("else block:" +  event.checked)
+      // }
     }
     else {
       console.log("event")
@@ -144,17 +152,18 @@ export class MenuitemsComponent implements OnInit {
       const data = {
         email: this.googleEmail
       }
+      this.ngxService.start(); 
       this._ProfileService.getFoldersCreatedInDrive(data).subscribe(res => {
         console.log('getFoldersCreatedInDrive', res)
         this.drivefolders = res.data;
         this.isChecked = 2;
         const tabCount = 1;
         this.demo1TabIndex = tabCount;
-        this.authEmail = res.data[0].email
         if(this.showFirstTab) {
             const tabCount = 2;
             this.demo1TabIndex = tabCount;
         }
+        this.fetchFolder()
         this.showBlueColoredTable = false;
         this.showZerothTab = true;
         this.showFirstTab = true;
@@ -162,9 +171,31 @@ export class MenuitemsComponent implements OnInit {
         this.showThirdTab = true;
         this.showFourthTab = true;
         this.showFifthTab = true;
+        this.ngxService.stop();
       })
     }
   }
+  fetchFolder() {
+    this.drivefolders.filter((value)=>{
+      this.checkFolder.push(value.foldername)
+    })
+    for(let category of this.categories) {
+      for(let fetchFolder of this.checkFolder) {
+          if(fetchFolder == category.category) {
+            this.checkboxFlag = true
+       } else {
+           this.checkboxFlag = false
+       }
+      }
+    }
+  }
+  testFetchFolder(category) {
+    if(this.checkFolder.indexOf(category) !== -1) {
+      return true
+    } else {
+      return false
+    }
+}
   onFileSelect(event, folderId, category) {
     if (event.target.files.length > 0) {
       console.log(event.target.files[0])
@@ -201,8 +232,10 @@ export class MenuitemsComponent implements OnInit {
   }
   uploadImageToDrive(formData, folderId, category) {
     this.user = this._CommonFunctionsService.checkUser().user;
+    this.ngxService.start();
     this._ProfileService.uploadImageTodrive(this.user.company_id, formData).subscribe(res => {
       console.log('googgleData3', res.data)
+      this.ngxService.stop();
       this.authentication_url = res.data
       this.google_drive_url = res.data.drive_url
       this.toastr.success('Upload successfull to drive');
@@ -328,12 +361,14 @@ export class MenuitemsComponent implements OnInit {
       this.getAllProductList()
     }
   }
-  googleDrive_url() {
-    this.checkGoogleDriveFlag = true
+    googleDrive_url(event, folderName, index) {
+      console.log(index)
+      this.checkGoogleDriveFlag = index
   }
   uploadGoogleMenuSheet() {
+    this.ngxService.start();
     this._ProfileService.uploadGoogleMenuSheet().subscribe((res: any) => {
-      this.getAllProductList();
+      this.ngxService.stop();
       if (res.success) {
         this.toastr.success("Sync successful");
         this._ProfileService.uploadGoogleMenuSheet().subscribe((res: any) => {
