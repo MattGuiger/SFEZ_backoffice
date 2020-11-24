@@ -30,6 +30,7 @@ export class ProfileService {
   private setManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/setfoodparkmgrtohub';  
   private setDriverManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/setfooddrivertohub';  
   private addDriverURL = config.getEnvironmentVariable('endPoint') + 'auth/register'; 
+  private addDriverFoodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/foodparks/'; 
   private companyURL = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/companies'; 
   private companyURL1 = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/companies';
 
@@ -301,6 +302,9 @@ addUnitToHub(foodParkId,unitId){
   }
   addDriver(data): Observable<any> {
     return this.http.post(this.addDriverURL,data);
+  }
+  addfoodParkDriver(foodParkId,data): Observable<any> {
+    return this.http.post(this.addDriverFoodParkURL+foodParkId+"/drivers",data);
   }
   setManagers(data): Observable<any> {
     return this.http.post(this.setManagersURL,data);

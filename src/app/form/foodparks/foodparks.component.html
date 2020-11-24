@@ -377,8 +377,11 @@
             </ngb-tab>
           </ng-container>
 
+
           <ngb-tab title="Drivers">
             <ng-template ngbTabContent>
+              <div *ngFor="let item of driverDataByTeritory">
+                 <div *ngFor="let foodParkData of item.data ; let i = index">
               <div class="card-body">
                 <!-- <h4 class="card-title">Filter Option</h4> -->
                 <!-- <h5 class="card-subtitle">This is the filerable Data table</h5> -->
@@ -401,9 +404,30 @@
                   </div>
                 </form> -->
                 <!-- <p class="text-center" style="font-weight: 500;">Territory: Central Oregon</p> -->
-                <p class="text-center" style="font-weight: 500;">Hub #1 
-                <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
-                  [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='driverData'>
+                <p class="text-center" style="font-weight: 500;">{{foodParkData.data[0].name}}</p>
+                <table class="table">
+                      <thead>
+                        <tr>
+                          <th width="60">Sl no</th>
+                          <th width="115">Name</th>
+                          <th width="150">Phone</th>
+                          <th width="140">Active</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let itemDriver of foodParkData.data ; let i = index">
+                          <div *ngIf="itemDriver.driver_id">
+                          <td width="80">{{i+1}}</td>
+                          <td>{{itemDriver?.first_name}} {{itemDriver?.last_name}}</td>
+                          <td>{{itemDriver?.phone}}</td>
+                          <td><button type="button" class="btn btn-danger btn-sm" (click)=removeDriver(itemDriver.driver_id)>Remove
+                           Driver</button></td>
+                         </div>
+                       </tr>
+                      </tbody>
+                    </table>
+               <!--  <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
+                  [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='foodParkData.data'> -->
                   <!-- <ngx-datatable-column name="First Name" prop="first_name" [width]="150"></ngx-datatable-column>
                   <ngx-datatable-column name="Last Name" prop="last_name" [width]="150"></ngx-datatable-column>
                   <ngx-datatable-column name="UserName" prop="username" [width]="150"></ngx-datatable-column>
@@ -423,6 +447,7 @@
                     </ng-template>
 
                   </ngx-datatable-column>-->
+                  <!-- <div *ngIf="row.driver_id">
                   <ngx-datatable-column name="Name" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                       {{row?.first_name}} {{row?.last_name}}
@@ -437,11 +462,11 @@
 
                   <ngx-datatable-column name="Active" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <button type="button" class="btn btn-danger btn-sm" (click)=removeDriver(row.id)>Remove
+                      <button type="button" class="btn btn-danger btn-sm" (click)=removeDriver(row.driver_id)>Remove
                         Driver</button>
                     </ng-template>
                   </ngx-datatable-column>
-                </ngx-datatable>
+                </ngx-datatable> -->
 
                 <p class="text-center mt-4" style="font-weight: 500;">Registered Drivers</p>
                 <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
@@ -461,15 +486,17 @@
 
                   <ngx-datatable-column name="Active" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <button type="button" class="btn btn-success btn-sm" (click)=addDriver(row)>Add Driver</button>
+                      <button type="button" class="btn btn-success btn-sm" (click)=addFoodParkDriver(row.driver_id,foodParkData.food_park_id)>Add Driver</button>
                     </ng-template>
                   </ngx-datatable-column>
 
                 </ngx-datatable>
+               </div>
               </div>
+            </div>
 
-              <div class="card-body">
-                <!-- <h4 class="card-title">Filter Option</h4> -->
+              <!-- <div class="card-body">
+                 <h4 class="card-title">Filter Option</h4> -->
                 <!-- <h5 class="card-subtitle">This is the filerable Data table</h5> -->
                 <!-- <form class="m-b-30">
                   <div class="row">
@@ -490,10 +517,10 @@
                   </div>
                 </form> -->
                 <!-- <p class="text-center" style="font-weight: 500;">Territory: Central Oregon</p> -->
-                <p class="text-center" style="font-weight: 500;">Hub #2  </p>
+             <!--    <p class="text-center" style="font-weight: 500;">Hub #2  </p>
                 <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
                   [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='driverData'>
-                  <!-- <ngx-datatable-column name="First Name" prop="first_name" [width]="150"></ngx-datatable-column>
+                   <ngx-datatable-column name="First Name" prop="first_name" [width]="150"></ngx-datatable-column>
                   <ngx-datatable-column name="Last Name" prop="last_name" [width]="150"></ngx-datatable-column>
                   <ngx-datatable-column name="UserName" prop="username" [width]="150"></ngx-datatable-column>
                   <ngx-datatable-column name="Phone" prop="phone" [width]="150"></ngx-datatable-column>
@@ -505,13 +532,13 @@
                       </select>
                     </ng-template>
                   </ngx-datatable-column> -->
-                  <!-- <ngx-datatable-column>
+                  <!--  <ngx-datatable-column>
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                       <input class="btn btn-success btn-raised" type="button" value="View" (click)="onCheckboxChangeFn($event,row)">&nbsp;&nbsp;
                       <input class="btn btn-danger btn-raised" type="button" value="Delete" (click)="onCheckboxChangeFn($event,row)"> 
                     </ng-template>
 
-                  </ngx-datatable-column>-->
+                  </ngx-datatable-column>
                   <ngx-datatable-column name="Name" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                       {{row.first_name}}
@@ -554,7 +581,7 @@
                   </ngx-datatable-column>
 
                 </ngx-datatable>
-              </div>
+              </div> -->
               <!-- <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">

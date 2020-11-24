@@ -156,6 +156,7 @@ territory_id1:any
       manager: "Manager name",
     }
   ];
+  driverDataByTeritory = [];
   driverData: any
   // driverData = [
   //   {
@@ -439,6 +440,7 @@ getDriverswithCompanyId(){
     this._ProfileService.getDriverswithCompanyId(this.user.company_id).subscribe(res=>{
       if(res.status==200){
         console.log('getDriverswithCompanyId: ',res.data)
+        this.driverDataByTeritory = res.data
         // this.registerCompanyDriver = res.data[0].data
         // for(let i =0; i< res.data.length; i++){
         // var arrofDriverWithCompanyid = []
@@ -806,6 +808,25 @@ getlocationsAndHub(){
         this.toastr.success('Driver Created successfully');
         document.getElementById("closeModal").click();
         this.getAllFoodPark();
+      } else {
+        this.toastr.error(res.message)
+      }
+    },
+      error => {
+        this.toastr.error(error.error.message)
+      })
+  }
+
+
+  addFoodParkDriver(driverId,foodParkId) {
+    console.log(driverId);
+    console.log(foodParkId);
+    
+    this._ProfileService.addfoodParkDriver(foodParkId,{user_id:driverId}).subscribe((res: any) => {
+      if (res.status == 200) {
+        this.toastr.success('Driver Created successfully');
+         
+        this.getDriverswithCompanyId();
       } else {
         this.toastr.error(res.message)
       }
