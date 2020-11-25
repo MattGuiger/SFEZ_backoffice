@@ -114,7 +114,7 @@
                                                                 <div *ngFor="let category of categories">
                                                                   <mat-checkbox 
                                                                   [checked] = "testFetchFolder(category.category)"
-                                                                  (change)="onChange(category.category); false"
+                                                                  (change)="onChange($event,category.category); false"
                                                                 >{{category.category}}</mat-checkbox>
                                                                   <!-- <mat-checkbox>Salads</mat-checkbox>
                                                                   <mat-checkbox>
