@@ -95,42 +95,49 @@
             </div>
           </div>
           <p class="text-center mt-4" style="font-weight:500; font-size:17px;">Owner Login Authorization</p><br>
-      <div class="d-flex justify-content-center">
-        <div class="mr-3" style="width: 100px;font-weight:500;">Delivery Hubs:</div>
-        <!-- <div class="mr-3" style="width: 145px;">PHO House HUB #1</div> -->
-        <!-- <div class="">
-          <label class="switch">
-            <input type="checkbox" checked>
-            <span class="slider round"></span>
-          </label>
-        </div> -->
+      <div class="d-flex justify-content-center"*ngFor="let hub of deliveryHub;let i = index;">
+        <div class="mr-3" style="width: 100px;font-weight:500;" *ngIf="i==0">Delivery Hubs:</div>
+        <div class="mr-3" style="width: 100px;font-weight:500;"*ngIf="i!=0"></div>
+          <div class="mr-3" style="width: 145px;">{{hub.name}}</div>
+          <div class="">
+            <label class="switch" *ngIf="activeHub==hub.food_park_id">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+       
+          </div>
+          <div class="">
+            <label class="switch" *ngIf="!activeHub ||activeHub!=hub.food_park_id">
+              <input type="checkbox" (click)="updateCompanyForHub(hub.food_park_id)" >
+              <span class="slider round"></span>
+            </label>
+          </div>
+         
+      
+        
       </div>
       <br>
-      <div class="d-flex justify-content-center">
-        <div class="mr-3" style="width: 100px; font-weight:500;">Locations:</div>
-        <!-- <div class="mr-3" style="width: 145px;">PHO House Sister #2
-          <div class="text-muted" style="font-size:12px;">(Chop Sister Hub)</div>
-        </div> -->
-        <!-- <div class="">
+      <div class="d-flex justify-content-center" *ngFor="let loc of locations2;let i = index;">
+        <div class="mr-3" style="width: 100px; font-weight:500;"*ngIf="i==0">Locations:</div>
+        <div class="mr-3" style="width: 100px; font-weight:500;"*ngIf="i!=0"></div>
+
+        <div class="mr-3" style="width: 145px;">{{loc.unit_name}}
+          <!-- <div class="text-muted" style="font-size:12px;">(Chop Sister Hub)</div> -->
+        </div>
+        <div class="" *ngIf="!activeHub&&activeLocation==loc.unit_id">
           <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox"checked>
             <span class="slider round"></span>
           </label>
-        </div> -->
+        </div>
+        <div class=""*ngIf="activeHub||!activeLocation||activeLocation!=loc.unit_id">
+          <label class="switch">
+            <input type="checkbox" (click)="updateCompanyForUnit(loc.unit_id)">
+            <span class="slider round"></span>
+          </label>
+        </div>
       </div>
 
-      <div class="d-flex justify-content-center">
-        <div class="mr-3" style="width: 100px;"></div>
-        <!-- <div class="mr-3" style="width: 145px;">PHO House Bend #1
-          <div class="text-muted" style="font-size:12px;">(Black Sister Hub)</div>
-        </div> -->
-           <!-- <div class="">
-          <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-          </label>
-        </div>  -->
-      </div> 
         
     </ng-template>
   </ngb-tab>

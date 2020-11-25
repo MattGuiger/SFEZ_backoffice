@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit {
   // }
 
   check(uname: string, p: string) {
+    console.log('checkcheck',uname,p)
     this._AuthService.login({ username: uname, password: p }).subscribe((data: any) => {
       if (data.status == 200) {
         this.toastr.success('Login Successful');
@@ -69,6 +70,7 @@ export class LoginComponent implements OnInit {
         this.toastr.error(data.message);
       }
     }, err => {
+      console.log('errrrr',err)
       this.msg = 'Invalid Username or Password';
     })
     // const output = this.service.checkusernameandpassword(uname, p);
