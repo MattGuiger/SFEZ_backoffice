@@ -415,24 +415,24 @@
                 </form> -->
                 <!-- <p class="text-center" style="font-weight: 500;">Territory: Central Oregon</p> -->
                 <p class="text-center" style="font-weight: 500;">{{foodParkData.data[0].name}}</p>
-                <table class="table">
+                <table class="table" style="text-align: center;">
                       <thead>
                         <tr>
-                          <th width="60">Sl no</th>
-                          <th width="115">Name</th>
-                          <th width="150">Phone</th>
-                          <th width="140">Active</th>
+                          <th >Sl no</th>
+                          <th >Name</th>
+                          <th >Phone</th>
+                          <th >Active</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr *ngFor="let itemDriver of foodParkData.data ; let i = index">
-                          <div *ngIf="itemDriver.driver_id">
-                          <td>{{i+1}}</td>
-                          <td>{{itemDriver?.first_name}} {{itemDriver?.last_name}}</td>
-                          <td>{{itemDriver?.phone}}</td>
-                          <td><button type="button" class="btn btn-danger btn-sm" (click)=removeDriver(itemDriver.driver_id,foodParkData.food_park_id)>Remove
+                          <!-- <div *ngIf="itemDriver.driver_id"> -->
+                          <td *ngIf="itemDriver.driver_id">{{i+1}}</td>
+                          <td *ngIf="itemDriver.driver_id">{{itemDriver?.first_name}} {{itemDriver?.last_name}}</td>
+                          <td *ngIf="itemDriver.driver_id">{{itemDriver?.phone}}</td>
+                          <td *ngIf="itemDriver.driver_id"><button type="button" class="btn btn-danger btn-sm" (click)=removeDriver(itemDriver.driver_id,foodParkData.food_park_id)>Remove
                            Driver</button></td>
-                         </div>
+                         <!-- </div> -->
                        </tr>
                       </tbody>
                     </table>

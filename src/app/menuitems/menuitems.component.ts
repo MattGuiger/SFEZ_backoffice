@@ -30,6 +30,7 @@ export class MenuitemsComponent implements OnInit {
   addedItems = []
   checkBool = false;
   imageCount = 0
+  selectedGoogleDriveUrl : any;
   checkImageCountFlag = false
   authEmail: any
   isChecked = 0;
@@ -44,6 +45,7 @@ export class MenuitemsComponent implements OnInit {
   showTutorialTable = true;
   showBlueColoredTable = true;
   checkSecondFlag = false
+  selectedGoogleDriveFolder: any
   google_drive_url: any;
   showZerothTab = false;
   showFirstTab = false;
@@ -366,7 +368,8 @@ export class MenuitemsComponent implements OnInit {
     googleDrive_url(event, folderName, contentGoogleDriveUrl, index) {
       console.log(index)
       this.checkGoogleDriveFlag = index
-      this.modalService.open(folderName, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.selectedGoogleDriveFolder = folderName
+      this.modalService.open(contentGoogleDriveUrl, { ariaLabelledBy: 'modal-basic-title', windowClass: 'linkModal', size: 'lg' }).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
       }, (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

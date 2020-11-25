@@ -207,13 +207,13 @@
                                                               </div>
                                                               <div class="col-md-12">
                                                                    <p  (click)="googleDrive_url($event,folder.foldername, contentGoogleDriveUrl, index)" style="cursor: pointer;"><b>Google Drive URL</b></p>
-                                                                   <div *ngIf="checkGoogleDriveFlag === index">
-                                                                   <div *ngFor="let category of googleSheet;  let i = index">
-                                                                    <label *ngIf="category.category === folder.foldername">
-                                                                    <a href="#">{{category.image}}</a>  
-                                                                    </label>
+                                                                   <!-- <div *ngIf="checkGoogleDriveFlag === index"> -->
+                                                                   <!-- <div *ngFor="let category of googleSheet;  let i = index"> -->
+                                                                    <!-- <label *ngIf="category.category === folder.foldername"> -->
+                                                                    <!-- <a href="#">{{category.image}}</a>   -->
+                                                                    <!-- </label>
                                                                   </div>
-                                                                </div>
+                                                                </div> -->
                                                               </div>
                                                             </div>                                                    
                                                            </li>
@@ -523,7 +523,28 @@
                               </div>
                           </div>
                           </div>
-
+                        </div>
+                      </ng-template>
+                      <ng-template #contentGoogleDriveUrl let-modal>
+                        <div class="modal-header" style="background-color: #7460ee;">
+                          <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Google Drive URL</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            <ul *ngFor="let folder of drivefolders; let index = index" style="margin-bottom: 1.5rem;">
+                             <div *ngIf="checkGoogleDriveFlag === index">
+                                  <div *ngFor="let category of googleSheet;  let i = index">
+                                  <label *ngIf="category.category === folder.foldername">
+                                  - <a (click)="googlesheetUrl(category.image)" style="cursor: pointer;color:rgb(67, 133, 238)">{{category.image}}</a>  
+                                  </label>
+                                </div>
+                              </div>
+                            </ul>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cancel</button>
+                              </div>
                         </div>
                       </ng-template>
                     </ngb-tab>
@@ -533,38 +554,7 @@
       </div>
 
     </div>
-    <ng-template #contentGoogleDriveUrl let-modal>
-      <div class="modal-header" style="background-color: #7460ee;">
-        <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Send Email</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="emailManageForm" (ngSubmit)="onManagerEmailSubmit(); emailManageForm.reset()">
-          <div class="form-group">
-            <div class="form-group">
-              <div class="form-group row">
-                <label for="email" class="col-md-3 col-form-label">Email</label>
-                <div class="col-md-9">
-                  <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-                    </div>
-                    <input class="form-control" name="dp" type="text" formControlName="email">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-outline-dark">Send</button>&nbsp;
-              <button type="submit" class="btn btn-outline-dark">Cancel</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    
-    </ng-template>
+   
 <!-- 
 <div class="col-lg-3 col-md-6" *ngFor="let item of productList">
   <div class="card" (click)="openProduct(item)">
