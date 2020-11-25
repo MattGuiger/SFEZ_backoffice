@@ -26,6 +26,7 @@ export class MenuitemsComponent implements OnInit {
   counter = 0;
   categories: any;
   folderCategory: any
+  closeResult: string;
   addedItems = []
   checkBool = false;
   imageCount = 0
@@ -240,6 +241,7 @@ export class MenuitemsComponent implements OnInit {
       this.google_drive_url = res.data.drive_url
       this.toastr.success('Upload successfull to drive');
     }, error => {
+      this.ngxService.stop();
       this.toastr.error('Failed to upload, please try again later')
     }) 
     console.log("uploadImageToDrive123")
@@ -361,9 +363,23 @@ export class MenuitemsComponent implements OnInit {
       this.getAllProductList()
     }
   }
-    googleDrive_url(event, folderName, index) {
+    googleDrive_url(event, folderName, contentGoogleDriveUrl, index) {
       console.log(index)
       this.checkGoogleDriveFlag = index
+      this.modalService.open(folderName, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+  }
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
   uploadGoogleMenuSheet() {
     this.ngxService.start();
