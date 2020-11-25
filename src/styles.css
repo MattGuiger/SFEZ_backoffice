@@ -27,3 +27,7 @@ ngx-dropzone-remove-badge {
     left: 5px !important;
     right: initial !important;
 }
+
+.linkModal .modal-dialog {
+    max-width: 40% !important;
+}
