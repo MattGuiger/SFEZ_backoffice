@@ -427,10 +427,10 @@
                       <tbody>
                         <tr *ngFor="let itemDriver of foodParkData.data ; let i = index">
                           <div *ngIf="itemDriver.driver_id">
-                          <td width="80">{{i+1}}</td>
+                          <td>{{i+1}}</td>
                           <td>{{itemDriver?.first_name}} {{itemDriver?.last_name}}</td>
                           <td>{{itemDriver?.phone}}</td>
-                          <td><button type="button" class="btn btn-danger btn-sm" (click)=removeDriver(itemDriver.driver_id)>Remove
+                          <td><button type="button" class="btn btn-danger btn-sm" (click)=removeDriver(itemDriver.driver_id,foodParkData.food_park_id)>Remove
                            Driver</button></td>
                          </div>
                        </tr>
