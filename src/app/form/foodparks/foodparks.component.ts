@@ -156,6 +156,7 @@ export class FoodParkComponent implements OnInit {
       manager: "Manager name",
     }
   ];
+  driverDataByTeritory = [];
   driverData: any
   // driverData = [
   //   {
@@ -434,25 +435,45 @@ export class FoodParkComponent implements OnInit {
       })
     }
   }
-  getDriverswithCompanyId() {
-    if (this.user.company_id) {
-      // const tempCompany_id = 11275
-      this._ProfileService.getDriverswithCompanyId(this.user.company_id).subscribe(res => {
-        if (res.status == 200) {
-          console.log('getDriverswithCompanyId: ', res.data)
-          // this.registerCompanyDriver = res.data[0].data
-          // for(let i =0; i< res.data.length; i++){
-          // var arrofDriverWithCompanyid = []
-          // arrofDriverWithCompanyid.push(res.data[i].data)
-          // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
-          // }
-          // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
-          // this.registerCompanyDriver = arrofDriverWithCompanyid
-        } else {
-        }
-      })
-    }
+//   getDriverswithCompanyId() {
+//     if (this.user.company_id) {
+//       // const tempCompany_id = 11275
+//       this._ProfileService.getDriverswithCompanyId(this.user.company_id).subscribe(res => {
+//         if (res.status == 200) {
+//           console.log('getDriverswithCompanyId: ', res.data)
+//           // this.registerCompanyDriver = res.data[0].data
+//           // for(let i =0; i< res.data.length; i++){
+//           // var arrofDriverWithCompanyid = []
+//           // arrofDriverWithCompanyid.push(res.data[i].data)
+//           // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
+//           // }
+//           // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
+//           // this.registerCompanyDriver = arrofDriverWithCompanyid
+//         } else {
+//         }
+//       })
+//     }
+// }
+getDriverswithCompanyId(){
+  if(this.user.company_id){
+    // const tempCompany_id = 11275
+    this._ProfileService.getDriverswithCompanyId(this.user.company_id).subscribe(res=>{
+      if(res.status==200){
+        console.log('getDriverswithCompanyId: ',res.data)
+        this.driverDataByTeritory = res.data
+        // this.registerCompanyDriver = res.data[0].data
+        // for(let i =0; i< res.data.length; i++){
+        // var arrofDriverWithCompanyid = []
+        // arrofDriverWithCompanyid.push(res.data[i].data)
+        // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
+        // }
+        // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
+        // this.registerCompanyDriver = arrofDriverWithCompanyid
+      }else{
+      }
+    })
   }
+}
   getDriverswithterriId() {
     if (this.territory_id1) {
       // const territory_id=41;
@@ -841,6 +862,25 @@ export class FoodParkComponent implements OnInit {
         this.toastr.success('Driver Created successfully');
         document.getElementById("closeModal").click();
         this.getAllFoodPark();
+      } else {
+        this.toastr.error(res.message)
+      }
+    },
+      error => {
+        this.toastr.error(error.error.message)
+      })
+  }
+
+
+  addFoodParkDriver(driverId,foodParkId) {
+    console.log(driverId);
+    console.log(foodParkId);
+    
+    this._ProfileService.addfoodParkDriver(foodParkId,{user_id:driverId}).subscribe((res: any) => {
+      if (res.status == 200) {
+        this.toastr.success('Driver Created successfully');
+         
+        this.getDriverswithCompanyId();
       } else {
         this.toastr.error(res.message)
       }
