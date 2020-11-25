@@ -580,7 +580,9 @@ getlocationsAndHub(){
     });
   }
 
-  removeDriver(userId) {
+  removeDriver(userId,foodParkId) {
+
+    console.log(foodParkId);
 
     const message = `Are you sure you want to do this?`;
 
@@ -595,15 +597,16 @@ getlocationsAndHub(){
       // this.result = dialogResult;
       console.log('dialogResultdialogResult', dialogResult);
       if (dialogResult) {
-        if (this.user.food_park_id && userId) {
+        if (foodParkId && userId) {
           let unit_data = {
-            foodparkId: this.user.food_park_id,
+            foodparkId: foodParkId,
             userId: userId
           }
           this._ProfileService.deleteDriversWithFoodParkId(unit_data).subscribe(
             (response: any) => {
               console.log('Remove dataaa', response)
               // this.UnitList = response.data;
+              this.getDriverswithCompanyId();
               this.getAllDriversWithFoodParkId()
             },
             (error) => {

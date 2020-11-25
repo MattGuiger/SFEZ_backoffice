@@ -30,7 +30,7 @@ export class ProfileService {
   private setManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/setfoodparkmgrtohub';  
   private setDriverManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/setfooddrivertohub';  
   private addDriverURL = config.getEnvironmentVariable('endPoint') + 'auth/register'; 
-  private addDriverFoodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/foodparks/'; 
+  private addDriverFoodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/'; 
   private companyURL = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/companies'; 
   private companyURL1 = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/companies';
 
