@@ -44,7 +44,7 @@ export class ProfileService {
   //private greenMoneyURL = config.getEnvironmentVariable('endPoint') + 'api/v1/payment/green-money-generate-widget/';
   private getUnitListURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/list-units';
   private addManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/create-manager';
-  private assignManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/assign-manager';
+  private assignManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/assign-manager';
 
   private deleteManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/delete-manager';
   private updateProfileUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/users/update-profile/';

@@ -390,9 +390,9 @@ export class MenuitemsComponent implements OnInit {
       this.ngxService.stop();
       if (res.success) {
         this.toastr.success("Sync successful");
-        this._ProfileService.uploadGoogleMenuSheet().subscribe((res: any) => {
+        // this._ProfileService.uploadGoogleMenuSheet().subscribe((res: any) => {
           this.getAllProductList();
-        })
+        // })
       } 
     }, error => {
       this.toastr.error('Sync failed, Please try again later')

@@ -141,6 +141,7 @@ getCompanyInfo(){
             // this._ProfileService.addUnit(this.workFormData.value).subscribe(res=>{
             this._ProfileService.addUnit(this.workFormData.value,this.comapnydata.id).subscribe(res=>{
                 if(res.status==200){
+                    this.getUserInfoAfterLogin()
                     localStorage.setItem("unit_id",res.data[0].id)
                      this._ProfileService.getCompany_unitid(this.comapnydata.id, {unit_id:res.data[0].id}).subscribe(res=>{
                       console.log('res ofu uunittt',res)
@@ -159,7 +160,23 @@ getCompanyInfo(){
         cancel() {
             this.router.navigate(['wizard'], { relativeTo: this.route.parent, skipLocationChange: true });
     }
+
+
+    getUserInfoAfterLogin() {
+        this._ProfileService.getUserInfoAfterLogin().subscribe(res => {
+          console.log('getUserInfoAfterLogingetUserInfoAfterLogin', res)
+          if (res.status == 200) {
+            localStorage.setItem('user', JSON.stringify(res))       
+          }
+    
+        })
+      }
 }
+
+
+
+
+
 // {
     //             "name": "ww",
     //            "username": "ww",

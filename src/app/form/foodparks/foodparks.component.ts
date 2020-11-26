@@ -51,6 +51,7 @@ export class FoodParkComponent implements OnInit {
   drivers: any[] = [];
   foodparkmgrList: any[] = [];
   setManager: any[] = [];
+  setUnitManager: any[] = [];
   setdriverManager: any[] = [];
   companyId: any;
   user: any;
@@ -435,45 +436,45 @@ export class FoodParkComponent implements OnInit {
       })
     }
   }
-//   getDriverswithCompanyId() {
-//     if (this.user.company_id) {
-//       // const tempCompany_id = 11275
-//       this._ProfileService.getDriverswithCompanyId(this.user.company_id).subscribe(res => {
-//         if (res.status == 200) {
-//           console.log('getDriverswithCompanyId: ', res.data)
-//           // this.registerCompanyDriver = res.data[0].data
-//           // for(let i =0; i< res.data.length; i++){
-//           // var arrofDriverWithCompanyid = []
-//           // arrofDriverWithCompanyid.push(res.data[i].data)
-//           // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
-//           // }
-//           // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
-//           // this.registerCompanyDriver = arrofDriverWithCompanyid
-//         } else {
-//         }
-//       })
-//     }
-// }
-getDriverswithCompanyId(){
-  if(this.user.company_id){
-    // const tempCompany_id = 11275
-    this._ProfileService.getDriverswithCompanyId(this.user.company_id).subscribe(res=>{
-      if(res.status==200){
-        console.log('getDriverswithCompanyId: ',res.data)
-        this.driverDataByTeritory = res.data
-        // this.registerCompanyDriver = res.data[0].data
-        // for(let i =0; i< res.data.length; i++){
-        // var arrofDriverWithCompanyid = []
-        // arrofDriverWithCompanyid.push(res.data[i].data)
-        // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
-        // }
-        // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
-        // this.registerCompanyDriver = arrofDriverWithCompanyid
-      }else{
-      }
-    })
+  //   getDriverswithCompanyId() {
+  //     if (this.user.company_id) {
+  //       // const tempCompany_id = 11275
+  //       this._ProfileService.getDriverswithCompanyId(this.user.company_id).subscribe(res => {
+  //         if (res.status == 200) {
+  //           console.log('getDriverswithCompanyId: ', res.data)
+  //           // this.registerCompanyDriver = res.data[0].data
+  //           // for(let i =0; i< res.data.length; i++){
+  //           // var arrofDriverWithCompanyid = []
+  //           // arrofDriverWithCompanyid.push(res.data[i].data)
+  //           // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
+  //           // }
+  //           // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
+  //           // this.registerCompanyDriver = arrofDriverWithCompanyid
+  //         } else {
+  //         }
+  //       })
+  //     }
+  // }
+  getDriverswithCompanyId() {
+    if (this.user.company_id) {
+      // const tempCompany_id = 11275
+      this._ProfileService.getDriverswithCompanyId(this.user.company_id).subscribe(res => {
+        if (res.status == 200) {
+          console.log('getDriverswithCompanyId: ', res.data)
+          this.driverDataByTeritory = res.data
+          // this.registerCompanyDriver = res.data[0].data
+          // for(let i =0; i< res.data.length; i++){
+          // var arrofDriverWithCompanyid = []
+          // arrofDriverWithCompanyid.push(res.data[i].data)
+          // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
+          // }
+          // console.log("arrofDriverWithCompanyid "+arrofDriverWithCompanyid)
+          // this.registerCompanyDriver = arrofDriverWithCompanyid
+        } else {
+        }
+      })
+    }
   }
-}
   getDriverswithterriId() {
     if (this.territory_id1) {
       // const territory_id=41;
@@ -500,6 +501,7 @@ getDriverswithCompanyId(){
         // this.gethubswithterriId()
         // this.getlocationsAndHub()
         this.getLocationInTerritoy()
+        this.getDeliveryHubinCompany()
       } else {
         this.toastr.success("Error Vendor adding to hub")
       }
@@ -617,7 +619,7 @@ getDriverswithCompanyId(){
     });
   }
 
-  removeDriver(userId,foodParkId) {
+  removeDriver(userId, foodParkId) {
 
     console.log(foodParkId);
 
@@ -661,9 +663,32 @@ getDriverswithCompanyId(){
     })
   }
   selectHub(event, row, value) {
-    this.setManager.push({ manager_id: row.id, hub_id: event.target.value });
-  }
+    console.log('event, row, value', event, row, value)
+    this.setManager.push({ manager_id: event.target.value, hub_id: row.food_park_id });
 
+  }
+  selectLocation(event, row, value) {
+    console.log('event, row, value', event, row, value)
+    this.setUnitManager.push({ manager_id: event.target.value, unit_id: row.unit_id });
+
+  }
+  setManagersforlocation() {
+    if (this.setUnitManager.length > 0) {
+      this._ProfileService.assignManager({ list: this.setUnitManager }).subscribe((res: any) => {
+        if (res.status == 200) {
+          this.toastr.success('Managers assigned successfully');
+          this.getlocationCompanyId()
+          this.setUnitManager=[]
+        }
+        // 
+      },
+        error => {
+          this.toastr.error(error.error.message)
+        })
+    } else {
+      this.toastr.error('Please select the hub and manager')
+    }
+  }
   selectdriverHub(event, row, value) {
     this.setdriverManager.push({ driver_id: row.id, hub_id: event.target.value });
   }
@@ -786,7 +811,11 @@ getDriverswithCompanyId(){
   setManagers() {
     if (this.setManager.length > 0) {
       this._ProfileService.setManagers({ list: this.setManager }).subscribe((res: any) => {
-        this.toastr.success('Managers assign successfully');
+        if (res.status == 200) {
+          this.toastr.success('Managers assign successfully');
+          this.getDeliveryHubinCompany()
+          this.setManager=[]
+        }
         // 
       },
         error => {
@@ -847,6 +876,7 @@ getDriverswithCompanyId(){
         this.hubFoodParkForm.reset()
         this.getDeliveryHubAndLocationsInCompany()
         this.getLocationInTerritoy()
+        this.getDeliveryHubinCompany()
       } else {
         this.toastr.success('Something Went Wrong');
 
@@ -875,14 +905,14 @@ getDriverswithCompanyId(){
   }
 
 
-  addFoodParkDriver(driverId,foodParkId) {
+  addFoodParkDriver(driverId, foodParkId) {
     console.log(driverId);
     console.log(foodParkId);
-    
-    this._ProfileService.addfoodParkDriver(foodParkId,{user_id:driverId}).subscribe((res: any) => {
+
+    this._ProfileService.addfoodParkDriver(foodParkId, { user_id: driverId }).subscribe((res: any) => {
       if (res.status == 200) {
         this.toastr.success('Driver Created successfully');
-         
+
         this.getDriverswithCompanyId();
       } else {
         this.toastr.error(res.message)
@@ -909,7 +939,7 @@ getDriverswithCompanyId(){
 
   }
   foodmarkmgr = []
-  unitmgr= []
+  unitmgr = []
   getManagerOnTerritoryid() {
     if (this.territory_id1) {
       // const territory_id=41;
@@ -926,7 +956,7 @@ getDriverswithCompanyId(){
               this.unitmgr.push(el)
             }
           })
-          console.log('this.showManagerthis.showManager', this.showManager,this.foodmarkmgr,this.unitmgr)
+          console.log('this.showManagerthis.showManager', this.showManager, this.foodmarkmgr, this.unitmgr)
         } else {
           this.toastr.error(res.message)
         }

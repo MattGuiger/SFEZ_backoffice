@@ -293,7 +293,7 @@
                                                     </div>
                                                     <div class="col-md-12">
                                                       <div class="sync_btn" style="position:relative; top:-23px;">
-                                                        <button mat-raised-button class="btn">Sync to Google Sheets <img
+                                                        <button mat-raised-button class="btn" (click)="uploadGoogleMenuSheet()">Sync to Google Sheets <img
                                                           src="../../assets/images/google-sheets.png" style="width: 25px; margin: -2px 0 0 10px" alt="" > </button>
                                                       </div>
                                                     </div>
@@ -499,7 +499,7 @@
                               <div class="card" (click)="openProduct(item)">
                                   <div class="el-card-item">
                                       <div class="el-card-avatar el-overlay-1">
-                                          <img src="{{item.image ? item.image :'assets/images/gallery/noProduct.png'}}" alt="user" class="productimg"/>
+                                          <img src={{item.image}} alt="user" class="productimg"/>
                                           <div class="el-overlay">
                                               <ul class="list-style-none el-info">
                                                   <li class="el-item">
