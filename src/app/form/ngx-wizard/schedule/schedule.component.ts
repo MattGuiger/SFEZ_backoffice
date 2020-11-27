@@ -36,6 +36,7 @@ export class ScheduleComponent implements OnInit {
     hoursArr: FormArray;
     teleGroupName: any;
     count = 0
+    telegramAccessToken:any
     scheduleFormData: FormGroup;
     itemForm: FormGroup;
     myForm: FormGroup;
@@ -229,7 +230,12 @@ console.log('all megre data',this.allData)
     }
     addGroupName() {
       //    this.teleGroupName = "InstaMarkt " + this.scheduleFormData.value.group_name;
-      // console.log( this.teleGroupName)
+      console.log(this.scheduleFormData)
+      this._ProfileService.createlegrambot({token:this.scheduleFormData.value.telegram_id},this.user.company_id).subscribe(res=>{
+        if(res.status==200){
+          this.toastr.success('Telegram Bot Created successfully')
+        }
+      })
     //   this._ProfileService.addTele(this.teleGroupName).subscribe((res: any) => {
     //     this.toastr.success('Telegram group Created successfully');
     //     document.getElementById("closeModal").click();

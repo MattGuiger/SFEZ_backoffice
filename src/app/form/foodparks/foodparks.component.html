@@ -101,7 +101,7 @@
 
                 <div class="card-body">
                   <p class="text-center" style="font-weight: 500;">{{hubunit.data[0]?.name}}</p>
-                  {{hubunit.data[0].unit_id}}
+                  <!-- {{hubunit.data[0].unit_id}} -->
                   <div *ngIf="hubunit.data[0].unit_id!=null">
                     <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'"
                       [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [limit]="5" [rows]='hubunit.data'>
@@ -183,7 +183,7 @@
 
                     <ngx-datatable-column name="Manager" [width]="150">
                       <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                        {{row?.hub_member}} {{unithub.indexOf(row.unit_id)}}
+                        {{row?.hub_member}} 
                       </ng-template>
                     </ngx-datatable-column>
                     <!-- <ngx-datatable-column name="Active" [width]="150">

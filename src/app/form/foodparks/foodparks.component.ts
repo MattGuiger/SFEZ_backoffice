@@ -187,6 +187,7 @@ export class FoodParkComponent implements OnInit {
     private modalService: NgbModal,
     private route: ActivatedRoute) {
     this.user = this._CommonFunctionsService.checkUser().user;
+    
     this.getAllState();
     this.getTerritory_id()
     this.territory_id()
@@ -519,13 +520,15 @@ export class FoodParkComponent implements OnInit {
       if (res["status"] == 200) {
         this.toastr.success("Vendor added to hub")
         // this.getlocationOnTerritoryId()
-        this.getlocationsAndHub()
+        this.getDeliveryHubAndLocationsInCompany()
         // this.gethubswithterriId()
         // this.getlocationsAndHub()
         this.getLocationInTerritoy()
         this.getDeliveryHubinCompany()
-      } else {
-        this.toastr.success("Error Vendor adding to hub")
+      } else  if (res["status"] == 404) {
+        this.toastr.success("Vendor is already added in the Hub ")
+      }else{
+        this.toastr.success("Error Creating Request")
       }
     })
   }

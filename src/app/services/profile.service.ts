@@ -45,6 +45,7 @@ export class ProfileService {
   private getUnitListURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/list-units';
   private addManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/create-manager';
   private assignManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/assign-manager';
+  private telegrambotURL = config.getEnvironmentVariable('endPoint') + 'api/v1/bot/';
 
   private deleteManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/delete-manager';
   private updateProfileUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/users/update-profile/';
@@ -162,6 +163,10 @@ getlocationCompanyId(id):Observable<any>{
   }
   getParticularUnitData(id):Observable<any>{
     return this.http.get(this.particularUnitUrl+id);
+  }
+  createlegrambot(token,companyId):Observable<any>{
+    //this.companyProfileURl+companyId+"/"+"images"
+    return this.http.post(this.telegrambotURL+'create-telegram-support-bot/'+companyId,token);
   }
   uploadImageTodrive(companyId,data):Observable<any>{
     //this.companyProfileURl+companyId+"/"+"images"
