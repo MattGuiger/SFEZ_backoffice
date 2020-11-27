@@ -145,6 +145,7 @@ getCompanyInfo(){
                     localStorage.setItem("unit_id",res.data[0].id)
                      this._ProfileService.getCompany_unitid(this.comapnydata.id, {unit_id:res.data[0].id}).subscribe(res=>{
                       console.log('res ofu uunittt',res)
+                    this.getUserInfoAfterLogin()
                       this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
                      })
                     // console.log('xvxsdfsdas',res)

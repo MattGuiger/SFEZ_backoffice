@@ -163,7 +163,7 @@
                         <select class="form-control custom-fontsize" (change)="orderAction($event, row)">
                           <option value="">Select</option>
                           <option>Void</option>
-                          <option>Return</option>
+                          <option>Refund</option>
                           <option>Delete</option>
                         </select>
 
@@ -183,7 +183,7 @@
                       <ng-template let-rowCount="rowCount" let-pageSize="pageSize" let-selectedCount="selectedCount"
                         let-curPage="curPage" let-offset="offset" ngx-datatable-footer-template>
                         <button type="button" class="btn btn-success ml-2 custom-button">Void</button>
-                        <button type="button" class="btn btn-warning ml-2 custom-button">Return</button>
+                        <button type="button" class="btn btn-warning ml-2 custom-button">Refund</button>
                         <button type="button" class="btn btn-danger ml-2 custom-button">Delete</button>
                         <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'"
                           [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'"

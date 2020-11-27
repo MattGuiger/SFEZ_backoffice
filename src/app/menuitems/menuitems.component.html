@@ -111,9 +111,14 @@
                                                                 </mat-form-field>
                                                                 <!-- [checked] = "checkboxFlag"
                                                                 [checked]="checked"  -->
-                                                                <div *ngFor="let category of categories">
+                                                                <!-- <div *ngFor="let category of categories">
                                                                   <mat-checkbox 
                                                                   [checked] = "testFetchFolder(category.category)"
+                                                                  (change)="onChange($event,category.category); false"
+                                                                >{{category.category}}</mat-checkbox> -->
+                                                                <div *ngFor="let category of categories">
+                                                                  <mat-checkbox 
+                                                              
                                                                   (change)="onChange($event,category.category); false"
                                                                 >{{category.category}}</mat-checkbox>
                                                                   <!-- <mat-checkbox>Salads</mat-checkbox>

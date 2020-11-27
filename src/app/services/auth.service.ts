@@ -13,6 +13,8 @@ export class AuthService {
   private countryURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/countries';
   private territoryURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories/filter-territory';
   private vndrNameURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/companies/';
+  private statecountry = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/getstateandcountry/';
+
 
   constructor(private http: HttpClient) { }
 
@@ -36,5 +38,7 @@ export class AuthService {
   getIP(): Observable<any>{
    return this.http.get("http://api.ipify.org/?format=json")
   }
-  
+  getstatecountry(lat,lng): Observable<any>{
+    return this.http.get(this.statecountry+lat+'/'+lng)
+   }
 }

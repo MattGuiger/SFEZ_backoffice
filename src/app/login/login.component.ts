@@ -16,7 +16,9 @@ export class LoginComponent implements OnInit {
   lng: any
   ipAddress:any
   //  ipgeolocationApi = new IPGeolocationAPI("", false);
-  constructor(private routes: Router, private _AuthService: AuthService, private toastr: ToastrService) { }
+  constructor(private routes: Router,
+     private _AuthService: AuthService, 
+     private toastr: ToastrService) { }
 
   ngOnInit() {
     this.getPosition();
@@ -91,12 +93,25 @@ export class LoginComponent implements OnInit {
 
   getPosition() {
     navigator.geolocation.getCurrentPosition(resp => {
-      console.log('respsssssssss')
+      console.log('respsssssssss',resp)
       console.log('lng', resp.coords.longitude, 'lat', resp.coords.latitude)
-      this.lat = resp.coords.latitude
-      this.lng = resp.coords.longitude
+      // this.lat = resp.coords.latitude
+      // this.lng = resp.coords.longitude
+      this.lat = 44.264
+      this.lng = -121.175
       localStorage.setItem('latitude', this.lat);
       localStorage.setItem('longitude', this.lng)
+      if(this.lat&&this.lng){
+        this._AuthService.getstatecountry(this.lat,this.lng).subscribe(res=>{
+          if(res.status==200){
+            localStorage.setItem('state', res.data.state);
+            localStorage.setItem('country', res.data.country)
+            localStorage.setItem('state_id',res.data.state_id);
+            localStorage.setItem('country_id', res.data.country_id)
+            localStorage.setItem('state_name', res.data.state_name)
+          }
+        })
+      }
     }, (err) => {
       console.log('errrorrr', err)
       if (err) {
