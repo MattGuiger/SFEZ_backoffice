@@ -1011,8 +1011,9 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                 </div>
-                <select class="form-control"  (change)="getTerritory($event)" [(ngModel)]="l_state_id">
-                  <option *ngFor="let item of states2"[value]="item.id">{{item.name}}</option>
+             
+                <select class="form-control"  (change)="getTerritory($event)" [(ngModel)]="l_state_id" [ngModelOptions]="{standalone: true}">
+                  <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
                 </select>
               </div>
             </div>
@@ -1028,7 +1029,7 @@
                 </div>
               <select formControlName="territory_id" [(ngModel)]="selectedTerritory" class="form-control"
                 (change)="getLatLong($event)">
-                <option *ngFor="let item of singleTerritory.territory" [ngValue]="item">{{item.city}}</option>
+                <option *ngFor="let item of singleTerritory.territory" [ngValue]="item.id">{{item.city}}</option>
               </select>
             </div>
           </div>
