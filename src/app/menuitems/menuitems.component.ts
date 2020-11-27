@@ -28,6 +28,7 @@ export class MenuitemsComponent implements OnInit {
   folderCategory: any
   closeResult: string;
   addedItems = []
+  removei=[]
   checkBool = false;
   imageCount = 0
   selectedGoogleDriveUrl : any;
@@ -80,40 +81,42 @@ export class MenuitemsComponent implements OnInit {
   //     this.removeItemFromArray(item)
   //   }
   // }
-  onChange(event, item) {
-    // can't event.preventDefault();
-    console.log('onChange event.checked ' + event.checked, item)
-    if (event.checked == true) {
-      // console.log("event.checked " + this.counter)
-      // if (this.counter < 30) {
-      //   this.counter++
-      //   console.log("counter:" + this.counter)
-        this.addedCategories.push(item)
-      // }else{ 
-      //   event.checked = false;
-      //   console.log("else block:" +  event.checked)
-      // }
-    }
-    else {
-      console.log("event")
-      this.removeItemFromArray(item)
-    }
-  }
   ngAfterViewInit() {
     console.log(this.tabSet['activeId'], 'ppppppp');
     if (this.googleEmail) {
       this.tabSet['activeId'] = 'tb2'
     }
   }
+  removeITEMS:any=[]
+  onChange(event, item) {
+    // can't event.preventDefault();
+    console.log('onChange event.checked ' + event.checked, item)
+    if (event.checked == true) {
+      if(this.addedCategories.indexOf(item) == -1)
+      this.addedCategories.push(item)
+    }
+    else {
+      // this.removeItemFromArray(item)
+    }
+  }
+
+  REMOVEITEM(){
+    console.log("event")
+    this.removei.map((item,i)=>{
+      this.removeItemFromArray(item)
+
+    })
+  }
   addItems() {
     console.log('addedItems', this.addedCategories)
     this.addedItems = this.addedCategories
   }
+  
   onChange1(event, item) {
-    // can't event.preventDefault();
+    // can't event.preventDefault();  [checked]="checkboxFlag"
     console.log('onChange event.checked ' + event.checked, item)
     if (event.checked) {
-      this.removeItemFromArray(item)
+      this.removei.push(item)
     }
   }
   removeCategories() {

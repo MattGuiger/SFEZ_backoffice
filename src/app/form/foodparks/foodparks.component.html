@@ -55,12 +55,27 @@
                   </ngx-datatable-column>
 
                   <ngx-datatable-column name="Hub Master" [width]="150">
-                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <select class="form-control" (change)="selectHub($event,row,value)" >
-                        <option *ngIf="!row.foodpark_mgr_id"value="">Assign Master</option>
-                        <option *ngFor="let manager of foodmarkmgr" value="{{manager.user_id}}"
-                          [selected]="manager.foodparkid==row.food_park_id">{{manager.first_name}}</option>
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-rowIndex="rowIndex" >
+                      <select class="form-control" (change)="selectHub($event,row,value)" [(ngModel)]="row.foodpark_mgr_id" >
+                        <option *ngIf="!row.foodpark_mgr_id" value="">Assign Master</option>
+                        
+                       <option *ngFor="let manager of foodmarkmgr" [value]="manager.user_id"
+                          >
+                          {{manager.first_name}}...</option> 
                       </select>
+                      
+                        <!-- <div *ngFor="let ma of foodmarkmgr">
+                          <div *ngIf="ma.foodparkid==row.food_park_id">{{ma.first_name}}</div>
+                        </div> -->
+                     
+                      <!-- <select class="form-control" (change)="selectHub($event,row,value)"   >
+                        <option *ngIf="!row.foodpark_mgr_id"value="">Assign Master</option>
+                       <option *ngIf="foodmarkmgr[rowIndex]"  value="rowIndex" >
+                         
+                          {{foodmarkmgr[rowIndex].first_name}}
+                        </option>
+                        
+                      </select> -->
                     </ng-template>
                   </ngx-datatable-column>
 
@@ -267,10 +282,14 @@
                   </ngx-datatable-column>
                   <ngx-datatable-column name="Manager" prop="Manager" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <select class="form-control" (change)="selectLocation($event,row,value)">
+                      <select class="form-control" (change)="selectLocation($event,row,value)" [(ngModel)]="row.unit_mgr_id">
                         <option value="">Assign Manager</option>
-                        <option *ngFor="let manager of unitmgr " value="{{manager.user_id}}"
-                          [selected]="manager.unitid==row.unit_id">{{manager.first_name}}</option>
+                        <!-- <option *ngFor="let manager of unitmgr " value="{{manager.user_id}}"
+                          [selected]="manager.unitid==row.unit_id">{{manager.first_name}}
+                        </option> -->
+                        <option *ngFor="let manager of arr1 " [value]="manager.user_id"
+                          >{{manager.first_name}}
+                        </option>
 
                       </select>
                     </ng-template>
@@ -360,12 +379,24 @@
 
                     <ngx-datatable-column name="Role" [width]="150">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        <ngx-container *ngIf="row.role == 'FOODPARKMGR'; else managerrole">
+                        <!-- <ngx-container *ngIf="row.role == 'FOODPARKMGR'; else managerrole">
+                          
                           Hub Master
                         </ngx-container>
                         <ng-template #managerrole>
                           Hub Manager
-                        </ng-template>
+                        </ng-template> -->
+                                        
+                        <!--  -->
+                        <span *ngIf="row.role == 'FOODPARKMGR'; else managerrole">
+                           Hub Master
+                          
+                        </span>
+                          <ng-template #managerrole>
+                            <span>Hub Member</span>
+                            
+                          </ng-template>
+                        
                       </ng-template>
                     </ngx-datatable-column>
 
@@ -758,6 +789,7 @@
           </select>
         </div>
 
+        
         <!-- <label for="country">Country</label>
         <div class="input-group">
           <select formControlName="country_id" class="form-control" (change)="getState($event)">

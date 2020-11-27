@@ -179,6 +179,9 @@ export class FoodParkComponent implements OnInit {
   state_name: any
   l_country_id: any
   l_state_id: any
+  arr: any[];
+  arr1: any[];
+
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService,
     private router: Router,
@@ -206,6 +209,8 @@ export class FoodParkComponent implements OnInit {
     this.driverformInit();
     this.managerFormInit();
     this.getallfoodparkmgr();
+    this.getFoodParkManager();
+    this.getUnitManager();
     // this.getAllUnitList();
     this.getAllUnitWithFoodParkId();
     this.getAllDriversWithFoodParkId();
@@ -229,6 +234,8 @@ export class FoodParkComponent implements OnInit {
     //   this.loadingIndicator = false;
     // }, 1500);
     this.getSingleTerritory();
+    
+  
   }
 
   ngOnInit() {
@@ -245,7 +252,23 @@ export class FoodParkComponent implements OnInit {
 
   //   return this.states.filter(option => option.toLowerCase().includes(filterValue));
   // }
-
+  getFoodParkManager(){
+    if (this.user.company_id) {
+    this._ProfileService.getFoodParkManagerByCompanyId(this.user.company_id).subscribe(res => {
+      this.arr= res.data
+      console.log("this is food manager",res)
+    })
+  }
+  }
+  getUnitManager(){
+    if (this.user.company_id) {
+    this._ProfileService.getUnitManagerByCompanyId(this.user.company_id).subscribe(res => {
+      this.arr1= res.data
+      console.log("this is unit manager",this.arr1)
+    })
+  }
+  }
+  
   getDeliveryHubAndLocationsInCompany() {
     if (this.user.company_id) {
       this._ProfileService.getDeliveryHubandUnits(this.user.company_id).subscribe(res => {
@@ -675,7 +698,7 @@ export class FoodParkComponent implements OnInit {
     })
   }
   selectHub(event, row, value) {
-    console.log('event, row, value', event, row, value)
+    console.log('event',  event,'row', row,  'value',value)
     this.setManager.push({ manager_id: event.target.value, hub_id: row.food_park_id });
 
   }
@@ -716,7 +739,6 @@ export class FoodParkComponent implements OnInit {
   }
 
   getTerritory(event) {
-
     let stateData = event.target.value;
     const strData = stateData.split(",");
     console.log(strData);
@@ -725,6 +747,7 @@ export class FoodParkComponent implements OnInit {
       name: strData[1]
     }
     const state_id = this.stateAndTerritoryObject.id;
+    console.log(state_id)
     this._ProfileService.getTerritory(state_id).subscribe((res: any) => {
       console.log(res);
 
@@ -981,9 +1004,16 @@ export class FoodParkComponent implements OnInit {
       this._ProfileService.getManagerOnTerritoryid(this.territory_id1).subscribe((res: any) => {
         if (res.status == 200) {
           this.showManager = res.data;
+          if (this.showManager.role == 'FOODPARKMGR') {
+            // this.arr.push(this.showManager)
+            // console.log("heyss",this.arr)
+          }
           this.showManager.filter((el, i) => {
+             console.log("i is: ",el)
             if (el.role == 'FOODPARKMGR') {
+              
               this.foodmarkmgr.push(el)
+              console.log("start",this.foodmarkmgr)
             }
           })
           this.showManager.filter((el, i) => {
@@ -991,7 +1021,11 @@ export class FoodParkComponent implements OnInit {
               this.unitmgr.push(el)
             }
           })
-          console.log('this.showManagerthis.showManager', this.showManager, this.foodmarkmgr, this.unitmgr)
+          // this.arr = this.foodmarkmgr
+          console.log("heya package manager",this.foodmarkmgr)
+          console.log('this.showManagerthis.showManager', this.showManager,
+          'food market', this.foodmarkmgr,
+          "unit mgr", this.unitmgr)
         } else {
           this.toastr.error(res.message)
         }
@@ -1174,6 +1208,7 @@ export class FoodParkComponent implements OnInit {
     this.drivers = drivertemp;
     // Whenever the filter changes, always go back to the first page
     this.table = data;
+    console.log("this table", this.table)
   }
   cancelModal() {
     // this.modalService.close(false)

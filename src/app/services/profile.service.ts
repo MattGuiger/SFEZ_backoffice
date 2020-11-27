@@ -41,7 +41,7 @@ export class ProfileService {
   private dailyPayoutURL = config.getEnvironmentVariable('endPoint') + '/api/v1/rel/payout/dailypayoutsfororders';
   private getManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/getfoodparkmgrs';
   private getManagerOnTerritoryURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/managers';
-  //private greenMoneyURL = config.getEnvironmentVariable('endPoint') + 'api/v1/payment/green-money-generate-widget/';
+   //private greenMoneyURL = config.getEnvironmentVariable('endPoint') + 'api/v1/payment/green-money-generate-widget/';
   private getUnitListURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/list-units';
   private addManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/create-manager';
   private assignManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/assign-manager';
@@ -71,7 +71,9 @@ export class ProfileService {
   private authAccessURL = 'https://api.moltin.com/oauth/access_token';
   private fileUploadURL = 'https://api.moltin.com/v2/files';
   private singleStateUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/states/';
-  
+  private foodParkManagerURL = config.getEnvironmentVariable('endPoint')+'api/v1/rel/food_parks/foodparkmanagers';
+  private unitManagerURL = config.getEnvironmentVariable('endPoint')+'api/v1/rel/food_parks/unitmanagers';
+ 
 
 
   constructor(private http: HttpClient) { }
@@ -381,6 +383,12 @@ addUnitToHub(foodParkId,unitId){
 
   getCompanyByCompanyId(id) : Observable<any> {
     return this.http.get(this.companyURL1+"/"+id);
+  }
+  getFoodParkManagerByCompanyId(id) : Observable<any> {
+    return this.http.get(this.foodParkManagerURL+"/"+id);
+  }
+  getUnitManagerByCompanyId(id) : Observable<any> {
+    return this.http.get(this.unitManagerURL+"/"+id);
   }
 
  
