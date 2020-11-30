@@ -717,13 +717,13 @@
         </div> -->
         <label for="stateid">State</label>
         <div class="input-group">
-          <select  name=state_name class="form-control" [(ngModel)]="l_state_id" (change)="getTerritory($event)" [ngModelOptions]="{standalone: true}">
+          <select  name=state_name class="form-control" [(ngModel)]="state_id1" (change)="getTerritory($event)" [ngModelOptions]="{standalone: true}">
             <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
           </select>
         </div>
         <label for="territoryid">Territory</label>
         <div class="input-group">
-          <select formControlName="territory_id" [(ngModel)]="selectedTerritory" class="form-control"
+          <select formControlName="territory_id" [(ngModel)]="territory_id1" class="form-control"
             (change)="getLatLong($event)">
             <option *ngFor="let item of singleTerritory.territory" [ngValue]="item.id">{{item.city}}</option>
           </select>
@@ -799,14 +799,14 @@
 
         <label for="state">State</label>
         <div class="input-group">
-          <select  class="form-control"  [(ngModel)]="l_state_id" (change)="getTerritory($event)"  [ngModelOptions]="{standalone: true}">
+          <select  class="form-control"  [(ngModel)]="state_id1" (change)="getTerritory($event)"  [ngModelOptions]="{standalone: true}">
             <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
           </select>
         </div>
 
         <label for="territory">Territory</label>
         <div class="input-group">
-          <select formControlName="territory_id" class="form-control" [(ngModel)]="selectedTerritory">
+          <select formControlName="territory_id" class="form-control" [(ngModel)]="territory_id1">
             <option *ngFor="let item of singleTerritory.territory" [value]="item.id">{{item.city}}</option>
           </select>
         </div>
@@ -1012,7 +1012,7 @@
                   <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                 </div>
              
-                <select class="form-control"  (change)="getTerritory($event)" [(ngModel)]="l_state_id" [ngModelOptions]="{standalone: true}">
+                <select class="form-control"  (change)="getTerritory($event)" [(ngModel)]="state_id1" [ngModelOptions]="{standalone: true}">
                   <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
                 </select>
               </div>
@@ -1027,7 +1027,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fa fa-city" aria-hidden="true"></i></div>
                 </div>
-              <select formControlName="territory_id" [(ngModel)]="selectedTerritory" class="form-control"
+              <select formControlName="territory_id" [(ngModel)]="territory_id1" class="form-control"
                 (change)="getLatLong($event)">
                 <option *ngFor="let item of singleTerritory.territory" [ngValue]="item.id">{{item.city}}</option>
               </select>
@@ -1103,7 +1103,7 @@
         </div>
         <label for="stateid">State</label>
         <div class="input-group">
-          <select class="form-control" (change)="getTerritoryForEdit($event)" [(ngModel)]="l_state_id">
+          <select class="form-control" (change)="getTerritoryForEdit($event)" [(ngModel)]="state_id1">
             <!-- <option value="selectedHubRecord.type" selected >{{selectedHubRecord.type }}</option> -->
             <option *ngFor="let item of states2" [value]="item.id"
               [selected]="selectedHubRecord.state_name == item.name">{{item.name}}</option>
@@ -1111,7 +1111,7 @@
         </div>
         <label for="territoryid">Territory</label>
         <div class="input-group">
-          <select [(ngModel)]="selectedTerritory" class="form-control">
+          <select [(ngModel)]="territory_id1" class="form-control">
             <option *ngFor="let item of singleTerritory.territory"
               [selected]="selectedHubRecord.territory == item.city">{{item.city}}</option>
           </select>
