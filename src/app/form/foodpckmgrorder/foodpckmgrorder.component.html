@@ -124,7 +124,9 @@
                         <a style="background-color: #22c6ab; color:#fff;"
                           class="order-status text-capitalize btn w-100 border-0"
                           *ngIf="row?.order_detail?.status == 'new'">{{row?.order_detail?.status}}</a>
-
+                          <!-- <a style="background-color: #22c6ab; color:#fff;"
+                          class="order-status text-capitalize btn w-100 border-0"
+                          *ngIf="row?.order_detail?.status == 'incomplete'">{{row?.order_detail?.status}}</a> -->
                       </ng-template>
                     </ngx-datatable-column>
 
@@ -205,18 +207,21 @@
               <div class="row mt-3 mb-0">
                 <div class="col-md-3 offset-4">
                   <div class="card mb-0">
-                    <div class="card-body text-center">
+                    <!-- <div class="card-body text-center">
                       <strong>COD Balance:</strong>
                       <span class="pl-2">${{codBalance?.toFixed(2)}}</span>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
 
               <div class="card-body">
-
+                <div *ngFor="let payout of dailyPayoutData"
+                >
+                <!-- {{payout.data[0].tip_amount}} -->
                 <div class="accodion-datatable">
-                  <ngx-datatable class="material" #table [rows]="dailyPayoutData" [columnMode]="'force'"
+                  {{payout.data[0].unit_id}}
+                  <ngx-datatable class="material" #table [rows]="payout.data" [columnMode]="'force'"
                     [headerHeight]="50" [footerHeight]="50" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
 
                     <!-- Row Detail Template -->
@@ -232,17 +237,17 @@
                           <div class="row">
                             <div class="col-md-2">Instamarkt(10%)</div>
                             <span>:</span>
-                            <div class="col-md-2">${{row?.instaMarkt_commission.toFixed(2)}}</div>
+                            <div class="col-md-2">${{row?.instaMarkt_commission}}</div>
                           </div>
                           <div class="row">
                             <div class="col-md-2">Delivery Charge</div>
                             <span>:</span>
-                            <div class="col-md-2">${{row?.delivery_charge.toFixed(2)}}</div>
+                            <div class="col-md-2">${{row?.delivery_charge}}</div>
                           </div>
                           <div class="row">
                             <div class="col-md-2">Tip</div>
                             <span>:</span>
-                            <div class="col-md-2">${{row?.tip_amount.toFixed(2)}}</div>
+                            <div class="col-md-2">${{row?.tip_amount}}</div>
                           </div>
                           <div class="row">
                             <div class="col-md-3 pl-0">
@@ -252,7 +257,7 @@
                           <div class="row mb-2">
                             <div class="col-md-2"><b>Total Deductions</b></div>
                             <span>:</span>
-                            <div class="col-md-2">${{row?.deduction.toFixed(2)}}</div>
+                            <div class="col-md-2">${{row?.deduction}}</div>
                           </div>
                         </div>
                         <ng-template #takeout>
@@ -265,12 +270,12 @@
                             <div class="row">
                               <div class="col-md-2">Instamarkt(5%)</div>
                               <span>:</span>
-                              <div class="col-md-2">{{row?.instaMarkt_commission.toFixed(2)}}</div>
+                              <div class="col-md-2">{{row?.instaMarkt_commission}}</div>
                             </div>
                             <div class="row">
                               <div class="col-md-2">Tip</div>
                               <span>:</span>
-                              <div class="col-md-2">${{row?.tip_amount.toFixed(2)}}</div>
+                              <div class="col-md-2">${{row?.tip_amount}}</div>
                             </div>
                             <div class="row">
                               <div class="col-md-3 pl-0">
@@ -280,7 +285,7 @@
                             <div class="row mb-2">
                               <div class="col-md-2"><b>Total Deductions</b></div>
                               <span>:</span>
-                              <div class="col-md-2">${{row?.deduction.toFixed(2)}}</div>
+                              <div class="col-md-2">${{row?.deduction}}</div>
                             </div>
                           </div>
                         </ng-template>
@@ -311,6 +316,10 @@
                         <a style="background-color: #22c6ab; color:#fff;"
                           class="order-status text-capitalize btn w-100 border-0"
                           *ngIf="row?.order_detail?.status == 'new'">{{row?.order_detail?.status}}</a>
+                          
+                        <a style="background-color: #22c6ab; color:#fff;"
+                        class="order-status text-capitalize btn w-100 border-0"
+                        *ngIf="row?.order_detail?.status == 'incomplete'">{{row?.order_detail?.status}}</a>
                       </ng-template>
                     </ngx-datatable-column>
 
@@ -334,13 +343,13 @@
 
                     <ngx-datatable-column name="Order Amt" [width]="92">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        <p>${{row?.total_order_amount.toFixed(2)}}</p>
+                        <p>${{row?.total_order_amount}}</p>
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Meal" [width]="60">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        <p>${{row?.amount.toFixed(2)}}</p>
+                        <p>${{row?.amount}}</p>
                       </ng-template>
                     </ngx-datatable-column>
 
@@ -356,13 +365,13 @@
 
                     <ngx-datatable-column name="Deductions" [width]="92">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        <p>${{row?.deduction.toFixed(2)}}</p>
+                        <p>${{row?.deduction}}</p>
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Balance" [width]="92">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        <p>${{(row?.amount - row?.deduction).toFixed(2)}}</p>
+                        <p>${{(row?.amount - row?.deduction)}}</p>
                       </ng-template>
                     </ngx-datatable-column>
 
@@ -388,6 +397,8 @@
                     </ngx-datatable-footer>
                   </ngx-datatable>
                 </div>
+              </div>
+              
 
               </div>
 
