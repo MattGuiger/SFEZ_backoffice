@@ -125,7 +125,6 @@ export class MenuitemsComponent implements OnInit {
       this.addedCategories.splice(index, 1);
     }
   }
-
   ngOnInit() {
     this.getAllProductList();
     this.getCompanyProfile();
@@ -256,8 +255,10 @@ export class MenuitemsComponent implements OnInit {
     if (this.user.unit_id) {
       this._ProfileService.getAllProductList(this.user.unit_id).subscribe((res: any) => {
         this.productList = res.data;
+        console.log("this is product List:  ", this.productList)
         this.processing = false;
       }, error => {
+        console.log("error for image is ",error)
         //debugger
       })
     } else {
