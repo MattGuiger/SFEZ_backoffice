@@ -183,6 +183,7 @@ export class FoodParkComponent implements OnInit {
   arr1: any[];
   getTerritoryId: any;
   state_id1:any
+  locationsList: any;
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService,
     private router: Router,
@@ -253,11 +254,13 @@ this.state_id1=this.user.state_id
 
   //   return this.states.filter(option => option.toLowerCase().includes(filterValue));
   // }
+  managerList=[]
   getFoodParkManager(){
     if (this.user.company_id) {
     this._ProfileService.getFoodParkManagerByCompanyId(this.user.company_id).subscribe(res => {
       this.arr= res.data
       console.log("this is food manager",res)
+      this.managerList.push(...this.arr)
     })
   }
   }
@@ -266,8 +269,12 @@ this.state_id1=this.user.state_id
     this._ProfileService.getUnitManagerByCompanyId(this.user.company_id).subscribe(res => {
       this.arr1= res.data
       console.log("this is unit manager",this.arr1)
+      this.managerList.push(...this.arr1)
+      console.log("this is unit marnage",this.managerList)
+
     })
   }
+  
   }
 
   getTerritoryIds() {
@@ -477,7 +484,7 @@ this.state_id1=this.user.state_id
       this._ProfileService.getlocationCompanyId(this.user.company_id).subscribe(res => {
         if (res.status == 200) {
           console.log('getlocationCompanyId ', res.data)
-          this.locations2 = res.data
+          this.locationsList = res.data
         } else {
           console.log("operation Failed ")
         }
@@ -1093,8 +1100,8 @@ this.state_id1=this.user.state_id
 
     this._ProfileService.addManagers(this.managerForm.value).subscribe((res: any) => {
       if (res.status == 200) {
-        this.toastr.success('Manager created successfully');
-        this.toastr.success('Email sent successfully');
+        this.toastr.success('Manager created and Email sent successfully');
+        // this.toastr.success('Email sent successfully');
         this.huborlocation = false;
         document.getElementById("closeModal").click();
         // this.getAllManger();
@@ -1110,6 +1117,7 @@ this.state_id1=this.user.state_id
     this.managerForm.reset();
   }
   selectLocationOrHub(event) {
+    
     let data = event.target.value;
     const strData = data.split(",");
     console.log(strData);
@@ -1307,6 +1315,7 @@ this.state_id1=this.user.state_id
         this.deliveryHubUnits = res.data
         this.toastr.success(res.message)
         this.modalService.dismissAll()
+        this.getFoodParkManager()
       } else {
         this.toastr.error(res.error)
       }

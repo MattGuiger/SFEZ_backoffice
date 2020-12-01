@@ -59,7 +59,7 @@
                       <select class="form-control" (change)="selectHub($event,row,value)" [(ngModel)]="row.foodpark_mgr_id" >
                         <option *ngIf="!row.foodpark_mgr_id" value="">Assign Master</option>
                         
-                       <option *ngFor="let manager of foodmarkmgr" [value]="manager.user_id"
+                       <option *ngFor="let manager of arr" [value]="manager.user_id"
                           >
                           {{manager.first_name}}...</option> 
                       </select>
@@ -254,7 +254,7 @@
 
                 <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
                   [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [footerHeight]="50" [rowHeight]="'auto'"
-                  [limit]="10" [rows]='locations2'>
+                  [limit]="10" [rows]='locationsList'>
                   <ngx-datatable-column name="Name" prop="name" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                       {{row?.unit_name}}
@@ -340,7 +340,7 @@
                       </div>
                     </div>
                   </form>
-                  <ngx-datatable class="material" #table [rows]="showManager" [columnMode]="'force'" [headerHeight]="50"
+                  <ngx-datatable class="material" #table [rows]="managerList" [columnMode]="'force'" [headerHeight]="50"
                     [footerHeight]="50" [rowHeight]="auto" [limit]="10" [scrollbarH]="true">
                     <ngx-datatable-column name="First Name" [width]="150">
                       <ng-template let-row="row" ngx-datatable-cell-template>
