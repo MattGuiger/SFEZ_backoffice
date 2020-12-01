@@ -1,0 +1,447 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20201127.194206.20296.0.001.json",
+    "dumpEventTime": "2020-11-27T19:42:06Z",
+    "dumpEventTimeStamp": "1606486326776",
+    "processId": 20296,
+    "cwd": "C:\\Users\\vaish\\PROJECTS\\ECOMMERCE\\UI\\SFEZ_backoffice",
+    "commandLine": [
+      "node",
+      "C:\\Users\\vaish\\AppData\\Roaming\\npm\\\\node_modules\\@angular\\cli\\bin\\ng",
+      "serve"
+    ],
+    "nodejsVersion": "v12.16.1",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.16.1",
+      "v8": "7.8.279.23-node.31",
+      "uv": "1.34.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.40.0",
+      "napi": "5",
+      "llhttp": "2.0.4",
+      "http_parser": "2.9.3",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.16.1/node-v12.16.1-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.16.1/node-v12.16.1.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.16.1/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.18363",
+    "osVersion": "Windows 10 Home Single Language",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "AMD Ryzen 7 3700U with Radeon Vega Mobile Gfx  ",
+        "speed": 2296,
+        "user": 32116125,
+        "nice": 0,
+        "sys": 35370812,
+        "idle": 265682968,
+        "irq": 2919062
+      },
+      {
+        "model": "AMD Ryzen 7 3700U with Radeon Vega Mobile Gfx  ",
+        "speed": 2296,
+        "user": 30278140,
+        "nice": 0,
+        "sys": 24236859,
+        "idle": 278654718,
+        "irq": 529781
+      },
+      {
+        "model": "AMD Ryzen 7 3700U with Radeon Vega Mobile Gfx  ",
+        "speed": 2296,
+        "user": 40890296,
+        "nice": 0,
+        "sys": 26297281,
+        "idle": 265982140,
+        "irq": 272562
+      },
+      {
+        "model": "AMD Ryzen 7 3700U with Radeon Vega Mobile Gfx  ",
+        "speed": 2296,
+        "user": 27336234,
+        "nice": 0,
+        "sys": 17154265,
+        "idle": 288679218,
+        "irq": 181515
+      },
+      {
+        "model": "AMD Ryzen 7 3700U with Radeon Vega Mobile Gfx  ",
+        "speed": 2296,
+        "user": 22086718,
+        "nice": 0,
+        "sys": 14031203,
+        "idle": 297051796,
+        "irq": 189671
+      },
+      {
+        "model": "AMD Ryzen 7 3700U with Radeon Vega Mobile Gfx  ",
+        "speed": 2296,
+        "user": 21521671,
+        "nice": 0,
+        "sys": 16371968,
+        "idle": 295276078,
+        "irq": 115843
+      },
+      {
+        "model": "AMD Ryzen 7 3700U with Radeon Vega Mobile Gfx  ",
+        "speed": 2296,
+        "user": 14150218,
+        "nice": 0,
+        "sys": 9410234,
+        "idle": 309609234,
+        "irq": 151375
+      },
+      {
+        "model": "AMD Ryzen 7 3700U with Radeon Vega Mobile Gfx  ",
+        "speed": 2296,
+        "user": 11232500,
+        "nice": 0,
+        "sys": 7657453,
+        "idle": 314279750,
+        "irq": 410421
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "Ethernet 2",
+        "internal": false,
+        "mac": "00:ff:42:aa:15:df",
+        "address": "fe80::999f:84af:5be:687",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 6
+      },
+      {
+        "name": "Ethernet 2",
+        "internal": false,
+        "mac": "00:ff:42:aa:15:df",
+        "address": "10.81.234.21",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "Wi-Fi",
+        "internal": false,
+        "mac": "70:66:55:02:24:eb",
+        "address": "2401:4900:1b82:6d37:f987:6d6:51cb:7248",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Wi-Fi",
+        "internal": false,
+        "mac": "70:66:55:02:24:eb",
+        "address": "2401:4900:1b82:6d37:4de9:e343:8376:63cc",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Wi-Fi",
+        "internal": false,
+        "mac": "70:66:55:02:24:eb",
+        "address": "fe80::f987:6d6:51cb:7248",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 15
+      },
+      {
+        "name": "Wi-Fi",
+        "internal": false,
+        "mac": "70:66:55:02:24:eb",
+        "address": "192.168.43.101",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      }
+    ],
+    "host": "LAPTOP-HK5M839I"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff7b9c119f9",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+10873"
+    },
+    {
+      "pc": "0x00007ff7b9c15e1c",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+28316"
+    },
+    {
+      "pc": "0x00007ff7b9c14dd8",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+24152"
+    },
+    {
+      "pc": "0x00007ff7b9d134cb",
+      "symbol": "v8::base::CPU::has_sse+38363"
+    },
+    {
+      "pc": "0x00007ff7ba529f4e",
+      "symbol": "v8::Isolate::ReportExternalAllocationLimitReached+94"
+    },
+    {
+      "pc": "0x00007ff7ba512021",
+      "symbol": "v8::SharedArrayBuffer::Externalize+833"
+    },
+    {
+      "pc": "0x00007ff7ba3de57c",
+      "symbol": "v8::internal::Heap::EphemeronKeyWriteBarrierFromCode+1436"
+    },
+    {
+      "pc": "0x00007ff7ba3e97d0",
+      "symbol": "v8::internal::Heap::ProtectUnprotectedMemoryChunks+1312"
+    },
+    {
+      "pc": "0x00007ff7ba3e62f4",
+      "symbol": "v8::internal::Heap::PageFlagsAreConsistent+3204"
+    },
+    {
+      "pc": "0x00007ff7ba3dbb13",
+      "symbol": "v8::internal::Heap::CollectGarbage+1283"
+    },
+    {
+      "pc": "0x00007ff7ba3da184",
+      "symbol": "v8::internal::Heap::AddRetainedMap+2452"
+    },
+    {
+      "pc": "0x00007ff7ba3fb36d",
+      "symbol": "v8::internal::Factory::NewFillerObject+61"
+    },
+    {
+      "pc": "0x00007ff7ba160c51",
+      "symbol": "v8::internal::interpreter::JumpTableTargetOffsets::iterator::operator=+1665"
+    },
+    {
+      "pc": "0x00007ff7ba974ddd",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+546637"
+    },
+    {
+      "pc": "0x00000377ed779adc",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2153889792,
+    "totalCommittedMemory": 2153889792,
+    "usedMemory": 2111409648,
+    "availableMemory": 53113640,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 32808,
+        "used": 32808,
+        "available": 0
+      },
+      "new_space": {
+        "memorySize": 2621440,
+        "committedMemory": 2621440,
+        "capacity": 1309320,
+        "used": 575512,
+        "available": 733808
+      },
+      "old_space": {
+        "memorySize": 1655324672,
+        "committedMemory": 1655324672,
+        "capacity": 1646188312,
+        "used": 1639043304,
+        "available": 7145008
+      },
+      "code_space": {
+        "memorySize": 13275136,
+        "committedMemory": 13275136,
+        "capacity": 12083200,
+        "used": 12083200,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 26218496,
+        "committedMemory": 26218496,
+        "capacity": 4462160,
+        "used": 4462160,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 455565312,
+        "committedMemory": 455565312,
+        "capacity": 454668376,
+        "used": 454668376,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 622592,
+        "committedMemory": 622592,
+        "capacity": 544288,
+        "used": 544288,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 1309320,
+        "used": 0,
+        "available": 1309320
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 2008.23,
+    "kernelCpuSeconds": 331,
+    "cpuConsumptionPercent": 38.4932,
+    "maxRss": 2019135488,
+    "pageFaults": {
+      "IORequired": 7464528,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 23432,
+      "writes": 15
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "=::": "::\\",
+    "=C:": "C:\\Users\\vaish\\PROJECTS\\ECOMMERCE\\UI\\SFEZ_backoffice",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "APPDATA": "C:\\Users\\vaish\\AppData\\Roaming",
+    "BROWSERSLIST_IGNORE_OLD_DATA": "1",
+    "CommonProgramFiles": "C:\\Program Files\\Common Files",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "LAPTOP-HK5M839I",
+    "ComSpec": "C:\\windows\\system32\\cmd.exe",
+    "dp0": "C:\\Users\\vaish\\AppData\\Roaming\\npm\\",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\vaish",
+    "LOCALAPPDATA": "C:\\Users\\vaish\\AppData\\Local",
+    "LOGONSERVER": "\\\\LAPTOP-HK5M839I",
+    "NUMBER_OF_PROCESSORS": "8",
+    "NVM_HOME": "C:\\Users\\vaish\\AppData\\Roaming\\nvm",
+    "NVM_SYMLINK": "C:\\Program Files\\nodejs",
+    "OneDrive": "C:\\Users\\vaish\\OneDrive",
+    "OneDriveConsumer": "C:\\Users\\vaish\\OneDrive",
+    "OnlineServices": "Online Services",
+    "OS": "Windows_NT",
+    "Path": "C:\\windows\\system32;C:\\windows;C:\\windows\\System32\\Wbem;C:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\CrSSL\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\PuTTY\\;%NVM_HOME%;%NVM_SYMLINK%;C:\\Users\\vaish\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\vaish\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\vaish\\AppData\\Roaming\\npm;C:\\Program Files\\heroku\\bin;C:\\Users\\vaish\\AppData\\Roaming\\npm\\node_modules\\@angular\\cli\\bin;C:\\Program Files\\MongoDB\\Server\\4.4\\bin;C:\\Users\\vaish\\AppData\\Roaming\\nvm;C:\\Program Files\\nodejs",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC",
+    "platformcode": "KV",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD",
+    "PROCESSOR_LEVEL": "23",
+    "PROCESSOR_REVISION": "1801",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles": "C:\\Program Files",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "PROMPT": "$P$G",
+    "PSModulePath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\windows\\system32\\WindowsPowerShell\\v1.0\\Modules",
+    "PUBLIC": "C:\\Users\\Public",
+    "RegionCode": "APJ",
+    "SESSIONNAME": "Console",
+    "SystemDrive": "C:",
+    "SystemRoot": "C:\\windows",
+    "TEMP": "C:\\Users\\vaish\\AppData\\Local\\Temp",
+    "TMP": "C:\\Users\\vaish\\AppData\\Local\\Temp",
+    "USERDOMAIN": "LAPTOP-HK5M839I",
+    "USERDOMAIN_ROAMINGPROFILE": "LAPTOP-HK5M839I",
+    "USERNAME": "vaish",
+    "USERPROFILE": "C:\\Users\\vaish",
+    "WEBPACK_DEV_SERVER": "true",
+    "windir": "C:\\windows",
+    "_prog": "node"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\windows\\SYSTEM32\\ntdll.dll",
+    "C:\\windows\\System32\\KERNEL32.DLL",
+    "C:\\windows\\System32\\KERNELBASE.dll",
+    "C:\\windows\\System32\\WS2_32.dll",
+    "C:\\windows\\System32\\RPCRT4.dll",
+    "C:\\windows\\SYSTEM32\\dbghelp.dll",
+    "C:\\windows\\System32\\PSAPI.DLL",
+    "C:\\windows\\System32\\ucrtbase.dll",
+    "C:\\windows\\System32\\ADVAPI32.dll",
+    "C:\\windows\\System32\\msvcrt.dll",
+    "C:\\windows\\System32\\sechost.dll",
+    "C:\\windows\\System32\\USER32.dll",
+    "C:\\windows\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\windows\\System32\\win32u.dll",
+    "C:\\windows\\System32\\GDI32.dll",
+    "C:\\windows\\System32\\gdi32full.dll",
+    "C:\\windows\\System32\\msvcp_win.dll",
+    "C:\\windows\\SYSTEM32\\USERENV.dll",
+    "C:\\windows\\System32\\CRYPT32.dll",
+    "C:\\windows\\System32\\profapi.dll",
+    "C:\\windows\\System32\\MSASN1.dll",
+    "C:\\windows\\System32\\bcrypt.dll",
+    "C:\\windows\\SYSTEM32\\WINMM.dll",
+    "C:\\windows\\SYSTEM32\\winmmbase.dll",
+    "C:\\windows\\System32\\cfgmgr32.dll",
+    "C:\\windows\\System32\\bcryptPrimitives.dll",
+    "C:\\windows\\System32\\IMM32.DLL",
+    "C:\\windows\\System32\\powrprof.dll",
+    "C:\\windows\\System32\\UMPDC.dll",
+    "C:\\windows\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\windows\\system32\\uxtheme.dll",
+    "C:\\windows\\System32\\combase.dll",
+    "C:\\windows\\system32\\mswsock.dll",
+    "C:\\windows\\System32\\kernel.appcore.dll",
+    "\\\\?\\C:\\Users\\vaish\\PROJECTS\\ECOMMERCE\\UI\\SFEZ_backoffice\\node_modules\\node-sass\\vendor\\win32-x64-72\\binding.node",
+    "C:\\windows\\System32\\NSI.dll",
+    "C:\\windows\\SYSTEM32\\dhcpcsvc6.DLL",
+    "C:\\windows\\SYSTEM32\\dhcpcsvc.DLL",
+    "C:\\windows\\SYSTEM32\\DNSAPI.dll",
+    "C:\\windows\\system32\\napinsp.dll",
+    "C:\\windows\\system32\\pnrpnsp.dll",
+    "C:\\windows\\System32\\winrnr.dll",
+    "C:\\windows\\system32\\NLAapi.dll",
+    "C:\\windows\\system32\\wshbth.dll",
+    "C:\\Windows\\System32\\rasadhlp.dll",
+    "C:\\windows\\System32\\fwpuclnt.dll"
+  ]
+}

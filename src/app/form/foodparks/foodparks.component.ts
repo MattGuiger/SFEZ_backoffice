@@ -175,9 +175,14 @@ export class FoodParkComponent implements OnInit {
   deliveryHubUnits: any;
   Hublocations: any;
   hubDelivery: any
+  selectedStates: any
+  state_name: any
+  l_country_id: any
+  l_state_id: any
   arr: any[];
   arr1: any[];
-
+  getTerritoryId: any;
+  state_id1:any
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService,
     private router: Router,
@@ -186,8 +191,13 @@ export class FoodParkComponent implements OnInit {
     private _CommonFunctionsService: CommonFunctionsService,
     private modalService: NgbModal,
     private route: ActivatedRoute) {
+    localStorage.getItem('state');
+    localStorage.getItem('country')
+    this.l_state_id = localStorage.getItem('state_id');
+    this.l_country_id = localStorage.getItem('country_id')
+    this.state_name = localStorage.getItem('state_name')
     this.user = this._CommonFunctionsService.checkUser().user;
-    
+this.state_id1=this.user.state_id
     this.getAllState();
     this.getTerritory_id()
     this.territory_id()
@@ -235,6 +245,7 @@ export class FoodParkComponent implements OnInit {
     //     startWith(''),
     //     map(value => this._filter(value))
     //   );
+
   }
 
   // private _filter(value: string): string[] {
@@ -257,6 +268,20 @@ export class FoodParkComponent implements OnInit {
       console.log("this is unit manager",this.arr1)
     })
   }
+  }
+
+  getTerritoryIds() {
+    this.latt = localStorage.getItem('latitude');
+    this.long = localStorage.getItem('longitude');
+    let data = {
+      latitude: this.latt,
+      longitude: this.long
+    }
+    this._AuthService.territory_id(this.user.country, this.user.state, data).subscribe((res: any) => {
+      this.getTerritoryId = res.data.id;
+      console.log("territory_id" + this.getTerritoryId);
+      localStorage.setItem("territory_id",this.getTerritoryId)
+    })
   }
   
   getDeliveryHubAndLocationsInCompany() {
@@ -525,9 +550,9 @@ export class FoodParkComponent implements OnInit {
         // this.getlocationsAndHub()
         this.getLocationInTerritoy()
         this.getDeliveryHubinCompany()
-      } else  if (res["status"] == 404) {
+      } else if (res["status"] == 404) {
         this.toastr.success("Vendor is already added in the Hub ")
-      }else{
+      } else {
         this.toastr.success("Error Creating Request")
       }
     })
@@ -703,7 +728,7 @@ export class FoodParkComponent implements OnInit {
         if (res.status == 200) {
           this.toastr.success('Managers assigned successfully');
           this.getlocationCompanyId()
-          this.setUnitManager=[]
+          this.setUnitManager = []
         }
         // 
       },
@@ -784,10 +809,30 @@ export class FoodParkComponent implements OnInit {
     })
   }
   getAllStates() {
-    this._ProfileService.getState(this.user.country_id).subscribe((res: any) => {
-      this.states2 = res.data;
-      console.log("getAllStates" + this.states2)
-    })
+    if (this.l_country_id) {
+      this._ProfileService.getState(this.l_country_id).subscribe((res: any) => {
+        this.states2 = res.data;
+
+        console.log("getAllStates l_country_id" + this.state_name)
+        const d = this.states2.find(val => {
+          console.log(' val.name', val.name)
+         return val.name == this.state_name
+        })
+        console.log('ddddddddddddddddddddd', d)
+        this._ProfileService.getTerritory(d.id).subscribe((res: any) => {
+          console.log(res);
+
+          this.singleTerritory = res;
+          this.selectedTerritory=res.territory[0].id
+        })
+      })
+    } else {
+      this._ProfileService.getState(this.user.country_id).subscribe((res: any) => {
+        this.states2 = res.data;
+        console.log("getAllStates" + this.states2)
+      })
+    }
+
   }
   getAllFoodPark() {
     // forkJoin([
@@ -839,7 +884,7 @@ export class FoodParkComponent implements OnInit {
         if (res.status == 200) {
           this.toastr.success('Managers assign successfully');
           this.getDeliveryHubinCompany()
-          this.setManager=[]
+          this.setManager = []
         }
         // 
       },
@@ -868,7 +913,10 @@ export class FoodParkComponent implements OnInit {
     }
   }
   onSubmitLocationForm() {
-    this.locationFoodParkForm.value.territory_id = this.territory_id1;
+    this.locationFoodParkForm.value.territory_id =this.locationFoodParkForm.value.territory_id?this.locationFoodParkForm.value.territory_id: this.territory_id1;
+    // this.locationFoodParkForm.value.country_id=this.l_country_id
+    // this.locationFoodParkForm.value.state_id= this.locationFoodParkForm.value.state_id?this.locationFoodParkForm.value.state_id:this.l_state_id
+
     this.locationFoodParkForm.value.number = 1
     this._ProfileService.addUnit(this.locationFoodParkForm.value, this.user.company_id).subscribe((res: any) => {
       this.toastr.success('Unit Created successfully');
@@ -885,13 +933,8 @@ export class FoodParkComponent implements OnInit {
   onSubmit() {
     this.hubFoodParkForm.value.company_id = this.user.company_id;
     this.hubFoodParkForm.value.type = 'EVENT'
-   this.hubFoodParkForm.value.state = this.hubFoodParkForm.value.territory_id.state
-  //this.hubFoodParkForm.value.state = this.hubFoodParkForm.value.state
-   this.hubFoodParkForm.value.territory_id = this.hubFoodParkForm.value.territory_id.id
-  //this.hubFoodParkForm.value.territory_id = this.hubFoodParkForm.value.territory_id
-
-
-
+    this.hubFoodParkForm.value.state = this.hubFoodParkForm.value.territory_id.state? this.hubFoodParkForm.value.territory_id.state:this.user.state
+    this.hubFoodParkForm.value.territory_id = this.hubFoodParkForm.value.territory_id.id?this.hubFoodParkForm.value.territory_id.id:this.territory_id1
     console.log('this.hubFoodParkForm.value', this.hubFoodParkForm.value)
 
     this._ProfileService.addFoodPark(this.hubFoodParkForm.value).subscribe((res: any) => {
@@ -1045,7 +1088,7 @@ export class FoodParkComponent implements OnInit {
       this.managerForm.value.food_park_id = this.locationOrHubObject.id
 
     // this.managerForm.value.type = this.locationOrHubObject.type;
-    this.managerForm.value.territory_id = 50
+    this.managerForm.value.territory_id = this.territory_id1
     console.log('ggggggggggggggggggggggg', this.managerForm.value);
 
     this._ProfileService.addManagers(this.managerForm.value).subscribe((res: any) => {

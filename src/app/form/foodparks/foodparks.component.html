@@ -56,11 +56,11 @@
 
                   <ngx-datatable-column name="Hub Master" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-rowIndex="rowIndex" >
-                      <select class="form-control" (change)="selectHub($event,row,value)" >
-                        <option *ngIf="!row.foodpark_mgr_id"value="">Assign Master</option>
+                      <select class="form-control" (change)="selectHub($event,row,value)" [(ngModel)]="row.foodpark_mgr_id" >
+                        <option *ngIf="!row.foodpark_mgr_id" value="">Assign Master</option>
                         
-                       <option *ngFor="let manager of foodmarkmgr" value="{{manager.user_id}}"
-                          [selected]="manager.foodparkid==row.food_park_id" >
+                       <option *ngFor="let manager of foodmarkmgr" [value]="manager.user_id"
+                          >
                           {{manager.first_name}}...</option> 
                       </select>
                       
@@ -282,13 +282,13 @@
                   </ngx-datatable-column>
                   <ngx-datatable-column name="Manager" prop="Manager" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <select class="form-control" (change)="selectLocation($event,row,value)">
+                      <select class="form-control" (change)="selectLocation($event,row,value)" [(ngModel)]="row.unit_mgr_id">
                         <option value="">Assign Manager</option>
                         <!-- <option *ngFor="let manager of unitmgr " value="{{manager.user_id}}"
                           [selected]="manager.unitid==row.unit_id">{{manager.first_name}}
                         </option> -->
-                        <option *ngFor="let manager of arr1 " value="{{manager.user_id}}"
-                          [selected]="manager.unitid==row.unit_id">{{manager.first_name}}
+                        <option *ngFor="let manager of arr1 " [value]="manager.user_id"
+                          >{{manager.first_name}}
                         </option>
 
                       </select>
@@ -699,6 +699,9 @@
     </button>
   </div>
   <div class="modal-body">
+    <!-- <select  class="form-control" [(ngModel)]="selected_state_name.id" >
+      <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
+    </select> -->
     <form #myForm="ngForm" [formGroup]="hubFoodParkForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="name">Name</label>
@@ -714,15 +717,15 @@
         </div> -->
         <label for="stateid">State</label>
         <div class="input-group">
-          <select formControlName="state" class="form-control" (change)="getTerritory($event)">
-            <option *ngFor="let item of states2" value="{{item.id}}">{{item.name}}</option>
+          <select  name=state_name class="form-control" [(ngModel)]="state_id1" (change)="getTerritory($event)" [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
           </select>
         </div>
         <label for="territoryid">Territory</label>
         <div class="input-group">
-          <select formControlName="territory_id" [(ngModel)]="selectedTerritory" class="form-control"
+          <select formControlName="territory_id" [(ngModel)]="territory_id1" class="form-control"
             (change)="getLatLong($event)">
-            <option *ngFor="let item of singleTerritory.territory" [ngValue]="item">{{item.city}}</option>
+            <option *ngFor="let item of singleTerritory.territory" [ngValue]="item.id">{{item.city}}</option>
           </select>
         </div>
         <label for="address">Provide Address Below</label>
@@ -750,7 +753,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-dark" [disabled]="!myForm.valid">Create Hub</button>
+        <button type="submit" class="btn btn-outline-dark" >Create Hub</button>
       </div>
     </form>
   </div>
@@ -786,24 +789,25 @@
           </select>
         </div>
 
-        <label for="country">Country</label>
+        
+        <!-- <label for="country">Country</label>
         <div class="input-group">
           <select formControlName="country_id" class="form-control" (change)="getState($event)">
             <option *ngFor="let item of countries" value="{{item.id}}">{{item.name}}</option>
           </select>
-        </div>
+        </div> -->
 
         <label for="state">State</label>
         <div class="input-group">
-          <select formControlName="state_id" class="form-control" (change)="getTerritory($event)">
-            <option *ngFor="let item of singleState.data" value="{{item.id}} , {{item.name}}">{{item.name}}</option>
+          <select  class="form-control"  [(ngModel)]="state_id1" (change)="getTerritory($event)"  [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
           </select>
         </div>
 
         <label for="territory">Territory</label>
         <div class="input-group">
-          <select formControlName="territory_id" class="form-control">
-            <option *ngFor="let item of singleTerritory.territory" value="{{item.id}}">{{item.city}}</option>
+          <select formControlName="territory_id" class="form-control" [(ngModel)]="territory_id1">
+            <option *ngFor="let item of singleTerritory.territory" [value]="item.id">{{item.city}}</option>
           </select>
         </div>
 
@@ -833,7 +837,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-dark" [disabled]="!myForm2.valid">Save</button>
+        <button type="submit" class="btn btn-outline-dark" >Save</button>
       </div>
     </form>
   </div>
@@ -1007,8 +1011,9 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                 </div>
-                <select class="form-control" (change)="getTerritory($event)">
-                  <option *ngFor="let item of states2" value="{{item.id}}">{{item.name}}</option>
+             
+                <select class="form-control"  (change)="getTerritory($event)" [(ngModel)]="state_id1" [ngModelOptions]="{standalone: true}">
+                  <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
                 </select>
               </div>
             </div>
@@ -1022,9 +1027,9 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fa fa-city" aria-hidden="true"></i></div>
                 </div>
-              <select formControlName="territory_id" [(ngModel)]="selectedTerritory" class="form-control"
+              <select formControlName="territory_id" [(ngModel)]="territory_id1" class="form-control"
                 (change)="getLatLong($event)">
-                <option *ngFor="let item of singleTerritory.territory" [ngValue]="item">{{item.city}}</option>
+                <option *ngFor="let item of singleTerritory.territory" [ngValue]="item.id">{{item.city}}</option>
               </select>
             </div>
           </div>
@@ -1098,15 +1103,15 @@
         </div>
         <label for="stateid">State</label>
         <div class="input-group">
-          <select class="form-control" (change)="getTerritoryForEdit($event)">
+          <select class="form-control" (change)="getTerritoryForEdit($event)" [(ngModel)]="state_id1">
             <!-- <option value="selectedHubRecord.type" selected >{{selectedHubRecord.type }}</option> -->
-            <option *ngFor="let item of states2" value="{{item.id}}"
+            <option *ngFor="let item of states2" [value]="item.id"
               [selected]="selectedHubRecord.state_name == item.name">{{item.name}}</option>
           </select>
         </div>
         <label for="territoryid">Territory</label>
         <div class="input-group">
-          <select [(ngModel)]="selectedTerritory" class="form-control">
+          <select [(ngModel)]="territory_id1" class="form-control">
             <option *ngFor="let item of singleTerritory.territory"
               [selected]="selectedHubRecord.territory == item.city">{{item.city}}</option>
           </select>

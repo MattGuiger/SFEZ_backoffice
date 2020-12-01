@@ -111,9 +111,14 @@
                                                                 </mat-form-field>
                                                                 <!-- [checked] = "checkboxFlag"
                                                                 [checked]="checked"  -->
-                                                                <div *ngFor="let category of categories">
+                                                                <!-- <div *ngFor="let category of categories">
                                                                   <mat-checkbox 
                                                                   [checked] = "testFetchFolder(category.category)"
+                                                                  (change)="onChange($event,category.category); false"
+                                                                >{{category.category}}</mat-checkbox> -->
+                                                                <div *ngFor="let category of categories">
+                                                                  <mat-checkbox 
+                                                              
                                                                   (change)="onChange($event,category.category); false"
                                                                 >{{category.category}}</mat-checkbox>
                                                                   <!-- <mat-checkbox>Salads</mat-checkbox>
@@ -131,7 +136,7 @@
                                                           <div class="col-md-2">
                                                             <div class="category_btn">
                                                               <button mat-raised-button class="btn btn-primary btn-block"(click)="addItems()">Add &gt;</button>
-                                                              <button mat-raised-button class="btn btn-secondary btn-block">&lt; Remove</button>
+                                                              <button mat-raised-button class="btn btn-secondary btn-block" (click)="REMOVEITEM()">&lt; Remove</button>
                                                             </div>
                                                           </div>
                                                           <div class="col-md-5">
@@ -143,10 +148,9 @@
                                                                 <mat-form-field appearance="fill">
                                                                   <input matInput placeholder="Search" class="form-control">
                                                                 </mat-form-field>
-                                                                <div *ngFor="let addeditem of  addedItems">
-                                                                  <mat-checkbox 
-                                                                  [checked]="checkboxFlag"
-                                                                  (change)="onChange($event,addeditem); false"
+                                                                <div *ngFor="let addeditem of addedItems">
+                                                                  <mat-checkbox                                                                 
+                                                                  (change)="onChange1($event,addeditem)"
                                                                 >{{addeditem}}</mat-checkbox>
                                                                 </div>
                                                               </div>
