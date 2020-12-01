@@ -36,7 +36,7 @@ export class ProfileService {
   private addDriverFoodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/'; 
   private companyURL = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/companies'; 
   private companyURL1 = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/companies';
-
+  //https://api.instamarkt.co/api/v1/rel/payout/dailypayoutsfororders/11247
   private dailyPayout = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/getVendorDriverWagesForOrders';
   private dailyPayoutURL = config.getEnvironmentVariable('endPoint') + '/api/v1/rel/payout/dailypayoutsfororders';
   private getManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/getfoodparkmgrs';
