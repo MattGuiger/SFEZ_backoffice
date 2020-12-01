@@ -126,33 +126,17 @@ export class FoodpckmgrorderComponent {
       
   }
   /** Get Daily Payout */
-  getDailyPayout(){
-    let totalBalance = 0;
-    // const tempCompany_id = 11247
-    const tempDate = {
-      date:""
-    }
-    this._ProfileService.getDailyPayout(11247, tempDate).subscribe(
-      // this._ProfileService.getDailyPayoutLists(this.company_id, this.data).subscribe(
-      (res:any) => {
-        this.dailyPayoutData = res.data;
-        res.data[0].data.forEach(function(val){
-          totalBalance = totalBalance+(val.amount-val.deduction);
-        });
-        this.codBalance = totalBalance;
-      },
-      (error:any) => {
-        console.log(error)
-      }
-    );
-  }
-
   // getDailyPayout(){
   //   let totalBalance = 0;
-  //   this._ProfileService.getDailyPayoutList().subscribe(
+  //   // const tempCompany_id = 11247
+  //   const tempDate = {
+  //     date:""
+  //   }
+  //   this._ProfileService.getDailyPayout(11247, tempDate).subscribe(
+  //     // this._ProfileService.getDailyPayoutLists(this.company_id, this.data).subscribe(
   //     (res:any) => {
   //       this.dailyPayoutData = res.data;
-  //       res.data.forEach(function(val){
+  //       res.data[0].data.forEach(function(val){
   //         totalBalance = totalBalance+(val.amount-val.deduction);
   //       });
   //       this.codBalance = totalBalance;
@@ -162,6 +146,22 @@ export class FoodpckmgrorderComponent {
   //     }
   //   );
   // }
+
+  getDailyPayout(){
+    let totalBalance = 0;
+    this._ProfileService.getDailyPayoutList().subscribe(
+      (res:any) => {
+        this.dailyPayoutData = res.data;
+        // res.data.forEach(function(val){
+        //   totalBalance = totalBalance+(val.amount-val.deduction);
+        // });
+        // this.codBalance = totalBalance;
+      },
+      (error:any) => {
+        console.log(error)
+      }
+    );
+  }
   getAllDrivers(foodParkId) {
     this._ProfileService.getAllDrivers(foodParkId).subscribe((res: any) => {
       this.drivers = res.data;

@@ -220,8 +220,8 @@
                 >
                 <!-- {{payout.data[0].tip_amount}} -->
                 <div class="accodion-datatable">
-                  {{payout.data[0].unit_id}}
-                  <ngx-datatable class="material" #table [rows]="payout.data" [columnMode]="'force'"
+                  <!-- {{payout.data[0].unit_id}} -->
+                  <ngx-datatable class="material" #table [rows]="dailyPayoutData" [columnMode]="'force'"
                     [headerHeight]="50" [footerHeight]="50" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
 
                     <!-- Row Detail Template -->
