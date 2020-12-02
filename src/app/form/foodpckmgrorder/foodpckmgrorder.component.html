@@ -216,66 +216,38 @@
               </div>
 
               <div class="card-body">
-                
+
                 <div *ngFor="let payout of tab; let i=index">
-                 <!-- <div *ngFor="let payout of dailyPayoutData">  -->
+                  <!-- <div *ngFor="let payout of dailyPayoutData">  -->
                   <!-- {{payout.data[0].tip_amount}} -->
+                  {{payout.data.cod[i].unit_name }}
                   <div *ngIf="payout.data.cod">
-                    {{payout.data.cod[i].unit_name }} - cod 
-                  <div class="accodion-datatable">
-                    <!-- {{payout.data[0].unit_id}} -->
-                    <!-- <ngx-datatable class="material" #table [rows]="dailyPayoutData[i]" [columnMode]="'force'" -->
-                      <ngx-datatable class="material" #table [rows]="payout.data.cod" [columnMode]="'force'" 
-                     
-                      [headerHeight]="50" [footerHeight]="50" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
-                      <!-- Row Detail Template -->
-                      
-                      <ngx-datatable-row-detail [rowHeight]="auto">
-                        <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
-                          <div style="padding-left:58px;" *ngIf="row?.for_delivery; else takeout">
-                            <div class="row mb-1">
-                              <div class="" style="font-weight:500;padding-left:10px;">Driver : </div>
-                              <div class="col-md-3 pl-1">{{row?.driver?.first_name +' '+ row?.driver?.last_name}}</div>
-                            </div>
-                            <h6 class="col-md-6 pl-0">Itemized Charges</h6>
-                            <div class="row">
-                              <div class="col-md-2">Instamarkt(10%)</div>
-                              <span>:</span>
-                              <div class="col-md-2">${{row?.instaMarkt_commission}}</div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-2">Delivery Charge</div>
-                              <span>:</span>
-                              <div class="col-md-2">${{row?.delivery_charge}}</div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-2">Tip</div>
-                              <span>:</span>
-                              <div class="col-md-2">${{row?.tip_amount}}</div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-3 pl-0">
-                                <hr />
-                              </div>
-                            </div>
-                            <div class="row mb-2">
-                              <div class="col-md-2"><b>Total Deductions</b></div>
-                              <span>:</span>
-                              <div class="col-md-2">${{row?.deduction}}</div>
-                            </div>
-                          </div>
-                          <ng-template #takeout>
-                            <div style="padding-left:58px;">
+                    Cash On Delivery
+                    <div class="accodion-datatable">
+                      <!-- {{payout.data[0].unit_id}} -->
+                      <!-- <ngx-datatable class="material" #table [rows]="dailyPayoutData[i]" [columnMode]="'force'" -->
+                      <ngx-datatable class="material" #table [rows]="payout.data.cod" [columnMode]="'force'"
+                        [headerHeight]="50" [footerHeight]="50" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
+                        <!-- Row Detail Template -->
+
+                        <ngx-datatable-row-detail [rowHeight]="auto">
+                          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+                            <div style="padding-left:58px;" *ngIf="row?.for_delivery; else takeout">
                               <div class="row mb-1">
-                                <div class="" style="font-weight:500;padding-left:10px;">Driver :- </div>
+                                <div class="" style="font-weight:500;padding-left:10px;">Driver : </div>
                                 <div class="col-md-3 pl-1">{{row?.driver?.first_name +' '+ row?.driver?.last_name}}
                                 </div>
                               </div>
-                              <h6 class="col-md-2 pl-0">Itemized Charges</h6>
+                              <h6 class="col-md-6 pl-0">Itemized Charges</h6>
                               <div class="row">
-                                <div class="col-md-2">Instamarkt(5%)</div>
+                                <div class="col-md-2">Instamarkt(10%)</div>
                                 <span>:</span>
-                                <div class="col-md-2">{{row?.instaMarkt_commission}}</div>
+                                <div class="col-md-2">${{row?.instaMarkt_commission}}</div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-2">Delivery Charge</div>
+                                <span>:</span>
+                                <div class="col-md-2">${{row?.delivery_charge}}</div>
                               </div>
                               <div class="row">
                                 <div class="col-md-2">Tip</div>
@@ -293,304 +265,341 @@
                                 <div class="col-md-2">${{row?.deduction}}</div>
                               </div>
                             </div>
+                            <ng-template #takeout>
+                              <div style="padding-left:58px;">
+                                <div class="row mb-1">
+                                  <div class="" style="font-weight:500;padding-left:10px;">Driver :- </div>
+                                  <div class="col-md-3 pl-1">{{row?.driver?.first_name +' '+ row?.driver?.last_name}}
+                                  </div>
+                                </div>
+                                <h6 class="col-md-2 pl-0">Itemized Charges</h6>
+                                <div class="row">
+                                  <div class="col-md-2">Instamarkt(5%)</div>
+                                  <span>:</span>
+                                  <div class="col-md-2">{{row?.instaMarkt_commission}}</div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-2">Tip</div>
+                                  <span>:</span>
+                                  <div class="col-md-2">${{row?.tip_amount}}</div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-3 pl-0">
+                                    <hr />
+                                  </div>
+                                </div>
+                                <div class="row mb-2">
+                                  <div class="col-md-2"><b>Total Deductions</b></div>
+                                  <span>:</span>
+                                  <div class="col-md-2">${{row?.deduction}}</div>
+                                </div>
+                              </div>
+                            </ng-template>
                           </ng-template>
-                        </ng-template>
-                      </ngx-datatable-row-detail>
+                        </ngx-datatable-row-detail>
 
-                      <ngx-datatable-column name="#" [width]="40">
-                        <ng-template let-row="row" ngx-datatable-cell-template>
-                          <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck{{row.id}}"
-                              name="example1">
-                            <label class="custom-control-label" for="customCheck{{row.id}}"></label>
-                          </div>
-                        </ng-template>
-                      </ngx-datatable-column>
-
-                      <ngx-datatable-column name="Status" [width]="158">
-                        <ng-template let-row="row" ngx-datatable-cell-template>
-                          <a style="background-color: #ef6e6e; color:#fff;"
-                            class="order-status text-capitalize btn w-100 border-0"
-                            *ngIf="row?.order_detail?.status == 'complete'">{{row?.order_detail?.status}}</a>
-
-                          <a style="background-color: #ffbc34; color:#fff;"
-                            class="order-status text-capitalize btn w-100 border-0"
-                            *ngIf="row?.order_detail?.status == 'processed'">{{row?.order_detail?.status}}</a>
-
-                          <a style="background-color: #22c6ab; color:#fff;"
-                            class="order-status text-capitalize btn w-100 border-0"
-                            *ngIf="row?.order_detail?.status == 'new'">{{row?.order_detail?.status}}</a>
-
-                          <a style="background-color: #22c6ab; color:#fff;"
-                            class="order-status text-capitalize btn w-100 border-0"
-                            *ngIf="row?.order_detail?.status == 'incomplete'">{{row?.order_detail?.status}}</a>
-                        </ng-template>
-                      </ngx-datatable-column>
-
-                      <ngx-datatable-column name="Date" [width]="70">
-                        <ng-template let-row="row" ngx-datatable-cell-template>
-                          {{row?.created_at|date:'MMM d'}}
-                        </ng-template>
-                      </ngx-datatable-column>
-
-                      <ngx-datatable-column name="Order ID" [width]="62">
-                        <ng-template let-row="row" ngx-datatable-cell-template>
-                          {{row?.id|custompipe:row.id}}
-                        </ng-template>
-                      </ngx-datatable-column>
-
-                      <ngx-datatable-column name="Payment" [width]="70">
-                        <ng-template let-row="row" ngx-datatable-cell-template>
-                          {{row?.context}}
-                        </ng-template>
-                      </ngx-datatable-column>
-
-                      <ngx-datatable-column name="Order Amt" [width]="92">
-                        <ng-template let-row="row" ngx-datatable-cell-template>
-                          <p>${{row?.total_order_amount}}</p>
-                        </ng-template>
-                      </ngx-datatable-column>
-
-                      <ngx-datatable-column name="Meal" [width]="60">
-                        <ng-template let-row="row" ngx-datatable-cell-template>
-                          <p>${{row?.amount}}</p>
-                        </ng-template>
-                      </ngx-datatable-column>
-
-                      <ngx-datatable-column name="Type" [width]="50">
-                        <ng-template let-row="row" ngx-datatable-cell-template>
-                          <img src="/assets/images/deliverySmall.png" class="img-responsive"
-                            *ngIf="row?.for_delivery;else takeoutimg" />
-                          <ng-template #takeoutimg>
-                            <img src="/assets/images/takeout.png" class="img-responsive" />
+                        <ngx-datatable-column name="#" [width]="40">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="customCheck{{row.id}}"
+                                name="example1">
+                              <label class="custom-control-label" for="customCheck{{row.id}}"></label>
+                            </div>
                           </ng-template>
-                        </ng-template>
-                      </ngx-datatable-column>
+                        </ngx-datatable-column>
 
-                      <ngx-datatable-column name="Deductions" [width]="92">
-                        <ng-template let-row="row" ngx-datatable-cell-template>
-                          <p>${{row?.deduction}}</p>
-                        </ng-template>
-                      </ngx-datatable-column>
+                        <ngx-datatable-column name="Status" [width]="158">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <a style="background-color: #ef6e6e; color:#fff;"
+                              class="order-status text-capitalize btn w-100 border-0"
+                              *ngIf="row?.order_detail?.status == 'complete'">{{row?.order_detail?.status}}</a>
 
-                      <ngx-datatable-column name="Balance" [width]="92">
-                        <ng-template let-row="row" ngx-datatable-cell-template>
-                          <p>${{(row?.amount - row?.deduction)}}</p>
-                        </ng-template>
-                      </ngx-datatable-column>
+                            <a style="background-color: #ffbc34; color:#fff;"
+                              class="order-status text-capitalize btn w-100 border-0"
+                              *ngIf="row?.order_detail?.status == 'processed'">{{row?.order_detail?.status}}</a>
 
-                      <ngx-datatable-column [width]="40">
-                        <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-                          <a href="javascript:void(0)" [class.datatable-icon-down]="!row.$$expanded"
-                            [class.datatable-icon-down]="row.$$expanded" title="Expand/Collapse Row" id="{{row.id}}"
-                            (dblclick)="toggleExpandRowDailyout(row)">
-                          </a>
-                        </ng-template>
-                      </ngx-datatable-column>
-                      <ngx-datatable-footer>
-                        <ng-template let-rowCount="rowCount" let-pageSize="pageSize" let-selectedCount="selectedCount"
-                          let-curPage="curPage" let-offset="offset" ngx-datatable-footer-template>
-                          <button type="button" class="btn btn-success ml-2 custom-button">Process Selected
-                            Orders</button>
-                          <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'"
-                            [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'"
-                            [pagerNextIcon]="'datatable-icon-skip'" [page]="curPage"
-                            [visiblePagesCount]="currentVisible" [size]="pageSize" [count]="rowCount" [hidden]="false"
-                            (change)="table.onFooterPage($event)">
-                          </datatable-pager>
-                        </ng-template>
-                      </ngx-datatable-footer>
-                    </ngx-datatable>
+                            <a style="background-color: #22c6ab; color:#fff;"
+                              class="order-status text-capitalize btn w-100 border-0"
+                              *ngIf="row?.order_detail?.status == 'new'">{{row?.order_detail?.status}}</a>
+
+                            <a style="background-color: #22c6ab; color:#fff;"
+                              class="order-status text-capitalize btn w-100 border-0"
+                              *ngIf="row?.order_detail?.status == 'incomplete'">{{row?.order_detail?.status}}</a>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Date" [width]="70">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row?.created_at|date:'MMM d'}}
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Order ID" [width]="62">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row?.id|custompipe:row.id}}
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Payment" [width]="70">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row?.context}}
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Order Amt" [width]="92">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <p>${{row?.total_order_amount}}</p>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Meal" [width]="60">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <p>${{row?.amount}}</p>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Type" [width]="50">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <img src="/assets/images/deliverySmall.png" class="img-responsive"
+                              *ngIf="row?.for_delivery;else takeoutimg" />
+                            <ng-template #takeoutimg>
+                              <img src="/assets/images/takeout.png" class="img-responsive" />
+                            </ng-template>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Deductions" [width]="92">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <p>${{row?.deduction}}</p>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Balance" [width]="92">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <p>${{(row?.amount - row?.deduction)}}</p>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column [width]="40">
+                          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+                            <a href="javascript:void(0)" [class.datatable-icon-down]="!row.$$expanded"
+                              [class.datatable-icon-down]="row.$$expanded" title="Expand/Collapse Row" id="{{row.id}}"
+                              (dblclick)="toggleExpandRowDailyout(row)">
+                            </a>
+                          </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-footer>
+                          <ng-template let-rowCount="rowCount" let-pageSize="pageSize" let-selectedCount="selectedCount"
+                            let-curPage="curPage" let-offset="offset" ngx-datatable-footer-template>
+                            <button type="button" class="btn btn-success ml-2 custom-button">Process Selected
+                              Orders</button>
+                            <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'"
+                              [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'"
+                              [pagerNextIcon]="'datatable-icon-skip'" [page]="curPage"
+                              [visiblePagesCount]="currentVisible" [size]="pageSize" [count]="rowCount" [hidden]="false"
+                              (change)="table.onFooterPage($event)">
+                            </datatable-pager>
+                          </ng-template>
+                        </ngx-datatable-footer>
+                      </ngx-datatable>
 
 
+                    </div>
+                    <div *ngIf="payout.data.cod">
+                      {{payout.data.total_cod}}
+                    </div>
                   </div>
+                  <!-- ----------------------------start -->
+                  <div *ngIf=payout.data.online>
+                    Online
+                    <div class="accodion-datatable">
+                      <!-- {{payout.data[0].unit_id}} -->
+
+                      <ngx-datatable class="material" #table [rows]="payout.data.online" [columnMode]="'force'"
+                        [headerHeight]="50" [footerHeight]="50" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
+                        <!-- Row Detail Template -->
+                        <ngx-datatable-row-detail [rowHeight]="auto">
+                          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+                            <div style="padding-left:58px;" *ngIf="row?.for_delivery; else takeout">
+                              <div class="row mb-1">
+                                <div class="" style="font-weight:500;padding-left:10px;">Driver : </div>
+                                <div class="col-md-3 pl-1">{{row?.driver?.first_name +' '+ row?.driver?.last_name}}
+                                </div>
+                              </div>
+                              <h6 class="col-md-6 pl-0">Itemized Charges</h6>
+                              <div class="row">
+                                <div class="col-md-2">Instamarkt(10%)</div>
+                                <span>:</span>
+                                <div class="col-md-2">${{row?.instaMarkt_commission}}</div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-2">Delivery Charge</div>
+                                <span>:</span>
+                                <div class="col-md-2">${{row?.delivery_charge}}</div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-2">Tip</div>
+                                <span>:</span>
+                                <div class="col-md-2">${{row?.tip_amount}}</div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3 pl-0">
+                                  <hr />
+                                </div>
+                              </div>
+                              <div class="row mb-2">
+                                <div class="col-md-2"><b>Total Deductions</b></div>
+                                <span>:</span>
+                                <div class="col-md-2">${{row?.deduction}}</div>
+                              </div>
+                            </div>
+                            <ng-template #takeout>
+                              <div style="padding-left:58px;">
+                                <div class="row mb-1">
+                                  <div class="" style="font-weight:500;padding-left:10px;">Driver :- </div>
+                                  <div class="col-md-3 pl-1">{{row?.driver?.first_name +' '+ row?.driver?.last_name}}
+                                  </div>
+                                </div>
+                                <h6 class="col-md-2 pl-0">Itemized Charges</h6>
+                                <div class="row">
+                                  <div class="col-md-2">Instamarkt(5%)</div>
+                                  <span>:</span>
+                                  <div class="col-md-2">{{row?.instaMarkt_commission}}</div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-2">Tip</div>
+                                  <span>:</span>
+                                  <div class="col-md-2">${{row?.tip_amount}}</div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-3 pl-0">
+                                    <hr />
+                                  </div>
+                                </div>
+                                <div class="row mb-2">
+                                  <div class="col-md-2"><b>Total Deductions</b></div>
+                                  <span>:</span>
+                                  <div class="col-md-2">${{row?.deduction}}</div>
+                                </div>
+                              </div>
+                            </ng-template>
+                          </ng-template>
+                        </ngx-datatable-row-detail>
+
+                        <ngx-datatable-column name="#" [width]="40">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="customCheck{{row.id}}"
+                                name="example1">
+                              <label class="custom-control-label" for="customCheck{{row.id}}"></label>
+                            </div>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Status" [width]="158">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <a style="background-color: #ef6e6e; color:#fff;"
+                              class="order-status text-capitalize btn w-100 border-0"
+                              *ngIf="row?.order_detail?.status == 'complete'">{{row?.order_detail?.status}}</a>
+
+                            <a style="background-color: #ffbc34; color:#fff;"
+                              class="order-status text-capitalize btn w-100 border-0"
+                              *ngIf="row?.order_detail?.status == 'processed'">{{row?.order_detail?.status}}</a>
+
+                            <a style="background-color: #22c6ab; color:#fff;"
+                              class="order-status text-capitalize btn w-100 border-0"
+                              *ngIf="row?.order_detail?.status == 'new'">{{row?.order_detail?.status}}</a>
+
+                            <a style="background-color: #22c6ab; color:#fff;"
+                              class="order-status text-capitalize btn w-100 border-0"
+                              *ngIf="row?.order_detail?.status == 'incomplete'">{{row?.order_detail?.status}}</a>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Date" [width]="70">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row?.created_at|date:'MMM d'}}
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Order ID" [width]="62">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row?.id|custompipe:row.id}}
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Payment" [width]="70">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row?.context}}
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Order Amt" [width]="92">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <p>${{row?.total_order_amount}}</p>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Meal" [width]="60">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <p>${{row?.amount}}</p>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Type" [width]="50">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <img src="/assets/images/deliverySmall.png" class="img-responsive"
+                              *ngIf="row?.for_delivery;else takeoutimg" />
+                            <ng-template #takeoutimg>
+                              <img src="/assets/images/takeout.png" class="img-responsive" />
+                            </ng-template>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Deductions" [width]="92">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <p>${{row?.deduction}}</p>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Balance" [width]="92">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <p>${{(row?.amount - row?.deduction)}}</p>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column [width]="40">
+                          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+                            <a href="javascript:void(0)" [class.datatable-icon-down]="!row.$$expanded"
+                              [class.datatable-icon-down]="row.$$expanded" title="Expand/Collapse Row" id="{{row.id}}"
+                              (dblclick)="toggleExpandRowDailyout(row)">
+                            </a>
+                          </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-footer>
+                          <ng-template let-rowCount="rowCount" let-pageSize="pageSize" let-selectedCount="selectedCount"
+                            let-curPage="curPage" let-offset="offset" ngx-datatable-footer-template>
+                            <button type="button" class="btn btn-success ml-2 custom-button">Process Selected
+                              Orders</button>
+                            <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'"
+                              [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'"
+                              [pagerNextIcon]="'datatable-icon-skip'" [page]="curPage"
+                              [visiblePagesCount]="currentVisible" [size]="pageSize" [count]="rowCount" [hidden]="false"
+                              (change)="table.onFooterPage($event)">
+                            </datatable-pager>
+                          </ng-template>
+                        </ngx-datatable-footer>
+                      </ngx-datatable>
+                    </div>
+                    <!--  -->
                   </div>
-<!-- ----------------------------start -->
-<div *ngIf = payout.data.online>
-  {{payout.data.online[i].unit_name }} - online
-<div class="accodion-datatable">
-  <!-- {{payout.data[0].unit_id}} -->
+                  <!-- ---------------end -->
+                  <div *ngIf=payout.data.online>
+                    {{payout.data.total_online}}
+                  </div>
 
-  <ngx-datatable class="material" #table [rows]="payout.data.online" [columnMode]="'force'"
-    [headerHeight]="50" [footerHeight]="50" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
-    <!-- Row Detail Template -->
-    <ngx-datatable-row-detail [rowHeight]="auto">
-      <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
-        <div style="padding-left:58px;" *ngIf="row?.for_delivery; else takeout">
-          <div class="row mb-1">
-            <div class="" style="font-weight:500;padding-left:10px;">Driver : </div>
-            <div class="col-md-3 pl-1">{{row?.driver?.first_name +' '+ row?.driver?.last_name}}</div>
-          </div>
-          <h6 class="col-md-6 pl-0">Itemized Charges</h6>
-          <div class="row">
-            <div class="col-md-2">Instamarkt(10%)</div>
-            <span>:</span>
-            <div class="col-md-2">${{row?.instaMarkt_commission}}</div>
-          </div>
-          <div class="row">
-            <div class="col-md-2">Delivery Charge</div>
-            <span>:</span>
-            <div class="col-md-2">${{row?.delivery_charge}}</div>
-          </div>
-          <div class="row">
-            <div class="col-md-2">Tip</div>
-            <span>:</span>
-            <div class="col-md-2">${{row?.tip_amount}}</div>
-          </div>
-          <div class="row">
-            <div class="col-md-3 pl-0">
-              <hr />
-            </div>
-          </div>
-          <div class="row mb-2">
-            <div class="col-md-2"><b>Total Deductions</b></div>
-            <span>:</span>
-            <div class="col-md-2">${{row?.deduction}}</div>
-          </div>
-        </div>
-        <ng-template #takeout>
-          <div style="padding-left:58px;">
-            <div class="row mb-1">
-              <div class="" style="font-weight:500;padding-left:10px;">Driver :- </div>
-              <div class="col-md-3 pl-1">{{row?.driver?.first_name +' '+ row?.driver?.last_name}}
-              </div>
-            </div>
-            <h6 class="col-md-2 pl-0">Itemized Charges</h6>
-            <div class="row">
-              <div class="col-md-2">Instamarkt(5%)</div>
-              <span>:</span>
-              <div class="col-md-2">{{row?.instaMarkt_commission}}</div>
-            </div>
-            <div class="row">
-              <div class="col-md-2">Tip</div>
-              <span>:</span>
-              <div class="col-md-2">${{row?.tip_amount}}</div>
-            </div>
-            <div class="row">
-              <div class="col-md-3 pl-0">
-                <hr />
-              </div>
-            </div>
-            <div class="row mb-2">
-              <div class="col-md-2"><b>Total Deductions</b></div>
-              <span>:</span>
-              <div class="col-md-2">${{row?.deduction}}</div>
-            </div>
-          </div>
-        </ng-template>
-      </ng-template>
-    </ngx-datatable-row-detail>
-
-    <ngx-datatable-column name="#" [width]="40">
-      <ng-template let-row="row" ngx-datatable-cell-template>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="customCheck{{row.id}}"
-            name="example1">
-          <label class="custom-control-label" for="customCheck{{row.id}}"></label>
-        </div>
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Status" [width]="158">
-      <ng-template let-row="row" ngx-datatable-cell-template>
-        <a style="background-color: #ef6e6e; color:#fff;"
-          class="order-status text-capitalize btn w-100 border-0"
-          *ngIf="row?.order_detail?.status == 'complete'">{{row?.order_detail?.status}}</a>
-
-        <a style="background-color: #ffbc34; color:#fff;"
-          class="order-status text-capitalize btn w-100 border-0"
-          *ngIf="row?.order_detail?.status == 'processed'">{{row?.order_detail?.status}}</a>
-
-        <a style="background-color: #22c6ab; color:#fff;"
-          class="order-status text-capitalize btn w-100 border-0"
-          *ngIf="row?.order_detail?.status == 'new'">{{row?.order_detail?.status}}</a>
-
-        <a style="background-color: #22c6ab; color:#fff;"
-          class="order-status text-capitalize btn w-100 border-0"
-          *ngIf="row?.order_detail?.status == 'incomplete'">{{row?.order_detail?.status}}</a>
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Date" [width]="70">
-      <ng-template let-row="row" ngx-datatable-cell-template>
-        {{row?.created_at|date:'MMM d'}}
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Order ID" [width]="62">
-      <ng-template let-row="row" ngx-datatable-cell-template>
-        {{row?.id|custompipe:row.id}}
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Payment" [width]="70">
-      <ng-template let-row="row" ngx-datatable-cell-template>
-        {{row?.context}}
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Order Amt" [width]="92">
-      <ng-template let-row="row" ngx-datatable-cell-template>
-        <p>${{row?.total_order_amount}}</p>
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Meal" [width]="60">
-      <ng-template let-row="row" ngx-datatable-cell-template>
-        <p>${{row?.amount}}</p>
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Type" [width]="50">
-      <ng-template let-row="row" ngx-datatable-cell-template>
-        <img src="/assets/images/deliverySmall.png" class="img-responsive"
-          *ngIf="row?.for_delivery;else takeoutimg" />
-        <ng-template #takeoutimg>
-          <img src="/assets/images/takeout.png" class="img-responsive" />
-        </ng-template>
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Deductions" [width]="92">
-      <ng-template let-row="row" ngx-datatable-cell-template>
-        <p>${{row?.deduction}}</p>
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column name="Balance" [width]="92">
-      <ng-template let-row="row" ngx-datatable-cell-template>
-        <p>${{(row?.amount - row?.deduction)}}</p>
-      </ng-template>
-    </ngx-datatable-column>
-
-    <ngx-datatable-column [width]="40">
-      <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-        <a href="javascript:void(0)" [class.datatable-icon-down]="!row.$$expanded"
-          [class.datatable-icon-down]="row.$$expanded" title="Expand/Collapse Row" id="{{row.id}}"
-          (dblclick)="toggleExpandRowDailyout(row)">
-        </a>
-      </ng-template>
-    </ngx-datatable-column>
-    <ngx-datatable-footer>
-      <ng-template let-rowCount="rowCount" let-pageSize="pageSize" let-selectedCount="selectedCount"
-        let-curPage="curPage" let-offset="offset" ngx-datatable-footer-template>
-        <button type="button" class="btn btn-success ml-2 custom-button">Process Selected
-          Orders</button>
-        <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'"
-          [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'"
-          [pagerNextIcon]="'datatable-icon-skip'" [page]="curPage"
-          [visiblePagesCount]="currentVisible" [size]="pageSize" [count]="rowCount" [hidden]="false"
-          (change)="table.onFooterPage($event)">
-        </datatable-pager>
-      </ng-template>
-    </ngx-datatable-footer>
-  </ngx-datatable>
-</div>
-<!--  -->
-</div>
-<!-- ---------------end -->
-
-                 </div> 
+                  Payout-  {{payout.payout}}
+                </div>
               </div>
             </ng-template>
 

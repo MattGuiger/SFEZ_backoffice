@@ -616,7 +616,7 @@ this.state_id1=this.user.state_id
             console.log('Remove dataaa', response)
             // this.UnitList = response.data;
             // this.getAllUnitWithFoodParkId()
-            this.toastr.success(response.message)
+            this.toastr.success("Vendor Removed Successfully")
             // this.getlocationOnTerritoryId()
             // this.getlocationsAndHub()
             // this.gethubswithterriId()
@@ -625,6 +625,11 @@ this.state_id1=this.user.state_id
             // this.gethubswithterriId()
             // this.getlocationsAndHub()
             this.getLocationInTerritoy()
+            this.getDeliveryHubinCompany()
+            this.getlocationCompanyId()
+            this.getDeliveryHubCompany()
+            this.getDeliveryHubAndLocationsInCompany()
+
           },
           (error) => {
             console.log(error);
@@ -1108,6 +1113,8 @@ this.state_id1=this.user.state_id
         document.getElementById("closeModal").click();
         // this.getAllManger();
         this.getManagerOnTerritoryid()
+        this.getFoodParkManager()
+        this.getUnitManager()
       } else {
         this.toastr.error(res.message)
       }
