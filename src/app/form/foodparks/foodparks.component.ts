@@ -954,6 +954,8 @@ this.state_id1=this.user.state_id
         this.getDeliveryHubAndLocationsInCompany()
         this.getLocationInTerritoy()
         this.getDeliveryHubinCompany()
+        this.getAllFoodPark()
+        //vaishnavi
       } else {
         this.toastr.success('Something Went Wrong');
 
