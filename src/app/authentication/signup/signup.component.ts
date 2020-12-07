@@ -88,7 +88,7 @@ export class SignupComponent implements OnInit {
         first_name: first_name, last_name: last_name, email: email,
         password: password, company_name: company_name, role: 'OWNER',latitude:this.lat,longitude:this.lng
       }).subscribe((data: any) => {
-        this.toastr.success('Vendor Register Successfully!');
+        this.toastr.success('Sign Up Successful!');
         this.routes.navigate(['/authentication/login']);
       }, err => {
         this.msg = 'Something went wrong! please try again.';

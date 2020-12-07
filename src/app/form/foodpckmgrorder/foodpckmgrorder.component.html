@@ -164,9 +164,9 @@
                       <ng-template let-row="row" ngx-datatable-cell-template>
                         <select class="form-control custom-fontsize" (change)="orderAction($event, row)">
                           <option value="">Select</option>
-                          <option>Void</option>
-                          <option>Refund</option>
-                          <option>Delete</option>
+                          <option value="Void">Void</option>
+                          <option value="Refund">Refund</option>
+                          <option value="Delete">Delete</option>
                         </select>
 
                       </ng-template>
@@ -203,26 +203,26 @@
 
           <ngb-tab title="Daily Payouts">
             <ng-template ngbTabContent>
-              <!-- <h6 class="text-center mt-3 mb-0">Bank and CC Orders</h6> -->
+              <!-- <h6 class="text-center mt-3 mb-0">Bank and CC Orders</h6>
               <div class="row mt-3 mb-0">
                 <div class="col-md-3 offset-4">
                   <div class="card mb-0">
-                    <!-- <div class="card-body text-center">
+                    <div class="card-body text-center">
                       <strong>COD Balance:</strong>
                       <span class="pl-2">${{codBalance?.toFixed(2)}}</span>
-                    </div> -->
+                    </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <div class="card-body">
 
                 <div *ngFor="let payout of tab; let i=index">
                   <!-- <div *ngFor="let payout of dailyPayoutData">  -->
                   <!-- {{payout.data[0].tip_amount}} -->
-                  {{payout.data.cod[i].unit_name }}
+             <h3 style="text-align: center;"><b> {{payout.data.cod[i].unit_name }}</b></h3>    
                   <div *ngIf="payout.data.cod">
-                    Cash On Delivery
+                    <p style="text-align: center;">Cash On Delivery</p>
                     <div class="accodion-datatable">
                       <!-- {{payout.data[0].unit_id}} -->
                       <!-- <ngx-datatable class="material" #table [rows]="dailyPayoutData[i]" [columnMode]="'force'" -->
@@ -255,6 +255,11 @@
                                 <div class="col-md-2">${{row?.tip_amount}}</div>
                               </div>
                               <div class="row">
+                                <div class="col-md-2">Bank Processing</div>
+                                <span>:</span>
+                                <div class="col-md-2" *ngIf="row.bank_processing">${{row?.bank_processing}}</div>
+                                <div class="col-md-2" *ngIf="!row.bank_processing">$0</div>                              </div>
+                              <div class="row">
                                 <div class="col-md-3 pl-0">
                                   <hr />
                                 </div>
@@ -282,6 +287,13 @@
                                   <div class="col-md-2">Tip</div>
                                   <span>:</span>
                                   <div class="col-md-2">${{row?.tip_amount}}</div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-2">Bank Processing</div>
+                                  <span>:</span>
+                                  <div class="col-md-2" *ngIf="row.bank_processing">${{row?.bank_processing}}</div>
+                                  <div class="col-md-2" *ngIf="!row.bank_processing">$0</div>
+
                                 </div>
                                 <div class="row">
                                   <div class="col-md-3 pl-0">
@@ -405,13 +417,13 @@
 
 
                     </div>
-                    <div *ngIf="payout.data.cod">
+                    <div *ngIf="payout.data.cod" style="text-align: right;">
                       {{payout.data.total_cod}}
                     </div>
                   </div>
                   <!-- ----------------------------start -->
                   <div *ngIf=payout.data.online>
-                    Online
+                    <p style="text-align: center;">Online</p>
                     <div class="accodion-datatable">
                       <!-- {{payout.data[0].unit_id}} -->
 
@@ -443,6 +455,11 @@
                                 <div class="col-md-2">${{row?.tip_amount}}</div>
                               </div>
                               <div class="row">
+                                <div class="col-md-2">Bank Processing</div>
+                                <span>:</span>
+                                <div class="col-md-2" *ngIf="row.bank_processing">${{row?.bank_processing}}</div>
+                                <div class="col-md-2" *ngIf="!row.bank_processing">$0</div>                              </div>
+                              <div class="row">
                                 <div class="col-md-3 pl-0">
                                   <hr />
                                 </div>
@@ -471,6 +488,11 @@
                                   <span>:</span>
                                   <div class="col-md-2">${{row?.tip_amount}}</div>
                                 </div>
+                                <div class="row">
+                                  <div class="col-md-2">Bank Processing</div>
+                                  <span>:</span>
+                                  <div class="col-md-2" *ngIf="row.bank_processing">${{row?.bank_processing}}</div>
+                                  <div class="col-md-2" *ngIf="!row.bank_processing">$0</div>                                </div>
                                 <div class="row">
                                   <div class="col-md-3 pl-0">
                                     <hr />
@@ -594,11 +616,11 @@
                     <!--  -->
                   </div>
                   <!-- ---------------end -->
-                  <div *ngIf=payout.data.online>
+                  <div *ngIf=payout.data.online style="text-align: right;">
                     {{payout.data.total_online}}
                   </div>
 
-                  Payout-  {{payout.payout}}
+                  <p style="text-align: right;">Payout- {{payout.payout}}</p>
                 </div>
               </div>
             </ng-template>

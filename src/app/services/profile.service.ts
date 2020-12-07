@@ -72,7 +72,11 @@ export class ProfileService {
   private fileUploadURL = 'https://api.moltin.com/v2/files';
   private singleStateUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/states/';
   private foodParkManagerURL = config.getEnvironmentVariable('endPoint')+'api/v1/rel/food_parks/foodparkmanagers';
+  private updateUnitURL = config.getEnvironmentVariable('endPoint')+'api/v1/rel/update-unit-data/';
+
   private unitManagerURL = config.getEnvironmentVariable('endPoint')+'api/v1/rel/food_parks/unitmanagers';
+  private refundToCustomerURL = config.getEnvironmentVariable('endPoint')+'api/v1/rel/refund/customer/';
+
  
 
 
@@ -160,6 +164,9 @@ getlocationCompanyId(id):Observable<any>{
   }
   getUnitsDriver(data):Observable<any>{
     return this.http.post(this.unitsDriverUrl, data);
+  }
+  refundAmountToCustomer(id):Observable<any>{
+    return this.http.get(this.refundToCustomerURL+id);
   }
   getParticularUnitData(id):Observable<any>{
     return this.http.get(this.particularUnitUrl+id);
@@ -350,7 +357,9 @@ addUnitToHub(foodParkId,unitId){
   updateGoogleSheetDetails(id,data)  : Observable<any> {
     return this.http.put(this.updateUsergooglesheetUrl+id,data);
   }
-
+  updateUnitData(id,data)  : Observable<any> {
+    return this.http.put(this.updateUnitURL+id,data);
+  }
   uploadGoogleMenuSheet()  : Observable<any> {
     return this.http.post(this.uploadGoogleSheetUrl,'');
   }

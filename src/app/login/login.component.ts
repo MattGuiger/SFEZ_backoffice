@@ -95,10 +95,10 @@ export class LoginComponent implements OnInit {
     navigator.geolocation.getCurrentPosition(resp => {
       console.log('respsssssssss',resp)
       console.log('lng', resp.coords.longitude, 'lat', resp.coords.latitude)
-      // this.lat = resp.coords.latitude
-      // this.lng = resp.coords.longitude
-      this.lat = 44.264
-      this.lng = -121.175
+      this.lat = resp.coords.latitude
+      this.lng = resp.coords.longitude
+      // this.lat = 44.264
+      // this.lng = -121.175
       localStorage.setItem('latitude', this.lat);
       localStorage.setItem('longitude', this.lng)
       if(this.lat&&this.lng){

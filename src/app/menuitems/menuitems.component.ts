@@ -184,15 +184,15 @@ export class MenuitemsComponent implements OnInit {
     this.drivefolders.filter((value)=>{
       this.checkFolder.push(value.foldername)
     })
-    for(let category of this.categories) {
-      for(let fetchFolder of this.checkFolder) {
-          if(fetchFolder == category.category) {
-            this.checkboxFlag = true
-       } else {
-           this.checkboxFlag = false
-       }
-      }
-    }
+    // for(let category of this.categories) {
+    //   for(let fetchFolder of this.checkFolder) {
+    //       if(fetchFolder == category.category) {
+    //         this.checkboxFlag = true
+    //    } else {
+    //        this.checkboxFlag = false
+    //    }
+    //   }
+    // }
   }
   testFetchFolder(category) {
     if(this.checkFolder.indexOf(category) !== -1) {

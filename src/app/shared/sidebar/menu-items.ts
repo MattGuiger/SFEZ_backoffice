@@ -196,7 +196,7 @@ export const ROUTES: RouteInfo[] = [
         ]
     },
     {
-        path: '/forms/foodparks',
+        path: '/forms/hubs',
         title: 'Hub Mgmt | Drivers',
         icon: '/assets/images/driver.png',
         class: '',

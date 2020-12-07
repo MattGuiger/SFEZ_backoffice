@@ -277,7 +277,7 @@ export class PersonalComponent implements OnInit {
     this._ProfileService.uploadFeaturePhoto(this.user.company_id, formData).subscribe((res: any) => {
       console.log('resss ', res.data[0].photo)
       localStorage.setItem('featured_dish', res.data[0].featured_dish);
-      this.toastr.success('Feathured dish uploaded successfully!')
+      this.toastr.success('Featured Dish Uploaded Successfully!')
     }, error => {
       this.toastr.error('failed to upload, please try again later')
     })

@@ -98,7 +98,9 @@
               </div>
               <div *ngFor="let hubunit of deliveryHubUnits">
                 <div class="card-body">
-                  <p class="text-center" style="font-weight: 500;">{{hubunit.data[0]?.name}}</p>
+                    <p class="text-center" style="font-weight: 500;">{{hubunit?.data[0]?.name}}</p>
+        
+        
                   <!-- {{hubunit.data[0].unit_id}} -->
                   <div *ngIf="hubunit.data[0].unit_id!=null">
                     <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'"
@@ -121,7 +123,7 @@
                         <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                           <div>
                             <label class="switch">
-                              <input type="checkbox" [checked]=row.delivery>
+                              <input type="checkbox" [checked]=row.delivery  (click)="updateUnitData(row.unit_id,row.delivery,'delivery')">
                               <span class="slider round"></span>
                             </label>
                           </div>
@@ -136,7 +138,7 @@
   -->
                           <div>
                             <label class="switch">
-                              <input type="checkbox" [checked]=row.cash_on_delivery>
+                              <input type="checkbox" [checked]=row.cash_on_delivery (click)="updateUnitData(row.unit_id,row.cash_on_delivery,'cash_on_delivery')">
                               <span class="slider round"></span>
                             </label>
                           </div>
@@ -150,7 +152,7 @@
                         <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                           <div class="">
                             <label class="switch">
-                              <input type="checkbox" [checked]=row.takeout>
+                              <input type="checkbox" [checked]=row.takeout  (click)="updateUnitData(row.unit_id,row.takeout,'takeout')" >
                               <span class="slider round"></span>
                             </label>
                           </div>
@@ -1084,34 +1086,42 @@
   <div class="modal-body">
     <form [formGroup]="foodParkForm" (ngSubmit)="onDeliveryHubSubmit()">
       <div class="form-group">
-        <label for="delivery_time_window" style="display: block;">Delivery Time Window</label>
+        <label for="delivery_time_window" style="display: block;">Delivery Time Window (Min)</label>
         <!-- <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="15" min="1" max="15" step="5"></mat-slider> -->
-        <mat-slider thumbLabel min="0" max="15" step="5" formControlName="delivery_time_window"
+        <!-- <mat-slider thumbLabel min="0" max="25" step="5" formControlName="delivery_time_window"
           [displayWith]="formatLabel" tickInterval="15" class="cdk-focused" (input)="minDaysValue = $event.value"
           [value]="minDaysValue">
-        </mat-slider>
-        <label for="type">Type</label>
+        </mat-slider> -->
+        <mat-slider thumbLabel min="0" max="25" step="5" [(ngModel)]="minDaysValue" [ngModelOptions]="{standalone: true}"
+        [displayWith]="formatLabel" tickInterval="15" class="cdk-focused" (input)="minDaysValue = $event.value"
+        [value]="minDaysValue">
+      </mat-slider>
+        <!-- <label for="type">Type</label>
         <div class="input-group">
           <select formControlName="type" class="form-control">
             <option value="selectedHubRecord.type" [selected]="selectedHubRecord.type === item" selected>
               {{selectedHubRecord.type }}</option>
-            <!-- <option value="none" selected hidden> </option> -->
+       
             <option *ngFor="let item of typesForHub">{{item}}</option>
           </select>
-        </div>
+        </div> -->
         <label for="stateid">State</label>
         <div class="input-group">
-          <select class="form-control" (change)="getTerritoryForEdit($event)" [(ngModel)]="state_id1">
-            <!-- <option value="selectedHubRecord.type" selected >{{selectedHubRecord.type }}</option> -->
+          <!-- <select class="form-control" (change)="getTerritoryForEdit($event)" [(ngModel)]="state_id1"> -->
+            <!-- <option value="selectedHubRecord.type" selected >{{selectedHubRecord.type }}</option>
             <option *ngFor="let item of states2" [value]="item.id"
-              [selected]="selectedHubRecord.state_name == item.name">{{item.name}}</option>
-          </select>
+              >{{item.name}}</option> -->
+              <select  name=state_name class="form-control" [(ngModel)]="state_id1" (change)="getTerritory($event)" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
+              </select>
+          <!-- </select> -->
         </div>
         <label for="territoryid">Territory</label>
+
         <div class="input-group">
-          <select [(ngModel)]="territory_id1" class="form-control">
+          <select [(ngModel)]="territory_id1" class="form-control" [ngModelOptions]="{standalone: true}">
             <option *ngFor="let item of singleTerritory.territory"
-              [selected]="selectedHubRecord.territory == item.city">{{item.city}}</option>
+            [value]="item.id">{{item.city}}</option>
           </select>
         </div>
       </div>
@@ -1135,43 +1145,54 @@
 
       <div class="form-group">
         <label for="customer_order_window" style="display: block;">Customer Time Window(min)</label>
-        <mat-slider thumbLabel formcontrolName="customer_order_window" min="0" max="20" step="5"
-          [displayWith]="formatLabel" tickInterval="5" class="cdk-focused" (input)="minDaysValue = $event.value"
-          [value]="minDaysValue">
-        </mat-slider>
+        <!-- <mat-slider thumbLabel  min="0" max="15" step="5" formcontrolName="customer_order_window"
+          [displayWith]="formatLabel" tickInterval="15" class="cdk-focused" (input)="minDaysValuse = $event.value"
+          [value]="minDaysValuse">
+        </mat-slider> -->
+        <mat-slider thumbLabel min="0" max="15" step="5" [(ngModel)]="customer_order_window" [ngModelOptions]="{standalone: true}"
+        [displayWith]="formatLabel" tickInterval="15" class="cdk-focused" (input)="minDaysValue = $event.value"
+        [value]="minDaysValue">
+      </mat-slider>
         <label for="delivery_radius" style="display: block;"> Delivery Range(mi)</label>
         <!-- <mat-slider thumbLabel formControlName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel" tickInterval="10" class="cdk-focused"
             (input)="minDaysValue = $event.value" [value]="minDaysValuse">
           </mat-slider> -->
-        <mat-slider thumbLabel formcontrolName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel"
-          tickInterval="5" class="cdk-focused" (input)="minDaysValue = $event.value" [value]="minDaysValue">
+        <!-- <mat-slider thumbLabel formcontrolName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel"
+          tickInterval="5" class="cdk-focused" (input)="minDaysValue1 = $event.value" [value]="minDaysValue1">
+        </mat-slider> -->
+        <mat-slider thumbLabel min="0" max="15" step="5" [(ngModel)]="delivery_radius" [ngModelOptions]="{standalone: true}"
+        [displayWith]="formatLabel" tickInterval="15" class="cdk-focused" (input)="minDaysValuee = $event.value"
+        [value]="minDaysValuee">
+      </mat-slider>
+        <label for="standard_delivery" style="display: block;">Standard Delivery Charge($0-5 km/mi) </label>
+        <mat-slider thumbLabel min="0" max="5" step="1" [(ngModel)]="standard_delivery" [ngModelOptions]="{standalone: true}"
+         (input)="minDaysValue2 = $event.value" [displayWith]="formatLabel" tickInterval="5" class="cdk-focused"
+        [value]="minDaysValue2">
         </mat-slider>
-        <label for="standard_delivery" style="display: block;">Standard Delivery Charge(0-5 km/mi) </label>
-        <mat-slider thumbLabel min="0" max="5" step="1" [displayWith]="formatLabel" tickInterval="5" class="cdk-focused"
-          [value]="minDaysValuse">
-        </mat-slider>
-        <label for="long_delivery" style="display: block;">Long Delivery Charge(5-10 km/mi) </label>
-        <mat-slider thumbLabel min="5" max="10" step="1" [displayWith]="formatLabel" tickInterval="10"
-          class="cdk-focused" [value]="minDaysValue">
+        <label for="long_delivery" style="display: block;">Long Delivery Charge($5-10 km/mi) </label>
+        <mat-slider thumbLabel min="5" max="10" step="1" [(ngModel)]="long_delivery" [ngModelOptions]="{standalone: true}"
+        (input)="minDaysValue3 = $event.value" [displayWith]="formatLabel" tickInterval="10"
+          class="cdk-focused" [value]="minDaysValue3">
         </mat-slider>
         <!-- </mat-slider> -->
         <!-- <label for="name" style="display: block;">Custom</label>
           <mat-slider thumbLabel [displayWith]="formatLabel3" min="0" max="15"></mat-slider> -->
         <label for="stateid">State</label>
         <div class="input-group">
-          <select class="form-control" (change)="getTerritory($event)">
-            <!-- <option *ngFor="let item of states2" value="{{item.id}}">{{item.name}}</option> -->
-            <option *ngFor="let item of states2" value="{{item.id}}" [(ngModel)]="selectedLocationRecord.state_name">
-              {{item.name}}</option>
-            <!-- </select> -->
-            <!-- <select formControlName="stateid" class="form-control" (change)="getTerritoryForEdit($event)"> -->
-            <!-- <option *ngFor="let item of states.state"  [selected]="selectedLocationRecord.state_name == item.name">{{item.name}}</option> -->
-          </select>
+            <!-- <option *ngFor="let item of states2" value="{{item.id}}">{{item.name}}</option>
+            <option *ngFor="let item of states2" value="{{item.id}}" >
+              {{item.name}}</option> -->
+              <select  name=state_name class="form-control" [(ngModel)]="state_id1" (change)="getTerritory($event)" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
+              </select>
         </div>
         <label for="territoryid">Territory</label>
         <div class="input-group">
-          <select class="form-control" (change)="getLatLong($event)">
+          <!-- <select class="form-control" (change)="getLatLong($event)">
             <option *ngFor="let item of singleTerritory.territory" [ngValue]="item">{{item.city}}</option>
+          </select> -->
+          <select formControlName="territory_id" class="form-control" [(ngModel)]="territory_id1">
+            <option *ngFor="let item of singleTerritory.territory" [value]="item.id">{{item.city}}</option>
           </select>
         </div>
       </div>

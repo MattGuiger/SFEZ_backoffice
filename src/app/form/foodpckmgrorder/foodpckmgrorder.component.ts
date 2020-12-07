@@ -273,17 +273,27 @@ export class FoodpckmgrorderComponent {
   }
 
   orderAction(event, row){
-    console.log(row.order_detail.id);
-    this._ProfileService.voidOrder(row.order_detail.id).subscribe(
-      (voidResponse) => {
-        console.log(voidResponse);
-        this.toastr.success("Order removed successfully");
-        this.getAllOrder();
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
+    console.log(event.target.value,row.order_detail.id);
+    if(event.target.value=='Refund'){
+this._ProfileService.refundAmountToCustomer(row.id).subscribe(res=>{
+  this.toastr.success("Refund Amount");
+
+})
+    }else if(event.target.value=='Void'){
+      this._ProfileService.voidOrder(row.order_detail.id).subscribe(
+        (voidResponse) => {
+          console.log(voidResponse);
+          this.toastr.success("Order removed successfully");
+          this.getAllOrder();
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    } else if(event.target.value=='Delete'){
+
+    }
+ 
   }
 
   /** Filter by moltin id, company name, delivery address and customer name*/
