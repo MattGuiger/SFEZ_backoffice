@@ -884,11 +884,10 @@ console.log(id,isActive,type)
     if (this.user.country_id) {
       this._ProfileService.getState(this.user.country_id).subscribe((res: any) => {
         this.states2 = res.data;
-
-        console.log("getAllStates l_country_id" + this.state_name)
+        console.log("getAllStates l_country_id" + this.user.state_id)
         const d = this.states2.find(val => {
-          console.log(' val.name', val.name)
-         return val.name == this.state_name
+          // console.log(' val.name', val.id)
+         return val.id == this.user.state_id
         })
         console.log('ddddddddddddddddddddd', d)
         this._ProfileService.getTerritory(d.id).subscribe((res: any) => {
