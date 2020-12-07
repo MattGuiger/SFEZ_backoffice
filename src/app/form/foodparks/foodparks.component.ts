@@ -881,8 +881,8 @@ console.log(id,isActive,type)
     })
   }
   getAllStates() {
-    if (this.l_country_id) {
-      this._ProfileService.getState(this.l_country_id).subscribe((res: any) => {
+    if (this.user.country_id) {
+      this._ProfileService.getState(this.user.country_id).subscribe((res: any) => {
         this.states2 = res.data;
 
         console.log("getAllStates l_country_id" + this.state_name)

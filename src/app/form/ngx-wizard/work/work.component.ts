@@ -132,7 +132,7 @@ getCompanyInfo(){
             // const fname = localStorage.getItem('first_name').split('');
             // const fName = fname[0]+fname[1]+fname[2];
             this.workFormData.value.username = this.comapnydata.name + "_mgr1";
-            this.workFormData.value.first_name = this.comapnydata.name + "_mgr1";
+            // this.workFormData.value.first_name = this.comapnydata.name + "_mgr1";
 
             this.workFormData.value.password = this.generateP();
             console.log('workFormData',this.workFormData)
