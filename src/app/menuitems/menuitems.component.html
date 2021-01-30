@@ -1,20 +1,21 @@
 <div class="row el-element-overlay">
   <div *ngIf="!productList.length">
-     <app-spinner></app-spinner>
- </div>
+    <app-spinner></app-spinner>
+  </div>
 
 
   <div class="col-md-12">
-          <div class="card">
-              <div class="card-body">
-                  <h4 class="card-title">Menu Management</h4>
-                  <h6 class="card-subtitle">A Menuitems listed here, and we can maname Menuitems by importing/syncing them from google spreadsheet.</h6>
-                 
-                  <ngb-tabset  (tabChange)="getProductList($event)" #t="ngbTabset">
-                      <ngb-tab title="Google Sheet | images" id="tb2">
-                          <ng-template ngbTabContent>
-                            <div class="card card-body">
-                                  <!-- <form class="form-horizontal form-material">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Menu Management</h4>
+        <h6 class="card-subtitle">A Menuitems listed here, and we can maname Menuitems by importing/syncing them from
+          google spreadsheet.</h6>
+
+        <ngb-tabset (tabChange)="getProductList($event)" #t="ngbTabset">
+          <ngb-tab title="Google Sheet | images" id="tb2">
+            <ng-template ngbTabContent>
+              <div class="card card-body">
+                <!-- <form class="form-horizontal form-material">
                                           <div class="form-group">
                                               <label class="col-md-12">Name</label>
                                               <div class="col-md-12">
@@ -40,88 +41,90 @@
                                               </div>
                                           </div>
                                       </form> -->
-                                      <section *ngIf="showBlueColoredTable" class="hero_section">
-                                          <div class="container">
-                                            <div class="row">
-                                              <div class="col-md-10 offset-md-1">
-                                                <div class="hero_content">
-                                                  <h2 style="text-align: center">Google Sheets Tutorial</h2>
-                                                  <p class="text-center">InstaMarkt uses one central location (Google Sheets) to store a vendor's menu.
-                                                    This includes menu item names (or products), pricing, description, add-ons, categories, s
-                                                    pecial instructions, etc. This is a step-by-step tutorial for how to upload these menu item details.</p>
-                                                  <h4 *ngIf="showTutorialTable" class="text-center">Example Spreadsheet Below:</h4>
-                                                  <img *ngIf="showTutorialTable" src="../../assets/images/Layer-1@1X.png" alt="" class="hero_img">
-                                                  <!-- <h2 class="text-center">Onboarding Workflow (Similar to Vendor Registration):</h2> -->
-                                                  <div class="col-md-12 text-center">
-                                                  <button type="button" class="btn btn-light" (click)="onClickGetStarted()">Get started</button>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </section>
-                                        <section class="step_tabs">
-                                          <div class="container">
-                                            <mat-tab-group  [selectedIndex]="demo1TabIndex">
-                                              <mat-tab *ngIf="showZerothTab" label="1">
-                                                <div class="step_one">
-                                                  <h2>Step 1</h2>
-                                                  <h4>Select Google Drive or Dropbox</h4>
-                                                  <div class="row">
-                                                    <div class="col-6 col-md-4 offset-md-2 col-lg-2 offset-lg-4">
-                                                      <!-- <div class="icon_card" (click)="getgmailuser()">
+                <section *ngIf="showBlueColoredTable" class="hero_section">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-10 offset-md-1">
+                        <div class="hero_content">
+                          <h2 style="text-align: center">Google Sheets Tutorial</h2>
+                          <p class="text-center">InstaMarkt uses one central location (Google Sheets) to store a
+                            vendor's menu.
+                            This includes menu item names (or products), pricing, description, add-ons, categories, s
+                            pecial instructions, etc. This is a step-by-step tutorial for how to upload these menu item
+                            details.</p>
+                          <h4 *ngIf="showTutorialTable" class="text-center">Example Spreadsheet Below:</h4>
+                          <img *ngIf="showTutorialTable" src="../../assets/images/Layer-1@1X.png" alt=""
+                            class="hero_img">
+                          <!-- <h2 class="text-center">Onboarding Workflow (Similar to Vendor Registration):</h2> -->
+                          <div class="col-md-12 text-center">
+                            <button type="button" class="btn btn-light" (click)="onClickGetStarted()">Get
+                              started</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="step_tabs">
+                  <div class="container">
+                    <mat-tab-group [selectedIndex]="demo1TabIndex">
+                      <mat-tab *ngIf="showZerothTab" label="1">
+                        <div class="step_one">
+                          <h2>Step 1</h2>
+                          <h4>Select Google Drive or Dropbox</h4>
+                          <div class="row">
+                            <div class="col-6 col-md-4 offset-md-2 col-lg-2 offset-lg-4">
+                              <!-- <div class="icon_card" (click)="getgmailuser()">
                                                         <a href={{authentication_url}}>
                                                           <img src="../../assets/images/google-drive@1X.png" alt="  " class="drive">
                                                           <p>Google Drive</p>
                                                         </a>
                                                       </div> -->
-                                                      <div class="icon_card" >
-                                                        <a href={{authentication_url}}>
-                                                          <img src="../../assets/images/google-drive@1X.png" alt="  " class="drive">
-                                                          <p>Google Drive</p>
-                                                        </a>{{googleEmail}}
-                                                      </div>
-                                                    </div>
-                                                    <div class="col-6 col-md-4 col-lg-2">
-                                                      <div class="icon_card">
-                                                        <img src="../../assets/images/dropbox@1X.png" alt="  " class="dropbox">
-                                                        <p>Dropbox</p>
-                                                      </div>
-                                                    </div>
-                                                  </div><br>
-                                                  <!-- <h2>Google Sheets URL </h2> <p>"https://docs.google.com/spreadsheets/d/10H5pkAdRbjbJN3JJ0p3nIRFJbt1nuDXJNlQj0lhxy18/edit"</p> -->
-                                                </div>
-                                              </mat-tab>
-                                              <mat-tab  *ngIf="showFirstTab" label="2">
-                                                <div class="step_one">
-                                                  <h2>Step 2</h2>
-                                                  <h4>Select Your Categories</h4>
-                                                  <div class="row">
-                                                    <div class="col-md-12 col-lg-10 offset-lg-1">
-                                                      <div class="category_sec">
-                                                        <div class="row">
-                                                          <div class="col-md-5">
-                                                            <div class="category_area">
-                                                              <div class="category_head">
-                                                                <p>Available Categories</p>
-                                                              </div>
-                                                              <div class="category_checkbox">
-                                                                <mat-form-field appearance="fill">
-                                                                  <input matInput placeholder="Search" class="form-control">
-                                                                </mat-form-field>
-                                                                <!-- [checked] = "checkboxFlag"
+                              <div class="icon_card">
+                                <a href={{authentication_url}}>
+                                  <img src="../../assets/images/google-drive@1X.png" alt="  " class="drive">
+                                  <p>Google Drive</p>
+                                </a>{{googleEmail}}
+                              </div>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-2">
+                              <div class="icon_card">
+                                <img src="../../assets/images/dropbox@1X.png" alt="  " class="dropbox">
+                                <p>Dropbox</p>
+                              </div>
+                            </div>
+                          </div><br>
+                          <!-- <h2>Google Sheets URL </h2> <p>"https://docs.google.com/spreadsheets/d/10H5pkAdRbjbJN3JJ0p3nIRFJbt1nuDXJNlQj0lhxy18/edit"</p> -->
+                        </div>
+                      </mat-tab>
+                      <mat-tab *ngIf="showFirstTab" label="2">
+                        <div class="step_one">
+                          <h2>Step 2</h2>
+                          <h4>Select Your Categories</h4>
+                          <div class="row">
+                            <div class="col-md-12 col-lg-10 offset-lg-1">
+                              <div class="category_sec">
+                                <div class="row">
+                                  <div class="col-md-5">
+                                    <div class="category_area">
+                                      <div class="category_head">
+                                        <p>Available Categories</p>
+                                      </div>
+                                      <div class="category_checkbox">
+                                        <mat-form-field appearance="fill">
+                                          <input matInput placeholder="Search" class="form-control">
+                                        </mat-form-field>
+                                        <!-- [checked] = "checkboxFlag"
                                                                 [checked]="checked"  -->
-                                                                <!-- <div *ngFor="let category of categories">
+                                        <!-- <div *ngFor="let category of categories">
                                                                   <mat-checkbox 
                                                                   [checked] = "testFetchFolder(category.category)"
                                                                   (change)="onChange($event,category.category); false"
                                                                 >{{category.category}}</mat-checkbox> -->
-                                                                <div *ngFor="let category of categories">
-                                                                  <mat-checkbox 
-                                                              
-                                                                  (change)="onChange($event,category.category); false"
-                                                                >{{category.category}}</mat-checkbox>
-                                                                  <!-- <mat-checkbox>Salads</mat-checkbox>
+                                        <div *ngFor="let category of categories">
+                                          <mat-checkbox (change)="onChange($event,category.category); false">
+                                            {{category.category}}</mat-checkbox>
+                                          <!-- <mat-checkbox>Salads</mat-checkbox>
                                                                   <mat-checkbox>
                                                                     Entrées
                                                                   </mat-checkbox>
@@ -129,139 +132,165 @@
                                                                   <mat-checkbox>Sandwiches</mat-checkbox>
                                                                   <mat-checkbox>Burgers</mat-checkbox>
                                                                   <mat-checkbox>Noodles</mat-checkbox> -->
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <div class="col-md-2">
-                                                            <div class="category_btn">
-                                                              <button mat-raised-button class="btn btn-primary btn-block"(click)="addItems()">Add &gt;</button>
-                                                              <button mat-raised-button class="btn btn-secondary btn-block" (click)="REMOVEITEM()">&lt; Remove</button>
-                                                            </div>
-                                                          </div>
-                                                          <div class="col-md-5">
-                                                            <div class="category_area">
-                                                              <div class="category_head">
-                                                                <p>Selected Categories</p>
-                                                              </div>
-                                                              <div class="category_checkbox">
-                                                                <mat-form-field appearance="fill">
-                                                                  <input matInput placeholder="Search" class="form-control">
-                                                                </mat-form-field>
-                                                                <div *ngFor="let addeditem of addedItems">
-                                                                  <mat-checkbox                                                                 
-                                                                  (change)="onChange1($event,addeditem)"
-                                                                >{{addeditem}}</mat-checkbox>
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                        <button mat-raised-button class="btn btn-primary btn-block"(click)="createFolderinDrive()">Create Folders in Google Drive</button>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </mat-tab>
-                                              <mat-tab *ngIf="showSecondTab" label="3">
-                                                <div class="step_one">
-                                                  <h2>Step 3</h2>
-                                                  <h4>Upload images in their respective folder (or category) as shown below:</h4>
-                                                  <br>
-                                                  <br>
-                                                  <div class="row">
-                                                      <div class="col-md-4 offset-md-4">
-                                                        <div class="step_three_left" style="text-align: center;">
-                                                          <h5>Image Example</h5>
-                                                          <img src="../../assets/images/Chicken-Teriyaki.png" alt="">
-                                                          <p>Image Name:  Chicken Teriyaki.jpg</p>
-                                                          <p style="font-size: 18px;">Menu Item Name: Chicken Teriyaki</p>
-                                                        </div>
-                                                      </div>
-                                                  </div>
-                                                  <div class="row">
-                                                    <div class="col-md-8">
-                                                        <span *ngIf=checkImageCountFlag>
-                                                        <div style="text-align: left; font-size: 18px; margin-bottom: 1rem;">
-                                                        # of uploaded images: <b>{{imageCount}}</b></div>
-                                                          <!-- <div >
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-2">
+                                    <div class="category_btn">
+                                      <button mat-raised-button class="btn btn-primary btn-block"
+                                        (click)="addItems()">Add &gt;</button>
+                                      <button mat-raised-button class="btn btn-secondary btn-block"
+                                        (click)="REMOVEITEM()">&lt; Remove</button>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-5">
+                                    <div class="category_area">
+                                      <div class="category_head">
+                                        <p>Selected Categories</p>
+                                      </div>
+                                      <div class="category_checkbox">
+                                        <mat-form-field appearance="fill">
+                                          <input matInput placeholder="Search" class="form-control">
+                                        </mat-form-field>
+                                        <div *ngFor="let addeditem of addedItems">
+                                          <mat-checkbox (change)="onChange1($event,addeditem)">{{addeditem}}
+                                          </mat-checkbox>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <button mat-raised-button class="btn btn-primary btn-block"
+                                  (click)="createFolderinDrive()">Create Folders in Google Drive</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </mat-tab>
+                      <mat-tab *ngIf="showSecondTab" label="3">
+                        <div class="step_one">
+                          <h2>Step 3</h2>
+                          <h4>Upload images in their respective folder (or category) as shown below:</h4>
+                          <br>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-4 offset-md-4">
+                              <div class="step_three_left" style="text-align: center;">
+                                <h5>Image Example</h5>
+                                <img src="../../assets/images/Chicken-Teriyaki.png" alt="">
+                                <p>Image Name: Chicken Teriyaki.jpg</p>
+                                <p style="font-size: 18px;">Menu Item Name: Chicken Teriyaki</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <span *ngIf=checkImageCountFlag>
+                                <div style="text-align: left; font-size: 18px; margin-bottom: 1rem;">
+                                  # of uploaded images: <b>{{imageCount}}</b></div>
+                                <!-- <div >
                                                               <b>Recently uploaded image:</b> 
                                                               <a (click)="googleDriveUrl(google_drive_url)" style="cursor: pointer;color:rgb(67, 133, 238)" >{{google_drive_url}} </a>
                                                           </div>
                                                            -->
-                                                        </span>
-                                                      <div class="step_three_right">
-                                                        <h5>Category:</h5>
-                                                        <ul *ngFor="let folder of drivefolders; let index = index" style="margin-bottom: 1.5rem;">
-                                                          <li>
-                                                            <div class="row">
-                                                              <div class="col-md-2">
-                                                                  <img src="../../assets/images/folder@1X.png" alt="">
-                                                              </div>
-                                                              <div class="col-md-8">
-                                                                  <p><b>{{folder.foldername}}</b></p>
-                                                                  <div class="custom-file">
-                                                                    <input type="file" name="file"class="custom-file-input" id="customFile" 
-                                                                    (change)="onFileSelect($event,folder.folderid,folder.foldername)">
-                                                                    <label class="custom-file-label" for="customFile">Choose file</label>
-                                                                  </div>    
-                                                              </div>
-                                                              <div class="col-md-2">
-                                                                <em (click)="deleteFolder(index)" class="fa fa-trash"></em>
-                                                              </div>
-                                                              <div class="col-md-12">
-                                                                   <p  (click)="googleDrive_url($event,folder.foldername, contentGoogleDriveUrl, index)" style="cursor: pointer;"><b>Google Drive URL</b></p>
-                                                                   <!-- <div *ngIf="checkGoogleDriveFlag === index"> -->
-                                                                   <!-- <div *ngFor="let category of googleSheet;  let i = index"> -->
-                                                                    <!-- <label *ngIf="category.category === folder.foldername"> -->
-                                                                    <!-- <a href="#">{{category.image}}</a>   -->
-                                                                    <!-- </label>
+                              </span>
+                              <div class="step_three_right">
+                                <h5>Category:</h5>
+                                <ul *ngFor="let folder of drivefolders; let index = index"
+                                  style="margin-bottom: 1.5rem;">
+                                  <li>
+                                    <div class="row">
+                                      <div class="col-md-2">
+                                        <img src="../../assets/images/folder@1X.png" alt="">
+                                      </div>
+                                      <div class="col-md-4">
+                                        <p><b>{{folder.foldername}}</b></p>
+                                        <div class="custom-file">
+                                          <input type="file" name="file" class="custom-file-input" id="customFile"
+                                            (change)="onFileSelect($event)">
+
+                                          <label class="custom-file-label" for="customFile">Choose file</label>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <p><b>Category Image</b></p>
+                                        <div class="custom-file">
+                                          <input type="file" name="category_file" class="custom-file-input"
+                                            id="categoryCustomFile" (change)="onCategoryImageSelect($event)">
+
+                                          <label class="custom-file-label" for="customFile">Choose file</label>
+                                        </div>
+
+                                        <p><b>Category Description</b></p>
+                                        <div>
+                                          <textarea name="category_description" class="w-100 custom-textarea"
+                                            [id]="'category_description'+ folder.folderid"
+                                            placeholder="Category Description"></textarea>
+
+                                          <button type="button" class="btn btn-primary"
+                                            (click)="submitSheetData(folder.folderid,folder.foldername)">
+                                            Upload
+                                          </button>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-2">
+                                        <em (click)="deleteFolder(index)" class="fa fa-trash"></em>
+                                      </div>
+                                      <div class="col-md-12">
+                                        <p (click)="googleDrive_url($event,folder.foldername, contentGoogleDriveUrl, index)"
+                                          style="cursor: pointer;"><b>Google Drive URL</b></p>
+                                        <!-- <div *ngIf="checkGoogleDriveFlag === index"> -->
+                                        <!-- <div *ngFor="let category of googleSheet;  let i = index"> -->
+                                        <!-- <label *ngIf="category.category === folder.foldername"> -->
+                                        <!-- <a href="#">{{category.image}}</a>   -->
+                                        <!-- </label>
                                                                   </div>
                                                                 </div> -->
-                                                              </div>
-                                                            </div>                                                    
-                                                           </li>
-                                                        </ul>
-                                                      </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                      <div class="sync_btn">
-                                                        <button mat-raised-button class="btn"
-                                                        (click)="uploadGoogleMenuSheet()">Sync to Google Sheets <img
-                                                            src="../../assets/images/google-sheets.png" style="width: 25px; margin: -2px 0 0 10px" alt="" ></button>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </mat-tab>
-                                              <mat-tab *ngIf="showThirdTab"  label="4">
-                                                <div class="step_one padding_area">
-                                                  <h2>Step 4</h2>
-                                                  <h4>Upload Menu (xls, doc, jpg or png)</h4>
-                                                  <div class="row">
-                                                    <div class="col-md-12 text-center">
-                                                        <img src="/assets/images/menu-poster.jpg" style="width: 75%;margin-bottom: 0.5rem">
-                                                      </div>
-                                                    <div class="col-md-12">
-                                                      <div class="step_four">
-                                                        <div class="form-group">
-                                                          <label for="" class="label-control">Upload Files</label>
-                                                          <div class="custom-file">
-                                                            <input type="file" class="custom-file-input" id="customFile"
-                                                            (change)="onFileSelect1($event)">
-                                                            <label class="custom-file-label" for="customFile">Choose file</label>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                      <div class="add_btn">
-                                                        <button mat-raised-button class="btn btn-primary">Add More Menu Files</button>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="row">
-                                                    <!-- <div class="col-md-4 col-lg-3">
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="sync_btn">
+                                <button mat-raised-button class="btn" (click)="uploadGoogleMenuSheet()">Sync to Google
+                                  Sheets <img src="../../assets/images/google-sheets.png"
+                                    style="width: 25px; margin: -2px 0 0 10px" alt=""></button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </mat-tab>
+                      <mat-tab *ngIf="showThirdTab" label="4">
+                        <div class="step_one padding_area">
+                          <h2>Step 4</h2>
+                          <h4>Upload Menu (xls, doc, jpg or png)</h4>
+                          <div class="row">
+                            <div class="col-md-12 text-center">
+                              <img src="/assets/images/menu-poster.jpg" style="width: 75%;margin-bottom: 0.5rem">
+                            </div>
+                            <div class="col-md-12">
+                              <div class="step_four">
+                                <div class="form-group">
+                                  <label for="" class="label-control">Upload Files</label>
+                                  <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile"
+                                      (change)="onFileSelect1($event)">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="add_btn">
+                                <button mat-raised-button class="btn btn-primary">Add More Menu Files</button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <!-- <div class="col-md-4 col-lg-3">
                                                       <div class="bot_img">
                                                         <img src="../../assets/images/Bot.png" alt="">
                                                       </div>
@@ -269,51 +298,56 @@
                                                         Please feel free to email your menu to info@instamarkt.co and include your Vendor Name.
                                                       </p>
                                                     </div> -->
-                                                    <div class="col-md-8 col-lg-8 offset-lg-1">
-                                                      <div class="bot_txt">
-                                                        <!-- <p>Please upload 1 or more pictures of your menu that includes
+                            <div class="col-md-8 col-lg-8 offset-lg-1">
+                              <div class="bot_txt">
+                                <!-- <p>Please upload 1 or more pictures of your menu that includes
                                                           descriptions, pricing, add-ons, special instructions, etc.
                                                           We will also use this information in our Customer Ordering Bot.</p> -->
-                                                          <p>
-                                                            Please take time to ensure that all of the menu details (includes descriptions, pricing, add-ons, special instructions, etc.) are accurate.  Once ready, use the sync button below to create your online menu. 
-                                                             We will also use this information in our Customer Ordering Bot.
-                                                          </p>
-                                                          <p>
-                                                            Please feel free to email your menu to info@instamarkt.co and include your Vendor Name.
-                                                          </p>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </mat-tab>
-                                              <mat-tab *ngIf="showFourthTab"  label="5">
-                                                <div class="step_one padding_area">
-                                                  <h2>Step 5</h2>
-                                                  <h4>Custom Google Sheets Spreadsheet</h4>
-                                                  <p>Thank you for providing your menu item details! 
-                                                     InstaMarkt will finish creating your menu in Google Sheets.
-                                                      We will schedule a time with you to review that all this information is correct. 
-                                                     Click on the link below to view menu details!</p>
-                                                     <p>Vendors can make changes directly to their menu in Google Sheets by clicking on
-                                                        this shared link. Once ready, use the button below to update the menu.</p><br>
-                                                  <div class="row">
-                                                    <div class="col-md-12">
-                                                      <div class="step_five">
-                                                        <!-- <img src="../../assets/images/Layer-2@1X.png">
+                                <p>
+                                  Please take time to ensure that all of the menu details (includes descriptions,
+                                  pricing, add-ons, special instructions, etc.) are accurate. Once ready, use the sync
+                                  button below to create your online menu.
+                                  We will also use this information in our Customer Ordering Bot.
+                                </p>
+                                <p>
+                                  Please feel free to email your menu to info@instamarkt.co and include your Vendor
+                                  Name.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </mat-tab>
+                      <mat-tab *ngIf="showFourthTab" label="5">
+                        <div class="step_one padding_area">
+                          <h2>Step 5</h2>
+                          <h4>Custom Google Sheets Spreadsheet</h4>
+                          <p>Thank you for providing your menu item details!
+                            InstaMarkt will finish creating your menu in Google Sheets.
+                            We will schedule a time with you to review that all this information is correct.
+                            Click on the link below to view menu details!</p>
+                          <p>Vendors can make changes directly to their menu in Google Sheets by clicking on
+                            this shared link. Once ready, use the button below to update the menu.</p><br>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="step_five">
+                                <!-- <img src="../../assets/images/Layer-2@1X.png">
                                                         <img src="../../assets/images/Layer-3@1X.png"> -->
-                                                        <h4>Google Sheets Link (URL)</h4>
-                                                     <p><a (click)="googlesheetUrl(google_sheet_url)" style="cursor: pointer;color:rgb(67, 133, 238)" >{{google_sheet_url}} </a></p><br>
-                                                     </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                      <div class="sync_btn" style="position:relative; top:-23px;">
-                                                        <button mat-raised-button class="btn" (click)="uploadGoogleMenuSheet()">Sync to Google Sheets <img
-                                                          src="../../assets/images/google-sheets.png" style="width: 25px; margin: -2px 0 0 10px" alt="" > </button>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <!-- <div class="spreadsheet_detail">
+                                <h4>Google Sheets Link (URL)</h4>
+                                <p><a (click)="googlesheetUrl(google_sheet_url)"
+                                    style="cursor: pointer;color:rgb(67, 133, 238)">{{google_sheet_url}} </a></p><br>
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="sync_btn" style="position:relative; top:-23px;">
+                                <button mat-raised-button class="btn" (click)="uploadGoogleMenuSheet()">Sync to Google
+                                  Sheets <img src="../../assets/images/google-sheets.png"
+                                    style="width: 25px; margin: -2px 0 0 10px" alt=""> </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div class="spreadsheet_detail">
                                                   <h2>Google Spreadsheet Details</h2>
                                                   <p>1. Menu Item Name: Philly Steak Sandwich
                                                   </p>
@@ -351,15 +385,16 @@
                                                     Required Selection” bundle.
                                                   </p>
                                                 </div> -->
-                                                <h2 style="text-align: center;"><b>Spreadsheet Details</b></h2>
-                                                <div class="spreadsheet_detail" *ngFor="let item of googleSheet | keyvalue: returnZero; let i = index">
-                                                 <br><br>
-                                                    <p>1. Menu Item Name: {{item.value.menuItemName}}
-                                                    </p>
-                                                    <p>2. Menu Item Description: {{item.value.menuItemDescription}}</p>
-                                                    <p>3. Menu Item Price: {{item.value.menuItemPrice}}</p>
-                                                    <p>4. Image</p>
-                                                    <!-- <div class="row">
+                        <h2 style="text-align: center;"><b>Spreadsheet Details</b></h2>
+                        <div class="spreadsheet_detail"
+                          *ngFor="let item of googleSheet | keyvalue: returnZero; let i = index">
+                          <br><br>
+                          <p>1. Menu Item Name: {{item.value.menuItemName}}
+                          </p>
+                          <p>2. Menu Item Description: {{item.value.menuItemDescription}}</p>
+                          <p>3. Menu Item Price: {{item.value.menuItemPrice}}</p>
+                          <p>4. Image</p>
+                          <!-- <div class="row">
                                                       <div class="col-12 col-md-6 col-lg-4">
                                                         <img [src]="item.value.image" alt="">
                                                       </div>
@@ -368,20 +403,20 @@
                                                         <p>Vendors can use Google Drive or Dropbox to upload and share images.</p>
                                                       </div>
                                                     </div>           -->
-                                                    <p>5. Category:{{item.value.category}}</p>
-                                                    <!-- <p>6. Category Description: {{item.value.addOnMultiple}}</p> -->
-                                                    <p>6. Add-Ons: {{item.value.addOnMultiple}}</p>
-                                                    <p>7. Add-Ons Price: {{item.value.addOnPrice}}</p>
-                                                    <p>8. Required Category:  {{item.value.category}}</p>
-                                                    <p>9. Required Selections: {{item.value.optionSingle}} </p>
-                                                    <p>10. Required Price: {{item.value.optionSinglePrice}}</p>
-                                                    <p>11. Instructions: {{item.value.instructions}}
-                                                    </p>
-                                                    <br>
-                                                    <br>
-                                                    <br>
-                                                  </div>
-                                                <!-- <div class="spreadsheet_detail">
+                          <p>5. Category:{{item.value.category}}</p>
+                          <!-- <p>6. Category Description: {{item.value.addOnMultiple}}</p> -->
+                          <p>6. Add-Ons: {{item.value.addOnMultiple}}</p>
+                          <p>7. Add-Ons Price: {{item.value.addOnPrice}}</p>
+                          <p>8. Required Category: {{item.value.category}}</p>
+                          <p>9. Required Selections: {{item.value.optionSingle}} </p>
+                          <p>10. Required Price: {{item.value.optionSinglePrice}}</p>
+                          <p>11. Instructions: {{item.value.instructions}}
+                          </p>
+                          <br>
+                          <br>
+                          <br>
+                        </div>
+                        <!-- <div class="spreadsheet_detail">
                                                     <h2>Google Spreadsheet Details</h2>
                                                         <div *ngFor="let item of googleSheet | keyvalue:0; let i = index">
                                                        <p>{{i+1}} Menu Item Name: {{item.value.menuItemName}}</p>
@@ -397,178 +432,194 @@
                                                        <p>{{i+11}} Instructions: {{item.value.instructions}}</p>
                                                     </div>
                                                   </div> -->
-                                              </mat-tab>
-                                              <mat-tab  *ngIf="showFifthTab" label="6">
-                                                <div class="step_one padding_area">
-                                                  <h2>Manual Copy of Image URL's</h2>
-                                                  <h4>For those of you that are tech savvy, owners can copy the Image URL's from
-                                                    both Google Drive or Dropbox and paste them into the Google Sheets Spreadsheet.</h4>
-                                                  <div class="step_six">
-                                                    <div class="row">
-                                                      <div class="col-md-3">
-                                                        <div class="icon_card">
-                                                          <img src="../../assets/images/google-drive@1X.png" alt="  " class="drive">
-                                                          <p>Google Drive</p>
-                                                        </div>
-                                                      </div>
-                                                      <div class="col-md-9">
-                                                        <p>1. Login to Google Drive and upload all of your images first. Use folders for the Menu Categories
-                                                          (lunch, dinner, soups, etc.) if you wish. </p>
-                                                        <p>2. After the images have been uploaded, select each image and click the “Share Image” button.</p>
-                                                        <img src="../../assets/images/Layer-5@1X.png" alt="">
-                                                        <img src="../../assets/images/Layer-6@1X.png" alt="">
-                                                        <p>Copy the link (as shown above) and paste the URL into Google Sheets (the one we created for you).
-                                                          Example URL: https://drive.google.com/file/d/1UAsbJZb66kBcaETVBT7nClg0B5k0c7yr/view?usp=sharing</p>
-                                                        <p>1. Login to Dropbox and upload all of your images first. Use folders for the Menu Categories
-                                                          (lunch, dinner, soups, etc.) if you wish.
-                                        
-                                                          2. After the images have been uploaded, select each image, right click and share that image.
-                                                          Please copy the URL (share link) and after paste it into Google Sheets (the one we created for you).
-                                        
-                                                          3. Example URL:
-                                                          https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0
-                                                        </p>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                  <div class="step_six">
-                                                    <div class="row">
-                                                      <div class="col-md-3">
-                                                        <div class="icon_card">
-                                                          <img src="../../assets/images/dropbox@1X.png" alt="  " class="drive">
-                                                          <p>Dropbox</p>
-                                                        </div>
-                                                      </div>
-                                                      <div class="col-md-9">
-                                                        <p>1. Login to Dropbox and upload all of your images first. Use folders for the Menu Categories (lunch,
-                                                          dinner, soups, etc.) if you wish.</p>
-                                                        <p>2. After the images have been uploaded, select each image, right click and share that image.
-                                                          Please copy the URL (share link) and after paste it into Google Sheets (the one we created for you).
-                                                        </p>
-                                                        <p>3. Example URL:
-                                                          https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0</p>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </mat-tab>
-                                            </mat-tab-group>
-                                        
-                                          </div>
-                                        </section>
-                                  </div>
+                      </mat-tab>
+                      <mat-tab *ngIf="showFifthTab" label="6">
+                        <div class="step_one padding_area">
+                          <h2>Manual Copy of Image URL's</h2>
+                          <h4>For those of you that are tech savvy, owners can copy the Image URL's from
+                            both Google Drive or Dropbox and paste them into the Google Sheets Spreadsheet.</h4>
+                          <div class="step_six">
                             <div class="row">
-                                <div class="col-sm-4"></div>
-                            <div class="col-sm-4">
-                            </div>
-                            <div class="col-sm-4">
-                                <!-- <button class="btn btn-success btn-raised" (click)="setDriverManagers()" style="margin-right: 4%;float: right;">Save</button> -->
-                            </div>
-                          </div>
-                          </ng-template>
-                          <ng-template #content3 let-modal>
-                              <div class="modal-header">
-                                <h4 class="modal-title" id="modal-basic-title">Google Drive URL</h4>
-                                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                <form [formGroup]="managerForm" (ngSubmit)="onManagerSubmit()">
-                                  <div class="form-group">
-                                    <div class="form-group">
-                                      <div class="form-group row">
-                                        <label for="username" class="col-md-3 col-form-label">Email</label>
-                                        <div class="col-md-9">
-                                          <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                              <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
-                                            </div>
-                                            <input class="form-control" name="dp" type="text" formControlName="username">
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="submit" class="btn btn-outline-dark">Save</button>
-                                  </div>
-                                </form>
-                              </div>
-                              <!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog> -->
-                            </ng-template>
-                        </ngb-tab>
-                    <ngb-tab title="Menu Items" id="tb1">
-                      <ng-template ngbTabContent>
-                        <div class="card card-body">
-                        
-                          <!-- <div *ngIf="productList.length==0">
-                                  <h4>No Menu Items available!</h4>
-                          </div> -->
-                           <div *ngIf="processing" class="mt-5">
-                                  <h6>Menu Items Loading...! Please wait</h6>
-                          </div>
-                          <div class="row">
-                          <div class="col-lg-3 col-md-6" *ngFor="let item of productList">
-                              <div class="card" (click)="openProduct(item)">
-                                  <div class="el-card-item">
-                                      <div class="el-card-avatar el-overlay-1">
-                                          <img src={{item.image}} alt="user" class="productimg"/>
-                                          <div class="el-overlay">
-                                              <ul class="list-style-none el-info">
-                                                  <li class="el-item">
-                                                      <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                                          <i class="icon-link"></i>
-                                                      </a>
-                                                  </li>
-                                              </ul>
-                                          </div>
-                                      </div>
-                                      <div class="d-flex no-block align-items-center">
-                                          <div class="m-l-15">
-                                              <h4 class="m-b-0 fix-ht-h4">{{getTitle(item.name)}}</h4>
-                                              <span class="text-muted fix-ht-spn">{{getDescription(item.description)}}</span>
-                                          </div>
-                                          <div class="ml-auto m-r-15">
-                                              <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD' ? '$' : item.price[0].currency}} {{item.price[0].amount}}</button>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          </div>
-                        </div>
-                      </ng-template>
-                      <ng-template #contentGoogleDriveUrl let-modal>
-                        <div class="modal-header" style="background-color: #7460ee;">
-                          <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Google Drive URL</h4>
-                          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                            <ul *ngFor="let folder of drivefolders; let index = index" style="margin-bottom: 1.5rem;">
-                             <div *ngIf="checkGoogleDriveFlag === index">
-                                  <div *ngFor="let category of googleSheet;  let i = index">
-                                  <label *ngIf="category.category === folder.foldername">
-                                  - <a (click)="googlesheetUrl(category.image)" style="cursor: pointer;color:rgb(67, 133, 238)">{{category.image}}</a>  
-                                  </label>
+                              <div class="col-md-3">
+                                <div class="icon_card">
+                                  <img src="../../assets/images/google-drive@1X.png" alt="  " class="drive">
+                                  <p>Google Drive</p>
                                 </div>
                               </div>
-                            </ul>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cancel</button>
-                              </div>
-                        </div>
-                      </ng-template>
-                    </ngb-tab>
-                  </ngb-tabset> 
-                </div>
-          </div>
-      </div>
+                              <div class="col-md-9">
+                                <p>1. Login to Google Drive and upload all of your images first. Use folders for the
+                                  Menu Categories
+                                  (lunch, dinner, soups, etc.) if you wish. </p>
+                                <p>2. After the images have been uploaded, select each image and click the “Share Image”
+                                  button.</p>
+                                <img src="../../assets/images/Layer-5@1X.png" alt="">
+                                <img src="../../assets/images/Layer-6@1X.png" alt="">
+                                <p>Copy the link (as shown above) and paste the URL into Google Sheets (the one we
+                                  created for you).
+                                  Example URL:
+                                  https://drive.google.com/file/d/1UAsbJZb66kBcaETVBT7nClg0B5k0c7yr/view?usp=sharing</p>
+                                <p>1. Login to Dropbox and upload all of your images first. Use folders for the Menu
+                                  Categories
+                                  (lunch, dinner, soups, etc.) if you wish.
 
+                                  2. After the images have been uploaded, select each image, right click and share that
+                                  image.
+                                  Please copy the URL (share link) and after paste it into Google Sheets (the one we
+                                  created for you).
+
+                                  3. Example URL:
+                                  https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="step_six">
+                            <div class="row">
+                              <div class="col-md-3">
+                                <div class="icon_card">
+                                  <img src="../../assets/images/dropbox@1X.png" alt="  " class="drive">
+                                  <p>Dropbox</p>
+                                </div>
+                              </div>
+                              <div class="col-md-9">
+                                <p>1. Login to Dropbox and upload all of your images first. Use folders for the Menu
+                                  Categories (lunch,
+                                  dinner, soups, etc.) if you wish.</p>
+                                <p>2. After the images have been uploaded, select each image, right click and share that
+                                  image.
+                                  Please copy the URL (share link) and after paste it into Google Sheets (the one we
+                                  created for you).
+                                </p>
+                                <p>3. Example URL:
+                                  https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </mat-tab>
+                    </mat-tab-group>
+
+                  </div>
+                </section>
+              </div>
+              <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-4">
+                  <!-- <button class="btn btn-success btn-raised" (click)="setDriverManagers()" style="margin-right: 4%;float: right;">Save</button> -->
+                </div>
+              </div>
+            </ng-template>
+            <ng-template #content3 let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Google Drive URL</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"
+                  id="closeModal">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="managerForm" (ngSubmit)="onManagerSubmit()">
+                  <div class="form-group">
+                    <div class="form-group">
+                      <div class="form-group row">
+                        <label for="username" class="col-md-3 col-form-label">Email</label>
+                        <div class="col-md-9">
+                          <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                            </div>
+                            <input class="form-control" name="dp" type="text" formControlName="username">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-outline-dark">Save</button>
+                  </div>
+                </form>
+              </div>
+              <!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog> -->
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Menu Items" id="tb1">
+            <ng-template ngbTabContent>
+              <div class="card card-body">
+
+                <!-- <div *ngIf="productList.length==0">
+                                  <h4>No Menu Items available!</h4>
+                          </div> -->
+                <div *ngIf="processing" class="mt-5">
+                  <h6>Menu Items Loading...! Please wait</h6>
+                </div>
+                <div class="row">
+                  <div class="col-lg-3 col-md-6" *ngFor="let item of productList">
+                    <div class="card" (click)="openProduct(item)">
+                      <div class="el-card-item">
+                        <div class="el-card-avatar el-overlay-1">
+                          <img src={{item.image}} alt="user" class="productimg" />
+                          <div class="el-overlay">
+                            <ul class="list-style-none el-info">
+                              <li class="el-item">
+                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                  <i class="icon-link"></i>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="d-flex no-block align-items-center">
+                          <div class="m-l-15">
+                            <h4 class="m-b-0 fix-ht-h4">{{getTitle(item.name)}}</h4>
+                            <span class="text-muted fix-ht-spn">{{getDescription(item.description)}}</span>
+                          </div>
+                          <div class="ml-auto m-r-15">
+                            <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD' ? '$'
+                              : item.price[0].currency}} {{item.price[0].amount}}</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template #contentGoogleDriveUrl let-modal>
+              <div class="modal-header" style="background-color: #7460ee;">
+                <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Google Drive URL</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"
+                  id="closeModal">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <ul *ngFor="let folder of drivefolders; let index = index" style="margin-bottom: 1.5rem;">
+                  <div *ngIf="checkGoogleDriveFlag === index">
+                    <div *ngFor="let category of googleSheet;  let i = index">
+                      <label *ngIf="category.category === folder.foldername">
+                        - <a (click)="googlesheetUrl(category.image)"
+                          style="cursor: pointer;color:rgb(67, 133, 238)">{{category.image}}</a>
+                      </label>
+                    </div>
+                  </div>
+                </ul>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-outline-dark"
+                    (click)="modal.dismiss('Cross click')">Cancel</button>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
     </div>
-   
+  </div>
+
+</div>
+
 <!-- 
 <div class="col-lg-3 col-md-6" *ngFor="let item of productList">
   <div class="card" (click)="openProduct(item)">
