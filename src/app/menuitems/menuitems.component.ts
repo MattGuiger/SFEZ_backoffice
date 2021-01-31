@@ -204,6 +204,8 @@ export class MenuitemsComponent implements OnInit {
   }
 
   formData = new FormData();
+  file: any;
+  category_file: any;
   /**
    * 
    * @param event 
@@ -214,7 +216,8 @@ export class MenuitemsComponent implements OnInit {
     if (event.target.files.length > 0) {
       console.log(event.target.files[0])
       const file = event.target.files[0];
-      this.formData.append('file', file);
+      // this.formData.append('file', file);
+      this.file = file;
     }
   }
 
@@ -228,7 +231,8 @@ export class MenuitemsComponent implements OnInit {
     if (event.target.files.length > 0) {
       console.log(event.target.files[0])
       const file = event.target.files[0];
-      this.formData.append('category_file', file);
+      // this.formData.append('category_file', file);
+      this.category_file = file;
     }
   }
 
@@ -238,12 +242,20 @@ export class MenuitemsComponent implements OnInit {
    */
   submitSheetData(folderId, category) {
     let category_description = $('#category_description' + folderId).val().toString();
-    this.formData.append('folderId', folderId);
-    this.formData.append('email', this.googleEmail);
-    this.formData.append('category', category);
-    this.formData.append('category_description', category_description);
-    this.uploadImageToDrive(this.formData, folderId, category);
-    this.formData = new FormData();
+    let formData1 = new FormData();
+    // this.formData.append('folderId', folderId);
+    // this.formData.append('email', this.googleEmail);
+    // this.formData.append('category', category);
+    // this.formData.append('category_description', category_description);
+    formData1.append('file', this.file);
+    formData1.append('category_file', this.category_file);
+    formData1.append('folderId', folderId);
+    formData1.append('email', this.googleEmail);
+    formData1.append('category', category);
+    formData1.append('category_description', category_description);
+    console.log(this.formData);
+    this.uploadImageToDrive(formData1, folderId, category);
+    // this.formData = new FormData();
   }
 
 
