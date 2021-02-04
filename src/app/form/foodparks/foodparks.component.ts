@@ -34,7 +34,7 @@ export class FoodParkComponent implements OnInit {
   confirmCanceltext = "Cancel";
   confirmOkaytext = "Okay";
   minDaysValue = 10;
-  minDaysValuee=10
+  minDaysValuee = 10
   minDaysValue1 = 10;
   minDaysValue2 = 10;
   minDaysValue3 = 10;
@@ -114,20 +114,24 @@ export class FoodParkComponent implements OnInit {
     customer_order_window: new FormControl(event),
     // delivery_radius: new FormControl(event)
     delivery_radius: new FormControl(event),
-    territory_id:new FormControl()
+    territory_id: new FormControl()
   });
+
   foodParkForm = new FormGroup({
     delivery_time_window: new FormControl(event),
-    
+
   });
+
   emailManageForm = new FormGroup({
     email: new FormControl('', Validators.required)
-  })
+  });
+
   hubFoodParkForm = new FormGroup({
     state: new FormControl('', Validators.required),
     territory_id: new FormControl(),
     // type: new FormControl(' ', Validators.required),
     name: new FormControl('', Validators.required),
+    trip_fee: new FormControl(0, Validators.required),
     address: new FormControl()
   });
 
@@ -189,7 +193,7 @@ export class FoodParkComponent implements OnInit {
   arr: any[];
   arr1: any[];
   getTerritoryId: any;
-  state_id1:any
+  state_id1: any
   locationsList: any;
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService,
@@ -205,7 +209,7 @@ export class FoodParkComponent implements OnInit {
     this.l_country_id = localStorage.getItem('country_id')
     this.state_name = localStorage.getItem('state_name')
     this.user = this._CommonFunctionsService.checkUser().user;
-this.state_id1=this.user.state_id
+    this.state_id1 = this.user.state_id
     this.getAllState();
     this.getTerritory_id()
     this.territory_id()
@@ -243,8 +247,8 @@ this.state_id1=this.user.state_id
     //   this.loadingIndicator = false;
     // }, 1500);
     this.getSingleTerritory();
-    
-  
+
+
   }
 
   ngOnInit() {
@@ -261,76 +265,76 @@ this.state_id1=this.user.state_id
 
   //   return this.states.filter(option => option.toLowerCase().includes(filterValue));
   // }
-  managerList=[]
-  managerListFoodpark=[]
-  getFoodParkManager(){
+  managerList = []
+  managerListFoodpark = []
+  getFoodParkManager() {
     if (this.user.company_id) {
-    this._ProfileService.getFoodParkManagerByCompanyId(this.user.company_id).subscribe(res => {
-      if(res.status==200){
-        this.arr= res.data
-        console.log("this is food manager",res)
-        this.managerList.push(...this.arr)
-      }
-   
-    })
-  }
-  }
-  managerListUnitMgr=[]
-  getUnitManager(){
-    if (this.user.company_id) {
-    this._ProfileService.getUnitManagerByCompanyId(this.user.company_id).subscribe(res => {
-      if(res.status==200){
-        this.arr1= res.data
-        console.log("this is unit manager",this.arr1)
-        this.managerList.push(...this.arr1)
-        console.log("this is unit marnage",this.managerListUnitMgr)
-  
-        // this.managerList.push(...this.managerListFoodpark)
-        // this.managerList.push(...this.managerListUnitMgr)
+      this._ProfileService.getFoodParkManagerByCompanyId(this.user.company_id).subscribe(res => {
+        if (res.status == 200) {
+          this.arr = res.data
+          console.log("this is food manager", res)
+          this.managerList.push(...this.arr)
+        }
 
-      }
-
-      // this.managerList.filter((item,index)=>{
-      //   if (! this.managerList.in(item.id) == index) {
-      //     //    newArray.push(item)
-      //     this.managerList.splice(index, 1)
-      // }
-      // })
-
-    })
-  }
-  
-  }
-
- updateUnitData(id,isActive,type){
-
-console.log(id,isActive,type)
-  if(type=='delivery'){
-    this._ProfileService.updateUnitData(id,{delivery:!isActive}).subscribe(res=>{
-      if(res.status=200){
-    this.toastr.success('Unit updated successfully!')
-    this.getDeliveryHubAndLocationsInCompany()
-      }
-    })
-  }else if(type=='cash_on_delivery'){
-    this._ProfileService.updateUnitData(id,{cash_on_delivery:!isActive}).subscribe(res=>{
-      if(res.status=200){
-    this.toastr.success('Unit updated successfully!')
-    this.getDeliveryHubAndLocationsInCompany()
-
-      }
-    })
-
- }else if(type=='takeout'){
-  this._ProfileService.updateUnitData(id,{takeout:!isActive}).subscribe(res=>{
-    if(res.status=200){
-  this.toastr.success('Unit updated successfully!')
-  this.getDeliveryHubAndLocationsInCompany()
-
+      })
     }
-  })
-}
-}
+  }
+  managerListUnitMgr = []
+  getUnitManager() {
+    if (this.user.company_id) {
+      this._ProfileService.getUnitManagerByCompanyId(this.user.company_id).subscribe(res => {
+        if (res.status == 200) {
+          this.arr1 = res.data
+          console.log("this is unit manager", this.arr1)
+          this.managerList.push(...this.arr1)
+          console.log("this is unit marnage", this.managerListUnitMgr)
+
+          // this.managerList.push(...this.managerListFoodpark)
+          // this.managerList.push(...this.managerListUnitMgr)
+
+        }
+
+        // this.managerList.filter((item,index)=>{
+        //   if (! this.managerList.in(item.id) == index) {
+        //     //    newArray.push(item)
+        //     this.managerList.splice(index, 1)
+        // }
+        // })
+
+      })
+    }
+
+  }
+
+  updateUnitData(id, isActive, type) {
+
+    console.log(id, isActive, type)
+    if (type == 'delivery') {
+      this._ProfileService.updateUnitData(id, { delivery: !isActive }).subscribe(res => {
+        if (res.status = 200) {
+          this.toastr.success('Unit updated successfully!')
+          this.getDeliveryHubAndLocationsInCompany()
+        }
+      })
+    } else if (type == 'cash_on_delivery') {
+      this._ProfileService.updateUnitData(id, { cash_on_delivery: !isActive }).subscribe(res => {
+        if (res.status = 200) {
+          this.toastr.success('Unit updated successfully!')
+          this.getDeliveryHubAndLocationsInCompany()
+
+        }
+      })
+
+    } else if (type == 'takeout') {
+      this._ProfileService.updateUnitData(id, { takeout: !isActive }).subscribe(res => {
+        if (res.status = 200) {
+          this.toastr.success('Unit updated successfully!')
+          this.getDeliveryHubAndLocationsInCompany()
+
+        }
+      })
+    }
+  }
 
 
 
@@ -347,10 +351,10 @@ console.log(id,isActive,type)
     this._AuthService.territory_id(this.user.country, this.user.state, data).subscribe((res: any) => {
       this.getTerritoryId = res.data.id;
       console.log("territory_id" + this.getTerritoryId);
-      localStorage.setItem("territory_id",this.getTerritoryId)
+      localStorage.setItem("territory_id", this.getTerritoryId)
     })
   }
-  
+
   getDeliveryHubAndLocationsInCompany() {
     if (this.user.company_id) {
       this._ProfileService.getDeliveryHubandUnits(this.user.company_id).subscribe(res => {
@@ -785,7 +789,7 @@ console.log(id,isActive,type)
     })
   }
   selectHub(event, row, value) {
-    console.log('event',  event,'row', row,  'value',value)
+    console.log('event', event, 'row', row, 'value', value)
     this.setManager.push({ manager_id: event.target.value, hub_id: row.food_park_id });
 
   }
@@ -887,14 +891,14 @@ console.log(id,isActive,type)
         console.log("getAllStates l_country_id" + this.user.state_id)
         const d = this.states2.find(val => {
           // console.log(' val.name', val.id)
-         return val.id == this.user.state_id
+          return val.id == this.user.state_id
         })
         console.log('ddddddddddddddddddddd', d)
         this._ProfileService.getTerritory(d.id).subscribe((res: any) => {
           console.log(res);
 
           this.singleTerritory = res;
-          this.selectedTerritory=res.territory[0].id
+          this.selectedTerritory = res.territory[0].id
         })
       })
     } else {
@@ -906,7 +910,7 @@ console.log(id,isActive,type)
 
   }
   getAllFoodPark() {
-    this.selectArry=[]
+    this.selectArry = []
     // forkJoin([
     //   this._ProfileService.getAllFoodPark(),
     //   this._ProfileService.getAllUnitListData()
@@ -947,7 +951,7 @@ console.log(id,isActive,type)
 
 
 
-  
+
   foodParkSFormSaveData(data) {
     console.log("Ash" + data);
   }
@@ -994,24 +998,24 @@ console.log(id,isActive,type)
     }
   }
   onSubmitLocationForm() {
-    this.locationFoodParkForm.value.territory_id =this.locationFoodParkForm.value.territory_id?this.locationFoodParkForm.value.territory_id: this.territory_id1;
+    this.locationFoodParkForm.value.territory_id = this.locationFoodParkForm.value.territory_id ? this.locationFoodParkForm.value.territory_id : this.territory_id1;
     // this.locationFoodParkForm.value.country_id=this.l_country_id
     // this.locationFoodParkForm.value.state_id= this.locationFoodParkForm.value.state_id?this.locationFoodParkForm.value.state_id:this.l_state_id
 
     this.locationFoodParkForm.value.number = 1
     this._ProfileService.addUnit(this.locationFoodParkForm.value, this.user.company_id).subscribe((res: any) => {
-      if(res.status==200){
+      if (res.status == 200) {
         this.toastr.success('Unit Created successfully');
         // this.locations2 = res.data
         document.getElementById("closeModal").click();
         // this.getAllFoodPark();
         this.getlocationCompanyId()
         this.getlocationOnTerritoryId()
-        
-                this.getAllFoodPark()
+
+        this.getAllFoodPark()
 
       }
-     
+
     },
       error => {
         this.toastr.error(error.error.message);
@@ -1021,8 +1025,8 @@ console.log(id,isActive,type)
   onSubmit() {
     this.hubFoodParkForm.value.company_id = this.user.company_id;
     this.hubFoodParkForm.value.type = 'EVENT'
-    this.hubFoodParkForm.value.state = this.hubFoodParkForm.value.territory_id.state? this.hubFoodParkForm.value.territory_id.state:this.user.state
-    this.hubFoodParkForm.value.territory_id = this.hubFoodParkForm.value.territory_id.id?this.hubFoodParkForm.value.territory_id.id:this.territory_id1
+    this.hubFoodParkForm.value.state = this.hubFoodParkForm.value.territory_id.state ? this.hubFoodParkForm.value.territory_id.state : this.user.state
+    this.hubFoodParkForm.value.territory_id = this.hubFoodParkForm.value.territory_id.id ? this.hubFoodParkForm.value.territory_id.id : this.territory_id1
     console.log('this.hubFoodParkForm.value', this.hubFoodParkForm.value)
 
     this._ProfileService.addFoodPark(this.hubFoodParkForm.value).subscribe((res: any) => {
@@ -1111,11 +1115,11 @@ console.log(id,isActive,type)
             // console.log("heyss",this.arr)
           }
           this.showManager.filter((el, i) => {
-             console.log("i is: ",el)
+            console.log("i is: ", el)
             if (el.role == 'FOODPARKMGR') {
-              
+
               this.foodmarkmgr.push(el)
-              console.log("start",this.foodmarkmgr)
+              console.log("start", this.foodmarkmgr)
             }
           })
           this.showManager.filter((el, i) => {
@@ -1124,10 +1128,10 @@ console.log(id,isActive,type)
             }
           })
           // this.arr = this.foodmarkmgr
-          console.log("heya package manager",this.foodmarkmgr)
+          console.log("heya package manager", this.foodmarkmgr)
           console.log('this.showManagerthis.showManager', this.showManager,
-          'food market', this.foodmarkmgr,
-          "unit mgr", this.unitmgr)
+            'food market', this.foodmarkmgr,
+            "unit mgr", this.unitmgr)
         } else {
           this.toastr.error(res.message)
         }
@@ -1205,7 +1209,7 @@ console.log(id,isActive,type)
     this.managerForm.reset();
   }
   selectLocationOrHub(event) {
-    
+
     let data = event.target.value;
     const strData = data.split(",");
     console.log(strData);
@@ -1277,33 +1281,33 @@ console.log(id,isActive,type)
     });
   }
 
-  customer_order_window:any
-  delivery_radius:any
-  standard_delivery:any
-  long_delivery:any
+  customer_order_window: any
+  delivery_radius: any
+  standard_delivery: any
+  long_delivery: any
   openEditLocations(content4, row) {
     console.log("selectedLocationRecord", row);
     this.selectedLocationRecord = row;
-    if(!row.customer_order_window)
-    this.customer_order_window=20
+    if (!row.customer_order_window)
+      this.customer_order_window = 20
     else
-    this.customer_order_window=row.customer_order_window
+      this.customer_order_window = row.customer_order_window
 
-    if(!row.delivery_radius)
-    this.delivery_radius=15
+    if (!row.delivery_radius)
+      this.delivery_radius = 15
     else
-    this.delivery_radius=row.delivery_radius
-      
+      this.delivery_radius = row.delivery_radius
 
-    if(!row.long_delivery_charge)
-    this.long_delivery=7
-    else
-    this.long_delivery=row.long_delivery_charge
 
-    if(!row.standard_delivery_charge)
-    this.standard_delivery=3
+    if (!row.long_delivery_charge)
+      this.long_delivery = 7
     else
-    this.standard_delivery=row.standard_delivery_charge
+      this.long_delivery = row.long_delivery_charge
+
+    if (!row.standard_delivery_charge)
+      this.standard_delivery = 3
+    else
+      this.standard_delivery = row.standard_delivery_charge
 
     this.modalService.open(content4, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -1314,10 +1318,10 @@ console.log(id,isActive,type)
   openEditDeilveryHub(content4, row) {
     console.log(row)
     this.selectedHubRecord = row;
-    if(row.delivery_time_window != "")
-    this.minDaysValue=parseInt(row.delivery_time_window)
+    if (row.delivery_time_window != "")
+      this.minDaysValue = parseInt(row.delivery_time_window)
     else
-    this.minDaysValue=15
+      this.minDaysValue = 15
     this.modalService.open(content4, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -1397,14 +1401,14 @@ console.log(id,isActive,type)
     });
   }
   onDeliveryHubSubmit() {
-    this.foodParkForm.value.delivery_time_window=this.minDaysValue
+    this.foodParkForm.value.delivery_time_window = this.minDaysValue
     this.foodParkForm.value.state = this.state_id1;
     this.foodParkForm.value.territory_id = this.territory_id1;
     this.foodParkForm.value.type = 'EVENT';
-    console.log('this.minDaysValue',this.minDaysValue)
+    console.log('this.minDaysValue', this.minDaysValue)
 
     console.log(' this.foodParkForm.value', this.foodParkForm.value)
-    
+
     this._ProfileService.getEditHub(this.selectedHubRecord.food_park_id, this.foodParkForm.value).subscribe(res => {
       // this.modalService.dismissAll()
       if (res.status == 200) {
@@ -1430,24 +1434,24 @@ console.log(id,isActive,type)
    */
   onLocationEditSubmit() {
     console.log(' this.selectedLocationRecord.unit_id', this.selectedLocationRecord.unit_id)
-this.onLocationEditForm.value.customer_order_window= this.customer_order_window
-this.onLocationEditForm.value.delivery_radius= this.delivery_radius
-this.onLocationEditForm.value.standard_delivery_charge= this.standard_delivery
-this.onLocationEditForm.value.long_delivery_charge= this.long_delivery
-console.log('this.onLocationEditForm.value',this.onLocationEditForm.value)
+    this.onLocationEditForm.value.customer_order_window = this.customer_order_window
+    this.onLocationEditForm.value.delivery_radius = this.delivery_radius
+    this.onLocationEditForm.value.standard_delivery_charge = this.standard_delivery
+    this.onLocationEditForm.value.long_delivery_charge = this.long_delivery
+    console.log('this.onLocationEditForm.value', this.onLocationEditForm.value)
 
 
     this._ProfileService.getEditUnits(this.user.company_id, this.selectedLocationRecord.unit_id, this.onLocationEditForm.value).subscribe(res => {
       // this.modalService.dismissAll()
-      if(res){
-      console.log('Edit ', res)
-      // this.deliveryHubUnits = res.data
-      this.toastr.success("Location Edited Successfully")
-      this.modalService.dismissAll()
-      this.getlocationCompanyId()
-      }else{
-      this.toastr.error(res.error)
-      this.modalService.dismissAll()
+      if (res) {
+        console.log('Edit ', res)
+        // this.deliveryHubUnits = res.data
+        this.toastr.success("Location Edited Successfully")
+        this.modalService.dismissAll()
+        this.getlocationCompanyId()
+      } else {
+        this.toastr.error(res.error)
+        this.modalService.dismissAll()
       }
     })
   }

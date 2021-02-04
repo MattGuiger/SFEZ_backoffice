@@ -55,19 +55,19 @@
                   </ngx-datatable-column>
 
                   <ngx-datatable-column name="Hub Master" [width]="150">
-                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-rowIndex="rowIndex" >
-                      <select class="form-control" (change)="selectHub($event,row,value)" [(ngModel)]="row.foodpark_mgr_id" >
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-rowIndex="rowIndex">
+                      <select class="form-control" (change)="selectHub($event,row,value)"
+                        [(ngModel)]="row.foodpark_mgr_id">
                         <option *ngIf="!row.foodpark_mgr_id" value="">Assign Master</option>
-                        
-                       <option *ngFor="let manager of arr" [value]="manager.user_id"
-                          >
-                          {{manager.first_name}}...</option> 
+
+                        <option *ngFor="let manager of arr" [value]="manager.user_id">
+                          {{manager.first_name}}...</option>
                       </select>
-                      
-                        <!-- <div *ngFor="let ma of foodmarkmgr">
+
+                      <!-- <div *ngFor="let ma of foodmarkmgr">
                           <div *ngIf="ma.foodparkid==row.food_park_id">{{ma.first_name}}</div>
                         </div> -->
-                     
+
                       <!-- <select class="form-control" (change)="selectHub($event,row,value)"   >
                         <option *ngIf="!row.foodpark_mgr_id"value="">Assign Master</option>
                        <option *ngIf="foodmarkmgr[rowIndex]"  value="rowIndex" >
@@ -98,9 +98,9 @@
               </div>
               <div *ngFor="let hubunit of deliveryHubUnits">
                 <div class="card-body">
-                    <p class="text-center" style="font-weight: 500;">{{hubunit?.data[0]?.name}}</p>
-        
-        
+                  <p class="text-center" style="font-weight: 500;">{{hubunit?.data[0]?.name}}</p>
+
+
                   <!-- {{hubunit.data[0].unit_id}} -->
                   <div *ngIf="hubunit.data[0].unit_id!=null">
                     <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'"
@@ -123,7 +123,8 @@
                         <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                           <div>
                             <label class="switch">
-                              <input type="checkbox" [checked]=row.delivery  (click)="updateUnitData(row.unit_id,row.delivery,'delivery')">
+                              <input type="checkbox" [checked]=row.delivery
+                                (click)="updateUnitData(row.unit_id,row.delivery,'delivery')">
                               <span class="slider round"></span>
                             </label>
                           </div>
@@ -138,7 +139,8 @@
   -->
                           <div>
                             <label class="switch">
-                              <input type="checkbox" [checked]=row.cash_on_delivery (click)="updateUnitData(row.unit_id,row.cash_on_delivery,'cash_on_delivery')">
+                              <input type="checkbox" [checked]=row.cash_on_delivery
+                                (click)="updateUnitData(row.unit_id,row.cash_on_delivery,'cash_on_delivery')">
                               <span class="slider round"></span>
                             </label>
                           </div>
@@ -152,7 +154,8 @@
                         <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                           <div class="">
                             <label class="switch">
-                              <input type="checkbox" [checked]=row.takeout  (click)="updateUnitData(row.unit_id,row.takeout,'takeout')" >
+                              <input type="checkbox" [checked]=row.takeout
+                                (click)="updateUnitData(row.unit_id,row.takeout,'takeout')">
                               <span class="slider round"></span>
                             </label>
                           </div>
@@ -183,7 +186,7 @@
 
                     <ngx-datatable-column name="Manager" [width]="150">
                       <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                        {{row?.hub_member}} 
+                        {{row?.hub_member}}
                       </ng-template>
                     </ngx-datatable-column>
                     <!-- <ngx-datatable-column name="Active" [width]="150">
@@ -201,7 +204,6 @@
                       </ng-template> -->
                       <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                         <button type="button" class="btn btn-success btn-sm"
-                          
                           (click)="addVendor(hubunit.food_park_id,row.unit_id)">Add Vendor</button>
                       </ng-template>
                     </ngx-datatable-column>
@@ -282,13 +284,13 @@
                   </ngx-datatable-column>
                   <ngx-datatable-column name="Manager" prop="Manager" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <select class="form-control" (change)="selectLocation($event,row,value)" [(ngModel)]="row.unit_mgr_id">
+                      <select class="form-control" (change)="selectLocation($event,row,value)"
+                        [(ngModel)]="row.unit_mgr_id">
                         <option value="">Assign Manager</option>
                         <!-- <option *ngFor="let manager of unitmgr " value="{{manager.user_id}}"
                           [selected]="manager.unitid==row.unit_id">{{manager.first_name}}
                         </option> -->
-                        <option *ngFor="let manager of arr1 " [value]="manager.user_id"
-                          >{{manager.first_name}}
+                        <option *ngFor="let manager of arr1 " [value]="manager.user_id">{{manager.first_name}}
                         </option>
 
                       </select>
@@ -361,7 +363,7 @@
                       </ngx-datatable-column> -->
 
                     <ngx-datatable-column name="Location" [width]="150">
-                      <ng-template let-row="row" ngx-datatable-cell-template >
+                      <ng-template let-row="row" ngx-datatable-cell-template>
                         <ngx-container *ngIf="row.unitid">
                           {{row?.unit_name}}
                         </ngx-container>
@@ -372,7 +374,7 @@
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Territory" [width]="150">
-                      <ng-template let-row="row" ngx-datatable-cell-template >
+                      <ng-template let-row="row" ngx-datatable-cell-template>
                         {{row?.territory}}
                       </ng-template>
                     </ngx-datatable-column>
@@ -386,17 +388,17 @@
                         <ng-template #managerrole>
                           Hub Manager
                         </ng-template> -->
-                                        
+
                         <!--  -->
                         <span *ngIf="row.role == 'FOODPARKMGR'; else managerrole">
-                           Hub Master
-                          
+                          Hub Master
+
                         </span>
-                          <ng-template #managerrole>
-                            <span>Hub Member</span>
-                            
-                          </ng-template>
-                        
+                        <ng-template #managerrole>
+                          <span>Hub Member</span>
+
+                        </ng-template>
+
                       </ng-template>
                     </ngx-datatable-column>
 
@@ -437,11 +439,11 @@
           <ngb-tab title="Drivers">
             <ng-template ngbTabContent>
               <div *ngFor="let item of driverDataByTeritory">
-                 <div *ngFor="let foodParkData of item.data ; let i = index">
-              <div class="card-body">
-                <!-- <h4 class="card-title">Filter Option</h4> -->
-                <!-- <h5 class="card-subtitle">This is the filerable Data table</h5> -->
-                <!-- <form class="m-b-30">
+                <div *ngFor="let foodParkData of item.data ; let i = index">
+                  <div class="card-body">
+                    <!-- <h4 class="card-title">Filter Option</h4> -->
+                    <!-- <h5 class="card-subtitle">This is the filerable Data table</h5> -->
+                    <!-- <form class="m-b-30">
                   <div class="row">
                     <div class="col-sm-4">
                       <select class="form-control" (change)="changeselectHub($event)">
@@ -459,15 +461,15 @@
                     </div>
                   </div>
                 </form> -->
-                <!-- <p class="text-center" style="font-weight: 500;">Territory: Central Oregon</p> -->
-                <p class="text-center" style="font-weight: 500;">{{foodParkData.data[0].name}}</p>
-                <table class="table" style="text-align: center;">
+                    <!-- <p class="text-center" style="font-weight: 500;">Territory: Central Oregon</p> -->
+                    <p class="text-center" style="font-weight: 500;">{{foodParkData.data[0].name}}</p>
+                    <table class="table" style="text-align: center;">
                       <thead>
                         <tr>
-                          <th >Sl no</th>
-                          <th >Name</th>
-                          <th >Phone</th>
-                          <th >Active</th>
+                          <th>Sl no</th>
+                          <th>Name</th>
+                          <th>Phone</th>
+                          <th>Active</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -476,15 +478,16 @@
                           <td *ngIf="itemDriver.driver_id">{{i+1}}</td>
                           <td *ngIf="itemDriver.driver_id">{{itemDriver?.first_name}} {{itemDriver?.last_name}}</td>
                           <td *ngIf="itemDriver.driver_id">{{itemDriver?.phone}}</td>
-                          <td *ngIf="itemDriver.driver_id"><button type="button" class="btn btn-danger btn-sm" (click)=removeDriver(itemDriver.driver_id,foodParkData.food_park_id)>Remove
-                           Driver</button></td>
-                         <!-- </div> -->
-                       </tr>
+                          <td *ngIf="itemDriver.driver_id"><button type="button" class="btn btn-danger btn-sm"
+                              (click)=removeDriver(itemDriver.driver_id,foodParkData.food_park_id)>Remove
+                              Driver</button></td>
+                          <!-- </div> -->
+                        </tr>
                       </tbody>
                     </table>
-               <!--  <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
+                    <!--  <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
                   [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='foodParkData.data'> -->
-                  <!-- <ngx-datatable-column name="First Name" prop="first_name" [width]="150"></ngx-datatable-column>
+                    <!-- <ngx-datatable-column name="First Name" prop="first_name" [width]="150"></ngx-datatable-column>
                   <ngx-datatable-column name="Last Name" prop="last_name" [width]="150"></ngx-datatable-column>
                   <ngx-datatable-column name="UserName" prop="username" [width]="150"></ngx-datatable-column>
                   <ngx-datatable-column name="Phone" prop="phone" [width]="150"></ngx-datatable-column>
@@ -503,7 +506,7 @@
                     </ng-template>
 
                   </ngx-datatable-column>-->
-                  <!-- <div *ngIf="row.driver_id">
+                    <!-- <div *ngIf="row.driver_id">
                   <ngx-datatable-column name="Name" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                       {{row?.first_name}} {{row?.last_name}}
@@ -524,37 +527,38 @@
                   </ngx-datatable-column>
                 </ngx-datatable> -->
 
-                <p class="text-center mt-4" style="font-weight: 500;">Registered Drivers</p>
-                <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
-                  [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='registerDriver'>
+                    <p class="text-center mt-4" style="font-weight: 500;">Registered Drivers</p>
+                    <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'"
+                      [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='registerDriver'>
 
-                  <ngx-datatable-column name="Name" [width]="150">
-                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      {{row.first_name}}
-                    </ng-template>
-                  </ngx-datatable-column>
+                      <ngx-datatable-column name="Name" [width]="150">
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                          {{row.first_name}}
+                        </ng-template>
+                      </ngx-datatable-column>
 
-                  <ngx-datatable-column name="Phone" [width]="150">
-                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      {{row.phone}}
-                    </ng-template>
-                  </ngx-datatable-column>
+                      <ngx-datatable-column name="Phone" [width]="150">
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                          {{row.phone}}
+                        </ng-template>
+                      </ngx-datatable-column>
 
-                  <ngx-datatable-column name="Active" [width]="150">
-                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <button type="button" class="btn btn-success btn-sm" (click)=addFoodParkDriver(row.driver_id,foodParkData.food_park_id)>Add Driver</button>
-                    </ng-template>
-                  </ngx-datatable-column>
+                      <ngx-datatable-column name="Active" [width]="150">
+                        <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                          <button type="button" class="btn btn-success btn-sm"
+                            (click)=addFoodParkDriver(row.driver_id,foodParkData.food_park_id)>Add Driver</button>
+                        </ng-template>
+                      </ngx-datatable-column>
 
-                </ngx-datatable>
-               </div>
+                    </ngx-datatable>
+                  </div>
+                </div>
               </div>
-            </div>
 
               <!-- <div class="card-body">
                  <h4 class="card-title">Filter Option</h4> -->
-                <!-- <h5 class="card-subtitle">This is the filerable Data table</h5> -->
-                <!-- <form class="m-b-30">
+              <!-- <h5 class="card-subtitle">This is the filerable Data table</h5> -->
+              <!-- <form class="m-b-30">
                   <div class="row">
                     <div class="col-sm-4">
                       <select class="form-control" (change)="changeselectHub($event)">
@@ -572,8 +576,8 @@
                     </div>
                   </div>
                 </form> -->
-                <!-- <p class="text-center" style="font-weight: 500;">Territory: Central Oregon</p> -->
-             <!--    <p class="text-center" style="font-weight: 500;">Hub #2  </p>
+              <!-- <p class="text-center" style="font-weight: 500;">Territory: Central Oregon</p> -->
+              <!--    <p class="text-center" style="font-weight: 500;">Hub #2  </p>
                 <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
                   [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='driverData'>
                    <ngx-datatable-column name="First Name" prop="first_name" [width]="150"></ngx-datatable-column>
@@ -588,7 +592,7 @@
                       </select>
                     </ng-template>
                   </ngx-datatable-column> -->
-                  <!--  <ngx-datatable-column>
+              <!--  <ngx-datatable-column>
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                       <input class="btn btn-success btn-raised" type="button" value="View" (click)="onCheckboxChangeFn($event,row)">&nbsp;&nbsp;
                       <input class="btn btn-danger btn-raised" type="button" value="Delete" (click)="onCheckboxChangeFn($event,row)"> 
@@ -708,6 +712,10 @@
         <div class="input-group">
           <input id="name" class="form-control" name="dp" type="text" formControlName="name">
         </div>
+        <label for="trip_fee">Trip Fee</label>
+        <div class="input-group">
+          <input id="trip_fee" class="form-control" name="trip_fee" type="text" formControlName="trip_fee">
+        </div>
         <!-- <label for="type">Type</label>
         <div class="input-group">
           <select formControlName="type" class="form-control">
@@ -717,7 +725,8 @@
         </div> -->
         <label for="stateid">State</label>
         <div class="input-group">
-          <select  name=state_name class="form-control" [(ngModel)]="state_id1" (change)="getTerritory($event)" [ngModelOptions]="{standalone: true}">
+          <select name=state_name class="form-control" [(ngModel)]="state_id1" (change)="getTerritory($event)"
+            [ngModelOptions]="{standalone: true}">
             <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
           </select>
         </div>
@@ -753,7 +762,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-dark" >Create Hub</button>
+        <button type="submit" class="btn btn-outline-dark">Create Hub</button>
       </div>
     </form>
   </div>
@@ -789,7 +798,7 @@
           </select>
         </div>
 
-        
+
         <!-- <label for="country">Country</label>
         <div class="input-group">
           <select formControlName="country_id" class="form-control" (change)="getState($event)">
@@ -799,7 +808,8 @@
 
         <label for="state">State</label>
         <div class="input-group">
-          <select  class="form-control"  [(ngModel)]="state_id1" (change)="getTerritory($event)"  [ngModelOptions]="{standalone: true}">
+          <select class="form-control" [(ngModel)]="state_id1" (change)="getTerritory($event)"
+            [ngModelOptions]="{standalone: true}">
             <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
           </select>
         </div>
@@ -837,7 +847,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-dark" >Save</button>
+        <button type="submit" class="btn btn-outline-dark">Save</button>
       </div>
     </form>
   </div>
@@ -1011,8 +1021,9 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                 </div>
-             
-                <select class="form-control"  (change)="getTerritory($event)" [(ngModel)]="state_id1" [ngModelOptions]="{standalone: true}">
+
+                <select class="form-control" (change)="getTerritory($event)" [(ngModel)]="state_id1"
+                  [ngModelOptions]="{standalone: true}">
                   <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
                 </select>
               </div>
@@ -1027,14 +1038,14 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fa fa-city" aria-hidden="true"></i></div>
                 </div>
-              <select formControlName="territory_id" [(ngModel)]="territory_id1" class="form-control"
-                (change)="getLatLong($event)">
-                <option *ngFor="let item of singleTerritory.territory" [ngValue]="item.id">{{item.city}}</option>
-              </select>
+                <select formControlName="territory_id" [(ngModel)]="territory_id1" class="form-control"
+                  (change)="getLatLong($event)">
+                  <option *ngFor="let item of singleTerritory.territory" [ngValue]="item.id">{{item.city}}</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
-      </div>
         <!-- <label for="name">Last Name</label>
         <div class="input-group">
           <input id="name" class="form-control" name="dp" type="text" formControlName="last_name">
@@ -1092,10 +1103,10 @@
           [displayWith]="formatLabel" tickInterval="15" class="cdk-focused" (input)="minDaysValue = $event.value"
           [value]="minDaysValue">
         </mat-slider> -->
-        <mat-slider thumbLabel min="0" max="25" step="5" [(ngModel)]="minDaysValue" [ngModelOptions]="{standalone: true}"
-        [displayWith]="formatLabel" tickInterval="15" class="cdk-focused" (input)="minDaysValue = $event.value"
-        [value]="minDaysValue">
-      </mat-slider>
+        <mat-slider thumbLabel min="0" max="25" step="5" [(ngModel)]="minDaysValue"
+          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="15" class="cdk-focused"
+          (input)="minDaysValue = $event.value" [value]="minDaysValue">
+        </mat-slider>
         <!-- <label for="type">Type</label>
         <div class="input-group">
           <select formControlName="type" class="form-control">
@@ -1108,20 +1119,20 @@
         <label for="stateid">State</label>
         <div class="input-group">
           <!-- <select class="form-control" (change)="getTerritoryForEdit($event)" [(ngModel)]="state_id1"> -->
-            <!-- <option value="selectedHubRecord.type" selected >{{selectedHubRecord.type }}</option>
+          <!-- <option value="selectedHubRecord.type" selected >{{selectedHubRecord.type }}</option>
             <option *ngFor="let item of states2" [value]="item.id"
               >{{item.name}}</option> -->
-              <select  name=state_name class="form-control" [(ngModel)]="state_id1" (change)="getTerritory($event)" [ngModelOptions]="{standalone: true}">
-                <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
-              </select>
+          <select name=state_name class="form-control" [(ngModel)]="state_id1" (change)="getTerritory($event)"
+            [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
+          </select>
           <!-- </select> -->
         </div>
         <label for="territoryid">Territory</label>
 
         <div class="input-group">
           <select [(ngModel)]="territory_id1" class="form-control" [ngModelOptions]="{standalone: true}">
-            <option *ngFor="let item of singleTerritory.territory"
-            [value]="item.id">{{item.city}}</option>
+            <option *ngFor="let item of singleTerritory.territory" [value]="item.id">{{item.city}}</option>
           </select>
         </div>
       </div>
@@ -1149,10 +1160,10 @@
           [displayWith]="formatLabel" tickInterval="15" class="cdk-focused" (input)="minDaysValuse = $event.value"
           [value]="minDaysValuse">
         </mat-slider> -->
-        <mat-slider thumbLabel min="0" max="15" step="5" [(ngModel)]="customer_order_window" [ngModelOptions]="{standalone: true}"
-        [displayWith]="formatLabel" tickInterval="15" class="cdk-focused" (input)="minDaysValue = $event.value"
-        [value]="minDaysValue">
-      </mat-slider>
+        <mat-slider thumbLabel min="0" max="15" step="5" [(ngModel)]="customer_order_window"
+          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="15" class="cdk-focused"
+          (input)="minDaysValue = $event.value" [value]="minDaysValue">
+        </mat-slider>
         <label for="delivery_radius" style="display: block;"> Delivery Range(mi)</label>
         <!-- <mat-slider thumbLabel formControlName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel" tickInterval="10" class="cdk-focused"
             (input)="minDaysValue = $event.value" [value]="minDaysValuse">
@@ -1160,31 +1171,32 @@
         <!-- <mat-slider thumbLabel formcontrolName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel"
           tickInterval="5" class="cdk-focused" (input)="minDaysValue1 = $event.value" [value]="minDaysValue1">
         </mat-slider> -->
-        <mat-slider thumbLabel min="0" max="15" step="5" [(ngModel)]="delivery_radius" [ngModelOptions]="{standalone: true}"
-        [displayWith]="formatLabel" tickInterval="15" class="cdk-focused" (input)="minDaysValuee = $event.value"
-        [value]="minDaysValuee">
-      </mat-slider>
+        <mat-slider thumbLabel min="0" max="15" step="5" [(ngModel)]="delivery_radius"
+          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="15" class="cdk-focused"
+          (input)="minDaysValuee = $event.value" [value]="minDaysValuee">
+        </mat-slider>
         <label for="standard_delivery" style="display: block;">Standard Delivery Charge($0-5 km/mi) </label>
-        <mat-slider thumbLabel min="0" max="5" step="1" [(ngModel)]="standard_delivery" [ngModelOptions]="{standalone: true}"
-         (input)="minDaysValue2 = $event.value" [displayWith]="formatLabel" tickInterval="5" class="cdk-focused"
-        [value]="minDaysValue2">
+        <mat-slider thumbLabel min="0" max="5" step="1" [(ngModel)]="standard_delivery"
+          [ngModelOptions]="{standalone: true}" (input)="minDaysValue2 = $event.value" [displayWith]="formatLabel"
+          tickInterval="5" class="cdk-focused" [value]="minDaysValue2">
         </mat-slider>
         <label for="long_delivery" style="display: block;">Long Delivery Charge($5-10 km/mi) </label>
-        <mat-slider thumbLabel min="5" max="10" step="1" [(ngModel)]="long_delivery" [ngModelOptions]="{standalone: true}"
-        (input)="minDaysValue3 = $event.value" [displayWith]="formatLabel" tickInterval="10"
-          class="cdk-focused" [value]="minDaysValue3">
+        <mat-slider thumbLabel min="5" max="10" step="1" [(ngModel)]="long_delivery"
+          [ngModelOptions]="{standalone: true}" (input)="minDaysValue3 = $event.value" [displayWith]="formatLabel"
+          tickInterval="10" class="cdk-focused" [value]="minDaysValue3">
         </mat-slider>
         <!-- </mat-slider> -->
         <!-- <label for="name" style="display: block;">Custom</label>
           <mat-slider thumbLabel [displayWith]="formatLabel3" min="0" max="15"></mat-slider> -->
         <label for="stateid">State</label>
         <div class="input-group">
-            <!-- <option *ngFor="let item of states2" value="{{item.id}}">{{item.name}}</option>
+          <!-- <option *ngFor="let item of states2" value="{{item.id}}">{{item.name}}</option>
             <option *ngFor="let item of states2" value="{{item.id}}" >
               {{item.name}}</option> -->
-              <select  name=state_name class="form-control" [(ngModel)]="state_id1" (change)="getTerritory($event)" [ngModelOptions]="{standalone: true}">
-                <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
-              </select>
+          <select name=state_name class="form-control" [(ngModel)]="state_id1" (change)="getTerritory($event)"
+            [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
+          </select>
         </div>
         <label for="territoryid">Territory</label>
         <div class="input-group">
