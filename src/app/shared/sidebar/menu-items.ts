@@ -53,7 +53,7 @@ export const ADMINROUTE: RouteInfo[] = [
     {
         path: '/forms/territory',
         title: 'Territory',
-        icon: ' icon-Globe',
+        icon: '/assets/images/driver.png',
         class: '',
         extralink: false,
         submenu: [
@@ -62,7 +62,7 @@ export const ADMINROUTE: RouteInfo[] = [
     {
         path: '/forms/foodparks',
         title: 'Hub | Driver Mgmt',
-        icon: 'icon-Motorcycle',
+        icon: '/assets/images/driver.png',
         class: '',
         extralink: false,
         submenu: [
@@ -71,7 +71,7 @@ export const ADMINROUTE: RouteInfo[] = [
     {
         path: '/forms/company',
         title: 'Company',
-        icon: 'icon-Home-5',
+        icon: '/assets/images/driver.png',
         class: '',
         extralink: false,
         submenu: [
