@@ -298,9 +298,34 @@ export class MenuitemsComponent implements OnInit {
     // this.toastr.success('Upload successfull to drive');
     this.getAllGoogleSheetDetails()
   }
+  categoryList: any[] = [];
+  selectedCategoryList: any[] = [];
+  getMenuItem(category) {
+    let index = this.selectedCategoryList.indexOf(category.id);
+    if (index != -1) {
+      this.selectedCategoryList.splice(index, 1);
+    } else {
+      this.selectedCategoryList.push(category.id);
+    }
+    this.productList.forEach(item => {
+      if (this.selectedCategoryList.indexOf(item.category) == -1) {
+        item.active = true;
+      } else {
+        item.active = false;
+      }
+    })
+  }
   getAllProductList() {
     this.processing = true;
     this.user = this._CommonFunctionsService.checkUser().user;
+    if (this.user.company_id) {
+      this._ProfileService.getCategory(this.user.company_id).subscribe((res: any) => {
+        this.categoryList = res.data;
+        this.categoryList.forEach((item) => {
+          this.selectedCategoryList.push(item.id);
+        })
+      });
+    }
     if (this.user.unit_id) {
       this._ProfileService.getAllProductList(this.user.unit_id).subscribe((res: any) => {
         this.productList = res.data;

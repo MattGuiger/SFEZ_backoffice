@@ -12,6 +12,109 @@
           google spreadsheet.</h6>
 
         <ngb-tabset (tabChange)="getProductList($event)" #t="ngbTabset">
+          <ngb-tab title="Menu Items" id="tb1">
+            <ng-template ngbTabContent>
+              <div class="card card-body">
+                <!-- <div *ngIf="productList.length==0">
+                                  <h4>No Menu Items available!</h4>
+                          </div> -->
+                <div *ngIf="processing" class="mt-5">
+                  <h6>Menu Items Loading...! Please wait</h6>
+                </div>
+                <div class="row">
+                  <div class="col-lg-3 col-md-6" *ngFor="let item of categoryList">
+                    <div class="card" (click)="getMenuItem(item)">
+                      <div class="el-card-item"
+                        [ngClass]="{'border border-primary': selectedCategoryList.indexOf(item.id) != -1}">
+                        <div class="el-card-avatar el-overlay-1">
+                          <img src={{item.image}} alt="user" class="productimg" />
+                          <div class="el-overlay">
+                            <ul class="list-style-none el-info">
+                              <li class="el-item">
+                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                  <i class="sl-icon-link"></i>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="d-flex no-block align-items-center">
+                          <div class="m-l-15">
+                            <h4 class="m-b-0 fix-ht-h4">{{getTitle(item.name)}}</h4>
+                            <span class="text-muted fix-ht-spn">{{getDescription(item.description)}}</span>
+                          </div>
+                          <!-- <div class="ml-auto m-r-15">
+                            <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD' ? '$'
+                              : item.price[0].currency}} {{item.price[0].amount}}</button>
+                          </div> -->
+                          <!-- </div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <ng-container *ngFor="let item of productList">
+                    <div class="col-lg-3 col-md-6" [hidden]="item.active">
+                      <div class="card" (click)="openProduct(item)">
+                        <div class="el-card-item">
+                          <div class="el-card-avatar el-overlay-1">
+                            <img src={{item.image}} alt="user" class="productimg" />
+                            <div class="el-overlay">
+                              <ul class="list-style-none el-info">
+                                <li class="el-item">
+                                  <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                    <i class="sl-icon-link"></i>
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="d-flex no-block align-items-center">
+                            <div class="m-l-15">
+                              <h4 class="m-b-0 fix-ht-h4">{{getTitle(item.name)}}</h4>
+                              <span class="text-muted fix-ht-spn">{{getDescription(item.description)}}</span>
+                            </div>
+                            <div class="ml-auto m-r-15">
+                              <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD' ?
+                                '$'
+                                : item.price[0].currency}} {{item.price[0].amount}}</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template #contentGoogleDriveUrl let-modal>
+              <div class="modal-header" style="background-color: #7460ee;">
+                <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Google Drive URL</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"
+                  id="closeModal">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <ul *ngFor="let folder of drivefolders; let index = index" style="margin-bottom: 1.5rem;">
+                  <div *ngIf="checkGoogleDriveFlag === index">
+                    <div *ngFor="let category of googleSheet;  let i = index">
+                      <label *ngIf="category.category === folder.foldername">
+                        - <a (click)="googlesheetUrl(category.image)"
+                          style="cursor: pointer;color:rgb(67, 133, 238)">{{category.image}}</a>
+                      </label>
+                    </div>
+                  </div>
+                </ul>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-outline-dark"
+                    (click)="modal.dismiss('Cross click')">Cancel</button>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
           <ngb-tab title="Google Sheet | images" id="tb2">
             <ng-template ngbTabContent>
               <div class="card card-body">
@@ -139,7 +242,8 @@
                                   <div class="col-md-2">
                                     <div class="category_btn">
                                       <button mat-raised-button class="btn btn-primary btn-block"
-                                        (click)="addItems()">Add &gt;</button>
+                                        (click)="addItems()">Add
+                                        &gt;</button>
                                       <button mat-raised-button class="btn btn-secondary btn-block"
                                         (click)="REMOVEITEM()">&lt; Remove</button>
                                     </div>
@@ -545,74 +649,7 @@
               <!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog> -->
             </ng-template>
           </ngb-tab>
-          <ngb-tab title="Menu Items" id="tb1">
-            <ng-template ngbTabContent>
-              <div class="card card-body">
 
-                <!-- <div *ngIf="productList.length==0">
-                                  <h4>No Menu Items available!</h4>
-                          </div> -->
-                <div *ngIf="processing" class="mt-5">
-                  <h6>Menu Items Loading...! Please wait</h6>
-                </div>
-                <div class="row">
-                  <div class="col-lg-3 col-md-6" *ngFor="let item of productList">
-                    <div class="card" (click)="openProduct(item)">
-                      <div class="el-card-item">
-                        <div class="el-card-avatar el-overlay-1">
-                          <img src={{item.image}} alt="user" class="productimg" />
-                          <div class="el-overlay">
-                            <ul class="list-style-none el-info">
-                              <li class="el-item">
-                                <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                  <i class="sl-icon-link"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="d-flex no-block align-items-center">
-                          <div class="m-l-15">
-                            <h4 class="m-b-0 fix-ht-h4">{{getTitle(item.name)}}</h4>
-                            <span class="text-muted fix-ht-spn">{{getDescription(item.description)}}</span>
-                          </div>
-                          <div class="ml-auto m-r-15">
-                            <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD' ? '$'
-                              : item.price[0].currency}} {{item.price[0].amount}}</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ng-template>
-            <ng-template #contentGoogleDriveUrl let-modal>
-              <div class="modal-header" style="background-color: #7460ee;">
-                <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Google Drive URL</h4>
-                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"
-                  id="closeModal">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <ul *ngFor="let folder of drivefolders; let index = index" style="margin-bottom: 1.5rem;">
-                  <div *ngIf="checkGoogleDriveFlag === index">
-                    <div *ngFor="let category of googleSheet;  let i = index">
-                      <label *ngIf="category.category === folder.foldername">
-                        - <a (click)="googlesheetUrl(category.image)"
-                          style="cursor: pointer;color:rgb(67, 133, 238)">{{category.image}}</a>
-                      </label>
-                    </div>
-                  </div>
-                </ul>
-                <div class="modal-footer">
-                  <button type="submit" class="btn btn-outline-dark"
-                    (click)="modal.dismiss('Cross click')">Cancel</button>
-                </div>
-              </div>
-            </ng-template>
-          </ngb-tab>
         </ngb-tabset>
       </div>
     </div>
