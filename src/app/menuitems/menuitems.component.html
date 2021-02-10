@@ -27,7 +27,8 @@
                       <div class="el-card-item"
                         [ngClass]="{'border border-primary': selectedCategoryList.indexOf(item.id) != -1}">
                         <div class="el-card-avatar el-overlay-1">
-                          <img src={{item.image}} alt="user" class="productimg" />
+                          <img src={{item.image}} (error)="item.image='/assets/images/noimage.png'" alt="user"
+                            class="productimg" />
                           <!-- <div class="el-overlay">
                             <ul class="list-style-none el-info">
                               <li class="el-item">
@@ -60,7 +61,8 @@
                       <div class="card" (click)="openProduct(item)">
                         <div class="el-card-item">
                           <div class="el-card-avatar el-overlay-1">
-                            <img src={{item.image}} alt="user" class="productimg" />
+                            <img src={{item.image}} (error)="item.image='/assets/images/noimage.png'" alt="user"
+                              class="productimg" />
                             <div class="el-overlay">
                               <ul class="list-style-none el-info">
                                 <li class="el-item">
