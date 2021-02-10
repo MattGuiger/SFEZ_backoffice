@@ -294,12 +294,13 @@ export class MenuitemsComponent implements OnInit {
       this.ngxService.stop();
       this.toastr.error('Failed to upload, please try again later')
     })
-    console.log("uploadImageToDrive123")
-    // this.toastr.success('Upload successfull to drive');
     this.getAllGoogleSheetDetails()
   }
+
   categoryList: any[] = [];
   selectedCategoryList: any[] = [];
+  isCheckAllCategory = true;
+
   getMenuItem(category) {
     let index = this.selectedCategoryList.indexOf(category.id);
     if (index != -1) {
@@ -307,14 +308,32 @@ export class MenuitemsComponent implements OnInit {
     } else {
       this.selectedCategoryList.push(category.id);
     }
+    this.filterProductList();
+    this.isCheckAllCategory = this.categoryList.filter((item) => item.active).length == this.selectedCategoryList.length ? true : false;
+  }
+
+  toggleCheckAll() {
+    if (this.isCheckAllCategory) {
+      this.isCheckAllCategory = false;
+      this.selectedCategoryList = [];
+      this.filterProductList();
+    } else {
+      this.isCheckAllCategory = true;
+      this.selectedCategoryList = this.categoryList.map((cat) => cat.id);
+      this.filterProductList();
+    }
+  }
+
+  filterProductList() {
     this.productList.forEach(item => {
       if (this.selectedCategoryList.indexOf(item.category) == -1) {
         item.active = true;
       } else {
         item.active = false;
       }
-    })
+    });
   }
+
   getAllProductList() {
     this.processing = true;
     this.user = this._CommonFunctionsService.checkUser().user;

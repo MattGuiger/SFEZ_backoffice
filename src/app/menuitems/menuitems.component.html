@@ -21,14 +21,22 @@
                 <div *ngIf="processing" class="mt-5">
                   <h6>Menu Items Loading...! Please wait</h6>
                 </div>
-                <div class="row">
-                  <div class="col-lg-3 col-md-6" *ngFor="let item of categoryList">
+                <div class="row" [hidden]="productList.length == 0">
+                  <h2 class="col-12 pt-4 font-weight-bold text-info">Click Category
+                    Below
+                    <span class="float-right">
+                      <label for="select-all">Select All</label>
+                      <input type="checkbox" class="ml-2" name="select-all" id="select-all"
+                        [checked]="isCheckAllCategory" (click)="toggleCheckAll()">
+                    </span>
+                  </h2>
+                  <div class="col-lg-4 col-md-6" *ngFor="let item of categoryList">
                     <div class="card" (click)="getMenuItem(item)">
-                      <div class="el-card-item"
-                        [ngClass]="{'border border-primary': selectedCategoryList.indexOf(item.id) != -1}">
-                        <div class="el-card-avatar el-overlay-1">
-                          <img src={{item.image}} alt="user" class="productimg" />
-                          <!-- <div class="el-overlay">
+                      <div class="el-card-item cursor-pointer p-2"
+                        [ngClass]="{'border border-info': selectedCategoryList.indexOf(item.id) != -1}">
+                        <!-- <div class="el-card-avatar el-overlay-1"> -->
+                        <!-- <img src={{item.image}} alt="user" class="productimg" /> -->
+                        <!-- <div class="el-overlay">
                             <ul class="list-style-none el-info">
                               <li class="el-item">
                                 <a class="btn default btn-outline el-link" href="javascript:void(0);">
@@ -37,11 +45,15 @@
                               </li>
                             </ul>
                           </div> -->
-                        </div>
+                        <!-- </div> -->
                         <div class="d-flex no-block align-items-center">
-                          <div class="m-l-15">
+                          <div class="col-lg-6">
                             <h4 class="m-b-0 fix-ht-h4">{{getTitle(item.name)}}</h4>
                             <span class="text-muted fix-ht-spn">{{getDescription(item.description)}}</span>
+                          </div>
+                          <div class="col-lg-6 p-l-15">
+                            <img onerror="this.src = 'assets/images/noProduct.png'" [src]="item.image" alt="user"
+                              class="w-100" />
                           </div>
                           <!-- <div class="ml-auto m-r-15">
                             <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD' ? '$'
@@ -54,37 +66,46 @@
                   </div>
                 </div>
 
-                <div class="row">
-                  <ng-container *ngFor="let item of productList">
-                    <div class="col-lg-3 col-md-6" [hidden]="item.active">
-                      <div class="card" (click)="openProduct(item)">
-                        <div class="el-card-item">
-                          <div class="el-card-avatar el-overlay-1">
-                            <img src={{item.image}} alt="user" class="productimg" />
-                            <div class="el-overlay">
-                              <ul class="list-style-none el-info">
-                                <li class="el-item">
-                                  <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                    <i class="sl-icon-link"></i>
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div class="d-flex no-block align-items-center">
-                            <div class="m-l-15">
-                              <h4 class="m-b-0 fix-ht-h4">{{getTitle(item.name)}}</h4>
-                              <span class="text-muted fix-ht-spn">{{getDescription(item.description)}}</span>
-                            </div>
-                            <div class="ml-auto m-r-15">
-                              <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD' ?
-                                '$'
-                                : item.price[0].currency}} {{item.price[0].amount}}</button>
+                <div class="row" [hidden]="productList.length == 0">
+                  <h2 class="col-12 pt-4 font-weight-bold text-info">Menu Items</h2>
+                  <ng-container *ngFor="let cat of categoryList">
+                    <h4 class="col-12 pt-2 font-weight-bold" [hidden]="selectedCategoryList.indexOf(cat.id) == -1">
+                      {{cat.name}}</h4>
+                    <ng-container *ngFor="let item of productList">
+                      <ng-container *ngIf="cat.id == item.category">
+                        <div class="col-lg-3 col-md-6" [hidden]="item.active">
+                          <div class="card" (click)="openProduct(item)">
+                            <div class="el-card-item">
+                              <div class="el-card-avatar el-overlay-1">
+                                <img onerror="this.src = 'assets/images/noProduct.png'" [src]="item.image" alt="user"
+                                  class="productimg" />
+                                <div class="el-overlay">
+                                  <ul class="list-style-none el-info">
+                                    <li class="el-item">
+                                      <a class="btn default btn-outline el-link" href="javascript:void(0);">
+                                        <i class="sl-icon-link"></i>
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div class="d-flex no-block align-items-center">
+                                <div class="m-l-15">
+                                  <h4 class="m-b-0 fix-ht-h4">{{getTitle(item.name)}}</h4>
+                                  <span class="text-muted fix-ht-spn">{{getDescription(item.description)}}</span>
+                                </div>
+                                <div class="ml-auto m-r-15">
+                                  <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD'
+                                    ?
+                                    '$'
+                                    : item.price[0].currency}} {{item.price[0].amount}}</button>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
+                      </ng-container>
+                    </ng-container>
                   </ng-container>
                 </div>
               </div>
