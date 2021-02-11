@@ -167,7 +167,6 @@
                     <mat-tab-group [selectedIndex]="demo1TabIndex">
                       <mat-tab *ngIf="showZerothTab" label="1">
                         <div class="step_one">
-                          <h2>Step 1</h2>
                           <h4>Menu Categories</h4>
                           <div class="row">
                             <div class="col-md-4 offset-md-4 col-lg-4 offset-lg-4">
@@ -252,19 +251,7 @@
                       </mat-tab>
                       <mat-tab *ngIf="showSecondTab" label="2">
                         <div class="step_one">
-                          <h2>Step 2</h2>
                           <h4>Menu Images | Google Drive</h4>
-                          <br>
-                          <!-- <div class="row">
-                            <div class="col-md-4 offset-md-4">
-                              <div class="step_three_left" style="text-align: center;">
-                                <h5>Image Example</h5>
-                                <img src="../../assets/images/Chicken-Teriyaki.png" alt="">
-                                <p>Image Name: Chicken Teriyaki.jpg</p>
-                                <p style="font-size: 18px;">Menu Item Name: Chicken Teriyaki</p>
-                              </div>
-                            </div>
-                          </div> -->
                           <div class="row">
                             <div class="col-md-12">
                               <span *ngIf=checkImageCountFlag>
@@ -292,7 +279,8 @@
                                             <!-- <label class="custom-input-label">Menu Name <span
                                                 class="text-danger">*</span></label> -->
                                             <input type="text" name="menu_name" class="w-100"
-                                              [id]="'menu_name'+ folder.folderid" placeholder="Menu Name *" required />
+                                              [id]="'menu_name'+ folder.folderid" placeholder="Menu Item Name *"
+                                              required />
                                           </div>
 
                                           <div class="custom-input">
@@ -300,14 +288,14 @@
                                                 class="text-danger">*</span></label> -->
                                             <textarea name="category_description" required class="w-100 custom-textarea"
                                               [id]="'category_description'+ folder.folderid"
-                                              placeholder="Category Description *"></textarea>
+                                              placeholder="Menu Item Description *"></textarea>
                                           </div>
 
                                           <div class="custom-input mb-2">
                                             <!-- <label class="custom-input-label">Price <span
                                                 class="text-danger">*</span></label> -->
                                             <input type="number" name="price" required class="w-100"
-                                              [id]="'price'+ folder.folderid" placeholder="Price *" />
+                                              [id]="'price'+ folder.folderid" placeholder="Menu Item Price *" />
                                           </div>
 
                                           <div class="custom-file mb-2">
@@ -331,15 +319,15 @@
                                               class="col-6 mb-4 p-1 text-center menu-item-list">
                                               <img class="w-50 mb-1" [src]="item.img_url" />
 
-                                              <h4 class="p-0 mb-0">
-                                                <span class="font-weight-bold">Menu Item Name:</span> {{item.menu_name}}
+                                              <h4 class="p-0 mb-0 font-weight-normal">
+                                                <span class="font-weight-bold">Item Name:</span> {{item.menu_name}}
                                               </h4>
-                                              <h5 class="p-0 mb-0">
-                                                <span class="font-weight-bold">Menu Item Description:</span>
+                                              <h5 class="p-0 mb-0 font-weight-normal">
+                                                <span class="font-weight-bold">Item Description:</span>
                                                 {{item.description}}
                                               </h5>
-                                              <h5 class="p-0 mb-0">
-                                                <span class="font-weight-bold">Menu Item Price:</span>
+                                              <h5 class="p-0 mb-0 font-weight-normal">
+                                                <span class="font-weight-bold">Item Price:</span>
                                                 ${{item.price}}
                                               </h5>
 
@@ -427,7 +415,6 @@
                       </mat-tab>
                       <mat-tab *ngIf="showThirdTab" label="3">
                         <div class="step_one padding_area">
-                          <h2>Step 3</h2>
                           <h4>Google Sheets | Add-Ons</h4>
                           <div class="row">
                             <div class="col-md-12 text-center">
