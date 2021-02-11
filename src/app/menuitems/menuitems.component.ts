@@ -236,26 +236,49 @@ export class MenuitemsComponent implements OnInit {
     }
   }
 
+  menuItemList = [];
+  tempMenuItem: any = '';
   /**
    * 
    * @param index 
    */
   submitSheetData(folderId, category) {
+    let menu_name = $('#menu_name' + folderId).val().toString();
+    let price = $('#price' + folderId).val().toString();
     let category_description = $('#category_description' + folderId).val().toString();
-    let formData1 = new FormData();
-    // this.formData.append('folderId', folderId);
-    // this.formData.append('email', this.googleEmail);
-    // this.formData.append('category', category);
-    // this.formData.append('category_description', category_description);
-    formData1.append('file', this.file);
-    formData1.append('category_file', this.category_file);
-    formData1.append('folderId', folderId);
-    formData1.append('email', this.googleEmail);
-    formData1.append('category', category);
-    formData1.append('category_description', category_description);
-    console.log(this.formData);
-    this.uploadImageToDrive(formData1, folderId, category);
-    // this.formData = new FormData();
+
+    if (menu_name !== "" && price !== "" && category_description !== "") {
+      let formData1 = new FormData();
+
+      //formData1.append('category_file', this.category_file);
+      formData1.append('file', this.file);
+      formData1.append('folderId', folderId);
+      formData1.append('email', this.googleEmail);
+      formData1.append('category', category);
+      formData1.append('menu_name', menu_name);
+      formData1.append('price', price);
+      formData1.append('category_description', category_description);
+      //console.log(formData1);
+      $('#menu_name' + folderId).val("");
+      $('#price' + folderId).val("");
+      $('#category_description' + folderId).val("");
+      // this.formData = new FormData();
+
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.tempMenuItem = {
+          folderId: folderId,
+          menu_name: menu_name,
+          price: price,
+          img_url: reader.result,
+          description: category_description
+        };
+      };
+      reader.readAsDataURL(this.file);
+      this.uploadImageToDrive(formData1, folderId, category);
+    } else {
+      alert("Please fill all required fields")
+    }
   }
 
 
@@ -287,8 +310,11 @@ export class MenuitemsComponent implements OnInit {
     this._ProfileService.uploadImageTodrive(this.user.company_id, formData).subscribe(res => {
       console.log('googgleData3', res.data)
       this.ngxService.stop();
-      this.authentication_url = res.data
-      this.google_drive_url = res.data.drive_url
+      this.authentication_url = res.data;
+      this.google_drive_url = res.data.drive_url;
+
+      (this.tempMenuItem !== "") ? this.menuItemList.push(this.tempMenuItem) : "";
+      this.tempMenuItem = "";
       this.toastr.success('Upload successfull to drive');
     }, error => {
       this.ngxService.stop();

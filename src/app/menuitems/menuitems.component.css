@@ -216,7 +216,7 @@ p {
     margin-right: 1rem;
 }
 .step_three_right img {
-    width: 70px;
+    width: 55px;
     margin-bottom: 1rem;
 }
 .step_three_right li p {
@@ -310,6 +310,9 @@ p {
 }
 /***** Step Six CSS *******/
 
+.menu-item-list h4, .menu-item-list h5 {
+    font-size: 12px !important;
+}
 
 /******* IPAD Pro Media Query **********/
 

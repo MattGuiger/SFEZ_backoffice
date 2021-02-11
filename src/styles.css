@@ -31,3 +31,12 @@ ngx-dropzone-remove-badge {
 .linkModal .modal-dialog {
     max-width: 40% !important;
 }
+
+.custom-input input, .custom-input textarea {
+    border: 1px solid #e9ecef;
+    padding: 6px;
+}
+
+.custom-input-label {
+    margin-bottom: 3px;
+}

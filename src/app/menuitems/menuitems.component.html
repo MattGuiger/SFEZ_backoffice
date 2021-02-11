@@ -298,8 +298,7 @@
                           <h2>Step 3</h2>
                           <h4>Upload images in their respective folder (or category) as shown below:</h4>
                           <br>
-                          <br>
-                          <div class="row">
+                          <!-- <div class="row">
                             <div class="col-md-4 offset-md-4">
                               <div class="step_three_left" style="text-align: center;">
                                 <h5>Image Example</h5>
@@ -308,7 +307,7 @@
                                 <p style="font-size: 18px;">Menu Item Name: Chicken Teriyaki</p>
                               </div>
                             </div>
-                          </div>
+                          </div> -->
                           <div class="row">
                             <div class="col-md-12">
                               <span *ngIf=checkImageCountFlag>
@@ -321,61 +320,119 @@
                                                            -->
                               </span>
                               <div class="step_three_right">
-                                <h5>Category:</h5>
-                                <ul *ngFor="let folder of drivefolders; let index = index"
-                                  style="margin-bottom: 1.5rem;">
-                                  <li>
-                                    <div class="row">
-                                      <div class="col-md-2">
-                                        <img src="../../assets/images/folder@1X.png" alt="">
-                                      </div>
-                                      <div class="col-md-4">
-                                        <p><b>{{folder.foldername}}</b></p>
-                                        <div class="custom-file">
-                                          <input type="file" name="file" class="custom-file-input" id="customFile"
-                                            (change)="onFileSelect($event)">
+                                <ng-container *ngFor="let folder of drivefolders; let index = index">
 
-                                          <label class="custom-file-label" for="customFile">Choose file</label>
+                                  <h5>Category: <b>{{folder.foldername}}</b></h5>
+
+                                  <ul style="margin-bottom: 1.5rem;">
+                                    <li class="container">
+                                      <div class="row">
+                                        <div class="col-md-1">
+                                          <img src="../../assets/images/folder@1X.png" alt="">
+                                        </div>
+                                        <div class="col-md-4">
+                                          <div class="custom-input mb-2">
+                                            <!-- <label class="custom-input-label">Menu Name <span
+                                                class="text-danger">*</span></label> -->
+                                            <input type="text" name="menu_name" class="w-100"
+                                              [id]="'menu_name'+ folder.folderid" placeholder="Menu Name *" required />
+                                          </div>
+
+                                          <div class="custom-input">
+                                            <!-- <label class="custom-input-label">Menu Description <span
+                                                class="text-danger">*</span></label> -->
+                                            <textarea name="category_description" required class="w-100 custom-textarea"
+                                              [id]="'category_description'+ folder.folderid"
+                                              placeholder="Category Description *"></textarea>
+                                          </div>
+
+                                          <div class="custom-input mb-2">
+                                            <!-- <label class="custom-input-label">Price <span
+                                                class="text-danger">*</span></label> -->
+                                            <input type="number" name="price" required class="w-100"
+                                              [id]="'price'+ folder.folderid" placeholder="Price *" />
+                                          </div>
+
+                                          <div class="custom-file mb-2">
+                                            <input type="file" name="file" class="custom-file-input" id="customFile"
+                                              required (change)="onFileSelect($event)">
+
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                          </div>
+
+                                          <div class="d-block mt-2">
+                                            <button type="button" class="btn btn-info"
+                                              (click)="submitSheetData(folder.folderid,folder.foldername)">
+                                              Upload
+                                            </button>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-7 row">
+
+                                          <ng-container *ngFor="let item of menuItemList">
+                                            <div *ngIf="item.folderId == folder.folderid"
+                                              class="col-6 mb-4 p-1 text-center menu-item-list">
+                                              <img class="w-50 mb-1" [src]="item.img_url" />
+
+                                              <h4 class="p-0 mb-0">
+                                                <span class="font-weight-bold">Menu Item Name:</span> {{item.menu_name}}
+                                              </h4>
+                                              <h5 class="p-0 mb-0">
+                                                <span class="font-weight-bold">Menu Item Description:</span>
+                                                {{item.description}}
+                                              </h5>
+                                              <h5 class="p-0 mb-0">
+                                                <span class="font-weight-bold">Menu Item Price:</span>
+                                                ${{item.price}}
+                                              </h5>
+
+                                            </div>
+                                          </ng-container>
+
+
+                                          <!-- <p><b>Category Image</b></p>
+                                                                          <div class="custom-file">
+                                                                            <input type="file" name="category_file" class="custom-file-input"
+                                                                              id="categoryCustomFile" (change)="onCategoryImageSelect($event)">
+                                  
+                                                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                                          </div>
+                                  
+                                                                          <p><b>Category Description</b></p>
+                                                                          <div>
+                                                                            <textarea name="category_description" class="w-100 custom-textarea"
+                                                                              [id]="'category_description'+ folder.folderid"
+                                                                              placeholder="Category Description"></textarea>
+                                  
+                                                                            <button type="button" class="btn btn-primary"
+                                                                              (click)="submitSheetData(folder.folderid,folder.foldername)">
+                                                                              Upload
+                                                                            </button>
+                                                                          </div> -->
+                                        </div>
+
+                                        <!-- <div class="col-md-2">
+                                                                          <em (click)="deleteFolder(index)" class="fa fa-trash"></em>
+                                                                        </div> -->
+
+                                        <div class="col-md-12 mt-3">
+                                          <!-- <a (click)="googleDrive_url($event,folder.foldername, contentGoogleDriveUrl, index)"
+                                            style="cursor: pointer;">
+                                            <b>Google Drive URL</b>
+                                          </a> -->
+
+                                          <!-- <div *ngIf="checkGoogleDriveFlag === index"> -->
+                                          <!-- <div *ngFor="let category of googleSheet;  let i = index"> -->
+                                          <!-- <label *ngIf="category.category === folder.foldername"> -->
+                                          <!-- <a href="#">{{category.image}}</a>   -->
+                                          <!-- </label>
+                                                                                                    </div>
+                                                                                                  </div> -->
                                         </div>
                                       </div>
-                                      <div class="col-md-4">
-                                        <p><b>Category Image</b></p>
-                                        <div class="custom-file">
-                                          <input type="file" name="category_file" class="custom-file-input"
-                                            id="categoryCustomFile" (change)="onCategoryImageSelect($event)">
-
-                                          <label class="custom-file-label" for="customFile">Choose file</label>
-                                        </div>
-
-                                        <p><b>Category Description</b></p>
-                                        <div>
-                                          <textarea name="category_description" class="w-100 custom-textarea"
-                                            [id]="'category_description'+ folder.folderid"
-                                            placeholder="Category Description"></textarea>
-
-                                          <button type="button" class="btn btn-primary"
-                                            (click)="submitSheetData(folder.folderid,folder.foldername)">
-                                            Upload
-                                          </button>
-                                        </div>
-                                      </div>
-                                      <div class="col-md-2">
-                                        <em (click)="deleteFolder(index)" class="fa fa-trash"></em>
-                                      </div>
-                                      <div class="col-md-12">
-                                        <p (click)="googleDrive_url($event,folder.foldername, contentGoogleDriveUrl, index)"
-                                          style="cursor: pointer;"><b>Google Drive URL</b></p>
-                                        <!-- <div *ngIf="checkGoogleDriveFlag === index"> -->
-                                        <!-- <div *ngFor="let category of googleSheet;  let i = index"> -->
-                                        <!-- <label *ngIf="category.category === folder.foldername"> -->
-                                        <!-- <a href="#">{{category.image}}</a>   -->
-                                        <!-- </label>
-                                                                  </div>
-                                                                </div> -->
-                                      </div>
-                                    </div>
-                                  </li>
-                                </ul>
+                                    </li>
+                                  </ul>
+                                </ng-container>
                               </div>
                             </div>
                             <div class="col-md-12">
