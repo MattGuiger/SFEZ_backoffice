@@ -1,17 +1,20 @@
 <!-- ============================================================== -->
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
-<div id="main-wrapper" data-layout="vertical" data-sidebartype="full" [ngClass]="{'show-sidebar': showMobileMenu}" [dir]="options.dir" [attr.data-theme]="options.theme"
-    [attr.data-layout]="options.layout" [attr.data-sidebartype]="options.sidebartype" [attr.data-sidebar-position]="options.sidebarpos"
+<div id="main-wrapper" data-layout="vertical" data-sidebartype="full" [ngClass]="{'show-sidebar': showMobileMenu}"
+    [dir]="options.dir" [attr.data-theme]="options.theme" [attr.data-layout]="options.layout"
+    [attr.data-sidebartype]="options.sidebartype" [attr.data-sidebar-position]="options.sidebarpos"
     [attr.data-header-position]="options.headerpos" [attr.data-boxed-layout]="options.boxed">
     <!-- ============================================================== -->
     <!-- Topbar header - style you can find in topbar.scss -->
     <!-- ============================================================== -->
     <header class="topbar" [attr.data-navbarbg]="options.navbarbg">
-        <nav class="d-flex top-navbar navbar-expand-md" [ngClass]="(options.navbarbg=='skin6')?'navbar-light':'navbar-dark'">
+        <nav class="d-flex top-navbar navbar-expand-md"
+            [ngClass]="(options.navbarbg=='skin6')?'navbar-light':'navbar-dark'">
             <div class="navbar-header" [ngClass]="(expandLogo)?'expand-logo':''" [attr.data-logobg]="options.logobg">
                 <!-- This is for the sidebar toggle which is visible on mobile only -->
-                <a (click)="showMobileMenu = !showMobileMenu" class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
+                <a (click)="showMobileMenu = !showMobileMenu"
+                    class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
                     <i [ngClass]="(showMobileMenu)?'ti-close':'ti-menu'"></i>
                 </a>
                 <!-- ============================================================== -->
@@ -22,15 +25,16 @@
                     <b class="logo-icon">
                         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                         <!-- Dark Logo icon -->
-                        <img src="assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                        <img src="assets/images/logo-icon.png" width="100px" alt="homepage" class="dark-logo" />
                         <!-- Light Logo icon -->
-                        <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                        <img src="assets/images/logo-light-icon.png" width="100px" alt="homepage" class="light-logo" />
                     </b>
                     <!--End Logo icon -->
                     <!-- Logo text -->
                     <span class="logo-text" style="font-weight: 500;">
                         <!-- dark Logo text -->
-                        Instamarkt Back Office
+                        <!-- Instamarkt  -->
+                        Back Office
                         <!-- <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo" /> -->
                         <!-- Light Logo text -->
                         <!-- <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" /> -->
@@ -42,14 +46,17 @@
                 <!-- ============================================================== -->
                 <!-- Toggle which is visible on mobile only -->
                 <!-- ============================================================== -->
-                <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent">
+                <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
+                    (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent">
                     <i class="ti-more"></i>
                 </a>
             </div>
             <!-- ============================================================== -->
             <!-- End Logo -->
             <!-- ============================================================== -->
-            <div class="navbar-collapse collapse" id="navbarSupportedContent" [attr.data-navbarbg]="options.navbarbg" [ngbCollapse]="!isCollapsed">
+            <div class="navbar-collapse collapse" id="navbarSupportedContent" [attr.data-navbarbg]="options.navbarbg"
+                [ngbCollapse]="!isCollapsed">
                 <app-navigation (toggleSidebar)="toggleSidebarType()" class="w-100"></app-navigation>
             </div>
         </nav>
@@ -90,9 +97,9 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-        <footer class="footer text-center">
+        <!-- <footer class="footer text-center">
             All Rights Reserved by AdminBite Angular. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-        </footer>
+        </footer> -->
         <!-- ============================================================== -->
         <!-- End footer -->
         <!-- ============================================================== -->
@@ -115,27 +122,34 @@
                             <!-- Sidebar -->
                             <h5 class="font-medium m-b-20 m-t-10">Layout Settings</h5>
                             <div class="custom-control custom-checkbox m-t-10">
-                                <input type="checkbox" class="custom-control-input" name="theme-view" id="theme-view" [attr.checked]="(options.theme=='dark') ? 'checked' : null"
+                                <input type="checkbox" class="custom-control-input" name="theme-view" id="theme-view"
+                                    [attr.checked]="(options.theme=='dark') ? 'checked' : null"
                                     (change)="options.theme = (options.theme == 'light' ? 'dark' : 'light');">
                                 <label class="custom-control-label" for="theme-view">Dark Theme</label>
                             </div>
                             <div class="custom-control custom-checkbox m-t-10">
-                                <input type="checkbox" class="custom-control-input" name="sidebar-position" id="sidebar-position" [attr.checked]="(options.sidebarpos=='fixed') ? 'checked' : null"
+                                <input type="checkbox" class="custom-control-input" name="sidebar-position"
+                                    id="sidebar-position"
+                                    [attr.checked]="(options.sidebarpos=='fixed') ? 'checked' : null"
                                     (change)="options.sidebarpos = (options.sidebarpos == 'fixed' ? 'absolute' : 'fixed');">
                                 <label class="custom-control-label" for="sidebar-position">Fixed Sidebar</label>
                             </div>
                             <div class="custom-control custom-checkbox m-t-10">
-                                <input type="checkbox" class="custom-control-input" name="header-position" id="header-position" [attr.checked]="(options.headerpos=='fixed') ? 'checked' : null"
+                                <input type="checkbox" class="custom-control-input" name="header-position"
+                                    id="header-position"
+                                    [attr.checked]="(options.headerpos=='fixed') ? 'checked' : null"
                                     (change)="options.headerpos = (options.headerpos == 'fixed' ? 'absolute' : 'fixed');">
                                 <label class="custom-control-label" for="header-position">Fixed Header</label>
                             </div>
                             <div class="custom-control custom-checkbox m-t-10">
-                                <input type="checkbox" class="custom-control-input" name="boxed-layout" id="boxed-layout" [attr.checked]="(options.boxed=='boxed') ? 'checked' : null"
+                                <input type="checkbox" class="custom-control-input" name="boxed-layout"
+                                    id="boxed-layout" [attr.checked]="(options.boxed=='boxed') ? 'checked' : null"
                                     (change)="options.boxed = (options.boxed == 'full' ? 'boxed' : 'full');">
                                 <label class="custom-control-label" for="boxed-layout">Boxed Layout</label>
                             </div>
                             <div class="custom-control custom-checkbox m-t-10">
-                                <input type="checkbox" class="custom-control-input" name="rtl-layout" id="rtl-layout" [attr.checked]="(options.dir=='rtl') ? 'checked' : null"
+                                <input type="checkbox" class="custom-control-input" name="rtl-layout" id="rtl-layout"
+                                    [attr.checked]="(options.dir=='rtl') ? 'checked' : null"
                                     (change)="options.dir = (options.dir == 'rtl' ? 'ltr' : 'rtl');">
                                 <label class="custom-control-label" for="rtl-layout">RTL</label>
                             </div>
@@ -144,22 +158,26 @@
                             <!-- Sidebar -->
                             <h5 class="font-medium m-b-20 m-t-10">Sidebar Types</h5>
                             <div class="custom-control custom-radio m-t-10">
-                                <input type="radio" class="custom-control-input" name="sidebar" [(ngModel)]="options.sidebartype" value="mini-sidebar" id="minisidebar"
+                                <input type="radio" class="custom-control-input" name="sidebar"
+                                    [(ngModel)]="options.sidebartype" value="mini-sidebar" id="minisidebar"
                                     (change)="options.sidebartype = 'mini-sidebar'">
                                 <label class="custom-control-label" for="minisidebar">Mini Sidebar</label>
                             </div>
                             <div class="custom-control custom-radio m-t-10">
-                                <input type="radio" class="custom-control-input" name="sidebar" [(ngModel)]="options.sidebartype" value="iconbar" id="iconsidebar"
+                                <input type="radio" class="custom-control-input" name="sidebar"
+                                    [(ngModel)]="options.sidebartype" value="iconbar" id="iconsidebar"
                                     (change)="options.sidebartype = 'iconbar'">
                                 <label class="custom-control-label" for="iconsidebar">Icon Sidebar</label>
                             </div>
                             <div class="custom-control custom-radio m-t-10">
-                                <input type="radio" class="custom-control-input" name="sidebar" [(ngModel)]="options.sidebartype" value="overlay" id="overlaysidebar"
+                                <input type="radio" class="custom-control-input" name="sidebar"
+                                    [(ngModel)]="options.sidebartype" value="overlay" id="overlaysidebar"
                                     (change)="options.sidebartype = 'overlay'">
                                 <label class="custom-control-label" for="overlaysidebar">Overlay Sidebar</label>
                             </div>
                             <div class="custom-control custom-radio m-t-10">
-                                <input type="radio" class="custom-control-input" name="sidebar" [(ngModel)]="options.sidebartype" value="full" id="fullsidebar"
+                                <input type="radio" class="custom-control-input" name="sidebar"
+                                    [(ngModel)]="options.sidebartype" value="full" id="fullsidebar"
                                     (change)="options.sidebartype = 'full'">
                                 <label class="custom-control-label" for="fullsidebar">Full Sidebar</label>
                             </div>
@@ -169,22 +187,28 @@
                             <h5 class="font-medium m-b-20 m-t-10">Logo Backgrounds</h5>
                             <ul class="theme-color">
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-logobg="skin1" (click)="options.logobg = 'skin1'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-logobg="skin1"
+                                        (click)="options.logobg = 'skin1'"></a>
                                 </li>
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-logobg="skin2" (click)="options.logobg = 'skin2'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-logobg="skin2"
+                                        (click)="options.logobg = 'skin2'"></a>
                                 </li>
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-logobg="skin3" (click)="options.logobg = 'skin3'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-logobg="skin3"
+                                        (click)="options.logobg = 'skin3'"></a>
                                 </li>
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-logobg="skin4" (click)="options.logobg = 'skin4'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-logobg="skin4"
+                                        (click)="options.logobg = 'skin4'"></a>
                                 </li>
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-logobg="skin5" (click)="options.logobg = 'skin5'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-logobg="skin5"
+                                        (click)="options.logobg = 'skin5'"></a>
                                 </li>
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-logobg="skin6" (click)="options.logobg = 'skin6'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-logobg="skin6"
+                                        (click)="options.logobg = 'skin6'"></a>
                                 </li>
                             </ul>
                             <!-- Logo BG -->
@@ -194,22 +218,28 @@
                             <h5 class="font-medium m-b-20 m-t-10">Navbar Backgrounds</h5>
                             <ul class="theme-color">
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin1" (click)="options.navbarbg = 'skin1'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin1"
+                                        (click)="options.navbarbg = 'skin1'"></a>
                                 </li>
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin2" (click)="options.navbarbg = 'skin2'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin2"
+                                        (click)="options.navbarbg = 'skin2'"></a>
                                 </li>
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin3" (click)="options.navbarbg = 'skin3'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin3"
+                                        (click)="options.navbarbg = 'skin3'"></a>
                                 </li>
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin4" (click)="options.navbarbg = 'skin4'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin4"
+                                        (click)="options.navbarbg = 'skin4'"></a>
                                 </li>
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin5" (click)="options.navbarbg = 'skin5'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin5"
+                                        (click)="options.navbarbg = 'skin5'"></a>
                                 </li>
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin6" (click)="options.navbarbg = 'skin6'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-navbarbg="skin6"
+                                        (click)="options.navbarbg = 'skin6'"></a>
                                 </li>
                             </ul>
                             <!-- Navbar BG -->
@@ -219,22 +249,28 @@
                             <h5 class="font-medium m-b-20 m-t-10">Sidebar Backgrounds</h5>
                             <ul class="theme-color">
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin1" (click)="options.sidebarbg = 'skin1'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin1"
+                                        (click)="options.sidebarbg = 'skin1'"></a>
                                 </li>
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin2" (click)="options.sidebarbg = 'skin2'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin2"
+                                        (click)="options.sidebarbg = 'skin2'"></a>
                                 </li>
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin3" (click)="options.sidebarbg = 'skin3'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin3"
+                                        (click)="options.sidebarbg = 'skin3'"></a>
                                 </li>
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin4" (click)="options.sidebarbg = 'skin4'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin4"
+                                        (click)="options.sidebarbg = 'skin4'"></a>
                                 </li>
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin5" (click)="options.sidebarbg = 'skin5'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin5"
+                                        (click)="options.sidebarbg = 'skin5'"></a>
                                 </li>
                                 <li class="theme-item">
-                                    <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin6" (click)="options.sidebarbg = 'skin6'"></a>
+                                    <a href="javascript:void(0)" class="theme-link" data-sidebarbg="skin6"
+                                        (click)="options.sidebarbg = 'skin6'"></a>
                                 </li>
                             </ul>
                             <!-- Logo BG -->
@@ -289,7 +325,8 @@
                                     <a href="#" class="message-item" id='chat_user_4' data-user-id='4'>
                                         <span class="user-img">
                                             <img src="assets/images/users/4.jpg" alt="user" class="rounded-circle">
-                                            <span class="profile-status offline pull-right" data-status="offline"></span>
+                                            <span class="profile-status offline pull-right"
+                                                data-status="offline"></span>
                                         </span>
                                         <span class="mail-contnet">
                                             <h5>Don Andres</h5>
@@ -337,7 +374,8 @@
                                     <a href="#" class="message-item" id='chat_user_8' data-user-id='8'>
                                         <span class="user-img">
                                             <img src="assets/images/users/4.jpg" alt="user" class="rounded-circle">
-                                            <span class="profile-status offline pull-right" data-status="offline"></span>
+                                            <span class="profile-status offline pull-right"
+                                                data-status="offline"></span>
                                         </span>
                                         <span class="mail-contnet">
                                             <h5>Don Andres</h5>
@@ -385,7 +423,8 @@
                                     <a href="#" class="message-item" id='chat_user_12' data-user-id='12'>
                                         <span class="user-img">
                                             <img src="assets/images/users/4.jpg" alt="user" class="rounded-circle">
-                                            <span class="profile-status offline pull-right" data-status="offline"></span>
+                                            <span class="profile-status offline pull-right"
+                                                data-status="offline"></span>
                                         </span>
                                         <span class="mail-contnet">
                                             <h5>Don Andres</h5>
@@ -428,7 +467,8 @@
                                 </div>
                                 <div class="sl-item">
                                     <div class="sl-left">
-                                        <img class="rounded-circle" alt="user" src="assets/images/users/2.jpg"> </div>
+                                        <img class="rounded-circle" alt="user" src="assets/images/users/2.jpg">
+                                    </div>
                                     <div class="sl-right">
                                         <div class="font-medium">Go to the Doctor
                                             <span class="sl-date">5 minutes ago</span>
@@ -438,7 +478,8 @@
                                 </div>
                                 <div class="sl-item">
                                     <div class="sl-left">
-                                        <img class="rounded-circle" alt="user" src="assets/images/users/1.jpg"> </div>
+                                        <img class="rounded-circle" alt="user" src="assets/images/users/1.jpg">
+                                    </div>
                                     <div class="sl-right">
                                         <div>
                                             <a href="javascript:void(0)">Stephen</a>
@@ -469,7 +510,8 @@
                                 </div>
                                 <div class="sl-item">
                                     <div class="sl-left">
-                                        <img class="rounded-circle" alt="user" src="assets/images/users/4.jpg"> </div>
+                                        <img class="rounded-circle" alt="user" src="assets/images/users/4.jpg">
+                                    </div>
                                     <div class="sl-right">
                                         <div class="font-medium">Go to the Doctor
                                             <span class="sl-date">5 minutes ago</span>
@@ -479,7 +521,8 @@
                                 </div>
                                 <div class="sl-item">
                                     <div class="sl-left">
-                                        <img class="rounded-circle" alt="user" src="assets/images/users/6.jpg"> </div>
+                                        <img class="rounded-circle" alt="user" src="assets/images/users/6.jpg">
+                                    </div>
                                     <div class="sl-right">
                                         <div>
                                             <a href="javascript:void(0)">Stephen</a>

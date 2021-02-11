@@ -49,7 +49,7 @@ export class MenuitemsComponent implements OnInit {
   checkSecondFlag = false
   selectedGoogleDriveFolder: any
   google_drive_url: any;
-  showZerothTab = false;
+  showZerothTab = true;
   showFirstTab = false;
   showSecondTab = false;
   showThirdTab = false;
@@ -160,18 +160,18 @@ export class MenuitemsComponent implements OnInit {
       }
       this.ngxService.start();
       this._ProfileService.getFoldersCreatedInDrive(data).subscribe(res => {
-        console.log('getFoldersCreatedInDrive', res)
+        // console.log('getFoldersCreatedInDrive', res)
         this.drivefolders = res.data;
         this.isChecked = 2;
-        const tabCount = 1;
+        const tabCount = 0;
         this.demo1TabIndex = tabCount;
-        if (this.showFirstTab) {
-          const tabCount = 2;
-          this.demo1TabIndex = tabCount;
-        }
+        // if (this.showFirstTab) {
+        //   const tabCount = 2;
+        //   this.demo1TabIndex = tabCount;
+        // }
         this.fetchFolder()
         this.showBlueColoredTable = false;
-        this.showZerothTab = true;
+        this.showZerothTab = false;
         this.showFirstTab = true;
         this.showSecondTab = true;
         this.showThirdTab = true;
