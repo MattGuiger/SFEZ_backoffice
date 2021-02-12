@@ -167,7 +167,7 @@
                     <mat-tab-group [selectedIndex]="demo1TabIndex">
                       <mat-tab *ngIf="showZerothTab" label="1">
                         <div class="step_one">
-                          <h4>Menu Categories</h4>
+                          <h4 class="mb-4">Menu Categories</h4>
                           <div class="row">
                             <div class="col-md-4 offset-md-4 col-lg-4 offset-lg-4">
                               <div class="icon_card">
@@ -188,8 +188,8 @@
                       </mat-tab>
                       <mat-tab *ngIf="showFirstTab" label="1">
                         <div class="step_one">
-                          <h2>Step 1</h2>
-                          <h4>Menu Categories</h4>
+                          <!-- <h2>Step 1</h2> -->
+                          <h4 class="mb-4">Menu Categories</h4>
                           <p>
                             {{googleEmail}}
                             <a href="{{authentication_url}}">
@@ -212,6 +212,17 @@
                                         <div *ngFor="let category of categories">
                                           <mat-checkbox (change)="onChange($event,category.category); false">
                                             {{category.category}}</mat-checkbox>
+                                        </div>
+                                        <div>
+                                          <h4 class="mb-1 font-weight-bold d-none">Add Your Own</h4>
+                                          <div class="custom-input mt-3">
+                                            <input type="text" name="owncategory" [(ngModel)]="owncategory"
+                                              placeholder="Add Your Own Category" />
+                                            <button type="button" class="btn btn-primary px-3 ml-2"
+                                              (click)="addOwnCategory()">
+                                              <i class="fa fa-plus"></i>
+                                            </button>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
@@ -242,8 +253,8 @@
                                     </div>
                                   </div>
                                 </div>
-                                <button mat-raised-button class="btn btn-primary btn-block"
-                                  (click)="createFolderinDrive()">Create Folders in Google Drive</button>
+                                <button mat-raised-button class="btn btn-primary btn-block mt-4"
+                                  (click)="createFolderinDrive();">Create Folders in Google Drive</button>
                               </div>
                             </div>
                           </div>
@@ -473,7 +484,7 @@
                                 created for you).
                                 Example URL:
                                 https://drive.google.com/file/d/1UAsbJZb66kBcaETVBT7nClg0B5k0c7yr/view?usp=sharing</p>
-                              <p>1. Login to Dropbox and upload all of your images first. Use folders for the Menu
+                              <!-- <p>1. Login to Dropbox and upload all of your images first. Use folders for the Menu
                                 Categories
                                 (lunch, dinner, soups, etc.) if you wish.
 
@@ -484,10 +495,10 @@
 
                                 3. Example URL:
                                 https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0
-                              </p>
+                              </p> -->
                             </div>
                           </div>
-                          <div class="row">
+                          <!-- <div class="row">
                             <div class="col-md-3">
                               <div class="icon_card">
                                 <img src="../../assets/images/dropbox@1X.png" alt="  " class="drive">
@@ -507,7 +518,7 @@
                                 https://www.dropbox.com/s/60imngtnvp3akzs/screenshot-my.telegram.org-2020.08.19-17_15_17.png?dl=0
                               </p>
                             </div>
-                          </div>
+                          </div> -->
                         </div>
                       </mat-tab>
                       <!-- <mat-tab *ngIf="showFourthTab" label="5">

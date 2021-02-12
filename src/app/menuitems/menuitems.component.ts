@@ -61,6 +61,7 @@ export class MenuitemsComponent implements OnInit {
   drivefolders: any;
   public demo1TabIndex = 0;
   private tabSet: ViewContainerRef;
+  owncategory: string = "";
 
   @ViewChild(NgbTabset) set content(content: ViewContainerRef) {
     this.tabSet = content;
@@ -153,7 +154,7 @@ export class MenuitemsComponent implements OnInit {
     formData.append('file', event.addedFiles[0]);
     // this.uploadFeaturePhoto(formData);
   }
-  getFolderbyEmail() {
+  getFolderbyEmail(isTabchange: boolean = false) {
     if (this.googleEmail) {
       const data = {
         email: this.googleEmail
@@ -163,7 +164,7 @@ export class MenuitemsComponent implements OnInit {
         // console.log('getFoldersCreatedInDrive', res)
         this.drivefolders = res.data;
         this.isChecked = 2;
-        const tabCount = 0;
+        const tabCount = isTabchange ? 1 : 0;
         this.demo1TabIndex = tabCount;
         // if (this.showFirstTab) {
         //   const tabCount = 2;
@@ -277,7 +278,7 @@ export class MenuitemsComponent implements OnInit {
       reader.readAsDataURL(this.file);
       this.uploadImageToDrive(formData1, folderId, category);
     } else {
-      alert("Please fill all required fields")
+      this.toastr.error("Please fill all required fields")
     }
   }
 
@@ -443,10 +444,10 @@ export class MenuitemsComponent implements OnInit {
     console.log('folderss data', data)
 
     this._ProfileService.createfolderInGoogleDrive(data).subscribe(res => {
-      // const tabCount = 2;
-      //   this.demo1TabIndex = tabCount;
+      //const tabCount = 2;
+      this.demo1TabIndex = 1;
       this.toastr.success('Folders created successfully');
-      this.getFolderbyEmail()
+      this.getFolderbyEmail(true)
     })
   }
   onClick(event) {
@@ -557,5 +558,24 @@ export class MenuitemsComponent implements OnInit {
     })
   }
 
+  /**
+   * Add own category
+   */
+  addOwnCategory() {
+    if (this.owncategory !== "") {
+      this.ngxService.start();
+      this._ProfileService.addOwnCategory({ category: this.owncategory }).subscribe((res) => {
+        this.toastr.success("Category successfully added");
+        this.categories.push(res.data[0]);
+        this.owncategory = "";
+        this.ngxService.stop();
+      }, err => {
+        this.ngxService.stop();
+        this.toastr.error(err.error);
+      })
+    } else {
+      this.toastr.error("Please insert category name.");
+    }
+  }
 }
 

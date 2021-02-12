@@ -45,10 +45,16 @@
             <!-- <a class="sidebar-link waves-effect waves-dark" [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null"
                 [ngClass]="[sidebarnavItem.class]" *ngIf="!sidebarnavItem.extralink;" (click)="addExpandClass(sidebarnavItem.title)"
                 [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'"> -->
-            <a class="sidebar-link waves-effect waves-dark active"
+            <a *ngIf="sidebarnavItem.class !== 'directlink' && !sidebarnavItem.extralink"
+                class="sidebar-link waves-effect waves-dark active"
                 [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null"
-                [ngClass]="[sidebarnavItem.class]" *ngIf="!sidebarnavItem.extralink;"
-                (click)="addExpandClass(sidebarnavItem.title)">
+                [ngClass]="[sidebarnavItem.class]" (click)="addExpandClass(sidebarnavItem.title)">
+                <img [src]="[sidebarnavItem.icon]" class="img-fluid mr-2" width="20">
+                <span class="hide-menu">{{sidebarnavItem.title}}</span>
+            </a>
+            <a *ngIf="sidebarnavItem.class == 'directlink'" class="sidebar-link waves-effect waves-dark active"
+                href="javascript:void(0);" [ngClass]="[sidebarnavItem.class]"
+                (click)="addExpandClass(sidebarnavItem.title); uploadGoogleMenuSheet();">
                 <img [src]="[sidebarnavItem.icon]" class="img-fluid mr-2" width="20">
                 <span class="hide-menu">{{sidebarnavItem.title}}</span>
             </a>

@@ -77,10 +77,10 @@ export const ADMINROUTE: RouteInfo[] = [
         submenu: [
         ]
     },
-    
- ];
 
- 
+];
+
+
 export const UNITMGRROUTE: RouteInfo[] = [
     {
         path: '/forms/units',
@@ -100,7 +100,7 @@ export const UNITMGRROUTE: RouteInfo[] = [
         submenu: [
         ]
     },
- ];
+];
 
 export const ROUTES: RouteInfo[] = [
     // {
@@ -200,6 +200,15 @@ export const ROUTES: RouteInfo[] = [
         title: 'Hub Mgmt | Drivers',
         icon: '/assets/images/driver.png',
         class: '',
+        extralink: false,
+        submenu: [
+        ]
+    },
+    {
+        path: '',
+        title: 'Sync to Google Sheets',
+        icon: '/assets/images/google-sheets.png',
+        class: 'directlink',
         extralink: false,
         submenu: [
         ]
@@ -591,7 +600,7 @@ export const ROUTES: RouteInfo[] = [
     //             extralink: false,
     //             submenu: []
     //         },
-      //         {
+    //         {
     //             path: '/forms/company',
     //             title: 'Hub Members',
     //             icon: '',
