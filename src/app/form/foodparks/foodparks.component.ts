@@ -1223,16 +1223,16 @@ export class FoodParkComponent implements OnInit {
   deleteManager($event, row) {
     console.log(row);
     let data;
-    if (row?.unit?.id) {
+    if (row?.unitid) {
       console.log('if');
       data = {
-        "user_id": row.id,
-        "unit_id": row.unit.id
+        "user_id": row.user_id,
+        "unit_id": row.unitid
       }
     } else {
       console.log('else');
       data = {
-        "user_id": row.id,
+        "user_id": row.user_id,
         "food_park_id": this.user.food_park_id
       }
     }
