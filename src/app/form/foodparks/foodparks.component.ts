@@ -706,7 +706,7 @@ export class FoodParkComponent implements OnInit {
 
 
   }
-  deleteLocation(unitId) {
+  deleteLocation(row) {
     const message = `Are you sure you want to do this?`;
     const dialogData = new ConfirmDialogModel("Confirm Action", message);
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -720,9 +720,10 @@ export class FoodParkComponent implements OnInit {
         if (this.user.food_park_id) {
           let unit_data = {
             foodparkId: this.user.food_park_id,
-            unitId: unitId
+            unitId: row.unit_id
           }
-          return
+
+          //return
           this._ProfileService.deleteUnitsListWithFoodParkId(unit_data).subscribe(
             (response: any) => {
               console.log('Remove dataaa', response)
@@ -1240,7 +1241,9 @@ export class FoodParkComponent implements OnInit {
       (response) => {
         if (response.status == 200) {
           this.toastr.success('Manager deleted successfull');
-          this.getAllManger();
+
+          //this.getAllManger();
+          //this.getUnitManager();
         }
       },
       (error) => {
