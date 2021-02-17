@@ -48,12 +48,12 @@ ngx-dropzone-label {
     top: -5px;
 }
 #logo_text h3 {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 22px;
     margin: 0;
 }
 #dish_text h3 {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 22px;
     margin: 0;
 }
@@ -80,5 +80,9 @@ ngx-dropzone-label {
 }
 #dishImg img {
     width: auto;
-    height: 100px;
+    /*height: 100px;*/
+}
+
+#logo h2, #dish h2{
+    font-size: 18px;
 }
