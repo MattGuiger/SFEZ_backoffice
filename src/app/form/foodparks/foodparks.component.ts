@@ -416,7 +416,7 @@ export class FoodParkComponent implements OnInit {
     }
     this._AuthService.territory_id(this.user.country, this.user.state, data).subscribe((res: any) => {
       if (res.status == 200) {
-        this.territory_id1 = res.data.id;
+        this.territory_id1 = res.data?.id;
         console.log("territory_id" + this.territory_id1);
         this.getlocationOnTerritoryId()
         this.getLocationInTerritoy()
@@ -509,7 +509,7 @@ export class FoodParkComponent implements OnInit {
       longitude: this.long
     }
     this._AuthService.territory_id(this.user.country, this.user.state, data).subscribe((res: any) => {
-      this.territory_id1 = res.data.id;
+      this.territory_id1 = res.data?.id;
       console.log("territory_id" + this.territory_id1);
       this.getDriverswithCompanyId()
       this.getDriverswithterriId()
@@ -900,7 +900,7 @@ export class FoodParkComponent implements OnInit {
           console.log(res);
 
           this.singleTerritory = res;
-          this.selectedTerritory = res.territory[0].id
+          this.selectedTerritory = res.territory[0]?.id
         })
       })
     } else {
