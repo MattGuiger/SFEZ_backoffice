@@ -93,12 +93,12 @@ export class FoodParkComponent implements OnInit {
   type: any[] = [];
   types = [
     "RESTAURANT",
-    "Cafe",
+    "CAFE",
     "BEER",
     "WINE",
     "FOOD TRUCK",
     "PIZZA",
-    "FARMER",
+    "FARMERS",
     "CHEF",
     "GHOST KITCHEN"
   ];
@@ -722,6 +722,7 @@ export class FoodParkComponent implements OnInit {
             foodparkId: this.user.food_park_id,
             unitId: row.unit_id
           }
+          console.log(unit_data);
 
           //return
           this._ProfileService.deleteUnitsListWithFoodParkId(unit_data).subscribe(
