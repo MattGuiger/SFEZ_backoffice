@@ -1,10 +1,9 @@
-
 <form #scheduleForm="ngForm" [formGroup]="scheduleFormData" (ngSubmit)="onSubmit()">
-    <div >
+    <div>
         <div class="tab-pane active">
             <h4 class="head text-center">{{title}}</h4>
             <small class="form-text text-muted text-center">(Schedule, Hours, Facebook, Business Address)</small>
-            <br/>
+            <br />
             <!-- <div class="row">
                 <div class='col-12 col-sm-6'>
                     <div class="form-group">
@@ -50,43 +49,44 @@
             </div> -->
             <!-- <div class="text-center">
                 <img src="/assets/images/business.png" />
-            </div> -->          
+            </div> -->
             <div class="form-group col-4 offset-4 mt-4">
-                    <div class="input-group mb-3">
-                            <!-- <img src="/assets/images/fb.png" /> -->
-                            <img src="assets/images/facebook icon.png" width="50" height="60">
+                <div class="input-group mb-3">
+                    <!-- <img src="/assets/images/fb.png" /> -->
+                    <img src="assets/images/facebook icon.png" width="50" height="60">
 
-                            <!-- <button type="button" class="btn btn-fb" (click)="routeToFb()"><i class="fab fa-facebook-f pr-1"></i> Facebook</button> -->
-                        </div>
-                        <label  class="orm-control-label">Facebook URL</label>
-                <input class="form-control"  formControlName="facebook" placeholder="https://www.facebook.com/machotacos">
+                    <!-- <button type="button" class="btn btn-fb" (click)="routeToFb()"><i class="fab fa-facebook-f pr-1"></i> Facebook</button> -->
+                </div>
+                <label class="orm-control-label">Facebook URL</label>
+                <input class="form-control" formControlName="facebook"
+                    placeholder="https://www.facebook.com/machotacos">
                 <!-- <div formArrayName="arr" *ngFor="let a of scheduleFormData.get('arr')['controls'] ; let i = index"> -->
-                       <br>
-                        <label  class="orm-control-label">Schedule</label>
-            <div formArrayName="arr" *ngFor="let a of scheduleFormData.get('arr')['controls'] ; let i = index">
+                <br>
+                <label class="orm-control-label">Schedule</label>
+                <div formArrayName="arr" *ngFor="let a of scheduleFormData.get('arr')['controls'] ; let i = index">
                     <!-- <div [formGroupName]="i" style="margin-bottom: 10px;"> -->
-                            <div class="day" (click)="weekday($event)"  formGroupName="schedule">
-                                    <input type="checkbox" name="Button0{{i}}"  class="ButtonState" id="Button0{{i}}" value="0"/>
-                                    <label class="Button" for="Button0{{i}}">Mon</label>
-                                    <input type="checkbox" name="Button1{{i}}"  class="ButtonState" id="Button1{{i}}" value="1"/>
-                                    <label class="Button" for="Button1{{i}}">Tue</label>
-                                    <input type="checkbox" name="Button2{{i}}"  class="ButtonState" id="Button2{{i}}" value="2"/>
-                                    <label class="Button" for="Button2{{i}}">Wed</label>
-                                    <input type="checkbox" name="Button3{{i}}"  class="ButtonState" id="Button3{{i}}" value="3"/>
-                                    <label class="Button" for="Button3{{i}}">Thu</label>
-                                    <input type="checkbox" name="Button4{{i}}"  class="ButtonState"  id="Button4{{i}}" value="4"/>
-                                    <label class="Button" for="Button4{{i}}">Fri</label>
-                                    <input type="checkbox" name="Button5{{i}}"  class="ButtonState" id="Button5{{i}}" value="5"/>
-                                    <label class="Button" for="Button5{{i}}">Sat</label>
-                                    <input type="checkbox" name="Button6{{i}}"  class="ButtonState"  id="Button6{{i}}" />
-                                    <label class="Button"   for="Button6{{i}}">Sun</label>
-                                </div>
-                      <br>
-                      <label  class="form-control-label">Hours of Operation</label>
-                      <!-- <label  class="orm-control-label" for="hours">Time</label> -->
-                      <!-- <input class="form-control form-control-sm" (change)="getHours($event)" style="border-color:#22c6ab;"  formControlName="hours" type="text" placeholder="Ex: 8:00 AM - 10 PM"> -->
-                      <div class="row" style="margin-top: 1rem;" (change)="getHours($event)">
-                          <!-- <div class="col-md-5">
+                    <div class="day" (click)="weekday($event)" formGroupName="schedule">
+                        <input type="checkbox" name="Button0{{i}}" class="ButtonState" id="Button0{{i}}" value="0" />
+                        <label class="Button" for="Button0{{i}}">Mon</label>
+                        <input type="checkbox" name="Button1{{i}}" class="ButtonState" id="Button1{{i}}" value="1" />
+                        <label class="Button" for="Button1{{i}}">Tue</label>
+                        <input type="checkbox" name="Button2{{i}}" class="ButtonState" id="Button2{{i}}" value="2" />
+                        <label class="Button" for="Button2{{i}}">Wed</label>
+                        <input type="checkbox" name="Button3{{i}}" class="ButtonState" id="Button3{{i}}" value="3" />
+                        <label class="Button" for="Button3{{i}}">Thu</label>
+                        <input type="checkbox" name="Button4{{i}}" class="ButtonState" id="Button4{{i}}" value="4" />
+                        <label class="Button" for="Button4{{i}}">Fri</label>
+                        <input type="checkbox" name="Button5{{i}}" class="ButtonState" id="Button5{{i}}" value="5" />
+                        <label class="Button" for="Button5{{i}}">Sat</label>
+                        <input type="checkbox" name="Button6{{i}}" class="ButtonState" id="Button6{{i}}" />
+                        <label class="Button" for="Button6{{i}}">Sun</label>
+                    </div>
+                    <br>
+                    <label class="form-control-label">Hours of Operation</label>
+                    <!-- <label  class="orm-control-label" for="hours">Time</label> -->
+                    <!-- <input class="form-control form-control-sm" (change)="getHours($event)" style="border-color:#22c6ab;"  formControlName="hours" type="text" placeholder="Ex: 8:00 AM - 10 PM"> -->
+                    <div class="row" style="margin-top: 1rem;" (change)="getHours($event)">
+                        <!-- <div class="col-md-5">
                               <label style="display: block;margin: 0" for="">From</label>
                               <select name="my-dropdown" style="width:100px;" [(ngModel)]="myDropdownModel">
                                     <option *ngFor="let number of numbers" [ngValue]="number">{{number}}</option>
@@ -98,52 +98,50 @@
                                         <option *ngFor="let number of numbers" [ngValue]="number">{{number}}</option>
                                     </select>
                               </div> -->
-                      </div>
-                              <div class="row">
-                                  <div class="col-md-4">
-                                        <select class="form-control"
-                                        (change)="onSelect($event.target.value)">
-                                        <option value="0" selected hidden>From</option>
-                                        <option [value]="type" *ngFor="let type of startTimeArray">
-                                          {{type}}
-                                        </option>
-                                      </select>
-                                  </div> 
-                                  <div class="col-md-1 text-center">
-                                      -
-                                  </div>
-                                  <div class="col-md-4">
-                                  <select class="form-control"
-                                    (change)="onSelect($event.target.value)">
-                                    <option value="0" selected hidden>To</option>
-                                    <option [value]="type" *ngFor="let type of startTimeArray">
-                                      {{type}}
-                                    </option>
-                                  </select>
-                                  </div>
-                              </div>
-                        
-                      <!-- <label class="form-control-label" for="hours" >Time</label>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <select class="form-control" (change)="onSelect($event.target.value)">
+                                <option value="0" selected hidden>From</option>
+                                <option [value]="type" *ngFor="let type of startTimeArray">
+                                    {{type}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-1 text-center mt-2">
+                            -
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control" (change)="onSelect($event.target.value)">
+                                <option value="0" selected hidden>To</option>
+                                <option [value]="type" *ngFor="let type of startTimeArray">
+                                    {{type}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- <label class="form-control-label" for="hours" >Time</label>
                       <input class="form-control form-control-sm" id="hours" formControlName="hours" placeholder="Ex: 8:00 AM - 10 PM"> -->
                     <!-- </div> -->
-                  <br>
+                    <br>
                     <!-- <button type="button" class="btn btn-link" style="color:blue;" (click)="addItem()">Add Hours</button> -->
                 </div>
-                  <!-- <button type="button" (click)="addItem()" style="margin-right: 5px;">Add</button> -->
-                  <!-- <button type="button" class="btn btn-link" (click)="addItem()">Add Hours</button>
+                <!-- <button type="button" (click)="addItem()" style="margin-right: 5px;">Add</button> -->
+                <!-- <button type="button" class="btn btn-link" (click)="addItem()">Add Hours</button>
                   <br> -->
-            <!-- <div class="input-group mb-3">
+                <!-- <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <button class="btn mr-0 btn-info" type="button" style="background: #34a6bf;color:#fff;">
                             <i class="icon-Clock"></i>
                         </button>
                     </div>
                 <input class="form-control input-md" id="schedule" name="schedule" type="text">   
-                </div>  --> 
+                </div>  -->
                 <!-- <label class="form-control-label" for="hours">Hours:  10 am – 8 pm</label> -->
 
                 <!-- <div class="input-group mb-3"> -->
-                    <!-- <div class="input-group-prepend">
+                <!-- <div class="input-group-prepend">
                         <button class="btn mr-0 btn-info" type="button" style="background: #34a6bf;color:#fff;">
                             <i class="icon-Clock"></i>
                         </button>
@@ -153,9 +151,9 @@
                 <br>
                 <label class="form-control-label" for="telegram">Telegram</label>
                 <div class="text-center" (click)="routeToTelegram()">
-                     <div class="col-sm-3 offset-sm-1">
-                            <div class="text-ellipsis hovered_tip"  style="position: relative"
-                            placement="right" container="body">
+                    <div class="col-sm-3 offset-sm-1">
+                        <div class="text-ellipsis hovered_tip" style="position: relative" placement="right"
+                            container="body">
                             <img id="telegramImg" src="/assets/images/telegram.png" />
                             <div class="custom_tip">
                                 <p>Step 1: Download the Telegram App or Visit https://web.telegram.org/.</p>
@@ -169,21 +167,22 @@
                                 <p>Step 6: Search User Info Bot (or @User Info Bot) and copy your Bot Access token
                                 </p>
                             </div>
-                            </div>
                         </div>
-                 </div>
+                    </div>
+                </div>
                 <div>
                     <br>
                     <label class="form-control-label" for="telegram_id">Provide your Telegram ID below:</label>
                     <!-- <input class="form-control form-control-sm" formControlName="group_name" type="text"> -->
-                        <input class="form-control form-control-sm" formControlName="telegram_id" type="text">
-                        <!-- <button type="button" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" (change)="saveTelegram_id()">Save</button> -->
-                        <br>
+                    <input class="form-control" formControlName="telegram_id" type="text">
+                    <!-- <button type="button" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" (change)="saveTelegram_id()">Save</button> -->
                     <br>
-                      <!-- <label class="form-control-label" for="group_name">Choose Group Name</label>
+                    <br>
+                    <!-- <label class="form-control-label" for="group_name">Choose Group Name</label>
                       <input class="form-control form-control-sm" formControlName="group_name" type="text">
                       <input class="form-control form-control-sm" formControlName="group_name" type="text"> -->
-                      <button type="button" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" (click)="addGroupName()">Create Group</button>
+                    <button type="button" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;"
+                        (click)="addGroupName()">Create Group</button>
                     <br>
                 </div>
                 <br>
@@ -198,9 +197,11 @@
                 </form> -->
                 <!-- <label class="form-control-label" for="description">Business Address</label>  
                 <textarea rows="" class="form-control form-control-line" class="form-control input-md" id="description" name="description"></textarea> -->
-                <button uiSref="personal" type="button" class="mt-3 btn btn-raised btn-secondary mr-1" (click)="cancel()"> Previous</button>
+                <button uiSref="personal" type="button" class="mt-3 btn btn-raised btn-secondary mr-1"
+                    (click)="cancel()"> Previous</button>
                 <!-- <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save()"> Next </button> -->
-                <button uiSref="address" type="submit" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" > Save </button>
+                <button uiSref="address" type="submit" class="btn btn-raised btn-info mt-3"
+                    style="background: #34a6bf;color:#fff;"> Save </button>
             </div>
         </div>
     </div>
