@@ -11,7 +11,7 @@ export class ProfileService {
   private getProfileURL = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/companies/';
   private uploadGoogleSheetUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/uploadgooglesheetuploadmenuitems';
   private productListUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/companies/';
-  private singleProductUrl = config.getEnvironmentVariable('endPoint') + '/api/v1/mol/companies/';
+  private singleProductUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/companies/';
   private getProfileUserURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/users/';
   private updateUsergooglesheetUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/updatecompanies/';
   private companyProfileURl = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/companies/';
@@ -38,7 +38,7 @@ export class ProfileService {
   private companyURL1 = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/companies';
   //https://api.instamarkt.co/api/v1/rel/payout/dailypayoutsfororders/11247
   private dailyPayout = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/getVendorDriverWagesForOrders';
-  private dailyPayoutURL = config.getEnvironmentVariable('endPoint') + '/api/v1/rel/payout/dailypayoutsfororders';
+  private dailyPayoutURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/payout/dailypayoutsfororders';
   private getManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/getfoodparkmgrs';
   private getManagerOnTerritoryURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/managers';
   //private greenMoneyURL = config.getEnvironmentVariable('endPoint') + 'api/v1/payment/green-money-generate-widget/';
