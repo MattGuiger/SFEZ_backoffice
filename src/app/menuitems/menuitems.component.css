@@ -393,3 +393,8 @@ p {
     }
 }
 /******* Mobile Media Query **********/
+
+.image-fix-height{
+    max-height: 82px;
+    overflow: hidden;
+}
