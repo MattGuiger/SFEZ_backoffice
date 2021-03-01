@@ -49,22 +49,15 @@ export class PersonalComponent implements OnInit {
   data: any[] = [];
   companyId: any;
   vndr_name: any;
+  vndr_logo: any;
+  vndr_dish: any;
   formVal = {}
   personalDetailsForm = new FormGroup({
-    // first_name: new FormControl('', Validators.required),
-    // last_name: new FormControl('', Validators.required),
-    // email: new FormControl('', Validators.required),
-    // territory_id: new FormControl('', Validators.required),
-    // password: new FormControl('', Validators.required),
-    // state_id: new FormControl('', Validators.required),
-    company_name: new FormControl(),
-    // distance_range: new FormControl('', Validators.required),
-
+    name: new FormControl(),
   });
   files: File[] = [];
   feathuredfiles: File[] = [];
   user: any;
-
 
   constructor(private router: Router,
     private _AuthService: AuthService,
@@ -80,22 +73,29 @@ export class PersonalComponent implements OnInit {
     this.getAllStates();
 
   }
+
   ngOnInit() {
     this.personal = this.formDataService.getPersonal();
     this.getcountryList();
     this.territory_id();
     this.vendor_name();
   }
+
   vendor_name() {
     this._AuthService.getVendrName(this.user.company_id).subscribe((res: any) => {
-      this.vndr_name = res.name;
+      this.vndr_dish = res.featured_dish;
+      this.vndr_logo = res.photo;
+      localStorage.setItem("vendroData", JSON.stringify(res));
+      this.personalDetailsForm.patchValue({ "name": res.name });
     })
   }
+
   getcountryList() {
     this._AuthService.getcountryList().subscribe((res: any) => {
       this.countryList = res;
     })
   }
+
   territory_id() {
     this.latt = localStorage.getItem('latitude');
     this.long = localStorage.getItem('longitude');
@@ -105,113 +105,47 @@ export class PersonalComponent implements OnInit {
     }
     this._AuthService.territory_id(this.user.country, this.user.state, data).subscribe((res: any) => {
       this.territoryid = res.data.id;
-      console.log("territory_id" + this.territoryid);
-      localStorage.setItem("territory_id",this.territoryid)
+      localStorage.setItem("territory_id", this.territoryid)
     })
   }
+
   getTerritory(event) {
     let stateData = event.target.value;
     const strData = stateData.split(",");
-    console.log(strData);
     this.stateAndTerritoryObject = {
       id: strData[0],
       name: strData[1]
     }
     const state_id = this.stateAndTerritoryObject.id;
     this._ProfileService.getTerritory(state_id).subscribe((res: any) => {
-      console.log(res);
-
       this.singleTerritory = res.territory;
     })
   }
+
   changeCountry(event) {
-    console.log('changeCountry', event.target.value)
     this.personal.country_id = event.target.value
   }
 
-  //Save button event Starts
-  // save(form: any) {
-  //     if (!form.valid)
-  //         return;
-  //     this.formDataService.setPersonal(this.personal);
-  //     this._AuthService.vendorRegistration(this.personal).subscribe((res:any)=>{
-  //         if(res.status=200){
-  //             this.toastr.success('Vendor details saved successfully!');
-  //             this.router.navigateByUrl('/forms/ngx/photo/'+res.user.company_id, { relativeTo: this.route.parent, skipLocationChange: true });
-  //         }else{
-  //             this.toastr.success(res.message);
-  //         }
-  //     })
-  //     // this.router.navigateByUrl('/forms/ngx/photo/11152', { relativeTo: this.route.parent, skipLocationChange: true });
-
-  //     let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);
-  //     if (firstState.length > 0) {          
-  //     };       
-  // }
-  // placeMarker(event) {
-  //   this.lat = event.coords.lat;
-  //   this.lng = event.coords.lng;
-  //   this.hubFoodParkForm.value.latitude = this.lat;
-  //   this.hubFoodParkForm.value.longitude = this.lng;
-  // }
-
   onSubmit() {
-    console.log("personal" + JSON.stringify(this.personalDetailsForm.value));
-    const pics = {
-      featured_dish: localStorage.getItem('featured_dish'),
-      photo: localStorage.getItem('photo'),
-      description: "",
-      schedule: "",
-      tags: "",
-      hours: "",
-      facebook: ""
+    let vendroData = JSON.parse(localStorage.getItem("vendroData"));
+    const data = {
+      tags: vendroData.tags,
+      description: vendroData.description,
+      facebook: vendroData.facebook,
+      telegram_id: vendroData.telegram_id,
+      schedule: vendroData.schedule,
+      hours: vendroData.hours,
+      name: this.personalDetailsForm.value.name
     }
-    console.log('picspicspics', pics)
-    this._ProfileService.updateCompanyCredentials(this.user.company_id, pics).subscribe((res: any) => {
-      console.log('resresres', res)
+    this._ProfileService.updateCompanyCredentials(this.user.company_id, data).subscribe((res: any) => {
       if (res.status == 200) {
         this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
       } else {
         this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
       }
     })
-    // this.personalDetailsForm.value.first_name=this.user.first_name;
-    // this.personalDetailsForm.value.last_name=this.user.last_name;
-    // this.personalDetailsForm.value.email=this.user.username;
-    // this.personalDetailsForm.value.role=this.user.role;
-    // this.personalDetailsForm.value.country_id = this.user.country_id;
-    // this.personalDetailsForm.value.territory_id =  this.territoryid;
-    // this.personalDetailsForm.value.latitude =  this.latt;
-    // this.personalDetailsForm.value.longitude =  this.long;
 
-    // // const data = localStorage.setItem('personalFormData', JSON.stringify(this.personalDetailsForm.value));
-    // this._ProfileService.vendorRegister(this.personalDetailsForm.value).subscribe((res: any)=>{
-    //   if(res.status==200){
-    //    console.log("Testing personal")
-    //     localStorage.setItem('companyId',res.user.company_id)
-    //     localStorage.setItem('Id',res.user.id)
-    //     localStorage.setItem('first_name', res.user.first_name)
-    //     localStorage.setItem('company_name1', this.personalDetailsForm.value.company_name)
-    //     this._ProfileService.getCompanyprofile(res.user.company_id).subscribe(res=>{
-    //       localStorage.setItem('company_name', res.name);
-    //     })
-    //     this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
-    //   } else {
-    //     console.log('error step1');
-    //   //   localStorage.setItem('companyId', '11179')
-    //   // localStorage.setItem('first_name', 'Malibu')
-    //   // this._ProfileService.getCompanyprofile('11179').subscribe(res=>{
-    //   //   localStorage.setItem('company_name', res.name);
-    //   // })
-    //   // this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
-    //   //   this.toastr.error(res.message)
-    //   }
-    // })
-    // // this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
   }
-  // onSubmit(){
-  //   this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
-  // }
 
   placeMarker($event) {
     this.lat = $event.coords.lat;
@@ -220,35 +154,21 @@ export class PersonalComponent implements OnInit {
     this.personalDetailsForm.value.longitude = this.lng;
   }
 
-
-  // save(){
-  //     this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
-  // }
-
-
-  // uploadCompanyProfile(formData, authObject){
-  //   this.user = this._CommonFunctionsService.checkUser().user;
-  //    this._ProfileService.fileUpload(formData, authObject).subscribe((res:any)=>{
-  //      this.toastr.success('Photo upload successfully!')
-  //    },error=>{
-  //       this.toastr.error('failed to upload, please try again later')
-  //    })
-  // }
-
   getAllCountries() {
     this._ProfileService.getAllCountries().subscribe((res: any) => {
       this.countries = res;
     })
   }
+
   getAllStates() {
     this._ProfileService.getState(this.user.country_id).subscribe((res: any) => {
       this.states = res.data;
     })
   }
+
   getState(event) {
     const country_id = event.target.value;
     this._ProfileService.getState(country_id).subscribe((res: any) => {
-      console.log(res);
       this.singleState = res.territory;
     })
   }
@@ -256,26 +176,24 @@ export class PersonalComponent implements OnInit {
   uploadCompanyProfile(formData) {
     this.user = this._CommonFunctionsService.checkUser().user;
     this._ProfileService.uploadCompanyProfile(this.user.company_id, formData).subscribe((res: any) => {
-      console.log('resss ', res.data[0].photo)
       localStorage.setItem('photo', res.data[0].photo);
       this.toastr.success('Photo uploaded successfully!')
     }, error => {
       this.toastr.error('failed to upload, please try again later')
     })
   }
+
   onSelect(event) {
-    console.log(event);
     this.files.push(...event.addedFiles);
     const formData = new FormData();
     formData.append('file', event.addedFiles[0]);
     this.tempFileData = formData;
-    // localStorage.setItem('fileData', JSON.stringify(formData));
     this.uploadCompanyProfile(formData);
   }
+
   uploadFeaturePhoto(formData) {
     this.user = this._CommonFunctionsService.checkUser().user;
     this._ProfileService.uploadFeaturePhoto(this.user.company_id, formData).subscribe((res: any) => {
-      console.log('resss ', res.data[0].photo)
       localStorage.setItem('featured_dish', res.data[0].featured_dish);
       this.toastr.success('Featured Dish Uploaded Successfully!')
     }, error => {
@@ -284,7 +202,6 @@ export class PersonalComponent implements OnInit {
   }
 
   onSelectfeathured(event) {
-    console.log(event);
     this.feathuredfiles.push(...event.addedFiles);
     const formData = new FormData();
     formData.append('file', event.addedFiles[0]);
@@ -293,31 +210,10 @@ export class PersonalComponent implements OnInit {
   }
 
   onRemovefeathured(event) {
-    console.log(event);
     this.feathuredfiles.splice(this.feathuredfiles.indexOf(event), 1);
   }
 
-  // onSelect(event) {
-  //     console.log(event);
-  //     let authObject;
-  //     const data = {
-  //         "client_id": "eDlPjoMabiu84tszlmr9gcpgm1YJXOJoSZxCBooYuW",
-  //         "grant_type": "client_credentials",
-  //         "client_secret": "hqvxfSwzIz9RP3nTLP3SbDZUUDDpfMteRJtfm3rOv3"
-  //     }
-  //     this._ProfileService.getAuthToken(data).subscribe((res:any)=>{
-  //       this.toastr.success('token created successfully')
-  //       authObject = res;
-  //       this.files.push(...event.addedFiles);
-  //     const formData = new FormData();
-  //     formData.append('file',event.addedFiles[0]);
-  //     this.uploadCompanyProfile(formData, authObject);
-  //   },error=>{
-  //       this.toastr.error('Unable to get token')
-  //    })
-  //   }
   onRemove(event) {
-    console.log(event);
     this.files.splice(this.files.indexOf(event), 1);
   }
 
@@ -332,7 +228,6 @@ export class PersonalComponent implements OnInit {
     this.router.navigateByUrl('/forms/ngx/wizard', { relativeTo: this.route.parent, skipLocationChange: true });
   }
   //Cancel button event Ends
-  registerVendor(){
-console.log('personalDetailsForm',this.personalDetailsForm.value)
+  registerVendor() {
   }
 }

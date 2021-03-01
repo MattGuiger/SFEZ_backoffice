@@ -8,25 +8,27 @@ import { Router, ActivatedRoute } from '@angular/router'
   styleUrls: ['./tags.component.css']
 })
 export class TagsComponent implements OnInit {
-  title:string = "Step #3 Tags";
+  title: string = "Step #3 Tags";
   tagsFormData = new FormGroup({
     tags: new FormControl('', Validators.required),
-    // tags: new FormControl()        
-    });
+  });
 
-  constructor(private route:ActivatedRoute, private router:Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    let vendroData = JSON.parse(localStorage.getItem('vendroData'));
+    if(vendroData && vendroData.tags){
+      this.tagsFormData.patchValue({"tags":vendroData.tags});
+    }
   }
 
-  onSubmit(){
-    console.log("work"+ JSON.stringify(this.tagsFormData.value));
-  const data = localStorage.setItem('tagsFormData', JSON.stringify(this.tagsFormData.value));
+  onSubmit() {
+    localStorage.setItem('tagsFormData', JSON.stringify(this.tagsFormData.value));
     this.router.navigateByUrl('/forms/ngx/description', { relativeTo: this.route.parent, skipLocationChange: true });
-}
+  }
 
-cancel() {
-  this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
-}
+  cancel() {
+    this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
+  }
 
 }
