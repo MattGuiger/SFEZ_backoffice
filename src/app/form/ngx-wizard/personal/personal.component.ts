@@ -139,6 +139,7 @@ export class PersonalComponent implements OnInit {
     }
     this._ProfileService.updateCompanyCredentials(this.user.company_id, data).subscribe((res: any) => {
       if (res.status == 200) {
+        localStorage.setItem("vendroData", JSON.stringify(res.data[0]));
         this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
       } else {
         this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });

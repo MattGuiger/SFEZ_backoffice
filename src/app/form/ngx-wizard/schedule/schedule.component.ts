@@ -53,6 +53,9 @@ export class ScheduleComponent implements OnInit {
   data: any[] = [];
   newStorage: any[] = [];
   user: any
+  hoursFrom: any;
+  hoursTo: any;
+  days: Array<any> = [];
   constructor(private router: Router,
     private _AuthService: AuthService,
     private fb: FormBuilder,
@@ -72,23 +75,29 @@ export class ScheduleComponent implements OnInit {
       this.companyId = + params['id'];
     });
     this.scheduleFormData = this.fb.group({
-      facebook: [''],
-      telegram_id: [],
-      name: "",
-      schedule: [this.schedule],
-      hours: [this.getTime],
+      facebook: '',
+      telegram_id: '',
+      name: '',
+      schedule: '',
+      hours: '',
       arr: this.fb.array([this.createItem()])
     })
 
     let vendroData = JSON.parse(localStorage.getItem('vendroData'));
     if(vendroData){
+      let hour = vendroData.hours.split("-");
+      this.hoursFrom = hour[0].toString();
+      this.hoursTo = hour[1].toString();
+      this.days = vendroData.schedule.split(",");
+      this.days.forEach(item =>{
+        this.addValue({"value":item});
+      })
       this.scheduleFormData.patchValue({
         "facebook":vendroData.facebook,
         "telegram_id":vendroData.telegram_id,
         "name":vendroData.name,
         "schedule":vendroData.schedule,
         "hours":vendroData.hours,
-        // "arr":vendroData.arr,
       });
     }
   }
@@ -97,9 +106,7 @@ export class ScheduleComponent implements OnInit {
     //merge local storage data
     this.allData = this.mergeData();
     this.allData.schedule = this.schedule.join(',');
-    this.allData.hours = this.getTime.join('-');
-    this.scheduleFormData.value.featured_dish = localStorage.getItem('featured_dish');
-    this.scheduleFormData.value.photo = localStorage.getItem('photo');
+    this.allData.hours = this.hoursFrom+'-'+this.hoursTo;
     this._ProfileService.updateCompanyCredentials(this.user.company_id, this.allData).subscribe((res: any) => {
       this.toastr.success('Success');
       this.clearLocalstorage();
