@@ -87,9 +87,7 @@ export class WorkComponent implements OnInit {
   onSubmit() {
     if (this.comapnydata) {
       this.workFormData.value.name = this.comapnydata.name + ' LOC1';
-      // const comapany_id = this.comapnydata.id;
       this.workFormData.value.username = this.comapnydata.name + "_mgr1";
-
       this.workFormData.value.password = this.generateP();
       this.workFormData.value.territory_id = localStorage.getItem('territory_id');
       this.workFormData.value.number = 1
@@ -105,6 +103,7 @@ export class WorkComponent implements OnInit {
         }
       }, error => {
         this.toastr.error(' Username exist already. Please go to the location tab to create new unit in hub management.')
+        this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
       })
     }
   }
