@@ -1089,7 +1089,7 @@
 </ng-template>
 <ng-template #content5 let-modal>
   <div class="modal-header" style="background-color: #7460ee;">
-    <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Edit Delivery Hub</h4>
+    <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Delivery Hub Configuration</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -1097,25 +1097,36 @@
   <div class="modal-body">
     <form [formGroup]="foodParkForm" (ngSubmit)="onDeliveryHubSubmit()">
       <div class="form-group">
-        <label for="delivery_time_window" style="display: block;">Delivery Time Window (Min)</label>
-        <!-- <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="15" min="1" max="15" step="5"></mat-slider> -->
-        <!-- <mat-slider thumbLabel min="0" max="25" step="5" formControlName="delivery_time_window"
-          [displayWith]="formatLabel" tickInterval="15" class="cdk-focused" (input)="minDaysValue = $event.value"
-          [value]="minDaysValue">
-        </mat-slider> -->
-        <mat-slider thumbLabel min="0" max="25" step="5" [(ngModel)]="minDaysValue"
-          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="15" class="cdk-focused"
+        <label for="delivery_time_window" style="display: block;">Delivery Time Window (Minutes)</label>
+        <mat-slider thumbLabel min="0" max="20" step="5" [(ngModel)]="minDaysValue"
+          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="10" class="cdk-focused"
           (input)="minDaysValue = $event.value" [value]="minDaysValue">
         </mat-slider>
-        <!-- <label for="type">Type</label>
-        <div class="input-group">
-          <select formControlName="type" class="form-control">
-            <option value="selectedHubRecord.type" [selected]="selectedHubRecord.type === item" selected>
-              {{selectedHubRecord.type }}</option>
-       
-            <option *ngFor="let item of typesForHub">{{item}}</option>
-          </select>
-        </div> -->
+
+        <label for="standard_delivery_charge" style="display: block;">Standard Delivery Charge (0-6 Miles)</label>
+        <mat-slider thumbLabel min="0" max="9" step="0.5" [(ngModel)]="standard_delivery_charge"
+          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="4.5" class="cdk-focused"
+          (input)="standard_delivery_charge = $event.value" [value]="standard_delivery_charge">
+        </mat-slider>
+
+        <label for="standard_trip_fee_for_driver" style="display: block;">Standard Trip Fee For Driver</label>
+        <mat-slider thumbLabel min="0" max="6.5" step="0.5" [(ngModel)]="standard_trip_fee_for_driver"
+          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="3.25" class="cdk-focused"
+          (input)="standard_trip_fee_for_driver = $event.value" [value]="standard_trip_fee_for_driver">
+        </mat-slider>
+
+        <label for="long_delivery_charge" style="display: block;">Long Delivery Charge (6-12 Miles)</label>
+        <mat-slider thumbLabel min="0" max="14" step="0.5" [(ngModel)]="long_delivery_charge"
+          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="7.0" class="cdk-focused"
+          (input)="long_delivery_charge = $event.value" [value]="long_delivery_charge">
+        </mat-slider>
+
+        <label for="long_trip_fee" style="display: block;">Long Trip Fee</label>
+        <mat-slider thumbLabel min="0" max="8.5" step="0.5" [(ngModel)]="long_trip_fee"
+          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="4.25" class="cdk-focused"
+          (input)="long_trip_fee = $event.value" [value]="long_trip_fee">
+        </mat-slider>
+
         <label for="stateid">State</label>
         <div class="input-group">
           <!-- <select class="form-control" (change)="getTerritoryForEdit($event)" [(ngModel)]="state_id1"> -->
@@ -1146,7 +1157,7 @@
 
 <ng-template #content6 let-modal>
   <div class="modal-header" style="background-color: #7460ee;">
-    <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Edit Location</h4>
+    <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Location Configuration</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -1155,27 +1166,27 @@
     <form [formGroup]="onLocationEditForm" (ngSubmit)="onLocationEditSubmit(); ">
 
       <div class="form-group">
-        <label for="customer_order_window" style="display: block;">Customer Time Window(min)</label>
+        <label for="customer_order_window" style="display: block;">Customer Order Window (Minutes)</label>
         <!-- <mat-slider thumbLabel  min="0" max="15" step="5" formcontrolName="customer_order_window"
           [displayWith]="formatLabel" tickInterval="15" class="cdk-focused" (input)="minDaysValuse = $event.value"
           [value]="minDaysValuse">
         </mat-slider> -->
-        <mat-slider thumbLabel min="0" max="15" step="5" [(ngModel)]="customer_order_window"
+        <mat-slider thumbLabel min="0" max="30" step="5" [(ngModel)]="customer_order_window"
           [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="15" class="cdk-focused"
           (input)="minDaysValue = $event.value" [value]="minDaysValue">
         </mat-slider>
-        <label for="delivery_radius" style="display: block;"> Delivery Range(mi)</label>
+        <label for="delivery_radius" style="display: block;"> Delivery Range(Miles)</label>
         <!-- <mat-slider thumbLabel formControlName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel" tickInterval="10" class="cdk-focused"
             (input)="minDaysValue = $event.value" [value]="minDaysValuse">
           </mat-slider> -->
         <!-- <mat-slider thumbLabel formcontrolName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel"
           tickInterval="5" class="cdk-focused" (input)="minDaysValue1 = $event.value" [value]="minDaysValue1">
         </mat-slider> -->
-        <mat-slider thumbLabel min="0" max="15" step="5" [(ngModel)]="delivery_radius"
-          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="15" class="cdk-focused"
+        <mat-slider thumbLabel min="0" max="15" step="1" [(ngModel)]="delivery_radius"
+          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="8" class="cdk-focused"
           (input)="minDaysValuee = $event.value" [value]="minDaysValuee">
         </mat-slider>
-        <label for="standard_delivery" style="display: block;">Standard Delivery Charge($0-5 km/mi) </label>
+        <!-- <label for="standard_delivery" style="display: block;">Standard Delivery Charge($0-5 km/mi) </label>
         <mat-slider thumbLabel min="0" max="5" step="1" [(ngModel)]="standard_delivery"
           [ngModelOptions]="{standalone: true}" (input)="minDaysValue2 = $event.value" [displayWith]="formatLabel"
           tickInterval="5" class="cdk-focused" [value]="minDaysValue2">
@@ -1184,7 +1195,7 @@
         <mat-slider thumbLabel min="5" max="10" step="1" [(ngModel)]="long_delivery"
           [ngModelOptions]="{standalone: true}" (input)="minDaysValue3 = $event.value" [displayWith]="formatLabel"
           tickInterval="10" class="cdk-focused" [value]="minDaysValue3">
-        </mat-slider>
+        </mat-slider> -->
         <!-- </mat-slider> -->
         <!-- <label for="name" style="display: block;">Custom</label>
           <mat-slider thumbLabel [displayWith]="formatLabel3" min="0" max="15"></mat-slider> -->

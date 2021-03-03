@@ -33,6 +33,11 @@ export class FoodParkComponent implements OnInit {
   confirmContent = "Are you sure want to delete tsddshis?";
   confirmCanceltext = "Cancel";
   confirmOkaytext = "Okay";
+  standard_delivery_charge = 4.5;
+  standard_trip_fee_for_driver = 3.5;
+  long_delivery_charge = 7;
+  long_trip_fee = 4.25;
+
   minDaysValue = 10;
   minDaysValuee = 10
   minDaysValue1 = 10;
@@ -119,6 +124,10 @@ export class FoodParkComponent implements OnInit {
 
   foodParkForm = new FormGroup({
     delivery_time_window: new FormControl(event),
+    standard_delivery_charge: new FormControl(),
+    standard_trip_fee_for_driver: new FormControl(),
+    long_delivery_charge: new FormControl(),
+    long_trip_fee: new FormControl(),
 
   });
 
@@ -1320,12 +1329,22 @@ export class FoodParkComponent implements OnInit {
     });
   }
   openEditDeilveryHub(content4, row) {
-    console.log(row)
+    console.log('12', row)
     this.selectedHubRecord = row;
-    if (row.delivery_time_window != "")
+    if (row) {
       this.minDaysValue = parseInt(row.delivery_time_window)
-    else
+      this.standard_delivery_charge = parseInt(row.standard_delivery_charge)
+      this.standard_trip_fee_for_driver = parseInt(row.standard_trip_fee_for_driver)
+      this.long_delivery_charge = parseInt(row.long_delivery_charge)
+      this.long_trip_fee = parseInt(row.long_trip_fee)
+    } else {
       this.minDaysValue = 15
+      this.standard_delivery_charge = 4.5
+      this.standard_trip_fee_for_driver = 3.25
+      this.long_delivery_charge = 7
+      this.long_trip_fee = 4.5
+    }
+
     this.modalService.open(content4, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -1397,7 +1416,7 @@ export class FoodParkComponent implements OnInit {
   sendEmail(event, data, row) {
     // this.router.navigateByUrl('/forms/manager/'+row.id+"/"+type);
     this.selectedManagerRecord = row;
-    console.log(this.selectedManagerRecord)
+
     this.modalService.open(data, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -1406,12 +1425,14 @@ export class FoodParkComponent implements OnInit {
   }
   onDeliveryHubSubmit() {
     this.foodParkForm.value.delivery_time_window = this.minDaysValue
+    this.foodParkForm.value.standard_delivery_charge = this.standard_delivery_charge
+    this.foodParkForm.value.standard_trip_fee_for_driver = this.standard_trip_fee_for_driver
+    this.foodParkForm.value.long_delivery_charge = this.long_delivery_charge
+    this.foodParkForm.value.long_trip_fee = this.long_trip_fee
+
     this.foodParkForm.value.state = this.state_id1;
     this.foodParkForm.value.territory_id = this.territory_id1;
     this.foodParkForm.value.type = 'EVENT';
-    console.log('this.minDaysValue', this.minDaysValue)
-
-    console.log(' this.foodParkForm.value', this.foodParkForm.value)
 
     this._ProfileService.getEditHub(this.selectedHubRecord.food_park_id, this.foodParkForm.value).subscribe(res => {
       // this.modalService.dismissAll()
