@@ -107,6 +107,8 @@ export class ScheduleComponent implements OnInit {
     this.allData = this.mergeData();
     this.allData.schedule = this.schedule.join(',');
     this.allData.hours = this.hoursFrom+'-'+this.hoursTo;
+    let vendroData = JSON.parse(localStorage.getItem('vendroData'));
+    this.allData.name = vendroData.name;
     this._ProfileService.updateCompanyCredentials(this.user.company_id, this.allData).subscribe((res: any) => {
       this.toastr.success('Success');
       this.clearLocalstorage();
