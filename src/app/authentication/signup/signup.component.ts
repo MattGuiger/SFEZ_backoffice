@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import {AgmMap, MouseEvent,MapsAPILoader  } from '@agm/core'; 
+import { AgmMap, MouseEvent, MapsAPILoader } from '@agm/core';
 import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
@@ -15,19 +15,19 @@ import { } from 'googlemaps';
   // providers: [MyserviceService]
 })
 export class SignupComponent implements OnInit {
-  @ViewChild(AgmMap,{static: true}) public agmMap: AgmMap;  
-    private sub: any;
-    getAddress: any;
-    lat: any;
-    lng: any;
-    latitude: any;
-    longitude: any;
-    zoom: any;
-    msg = '';
-    countryList: any[] = [];
-    showcountryInput: Boolean = false;
-    currentLocation: any;
-    constructor(private routes: Router,
+  @ViewChild(AgmMap, { static: true }) public agmMap: AgmMap;
+  private sub: any;
+  getAddress: any;
+  lat: any;
+  lng: any;
+  latitude: any;
+  longitude: any;
+  zoom: any;
+  msg = '';
+  countryList: any[] = [];
+  showcountryInput: Boolean = false;
+  currentLocation: any;
+  constructor(private routes: Router,
     private _AuthService: AuthService,
     private toastr: ToastrService,
     private apiloader: MapsAPILoader
@@ -44,7 +44,7 @@ export class SignupComponent implements OnInit {
     })
   }
 
-  check(first_name: string, last_name: string, email, password, confirmpassword, company_name) {
+  check(first_name: string, last_name: string, email, password, confirmpassword, company_name, country_id) {
     if (password !== confirmpassword) {
       this.msg = 'Password and Confirm password should be same.';
       return;
@@ -83,16 +83,25 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    if (this.lng && this.lat) {
+    // this.lat = 40.745255;
+    // this.lng = -74.034775;
+
+    if (this.lat && this.lng) {
       this._AuthService.vendorRegistration({
         first_name: first_name, last_name: last_name, email: email,
-        password: password, company_name: company_name, role: 'OWNER',latitude:this.lat,longitude:this.lng
+        password: password, company_name: company_name, role: 'OWNER', country_id: country_id, latitude: this.lat, longitude: this.lng
       }).subscribe((data: any) => {
-        this.toastr.success('Sign Up Successful!');
-        this.routes.navigate(['/authentication/login']);
+        if (data.status !== 200) {
+          this.toastr.error(data.message);
+        } else {
+          this.toastr.success("Sign up successful!");
+          this.routes.navigate(['/authentication/login']);
+        }
       }, err => {
         this.msg = 'Something went wrong! please try again.';
       })
+    } else {
+      this.toastr.error("Please allow location before signup and reload your page!");
     }
 
   }
@@ -118,8 +127,8 @@ https://api.instamarkt.co/api/v1/rel/territories/filter-territory/:country_code/
       console.log('lng', resp.coords.longitude, 'lat', resp.coords.latitude)
       this.lat = resp.coords.latitude
       this.lng = resp.coords.longitude
-      localStorage.setItem('Latitude',this.lat)
-      localStorage.setItem('Longitude',this.lng)
+      localStorage.setItem('Latitude', this.lat)
+      localStorage.setItem('Longitude', this.lng)
       // this.apiloader.load().then(() => {
       //   let geocoder = new google.maps.Geocoder;
       //   let latlng = {lat: resp.coords.longitude, lng:resp.coords.latitude};

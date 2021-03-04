@@ -141,7 +141,7 @@ export class FoodParkComponent implements OnInit {
     // type: new FormControl(' ', Validators.required),
     name: new FormControl('', Validators.required),
     trip_fee: new FormControl(0, Validators.required),
-    address: new FormControl()
+    address: new FormControl('', Validators.required)
   });
 
   locationFoodParkForm = new FormGroup({
