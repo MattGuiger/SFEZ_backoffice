@@ -1299,28 +1299,11 @@ export class FoodParkComponent implements OnInit {
   standard_delivery: any
   long_delivery: any
   openEditLocations(content4, row) {
-    console.log("selectedLocationRecord", row);
     this.selectedLocationRecord = row;
-    if (!row.customer_order_window)
-      this.customer_order_window = 20
-    else
-      this.customer_order_window = row.customer_order_window
-
-    if (!row.delivery_radius)
-      this.delivery_radius = 15
-    else
-      this.delivery_radius = row.delivery_radius
-
-
-    if (!row.long_delivery_charge)
-      this.long_delivery = 7
-    else
-      this.long_delivery = row.long_delivery_charge
-
-    if (!row.standard_delivery_charge)
-      this.standard_delivery = 3
-    else
-      this.standard_delivery = row.standard_delivery_charge
+    this.customer_order_window = !!row.customer_order_window ? row.customer_order_window : 20;
+    this.delivery_radius = !!row.delivery_radius ? row.delivery_radius : 15;
+    this.long_delivery = !!row.long_delivery_charge ? row.long_delivery_charge : 7;
+    this.standard_delivery = !!row.standard_delivery_charge ? row.standard_delivery_charge : 3;
 
     this.modalService.open(content4, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -1328,22 +1311,16 @@ export class FoodParkComponent implements OnInit {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
+
   openEditDeilveryHub(content4, row) {
     console.log('12', row)
     this.selectedHubRecord = row;
-    if (row) {
-      this.minDaysValue = parseInt(row.delivery_time_window)
-      this.standard_delivery_charge = parseInt(row.standard_delivery_charge)
-      this.standard_trip_fee_for_driver = parseInt(row.standard_trip_fee_for_driver)
-      this.long_delivery_charge = parseInt(row.long_delivery_charge)
-      this.long_trip_fee = parseInt(row.long_trip_fee)
-    } else {
-      this.minDaysValue = 15
-      this.standard_delivery_charge = 4.5
-      this.standard_trip_fee_for_driver = 3.25
-      this.long_delivery_charge = 7
-      this.long_trip_fee = 4.5
-    }
+
+    this.minDaysValue = !!row.delivery_time_window ? parseInt(row.delivery_time_window) : 15;
+    this.standard_delivery_charge = !!row.standard_delivery_charge ? parseInt(row.standard_delivery_charge) : 4.5;
+    this.standard_trip_fee_for_driver = !!row.standard_trip_fee_for_driver ? parseInt(row.standard_trip_fee_for_driver) : 3.25;
+    this.long_delivery_charge = !!row.long_delivery_charge ? parseInt(row.long_delivery_charge) : 7
+    this.long_trip_fee = !!row.long_trip_fee ? parseInt(row.long_trip_fee) : 4.5;
 
     this.modalService.open(content4, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

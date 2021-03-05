@@ -46,6 +46,7 @@
     "lodash": "^4.17.15",
     "moment": "^2.27.0",
     "ng-chartist": "^4.1.0",
+    "ng-http-loader": "^9.1.0",
     "ng-multiselect-dropdown": "^0.2.10",
     "ng2-charts": "^2.3.0",
     "ng2-dragula": "^2.1.1",
