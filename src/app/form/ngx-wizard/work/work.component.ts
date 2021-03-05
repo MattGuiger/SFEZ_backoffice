@@ -2,9 +2,6 @@ import { CommonFunctionsService } from './../../../services/commonFunctions.serv
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
-import { FormDataService } from '../data/formData.service';
-import { WorkflowService } from "../workflow/workflow.service";
-import { STEPS } from "../workflow/workflow.model";
 import { Router, ActivatedRoute } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../services/auth.service';
@@ -39,8 +36,8 @@ export class WorkComponent implements OnInit {
     private toastr: ToastrService,
     private _CommonFunctionsService: CommonFunctionsService,
     private _ProfileService: ProfileService,
-    private route: ActivatedRoute, private formDataService: FormDataService,
-    private workflowService: WorkflowService) {
+    private route: ActivatedRoute, 
+  ) {
     this.user = this._CommonFunctionsService.checkUser().user;
   }
 
@@ -50,6 +47,7 @@ export class WorkComponent implements OnInit {
     });
     this.getCompanyInfo()
     this.territory_id()
+    this.getlocationCompanyId();
   }
 
   getCompanyInfo() {
@@ -57,7 +55,7 @@ export class WorkComponent implements OnInit {
       this.comapnydata = res
     })
   }
-  
+
   generateP() {
     var pass = '';
     var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
@@ -82,6 +80,18 @@ export class WorkComponent implements OnInit {
       this.territory_id1 = res.data.id;
       localStorage.setItem("territory_id", this.territory_id1)
     })
+  }
+
+  locationsList: any;
+  getlocationCompanyId() {
+    if (this.user.company_id) {
+      this._ProfileService.getlocationCompanyId(this.user.company_id).subscribe(res => {
+        if (res.status == 200) {
+          this.locationsList = res.data[0].type;
+          this.workFormData.patchValue({"type":this.locationsList});
+        }
+      })
+    }
   }
 
   onSubmit() {
