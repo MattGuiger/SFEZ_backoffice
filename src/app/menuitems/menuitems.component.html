@@ -11,7 +11,7 @@
         <h6 class="card-subtitle">A Menuitems listed here, and we can maname Menuitems by importing/syncing them from
           google spreadsheet.</h6>
 
-        <ngb-tabset (tabChange)="getProductList($event)" #t="ngbTabset">
+        <ngb-tabset (tabChange)="getProductList($event)" [activeId]="checkingId" #t="ngbTabset">
           <ngb-tab title="Menu Items" id="tb1">
             <ng-template ngbTabContent>
               <div class="card card-body">
@@ -301,7 +301,7 @@
                                           <div class="custom-file mb-2">
                                             <input type="file" name="file" class="custom-file-input" #file id="customFile"
                                               required (change)="onFileSelect($event,folder)">
-                                            <label class="custom-file-label" for="customFile">{{folder.user_id?folder.user_id : "Chose File"}}</label>
+                                            <label class="custom-file-label" for="customFile">{{folder.user_id?folder.user_id : "Choose File"}}</label>
                                           </div>
 
                                           <div class="d-block mt-2">

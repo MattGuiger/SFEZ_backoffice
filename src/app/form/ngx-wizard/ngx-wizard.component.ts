@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import { ProfileService } from 'src/app/services/profile.service';
-
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'multi-step-wizard-app',
@@ -35,12 +35,16 @@ export class NGXFormWizardComponent implements OnInit {
   //   showMask: true,
   //   mask: [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]
   // };
-
+  iframeUrl:any;
   constructor(private router: Router,
     private route: ActivatedRoute,
     private _ProfileService: ProfileService,
     private toastr: ToastrService,
-    private commonFunctionsService: CommonFunctionsService) {
+    private commonFunctionsService: CommonFunctionsService,
+    private sanitizer:DomSanitizer
+    ) {
+      let url = `https://www.greenbyphone.com/ResellerSign_Up.aspx?ResellerClient_ID=${this.user?.id}1`
+      this.iframeUrl =  this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   ngOnInit() {
@@ -54,7 +58,7 @@ export class NGXFormWizardComponent implements OnInit {
     console.log("activeLocation" + this.activeLocation);
 
     this.router.navigate(['/forms/ngx/wizard'], { skipLocationChange: true });
-    this.checkingId = "2";
+    this.checkingId = "register";
     const value = localStorage.getItem('user');
     if (value && value != 'undefined' && value != 'null') {
       const currentUser = JSON.parse(value);

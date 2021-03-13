@@ -30,7 +30,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TagsComponent } from './tags/tags.component';
 import { AgmCoreModule } from '@agm/core';
 import { CustomMaterialModule } from 'src/app/custom-material/custom-material.module';
-
+import {IframeAutoHeightDirective} from './iframe-autoheight'
 @NgModule({
     imports: [CommonModule,
         FormsModule,
@@ -49,7 +49,7 @@ import { CustomMaterialModule } from 'src/app/custom-material/custom-material.mo
     ],
     providers: [{ provide: FormDataService, useClass: FormDataService },
     { provide: WorkflowService, useClass: WorkflowService }],
-    declarations: [NGXFormWizardComponent, NavbarComponent, PersonalComponent,PhotoComponent, WorkComponent, AddressComponent, ResultComponent,ScheduleComponent,DescriptionComponent, TagsComponent],
+    declarations: [NGXFormWizardComponent, NavbarComponent, PersonalComponent,PhotoComponent, WorkComponent, AddressComponent, ResultComponent,ScheduleComponent,DescriptionComponent, TagsComponent,IframeAutoHeightDirective],
     bootstrap: [NGXFormWizardComponent]
 
 })

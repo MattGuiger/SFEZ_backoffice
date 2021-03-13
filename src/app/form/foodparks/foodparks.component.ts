@@ -802,7 +802,7 @@ export class FoodParkComponent implements OnInit {
   selectHub(event, row, value) {
     console.log('event', event, 'row', row, 'value', value)
     this.setManager.push({ manager_id: event.target.value, hub_id: row.food_park_id });
-
+    this.setManagers();
   }
   selectLocation(event, row, value) {
     console.log('event, row, value', event, row, value)
