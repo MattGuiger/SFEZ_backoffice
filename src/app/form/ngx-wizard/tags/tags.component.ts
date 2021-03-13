@@ -23,6 +23,9 @@ export class TagsComponent implements OnInit {
   }
 
   onSubmit() {
+    let vendroData = JSON.parse(localStorage.getItem('vendroData'));
+    vendroData.tags = this.tagsFormData.value.tags;
+    localStorage.setItem('vendroData', JSON.stringify(vendroData));
     localStorage.setItem('tagsFormData', JSON.stringify(this.tagsFormData.value));
     this.router.navigateByUrl('/forms/ngx/description', { relativeTo: this.route.parent, skipLocationChange: true });
   }
