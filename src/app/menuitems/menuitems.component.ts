@@ -59,6 +59,7 @@ export class MenuitemsComponent implements OnInit {
   @ViewChild('ref') ref;
   authentication_url: any;
   drivefolders: any;
+  checkingId = "tb2"
   public demo1TabIndex = 0;
   private tabSet: ViewContainerRef;
   owncategory: string = "";
@@ -80,7 +81,7 @@ export class MenuitemsComponent implements OnInit {
  
   ngAfterViewInit() {
     if (this.googleEmail) {
-      this.tabSet['activeId'] = 'tb2'
+      this.checkingId = 'tb2'
     }
   }
   removeITEMS: any = []

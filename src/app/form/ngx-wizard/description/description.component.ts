@@ -35,6 +35,10 @@ export class DescriptionComponent implements OnInit {
     }
 
     onSubmit() {
+        let vendroData = JSON.parse(localStorage.getItem('vendroData'));
+        vendroData.description = this.descriptionFormData.value.description;
+        localStorage.setItem('vendroData', JSON.stringify(vendroData));
+
         localStorage.setItem('descriptionFormData', JSON.stringify(this.descriptionFormData.value));
         this.router.navigateByUrl('/forms/ngx/schedule', { relativeTo: this.route.parent, skipLocationChange: true });
     }

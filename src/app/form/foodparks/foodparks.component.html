@@ -462,7 +462,7 @@
                   </div>
                 </form> -->
                     <!-- <p class="text-center" style="font-weight: 500;">Territory: Central Oregon</p> -->
-                    <p class="text-center" style="font-weight: 500;">{{foodParkData.data[0].name}}</p>
+                    <p class="text-center" style="font-weight: 500;">{{foodParkData.data[0].name}} (Territory: {{foodParkData.data[0].territory}})</p>
                     <table class="table" style="text-align: center;">
                       <thead>
                         <tr>
@@ -712,17 +712,21 @@
         <div class="input-group">
           <input id="name" class="form-control" name="dp" type="text" formControlName="name">
         </div>
+      </div>
+      <!-- <div class="form-group">
         <label for="trip_fee">Trip Fee</label>
         <div class="input-group">
           <input id="trip_fee" class="form-control" name="trip_fee" type="text" formControlName="trip_fee">
         </div>
-        <!-- <label for="type">Type</label>
+      </div> -->
+      <!-- <label for="type">Type</label>
         <div class="input-group">
           <select formControlName="type" class="form-control">
             <option value="none" selected hidden> </option>
             <option *ngFor="let item of typesForHub">{{item}}</option>
           </select>
         </div> -->
+      <div class="form-group">
         <label for="stateid">State</label>
         <div class="input-group">
           <select name=state_name class="form-control" [(ngModel)]="state_id1" (change)="getTerritory($event)"
@@ -730,6 +734,8 @@
             <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
           </select>
         </div>
+      </div>
+      <div class="form-group">
         <label for="territoryid">Territory</label>
         <div class="input-group">
           <select formControlName="territory_id" [(ngModel)]="territory_id1" class="form-control"
@@ -737,11 +743,14 @@
             <option *ngFor="let item of singleTerritory.territory" [ngValue]="item.id">{{item.city}}</option>
           </select>
         </div>
+      </div>
+      <div class="form-group">
         <label for="address">Provide Address Below</label>
         <div class="input-group">
           <textarea id="address" class="form-control" name="address" formControlName="address" required></textarea>
         </div>
-        <!-- <label for="territory">Select Location</label>
+      </div>
+      <!-- <label for="territory">Select Location</label>
         <div class="form-group mapmarker">
           <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [style.height.px]="300"
             (mapClick)="placeMarker($event)">
@@ -751,7 +760,7 @@
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
           <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
         </agm-map> -->
-        <!-- <label for="latitude">Latitude</label>
+      <!-- <label for="latitude">Latitude</label>
         <div class="input-group">
           <input id="latitude" class="form-control"  name="dp" type="text" formControlName="latitude">
         </div>
@@ -759,13 +768,12 @@
         <div class="input-group">
           <input id="longitude" class="form-control"  name="dp" type="text" formControlName="longitude">
         </div> -->
-
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-dark">Create Hub</button>
-      </div>
     </form>
   </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-outline-dark">Create Hub</button>
+  </div>
+
 </ng-template>
 <ng-template #content4 let-modal>
   <div class="modal-header">
@@ -781,15 +789,20 @@
         <div class="input-group">
           <input id="name" class="form-control" name="dp" type="text" formControlName="name">
         </div>
+      </div>
+      <div class="form-group">
         <label for="username">Username</label>
         <div class="input-group">
           <input id="username" class="form-control" name="dp" type="text" formControlName="username">
         </div>
+      </div>
+      <div class="form-group">
         <label for="password">Password</label>
         <div class="input-group">
           <input id="password" class="form-control" name="dp1" type="password" formControlName="password">
         </div>
-
+      </div>
+      <div class="form-group">
         <label for="type">Type</label>
         <div class="input-group">
           <select formControlName="type" class="form-control">
@@ -797,15 +810,15 @@
             <option *ngFor="let item of types">{{item}}</option>
           </select>
         </div>
+      </div>
 
-
-        <!-- <label for="country">Country</label>
+      <!-- <label for="country">Country</label>
         <div class="input-group">
           <select formControlName="country_id" class="form-control" (change)="getState($event)">
             <option *ngFor="let item of countries" value="{{item.id}}">{{item.name}}</option>
           </select>
         </div> -->
-
+      <div class="form-group">
         <label for="state">State</label>
         <div class="input-group">
           <select class="form-control" [(ngModel)]="state_id1" (change)="getTerritory($event)"
@@ -813,17 +826,19 @@
             <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
           </select>
         </div>
-
+      </div>
+      <div class="form-group">
         <label for="territory">Territory</label>
         <div class="input-group">
           <select formControlName="territory_id" class="form-control" [(ngModel)]="territory_id1">
             <option *ngFor="let item of singleTerritory.territory" [value]="item.id">{{item.city}}</option>
           </select>
         </div>
+      </div>
 
 
 
-        <!-- <label for="territory">Select Location</label>
+      <!-- <label for="territory">Select Location</label>
         <div class="form-group mapmarker">
           <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [style.height.px]="300"
             (mapClick)="placeMarker($event)">
@@ -835,7 +850,7 @@
           <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
         </agm-map> -->
 
-        <!-- <label for="latitude">Latitude</label>
+      <!-- <label for="latitude">Latitude</label>
         <div class="input-group">
           <input id="latitude" class="form-control"  name="dp" type="text" formControlName="latitude">
         </div>
@@ -844,12 +859,10 @@
         <div class="input-group">
           <input id="longitude" class="form-control"  name="dp" type="text" formControlName="longitude">
         </div> -->
-
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-dark">Save</button>
-      </div>
     </form>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-outline-dark">Save</button>
   </div>
 
 </ng-template>
