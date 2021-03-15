@@ -14,19 +14,26 @@
                 <label class="orm-control-label">Schedule</label>
                 <div formArrayName="arr" *ngFor="let a of scheduleFormData.get('arr')['controls'] ; let i = index">
                     <div class="day" (click)="weekday($event)" formGroupName="schedule">
-                        <input type="checkbox" [checked]="days.indexOf('0') >= 0" name="Button0{{i}}" class="ButtonState" id="Button0{{i}}" value="0" />
+                        <input type="checkbox" [checked]="days.indexOf('0') >= 0" name="Button0{{i}}"
+                            class="ButtonState" id="Button0{{i}}" value="0" />
                         <label class="Button" for="Button0{{i}}">Mon</label>
-                        <input type="checkbox" [checked]="days.indexOf('1') >= 0" name="Button1{{i}}" class="ButtonState" id="Button1{{i}}" value="1" />
+                        <input type="checkbox" [checked]="days.indexOf('1') >= 0" name="Button1{{i}}"
+                            class="ButtonState" id="Button1{{i}}" value="1" />
                         <label class="Button" for="Button1{{i}}">Tue</label>
-                        <input type="checkbox" [checked]="days.indexOf('2') >= 0" name="Button2{{i}}" class="ButtonState" id="Button2{{i}}" value="2" />
+                        <input type="checkbox" [checked]="days.indexOf('2') >= 0" name="Button2{{i}}"
+                            class="ButtonState" id="Button2{{i}}" value="2" />
                         <label class="Button" for="Button2{{i}}">Wed</label>
-                        <input type="checkbox" [checked]="days.indexOf('3') >= 0" name="Button3{{i}}" class="ButtonState" id="Button3{{i}}" value="3" />
+                        <input type="checkbox" [checked]="days.indexOf('3') >= 0" name="Button3{{i}}"
+                            class="ButtonState" id="Button3{{i}}" value="3" />
                         <label class="Button" for="Button3{{i}}">Thu</label>
-                        <input type="checkbox" [checked]="days.indexOf('4') >= 0" name="Button4{{i}}" class="ButtonState" id="Button4{{i}}" value="4" />
+                        <input type="checkbox" [checked]="days.indexOf('4') >= 0" name="Button4{{i}}"
+                            class="ButtonState" id="Button4{{i}}" value="4" />
                         <label class="Button" for="Button4{{i}}">Fri</label>
-                        <input type="checkbox" [checked]="days.indexOf('5') >= 0" name="Button5{{i}}" class="ButtonState" id="Button5{{i}}" value="5" />
+                        <input type="checkbox" [checked]="days.indexOf('5') >= 0" name="Button5{{i}}"
+                            class="ButtonState" id="Button5{{i}}" value="5" />
                         <label class="Button" for="Button5{{i}}">Sat</label>
-                        <input type="checkbox" [checked]="days.indexOf('6') >= 0" name="Button6{{i}}" class="ButtonState" id="Button6{{i}}" value="6" />
+                        <input type="checkbox" [checked]="days.indexOf('6') >= 0" name="Button6{{i}}"
+                            class="ButtonState" id="Button6{{i}}" value="6" />
                         <label class="Button" for="Button6{{i}}">Sun</label>
                     </div>
                     <br>
@@ -61,16 +68,21 @@
                             container="body">
                             <img id="telegramImg" src="/assets/images/telegram.png" />
                             <div class="custom_tip">
-                                <p>Step 1: Download the Telegram App or Visit https://web.telegram.org/.</p>
-                                <p>Step 2: Open the Telegram App.</p>
-                                <p>Step 3: Sign Up and Register your Telegram Account</p>
+                                <p>Step 1: Login/Register in Telegram.</p>
+                                <p>Step 2: Create a New Message and Search for UserInfoBot.</p>
+                                <br>
+                                <p>Note: The bot will respond with your Telegram ID, First and Last Name
+                                    Please Save the Telegram ID below. The Telegram ID will be used to respond to
+                                    customer requests over Telegram Support Chat. This can be a shared account that
+                                    multiple people use. </p>
+                                <!-- <p>Step 3: Sign Up and Register your Telegram Account</p> -->
                                 <!-- <p>Step 4: Search @BotFather for create a bot</p>
                                 <p>Step 5: /newbot and provied bot name and the handle name</p>
                                 <p>Step 6: Add the token provied by BotFather</p> -->
-                                <p>Step 4: Search @Botfather</p>
+                                <!-- <p>Step 4: Search @Botfather</p>
                                 <p>Step 5: Type /newbot and “Name Your Bot” (Jaunna Taco Support, etc.)</p>
                                 <p>Step 6: Search User Info Bot (or @User Info Bot) and copy your Bot Access token
-                                </p>
+                                </p> -->
                             </div>
                         </div>
                     </div>
