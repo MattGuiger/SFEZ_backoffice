@@ -61,7 +61,7 @@
                         <option *ngIf="!row.foodpark_mgr_id" value="">Assign Master</option>
 
                         <option *ngFor="let manager of arr" [value]="manager.user_id">
-                          {{manager.first_name}}...</option>
+                          {{manager.first_name}} {{manager.last_name}}...</option>
                       </select>
 
                       <!-- <div *ngFor="let ma of foodmarkmgr">
@@ -462,7 +462,8 @@
                   </div>
                 </form> -->
                     <!-- <p class="text-center" style="font-weight: 500;">Territory: Central Oregon</p> -->
-                    <p class="text-center" style="font-weight: 500;">{{foodParkData.data[0].name}} (Territory: {{foodParkData.data[0].territory}})</p>
+                    <p class="text-center" style="font-weight: 500;">{{foodParkData.data[0].name}} (Territory:
+                      {{foodParkData.data[0].territory}})</p>
                     <table class="table" style="text-align: center;">
                       <thead>
                         <tr>
