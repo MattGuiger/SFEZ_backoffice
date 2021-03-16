@@ -35,16 +35,17 @@ export class NGXFormWizardComponent implements OnInit {
   //   showMask: true,
   //   mask: [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]
   // };
-  iframeUrl:any;
+  iframeUrl: any;
   constructor(private router: Router,
     private route: ActivatedRoute,
     private _ProfileService: ProfileService,
     private toastr: ToastrService,
     private commonFunctionsService: CommonFunctionsService,
-    private sanitizer:DomSanitizer
-    ) {
-      let url = `https://www.greenbyphone.com/ResellerSign_Up.aspx?ResellerClient_ID=${this.user?.id}1`
-      this.iframeUrl =  this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    private sanitizer: DomSanitizer
+  ) {
+    // let url = `https://www.greenbyphone.com/ResellerSign_Up.aspx?ResellerClient_ID=${this.user?.id}1`
+    let url = 'https://www.greenbyphone.com/ResellerSign_Up.aspx?ResellerClient_ID=115965';
+    this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   ngOnInit() {

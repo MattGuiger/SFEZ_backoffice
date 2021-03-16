@@ -144,7 +144,8 @@
 
                     <ngx-datatable-column name="Payment" [width]="70">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        {{row?.context}}
+                        <!-- {{row?.context}} -->
+                        <img src="assets/images/bank.png" alt="Icon" style="height: 36px;" />
                       </ng-template>
                     </ngx-datatable-column>
 
@@ -220,7 +221,7 @@
                 <div *ngFor="let payout of tab; let i=index">
                   <!-- <div *ngFor="let payout of dailyPayoutData">  -->
                   <!-- {{payout.data[0].tip_amount}} -->
-             <h3 style="text-align: center;"><b> {{payout.data.cod[i].unit_name }}</b></h3>    
+                  <h3 style="text-align: center;"><b> {{payout.data.cod[i].unit_name }}</b></h3>
                   <div *ngIf="payout.data.cod">
                     <p style="text-align: center;">Cash On Delivery</p>
                     <div class="accodion-datatable">
@@ -258,7 +259,8 @@
                                 <div class="col-md-2">Bank Processing</div>
                                 <span>:</span>
                                 <div class="col-md-2" *ngIf="row.bank_processing">${{row?.bank_processing}}</div>
-                                <div class="col-md-2" *ngIf="!row.bank_processing">$0</div>                              </div>
+                                <div class="col-md-2" *ngIf="!row.bank_processing">$0</div>
+                              </div>
                               <div class="row">
                                 <div class="col-md-3 pl-0">
                                   <hr />
@@ -354,7 +356,8 @@
 
                         <ngx-datatable-column name="Payment" [width]="70">
                           <ng-template let-row="row" ngx-datatable-cell-template>
-                            {{row?.context}}
+                            <!-- {{row?.context}} -->
+                            <img src="assets/images/cash.png" alt="Icon" style="height: 36px;" />
                           </ng-template>
                         </ngx-datatable-column>
 
@@ -458,7 +461,8 @@
                                 <div class="col-md-2">Bank Processing</div>
                                 <span>:</span>
                                 <div class="col-md-2" *ngIf="row.bank_processing">${{row?.bank_processing}}</div>
-                                <div class="col-md-2" *ngIf="!row.bank_processing">$0</div>                              </div>
+                                <div class="col-md-2" *ngIf="!row.bank_processing">$0</div>
+                              </div>
                               <div class="row">
                                 <div class="col-md-3 pl-0">
                                   <hr />
@@ -492,7 +496,8 @@
                                   <div class="col-md-2">Bank Processing</div>
                                   <span>:</span>
                                   <div class="col-md-2" *ngIf="row.bank_processing">${{row?.bank_processing}}</div>
-                                  <div class="col-md-2" *ngIf="!row.bank_processing">$0</div>                                </div>
+                                  <div class="col-md-2" *ngIf="!row.bank_processing">$0</div>
+                                </div>
                                 <div class="row">
                                   <div class="col-md-3 pl-0">
                                     <hr />
@@ -552,7 +557,9 @@
 
                         <ngx-datatable-column name="Payment" [width]="70">
                           <ng-template let-row="row" ngx-datatable-cell-template>
-                            {{row?.context}}
+                            <!-- {{row?.context}} -->
+                            <img src="assets/images/card.png" alt="Icon" style="height: 36px;" />
+
                           </ng-template>
                         </ngx-datatable-column>
 
@@ -641,7 +648,74 @@
                 <div class="col-md-3 pl-0">Aug 11 - Aug 17 &nbsp; <i class="ti-pencil" aria-hidden="true" style="cursor:pointer;color: #3dc6ac;
                   font-weight: 700;"></i></div>
               </div>
-              <div class="wrap-custom-card-main">
+              <!-- ///brijesh -->
+              <!--Start week table-->
+              <div class="card-body">
+                <div class="accodion-datatable">
+                  <ngx-datatable class="material" #weekTable [rows]="weekData" [columnMode]="'force'"
+                    [headerHeight]="50" [footerHeight]="0" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
+
+                    <ngx-datatable-column name="Vendor" [width]="100" prop="vendor">
+                      <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.vendor" name="vendor"
+                          [disabled]="!isEditable[rowIndex]"> -->
+                        {{row.vendor}}
+                      </ng-template>
+                    </ngx-datatable-column>
+
+                    <ngx-datatable-column name="Address" [width]="70" prop="address">
+                      <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.address" name="address"
+                          [disabled]="!isEditable[rowIndex]"> -->
+                        {{row.address}}
+                      </ng-template>
+                    </ngx-datatable-column>
+
+                    <ngx-datatable-column name="Method" [width]="70" prop="method">
+                      <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.method" name="method"
+                          [disabled]="!isEditable[rowIndex]"> -->
+                        <!-- <img src="../../../assets/images/cash.png" alt="Icon" style="height: 36px;" /> -->
+                        <img [src]="row.method" alt="Icon" style="height: 36px;" />
+                        <!-- {{}} -->
+                      </ng-template>
+                    </ngx-datatable-column>
+
+                    <ngx-datatable-column name="Fee" [width]="70" prop="fee">
+                      <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.fee" name="fee"
+                          [disabled]="!isEditable[rowIndex]"> -->
+                        {{row.fee}}
+                      </ng-template>
+                    </ngx-datatable-column>
+
+                    <ngx-datatable-column name="Tips" [width]="70" prop="tips">
+                      <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.tips" name="tips"
+                          [disabled]="!isEditable[rowIndex]"> -->
+                        {{row.tips}}
+                      </ng-template>
+                    </ngx-datatable-column>
+
+                    <!-- <ngx-datatable-column [width]="20">
+                      <ng-template let-value="value" let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                        
+                        <i class="ti-pencil" title="Modify" *ngIf="!this.isEditable[rowIndex]"
+                          (click)="this.isEditable[rowIndex]=!this.isEditable[rowIndex]"
+                          style="cursor:pointer;color: #3dc6ac;font-weight: 700;"></i>
+                        
+                        <i class="ti-save mb-1" *ngIf="this.isEditable[rowIndex]" title="Save"
+                          (click)="save(row, rowIndex);" style="cursor:pointer;color: #ffbc34;font-weight: 700;"></i>
+                        <i class="ti-back-left" *ngIf="this.isEditable[rowIndex]" title="Reset"
+                          (click)="delete(row,rowIndex)" style="cursor:pointer;color: #ef6e6e;font-weight: 700;"></i>
+                      </ng-template>
+                    </ngx-datatable-column> -->
+
+                  </ngx-datatable>
+                </div>
+              </div>
+              <!-- ///brijesh -->
+              <!-- <div class="wrap-custom-card-main">
                 <div class="row mt-3 custom-card-main justify-content-center">
                   <div class="col-lg-3 col-sm-4 col-6 col-list mb-3"
                     *ngFor="let unitData of unitOrderAndName; let i=index;">
@@ -662,15 +736,41 @@
                     {{totalDeliveryCount}}
                   </div>
                 </div>
-              </div>
-              <div class="row mb-1 mt-4">
+              </div> -->
+              <div class="row mb-1 mt-4" hidden>
                 <div class="view-orders" style="margin:0 auto;">
                   <button type="button" class="btn btn-success">View Orders</button>
                 </div>
               </div>
 
               <div class="row mb-1 mt-4">
-                <div style="font-weight:500;padding-left:10px; margin:0 auto;">LABOR ({{driverCount}} Drivers)
+                <!-- <div style="font-weight:500;padding-left:10px; margin:0 auto;">LABOR ({{driverCount}} Drivers)
+                </div> -->
+                <div style="font-weight:500;padding-left:10px; margin:0 auto;">Bob
+                </div>
+              </div>
+
+              <!-- Delivery Cash Payouts Table -->
+              <div class="row mt-3 custom-card-main">
+                <div class="custom-card-wages-total">
+                  <div class="total-wages">
+                    <div class="title">
+                      <h2>Cash Payouts</h2>
+                    </div>
+                    <div class="description">
+                      <p>$17.25</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="custom-card-wages-total">
+                  <div class="total-wages">
+                    <div class="title">
+                      <h2>Weekly Total</h2>
+                    </div>
+                    <div class="description">
+                      <p>$57.25</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -683,88 +783,88 @@
               <!--Start Hourly Wages table-->
               <div class="card-body">
                 <div class="accodion-datatable">
-                  <ngx-datatable class="material" #table [rows]="wagesData" [columnMode]="'force'" [headerHeight]="50"
-                    [footerHeight]="50" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
+                  <ngx-datatable class="material" #table [rows]="wagesDataArr" [columnMode]="'force'"
+                    [headerHeight]="50" [footerHeight]="0" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
 
                     <ngx-datatable-column name="Drivers" [width]="100" prop="driver">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.driver" name="driver"
-                          [disabled]="!isEditable[rowIndex]">
-                        <!-- {{row.driver}} -->
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.driver" name="driver"
+                          [disabled]="!isEditable[rowIndex]"> -->
+                        {{row.task}}
                       </ng-template>
                     </ngx-datatable-column>
 
-                    <ngx-datatable-column name="Hourly wages" [width]="100" prop="hour_wages">
+                    <!-- <ngx-datatable-column name="Hourly wages" [width]="100" prop="hour_wages">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.hour_wages" name="hour_wages" [disabled]="!isEditable[rowIndex]"> -->
+                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.hour_wages" name="hour_wages" [disabled]="!isEditable[rowIndex]">
 
                         ${{row.hour_wages}}/hr
 
                       </ng-template>
-                    </ngx-datatable-column>
+                    </ngx-datatable-column> -->
 
                     <ngx-datatable-column name="Mon" [width]="70" prop="mon">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.mon" name="mon"
-                          [disabled]="!isEditable[rowIndex]">
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.mon" name="mon"
+                          [disabled]="!isEditable[rowIndex]"> -->
 
-                        <!-- {{row.mon}} -->
+                        {{row.mon}}
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Tue" [width]="70" prop="tue">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.tue" name="tue"
-                          [disabled]="!isEditable[rowIndex]">
-                        <!-- {{row.tue}} -->
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.tue" name="tue"
+                          [disabled]="!isEditable[rowIndex]"> -->
+                        {{row.tue}}
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Wed" [width]="70" prop="wed">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.wed" name="wed"
-                          [disabled]="!isEditable[rowIndex]">
-                        <!-- {{row.wed}} -->
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.wed" name="wed"
+                          [disabled]="!isEditable[rowIndex]"> -->
+                        {{row.wed}}
 
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Thu" [width]="70" prop="thu">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.thu" name="thu"
-                          [disabled]="!isEditable[rowIndex]">
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.thu" name="thu"
+                          [disabled]="!isEditable[rowIndex]"> -->
 
-                        <!-- {{row.thu}} -->
+                        {{row.thu}}
 
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Fri" [width]="70" prop="fri">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.fri" name="fri"
-                          [disabled]="!isEditable[rowIndex]">
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.fri" name="fri"
+                          [disabled]="!isEditable[rowIndex]"> -->
 
-                        <!-- {{row.fri}} -->
+                        {{row.fri}}
 
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Sat" [width]="70" prop="sat">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.sat" name="sat"
-                          [disabled]="!isEditable[rowIndex]">
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.sat" name="sat"
+                          [disabled]="!isEditable[rowIndex]"> -->
 
-                        <!-- {{row.sat}} -->
+                        {{row.sat}}
 
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Sun" [width]="70" prop="sun">
                       <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.sun" name="tue"
-                          [disabled]="!isEditable[rowIndex]">
+                        <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.sun" name="tue"
+                          [disabled]="!isEditable[rowIndex]"> -->
 
-                        <!-- {{row.sun}} -->
+                        {{row.sun}}
 
                       </ng-template>
                     </ngx-datatable-column>
@@ -775,20 +875,18 @@
                       </ng-template>
                     </ngx-datatable-column>
 
-                    <ngx-datatable-column [width]="20">
+                    <!-- <ngx-datatable-column [width]="20">
                       <ng-template let-value="value" let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
-                        <!-- Pencil icon -->
                         <i class="ti-pencil" title="Modify" *ngIf="!this.isEditable[rowIndex]"
                           (click)="this.isEditable[rowIndex]=!this.isEditable[rowIndex]"
                           style="cursor:pointer;color: #3dc6ac;font-weight: 700;"></i>
 
-                        <!-- Save/Delete icons -->
                         <i class="ti-save mb-1" *ngIf="this.isEditable[rowIndex]" title="Save"
                           (click)="save(row, rowIndex);" style="cursor:pointer;color: #ffbc34;font-weight: 700;"></i>
                         <i class="ti-back-left" *ngIf="this.isEditable[rowIndex]" title="Reset"
                           (click)="delete(row,rowIndex)" style="cursor:pointer;color: #ef6e6e;font-weight: 700;"></i>
                       </ng-template>
-                    </ngx-datatable-column>
+                    </ngx-datatable-column> -->
 
 
                   </ngx-datatable>

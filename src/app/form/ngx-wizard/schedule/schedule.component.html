@@ -41,8 +41,9 @@
                     <!-- <div class="row" style="margin-top: 1rem;" (change)="getHours($event)">
                     </div> -->
                     <div class="row">
-                        <div class="col-md-4">
-                            <select class="form-control" [(ngModel)]="hoursFrom" [ngModelOptions]="{standalone: true}">
+                        <div>
+                            <select style="width: auto; margin-left: 10px;" class="form-control" [(ngModel)]="hoursFrom"
+                                [ngModelOptions]="{standalone: true}">
                                 <option value="0" selected hidden>From</option>
                                 <option [value]="type" *ngFor="let type of startTimeArray">
                                     {{type}}
@@ -50,8 +51,9 @@
                             </select>
                         </div>
                         <div class="col-md-1 text-center mt-2">-</div>
-                        <div class="col-md-4">
-                            <select class="form-control" [(ngModel)]="hoursTo" [ngModelOptions]="{standalone: true}">
+                        <div>
+                            <select style="width: auto;" class="form-control" [(ngModel)]="hoursTo"
+                                [ngModelOptions]="{standalone: true}">
                                 <option value="0" selected hidden>To</option>
                                 <option [value]="type" *ngFor="let type of startTimeArray">
                                     {{type}}
@@ -93,7 +95,7 @@
                     <input class="form-control" formControlName="telegram_id" type="text">
                     <br>
                     <button type="button" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;"
-                        (click)="addGroupName()">Create Group</button>
+                        (click)="addGroupName()" hidden>Create Group</button>
                     <br>
                 </div>
                 <br>
