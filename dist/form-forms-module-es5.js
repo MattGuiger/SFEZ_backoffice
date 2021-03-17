@@ -49863,16 +49863,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _c0 = ["table"];
 
-    function FoodpckmgrorderComponent_ng_template_6_ng_template_12_ng_template_21_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Please wait item details loading .....");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-    }
-
     function FoodpckmgrorderComponent_ng_template_6_ng_template_12_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 30);
@@ -49937,8 +49927,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](21, FoodpckmgrorderComponent_ng_template_6_ng_template_12_ng_template_21_Template, 2, 0, "ng-template", null, 32, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
-
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
 
@@ -49973,29 +49961,47 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function FoodpckmgrorderComponent_ng_template_6_ng_template_14_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 33);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 32);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "input", 34);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "input", 33);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "label", 35);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "label", 34);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
 
       if (rf & 2) {
-        var row_r21 = ctx.row;
+        var row_r19 = ctx.row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("id", "customCheck", row_r21.id, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("id", "customCheck", row_r19.id, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("for", "customCheck", row_r21.id, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("for", "customCheck", row_r19.id, "");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_6_ng_template_16_a_0_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 38);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var row_r20 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r20 == null ? null : row_r20.status);
+      }
+    }
+
+    function FoodpckmgrorderComponent_ng_template_6_ng_template_16_a_1_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 39);
 
@@ -50005,15 +50011,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r22 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+        var row_r20 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r22 == null ? null : row_r22.status);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r20 == null ? null : row_r20.status);
       }
     }
 
-    function FoodpckmgrorderComponent_ng_template_6_ng_template_16_a_1_Template(rf, ctx) {
+    function FoodpckmgrorderComponent_ng_template_6_ng_template_16_a_2_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 40);
 
@@ -50023,53 +50029,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r22 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+        var row_r20 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r22 == null ? null : row_r22.status);
-      }
-    }
-
-    function FoodpckmgrorderComponent_ng_template_6_ng_template_16_a_2_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 41);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-
-      if (rf & 2) {
-        var row_r22 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r22 == null ? null : row_r22.status);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r20 == null ? null : row_r20.status);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_6_ng_template_16_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_6_ng_template_16_a_0_Template, 2, 1, "a", 36);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_6_ng_template_16_a_0_Template, 2, 1, "a", 35);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_6_ng_template_16_a_1_Template, 2, 1, "a", 37);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_6_ng_template_16_a_1_Template, 2, 1, "a", 36);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, FoodpckmgrorderComponent_ng_template_6_ng_template_16_a_2_Template, 2, 1, "a", 38);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, FoodpckmgrorderComponent_ng_template_6_ng_template_16_a_2_Template, 2, 1, "a", 37);
       }
 
       if (rf & 2) {
-        var row_r22 = ctx.row;
+        var row_r20 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r22 == null ? null : row_r22.status) == "new");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r22 == null ? null : row_r22.status) == "order_paid");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r20 == null ? null : row_r20.status) == "new");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r22 == null ? null : row_r22.status) == "incomplete");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r20 == null ? null : row_r20.status) == "order_paid");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r20 == null ? null : row_r20.status) == "incomplete");
       }
     }
 
@@ -50081,9 +50069,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r29 = ctx.row;
+        var row_r27 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](1, 1, row_r29 == null ? null : row_r29.initiation_time, "MMM d"), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](1, 1, row_r27 == null ? null : row_r27.initiation_time, "MMM d"), " ");
       }
     }
 
@@ -50095,51 +50083,51 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r30 = ctx.row;
+        var row_r28 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](1, 1, row_r30 == null ? null : row_r30.order_id, row_r30.order_id), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](1, 1, row_r28 == null ? null : row_r28.order_id, row_r28.order_id), " ");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_6_ng_template_22_img_0_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 45);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 44);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_6_ng_template_22_img_1_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 46);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 45);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_6_ng_template_22_img_2_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 47);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 46);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_6_ng_template_22_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_6_ng_template_22_img_0_Template, 1, 0, "img", 42);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_6_ng_template_22_img_0_Template, 1, 0, "img", 41);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_6_ng_template_22_img_1_Template, 1, 0, "img", 43);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_6_ng_template_22_img_1_Template, 1, 0, "img", 42);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, FoodpckmgrorderComponent_ng_template_6_ng_template_22_img_2_Template, 1, 0, "img", 44);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, FoodpckmgrorderComponent_ng_template_6_ng_template_22_img_2_Template, 1, 0, "img", 43);
       }
 
       if (rf & 2) {
-        var row_r31 = ctx.row;
+        var row_r29 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r31 == null ? null : row_r31.context) == "cod");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r31 == null ? null : row_r31.context) == "bank");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r29 == null ? null : row_r29.context) == "cod");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r31 == null ? null : row_r31.context) == "card");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r29 == null ? null : row_r29.context) == "bank");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r29 == null ? null : row_r29.context) == "card");
       }
     }
 
@@ -50153,11 +50141,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r35 = ctx.row;
+        var row_r33 = ctx.row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r35 == null ? null : row_r35.amount, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r33 == null ? null : row_r33.amount, "");
       }
     }
 
@@ -50167,47 +50155,47 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r36 = ctx.row;
+        var row_r34 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r36 == null ? null : row_r36.short_name, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r34 == null ? null : row_r34.short_name, " ");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_6_ng_template_28_select_0_Template(rf, ctx) {
       if (rf & 1) {
-        var _r42 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r40 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "select", 49);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "select", 48);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function FoodpckmgrorderComponent_ng_template_6_ng_template_28_select_0_Template_select_change_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r42);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r40);
 
-          var row_r37 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+          var row_r35 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
 
-          var ctx_r41 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r39 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r41.orderAction($event, row_r37);
+          return ctx_r39.orderAction($event, row_r35);
         });
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "option", 50);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "option", 49);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Select");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "option", 51);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "option", 50);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Void");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "option", 52);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "option", 51);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Refund");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "option", 53);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "option", 52);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Delete");
 
@@ -50219,33 +50207,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function FoodpckmgrorderComponent_ng_template_6_ng_template_28_select_1_Template(rf, ctx) {
       if (rf & 1) {
-        var _r45 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r43 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "select", 49);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "select", 48);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function FoodpckmgrorderComponent_ng_template_6_ng_template_28_select_1_Template_select_change_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r45);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r43);
 
-          var row_r37 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+          var row_r35 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
 
-          var ctx_r44 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r42 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r44.orderAction($event, row_r37);
+          return ctx_r42.orderAction($event, row_r35);
         });
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "option", 50);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "option", 49);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Select");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "option", 52);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "option", 51);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Refund");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "option", 53);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "option", 52);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Delete");
 
@@ -50257,27 +50245,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function FoodpckmgrorderComponent_ng_template_6_ng_template_28_select_2_Template(rf, ctx) {
       if (rf & 1) {
-        var _r48 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r46 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "select", 49);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "select", 48);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function FoodpckmgrorderComponent_ng_template_6_ng_template_28_select_2_Template_select_change_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r48);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r46);
 
-          var row_r37 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+          var row_r35 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
 
-          var ctx_r47 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r45 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r47.orderAction($event, row_r37);
+          return ctx_r45.orderAction($event, row_r35);
         });
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "option", 50);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "option", 49);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Select");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "option", 53);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "option", 52);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Delete");
 
@@ -50289,64 +50277,64 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function FoodpckmgrorderComponent_ng_template_6_ng_template_28_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_6_ng_template_28_select_0_Template, 9, 0, "select", 48);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_6_ng_template_28_select_0_Template, 9, 0, "select", 47);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_6_ng_template_28_select_1_Template, 7, 0, "select", 48);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_6_ng_template_28_select_1_Template, 7, 0, "select", 47);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, FoodpckmgrorderComponent_ng_template_6_ng_template_28_select_2_Template, 5, 0, "select", 48);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, FoodpckmgrorderComponent_ng_template_6_ng_template_28_select_2_Template, 5, 0, "select", 47);
       }
 
       if (rf & 2) {
-        var row_r37 = ctx.row;
+        var row_r35 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r37 == null ? null : row_r37.context) == "bank");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r37 == null ? null : row_r37.context) == "card");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r35 == null ? null : row_r35.context) == "bank");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r37 == null ? null : row_r37.context) == "cod");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r35 == null ? null : row_r35.context) == "card");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r35 == null ? null : row_r35.context) == "cod");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_6_ng_template_30_Template(rf, ctx) {
       if (rf & 1) {
-        var _r53 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r51 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 54);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 53);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("dblclick", function FoodpckmgrorderComponent_ng_template_6_ng_template_30_Template_a_dblclick_0_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r53);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r51);
 
-          var row_r50 = ctx.row;
+          var row_r48 = ctx.row;
 
-          var ctx_r52 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r50 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r52.toggleExpandRow(row_r50);
+          return ctx_r50.toggleExpandRow(row_r48);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
 
       if (rf & 2) {
-        var row_r50 = ctx.row;
+        var row_r48 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("datatable-icon-down", !row_r50.$$expanded)("datatable-icon-down", row_r50.$$expanded);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("datatable-icon-down", !row_r48.$$expanded)("datatable-icon-down", row_r48.$$expanded);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("id", row_r50.id);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("id", row_r48.id);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_6_ng_template_32_Template(rf, ctx) {
       if (rf & 1) {
-        var _r60 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r58 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "datatable-pager", 55);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "datatable-pager", 54);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function FoodpckmgrorderComponent_ng_template_6_ng_template_32_Template_datatable_pager_change_0_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r60);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r58);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
@@ -50359,19 +50347,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var rowCount_r54 = ctx.rowCount;
-        var pageSize_r55 = ctx.pageSize;
-        var curPage_r57 = ctx.curPage;
+        var rowCount_r52 = ctx.rowCount;
+        var pageSize_r53 = ctx.pageSize;
+        var curPage_r55 = ctx.curPage;
 
         var ctx_r16 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pagerLeftArrowIcon", "datatable-icon-left")("pagerRightArrowIcon", "datatable-icon-right")("pagerPreviousIcon", "datatable-icon-prev")("pagerNextIcon", "datatable-icon-skip")("page", curPage_r57)("visiblePagesCount", ctx_r16.currentVisible)("size", pageSize_r55)("count", rowCount_r54)("hidden", false);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pagerLeftArrowIcon", "datatable-icon-left")("pagerRightArrowIcon", "datatable-icon-right")("pagerPreviousIcon", "datatable-icon-prev")("pagerNextIcon", "datatable-icon-skip")("page", curPage_r55)("visiblePagesCount", ctx_r16.currentVisible)("size", pageSize_r53)("count", rowCount_r52)("hidden", false);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_6_Template(rf, ctx) {
       if (rf & 1) {
-        var _r62 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r60 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 3);
 
@@ -50394,11 +50382,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "input", 13);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("keyup", function FoodpckmgrorderComponent_ng_template_6_Template_input_keyup_7_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r62);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r60);
 
-          var ctx_r61 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r59 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r61.updateFilter($event);
+          return ctx_r59.updateFilter($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -50415,7 +50403,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "ngx-datatable-row-detail", 17);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](12, FoodpckmgrorderComponent_ng_template_6_ng_template_12_Template, 23, 10, "ng-template", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](12, FoodpckmgrorderComponent_ng_template_6_ng_template_12_Template, 21, 10, "ng-template", 18);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -50537,7 +50525,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_div_0_div_34_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -50545,17 +50533,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r84 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2).row;
+        var row_r82 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2).row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r84 == null ? null : row_r84.bank_processing, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r82 == null ? null : row_r82.bank_processing, "");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_div_0_div_35_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "$0");
 
@@ -50565,17 +50553,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_div_0_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 67);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 66);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 68);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 67);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 69);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 68);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Driver : ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 70);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 69);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5);
 
@@ -50583,7 +50571,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "h6", 71);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "h6", 70);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Itemized Charges");
 
@@ -50591,7 +50579,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Instamarkt(10%)");
 
@@ -50603,7 +50591,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14);
 
@@ -50613,7 +50601,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Delivery Charge");
 
@@ -50625,7 +50613,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21);
 
@@ -50635,7 +50623,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, "Tip");
 
@@ -50647,7 +50635,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28);
 
@@ -50657,7 +50645,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, "Bank Processing");
 
@@ -50669,15 +50657,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](34, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_div_0_div_34_Template, 2, 1, "div", 73);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](34, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_div_0_div_34_Template, 2, 1, "div", 72);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](35, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_div_0_div_35_Template, 2, 0, "div", 73);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](35, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_div_0_div_35_Template, 2, 0, "div", 72);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "div", 74);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "div", 73);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](38, "hr");
 
@@ -50685,9 +50673,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "div", 75);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "div", 74);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](41, "b");
 
@@ -50703,7 +50691,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](46);
 
@@ -50715,41 +50703,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r84 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+        var row_r82 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", (row_r84 == null ? null : row_r84.driver == null ? null : row_r84.driver.first_name) + " " + (row_r84 == null ? null : row_r84.driver == null ? null : row_r84.driver.last_name), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", (row_r82 == null ? null : row_r82.driver == null ? null : row_r82.driver.first_name) + " " + (row_r82 == null ? null : row_r82.driver == null ? null : row_r82.driver.last_name), " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r84 == null ? null : row_r84.instaMarkt_commission, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r82 == null ? null : row_r82.instaMarkt_commission, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r84 == null ? null : row_r84.delivery_charge, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r82 == null ? null : row_r82.delivery_charge, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r84 == null ? null : row_r84.tip_amount, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r82 == null ? null : row_r82.tip_amount, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r84.bank_processing);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r82.bank_processing);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !row_r84.bank_processing);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !row_r82.bank_processing);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](11);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r84 == null ? null : row_r84.deduction, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r82 == null ? null : row_r82.deduction, "");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_ng_template_1_div_27_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -50757,17 +50745,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r84 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2).row;
+        var row_r82 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2).row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r84 == null ? null : row_r84.bank_processing, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r82 == null ? null : row_r82.bank_processing, "");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_ng_template_1_div_28_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "$0");
 
@@ -50777,17 +50765,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_ng_template_1_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 67);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 66);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 68);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 67);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 69);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 68);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Driver :- ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 70);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 69);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5);
 
@@ -50795,7 +50783,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "h6", 76);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "h6", 75);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Itemized Charges");
 
@@ -50803,7 +50791,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Instamarkt(5%)");
 
@@ -50815,7 +50803,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14);
 
@@ -50825,7 +50813,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Tip");
 
@@ -50837,7 +50825,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21);
 
@@ -50847,7 +50835,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, "Bank Processing");
 
@@ -50859,15 +50847,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](27, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_ng_template_1_div_27_Template, 2, 1, "div", 73);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](27, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_ng_template_1_div_27_Template, 2, 1, "div", 72);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](28, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_ng_template_1_div_28_Template, 2, 0, "div", 73);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](28, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_ng_template_1_div_28_Template, 2, 0, "div", 72);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 74);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 73);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](31, "hr");
 
@@ -50875,9 +50863,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "div", 75);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "div", 74);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "b");
 
@@ -50893,7 +50881,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](39);
 
@@ -50905,75 +50893,93 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r84 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+        var row_r82 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", (row_r84 == null ? null : row_r84.driver == null ? null : row_r84.driver.first_name) + " " + (row_r84 == null ? null : row_r84.driver == null ? null : row_r84.driver.last_name), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", (row_r82 == null ? null : row_r82.driver == null ? null : row_r82.driver.first_name) + " " + (row_r82 == null ? null : row_r82.driver == null ? null : row_r82.driver.last_name), " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r84 == null ? null : row_r84.instaMarkt_commission);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r82 == null ? null : row_r82.instaMarkt_commission);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r84 == null ? null : row_r84.tip_amount, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r82 == null ? null : row_r82.tip_amount, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r84.bank_processing);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r82.bank_processing);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !row_r84.bank_processing);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !row_r82.bank_processing);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](11);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r84 == null ? null : row_r84.deduction, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r82 == null ? null : row_r82.deduction, "");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_div_0_Template, 47, 7, "div", 65);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_div_0_Template, 47, 7, "div", 64);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_ng_template_1_Template, 40, 6, "ng-template", null, 66, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_7_ng_template_1_Template, 40, 6, "ng-template", null, 65, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
       }
 
       if (rf & 2) {
-        var row_r84 = ctx.row;
+        var row_r82 = ctx.row;
 
-        var _r87 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2);
+        var _r85 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r84 == null ? null : row_r84.for_delivery)("ngIfElse", _r87);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r82 == null ? null : row_r82.for_delivery)("ngIfElse", _r85);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_9_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 33);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 32);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "input", 34);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "input", 33);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "label", 35);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "label", 34);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
 
       if (rf & 2) {
-        var row_r97 = ctx.row;
+        var row_r95 = ctx.row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("id", "customCheck", row_r97.id, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("id", "customCheck", row_r95.id, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("for", "customCheck", row_r97.id, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("for", "customCheck", row_r95.id, "");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_11_a_0_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 39);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var row_r96 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r96 == null ? null : row_r96.order_detail == null ? null : row_r96.order_detail.status);
+      }
+    }
+
+    function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_11_a_1_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 40);
 
@@ -50983,35 +50989,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r98 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+        var row_r96 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r98 == null ? null : row_r98.order_detail == null ? null : row_r98.order_detail.status);
-      }
-    }
-
-    function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_11_a_1_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 41);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-
-      if (rf & 2) {
-        var row_r98 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r98 == null ? null : row_r98.order_detail == null ? null : row_r98.order_detail.status);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r96 == null ? null : row_r96.order_detail == null ? null : row_r96.order_detail.status);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_11_a_2_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 39);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 38);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -51019,17 +51007,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r98 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+        var row_r96 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r98 == null ? null : row_r98.order_detail == null ? null : row_r98.order_detail.status);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r96 == null ? null : row_r96.order_detail == null ? null : row_r96.order_detail.status);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_11_a_3_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 39);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 38);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -51037,41 +51025,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r98 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+        var row_r96 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r98 == null ? null : row_r98.order_detail == null ? null : row_r98.order_detail.status);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r96 == null ? null : row_r96.order_detail == null ? null : row_r96.order_detail.status);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_11_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_11_a_0_Template, 2, 1, "a", 37);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_11_a_0_Template, 2, 1, "a", 36);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_11_a_1_Template, 2, 1, "a", 38);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_11_a_1_Template, 2, 1, "a", 37);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_11_a_2_Template, 2, 1, "a", 36);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_11_a_2_Template, 2, 1, "a", 35);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_11_a_3_Template, 2, 1, "a", 36);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_11_a_3_Template, 2, 1, "a", 35);
       }
 
       if (rf & 2) {
-        var row_r98 = ctx.row;
+        var row_r96 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r98 == null ? null : row_r98.order_detail == null ? null : row_r98.order_detail.status) == "complete");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r98 == null ? null : row_r98.order_detail == null ? null : row_r98.order_detail.status) == "processed");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r96 == null ? null : row_r96.order_detail == null ? null : row_r96.order_detail.status) == "complete");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r98 == null ? null : row_r98.order_detail == null ? null : row_r98.order_detail.status) == "new");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r96 == null ? null : row_r96.order_detail == null ? null : row_r96.order_detail.status) == "processed");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r98 == null ? null : row_r98.order_detail == null ? null : row_r98.order_detail.status) == "incomplete");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r96 == null ? null : row_r96.order_detail == null ? null : row_r96.order_detail.status) == "new");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r96 == null ? null : row_r96.order_detail == null ? null : row_r96.order_detail.status) == "incomplete");
       }
     }
 
@@ -51083,9 +51071,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r107 = ctx.row;
+        var row_r105 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](1, 1, row_r107 == null ? null : row_r107.created_at, "MMM d"), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](1, 1, row_r105 == null ? null : row_r105.created_at, "MMM d"), " ");
       }
     }
 
@@ -51097,15 +51085,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r108 = ctx.row;
+        var row_r106 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](1, 1, row_r108 == null ? null : row_r108.id, row_r108.id), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](1, 1, row_r106 == null ? null : row_r106.id, row_r106.id), " ");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_17_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 45);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 44);
       }
     }
 
@@ -51119,11 +51107,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r110 = ctx.row;
+        var row_r108 = ctx.row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r110 == null ? null : row_r110.total_order_amount, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r108 == null ? null : row_r108.total_order_amount, "");
       }
     }
 
@@ -51137,39 +51125,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r111 = ctx.row;
+        var row_r109 = ctx.row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r111 == null ? null : row_r111.amount, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r109 == null ? null : row_r109.amount, "");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_23_img_0_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 79);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 78);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_23_ng_template_1_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 80);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 79);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_23_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_23_img_0_Template, 1, 0, "img", 77);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_23_img_0_Template, 1, 0, "img", 76);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_23_ng_template_1_Template, 1, 0, "ng-template", null, 78, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_23_ng_template_1_Template, 1, 0, "ng-template", null, 77, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
       }
 
       if (rf & 2) {
-        var row_r112 = ctx.row;
+        var row_r110 = ctx.row;
 
-        var _r114 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2);
+        var _r112 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r112 == null ? null : row_r112.for_delivery)("ngIfElse", _r114);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r110 == null ? null : row_r110.for_delivery)("ngIfElse", _r112);
       }
     }
 
@@ -51183,11 +51171,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r116 = ctx.row;
+        var row_r114 = ctx.row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r116 == null ? null : row_r116.deduction, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r114 == null ? null : row_r114.deduction, "");
       }
     }
 
@@ -51201,83 +51189,83 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r117 = ctx.row;
+        var row_r115 = ctx.row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", (row_r117 == null ? null : row_r117.amount) - (row_r117 == null ? null : row_r117.deduction), "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", (row_r115 == null ? null : row_r115.amount) - (row_r115 == null ? null : row_r115.deduction), "");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_29_Template(rf, ctx) {
       if (rf & 1) {
-        var _r121 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r119 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 54);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 53);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("dblclick", function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_29_Template_a_dblclick_0_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r121);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r119);
 
-          var row_r118 = ctx.row;
+          var row_r116 = ctx.row;
 
-          var ctx_r120 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
+          var ctx_r118 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
 
-          return ctx_r120.toggleExpandRowDailyout(row_r118);
+          return ctx_r118.toggleExpandRowDailyout(row_r116);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
 
       if (rf & 2) {
-        var row_r118 = ctx.row;
+        var row_r116 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("datatable-icon-down", !row_r118.$$expanded)("datatable-icon-down", row_r118.$$expanded);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("datatable-icon-down", !row_r116.$$expanded)("datatable-icon-down", row_r116.$$expanded);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("id", row_r118.id);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("id", row_r116.id);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_31_Template(rf, ctx) {
       if (rf & 1) {
-        var _r128 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r126 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 81);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 80);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Process Selected Orders");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "datatable-pager", 55);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "datatable-pager", 54);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_31_Template_datatable_pager_change_2_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r128);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r126);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          var _r69 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](5);
+          var _r67 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](5);
 
-          return _r69.onFooterPage($event);
+          return _r67.onFooterPage($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
 
       if (rf & 2) {
-        var rowCount_r122 = ctx.rowCount;
-        var pageSize_r123 = ctx.pageSize;
-        var curPage_r125 = ctx.curPage;
+        var rowCount_r120 = ctx.rowCount;
+        var pageSize_r121 = ctx.pageSize;
+        var curPage_r123 = ctx.curPage;
 
-        var ctx_r82 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
+        var ctx_r80 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pagerLeftArrowIcon", "datatable-icon-left")("pagerRightArrowIcon", "datatable-icon-right")("pagerPreviousIcon", "datatable-icon-prev")("pagerNextIcon", "datatable-icon-skip")("page", curPage_r125)("visiblePagesCount", ctx_r82.currentVisible)("size", pageSize_r123)("count", rowCount_r122)("hidden", false);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pagerLeftArrowIcon", "datatable-icon-left")("pagerRightArrowIcon", "datatable-icon-right")("pagerPreviousIcon", "datatable-icon-prev")("pagerNextIcon", "datatable-icon-skip")("page", curPage_r123)("visiblePagesCount", ctx_r80.currentVisible)("size", pageSize_r121)("count", rowCount_r120)("hidden", false);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_4_div_32_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 60);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 59);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -51285,11 +51273,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var payout_r64 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2).$implicit;
+        var payout_r62 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2).$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", payout_r64.data.total_cod, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", payout_r62.data.total_cod, " ");
       }
     }
 
@@ -51297,7 +51285,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "p", 57);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "p", 56);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Cash On Delivery");
 
@@ -51349,25 +51337,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "ngx-datatable-column", 61);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "ngx-datatable-column", 60);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](21, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_21_Template, 2, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "ngx-datatable-column", 62);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "ngx-datatable-column", 61);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](23, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_23_Template, 3, 2, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "ngx-datatable-column", 63);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "ngx-datatable-column", 62);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](25, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_25_Template, 2, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "ngx-datatable-column", 64);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "ngx-datatable-column", 63);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](27, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_ng_template_27_Template, 2, 1, "ng-template", 20);
 
@@ -51389,23 +51377,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](32, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_div_32_Template, 2, 1, "div", 59);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](32, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_div_32_Template, 2, 1, "div", 58);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
 
       if (rf & 2) {
-        var payout_r64 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+        var payout_r62 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-        var ctx_r66 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+        var ctx_r64 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("rows", payout_r64.data.cod)("columnMode", "force")("headerHeight", 50)("footerHeight", 50)("rowHeight", ctx_r66.auto)("limit", 5)("scrollbarH", true);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("rows", payout_r62.data.cod)("columnMode", "force")("headerHeight", 50)("footerHeight", 50)("rowHeight", ctx_r64.auto)("limit", 5)("scrollbarH", true);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("rowHeight", ctx_r66.auto);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("rowHeight", ctx_r64.auto);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
@@ -51453,13 +51441,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", payout_r64.data.cod);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", payout_r62.data.cod);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_div_0_div_34_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -51467,17 +51455,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r145 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2).row;
+        var row_r143 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2).row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r145 == null ? null : row_r145.bank_processing, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r143 == null ? null : row_r143.bank_processing, "");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_div_0_div_35_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "$0");
 
@@ -51487,17 +51475,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_div_0_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 67);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 66);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 68);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 67);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 69);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 68);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Driver : ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 70);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 69);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5);
 
@@ -51505,7 +51493,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "h6", 71);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "h6", 70);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Itemized Charges");
 
@@ -51513,7 +51501,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Instamarkt(10%)");
 
@@ -51525,7 +51513,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14);
 
@@ -51535,7 +51523,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Delivery Charge");
 
@@ -51547,7 +51535,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21);
 
@@ -51557,7 +51545,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, "Tip");
 
@@ -51569,7 +51557,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28);
 
@@ -51579,7 +51567,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, "Bank Processing");
 
@@ -51591,15 +51579,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](34, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_div_0_div_34_Template, 2, 1, "div", 73);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](34, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_div_0_div_34_Template, 2, 1, "div", 72);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](35, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_div_0_div_35_Template, 2, 0, "div", 73);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](35, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_div_0_div_35_Template, 2, 0, "div", 72);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "div", 74);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "div", 73);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](38, "hr");
 
@@ -51607,9 +51595,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "div", 75);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "div", 74);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](41, "b");
 
@@ -51625,7 +51613,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](46);
 
@@ -51637,41 +51625,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r145 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+        var row_r143 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", (row_r145 == null ? null : row_r145.driver == null ? null : row_r145.driver.first_name) + " " + (row_r145 == null ? null : row_r145.driver == null ? null : row_r145.driver.last_name), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", (row_r143 == null ? null : row_r143.driver == null ? null : row_r143.driver.first_name) + " " + (row_r143 == null ? null : row_r143.driver == null ? null : row_r143.driver.last_name), " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r145 == null ? null : row_r145.instaMarkt_commission, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r143 == null ? null : row_r143.instaMarkt_commission, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r145 == null ? null : row_r145.delivery_charge, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r143 == null ? null : row_r143.delivery_charge, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r145 == null ? null : row_r145.tip_amount, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r143 == null ? null : row_r143.tip_amount, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r145.bank_processing);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r143.bank_processing);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !row_r145.bank_processing);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !row_r143.bank_processing);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](11);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r145 == null ? null : row_r145.deduction, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r143 == null ? null : row_r143.deduction, "");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_ng_template_1_div_27_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -51679,17 +51667,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r145 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2).row;
+        var row_r143 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2).row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r145 == null ? null : row_r145.bank_processing, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r143 == null ? null : row_r143.bank_processing, "");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_ng_template_1_div_28_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "$0");
 
@@ -51699,17 +51687,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_ng_template_1_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 67);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 66);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 68);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 67);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 69);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 68);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Driver :- ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 70);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 69);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5);
 
@@ -51717,7 +51705,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "h6", 76);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "h6", 75);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "Itemized Charges");
 
@@ -51725,7 +51713,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Instamarkt(5%)");
 
@@ -51737,7 +51725,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14);
 
@@ -51747,7 +51735,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Tip");
 
@@ -51759,7 +51747,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21);
 
@@ -51769,7 +51757,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, "Bank Processing");
 
@@ -51781,15 +51769,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](27, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_ng_template_1_div_27_Template, 2, 1, "div", 73);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](27, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_ng_template_1_div_27_Template, 2, 1, "div", 72);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](28, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_ng_template_1_div_28_Template, 2, 0, "div", 73);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](28, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_ng_template_1_div_28_Template, 2, 0, "div", 72);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 74);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 73);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](31, "hr");
 
@@ -51797,9 +51785,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "div", 75);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "div", 74);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "b");
 
@@ -51815,7 +51803,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "div", 72);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "div", 71);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](39);
 
@@ -51827,75 +51815,93 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r145 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+        var row_r143 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", (row_r145 == null ? null : row_r145.driver == null ? null : row_r145.driver.first_name) + " " + (row_r145 == null ? null : row_r145.driver == null ? null : row_r145.driver.last_name), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", (row_r143 == null ? null : row_r143.driver == null ? null : row_r143.driver.first_name) + " " + (row_r143 == null ? null : row_r143.driver == null ? null : row_r143.driver.last_name), " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r145 == null ? null : row_r145.instaMarkt_commission);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r143 == null ? null : row_r143.instaMarkt_commission);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r145 == null ? null : row_r145.tip_amount, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r143 == null ? null : row_r143.tip_amount, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r145.bank_processing);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r143.bank_processing);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !row_r145.bank_processing);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !row_r143.bank_processing);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](11);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r145 == null ? null : row_r145.deduction, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r143 == null ? null : row_r143.deduction, "");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_div_0_Template, 47, 7, "div", 65);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_div_0_Template, 47, 7, "div", 64);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_ng_template_1_Template, 40, 6, "ng-template", null, 66, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_7_ng_template_1_Template, 40, 6, "ng-template", null, 65, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
       }
 
       if (rf & 2) {
-        var row_r145 = ctx.row;
+        var row_r143 = ctx.row;
 
-        var _r148 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2);
+        var _r146 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r145 == null ? null : row_r145.for_delivery)("ngIfElse", _r148);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r143 == null ? null : row_r143.for_delivery)("ngIfElse", _r146);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_9_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 33);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 32);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "input", 34);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "input", 33);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "label", 35);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "label", 34);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
 
       if (rf & 2) {
-        var row_r158 = ctx.row;
+        var row_r156 = ctx.row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("id", "customCheck", row_r158.id, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("id", "customCheck", row_r156.id, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("for", "customCheck", row_r158.id, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("for", "customCheck", row_r156.id, "");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_11_a_0_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 39);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var row_r157 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r157 == null ? null : row_r157.order_detail == null ? null : row_r157.order_detail.status);
+      }
+    }
+
+    function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_11_a_1_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 40);
 
@@ -51905,35 +51911,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r159 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+        var row_r157 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r159 == null ? null : row_r159.order_detail == null ? null : row_r159.order_detail.status);
-      }
-    }
-
-    function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_11_a_1_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 41);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-
-      if (rf & 2) {
-        var row_r159 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r159 == null ? null : row_r159.order_detail == null ? null : row_r159.order_detail.status);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r157 == null ? null : row_r157.order_detail == null ? null : row_r157.order_detail.status);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_11_a_2_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 39);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 38);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -51941,17 +51929,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r159 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+        var row_r157 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r159 == null ? null : row_r159.order_detail == null ? null : row_r159.order_detail.status);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r157 == null ? null : row_r157.order_detail == null ? null : row_r157.order_detail.status);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_11_a_3_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 39);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 38);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -51959,41 +51947,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r159 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
+        var row_r157 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r159 == null ? null : row_r159.order_detail == null ? null : row_r159.order_detail.status);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](row_r157 == null ? null : row_r157.order_detail == null ? null : row_r157.order_detail.status);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_11_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_11_a_0_Template, 2, 1, "a", 37);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_11_a_0_Template, 2, 1, "a", 36);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_11_a_1_Template, 2, 1, "a", 38);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_11_a_1_Template, 2, 1, "a", 37);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_11_a_2_Template, 2, 1, "a", 36);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_11_a_2_Template, 2, 1, "a", 35);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_11_a_3_Template, 2, 1, "a", 36);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_11_a_3_Template, 2, 1, "a", 35);
       }
 
       if (rf & 2) {
-        var row_r159 = ctx.row;
+        var row_r157 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r159 == null ? null : row_r159.order_detail == null ? null : row_r159.order_detail.status) == "complete");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r159 == null ? null : row_r159.order_detail == null ? null : row_r159.order_detail.status) == "processed");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r157 == null ? null : row_r157.order_detail == null ? null : row_r157.order_detail.status) == "complete");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r159 == null ? null : row_r159.order_detail == null ? null : row_r159.order_detail.status) == "new");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r157 == null ? null : row_r157.order_detail == null ? null : row_r157.order_detail.status) == "processed");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r159 == null ? null : row_r159.order_detail == null ? null : row_r159.order_detail.status) == "incomplete");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r157 == null ? null : row_r157.order_detail == null ? null : row_r157.order_detail.status) == "new");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", (row_r157 == null ? null : row_r157.order_detail == null ? null : row_r157.order_detail.status) == "incomplete");
       }
     }
 
@@ -52005,9 +51993,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r168 = ctx.row;
+        var row_r166 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](1, 1, row_r168 == null ? null : row_r168.created_at, "MMM d"), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](1, 1, row_r166 == null ? null : row_r166.created_at, "MMM d"), " ");
       }
     }
 
@@ -52019,15 +52007,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r169 = ctx.row;
+        var row_r167 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](1, 1, row_r169 == null ? null : row_r169.id, row_r169.id), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](1, 1, row_r167 == null ? null : row_r167.id, row_r167.id), " ");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_17_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 47);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 46);
       }
     }
 
@@ -52041,11 +52029,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r171 = ctx.row;
+        var row_r169 = ctx.row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r171 == null ? null : row_r171.total_order_amount, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r169 == null ? null : row_r169.total_order_amount, "");
       }
     }
 
@@ -52059,39 +52047,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r172 = ctx.row;
+        var row_r170 = ctx.row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r172 == null ? null : row_r172.amount, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r170 == null ? null : row_r170.amount, "");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_23_img_0_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 79);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 78);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_23_ng_template_1_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 80);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 79);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_23_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_23_img_0_Template, 1, 0, "img", 77);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_23_img_0_Template, 1, 0, "img", 76);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_23_ng_template_1_Template, 1, 0, "ng-template", null, 78, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_23_ng_template_1_Template, 1, 0, "ng-template", null, 77, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
       }
 
       if (rf & 2) {
-        var row_r173 = ctx.row;
+        var row_r171 = ctx.row;
 
-        var _r175 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2);
+        var _r173 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r173 == null ? null : row_r173.for_delivery)("ngIfElse", _r175);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", row_r171 == null ? null : row_r171.for_delivery)("ngIfElse", _r173);
       }
     }
 
@@ -52105,11 +52093,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r177 = ctx.row;
+        var row_r175 = ctx.row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r177 == null ? null : row_r177.deduction, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", row_r175 == null ? null : row_r175.deduction, "");
       }
     }
 
@@ -52123,77 +52111,77 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r178 = ctx.row;
+        var row_r176 = ctx.row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", (row_r178 == null ? null : row_r178.amount) - (row_r178 == null ? null : row_r178.deduction), "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", (row_r176 == null ? null : row_r176.amount) - (row_r176 == null ? null : row_r176.deduction), "");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_29_Template(rf, ctx) {
       if (rf & 1) {
-        var _r182 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r180 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 54);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 53);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("dblclick", function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_29_Template_a_dblclick_0_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r182);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r180);
 
-          var row_r179 = ctx.row;
+          var row_r177 = ctx.row;
 
-          var ctx_r181 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
+          var ctx_r179 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
 
-          return ctx_r181.toggleExpandRowDailyout(row_r179);
+          return ctx_r179.toggleExpandRowDailyout(row_r177);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
 
       if (rf & 2) {
-        var row_r179 = ctx.row;
+        var row_r177 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("datatable-icon-down", !row_r179.$$expanded)("datatable-icon-down", row_r179.$$expanded);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassProp"]("datatable-icon-down", !row_r177.$$expanded)("datatable-icon-down", row_r177.$$expanded);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("id", row_r179.id);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("id", row_r177.id);
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_31_Template(rf, ctx) {
       if (rf & 1) {
-        var _r189 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r187 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 81);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 80);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Process Selected Orders");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "datatable-pager", 55);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "datatable-pager", 54);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_31_Template_datatable_pager_change_2_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r189);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r187);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          var _r131 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](5);
+          var _r129 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](5);
 
-          return _r131.onFooterPage($event);
+          return _r129.onFooterPage($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
 
       if (rf & 2) {
-        var rowCount_r183 = ctx.rowCount;
-        var pageSize_r184 = ctx.pageSize;
-        var curPage_r186 = ctx.curPage;
+        var rowCount_r181 = ctx.rowCount;
+        var pageSize_r182 = ctx.pageSize;
+        var curPage_r184 = ctx.curPage;
 
-        var ctx_r144 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
+        var ctx_r142 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pagerLeftArrowIcon", "datatable-icon-left")("pagerRightArrowIcon", "datatable-icon-right")("pagerPreviousIcon", "datatable-icon-prev")("pagerNextIcon", "datatable-icon-skip")("page", curPage_r186)("visiblePagesCount", ctx_r144.currentVisible)("size", pageSize_r184)("count", rowCount_r183)("hidden", false);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pagerLeftArrowIcon", "datatable-icon-left")("pagerRightArrowIcon", "datatable-icon-right")("pagerPreviousIcon", "datatable-icon-prev")("pagerNextIcon", "datatable-icon-skip")("page", curPage_r184)("visiblePagesCount", ctx_r142.currentVisible)("size", pageSize_r182)("count", rowCount_r181)("hidden", false);
       }
     }
 
@@ -52201,7 +52189,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "p", 57);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "p", 56);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Online");
 
@@ -52253,25 +52241,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "ngx-datatable-column", 61);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "ngx-datatable-column", 60);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](21, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_21_Template, 2, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "ngx-datatable-column", 62);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "ngx-datatable-column", 61);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](23, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_23_Template, 3, 2, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "ngx-datatable-column", 63);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "ngx-datatable-column", 62);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](25, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_25_Template, 2, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "ngx-datatable-column", 64);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "ngx-datatable-column", 63);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](27, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_ng_template_27_Template, 2, 1, "ng-template", 20);
 
@@ -52297,17 +52285,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var payout_r64 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+        var payout_r62 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
-        var ctx_r67 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+        var ctx_r65 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("rows", payout_r64.data.online)("columnMode", "force")("headerHeight", 50)("footerHeight", 50)("rowHeight", ctx_r67.auto)("limit", 5)("scrollbarH", true);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("rows", payout_r62.data.online)("columnMode", "force")("headerHeight", 50)("footerHeight", 50)("rowHeight", ctx_r65.auto)("limit", 5)("scrollbarH", true);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("rowHeight", ctx_r67.auto);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("rowHeight", ctx_r65.auto);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
@@ -52357,7 +52345,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function FoodpckmgrorderComponent_ng_template_8_div_1_div_6_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 60);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 59);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -52365,11 +52353,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var payout_r64 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+        var payout_r62 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", payout_r64.data.total_online, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", payout_r62.data.total_online, " ");
       }
     }
 
@@ -52377,7 +52365,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h3", 57);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h3", 56);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "b");
 
@@ -52387,13 +52375,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_Template, 33, 20, "div", 58);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, FoodpckmgrorderComponent_ng_template_8_div_1_div_4_Template, 33, 20, "div", 57);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_Template, 32, 19, "div", 58);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, FoodpckmgrorderComponent_ng_template_8_div_1_div_5_Template, 32, 19, "div", 57);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, FoodpckmgrorderComponent_ng_template_8_div_1_div_6_Template, 2, 1, "div", 59);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, FoodpckmgrorderComponent_ng_template_8_div_1_div_6_Template, 2, 1, "div", 58);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "p", 60);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "p", 59);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8);
 
@@ -52403,28 +52391,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var payout_r64 = ctx.$implicit;
-        var i_r65 = ctx.index;
+        var payout_r62 = ctx.$implicit;
+        var i_r63 = ctx.index;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", payout_r64.data.cod[i_r65].unit_name, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", payout_r62.data.cod[i_r63].unit_name, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", payout_r64.data.cod);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", payout_r62.data.cod);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", payout_r64.data.online);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", payout_r62.data.online);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", payout_r64.data.online);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", payout_r62.data.online);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Payout- ", payout_r64.payout, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Payout- ", payout_r62.payout, "");
       }
     }
 
@@ -52432,7 +52420,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 3);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_8_div_1_Template, 9, 5, "div", 56);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderComponent_ng_template_8_div_1_Template, 9, 5, "div", 55);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
@@ -52452,9 +52440,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r217 = ctx.row;
+        var row_r215 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r217.vendor, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r215.vendor, " ");
       }
     }
 
@@ -52464,21 +52452,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r220 = ctx.row;
+        var row_r218 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r220.address, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r218.address, " ");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_10_ng_template_16_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 116);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 115);
       }
 
       if (rf & 2) {
-        var row_r223 = ctx.row;
+        var row_r221 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", row_r223.method, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", row_r221.method, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
       }
     }
 
@@ -52488,9 +52476,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r226 = ctx.row;
+        var row_r224 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r226.fee, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r224.fee, " ");
       }
     }
 
@@ -52500,9 +52488,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r229 = ctx.row;
+        var row_r227 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r229.tips, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r227.tips, " ");
       }
     }
 
@@ -52512,9 +52500,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r232 = ctx.row;
+        var row_r230 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r232.task, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r230.task, " ");
       }
     }
 
@@ -52524,9 +52512,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r235 = ctx.row;
+        var row_r233 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r235.mon, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r233.mon, " ");
       }
     }
 
@@ -52536,9 +52524,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r238 = ctx.row;
+        var row_r236 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r238.tue, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r236.tue, " ");
       }
     }
 
@@ -52548,9 +52536,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r241 = ctx.row;
+        var row_r239 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r241.wed, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r239.wed, " ");
       }
     }
 
@@ -52560,9 +52548,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r244 = ctx.row;
+        var row_r242 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r244.thu, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r242.thu, " ");
       }
     }
 
@@ -52572,9 +52560,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r247 = ctx.row;
+        var row_r245 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r247.fri, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r245.fri, " ");
       }
     }
 
@@ -52584,9 +52572,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r250 = ctx.row;
+        var row_r248 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r250.sat, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r248.sat, " ");
       }
     }
 
@@ -52596,9 +52584,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r253 = ctx.row;
+        var row_r251 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r253.sun, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r251.sun, " ");
       }
     }
 
@@ -52608,9 +52596,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r256 = ctx.row;
+        var row_r254 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r256.total, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r254.total, " ");
       }
     }
 
@@ -52620,9 +52608,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r257 = ctx.row;
+        var row_r255 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r257.driverName, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r255.driverName, " ");
       }
     }
 
@@ -52632,33 +52620,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r258 = ctx.row;
+        var row_r256 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" $", row_r258.wagesTotal.toFixed(2), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" $", row_r256.wagesTotal.toFixed(2), " ");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_10_ng_template_92_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 33);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 32);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "input", 34);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "input", 33);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "label", 35);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "label", 34);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
 
       if (rf & 2) {
-        var row_r259 = ctx.row;
+        var row_r257 = ctx.row;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("id", "customCheck", row_r259.id, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("id", "customCheck", row_r257.id, "");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("for", "customCheck", row_r259.id, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("for", "customCheck", row_r257.id, "");
       }
     }
 
@@ -52668,30 +52656,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r260 = ctx.row;
+        var row_r258 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r260.unitName, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r258.unitName, " ");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_10_ng_template_96_Template(rf, ctx) {
       if (rf & 1) {
-        var _r263 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r261 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "button", 117);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "button", 116);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function FoodpckmgrorderComponent_ng_template_10_ng_template_96_Template_button_click_1_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r263);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r261);
 
-          var row_r261 = ctx.row;
+          var row_r259 = ctx.row;
 
-          var ctx_r262 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r260 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
           var _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](12);
 
-          return ctx_r262.openSubsidy(_r3, row_r261.sumTotalDeliveryWages, row_r261.unitsOrder, row_r261.totalDeliveryCount, row_r261.unitName);
+          return ctx_r260.openSubsidy(_r3, row_r259.sumTotalDeliveryWages, row_r259.unitsOrder, row_r259.totalDeliveryCount, row_r259.unitName);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Details");
@@ -52700,9 +52688,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r261 = ctx.row;
+        var row_r259 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" $", row_r261.subSidy ? row_r261.subSidy : 0, " \xA0");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" $", row_r259.subSidy ? row_r259.subSidy : 0, " \xA0");
       }
     }
 
@@ -52712,15 +52700,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var row_r264 = ctx.row;
+        var row_r262 = ctx.row;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r264.status, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r262.status, " ");
       }
     }
 
     function FoodpckmgrorderComponent_ng_template_10_ng_template_100_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 118);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 117);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Approve / Process");
 
@@ -52730,21 +52718,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function FoodpckmgrorderComponent_ng_template_10_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 82);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 81);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 83);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 82);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 84);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 83);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Week Of : ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 74);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 73);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "Aug 11 - Aug 17 \xA0 ");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "i", 85);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "i", 84);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -52754,33 +52742,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 14);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "ngx-datatable", 15, 86);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "ngx-datatable", 15, 85);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "ngx-datatable-column", 87);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "ngx-datatable-column", 86);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](12, FoodpckmgrorderComponent_ng_template_10_ng_template_12_Template, 1, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "ngx-datatable-column", 88);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "ngx-datatable-column", 87);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](14, FoodpckmgrorderComponent_ng_template_10_ng_template_14_Template, 1, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "ngx-datatable-column", 89);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "ngx-datatable-column", 88);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, FoodpckmgrorderComponent_ng_template_10_ng_template_16_Template, 1, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "ngx-datatable-column", 90);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "ngx-datatable-column", 89);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, FoodpckmgrorderComponent_ng_template_10_ng_template_18_Template, 1, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "ngx-datatable-column", 91);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "ngx-datatable-column", 90);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](20, FoodpckmgrorderComponent_ng_template_10_ng_template_20_Template, 1, 1, "ng-template", 20);
 
@@ -52792,11 +52780,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "div", 92);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "div", 91);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 93);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 92);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "button", 94);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "button", 93);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, "View Orders");
 
@@ -52806,9 +52794,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "div", 82);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "div", 81);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "div", 95);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "div", 94);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27, "Bob ");
 
@@ -52816,13 +52804,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "div", 96);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "div", 95);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "div", 97);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "div", 96);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 98);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 97);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "div", 99);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "div", 98);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "h2");
 
@@ -52832,7 +52820,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "div", 100);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "div", 99);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "p");
 
@@ -52846,11 +52834,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "div", 97);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "div", 96);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "div", 98);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "div", 97);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "div", 99);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "div", 98);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "h2");
 
@@ -52860,7 +52848,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "div", 100);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "div", 99);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](43, "p");
 
@@ -52882,55 +52870,55 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "ngx-datatable", 15, 16);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](49, "ngx-datatable-column", 101);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](49, "ngx-datatable-column", 100);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](50, FoodpckmgrorderComponent_ng_template_10_ng_template_50_Template, 1, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](51, "ngx-datatable-column", 102);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](51, "ngx-datatable-column", 101);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](52, FoodpckmgrorderComponent_ng_template_10_ng_template_52_Template, 1, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](53, "ngx-datatable-column", 103);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](53, "ngx-datatable-column", 102);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](54, FoodpckmgrorderComponent_ng_template_10_ng_template_54_Template, 1, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](55, "ngx-datatable-column", 104);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](55, "ngx-datatable-column", 103);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](56, FoodpckmgrorderComponent_ng_template_10_ng_template_56_Template, 1, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](57, "ngx-datatable-column", 105);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](57, "ngx-datatable-column", 104);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](58, FoodpckmgrorderComponent_ng_template_10_ng_template_58_Template, 1, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](59, "ngx-datatable-column", 106);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](59, "ngx-datatable-column", 105);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](60, FoodpckmgrorderComponent_ng_template_10_ng_template_60_Template, 1, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](61, "ngx-datatable-column", 107);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](61, "ngx-datatable-column", 106);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](62, FoodpckmgrorderComponent_ng_template_10_ng_template_62_Template, 1, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](63, "ngx-datatable-column", 108);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](63, "ngx-datatable-column", 107);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](64, FoodpckmgrorderComponent_ng_template_10_ng_template_64_Template, 1, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](65, "ngx-datatable-column", 109);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](65, "ngx-datatable-column", 108);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](66, FoodpckmgrorderComponent_ng_template_10_ng_template_66_Template, 1, 1, "ng-template", 20);
 
@@ -52942,13 +52930,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](67, "div", 96);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](67, "div", 95);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](68, "div", 97);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](68, "div", 96);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](69, "div", 98);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](69, "div", 97);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](70, "div", 99);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](70, "div", 98);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](71, "h6");
 
@@ -52958,7 +52946,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](73, "div", 100);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](73, "div", 99);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](74, "p");
 
@@ -52980,13 +52968,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](78, "ngx-datatable", 15, 16);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](80, "ngx-datatable-column", 110);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](80, "ngx-datatable-column", 109);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](81, FoodpckmgrorderComponent_ng_template_10_ng_template_81_Template, 1, 1, "ng-template", 20);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](82, "ngx-datatable-column", 111);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](82, "ngx-datatable-column", 110);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](83, FoodpckmgrorderComponent_ng_template_10_ng_template_83_Template, 1, 1, "ng-template", 20);
 
@@ -52998,9 +52986,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](84, "div", 68);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](84, "div", 67);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](85, "div", 112);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](85, "div", 111);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](86, "Delivery Allocation ");
 
@@ -53014,7 +53002,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](89, "ngx-datatable", 15, 16);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](91, "ngx-datatable-column", 113);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](91, "ngx-datatable-column", 112);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](92, FoodpckmgrorderComponent_ng_template_10_ng_template_92_Template, 3, 2, "ng-template", 20);
 
@@ -53026,7 +53014,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](95, "ngx-datatable-column", 114);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](95, "ngx-datatable-column", 113);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](96, FoodpckmgrorderComponent_ng_template_10_ng_template_96_Template, 3, 1, "ng-template", 20);
 
@@ -53038,7 +53026,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](99, "ngx-datatable-column", 115);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](99, "ngx-datatable-column", 114);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](100, FoodpckmgrorderComponent_ng_template_10_ng_template_100_Template, 2, 0, "ng-template", 20);
 
@@ -53162,22 +53150,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function FoodpckmgrorderComponent_ng_template_11_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 119);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 118);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h4", 120);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h4", 119);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Subsidy Calculation");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 121);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 120);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function FoodpckmgrorderComponent_ng_template_11_Template_button_click_3_listener() {
-          var modal_r266 = ctx.$implicit;
-          return modal_r266.dismiss("Cross click");
+          var modal_r264 = ctx.$implicit;
+          return modal_r264.dismiss("Cross click");
         });
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "span", 122);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "span", 121);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "\xD7");
 
@@ -53187,11 +53175,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 123);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 122);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 124);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 123);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "b");
 
@@ -53207,7 +53195,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 74);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 73);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14);
 
@@ -53217,7 +53205,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 124);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 123);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "b");
 
@@ -53233,7 +53221,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "div", 74);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "div", 73);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22);
 
@@ -53243,7 +53231,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "div", 124);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "div", 123);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "b");
 
@@ -53259,7 +53247,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "div", 74);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "div", 73);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](30);
 
@@ -53269,7 +53257,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "div", 0);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "div", 124);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "div", 123);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "b");
 
@@ -53285,7 +53273,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "div", 71);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "div", 70);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](38);
 
@@ -53295,7 +53283,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](39, "div", 125);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](39, "div", 124);
       }
 
       if (rf & 2) {
@@ -53596,19 +53584,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllOrder",
         value: function getAllOrder() {
-          var _this124 = this;
-
           this.loadOrderDummyData();
-          this.user = this._CommonFunctionsService.checkUser().user; // this.user.food_park_id = 30149;
-
-          this.getAllDrivers(this.user.food_park_id);
-
-          this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id).subscribe(function (res) {
-            _this124.orders = res.data;
-            _this124.temp = _this124.orders;
-            _this124.rows = _this124.orders;
-            console.log(_this124.rows);
-          });
+          this.user = this._CommonFunctionsService.checkUser().user;
+          this.getAllDrivers(this.user.food_park_id); // this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id).subscribe((res: any) => {
+          //   this.orders = res.data;
+          //   this.temp = this.orders;
+          //   this.rows = this.orders;
+          //   console.log(this.rows);
+          // })
         }
       }, {
         key: "loadOrderDummyData",
@@ -53677,22 +53660,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "toggleExpandRow",
         value: function toggleExpandRow(row) {
-          var _this125 = this;
+          var _a;
 
           this.rowWiseData = [];
-          this.orderDetails = row;
-          this.table.rowDetail.collapseAllRows();
+          this.orderDetails = row; // this.table.rowDetail.collapseAllRows();
+
           this.table.rowDetail.toggleExpandRow(row); //this.loadingData = true;
+          // this._ProfileService.getOrderProductDetails().subscribe((res: any) => {
+          //   this.loadingData = false;
 
-          this._ProfileService.getOrderProductDetails().subscribe(function (res) {
-            var _a;
-
-            _this125.loadingData = false;
-            var rowdata = res.data.filter(function (d) {
-              return d.id == row.id;
-            });
-            _this125.rowWiseData = (_a = rowdata[0]) === null || _a === void 0 ? void 0 : _a.order_items;
+          var rowdata = this.temp.filter(function (d) {
+            return d.id == row.id;
           });
+          this.rowWiseData = (_a = rowdata[0]) === null || _a === void 0 ? void 0 : _a.order_items; // });
         }
         /** End */
 
@@ -53736,21 +53716,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderAction",
         value: function orderAction(event, row) {
-          var _this126 = this;
+          var _this124 = this;
 
           console.log(event.target.value, row.order_detail.id);
 
           if (event.target.value == 'Refund') {
             this._ProfileService.refundAmountToCustomer(row.id).subscribe(function (res) {
-              _this126.toastr.success("Refund Amount");
+              _this124.toastr.success("Refund Amount");
             });
           } else if (event.target.value == 'Void') {
             this._ProfileService.voidOrder(row.order_detail.id).subscribe(function (voidResponse) {
               console.log(voidResponse);
 
-              _this126.toastr.success("Order removed successfully");
+              _this124.toastr.success("Order removed successfully");
 
-              _this126.getAllOrder();
+              _this124.getAllOrder();
             }, function (error) {
               console.log(error);
             });
@@ -53788,7 +53768,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return __awaiter(this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee8() {
-            var _this127 = this;
+            var _this125 = this;
 
             return regeneratorRuntime.wrap(function _callee8$(_context8) {
               while (1) {
@@ -53800,10 +53780,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                       if (response.data) {
                         response.data.forEach(function (value) {
-                          return __awaiter(_this127, void 0, void 0,
+                          return __awaiter(_this125, void 0, void 0,
                           /*#__PURE__*/
                           regeneratorRuntime.mark(function _callee7() {
-                            var _this128 = this;
+                            var _this126 = this;
 
                             return regeneratorRuntime.wrap(function _callee7$(_context7) {
                               while (1) {
@@ -53811,7 +53791,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                                   case 0:
                                     _context7.next = 2;
                                     return this._ProfileService.getParticularUnitData(value.id).subscribe(function (unitResponse) {
-                                      return __awaiter(_this128, void 0, void 0,
+                                      return __awaiter(_this126, void 0, void 0,
                                       /*#__PURE__*/
                                       regeneratorRuntime.mark(function _callee6() {
                                         var data;
@@ -53848,9 +53828,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                             }, _callee7, this);
                           }));
                         });
-                        console.log("testing", _this127.unitsId);
+                        console.log("testing", _this125.unitsId);
 
-                        _this127.unitsDriver();
+                        _this125.unitsDriver();
                       }
                     }, function (error) {
                       console.log(error);
@@ -53867,7 +53847,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "unitsDriver",
         value: function unitsDriver() {
-          var _this129 = this;
+          var _this127 = this;
 
           var unitsIdData = {
             "units": [2164, 2165] //this.unitsId
@@ -53879,13 +53859,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var getDriverId = [];
 
             if (driverRespose.data) {
-              _this129.driverCount = driverRespose.data.length;
+              _this127.driverCount = driverRespose.data.length;
               driverRespose.data.forEach(function (valueDriver) {
                 valueDriver.forEach(function (valueExact) {
-                  return __awaiter(_this129, void 0, void 0,
+                  return __awaiter(_this127, void 0, void 0,
                   /*#__PURE__*/
                   regeneratorRuntime.mark(function _callee9() {
-                    var _this130 = this;
+                    var _this128 = this;
 
                     return regeneratorRuntime.wrap(function _callee9$(_context9) {
                       while (1) {
@@ -53900,7 +53880,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                             _context9.next = 4;
                             return this._ProfileService.getParticularDriverWages(valueExact.id).subscribe(function (wagesResponse) {
                               if (wagesResponse.data && wagesResponse.data.result) {
-                                _this130.manageWagesDriver(wagesResponse.data.result, wagesResponse.data.driver.first_name);
+                                _this128.manageWagesDriver(wagesResponse.data.result, wagesResponse.data.driver.first_name);
                               }
                             }, function (wagesError) {
                               console.log(wagesError);
@@ -53923,7 +53903,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "manageWagesDriver",
         value: function manageWagesDriver(data, driverName) {
-          var _this131 = this;
+          var _this129 = this;
 
           var workTime = 0;
           var _final = [];
@@ -53938,7 +53918,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               _final[day] = value.work_time;
             }
 
-            _this131.makeData = {
+            _this129.makeData = {
               "driverId": value.driver_id,
               "driver": driverName,
               "hour_wages": value.per_hour_price,
@@ -53950,8 +53930,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               'sat': '6' in _final ? _final[6] : 0,
               'sun': '0' in _final ? _final[0] : 0
             };
-            _this131.makeData['unitId'] = value.unit_id;
-            _this131.makeData['total'] = parseInt(_this131.makeData['mon']) + parseInt(_this131.makeData['tue']) + parseInt(_this131.makeData['wed']) + parseInt(_this131.makeData['thu']) + parseInt(_this131.makeData['fri']) + parseInt(_this131.makeData['sat']) + parseInt(_this131.makeData['sun']);
+            _this129.makeData['unitId'] = value.unit_id;
+            _this129.makeData['total'] = parseInt(_this129.makeData['mon']) + parseInt(_this129.makeData['tue']) + parseInt(_this129.makeData['wed']) + parseInt(_this129.makeData['thu']) + parseInt(_this129.makeData['fri']) + parseInt(_this129.makeData['sat']) + parseInt(_this129.makeData['sun']);
           });
           this.wagesData.push(this.makeData); //this.wagesData = Array.from(this.wagesData.reduce((m, t) => m.set(t.name, t), new Map()).values());
 
@@ -53963,7 +53943,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "save",
         value: function save(row, rowIndex) {
-          var _this132 = this;
+          var _this130 = this;
 
           this.isEditable[rowIndex] = !this.isEditable[rowIndex];
           console.log(row);
@@ -54036,7 +54016,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this._ProfileService.createDriverWages(row.driverId, createWagesData).subscribe(function (wagesResponse) {
             console.log(wagesResponse);
 
-            _this132.unitsDriver();
+            _this130.unitsDriver();
           }, function (wagesError) {
             console.log(wagesError);
           });
@@ -54064,7 +54044,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "totalWagesDataList",
         value: function totalWagesDataList() {
-          var _this133 = this;
+          var _this131 = this;
 
           this.wagesData.forEach(function (wagesValue, wagesKey) {
             var data = {
@@ -54073,9 +54053,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               "driverId": wagesValue.driverId
             };
 
-            _this133.totalDeliveryWagesData.push(data);
+            _this131.totalDeliveryWagesData.push(data);
 
-            _this133.sumTotalDeliveryWages = _this133.sumTotalDeliveryWages + parseInt(data.wagesTotal);
+            _this131.sumTotalDeliveryWages = _this131.sumTotalDeliveryWages + parseInt(data.wagesTotal);
           }); //this.totalDeliveryWagesData = Array.from(this.totalDeliveryWagesData.reduce((m, t) => m.set(t.name, t), new Map()).values());
           // console.log(this.totalDeliveryWagesData);
 
@@ -54084,29 +54064,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deliveryAllocation",
         value: function deliveryAllocation() {
-          var _this134 = this;
+          var _this132 = this;
 
           console.log(this.unitOrderAndName);
           this.unitOrderAndName.forEach(function (valAllocation, valKey) {
             // console.log("deliveryAllcocatin",this.totalDeliveryWagesData[valKey].wagesTotal)
             var data = {
               "unitName": valAllocation.unitName,
-              "subSidy": _this134.sumTotalDeliveryWages * valAllocation.unitOrder / _this134.totalDeliveryCount,
+              "subSidy": _this132.sumTotalDeliveryWages * valAllocation.unitOrder / _this132.totalDeliveryCount,
               //"subSidy": ((this.totalDeliveryWagesData[valKey]?.wagesTotal) *valAllocation.unitOrder)/this.totalDeliveryCount,
               "status": "unpaid",
-              "sumTotalDeliveryWages": _this134.sumTotalDeliveryWages,
+              "sumTotalDeliveryWages": _this132.sumTotalDeliveryWages,
               "unitsOrder": valAllocation.unitOrder,
-              "totalDeliveryCount": _this134.totalDeliveryCount,
+              "totalDeliveryCount": _this132.totalDeliveryCount,
               "unitId": valAllocation.unitId
             };
 
             if (valKey == 0) {
-              _this134.commasUnitName = valAllocation.unitName;
+              _this132.commasUnitName = valAllocation.unitName;
             } else {
-              _this134.commasUnitName = _this134.commasUnitName + "," + valAllocation.unitName;
+              _this132.commasUnitName = _this132.commasUnitName + "," + valAllocation.unitName;
             }
 
-            _this134.deliveryAllocationList.push(data);
+            _this132.deliveryAllocationList.push(data);
           });
           console.log("Allocation", this.deliveryAllocationList);
           console.log("unitsname:" + this.commasUnitName);
@@ -54114,7 +54094,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "openSubsidy",
         value: function openSubsidy(subsidy, sumTotalDeliveryWages, unitsOrder, totalDeliveryCount, unitname) {
-          var _this135 = this;
+          var _this133 = this;
 
           this.subsidyTotalDeliveryWages = sumTotalDeliveryWages;
           this.subsidyUnitsOrder = unitsOrder;
@@ -54124,9 +54104,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.modalService.open(subsidy, {
             ariaLabelledBy: 'modal-basic-title'
           }).result.then(function (result) {
-            _this135.closeResult = "Closed with: ".concat(result);
+            _this133.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
-            _this135.closeResult = "Dismissed ".concat(_this135.getDismissReason(reason));
+            _this133.closeResult = "Dismissed ".concat(_this133.getDismissReason(reason));
           });
         }
         /** end */
@@ -54167,7 +54147,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       },
       decls: 13,
       vars: 0,
-      consts: [[1, "row"], [1, "col-lg-12"], [1, "card"], [1, "card-body"], ["title", "Orders"], ["ngbTabContent", ""], ["title", "Daily Payouts"], ["title", "Weekly Reconciliation"], ["subsidy", ""], [1, "mb-3"], [1, "row", "align-items-center"], [1, "col-xl-2", "col-lg-3"], [1, "col-xl-6", "col-lg-7"], ["type", "text", "placeholder", "Delivery address, Order Id, Customer Name", 1, "form-control", 3, "keyup"], [1, "accodion-datatable"], [1, "material", 3, "rows", "columnMode", "headerHeight", "footerHeight", "rowHeight", "limit", "scrollbarH"], ["table", ""], [3, "rowHeight"], ["ngx-datatable-row-detail-template", ""], ["name", "#", 3, "width"], ["ngx-datatable-cell-template", ""], ["name", "Status", 3, "width"], ["name", "Date", 3, "width"], ["name", "Order ID", 3, "width"], ["name", "Payment", 3, "width"], ["name", "Order Amt", 3, "width"], ["name", "Vendor", 3, "width"], ["name", "Actions", 3, "width"], [3, "width"], ["ngx-datatable-footer-template", ""], [2, "padding-left", "10px"], [1, "mb-3", 2, "padding-left", "25px"], ["loaddata", ""], [1, "custom-control", "custom-checkbox"], ["type", "checkbox", "name", "example1", 1, "custom-control-input", 3, "id"], [1, "custom-control-label", 3, "for"], ["style", "background-color: #22c6ab; color:#fff;", "class", "order-status text-capitalize btn w-100 border-0", 4, "ngIf"], ["style", "background-color: #ef6e6e; color:#fff;", "class", "order-status text-capitalize btn w-100 border-0", 4, "ngIf"], ["style", "background-color: #ffbc34; color:#fff;", "class", "order-status text-capitalize btn w-100 border-0", 4, "ngIf"], [1, "order-status", "text-capitalize", "btn", "w-100", "border-0", 2, "background-color", "#22c6ab", "color", "#fff"], [1, "order-status", "text-capitalize", "btn", "w-100", "border-0", 2, "background-color", "#ef6e6e", "color", "#fff"], [1, "order-status", "text-capitalize", "btn", "w-100", "border-0", 2, "background-color", "#ffbc34", "color", "#fff"], ["src", "assets/images/cash.png", "alt", "Icon", "style", "height: 36px;", 4, "ngIf"], ["src", "assets/images/bank.png", "alt", "Icon", "style", "height: 36px;", 4, "ngIf"], ["src", "assets/images/card.png", "alt", "Icon", "style", "height: 36px;", 4, "ngIf"], ["src", "assets/images/cash.png", "alt", "Icon", 2, "height", "36px"], ["src", "assets/images/bank.png", "alt", "Icon", 2, "height", "36px"], ["src", "assets/images/card.png", "alt", "Icon", 2, "height", "36px"], ["class", "form-control custom-fontsize", 3, "change", 4, "ngIf"], [1, "form-control", "custom-fontsize", 3, "change"], ["value", ""], ["value", "Void"], ["value", "Refund"], ["value", "Delete"], ["href", "javascript:void(0)", "title", "Expand/Collapse Row", 3, "id", "dblclick"], [3, "pagerLeftArrowIcon", "pagerRightArrowIcon", "pagerPreviousIcon", "pagerNextIcon", "page", "visiblePagesCount", "size", "count", "hidden", "change"], [4, "ngFor", "ngForOf"], [2, "text-align", "center"], [4, "ngIf"], ["style", "text-align: right;", 4, "ngIf"], [2, "text-align", "right"], ["name", "Meal", 3, "width"], ["name", "Type", 3, "width"], ["name", "Deductions", 3, "width"], ["name", "Balance", 3, "width"], ["style", "padding-left:58px;", 4, "ngIf", "ngIfElse"], ["takeout", ""], [2, "padding-left", "58px"], [1, "row", "mb-1"], [1, "", 2, "font-weight", "500", "padding-left", "10px"], [1, "col-md-3", "pl-1"], [1, "col-md-6", "pl-0"], [1, "col-md-2"], ["class", "col-md-2", 4, "ngIf"], [1, "col-md-3", "pl-0"], [1, "row", "mb-2"], [1, "col-md-2", "pl-0"], ["src", "/assets/images/deliverySmall.png", "class", "img-responsive", 4, "ngIf", "ngIfElse"], ["takeoutimg", ""], ["src", "/assets/images/deliverySmall.png", 1, "img-responsive"], ["src", "/assets/images/takeout.png", 1, "img-responsive"], ["type", "button", 1, "btn", "btn-success", "ml-2", "custom-button"], [1, "row", "mb-1", "mt-4"], [1, "row", "mb-3"], [1, "col-md-3", "offset-3", "text-right", 2, "font-weight", "500", "padding-left", "10px"], ["aria-hidden", "true", 1, "ti-pencil", 2, "cursor", "pointer", "color", "#3dc6ac", "font-weight", "700"], ["weekTable", ""], ["name", "Vendor", "prop", "vendor", 3, "width"], ["name", "Address", "prop", "address", 3, "width"], ["name", "Method", "prop", "method", 3, "width"], ["name", "Fee", "prop", "fee", 3, "width"], ["name", "Tips", "prop", "tips", 3, "width"], ["hidden", "", 1, "row", "mb-1", "mt-4"], [1, "view-orders", 2, "margin", "0 auto"], ["type", "button", 1, "btn", "btn-success"], [2, "font-weight", "500", "padding-left", "10px", "margin", "0 auto"], [1, "row", "mt-3", "custom-card-main"], [1, "custom-card-wages-total"], [1, "total-wages"], [1, "title"], [1, "description"], ["name", "Drivers", "prop", "driver", 3, "width"], ["name", "Mon", "prop", "mon", 3, "width"], ["name", "Tue", "prop", "tue", 3, "width"], ["name", "Wed", "prop", "wed", 3, "width"], ["name", "Thu", "prop", "thu", 3, "width"], ["name", "Fri", "prop", "fri", 3, "width"], ["name", "Sat", "prop", "sat", 3, "width"], ["name", "Sun", "prop", "sun", 3, "width"], ["name", "Total", 3, "width"], ["name", "Driver", 3, "width"], ["name", "Amount", 3, "width"], [1, "mb-2", "mt-2", 2, "font-weight", "500", "padding-left", "10px", "margin", "0 auto"], ["name", "", 3, "width"], ["name", "Subsidy", 3, "width"], ["name", "Action", 3, "width"], ["alt", "Icon", 2, "height", "36px", 3, "src"], ["type", "button", 1, "btn", "btn-danger", 3, "click"], [1, "btn", "btn-success"], [1, "modal-header"], ["id", "modal-basic-title", 1, "modal-title"], ["type", "button", "aria-label", "Close", "id", "closeModal", 1, "close", 3, "click"], ["aria-hidden", "true"], [1, "modal-body"], [1, "col-md-6", "text-right", "pr-1"], [1, "modal-footer", 2, "border-top", "0"]],
+      consts: [[1, "row"], [1, "col-lg-12"], [1, "card"], [1, "card-body"], ["title", "Orders"], ["ngbTabContent", ""], ["title", "Daily Payouts"], ["title", "Weekly Reconciliation"], ["subsidy", ""], [1, "mb-3"], [1, "row", "align-items-center"], [1, "col-xl-2", "col-lg-3"], [1, "col-xl-6", "col-lg-7"], ["type", "text", "placeholder", "Delivery address, Order Id, Customer Name", 1, "form-control", 3, "keyup"], [1, "accodion-datatable"], [1, "material", 3, "rows", "columnMode", "headerHeight", "footerHeight", "rowHeight", "limit", "scrollbarH"], ["table", ""], [3, "rowHeight"], ["ngx-datatable-row-detail-template", ""], ["name", "#", 3, "width"], ["ngx-datatable-cell-template", ""], ["name", "Status", 3, "width"], ["name", "Date", 3, "width"], ["name", "Order ID", 3, "width"], ["name", "Payment", 3, "width"], ["name", "Order Amt", 3, "width"], ["name", "Vendor", 3, "width"], ["name", "Actions", 3, "width"], [3, "width"], ["ngx-datatable-footer-template", ""], [2, "padding-left", "10px"], [1, "mb-3", 2, "padding-left", "25px"], [1, "custom-control", "custom-checkbox"], ["type", "checkbox", "name", "example1", 1, "custom-control-input", 3, "id"], [1, "custom-control-label", 3, "for"], ["style", "background-color: #22c6ab; color:#fff;", "class", "order-status text-capitalize btn w-100 border-0", 4, "ngIf"], ["style", "background-color: #ef6e6e; color:#fff;", "class", "order-status text-capitalize btn w-100 border-0", 4, "ngIf"], ["style", "background-color: #ffbc34; color:#fff;", "class", "order-status text-capitalize btn w-100 border-0", 4, "ngIf"], [1, "order-status", "text-capitalize", "btn", "w-100", "border-0", 2, "background-color", "#22c6ab", "color", "#fff"], [1, "order-status", "text-capitalize", "btn", "w-100", "border-0", 2, "background-color", "#ef6e6e", "color", "#fff"], [1, "order-status", "text-capitalize", "btn", "w-100", "border-0", 2, "background-color", "#ffbc34", "color", "#fff"], ["src", "assets/images/cash.png", "alt", "Icon", "style", "height: 36px;", 4, "ngIf"], ["src", "assets/images/bank.png", "alt", "Icon", "style", "height: 36px;", 4, "ngIf"], ["src", "assets/images/card.png", "alt", "Icon", "style", "height: 36px;", 4, "ngIf"], ["src", "assets/images/cash.png", "alt", "Icon", 2, "height", "36px"], ["src", "assets/images/bank.png", "alt", "Icon", 2, "height", "36px"], ["src", "assets/images/card.png", "alt", "Icon", 2, "height", "36px"], ["class", "form-control custom-fontsize", 3, "change", 4, "ngIf"], [1, "form-control", "custom-fontsize", 3, "change"], ["value", ""], ["value", "Void"], ["value", "Refund"], ["value", "Delete"], ["href", "javascript:void(0)", "title", "Expand/Collapse Row", 3, "id", "dblclick"], [3, "pagerLeftArrowIcon", "pagerRightArrowIcon", "pagerPreviousIcon", "pagerNextIcon", "page", "visiblePagesCount", "size", "count", "hidden", "change"], [4, "ngFor", "ngForOf"], [2, "text-align", "center"], [4, "ngIf"], ["style", "text-align: right;", 4, "ngIf"], [2, "text-align", "right"], ["name", "Meal", 3, "width"], ["name", "Type", 3, "width"], ["name", "Deductions", 3, "width"], ["name", "Balance", 3, "width"], ["style", "padding-left:58px;", 4, "ngIf", "ngIfElse"], ["takeout", ""], [2, "padding-left", "58px"], [1, "row", "mb-1"], [1, "", 2, "font-weight", "500", "padding-left", "10px"], [1, "col-md-3", "pl-1"], [1, "col-md-6", "pl-0"], [1, "col-md-2"], ["class", "col-md-2", 4, "ngIf"], [1, "col-md-3", "pl-0"], [1, "row", "mb-2"], [1, "col-md-2", "pl-0"], ["src", "/assets/images/deliverySmall.png", "class", "img-responsive", 4, "ngIf", "ngIfElse"], ["takeoutimg", ""], ["src", "/assets/images/deliverySmall.png", 1, "img-responsive"], ["src", "/assets/images/takeout.png", 1, "img-responsive"], ["type", "button", 1, "btn", "btn-success", "ml-2", "custom-button"], [1, "row", "mb-1", "mt-4"], [1, "row", "mb-3"], [1, "col-md-3", "offset-3", "text-right", 2, "font-weight", "500", "padding-left", "10px"], ["aria-hidden", "true", 1, "ti-pencil", 2, "cursor", "pointer", "color", "#3dc6ac", "font-weight", "700"], ["weekTable", ""], ["name", "Vendor", "prop", "vendor", 3, "width"], ["name", "Address", "prop", "address", 3, "width"], ["name", "Method", "prop", "method", 3, "width"], ["name", "Fee", "prop", "fee", 3, "width"], ["name", "Tips", "prop", "tips", 3, "width"], ["hidden", "", 1, "row", "mb-1", "mt-4"], [1, "view-orders", 2, "margin", "0 auto"], ["type", "button", 1, "btn", "btn-success"], [2, "font-weight", "500", "padding-left", "10px", "margin", "0 auto"], [1, "row", "mt-3", "custom-card-main"], [1, "custom-card-wages-total"], [1, "total-wages"], [1, "title"], [1, "description"], ["name", "Drivers", "prop", "driver", 3, "width"], ["name", "Mon", "prop", "mon", 3, "width"], ["name", "Tue", "prop", "tue", 3, "width"], ["name", "Wed", "prop", "wed", 3, "width"], ["name", "Thu", "prop", "thu", 3, "width"], ["name", "Fri", "prop", "fri", 3, "width"], ["name", "Sat", "prop", "sat", 3, "width"], ["name", "Sun", "prop", "sun", 3, "width"], ["name", "Total", 3, "width"], ["name", "Driver", 3, "width"], ["name", "Amount", 3, "width"], [1, "mb-2", "mt-2", 2, "font-weight", "500", "padding-left", "10px", "margin", "0 auto"], ["name", "", 3, "width"], ["name", "Subsidy", 3, "width"], ["name", "Action", 3, "width"], ["alt", "Icon", 2, "height", "36px", 3, "src"], ["type", "button", 1, "btn", "btn-danger", 3, "click"], [1, "btn", "btn-success"], [1, "modal-header"], ["id", "modal-basic-title", 1, "modal-title"], ["type", "button", "aria-label", "Close", "id", "closeModal", 1, "close", 3, "click"], ["aria-hidden", "true"], [1, "modal-body"], [1, "col-md-6", "text-right", "pr-1"], [1, "modal-footer", 2, "border-top", "0"]],
       template: function FoodpckmgrorderComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -68634,52 +68614,52 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getcountryList",
         value: function getcountryList() {
-          var _this136 = this;
+          var _this134 = this;
 
           this._AuthService.getcountryList().subscribe(function (res) {
-            _this136.countryList = res;
+            _this134.countryList = res;
           });
         }
       }, {
         key: "getAllTerritory",
         value: function getAllTerritory() {
-          var _this137 = this;
+          var _this135 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllTerritory().subscribe(function (res) {
-            _this137.territory1 = res;
+            _this135.territory1 = res;
           });
         }
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this138 = this;
+          var _this136 = this;
 
           this.foodParkMgrForm.value.role = "FOODPARKMGR";
 
           this._ProfileService.addFoodParkmgr(this.foodParkMgrForm.value).subscribe(function (res) {
-            _this138.toastr.success('Manager Created successfully');
+            _this136.toastr.success('Manager Created successfully');
 
-            _this138.foodParkMgrForm.reset();
+            _this136.foodParkMgrForm.reset();
 
             document.getElementById("closeModal").click();
 
-            _this138.getAllFoodPark();
+            _this136.getAllFoodPark();
           }, function (error) {
-            _this138.toastr.error(error.error.message);
+            _this136.toastr.error(error.error.message);
           });
         }
       }, {
         key: "open1",
         value: function open1(content1) {
-          var _this139 = this;
+          var _this137 = this;
 
           this.modalService.open(content1, {
             ariaLabelledBy: 'modal-basic-title'
           }).result.then(function (result) {
-            _this139.closeResult = "Closed with: ".concat(result);
+            _this137.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
-            _this139.closeResult = "Dismissed ".concat(_this139.getDismissReason(reason));
+            _this137.closeResult = "Dismissed ".concat(_this137.getDismissReason(reason));
           });
         }
       }, {
@@ -68699,23 +68679,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllFoodPark",
         value: function getAllFoodPark() {
-          var _this140 = this;
+          var _this138 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getallfoodparkmgr().subscribe(function (res) {
-            _this140.territory = res.data;
-            _this140.rows = _this140.territory;
-            _this140.temp = _toConsumableArray(_this140.rows);
+            _this138.territory = res.data;
+            _this138.rows = _this138.territory;
+            _this138.temp = _toConsumableArray(_this138.rows);
           });
         }
       }, {
         key: "getAllFoodParkList",
         value: function getAllFoodParkList() {
-          var _this141 = this;
+          var _this139 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllFoodPark().subscribe(function (res) {
-            _this141.foodparkList = res;
+            _this139.foodparkList = res;
           });
         }
       }, {
@@ -69418,78 +69398,78 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllTerritory",
         value: function getAllTerritory() {
-          var _this142 = this;
+          var _this140 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllTerritory().subscribe(function (res) {
-            _this142.territory = res;
+            _this140.territory = res;
           });
         }
       }, {
         key: "getAllDrivers",
         value: function getAllDrivers(foodParkId) {
-          var _this143 = this;
+          var _this141 = this;
 
           this._ProfileService.getAllDrivers(foodParkId).subscribe(function (res) {
-            _this143.drivers = res.data; // this.rows = this.drivers;
+            _this141.drivers = res.data; // this.rows = this.drivers;
 
-            _this143.drivertemp = _toConsumableArray(_this143.drivers);
+            _this141.drivertemp = _toConsumableArray(_this141.drivers);
           });
         }
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this144 = this;
+          var _this142 = this;
 
           this._ProfileService.addFoodPark(this.foodParkForm.value).subscribe(function (res) {
-            _this144.toastr.success('Territory Created successfully');
+            _this142.toastr.success('Territory Created successfully');
 
             document.getElementById("closeModal").click();
 
-            _this144.getAllFoodPark();
+            _this142.getAllFoodPark();
           }, function (error) {
-            _this144.toastr.error(error.error.message);
+            _this142.toastr.error(error.error.message);
           });
         }
       }, {
         key: "onDriverSubmit",
         value: function onDriverSubmit() {
-          var _this145 = this;
+          var _this143 = this;
 
           this._ProfileService.addFoodPark(this.foodParkForm.value).subscribe(function (res) {
-            _this145.toastr.success('Territory Created successfully');
+            _this143.toastr.success('Territory Created successfully');
 
             document.getElementById("closeModal").click();
 
-            _this145.getAllFoodPark();
+            _this143.getAllFoodPark();
           }, function (error) {
-            _this145.toastr.error(error.error.message);
+            _this143.toastr.error(error.error.message);
           });
         }
       }, {
         key: "open1",
         value: function open1(content1) {
-          var _this146 = this;
+          var _this144 = this;
 
           this.modalService.open(content1, {
             ariaLabelledBy: 'modal-basic-title'
           }).result.then(function (result) {
-            _this146.closeResult = "Closed with: ".concat(result);
+            _this144.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
-            _this146.closeResult = "Dismissed ".concat(_this146.getDismissReason(reason));
+            _this144.closeResult = "Dismissed ".concat(_this144.getDismissReason(reason));
           });
         }
       }, {
         key: "openDriver",
         value: function openDriver(content2) {
-          var _this147 = this;
+          var _this145 = this;
 
           this.modalService.open(content2, {
             ariaLabelledBy: 'modal-basic-title'
           }).result.then(function (result) {
-            _this147.closeResult = "Closed with: ".concat(result);
+            _this145.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
-            _this147.closeResult = "Dismissed ".concat(_this147.getDismissReason(reason));
+            _this145.closeResult = "Dismissed ".concat(_this145.getDismissReason(reason));
           });
         }
       }, {
@@ -69511,15 +69491,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllFoodPark",
         value: function getAllFoodPark() {
-          var _this148 = this;
+          var _this146 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllFoodPark().subscribe(function (res) {
-            _this148.territory = res;
-            _this148.rows = _this148.territory;
-            _this148.temp = _toConsumableArray(_this148.rows);
+            _this146.territory = res;
+            _this146.rows = _this146.territory;
+            _this146.temp = _toConsumableArray(_this146.rows);
 
-            _this148.getAllDrivers(_this148.territory[0].id);
+            _this146.getAllDrivers(_this146.territory[0].id);
           });
         }
       }, {
@@ -74391,18 +74371,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AddressComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this149 = this;
+          var _this147 = this;
 
           // this.address = this.formDataService.getAddress();
           this.route.params.subscribe(function (params) {
-            _this149.companyId = +params['id']; // (+) converts string 'id' to a number
+            _this147.companyId = +params['id']; // (+) converts string 'id' to a number
           });
         } //Save button event Starts
 
       }, {
         key: "save",
         value: function save(form) {
-          var _this150 = this;
+          var _this148 = this;
 
           var obj = {
             business_address: this.business_address
@@ -74410,10 +74390,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (!form.valid) return;
 
           this._ProfileService.updateComapnydetails(this.companyId, obj).subscribe(function (res) {
-            _this150.toastr.success('Company Detail Updated successfully!');
+            _this148.toastr.success('Company Detail Updated successfully!');
 
-            _this150.router.navigateByUrl('/forms/ngx/result/' + _this150.companyId, {
-              relativeTo: _this150.route.parent,
+            _this148.router.navigateByUrl('/forms/ngx/result/' + _this148.companyId, {
+              relativeTo: _this148.route.parent,
               skipLocationChange: true
             });
           }, function (error) {
@@ -74683,7 +74663,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DescriptionComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this151 = this;
+          var _this149 = this;
 
           var vendroData = JSON.parse(localStorage.getItem('vendroData'));
 
@@ -74694,7 +74674,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.route.params.subscribe(function (params) {
-            _this151.companyId = +params['id'];
+            _this149.companyId = +params['id'];
           });
         }
       }, {
@@ -74993,17 +74973,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(NavbarComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this152 = this;
+          var _this150 = this;
 
           this.router.events //.filter(event => event instanceof NavigationEnd)
           .subscribe(function (event) {
-            var currentRoute = _this152.route.root;
+            var currentRoute = _this150.route.root;
 
             while (currentRoute.children[0] !== undefined) {
               currentRoute = currentRoute.children[0];
             }
 
-            _this152.page = currentRoute.snapshot.data["title"];
+            _this150.page = currentRoute.snapshot.data["title"];
           });
         }
       }, {
@@ -76961,7 +76941,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getlocationCompanyId",
         value: function getlocationCompanyId() {
-          var _this153 = this;
+          var _this151 = this;
 
           this.user = this.commonFunctionsService.checkUser().user;
 
@@ -76969,7 +76949,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this._ProfileService.getlocationCompanyId(this.user.company_id).subscribe(function (res) {
               if (res.status == 200) {
                 // console.log('getlocationCompanyId ',res.data)
-                _this153.locations2 = res.data;
+                _this151.locations2 = res.data;
               } else {
                 console.log("operation Failed ");
               }
@@ -76979,19 +76959,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getCompanyInfo",
         value: function getCompanyInfo() {
-          var _this154 = this;
+          var _this152 = this;
 
           this.user = this.commonFunctionsService.checkUser().user;
 
           this._ProfileService.getCompanyByCompanyId(this.user.company_id).subscribe(function (res) {
-            _this154.comapnydata = res;
+            _this152.comapnydata = res;
             console.log('reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', res);
           });
         }
       }, {
         key: "getUserInfoAfterLogin",
         value: function getUserInfoAfterLogin() {
-          var _this155 = this;
+          var _this153 = this;
 
           this._ProfileService.getUserInfoAfterLogin().subscribe(function (res) {
             console.log('getUserInfoAfterLogingetUserInfoAfterLogin', res);
@@ -76999,21 +76979,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (res.status == 200) {
               localStorage.setItem('user', JSON.stringify(res));
 
-              var localStorageItem = _this155.commonFunctionsService.checkUser();
+              var localStorageItem = _this153.commonFunctionsService.checkUser();
 
-              _this155.userName = localStorageItem.user.username;
-              console.log("username" + _this155.userName);
-              _this155.activeHub = localStorageItem.user.food_park_id == "" ? null : localStorageItem.user.food_park_id;
-              _this155.activeLocation = localStorageItem.user.unit_id == "" ? null : localStorageItem.user.unit_id;
-              console.log("activeHubactiveHub" + _this155.activeHub);
-              console.log("activeLocation" + _this155.activeLocation);
+              _this153.userName = localStorageItem.user.username;
+              console.log("username" + _this153.userName);
+              _this153.activeHub = localStorageItem.user.food_park_id == "" ? null : localStorageItem.user.food_park_id;
+              _this153.activeLocation = localStorageItem.user.unit_id == "" ? null : localStorageItem.user.unit_id;
+              console.log("activeHubactiveHub" + _this153.activeHub);
+              console.log("activeLocation" + _this153.activeLocation);
             }
           });
         }
       }, {
         key: "getDeliveryHubinCompany",
         value: function getDeliveryHubinCompany() {
-          var _this156 = this;
+          var _this154 = this;
 
           this.user = this.commonFunctionsService.checkUser().user;
 
@@ -77022,7 +77002,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               // console.log('res of',res)
               if (res.status == 200) {
                 // console.log('thisssss deliveryHub',res.data)
-                _this156.deliveryHub = res.data;
+                _this154.deliveryHub = res.data;
               } else {}
             });
           }
@@ -77030,7 +77010,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateCompanyForUnit",
         value: function updateCompanyForUnit(unit_id) {
-          var _this157 = this;
+          var _this155 = this;
 
           this.activeLocation = null;
           this.user = this.commonFunctionsService.checkUser().user;
@@ -77041,11 +77021,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.user.company_id) {
             this._ProfileService.getCompany_unitid(this.user.company_id, obj).subscribe(function (res) {
               if (res.status == 200) {
-                _this157.getUserInfoAfterLogin();
+                _this155.getUserInfoAfterLogin();
 
-                _this157.getlocationCompanyId();
+                _this155.getlocationCompanyId();
 
-                _this157.getDeliveryHubinCompany();
+                _this155.getDeliveryHubinCompany();
               }
             });
           }
@@ -77053,7 +77033,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateCompanyForHub",
         value: function updateCompanyForHub(food_park_id) {
-          var _this158 = this;
+          var _this156 = this;
 
           this.user = this.commonFunctionsService.checkUser().user;
           var obj = {
@@ -77063,11 +77043,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.user.company_id) {
             this._ProfileService.getCompany_foodparkid(this.user.company_id, obj).subscribe(function (res) {
               if (res.status == 200) {
-                _this158.getUserInfoAfterLogin();
+                _this156.getUserInfoAfterLogin();
 
-                _this158.getlocationCompanyId();
+                _this156.getlocationCompanyId();
 
-                _this158.getDeliveryHubinCompany();
+                _this156.getDeliveryHubinCompany();
               }
             });
           }
@@ -77085,7 +77065,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "uploadCompanyProfile",
         value: function uploadCompanyProfile(formData) {
-          var _this159 = this;
+          var _this157 = this;
 
           this.user = this.commonFunctionsService.checkUser().user;
 
@@ -77093,9 +77073,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log('resss ', res.data[0].photo);
             localStorage.setItem('photo', res.data[0].photo);
 
-            _this159.toastr.success('Photo upload successfully!');
+            _this157.toastr.success('Photo upload successfully!');
           }, function (error) {
-            _this159.toastr.error('failed to upload, please try again later');
+            _this157.toastr.error('failed to upload, please try again later');
           });
         }
       }, {
@@ -77116,7 +77096,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "uploadFeaturePhoto",
         value: function uploadFeaturePhoto(formData) {
-          var _this160 = this;
+          var _this158 = this;
 
           this.user = this.commonFunctionsService.checkUser().user;
 
@@ -77124,9 +77104,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log('resss ', res.data[0].photo);
             localStorage.setItem('driving_license', res.data[0].featured_dish);
 
-            _this160.toastr.success('Successfully uploaded!');
+            _this158.toastr.success('Successfully uploaded!');
           }, function (error) {
-            _this160.toastr.error('failed to upload, please try again later');
+            _this158.toastr.error('failed to upload, please try again later');
           });
         }
       }, {
@@ -77705,14 +77685,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "vendor_name",
         value: function vendor_name() {
-          var _this161 = this;
+          var _this159 = this;
 
           this._AuthService.getVendrName(this.user.company_id).subscribe(function (res) {
-            _this161.vndr_dish = res.featured_dish;
-            _this161.vndr_logo = res.photo;
+            _this159.vndr_dish = res.featured_dish;
+            _this159.vndr_logo = res.photo;
             localStorage.setItem("vendroData", JSON.stringify(res));
 
-            _this161.personalDetailsForm.patchValue({
+            _this159.personalDetailsForm.patchValue({
               "name": res.name
             });
           });
@@ -77720,16 +77700,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getcountryList",
         value: function getcountryList() {
-          var _this162 = this;
+          var _this160 = this;
 
           this._AuthService.getcountryList().subscribe(function (res) {
-            _this162.countryList = res;
+            _this160.countryList = res;
           });
         }
       }, {
         key: "territory_id",
         value: function territory_id() {
-          var _this163 = this;
+          var _this161 = this;
 
           this.latt = localStorage.getItem('latitude');
           this["long"] = localStorage.getItem('longitude');
@@ -77739,14 +77719,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
 
           this._AuthService.territory_id(this.user.country, this.user.state, data).subscribe(function (res) {
-            _this163.territoryid = res.data.id;
-            localStorage.setItem("territory_id", _this163.territoryid);
+            _this161.territoryid = res.data.id;
+            localStorage.setItem("territory_id", _this161.territoryid);
           });
         }
       }, {
         key: "getTerritory",
         value: function getTerritory(event) {
-          var _this164 = this;
+          var _this162 = this;
 
           var stateData = event.target.value;
           var strData = stateData.split(",");
@@ -77757,7 +77737,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var state_id = this.stateAndTerritoryObject.id;
 
           this._ProfileService.getTerritory(state_id).subscribe(function (res) {
-            _this164.singleTerritory = res.territory;
+            _this162.singleTerritory = res.territory;
           });
         }
       }, {
@@ -77768,7 +77748,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this165 = this;
+          var _this163 = this;
 
           var vendroData = JSON.parse(localStorage.getItem("vendroData"));
           var data = {
@@ -77785,13 +77765,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (res.status == 200) {
               localStorage.setItem("vendroData", JSON.stringify(res.data[0]));
 
-              _this165.router.navigateByUrl('/forms/ngx/work', {
-                relativeTo: _this165.route.parent,
+              _this163.router.navigateByUrl('/forms/ngx/work', {
+                relativeTo: _this163.route.parent,
                 skipLocationChange: true
               });
             } else {
-              _this165.router.navigateByUrl('/forms/ngx/work', {
-                relativeTo: _this165.route.parent,
+              _this163.router.navigateByUrl('/forms/ngx/work', {
+                relativeTo: _this163.route.parent,
                 skipLocationChange: true
               });
             }
@@ -77808,45 +77788,45 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllCountries",
         value: function getAllCountries() {
-          var _this166 = this;
+          var _this164 = this;
 
           this._ProfileService.getAllCountries().subscribe(function (res) {
-            _this166.countries = res;
+            _this164.countries = res;
           });
         }
       }, {
         key: "getAllStates",
         value: function getAllStates() {
-          var _this167 = this;
+          var _this165 = this;
 
           this._ProfileService.getState(this.user.country_id).subscribe(function (res) {
-            _this167.states = res.data;
+            _this165.states = res.data;
           });
         }
       }, {
         key: "getState",
         value: function getState(event) {
-          var _this168 = this;
+          var _this166 = this;
 
           var country_id = event.target.value;
 
           this._ProfileService.getState(country_id).subscribe(function (res) {
-            _this168.singleState = res.territory;
+            _this166.singleState = res.territory;
           });
         }
       }, {
         key: "uploadCompanyProfile",
         value: function uploadCompanyProfile(formData) {
-          var _this169 = this;
+          var _this167 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.uploadCompanyProfile(this.user.company_id, formData).subscribe(function (res) {
             localStorage.setItem('photo', res.data[0].photo);
 
-            _this169.toastr.success('Photo uploaded successfully!');
+            _this167.toastr.success('Photo uploaded successfully!');
           }, function (error) {
-            _this169.toastr.error('failed to upload, please try again later');
+            _this167.toastr.error('failed to upload, please try again later');
           });
         }
       }, {
@@ -77864,16 +77844,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "uploadFeaturePhoto",
         value: function uploadFeaturePhoto(formData) {
-          var _this170 = this;
+          var _this168 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.uploadFeaturePhoto(this.user.company_id, formData).subscribe(function (res) {
             localStorage.setItem('featured_dish', res.data[0].featured_dish);
 
-            _this170.toastr.success('Featured Dish Uploaded Successfully!');
+            _this168.toastr.success('Featured Dish Uploaded Successfully!');
           }, function (error) {
-            _this170.toastr.error('failed to upload, please try again later');
+            _this168.toastr.error('failed to upload, please try again later');
           });
         }
       }, {
@@ -78380,37 +78360,37 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(PhotoComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this171 = this;
+          var _this169 = this;
 
           // this.address = this.formDataService.getAddress();
           this.route.params.subscribe(function (params) {
-            _this171.companyId = +params['id']; // (+) converts string 'id' to a number
+            _this169.companyId = +params['id']; // (+) converts string 'id' to a number
           });
         }
       }, {
         key: "uploadCompanyProfile",
         value: function uploadCompanyProfile(formData) {
-          var _this172 = this;
+          var _this170 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.uploadCompanyProfile(this.user.company_id, formData).subscribe(function (res) {
-            _this172.toastr.success('Photo upload successfully!');
+            _this170.toastr.success('Photo upload successfully!');
           }, function (error) {
-            _this172.toastr.error('failed to upload, please try again later');
+            _this170.toastr.error('failed to upload, please try again later');
           });
         }
       }, {
         key: "uploadFeaturePhoto",
         value: function uploadFeaturePhoto(formData) {
-          var _this173 = this;
+          var _this171 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.uploadFeaturePhoto(this.user.company_id, formData).subscribe(function (res) {
-            _this173.toastr.success('Feathured dish upload successfully!');
+            _this171.toastr.success('Feathured dish upload successfully!');
           }, function (error) {
-            _this173.toastr.error('failed to upload, please try again later');
+            _this171.toastr.error('failed to upload, please try again later');
           });
         }
       }, {
@@ -78722,23 +78702,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ResultComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this174 = this;
+          var _this172 = this;
 
           this.formData = this.formDataService.getFormData();
           this.isFormValid = this.formDataService.isFormValid();
           this.route.params.subscribe(function (params) {
-            _this174.companyId = +params['id']; // (+) converts string 'id' to a number
+            _this172.companyId = +params['id']; // (+) converts string 'id' to a number
 
-            _this174.getCompanyInfo(_this174.companyId);
+            _this172.getCompanyInfo(_this172.companyId);
           });
         }
       }, {
         key: "getCompanyInfo",
         value: function getCompanyInfo(companyId) {
-          var _this175 = this;
+          var _this173 = this;
 
           this._ProfileService.getCompanyprofile(companyId).subscribe(function (res) {
-            _this175.companyProfile = res.data;
+            _this173.companyProfile = res.data;
           });
         } //Submit button event Starts
 
@@ -79450,10 +79430,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ScheduleComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this176 = this;
+          var _this174 = this;
 
           this.route.params.subscribe(function (params) {
-            _this176.companyId = +params['id'];
+            _this174.companyId = +params['id'];
           });
           this.scheduleFormData = this.fb.group({
             facebook: '',
@@ -79471,7 +79451,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.hoursTo = hour[1].toString();
             this.days = vendroData.schedule.split(",");
             this.days.forEach(function (item) {
-              _this176.addValue({
+              _this174.addValue({
                 "value": item
               });
             });
@@ -79487,7 +79467,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this177 = this;
+          var _this175 = this;
 
           //merge local storage data
           this.allData = this.mergeData();
@@ -79497,15 +79477,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.allData.name = vendroData.name;
 
           this._ProfileService.updateCompanyCredentials(this.user.company_id, this.allData).subscribe(function (res) {
-            _this177.toastr.success('Success');
+            _this175.toastr.success('Success');
 
-            _this177.clearLocalstorage();
+            _this175.clearLocalstorage();
 
-            _this177.router.navigate(['/forms']);
+            _this175.router.navigate(['/forms']);
 
             document.getElementById("closeModal").click();
           }, function (error) {
-            _this177.toastr.error(error.error.message);
+            _this175.toastr.error(error.error.message);
           });
         }
       }, {
@@ -79572,7 +79552,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "save",
         value: function save(form) {
-          var _this178 = this;
+          var _this176 = this;
 
           if (!form.valid) return 1;
           var obj = {
@@ -79582,10 +79562,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
 
           this._ProfileService.updateGoogleSheetDetails(this.companyId, obj).subscribe(function (res) {
-            _this178.toastr.success('Weekly Schedule saved successfully!');
+            _this176.toastr.success('Weekly Schedule saved successfully!');
 
-            _this178.router.navigateByUrl('/forms/ngx/address/' + _this178.companyId, {
-              relativeTo: _this178.route.parent,
+            _this176.router.navigateByUrl('/forms/ngx/address/' + _this176.companyId, {
+              relativeTo: _this176.route.parent,
               skipLocationChange: true
             });
           });
@@ -79606,13 +79586,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addGroupName",
         value: function addGroupName() {
-          var _this179 = this;
+          var _this177 = this;
 
           this._ProfileService.createlegrambot({
             token: this.scheduleFormData.value.telegram_id
           }, this.user.company_id).subscribe(function (res) {
             if (res.status == 200) {
-              _this179.toastr.success('Telegram Bot Created successfully');
+              _this177.toastr.success('Telegram Bot Created successfully');
             }
           });
         }
@@ -80216,10 +80196,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(WorkComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this180 = this;
+          var _this178 = this;
 
           this.route.params.subscribe(function (params) {
-            _this180.companyId = +params['id'];
+            _this178.companyId = +params['id'];
           });
           this.getCompanyInfo();
           this.territory_id();
@@ -80228,10 +80208,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getCompanyInfo",
         value: function getCompanyInfo() {
-          var _this181 = this;
+          var _this179 = this;
 
           this._ProfileService.getCompanyByCompanyId(this.user.company_id).subscribe(function (res) {
-            _this181.comapnydata = res;
+            _this179.comapnydata = res;
           });
         }
       }, {
@@ -80252,7 +80232,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "territory_id",
         value: function territory_id() {
-          var _this182 = this;
+          var _this180 = this;
 
           this.latt = localStorage.getItem('latitude');
           this["long"] = localStorage.getItem('longitude');
@@ -80262,22 +80242,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
 
           this._AuthService.territory_id(this.user.country, this.user.state, data).subscribe(function (res) {
-            _this182.territory_id1 = res.data.id;
-            localStorage.setItem("territory_id", _this182.territory_id1);
+            _this180.territory_id1 = res.data.id;
+            localStorage.setItem("territory_id", _this180.territory_id1);
           });
         }
       }, {
         key: "getlocationCompanyId",
         value: function getlocationCompanyId() {
-          var _this183 = this;
+          var _this181 = this;
 
           if (this.user.company_id) {
             this._ProfileService.getlocationCompanyId(this.user.company_id).subscribe(function (res) {
               if (res.status == 200) {
-                _this183.locationsList = res.data[0].type;
+                _this181.locationsList = res.data[0].type;
 
-                _this183.workFormData.patchValue({
-                  "type": _this183.locationsList
+                _this181.workFormData.patchValue({
+                  "type": _this181.locationsList
                 });
               }
             });
@@ -80286,7 +80266,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this184 = this;
+          var _this182 = this;
 
           if (this.comapnydata) {
             this.workFormData.value.name = this.comapnydata.name + ' LOC1';
@@ -80297,28 +80277,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             this._ProfileService.addUnit(this.workFormData.value, this.comapnydata.id).subscribe(function (res) {
               if (res.status == 200) {
-                _this184.getUserInfoAfterLogin();
+                _this182.getUserInfoAfterLogin();
 
                 localStorage.setItem("unit_id", res.data[0].id);
 
-                _this184._ProfileService.getCompany_unitid(_this184.comapnydata.id, {
+                _this182._ProfileService.getCompany_unitid(_this182.comapnydata.id, {
                   unit_id: res.data[0].id
                 }).subscribe(function (res) {
-                  _this184.toastr.success("Vendor Registered Successfully.");
+                  _this182.toastr.success("Vendor Registered Successfully.");
 
-                  _this184.getUserInfoAfterLogin();
+                  _this182.getUserInfoAfterLogin();
 
-                  _this184.router.navigateByUrl('/forms/ngx/tags', {
-                    relativeTo: _this184.route.parent,
+                  _this182.router.navigateByUrl('/forms/ngx/tags', {
+                    relativeTo: _this182.route.parent,
                     skipLocationChange: true
                   });
                 });
               }
             }, function (error) {
-              _this184.toastr.error(' Username exist already. Please go to the location tab to create new unit in hub management.');
+              _this182.toastr.error(' Username exist already. Please go to the location tab to create new unit in hub management.');
 
-              _this184.router.navigateByUrl('/forms/ngx/tags', {
-                relativeTo: _this184.route.parent,
+              _this182.router.navigateByUrl('/forms/ngx/tags', {
+                relativeTo: _this182.route.parent,
                 skipLocationChange: true
               });
             });
@@ -80927,40 +80907,40 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this185 = this;
+          var _this183 = this;
 
           this._ProfileService.addTerritory(this.territoryForm.value).subscribe(function (res) {
             if (res.status == 200) {
-              _this185.toastr.success('Territory Created successfully');
+              _this183.toastr.success('Territory Created successfully');
 
               document.getElementById("closeModal").click();
 
-              _this185.getAllTerritory();
+              _this183.getAllTerritory();
             }
           }, function (error) {
-            _this185.toastr.error(error.error.message);
+            _this183.toastr.error(error.error.message);
           });
         }
       }, {
         key: "getcountryList",
         value: function getcountryList() {
-          var _this186 = this;
+          var _this184 = this;
 
           this._AuthService.getcountryList().subscribe(function (res) {
-            _this186.countryList = res;
+            _this184.countryList = res;
           });
         }
       }, {
         key: "open1",
         value: function open1(content1) {
-          var _this187 = this;
+          var _this185 = this;
 
           this.modalService.open(content1, {
             ariaLabelledBy: 'modal-basic-title'
           }).result.then(function (result) {
-            _this187.closeResult = "Closed with: ".concat(result);
+            _this185.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
-            _this187.closeResult = "Dismissed ".concat(_this187.getDismissReason(reason));
+            _this185.closeResult = "Dismissed ".concat(_this185.getDismissReason(reason));
           });
         }
       }, {
@@ -80992,27 +80972,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllTerritory",
         value: function getAllTerritory() {
-          var _this188 = this;
+          var _this186 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllTerritory().subscribe(function (res) {
-            _this188.territory = res;
-            _this188.rows = _this188.territory;
-            _this188.temp = _toConsumableArray(_this188.rows);
+            _this186.territory = res;
+            _this186.rows = _this186.territory;
+            _this186.temp = _toConsumableArray(_this186.rows);
           });
         }
       }, {
         key: "deleteTerritory",
         value: function deleteTerritory(event, row) {
-          var _this189 = this;
+          var _this187 = this;
 
           this._ProfileService.deleteTerritory(row.id).subscribe(function (res) {
             if (res.status == 200) {
-              _this189.toastr.success(res.message);
+              _this187.toastr.success(res.message);
 
-              _this189.getAllTerritory();
+              _this187.getAllTerritory();
             } else {
-              _this189.toastr.error(res.message);
+              _this187.toastr.error(res.message);
             }
           });
         }
@@ -81790,11 +81770,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllTerritory",
         value: function getAllTerritory() {
-          var _this190 = this;
+          var _this188 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllTerritory().subscribe(function (res) {
-            _this190.territory = res;
+            _this188.territory = res;
           });
         }
       }, {
@@ -81805,14 +81785,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "open1",
         value: function open1(content1) {
-          var _this191 = this;
+          var _this189 = this;
 
           this.modalService.open(content1, {
             ariaLabelledBy: 'modal-basic-title'
           }).result.then(function (result) {
-            _this191.closeResult = "Closed with: ".concat(result);
+            _this189.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
-            _this191.closeResult = "Dismissed ".concat(_this191.getDismissReason(reason));
+            _this189.closeResult = "Dismissed ".concat(_this189.getDismissReason(reason));
           });
         }
       }, {
@@ -81835,7 +81815,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this192 = this;
+          var _this190 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
           this.unitForm.value.delivery_chg_amount = this.delivery_chg_amount;
@@ -81845,27 +81825,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this._ProfileService.addUnit(this.unitForm.value, this.user.company_id).subscribe(function (res) {
             if (res.status == 200) {
-              _this192.toastr.success('Units Created successfully');
+              _this190.toastr.success('Units Created successfully');
 
               document.getElementById("closeModal").click();
 
-              _this192.getAllUnits();
+              _this190.getAllUnits();
             }
           }, function (error) {
-            _this192.toastr.error(error.error.message);
+            _this190.toastr.error(error.error.message);
           });
         }
       }, {
         key: "getAllUnits",
         value: function getAllUnits() {
-          var _this193 = this;
+          var _this191 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.getAllUnits(this.user.company_id).subscribe(function (res) {
-            _this193.units = res;
-            _this193.temp = _this193.units;
-            _this193.rows = _this193.units;
+            _this191.units = res;
+            _this191.temp = _this191.units;
+            _this191.rows = _this191.units;
           });
         }
       }, {
@@ -82618,15 +82598,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(UnitorderComponent, [{
         key: "getAllOrder",
         value: function getAllOrder() {
-          var _this194 = this;
+          var _this192 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.getAllUnitOrder(this.user.company_id, this.user.unit_id).subscribe(function (res) {
             debugger;
-            _this194.orders = res.data;
-            _this194.temp = _this194.orders;
-            _this194.rows = _this194.orders;
+            _this192.orders = res.data;
+            _this192.temp = _this192.orders;
+            _this192.rows = _this192.orders;
           });
         }
       }, {
@@ -83103,39 +83083,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllTerritory",
         value: function getAllTerritory() {
-          var _this195 = this;
+          var _this193 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllTerritory().subscribe(function (res) {
-            _this195.territory = res;
+            _this193.territory = res;
           });
         }
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this196 = this;
+          var _this194 = this;
 
           this._ProfileService.addFoodPark(this.foodParkForm.value).subscribe(function (res) {
-            _this196.toastr.success('Territory Created successfully');
+            _this194.toastr.success('Territory Created successfully');
 
             document.getElementById("closeModal").click();
 
-            _this196.getAllFoodPark();
+            _this194.getAllFoodPark();
           }, function (error) {
-            _this196.toastr.error(error.error.message);
+            _this194.toastr.error(error.error.message);
           });
         }
       }, {
         key: "open1",
         value: function open1(content1) {
-          var _this197 = this;
+          var _this195 = this;
 
           this.modalService.open(content1, {
             ariaLabelledBy: 'modal-basic-title'
           }).result.then(function (result) {
-            _this197.closeResult = "Closed with: ".concat(result);
+            _this195.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
-            _this197.closeResult = "Dismissed ".concat(_this197.getDismissReason(reason));
+            _this195.closeResult = "Dismissed ".concat(_this195.getDismissReason(reason));
           });
         }
       }, {
@@ -83157,13 +83137,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllFoodPark",
         value: function getAllFoodPark() {
-          var _this198 = this;
+          var _this196 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllFoodPark().subscribe(function (res) {
-            _this198.territory = res;
-            _this198.rows = _this198.territory;
-            _this198.temp = _toConsumableArray(_this198.rows);
+            _this196.territory = res;
+            _this196.rows = _this196.territory;
+            _this196.temp = _toConsumableArray(_this196.rows);
           });
         }
       }, {
@@ -83428,7 +83408,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     function () {
       function ViewunitComponent(_ProfileService, toastr, _CommonFunctionsService, modalService, route) {
         var _ref13,
-            _this199 = this;
+            _this197 = this;
 
         _classCallCheck(this, ViewunitComponent);
 
@@ -83475,9 +83455,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.formInit();
         this.getAllUnits();
         this.route.params.subscribe(function (params) {
-          _this199.id = params['id'];
+          _this197.id = params['id'];
 
-          _this199.getunitById(_this199.id);
+          _this197.getunitById(_this197.id);
         });
       }
 
@@ -83500,20 +83480,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getunitById",
         value: function getunitById(id) {
-          var _this200 = this;
+          var _this198 = this;
 
           this._ProfileService.getunitById(this.user.company_id, id).subscribe(function (res) {
-            _this200.unitDetails = res;
+            _this198.unitDetails = res;
           });
         }
       }, {
         key: "getAllTerritory",
         value: function getAllTerritory() {
-          var _this201 = this;
+          var _this199 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllTerritory().subscribe(function (res) {
-            _this201.territory = res;
+            _this199.territory = res;
           });
         }
       }, {
@@ -83524,14 +83504,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "open1",
         value: function open1(content1) {
-          var _this202 = this;
+          var _this200 = this;
 
           this.modalService.open(content1, {
             ariaLabelledBy: 'modal-basic-title'
           }).result.then(function (result) {
-            _this202.closeResult = "Closed with: ".concat(result);
+            _this200.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
-            _this202.closeResult = "Dismissed ".concat(_this202.getDismissReason(reason));
+            _this200.closeResult = "Dismissed ".concat(_this200.getDismissReason(reason));
           });
         }
       }, {
@@ -83554,7 +83534,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this203 = this;
+          var _this201 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
           this.unitForm.value.delivery_chg_amount = this.delivery_chg_amount;
@@ -83564,27 +83544,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this._ProfileService.addUnit(this.unitForm.value, this.user.company_id).subscribe(function (res) {
             if (res.status == 200) {
-              _this203.toastr.success('Units Created successfully');
+              _this201.toastr.success('Units Created successfully');
 
               document.getElementById("closeModal").click();
 
-              _this203.getAllUnits();
+              _this201.getAllUnits();
             }
           }, function (error) {
-            _this203.toastr.error(error.error.message);
+            _this201.toastr.error(error.error.message);
           });
         }
       }, {
         key: "getAllUnits",
         value: function getAllUnits() {
-          var _this204 = this;
+          var _this202 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.getAllUnits(this.user.company_id).subscribe(function (res) {
-            _this204.units = res;
-            _this204.temp = _this204.units;
-            _this204.rows = _this204.units;
+            _this202.units = res;
+            _this202.temp = _this202.units;
+            _this202.rows = _this202.units;
           });
         }
       }, {

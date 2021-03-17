@@ -269,14 +269,13 @@ export class FoodpckmgrorderComponent {
   getAllOrder() {
     this.loadOrderDummyData();
     this.user = this._CommonFunctionsService.checkUser().user;
-    // this.user.food_park_id = 30149;
     this.getAllDrivers(this.user.food_park_id);
-    this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id).subscribe((res: any) => {
-      this.orders = res.data;
-      this.temp = this.orders;
-      this.rows = this.orders;
-      console.log(this.rows);
-    })
+    // this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id).subscribe((res: any) => {
+    //   this.orders = res.data;
+    //   this.temp = this.orders;
+    //   this.rows = this.orders;
+    //   console.log(this.rows);
+    // })
   }
 
   loadOrderDummyData() {
@@ -347,15 +346,15 @@ export class FoodpckmgrorderComponent {
   toggleExpandRow(row) {
     this.rowWiseData = [];
     this.orderDetails = row;
-    this.table.rowDetail.collapseAllRows();
+    // this.table.rowDetail.collapseAllRows();
     this.table.rowDetail.toggleExpandRow(row);
     //this.loadingData = true;
 
-    this._ProfileService.getOrderProductDetails().subscribe((res: any) => {
-      this.loadingData = false;
-      const rowdata = res.data.filter(d => d.id == row.id);
-      this.rowWiseData = rowdata[0]?.order_items;
-    });
+    // this._ProfileService.getOrderProductDetails().subscribe((res: any) => {
+    //   this.loadingData = false;
+    const rowdata = this.temp.filter(d => d.id == row.id);
+    this.rowWiseData = rowdata[0]?.order_items;
+    // });
 
   }
   /** End */
