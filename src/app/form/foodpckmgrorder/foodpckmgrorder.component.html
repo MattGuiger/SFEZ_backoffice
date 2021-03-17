@@ -77,23 +77,17 @@
                     <!-- Row Detail Template -->
                     <ngx-datatable-row-detail [rowHeight]="auto">
                       <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
-                        <div style="padding-left:66px;">
-                          <h6>Delivery Address</h6>
-                          <p class="mb-3">
-                            <span>Line 1: {{row?.delivery_address_details?.line_1}}</span><br />
-                            <span>Line 2: {{row?.delivery_address_details?.line_2}}</span>
+                        <div style="padding-left:10px;">
+                          <h3><b>{{row?.unit_name}}</b></h3>
+                          <p class="mb-3" style="padding-left:25px;">
+                            <span>Size:{{row?.size}}</span><br />
+                            <span>Add-Ons: {{row?.addOns}}</span><br />
+                            <span>Instructions: {{row?.instructions}}</span><br />
                           </p>
-                          <h6>Customer Name</h6>
-                          <p class="mb-3">{{row?.customer_name}}</p>
-
-                          <h6>Order Details</h6>
-                          <div class="row mb-2" *ngIf="!loadingData;else loaddata">
-                            <div *ngFor="let item of rowWiseData" class="col-md-6">
-                              <p>Name: {{item?.name}}</p>
-                              <p>Qty: {{item?.quantity}}</p>
-                              <p>Total Amount: {{item?.meta?.display_price?.with_tax?.unit?.formatted}}</p>
-                            </div>
-                          </div>
+                          <h3><b>Delivery Address: {{row?.delivery_address.line_1}} {{row?.delivery_address.line_2}}</b>
+                          </h3>
+                          <h3><b>Delivery Confirmation: In Person @ {{row?.desired_delivery_time|date:'hh:mm a'}}</b>
+                          </h3>
                           <ng-template #loaddata>
                             <p>Please wait item details loading .....</p>
                           </ng-template>
@@ -111,47 +105,57 @@
                       </ng-template>
                     </ngx-datatable-column>
 
-                    <ngx-datatable-column name="Status" [width]="158">
+                    <ngx-datatable-column name="Status" [width]="140">
                       <ng-template let-row="row" ngx-datatable-cell-template>
                         <!-- <a href="javascript:void(0)" class="order-status text-captialize" *ngIf="row.order_detail.status == 'complete'"
                           style="background-color: red; color:#fff;">{{row.order_detail.status}}</a> -->
-                        <a style="background-color: #ef6e6e; color:#fff;"
-                          class="order-status text-capitalize btn w-100 border-0"
-                          *ngIf="row?.order_detail?.status == 'complete'">{{row?.order_detail?.status}}</a>
-                        <a style="background-color: #ffbc34; color:#fff;"
-                          class="order-status text-capitalize btn w-100 border-0"
-                          *ngIf="row?.order_detail?.status == 'incomplete'">{{row?.order_detail?.status}}</a>
+
                         <a style="background-color: #22c6ab; color:#fff;"
                           class="order-status text-capitalize btn w-100 border-0"
-                          *ngIf="row?.order_detail?.status == 'new'">{{row?.order_detail?.status}}</a>
+                          *ngIf="row?.status == 'new'">{{row?.status}}</a>
+
+                        <a style="background-color: #ef6e6e; color:#fff;"
+                          class="order-status text-capitalize btn w-100 border-0"
+                          *ngIf="row?.status == 'order_paid'">{{row?.status}}</a>
+
+                        <a style="background-color: #ffbc34; color:#fff;"
+                          class="order-status text-capitalize btn w-100 border-0"
+                          *ngIf="row?.status == 'incomplete'">{{row?.status}}</a>
+
                         <!-- <a style="background-color: #22c6ab; color:#fff;"
                           class="order-status text-capitalize btn w-100 border-0"
-                          *ngIf="row?.order_detail?.status == 'incomplete'">{{row?.order_detail?.status}}</a> -->
+                          *ngIf="row?.status == 'incomplete'">{{row?.status}}</a> -->
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Date" [width]="110">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        {{row?.created_at|date:'MMM d'}}
+                        {{row?.initiation_time|date:'MMM d'}}
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Order ID" [width]="62">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        {{row?.id |custompipe:row.id}}
+                        {{row?.order_id |custompipe:row.order_id}}
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Payment" [width]="70">
                       <ng-template let-row="row" ngx-datatable-cell-template>
                         <!-- {{row?.context}} -->
-                        <img src="assets/images/bank.png" alt="Icon" style="height: 36px;" />
+                        <img *ngIf="row?.context == 'cod'" src="assets/images/cash.png" alt="Icon"
+                          style="height: 36px;" />
+                        <img *ngIf="row?.context == 'bank'" src="assets/images/bank.png" alt="Icon"
+                          style="height: 36px;" />
+                        <img *ngIf="row?.context == 'card'" src="assets/images/card.png" alt="Icon"
+                          style="height: 36px;" />
                       </ng-template>
                     </ngx-datatable-column>
 
                     <ngx-datatable-column name="Order Amt" [width]="92">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        <p>${{row?.amount?.toFixed(2)}}</p>
+                        <!-- <p>${{row?.amount?.toFixed(2)}}</p> -->
+                        <p>${{row?.amount}}</p>
                       </ng-template>
                     </ngx-datatable-column>
 
@@ -161,12 +165,26 @@
                       </ng-template>
                     </ngx-datatable-column>
 
-                    <ngx-datatable-column name="Actions" [width]="120">
+                    <ngx-datatable-column name="Actions" [width]="135">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        <select class="form-control custom-fontsize" (change)="orderAction($event, row)">
+                        <select *ngIf="row?.context == 'bank'" class="form-control custom-fontsize"
+                          (change)="orderAction($event, row)">
                           <option value="">Select</option>
                           <option value="Void">Void</option>
                           <option value="Refund">Refund</option>
+                          <option value="Delete">Delete</option>
+                        </select>
+
+                        <select *ngIf="row?.context == 'card'" class="form-control custom-fontsize"
+                          (change)="orderAction($event, row)">
+                          <option value="">Select</option>
+                          <option value="Refund">Refund</option>
+                          <option value="Delete">Delete</option>
+                        </select>
+
+                        <select *ngIf="row?.context == 'cod'" class="form-control custom-fontsize"
+                          (change)="orderAction($event, row)">
+                          <option value="">Select</option>
                           <option value="Delete">Delete</option>
                         </select>
 
@@ -185,9 +203,9 @@
                     <ngx-datatable-footer>
                       <ng-template let-rowCount="rowCount" let-pageSize="pageSize" let-selectedCount="selectedCount"
                         let-curPage="curPage" let-offset="offset" ngx-datatable-footer-template>
-                        <button type="button" class="btn btn-success ml-2 custom-button">Void</button>
+                        <!-- <button type="button" class="btn btn-success ml-2 custom-button">Void</button>
                         <button type="button" class="btn btn-warning ml-2 custom-button">Refund</button>
-                        <button type="button" class="btn btn-danger ml-2 custom-button">Delete</button>
+                        <button type="button" class="btn btn-danger ml-2 custom-button">Delete</button> -->
                         <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'"
                           [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'"
                           [pagerNextIcon]="'datatable-icon-skip'" [page]="curPage" [visiblePagesCount]="currentVisible"

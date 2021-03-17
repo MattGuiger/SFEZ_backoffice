@@ -267,7 +267,9 @@ export class FoodpckmgrorderComponent {
     })
   }
   getAllOrder() {
+    this.loadOrderDummyData();
     this.user = this._CommonFunctionsService.checkUser().user;
+    // this.user.food_park_id = 30149;
     this.getAllDrivers(this.user.food_park_id);
     this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id).subscribe((res: any) => {
       this.orders = res.data;
@@ -275,6 +277,70 @@ export class FoodpckmgrorderComponent {
       this.rows = this.orders;
       console.log(this.rows);
     })
+  }
+
+  loadOrderDummyData() {
+
+    let objOrder = {
+      id: 101,
+      unit_name: 'Pho Loc#3',
+      size: 'Medium',
+      addOns: 'Extra condiments(+$2.75)',
+      instructions: 'extra Spicy',
+      delivery_address: {
+        line_1: 'Rua da campina',
+        line_2: 'Apt 2203'
+      },
+      desired_delivery_time: '2021-02-25T07:49:57.870Z',
+      status: 'order_paid',
+      initiation_time: '2021-02-25T07:09:57.870Z',
+      order_id: '1234',
+      context: 'cod',
+      amount: '100.00',
+      short_name: 'ZZZ',
+    }
+    this.rows.push(objOrder);
+
+    objOrder = {
+      id: 102,
+      unit_name: 'Beef PhoX1',
+      size: 'Regular',
+      addOns: 'Extra condiments(+$2.75)',
+      instructions: 'No Jalapenos',
+      delivery_address: {
+        line_1: '2921',
+        line_2: 'Sw Pumice Ave'
+      },
+      desired_delivery_time: '2021-03-16T10:25:57.870Z',
+      status: 'incomplete',
+      initiation_time: '2021-03-16T09:50:57.870Z',
+      order_id: '2154',
+      context: 'bank',
+      amount: '500.00',
+      short_name: 'TAS',
+    }
+    this.rows.push(objOrder);
+
+    objOrder = {
+      id: 103,
+      unit_name: 'Beef PhoX5',
+      size: 'Larg',
+      addOns: 'Extra condiments(+$2.75)',
+      instructions: '---',
+      delivery_address: {
+        line_1: '2203',
+        line_2: 'Rua parimode da'
+      },
+      desired_delivery_time: '2021-03-17T04:20:57.870Z',
+      status: 'incomplete',
+      initiation_time: '2021-03-17T03:45:57.870Z',
+      order_id: '2156',
+      context: 'card',
+      amount: '250.00',
+      short_name: 'ABC',
+    }
+    this.rows.push(objOrder);
+    this.temp = this.rows;
   }
 
   /** Start accordion for order tab*/
@@ -354,9 +420,9 @@ export class FoodpckmgrorderComponent {
   updateFilter(event) {
     const val = event.target.value.toLowerCase();
     const temp = this.temp.filter(function (d) {
-      let deliveryAddress = d.delivery_address_details?.line_1 + ' ' + d.delivery_address_details?.line_2;
-      let ordrId = d.id;
-      return deliveryAddress.toLowerCase().indexOf(val) !== -1 || ordrId == val || d.customer_name.toLowerCase().indexOf(val) !== -1 || !val;
+      let deliveryAddress = d.delivery_address?.line_1 + ' ' + d.delivery_address?.line_2;
+      let ordrId = d.order_id;
+      return deliveryAddress.toLowerCase().indexOf(val) !== -1 || ordrId == val || d.short_name.toLowerCase().indexOf(val) !== -1 || !val;
     });
     this.rows = temp;
   }
