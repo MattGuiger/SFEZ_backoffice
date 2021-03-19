@@ -29,6 +29,7 @@ export class FoodpckmgrorderComponent {
   unitForm: FormGroup;
   loadingIndicator = true;
 
+  deliveryHub: Object;
   weekData: Array<Object>;
   wagesDataArr: Array<Object>;
 
@@ -129,10 +130,108 @@ export class FoodpckmgrorderComponent {
     this.foodParkUnits();
 
     //this.getCurrentDate();
-    this.wagesDataArr = [];
-    this.weekData = [];
-    this.loadWagesData();
-    this.loadWeekData();
+    this.deliveryHub = [];
+    // this.wagesDataArr = [];
+    // this.weekData = [];
+    this.LoadHubData();
+    // this.loadWagesData();
+    // this.loadWeekData();
+  }
+
+  LoadHubData() {
+    this.deliveryHub = {
+      hub_name: 'New Hub',
+      drivers: [
+        {
+          id: 10020,
+          first_name: 'Bob',
+          last_name: 'Brown',
+          cash_payouts: '$27.25',
+          weekly_total: '$67.25',
+          orders: [{
+            vendor: 'PHO #3402',
+            address: '530 NW 5th St',
+            method: 'assets/images/cash.png',
+            fee: '$1.25',
+            tips: '$3.00'
+          },
+          {
+            vendor: 'PHO #9902',
+            address: '2414 NW 6th St',
+            method: 'assets/images/bank.png',
+            fee: '$25.00',
+            tips: '$8.00'
+          }],
+          weekly_data: [{
+            task: 'Deliveries & Tips',
+            mon: '$28.00',
+            tue: '$25.00',
+            wed: '$18.00',
+            thu: '$20.00',
+            fri: '',
+            sat: '',
+            sun: '',
+            total: '$91.00'
+          },
+          {
+            task: '# of Deliveries',
+            mon: '9',
+            tue: '10',
+            wed: '4',
+            thu: '6',
+            fri: '',
+            sat: '',
+            sun: '',
+            total: '29'
+          }]
+        },
+        {
+          id: 10022,
+          first_name: 'Martin',
+          last_name: 'Buch',
+          cash_payouts: '$45.50',
+          weekly_total: '$90.75',
+          orders: [{
+            vendor: 'PHO #5452',
+            address: '250 OW 5th St',
+            method: 'assets/images/card.png',
+            fee: '$20.25',
+            tips: '$5.00'
+          },
+          {
+            vendor: 'PHO #8952',
+            address: '2364 LW 6th St',
+            method: 'assets/images/cash.png',
+            fee: '$22.00',
+            tips: '$7.00'
+          }],
+          weekly_data: [{
+            task: 'Deliveries & Tips',
+            mon: '$35.00',
+            tue: '$30.00',
+            wed: '$25.00',
+            thu: '$35.00',
+            fri: '',
+            sat: '',
+            sun: '',
+            total: '$125.00'
+          },
+          {
+            task: '# of Deliveries',
+            mon: '13',
+            tue: '11',
+            wed: '7',
+            thu: '15',
+            fri: '',
+            sat: '',
+            sun: '',
+            total: '46'
+          }]
+        }]
+    }
+    console.log("-------------- Hub Data --------------")
+    console.log(this.deliveryHub);
+    console.log("-------------- Hub Data --------------")
   }
 
   loadWagesData() {
@@ -267,15 +366,16 @@ export class FoodpckmgrorderComponent {
     })
   }
   getAllOrder() {
-    this.loadOrderDummyData();
+    // this.loadOrderDummyData();
     this.user = this._CommonFunctionsService.checkUser().user;
+    // this.user.food_park_id = 30149;
     this.getAllDrivers(this.user.food_park_id);
-    // this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id).subscribe((res: any) => {
-    //   this.orders = res.data;
-    //   this.temp = this.orders;
-    //   this.rows = this.orders;
-    //   console.log(this.rows);
-    // })
+    this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id).subscribe((res: any) => {
+      this.orders = res.data;
+      this.temp = this.orders;
+      this.rows = this.orders;
+      console.log(this.rows);
+    })
   }
 
   loadOrderDummyData() {
