@@ -368,7 +368,6 @@ export class FoodpckmgrorderComponent {
   getAllOrder() {
     // this.loadOrderDummyData();
     this.user = this._CommonFunctionsService.checkUser().user;
-    // this.user.food_park_id = 30149;
     this.getAllDrivers(this.user.food_park_id);
     this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id).subscribe((res: any) => {
       this.orders = res.data;

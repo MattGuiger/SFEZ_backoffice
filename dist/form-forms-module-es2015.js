@@ -34170,307 +34170,198 @@ function FoodpckmgrorderComponent_ng_template_8_Template(rf, ctx) { if (rf & 1) 
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r1.tab);
 } }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_12_Template(rf, ctx) { if (rf & 1) {
+function FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_10_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
 } if (rf & 2) {
-    const row_r215 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r215.vendor, " ");
+    const row_r217 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r217.vendor, " ");
 } }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_14_Template(rf, ctx) { if (rf & 1) {
+function FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_12_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
 } if (rf & 2) {
-    const row_r218 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r218.address, " ");
+    const row_r220 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r220.address, " ");
 } }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_16_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 115);
+function FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_14_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "img", 117);
 } if (rf & 2) {
-    const row_r221 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", row_r221.method, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+    const row_r223 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", row_r223.method, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 } }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_18_Template(rf, ctx) { if (rf & 1) {
+function FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_16_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
 } if (rf & 2) {
-    const row_r224 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r224.fee, " ");
+    const row_r226 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r226.fee, " ");
 } }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_20_Template(rf, ctx) { if (rf & 1) {
+function FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_18_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
 } if (rf & 2) {
-    const row_r227 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r227.tips, " ");
+    const row_r229 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r229.tips, " ");
 } }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_50_Template(rf, ctx) { if (rf & 1) {
+function FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_28_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
 } if (rf & 2) {
-    const row_r230 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r230.task, " ");
+    const row_r232 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r232.task, " ");
 } }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_52_Template(rf, ctx) { if (rf & 1) {
+function FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_30_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
 } if (rf & 2) {
-    const row_r233 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r233.mon, " ");
+    const row_r235 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r235.mon, " ");
 } }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_54_Template(rf, ctx) { if (rf & 1) {
+function FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_32_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
 } if (rf & 2) {
-    const row_r236 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r236.tue, " ");
+    const row_r238 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r238.tue, " ");
 } }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_56_Template(rf, ctx) { if (rf & 1) {
+function FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_34_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
 } if (rf & 2) {
-    const row_r239 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r239.wed, " ");
+    const row_r241 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r241.wed, " ");
 } }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_58_Template(rf, ctx) { if (rf & 1) {
+function FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_36_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
 } if (rf & 2) {
-    const row_r242 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r242.thu, " ");
+    const row_r244 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r244.thu, " ");
 } }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_60_Template(rf, ctx) { if (rf & 1) {
+function FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_38_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
 } if (rf & 2) {
-    const row_r245 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r245.fri, " ");
+    const row_r247 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r247.fri, " ");
 } }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_62_Template(rf, ctx) { if (rf & 1) {
+function FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_40_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
 } if (rf & 2) {
-    const row_r248 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r248.sat, " ");
+    const row_r250 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r250.sat, " ");
 } }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_64_Template(rf, ctx) { if (rf & 1) {
+function FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_42_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
 } if (rf & 2) {
-    const row_r251 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r251.sun, " ");
+    const row_r253 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r253.sun, " ");
 } }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_66_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
-} if (rf & 2) {
-    const row_r254 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r254.total, " ");
-} }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_81_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
-} if (rf & 2) {
-    const row_r255 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r255.driverName, " ");
-} }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_83_Template(rf, ctx) { if (rf & 1) {
+function FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_44_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
 } if (rf & 2) {
     const row_r256 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" $", row_r256.wagesTotal.toFixed(2), " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r256.total, " ");
 } }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_92_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 32);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "input", 33);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "label", 34);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    const row_r257 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("id", "customCheck", row_r257.id, "");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("for", "customCheck", row_r257.id, "");
-} }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_94_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
-} if (rf & 2) {
-    const row_r258 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r258.unitName, " ");
-} }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_96_Template(rf, ctx) { if (rf & 1) {
-    const _r261 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "button", 116);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function FoodpckmgrorderComponent_ng_template_10_ng_template_96_Template_button_click_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r261); const row_r259 = ctx.row; const ctx_r260 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](12); return ctx_r260.openSubsidy(_r3, row_r259.sumTotalDeliveryWages, row_r259.unitsOrder, row_r259.totalDeliveryCount, row_r259.unitName); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Details");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} if (rf & 2) {
-    const row_r259 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" $", row_r259.subSidy ? row_r259.subSidy : 0, " \u00A0");
-} }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_98_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
-} if (rf & 2) {
-    const row_r262 = ctx.row;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r262.status, " ");
-} }
-function FoodpckmgrorderComponent_ng_template_10_ng_template_100_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 117);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Approve / Process");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-} }
-function FoodpckmgrorderComponent_ng_template_10_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 81);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 82);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 83);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Week Of : ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 73);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "Aug 11 - Aug 17 \u00A0 ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "i", 84);
+function FoodpckmgrorderComponent_ng_template_10_div_14_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 97);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 81);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 98);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "ngx-datatable", 15, 85);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "ngx-datatable-column", 86);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](12, FoodpckmgrorderComponent_ng_template_10_ng_template_12_Template, 1, 1, "ng-template", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "ngx-datatable", 15, 99);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "ngx-datatable-column", 100);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](10, FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_10_Template, 1, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "ngx-datatable-column", 87);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](14, FoodpckmgrorderComponent_ng_template_10_ng_template_14_Template, 1, 1, "ng-template", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "ngx-datatable-column", 101);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](12, FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_12_Template, 1, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "ngx-datatable-column", 88);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, FoodpckmgrorderComponent_ng_template_10_ng_template_16_Template, 1, 1, "ng-template", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "ngx-datatable-column", 102);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](14, FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_14_Template, 1, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "ngx-datatable-column", 89);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, FoodpckmgrorderComponent_ng_template_10_ng_template_18_Template, 1, 1, "ng-template", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "ngx-datatable-column", 103);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_16_Template, 1, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "ngx-datatable-column", 90);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](20, FoodpckmgrorderComponent_ng_template_10_ng_template_20_Template, 1, 1, "ng-template", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "ngx-datatable-column", 104);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_18_Template, 1, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "div", 91);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 92);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "button", 93);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, "View Orders");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "div", 105);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 106);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "button", 107);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, "View Orders");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "div", 81);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "div", 94);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27, "Bob ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "div", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "ngx-datatable", 15, 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "ngx-datatable-column", 108);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](28, FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_28_Template, 1, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "ngx-datatable-column", 109);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](30, FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_30_Template, 1, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "div", 95);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "div", 96);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 97);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "div", 98);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "h2");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, "Cash Payouts");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "ngx-datatable-column", 110);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](32, FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_32_Template, 1, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "ngx-datatable-column", 111);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](34, FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_34_Template, 1, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "div", 99);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](36, "$17.25");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "ngx-datatable-column", 112);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](36, FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_36_Template, 1, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "ngx-datatable-column", 113);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](38, FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_38_Template, 1, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "ngx-datatable-column", 114);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](40, FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_40_Template, 1, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](41, "ngx-datatable-column", 115);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](42, FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_42_Template, 1, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "div", 96);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "div", 97);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "div", 98);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "h2");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](41, "Weekly Total");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "div", 99);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](43, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](44, "$57.25");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "div", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "div", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "ngx-datatable", 15, 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](49, "ngx-datatable-column", 100);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](50, FoodpckmgrorderComponent_ng_template_10_ng_template_50_Template, 1, 1, "ng-template", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](51, "ngx-datatable-column", 101);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](52, FoodpckmgrorderComponent_ng_template_10_ng_template_52_Template, 1, 1, "ng-template", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](53, "ngx-datatable-column", 102);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](54, FoodpckmgrorderComponent_ng_template_10_ng_template_54_Template, 1, 1, "ng-template", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](55, "ngx-datatable-column", 103);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](56, FoodpckmgrorderComponent_ng_template_10_ng_template_56_Template, 1, 1, "ng-template", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](57, "ngx-datatable-column", 104);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](58, FoodpckmgrorderComponent_ng_template_10_ng_template_58_Template, 1, 1, "ng-template", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](59, "ngx-datatable-column", 105);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](60, FoodpckmgrorderComponent_ng_template_10_ng_template_60_Template, 1, 1, "ng-template", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](61, "ngx-datatable-column", 106);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](62, FoodpckmgrorderComponent_ng_template_10_ng_template_62_Template, 1, 1, "ng-template", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](63, "ngx-datatable-column", 107);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](64, FoodpckmgrorderComponent_ng_template_10_ng_template_64_Template, 1, 1, "ng-template", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](65, "ngx-datatable-column", 108);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](66, FoodpckmgrorderComponent_ng_template_10_ng_template_66_Template, 1, 1, "ng-template", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](43, "ngx-datatable-column", 116);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](44, FoodpckmgrorderComponent_ng_template_10_div_14_ng_template_44_Template, 1, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](67, "div", 95);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](68, "div", 96);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](69, "div", 97);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](70, "div", 98);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](71, "h6");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](72, "Total Delivery Wages");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "div", 86);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "div", 87);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "div", 88);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](48, "div", 89);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](49, "h2");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](50, "Cash Payouts");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](73, "div", 99);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](74, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](75);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](76, "div", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](77, "div", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](78, "ngx-datatable", 15, 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](80, "ngx-datatable-column", 109);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](81, FoodpckmgrorderComponent_ng_template_10_ng_template_81_Template, 1, 1, "ng-template", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](82, "ngx-datatable-column", 110);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](83, FoodpckmgrorderComponent_ng_template_10_ng_template_83_Template, 1, 1, "ng-template", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](51, "div", 90);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](53);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](84, "div", 67);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](85, "div", 111);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](86, "Delivery Allocation ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](54, "div", 87);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](55, "div", 88);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](56, "div", 89);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](57, "h2");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](58, "Weekly Total");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](87, "div", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](88, "div", 14);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](89, "ngx-datatable", 15, 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](91, "ngx-datatable-column", 112);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](92, FoodpckmgrorderComponent_ng_template_10_ng_template_92_Template, 3, 2, "ng-template", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](59, "div", 90);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](60, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](61);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](93, "ngx-datatable-column", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](94, FoodpckmgrorderComponent_ng_template_10_ng_template_94_Template, 1, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](95, "ngx-datatable-column", 113);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](96, FoodpckmgrorderComponent_ng_template_10_ng_template_96_Template, 3, 1, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](97, "ngx-datatable-column", 21);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](98, FoodpckmgrorderComponent_ng_template_10_ng_template_98_Template, 1, 1, "ng-template", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](99, "ngx-datatable-column", 114);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](100, FoodpckmgrorderComponent_ng_template_10_ng_template_100_Template, 2, 0, "ng-template", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("rows", ctx_r2.weekData)("columnMode", "force")("headerHeight", 50)("footerHeight", 0)("rowHeight", ctx_r2.auto)("limit", 5)("scrollbarH", true);
+    const driver_r200 = ctx.$implicit;
+    const ctx_r190 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("Driver: ", driver_r200.first_name, " ", driver_r200.last_name, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("rows", driver_r200.orders)("columnMode", "force")("headerHeight", 50)("footerHeight", 0)("rowHeight", ctx_r190.auto)("limit", 5)("scrollbarH", true);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("width", 100);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
@@ -34481,8 +34372,8 @@ function FoodpckmgrorderComponent_ng_template_10_Template(rf, ctx) { if (rf & 1)
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("width", 70);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("width", 70);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](28);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("rows", ctx_r2.wagesDataArr)("columnMode", "force")("headerHeight", 50)("footerHeight", 0)("rowHeight", ctx_r2.auto)("limit", 5)("scrollbarH", true);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("rows", driver_r200.weekly_data)("columnMode", "force")("headerHeight", 50)("footerHeight", 0)("rowHeight", ctx_r190.auto)("limit", 5)("scrollbarH", true);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("width", 100);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
@@ -34502,6 +34393,147 @@ function FoodpckmgrorderComponent_ng_template_10_Template(rf, ctx) { if (rf & 1)
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("width", 70);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](driver_r200.cash_payouts);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](driver_r200.weekly_total);
+} }
+function FoodpckmgrorderComponent_ng_template_10_ng_template_29_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
+} if (rf & 2) {
+    const row_r257 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r257.driverName, " ");
+} }
+function FoodpckmgrorderComponent_ng_template_10_ng_template_31_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
+} if (rf & 2) {
+    const row_r258 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" $", row_r258.wagesTotal.toFixed(2), " ");
+} }
+function FoodpckmgrorderComponent_ng_template_10_ng_template_40_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "input", 33);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "label", 34);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const row_r259 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("id", "customCheck", row_r259.id, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate1"]("for", "customCheck", row_r259.id, "");
+} }
+function FoodpckmgrorderComponent_ng_template_10_ng_template_42_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
+} if (rf & 2) {
+    const row_r260 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r260.unitName, " ");
+} }
+function FoodpckmgrorderComponent_ng_template_10_ng_template_44_Template(rf, ctx) { if (rf & 1) {
+    const _r263 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "button", 118);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function FoodpckmgrorderComponent_ng_template_10_ng_template_44_Template_button_click_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r263); const row_r261 = ctx.row; const ctx_r262 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](12); return ctx_r262.openSubsidy(_r3, row_r261.sumTotalDeliveryWages, row_r261.unitsOrder, row_r261.totalDeliveryCount, row_r261.unitName); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Details");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const row_r261 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" $", row_r261.subSidy ? row_r261.subSidy : 0, " \u00A0");
+} }
+function FoodpckmgrorderComponent_ng_template_10_ng_template_46_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](0);
+} if (rf & 2) {
+    const row_r264 = ctx.row;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", row_r264.status, " ");
+} }
+function FoodpckmgrorderComponent_ng_template_10_ng_template_48_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 119);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Approve / Process");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} }
+function FoodpckmgrorderComponent_ng_template_10_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 81);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 82);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 83);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 84);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "\u2039");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " \u00A0 Week Of : ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 73);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, " Aug 11 - 17 \u00A0 ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "button", 84);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "\u203A");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "div", 81);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "div", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](14, FoodpckmgrorderComponent_ng_template_10_div_14_Template, 62, 32, "div", 55);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 86);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 87);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "div", 88);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 89);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "h6");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Total Delivery Wages");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "div", 90);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "div", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "div", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "ngx-datatable", 15, 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "ngx-datatable-column", 91);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](29, FoodpckmgrorderComponent_ng_template_10_ng_template_29_Template, 1, 1, "ng-template", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "ngx-datatable-column", 92);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](31, FoodpckmgrorderComponent_ng_template_10_ng_template_31_Template, 1, 1, "ng-template", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "div", 67);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "div", 93);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](34, "Delivery Allocation ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "div", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "div", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "ngx-datatable", 15, 16);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "ngx-datatable-column", 94);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](40, FoodpckmgrorderComponent_ng_template_10_ng_template_40_Template, 3, 2, "ng-template", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](41, "ngx-datatable-column", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](42, FoodpckmgrorderComponent_ng_template_10_ng_template_42_Template, 1, 1, "ng-template", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](43, "ngx-datatable-column", 95);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](44, FoodpckmgrorderComponent_ng_template_10_ng_template_44_Template, 3, 1, "ng-template", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "ngx-datatable-column", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](46, FoodpckmgrorderComponent_ng_template_10_ng_template_46_Template, 1, 1, "ng-template", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "ngx-datatable-column", 96);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](48, FoodpckmgrorderComponent_ng_template_10_ng_template_48_Template, 2, 0, "ng-template", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](13);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Delivery Hub: ", ctx_r2.deliveryHub.hub_name, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r2.deliveryHub.drivers);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("$", ctx_r2.sumTotalDeliveryWages.toFixed(2), "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("rows", ctx_r2.totalDeliveryWagesData)("columnMode", "force")("headerHeight", 50)("footerHeight", 50)("rowHeight", ctx_r2.auto)("limit", 5)("scrollbarH", true);
@@ -34523,20 +34555,20 @@ function FoodpckmgrorderComponent_ng_template_10_Template(rf, ctx) { if (rf & 1)
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("width", 150);
 } }
 function FoodpckmgrorderComponent_ng_template_11_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 118);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h4", 119);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 120);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h4", 121);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Subsidy Calculation");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 120);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function FoodpckmgrorderComponent_ng_template_11_Template_button_click_3_listener() { const modal_r264 = ctx.$implicit; return modal_r264.dismiss("Cross click"); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "span", 121);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 122);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function FoodpckmgrorderComponent_ng_template_11_Template_button_click_3_listener() { const modal_r266 = ctx.$implicit; return modal_r266.dismiss("Cross click"); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "span", 123);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "\u00D7");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 122);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 124);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 123);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 125);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "b");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, "Total Wages (All Drivers)");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -34549,7 +34581,7 @@ function FoodpckmgrorderComponent_ng_template_11_Template(rf, ctx) { if (rf & 1)
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 123);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 125);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "b");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -34562,7 +34594,7 @@ function FoodpckmgrorderComponent_ng_template_11_Template(rf, ctx) { if (rf & 1)
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "div", 123);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "div", 125);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "b");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](26);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -34575,7 +34607,7 @@ function FoodpckmgrorderComponent_ng_template_11_Template(rf, ctx) { if (rf & 1)
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "div", 0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "div", 123);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "div", 125);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "b");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](34, "Subsidy calculate");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -34588,7 +34620,7 @@ function FoodpckmgrorderComponent_ng_template_11_Template(rf, ctx) { if (rf & 1)
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](39, "div", 124);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](39, "div", 126);
 } if (rf & 2) {
     const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](14);
@@ -34714,10 +34746,108 @@ class FoodpckmgrorderComponent {
         this.getDailyPayout();
         this.foodParkUnits();
         //this.getCurrentDate();
-        this.wagesDataArr = [];
-        this.weekData = [];
-        this.loadWagesData();
-        this.loadWeekData();
+        this.deliveryHub = [];
+        // this.wagesDataArr = [];
+        // this.weekData = [];
+        this.LoadHubData();
+        // this.loadWagesData();
+        // this.loadWeekData();
+    }
+    LoadHubData() {
+        this.deliveryHub = {
+            hub_name: 'New Hub',
+            drivers: [
+                {
+                    id: 10020,
+                    first_name: 'Bob',
+                    last_name: 'Brown',
+                    cash_payouts: '$27.25',
+                    weekly_total: '$67.25',
+                    orders: [{
+                            vendor: 'PHO #3402',
+                            address: '530 NW 5th St',
+                            method: 'assets/images/cash.png',
+                            fee: '$1.25',
+                            tips: '$3.00'
+                        },
+                        {
+                            vendor: 'PHO #9902',
+                            address: '2414 NW 6th St',
+                            method: 'assets/images/bank.png',
+                            fee: '$25.00',
+                            tips: '$8.00'
+                        }],
+                    weekly_data: [{
+                            task: 'Deliveries & Tips',
+                            mon: '$28.00',
+                            tue: '$25.00',
+                            wed: '$18.00',
+                            thu: '$20.00',
+                            fri: '',
+                            sat: '',
+                            sun: '',
+                            total: '$91.00'
+                        },
+                        {
+                            task: '# of Deliveries',
+                            mon: '9',
+                            tue: '10',
+                            wed: '4',
+                            thu: '6',
+                            fri: '',
+                            sat: '',
+                            sun: '',
+                            total: '29'
+                        }]
+                },
+                {
+                    id: 10022,
+                    first_name: 'Martin',
+                    last_name: 'Buch',
+                    cash_payouts: '$45.50',
+                    weekly_total: '$90.75',
+                    orders: [{
+                            vendor: 'PHO #5452',
+                            address: '250 OW 5th St',
+                            method: 'assets/images/card.png',
+                            fee: '$20.25',
+                            tips: '$5.00'
+                        },
+                        {
+                            vendor: 'PHO #8952',
+                            address: '2364 LW 6th St',
+                            method: 'assets/images/cash.png',
+                            fee: '$22.00',
+                            tips: '$7.00'
+                        }],
+                    weekly_data: [{
+                            task: 'Deliveries & Tips',
+                            mon: '$35.00',
+                            tue: '$30.00',
+                            wed: '$25.00',
+                            thu: '$35.00',
+                            fri: '',
+                            sat: '',
+                            sun: '',
+                            total: '$125.00'
+                        },
+                        {
+                            task: '# of Deliveries',
+                            mon: '13',
+                            tue: '11',
+                            wed: '7',
+                            thu: '15',
+                            fri: '',
+                            sat: '',
+                            sun: '',
+                            total: '46'
+                        }]
+                }
+            ]
+        };
+        console.log("-------------- Hub Data --------------");
+        console.log(this.deliveryHub);
+        console.log("-------------- Hub Data --------------");
     }
     loadWagesData() {
         let obj = {
@@ -34842,15 +34972,15 @@ class FoodpckmgrorderComponent {
         });
     }
     getAllOrder() {
-        this.loadOrderDummyData();
+        // this.loadOrderDummyData();
         this.user = this._CommonFunctionsService.checkUser().user;
         this.getAllDrivers(this.user.food_park_id);
-        // this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id).subscribe((res: any) => {
-        //   this.orders = res.data;
-        //   this.temp = this.orders;
-        //   this.rows = this.orders;
-        //   console.log(this.rows);
-        // })
+        this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id).subscribe((res) => {
+            this.orders = res.data;
+            this.temp = this.orders;
+            this.rows = this.orders;
+            console.log(this.rows);
+        });
     }
     loadOrderDummyData() {
         let objOrder = {
@@ -35232,7 +35362,7 @@ FoodpckmgrorderComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
     } if (rf & 2) {
         var _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.table = _t.first);
-    } }, decls: 13, vars: 0, consts: [[1, "row"], [1, "col-lg-12"], [1, "card"], [1, "card-body"], ["title", "Orders"], ["ngbTabContent", ""], ["title", "Daily Payouts"], ["title", "Weekly Reconciliation"], ["subsidy", ""], [1, "mb-3"], [1, "row", "align-items-center"], [1, "col-xl-2", "col-lg-3"], [1, "col-xl-6", "col-lg-7"], ["type", "text", "placeholder", "Delivery address, Order Id, Customer Name", 1, "form-control", 3, "keyup"], [1, "accodion-datatable"], [1, "material", 3, "rows", "columnMode", "headerHeight", "footerHeight", "rowHeight", "limit", "scrollbarH"], ["table", ""], [3, "rowHeight"], ["ngx-datatable-row-detail-template", ""], ["name", "#", 3, "width"], ["ngx-datatable-cell-template", ""], ["name", "Status", 3, "width"], ["name", "Date", 3, "width"], ["name", "Order ID", 3, "width"], ["name", "Payment", 3, "width"], ["name", "Order Amt", 3, "width"], ["name", "Vendor", 3, "width"], ["name", "Actions", 3, "width"], [3, "width"], ["ngx-datatable-footer-template", ""], [2, "padding-left", "10px"], [1, "mb-3", 2, "padding-left", "25px"], [1, "custom-control", "custom-checkbox"], ["type", "checkbox", "name", "example1", 1, "custom-control-input", 3, "id"], [1, "custom-control-label", 3, "for"], ["style", "background-color: #22c6ab; color:#fff;", "class", "order-status text-capitalize btn w-100 border-0", 4, "ngIf"], ["style", "background-color: #ef6e6e; color:#fff;", "class", "order-status text-capitalize btn w-100 border-0", 4, "ngIf"], ["style", "background-color: #ffbc34; color:#fff;", "class", "order-status text-capitalize btn w-100 border-0", 4, "ngIf"], [1, "order-status", "text-capitalize", "btn", "w-100", "border-0", 2, "background-color", "#22c6ab", "color", "#fff"], [1, "order-status", "text-capitalize", "btn", "w-100", "border-0", 2, "background-color", "#ef6e6e", "color", "#fff"], [1, "order-status", "text-capitalize", "btn", "w-100", "border-0", 2, "background-color", "#ffbc34", "color", "#fff"], ["src", "assets/images/cash.png", "alt", "Icon", "style", "height: 36px;", 4, "ngIf"], ["src", "assets/images/bank.png", "alt", "Icon", "style", "height: 36px;", 4, "ngIf"], ["src", "assets/images/card.png", "alt", "Icon", "style", "height: 36px;", 4, "ngIf"], ["src", "assets/images/cash.png", "alt", "Icon", 2, "height", "36px"], ["src", "assets/images/bank.png", "alt", "Icon", 2, "height", "36px"], ["src", "assets/images/card.png", "alt", "Icon", 2, "height", "36px"], ["class", "form-control custom-fontsize", 3, "change", 4, "ngIf"], [1, "form-control", "custom-fontsize", 3, "change"], ["value", ""], ["value", "Void"], ["value", "Refund"], ["value", "Delete"], ["href", "javascript:void(0)", "title", "Expand/Collapse Row", 3, "id", "dblclick"], [3, "pagerLeftArrowIcon", "pagerRightArrowIcon", "pagerPreviousIcon", "pagerNextIcon", "page", "visiblePagesCount", "size", "count", "hidden", "change"], [4, "ngFor", "ngForOf"], [2, "text-align", "center"], [4, "ngIf"], ["style", "text-align: right;", 4, "ngIf"], [2, "text-align", "right"], ["name", "Meal", 3, "width"], ["name", "Type", 3, "width"], ["name", "Deductions", 3, "width"], ["name", "Balance", 3, "width"], ["style", "padding-left:58px;", 4, "ngIf", "ngIfElse"], ["takeout", ""], [2, "padding-left", "58px"], [1, "row", "mb-1"], [1, "", 2, "font-weight", "500", "padding-left", "10px"], [1, "col-md-3", "pl-1"], [1, "col-md-6", "pl-0"], [1, "col-md-2"], ["class", "col-md-2", 4, "ngIf"], [1, "col-md-3", "pl-0"], [1, "row", "mb-2"], [1, "col-md-2", "pl-0"], ["src", "/assets/images/deliverySmall.png", "class", "img-responsive", 4, "ngIf", "ngIfElse"], ["takeoutimg", ""], ["src", "/assets/images/deliverySmall.png", 1, "img-responsive"], ["src", "/assets/images/takeout.png", 1, "img-responsive"], ["type", "button", 1, "btn", "btn-success", "ml-2", "custom-button"], [1, "row", "mb-1", "mt-4"], [1, "row", "mb-3"], [1, "col-md-3", "offset-3", "text-right", 2, "font-weight", "500", "padding-left", "10px"], ["aria-hidden", "true", 1, "ti-pencil", 2, "cursor", "pointer", "color", "#3dc6ac", "font-weight", "700"], ["weekTable", ""], ["name", "Vendor", "prop", "vendor", 3, "width"], ["name", "Address", "prop", "address", 3, "width"], ["name", "Method", "prop", "method", 3, "width"], ["name", "Fee", "prop", "fee", 3, "width"], ["name", "Tips", "prop", "tips", 3, "width"], ["hidden", "", 1, "row", "mb-1", "mt-4"], [1, "view-orders", 2, "margin", "0 auto"], ["type", "button", 1, "btn", "btn-success"], [2, "font-weight", "500", "padding-left", "10px", "margin", "0 auto"], [1, "row", "mt-3", "custom-card-main"], [1, "custom-card-wages-total"], [1, "total-wages"], [1, "title"], [1, "description"], ["name", "Drivers", "prop", "driver", 3, "width"], ["name", "Mon", "prop", "mon", 3, "width"], ["name", "Tue", "prop", "tue", 3, "width"], ["name", "Wed", "prop", "wed", 3, "width"], ["name", "Thu", "prop", "thu", 3, "width"], ["name", "Fri", "prop", "fri", 3, "width"], ["name", "Sat", "prop", "sat", 3, "width"], ["name", "Sun", "prop", "sun", 3, "width"], ["name", "Total", 3, "width"], ["name", "Driver", 3, "width"], ["name", "Amount", 3, "width"], [1, "mb-2", "mt-2", 2, "font-weight", "500", "padding-left", "10px", "margin", "0 auto"], ["name", "", 3, "width"], ["name", "Subsidy", 3, "width"], ["name", "Action", 3, "width"], ["alt", "Icon", 2, "height", "36px", 3, "src"], ["type", "button", 1, "btn", "btn-danger", 3, "click"], [1, "btn", "btn-success"], [1, "modal-header"], ["id", "modal-basic-title", 1, "modal-title"], ["type", "button", "aria-label", "Close", "id", "closeModal", 1, "close", 3, "click"], ["aria-hidden", "true"], [1, "modal-body"], [1, "col-md-6", "text-right", "pr-1"], [1, "modal-footer", 2, "border-top", "0"]], template: function FoodpckmgrorderComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 13, vars: 0, consts: [[1, "row"], [1, "col-lg-12"], [1, "card"], [1, "card-body"], ["title", "Orders"], ["ngbTabContent", ""], ["title", "Daily Payouts"], ["title", "Weekly Reconciliation"], ["subsidy", ""], [1, "mb-3"], [1, "row", "align-items-center"], [1, "col-xl-2", "col-lg-3"], [1, "col-xl-6", "col-lg-7"], ["type", "text", "placeholder", "Delivery address, Order Id, Customer Name", 1, "form-control", 3, "keyup"], [1, "accodion-datatable"], [1, "material", 3, "rows", "columnMode", "headerHeight", "footerHeight", "rowHeight", "limit", "scrollbarH"], ["table", ""], [3, "rowHeight"], ["ngx-datatable-row-detail-template", ""], ["name", "#", 3, "width"], ["ngx-datatable-cell-template", ""], ["name", "Status", 3, "width"], ["name", "Date", 3, "width"], ["name", "Order ID", 3, "width"], ["name", "Payment", 3, "width"], ["name", "Order Amt", 3, "width"], ["name", "Vendor", 3, "width"], ["name", "Actions", 3, "width"], [3, "width"], ["ngx-datatable-footer-template", ""], [2, "padding-left", "10px"], [1, "mb-3", 2, "padding-left", "25px"], [1, "custom-control", "custom-checkbox"], ["type", "checkbox", "name", "example1", 1, "custom-control-input", 3, "id"], [1, "custom-control-label", 3, "for"], ["style", "background-color: #22c6ab; color:#fff;", "class", "order-status text-capitalize btn w-100 border-0", 4, "ngIf"], ["style", "background-color: #ef6e6e; color:#fff;", "class", "order-status text-capitalize btn w-100 border-0", 4, "ngIf"], ["style", "background-color: #ffbc34; color:#fff;", "class", "order-status text-capitalize btn w-100 border-0", 4, "ngIf"], [1, "order-status", "text-capitalize", "btn", "w-100", "border-0", 2, "background-color", "#22c6ab", "color", "#fff"], [1, "order-status", "text-capitalize", "btn", "w-100", "border-0", 2, "background-color", "#ef6e6e", "color", "#fff"], [1, "order-status", "text-capitalize", "btn", "w-100", "border-0", 2, "background-color", "#ffbc34", "color", "#fff"], ["src", "assets/images/cash.png", "alt", "Icon", "style", "height: 36px;", 4, "ngIf"], ["src", "assets/images/bank.png", "alt", "Icon", "style", "height: 36px;", 4, "ngIf"], ["src", "assets/images/card.png", "alt", "Icon", "style", "height: 36px;", 4, "ngIf"], ["src", "assets/images/cash.png", "alt", "Icon", 2, "height", "36px"], ["src", "assets/images/bank.png", "alt", "Icon", 2, "height", "36px"], ["src", "assets/images/card.png", "alt", "Icon", 2, "height", "36px"], ["class", "form-control custom-fontsize", 3, "change", 4, "ngIf"], [1, "form-control", "custom-fontsize", 3, "change"], ["value", ""], ["value", "Void"], ["value", "Refund"], ["value", "Delete"], ["href", "javascript:void(0)", "title", "Expand/Collapse Row", 3, "id", "dblclick"], [3, "pagerLeftArrowIcon", "pagerRightArrowIcon", "pagerPreviousIcon", "pagerNextIcon", "page", "visiblePagesCount", "size", "count", "hidden", "change"], [4, "ngFor", "ngForOf"], [2, "text-align", "center"], [4, "ngIf"], ["style", "text-align: right;", 4, "ngIf"], [2, "text-align", "right"], ["name", "Meal", 3, "width"], ["name", "Type", 3, "width"], ["name", "Deductions", 3, "width"], ["name", "Balance", 3, "width"], ["style", "padding-left:58px;", 4, "ngIf", "ngIfElse"], ["takeout", ""], [2, "padding-left", "58px"], [1, "row", "mb-1"], [1, "", 2, "font-weight", "500", "padding-left", "10px"], [1, "col-md-3", "pl-1"], [1, "col-md-6", "pl-0"], [1, "col-md-2"], ["class", "col-md-2", 4, "ngIf"], [1, "col-md-3", "pl-0"], [1, "row", "mb-2"], [1, "col-md-2", "pl-0"], ["src", "/assets/images/deliverySmall.png", "class", "img-responsive", 4, "ngIf", "ngIfElse"], ["takeoutimg", ""], ["src", "/assets/images/deliverySmall.png", 1, "img-responsive"], ["src", "/assets/images/takeout.png", 1, "img-responsive"], ["type", "button", 1, "btn", "btn-success", "ml-2", "custom-button"], [1, "row", "mb-1", "mt-4"], [1, "row", "mb-3"], [1, "col-md-3", "offset-3", "text-right", 2, "font-weight", "500", "padding-left", "10px"], ["type", "button", 1, "btn", 2, "border-radius", "50%"], [2, "font-weight", "500", "margin", "0 auto"], [1, "row", "mt-3", "custom-card-main"], [1, "custom-card-wages-total"], [1, "total-wages"], [1, "title"], [1, "description"], ["name", "Driver", 3, "width"], ["name", "Amount", 3, "width"], [1, "mb-2", "mt-2", 2, "font-weight", "500", "padding-left", "10px", "margin", "0 auto"], ["name", "", 3, "width"], ["name", "Subsidy", 3, "width"], ["name", "Action", 3, "width"], [2, "border", "1px solid lightgray"], [2, "font-weight", "500", "padding-left", "10px", "margin", "0 auto"], ["weekTable", ""], ["name", "Vendor", "prop", "vendor", 3, "width"], ["name", "Address", "prop", "address", 3, "width"], ["name", "Method", "prop", "method", 3, "width"], ["name", "Fee", "prop", "fee", 3, "width"], ["name", "Tips", "prop", "tips", 3, "width"], ["hidden", "", 1, "row", "mb-1", "mt-4"], [1, "view-orders", 2, "margin", "0 auto"], ["type", "button", 1, "btn", "btn-success"], ["name", "Drivers", "prop", "driver", 3, "width"], ["name", "Mon", "prop", "mon", 3, "width"], ["name", "Tue", "prop", "tue", 3, "width"], ["name", "Wed", "prop", "wed", 3, "width"], ["name", "Thu", "prop", "thu", 3, "width"], ["name", "Fri", "prop", "fri", 3, "width"], ["name", "Sat", "prop", "sat", 3, "width"], ["name", "Sun", "prop", "sun", 3, "width"], ["name", "Total", 3, "width"], ["alt", "Icon", 2, "height", "36px", 3, "src"], ["type", "button", 1, "btn", "btn-danger", 3, "click"], [1, "btn", "btn-success"], [1, "modal-header"], ["id", "modal-basic-title", 1, "modal-title"], ["type", "button", "aria-label", "Close", "id", "closeModal", 1, "close", 3, "click"], ["aria-hidden", "true"], [1, "modal-body"], [1, "col-md-6", "text-right", "pr-1"], [1, "modal-footer", 2, "border-top", "0"]], template: function FoodpckmgrorderComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -35245,7 +35375,7 @@ FoodpckmgrorderComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](8, FoodpckmgrorderComponent_ng_template_8_Template, 2, 1, "ng-template", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "ngb-tab", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](10, FoodpckmgrorderComponent_ng_template_10_Template, 101, 50, "ng-template", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](10, FoodpckmgrorderComponent_ng_template_10_Template, 49, 24, "ng-template", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -47306,7 +47436,7 @@ class PersonalComponent {
     }
 }
 PersonalComponent.ɵfac = function PersonalComponent_Factory(t) { return new (t || PersonalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_services_auth_service__WEBPACK_IMPORTED_MODULE_6__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](ngx_toastr__WEBPACK_IMPORTED_MODULE_7__["ToastrService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_data_formData_service__WEBPACK_IMPORTED_MODULE_3__["FormDataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_workflow_workflow_service__WEBPACK_IMPORTED_MODULE_4__["WorkflowService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_services_profile_service__WEBPACK_IMPORTED_MODULE_8__["ProfileService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_services_commonFunctions_service__WEBPACK_IMPORTED_MODULE_1__["CommonFunctionsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"])); };
-PersonalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: PersonalComponent, selectors: [["mt-wizard-personal"]], inputs: { tempFileData: "tempFileData" }, decls: 49, vars: 9, consts: [[3, "formGroup", "ngSubmit"], ["personalForm", "ngForm"], [1, "tab-pane", "active"], [1, "font-medium-2", "text-center"], [1, "row"], [1, "col-sm-3"], [1, "text-center"], ["src", "/assets/images/vendor.png", "height", "190"], [1, "col-sm-9"], [1, "col-12"], [1, "form-group", "col-8", "offset-2", "mt-4"], ["for", "name"], ["type", "text", "id", "name", "formControlName", "name", "placeholder", "ex. Miso Soupy", 1, "form-control"], ["class", "alert alert-danger", 4, "ngIf"], [1, "col-sm-4", "offset-sm-2"], [1, "form-group"], ["id", "logo"], ["ngx-dropzone", "", 1, "custom-dropzone", 3, "accept", "change"], ["id", "logo_text"], [2, "color", "#888"], ["id", "paco"], [3, "src", "error"], ["class", "ngx_img_upload", "ngProjectAs", "ngx-dropzone-preview", 5, ["ngx-dropzone-preview"], 3, "file", "removable", "removed", 4, "ngFor", "ngForOf"], [1, "col-sm-4"], ["id", "dish"], ["id", "dish_text"], ["id", "dishImg"], [1, "col-md-12"], [1, "form-group", "text-center"], ["uiSref", "result", "id", "next", "type", "submit", 1, "btn", "btn-raised", "btn-info", 2, "background", "#34a6bf", "color", "#fff"], [1, "alert", "alert-danger"], [4, "ngIf"], ["ngProjectAs", "ngx-dropzone-preview", 5, ["ngx-dropzone-preview"], 1, "ngx_img_upload", 3, "file", "removable", "removed"], [1, "ngx_lbl"]], template: function PersonalComponent_Template(rf, ctx) { if (rf & 1) {
+PersonalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: PersonalComponent, selectors: [["mt-wizard-personal"]], inputs: { tempFileData: "tempFileData" }, decls: 49, vars: 9, consts: [[3, "formGroup", "ngSubmit"], ["personalForm", "ngForm"], [1, "tab-pane", "active"], [1, "font-medium-2", "text-center"], [1, "row"], [1, "col-sm-3"], [1, "text-center"], ["src", "/assets/images/vendor.png", "height", "190"], [1, "col-sm-9"], [1, "col-12"], [1, "form-group", "col-8", "offset-2", "mt-4"], ["for", "name"], ["type", "text", "id", "name", "formControlName", "name", "placeholder", "ex. Miso Soupy", 1, "form-control"], ["class", "alert alert-danger", 4, "ngIf"], [1, "col-sm-4", "offset-sm-2"], [1, "form-group"], ["id", "logo"], ["ngx-dropzone", "", 1, "custom-dropzone", 3, "accept", "change"], ["id", "logo_text"], [2, "color", "#888"], ["id", "paco"], ["width", "100", "height", "100", 2, "vertical-align", "middle", "margin", "0px 0px", 3, "src", "error"], ["class", "ngx_img_upload", "ngProjectAs", "ngx-dropzone-preview", 5, ["ngx-dropzone-preview"], 3, "file", "removable", "removed", 4, "ngFor", "ngForOf"], [1, "col-sm-4"], ["id", "dish"], ["id", "dish_text"], ["id", "dishImg"], [1, "col-md-12"], [1, "form-group", "text-center"], ["uiSref", "result", "id", "next", "type", "submit", 1, "btn", "btn-raised", "btn-info", 2, "background", "#34a6bf", "color", "#fff"], [1, "alert", "alert-danger"], [4, "ngIf"], ["ngProjectAs", "ngx-dropzone-preview", 5, ["ngx-dropzone-preview"], 1, "ngx_img_upload", 3, "file", "removable", "removed"], [1, "ngx_lbl"]], template: function PersonalComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "form", 0, 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngSubmit", function PersonalComponent_Template_form_ngSubmit_0_listener() { return ctx.onSubmit(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "div", 2);
@@ -47414,7 +47544,7 @@ PersonalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("src", ctx.vndr_dish, _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsanitizeUrl"]);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngForOf", ctx.feathuredfiles);
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgIf"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_10__["NgxDropzoneComponent"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_10__["ɵb"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgForOf"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_10__["NgxDropzoneImagePreviewComponent"]], styles: ["#paco[_ngcontent-%COMP%] {\n  position: relative;\n  -webkit-filter: blur(1.5px);\n  filter: blur(1.5px);\n}\n\n#paco[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: auto;\n  \n}\n\n#dishImg[_ngcontent-%COMP%] {\n  position: relative;\n  -webkit-filter: blur(1px);\n  filter: blur(1px);\n}\n\n#logo[_ngcontent-%COMP%] {\n  font-size: 2rem;\n  text-align: center;\n}\n\nngx-dropzone-label[_ngcontent-%COMP%] {\n  margin: 2px auto !important;\n}\n\n.ngx_img_upload[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  z-index: 9999;\n  opacity: 1;\n}\n\n.ngx_lbl[_ngcontent-%COMP%] {\n  display: block;\n  visibility: hidden;\n}\n\n#err[_ngcontent-%COMP%] {\n  position: relative;\n  top: -160x;\n}\n\n#dish[_ngcontent-%COMP%] {\n  text-align: center;\n  font-size: 2rem;\n}\n\n#dish_text[_ngcontent-%COMP%] {\n  position: relative;\n  top: -10px;\n}\n\n#logo_text[_ngcontent-%COMP%] {\n  position: relative;\n  top: -5px;\n}\n\n#logo_text[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  font-size: 14px;\n  line-height: 22px;\n  margin: 0;\n}\n\n#dish_text[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  font-size: 14px;\n  line-height: 22px;\n  margin: 0;\n}\n\n.h2[_ngcontent-%COMP%] {\n  position: relative;\n  left: 302px;\n  top: -25px;\n}\n\n.h3[_ngcontent-%COMP%] {\n  position: relative;\n  right: 372px;\n}\n\n.custom-dropzone[_ngcontent-%COMP%] {\n  position: relative;\n  height: auto;\n  color: #464343;\n  font-size: 20px;\n  padding: 10px;\n  height: 154px;\n  overflow: hidden;\n}\n\n#dishImg[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: auto;\n  \n}\n\n#logo[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], #dish[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 18px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmlqZXNoc2hhaC9Eb2N1bWVudHMvR2l0SHViL1NGRVpfYmFja29mZmljZS9zcmMvYXBwL2Zvcm0vbmd4LXdpemFyZC9wZXJzb25hbC9wZXJzb25hbC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZm9ybS9uZ3gtd2l6YXJkL3BlcnNvbmFsL3BlcnNvbmFsLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksa0JBQWtCO0VBQ2xCLDJCQUEyQjtFQUMzQixtQkFBbUI7QUNDdkI7O0FEQ0E7RUFDSSxXQUFXO0VBQ1gsaUJBQUE7QUNFSjs7QURBQTtFQUNJLGtCQUFrQjtFQUNsQix5QkFBeUI7RUFDekIsaUJBQWlCO0FDR3JCOztBRERBO0VBQ0ksZUFBZTtFQUNmLGtCQUFrQjtBQ0l0Qjs7QURGQTtFQUNJLDJCQUEyQjtBQ0svQjs7QURDQTtFQUNJLGFBQWE7RUFDYixVQUFVO0FDRWQ7O0FEQUE7RUFDSSxjQUFjO0VBQ2Qsa0JBQWtCO0FDR3RCOztBRERBO0VBQ0ksa0JBQWtCO0VBQ2xCLFVBQVU7QUNJZDs7QURGQTtFQUNJLGtCQUFrQjtFQUNsQixlQUFlO0FDS25COztBREhBO0VBQ0ksa0JBQWtCO0VBQ2xCLFVBQVU7QUNNZDs7QURKQTtFQUNJLGtCQUFrQjtFQUNsQixTQUFTO0FDT2I7O0FETEE7RUFDSSxlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLFNBQVM7QUNRYjs7QUROQTtFQUNJLGVBQWU7RUFDZixpQkFBaUI7RUFDakIsU0FBUztBQ1NiOztBRFBBO0VBQ0ksa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxVQUFVO0FDVWQ7O0FEUkE7RUFDSSxrQkFBa0I7RUFDbEIsWUFBWTtBQ1doQjs7QURSQTtFQUNJLGtCQUFrQjtFQUNyQixZQUFZO0VBQ1osY0FBc0I7RUFHbkIsZUFBZTtFQUNmLGFBQWE7RUFDYixhQUFhO0VBQ2IsZ0JBQWdCO0FDU3BCOztBRFBBO0VBQ0ksV0FBVztFQUNYLGlCQUFBO0FDVUo7O0FEUEE7RUFDSSxlQUFlO0FDVW5CIiwiZmlsZSI6InNyYy9hcHAvZm9ybS9uZ3gtd2l6YXJkL3BlcnNvbmFsL3BlcnNvbmFsLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI3BhY297XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIC13ZWJraXQtZmlsdGVyOiBibHVyKDEuNXB4KTsgXG4gICAgZmlsdGVyOiBibHVyKDEuNXB4KTtcbn1cbiNwYWNvIGltZyB7XG4gICAgd2lkdGg6IGF1dG87XG4gICAgLypoZWlnaHQ6IDEwMHB4OyovXG59XG4jZGlzaEltZ3tcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgLXdlYmtpdC1maWx0ZXI6IGJsdXIoMXB4KTsgXG4gICAgZmlsdGVyOiBibHVyKDFweCk7XG59XG4jbG9nbyB7XG4gICAgZm9udC1zaXplOiAycmVtO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbm5neC1kcm9wem9uZS1sYWJlbCB7XG4gICAgbWFyZ2luOiAycHggYXV0byAhaW1wb3J0YW50O1xufVxuLy8gbmd4LWRyb3B6b25lLWxhYmVsIHtcbi8vICAgICAvLyB2aXNpYmlsaXR5OiBoaWRkZW47XG4vLyAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuLy8gfVxuLm5neF9pbWdfdXBsb2FkIGltZyB7XG4gICAgei1pbmRleDogOTk5OTtcbiAgICBvcGFjaXR5OiAxO1xufVxuLm5neF9sYmwge1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHZpc2liaWxpdHk6IGhpZGRlbjtcbn1cbiNlcnJ7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIHRvcDogLTE2MHg7XG59XG4jZGlzaCB7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIGZvbnQtc2l6ZTogMnJlbTtcbn1cbiNkaXNoX3RleHQge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB0b3A6IC0xMHB4O1xufVxuI2xvZ29fdGV4dCB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIHRvcDogLTVweDtcbn1cbiNsb2dvX3RleHQgaDMge1xuICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICBsaW5lLWhlaWdodDogMjJweDtcbiAgICBtYXJnaW46IDA7XG59XG4jZGlzaF90ZXh0IGgzIHtcbiAgICBmb250LXNpemU6IDE0cHg7XG4gICAgbGluZS1oZWlnaHQ6IDIycHg7XG4gICAgbWFyZ2luOiAwO1xufVxuLmgye1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBsZWZ0OiAzMDJweDtcbiAgICB0b3A6IC0yNXB4O1xufVxuLmgze1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICByaWdodDogMzcycHg7IFxufVxuXG4uY3VzdG9tLWRyb3B6b25lIHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG5cdGhlaWdodDogYXV0bztcblx0Y29sb3I6IHJnYig3MCwgNjcsIDY3KTtcblx0Ly8gYm9yZGVyOiA1cHggZGFzaGVkIHJnYigxOSwgMTUsIDE1KTtcblx0Ly8gYm9yZGVyLXJhZGl1czogNXB4O1xuICAgIGZvbnQtc2l6ZTogMjBweDtcbiAgICBwYWRkaW5nOiAxMHB4O1xuICAgIGhlaWdodDogMTU0cHg7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cbiNkaXNoSW1nIGltZyB7XG4gICAgd2lkdGg6IGF1dG87XG4gICAgLypoZWlnaHQ6IDEwMHB4OyovXG59XG5cbiNsb2dvIGgyLCAjZGlzaCBoMntcbiAgICBmb250LXNpemU6IDE4cHg7XG59IiwiI3BhY28ge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIC13ZWJraXQtZmlsdGVyOiBibHVyKDEuNXB4KTtcbiAgZmlsdGVyOiBibHVyKDEuNXB4KTtcbn1cblxuI3BhY28gaW1nIHtcbiAgd2lkdGg6IGF1dG87XG4gIC8qaGVpZ2h0OiAxMDBweDsqL1xufVxuXG4jZGlzaEltZyB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgLXdlYmtpdC1maWx0ZXI6IGJsdXIoMXB4KTtcbiAgZmlsdGVyOiBibHVyKDFweCk7XG59XG5cbiNsb2dvIHtcbiAgZm9udC1zaXplOiAycmVtO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbm5neC1kcm9wem9uZS1sYWJlbCB7XG4gIG1hcmdpbjogMnB4IGF1dG8gIWltcG9ydGFudDtcbn1cblxuLm5neF9pbWdfdXBsb2FkIGltZyB7XG4gIHotaW5kZXg6IDk5OTk7XG4gIG9wYWNpdHk6IDE7XG59XG5cbi5uZ3hfbGJsIHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcbn1cblxuI2VyciB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdG9wOiAtMTYweDtcbn1cblxuI2Rpc2gge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGZvbnQtc2l6ZTogMnJlbTtcbn1cblxuI2Rpc2hfdGV4dCB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdG9wOiAtMTBweDtcbn1cblxuI2xvZ29fdGV4dCB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdG9wOiAtNXB4O1xufVxuXG4jbG9nb190ZXh0IGgzIHtcbiAgZm9udC1zaXplOiAxNHB4O1xuICBsaW5lLWhlaWdodDogMjJweDtcbiAgbWFyZ2luOiAwO1xufVxuXG4jZGlzaF90ZXh0IGgzIHtcbiAgZm9udC1zaXplOiAxNHB4O1xuICBsaW5lLWhlaWdodDogMjJweDtcbiAgbWFyZ2luOiAwO1xufVxuXG4uaDIge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGxlZnQ6IDMwMnB4O1xuICB0b3A6IC0yNXB4O1xufVxuXG4uaDMge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHJpZ2h0OiAzNzJweDtcbn1cblxuLmN1c3RvbS1kcm9wem9uZSB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgaGVpZ2h0OiBhdXRvO1xuICBjb2xvcjogIzQ2NDM0MztcbiAgZm9udC1zaXplOiAyMHB4O1xuICBwYWRkaW5nOiAxMHB4O1xuICBoZWlnaHQ6IDE1NHB4O1xuICBvdmVyZmxvdzogaGlkZGVuO1xufVxuXG4jZGlzaEltZyBpbWcge1xuICB3aWR0aDogYXV0bztcbiAgLypoZWlnaHQ6IDEwMHB4OyovXG59XG5cbiNsb2dvIGgyLCAjZGlzaCBoMiB7XG4gIGZvbnQtc2l6ZTogMThweDtcbn1cbiJdfQ== */"] });
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgIf"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_10__["NgxDropzoneComponent"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_10__["ɵb"], _angular_common__WEBPACK_IMPORTED_MODULE_9__["NgForOf"], ngx_dropzone__WEBPACK_IMPORTED_MODULE_10__["NgxDropzoneImagePreviewComponent"]], styles: ["#paco[_ngcontent-%COMP%] {\n  position: relative;\n  -webkit-filter: blur(0.5px);\n  filter: blur(0.5px);\n}\n\n#paco[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: auto;\n  \n}\n\n#dishImg[_ngcontent-%COMP%] {\n  position: relative;\n  -webkit-filter: blur(0.5px);\n  filter: blur(0.5px);\n}\n\n#logo[_ngcontent-%COMP%] {\n  font-size: 2rem;\n  text-align: center;\n}\n\nngx-dropzone-label[_ngcontent-%COMP%] {\n  margin: 2px auto !important;\n}\n\n.ngx_img_upload[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  z-index: 9999;\n  opacity: 1;\n}\n\n.ngx_lbl[_ngcontent-%COMP%] {\n  display: block;\n  visibility: hidden;\n}\n\n#err[_ngcontent-%COMP%] {\n  position: relative;\n  top: -160x;\n}\n\n#dish[_ngcontent-%COMP%] {\n  text-align: center;\n  font-size: 2rem;\n}\n\n#dish_text[_ngcontent-%COMP%] {\n  position: relative;\n  top: -10px;\n}\n\n#logo_text[_ngcontent-%COMP%] {\n  position: relative;\n  top: -5px;\n}\n\n#logo_text[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  font-size: 14px;\n  line-height: 22px;\n  margin: 0;\n}\n\n#dish_text[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  font-size: 14px;\n  line-height: 22px;\n  margin: 0;\n}\n\n.h2[_ngcontent-%COMP%] {\n  position: relative;\n  left: 302px;\n  top: -25px;\n}\n\n.h3[_ngcontent-%COMP%] {\n  position: relative;\n  right: 372px;\n}\n\n.custom-dropzone[_ngcontent-%COMP%] {\n  position: relative;\n  height: auto;\n  color: #464343;\n  font-size: 20px;\n  padding: 10px;\n  height: 154px;\n  overflow: hidden;\n}\n\n#dishImg[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  width: auto;\n  \n}\n\n#logo[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%], #dish[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 18px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmlqZXNoc2hhaC9Eb2N1bWVudHMvR2l0SHViL1NGRVpfYmFja29mZmljZS9zcmMvYXBwL2Zvcm0vbmd4LXdpemFyZC9wZXJzb25hbC9wZXJzb25hbC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZm9ybS9uZ3gtd2l6YXJkL3BlcnNvbmFsL3BlcnNvbmFsLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksa0JBQWtCO0VBQ2xCLDJCQUEyQjtFQUMzQixtQkFBbUI7QUNDdkI7O0FEQ0E7RUFDSSxXQUFXO0VBQ1gsaUJBQUE7QUNFSjs7QURBQTtFQUNJLGtCQUFrQjtFQUNsQiwyQkFBMkI7RUFDM0IsbUJBQW1CO0FDR3ZCOztBRERBO0VBQ0ksZUFBZTtFQUNmLGtCQUFrQjtBQ0l0Qjs7QURGQTtFQUNJLDJCQUEyQjtBQ0svQjs7QURDQTtFQUNJLGFBQWE7RUFDYixVQUFVO0FDRWQ7O0FEQUE7RUFDSSxjQUFjO0VBQ2Qsa0JBQWtCO0FDR3RCOztBRERBO0VBQ0ksa0JBQWtCO0VBQ2xCLFVBQVU7QUNJZDs7QURGQTtFQUNJLGtCQUFrQjtFQUNsQixlQUFlO0FDS25COztBREhBO0VBQ0ksa0JBQWtCO0VBQ2xCLFVBQVU7QUNNZDs7QURKQTtFQUNJLGtCQUFrQjtFQUNsQixTQUFTO0FDT2I7O0FETEE7RUFDSSxlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLFNBQVM7QUNRYjs7QUROQTtFQUNJLGVBQWU7RUFDZixpQkFBaUI7RUFDakIsU0FBUztBQ1NiOztBRFBBO0VBQ0ksa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxVQUFVO0FDVWQ7O0FEUkE7RUFDSSxrQkFBa0I7RUFDbEIsWUFBWTtBQ1doQjs7QURSQTtFQUNJLGtCQUFrQjtFQUNyQixZQUFZO0VBQ1osY0FBc0I7RUFHbkIsZUFBZTtFQUNmLGFBQWE7RUFDYixhQUFhO0VBQ2IsZ0JBQWdCO0FDU3BCOztBRFBBO0VBQ0ksV0FBVztFQUNYLGlCQUFBO0FDVUo7O0FEUEE7RUFDSSxlQUFlO0FDVW5CIiwiZmlsZSI6InNyYy9hcHAvZm9ybS9uZ3gtd2l6YXJkL3BlcnNvbmFsL3BlcnNvbmFsLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI3BhY297XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIC13ZWJraXQtZmlsdGVyOiBibHVyKDAuNXB4KTsgXG4gICAgZmlsdGVyOiBibHVyKDAuNXB4KTtcbn1cbiNwYWNvIGltZyB7XG4gICAgd2lkdGg6IGF1dG87XG4gICAgLypoZWlnaHQ6IDEwMHB4OyovXG59XG4jZGlzaEltZ3tcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgLXdlYmtpdC1maWx0ZXI6IGJsdXIoMC41cHgpOyBcbiAgICBmaWx0ZXI6IGJsdXIoMC41cHgpO1xufVxuI2xvZ28ge1xuICAgIGZvbnQtc2l6ZTogMnJlbTtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5uZ3gtZHJvcHpvbmUtbGFiZWwge1xuICAgIG1hcmdpbjogMnB4IGF1dG8gIWltcG9ydGFudDtcbn1cbi8vIG5neC1kcm9wem9uZS1sYWJlbCB7XG4vLyAgICAgLy8gdmlzaWJpbGl0eTogaGlkZGVuO1xuLy8gICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbi8vIH1cbi5uZ3hfaW1nX3VwbG9hZCBpbWcge1xuICAgIHotaW5kZXg6IDk5OTk7XG4gICAgb3BhY2l0eTogMTtcbn1cbi5uZ3hfbGJsIHtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICB2aXNpYmlsaXR5OiBoaWRkZW47XG59XG4jZXJye1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB0b3A6IC0xNjB4O1xufVxuI2Rpc2gge1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBmb250LXNpemU6IDJyZW07XG59XG4jZGlzaF90ZXh0IHtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgdG9wOiAtMTBweDtcbn1cbiNsb2dvX3RleHQge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB0b3A6IC01cHg7XG59XG4jbG9nb190ZXh0IGgzIHtcbiAgICBmb250LXNpemU6IDE0cHg7XG4gICAgbGluZS1oZWlnaHQ6IDIycHg7XG4gICAgbWFyZ2luOiAwO1xufVxuI2Rpc2hfdGV4dCBoMyB7XG4gICAgZm9udC1zaXplOiAxNHB4O1xuICAgIGxpbmUtaGVpZ2h0OiAyMnB4O1xuICAgIG1hcmdpbjogMDtcbn1cbi5oMntcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgbGVmdDogMzAycHg7XG4gICAgdG9wOiAtMjVweDtcbn1cbi5oM3tcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgcmlnaHQ6IDM3MnB4OyBcbn1cblxuLmN1c3RvbS1kcm9wem9uZSB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuXHRoZWlnaHQ6IGF1dG87XG5cdGNvbG9yOiByZ2IoNzAsIDY3LCA2Nyk7XG5cdC8vIGJvcmRlcjogNXB4IGRhc2hlZCByZ2IoMTksIDE1LCAxNSk7XG5cdC8vIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBmb250LXNpemU6IDIwcHg7XG4gICAgcGFkZGluZzogMTBweDtcbiAgICBoZWlnaHQ6IDE1NHB4O1xuICAgIG92ZXJmbG93OiBoaWRkZW47XG59XG4jZGlzaEltZyBpbWcge1xuICAgIHdpZHRoOiBhdXRvO1xuICAgIC8qaGVpZ2h0OiAxMDBweDsqL1xufVxuXG4jbG9nbyBoMiwgI2Rpc2ggaDJ7XG4gICAgZm9udC1zaXplOiAxOHB4O1xufSIsIiNwYWNvIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAtd2Via2l0LWZpbHRlcjogYmx1cigwLjVweCk7XG4gIGZpbHRlcjogYmx1cigwLjVweCk7XG59XG5cbiNwYWNvIGltZyB7XG4gIHdpZHRoOiBhdXRvO1xuICAvKmhlaWdodDogMTAwcHg7Ki9cbn1cblxuI2Rpc2hJbWcge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIC13ZWJraXQtZmlsdGVyOiBibHVyKDAuNXB4KTtcbiAgZmlsdGVyOiBibHVyKDAuNXB4KTtcbn1cblxuI2xvZ28ge1xuICBmb250LXNpemU6IDJyZW07XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxubmd4LWRyb3B6b25lLWxhYmVsIHtcbiAgbWFyZ2luOiAycHggYXV0byAhaW1wb3J0YW50O1xufVxuXG4ubmd4X2ltZ191cGxvYWQgaW1nIHtcbiAgei1pbmRleDogOTk5OTtcbiAgb3BhY2l0eTogMTtcbn1cblxuLm5neF9sYmwge1xuICBkaXNwbGF5OiBibG9jaztcbiAgdmlzaWJpbGl0eTogaGlkZGVuO1xufVxuXG4jZXJyIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB0b3A6IC0xNjB4O1xufVxuXG4jZGlzaCB7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZm9udC1zaXplOiAycmVtO1xufVxuXG4jZGlzaF90ZXh0IHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB0b3A6IC0xMHB4O1xufVxuXG4jbG9nb190ZXh0IHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB0b3A6IC01cHg7XG59XG5cbiNsb2dvX3RleHQgaDMge1xuICBmb250LXNpemU6IDE0cHg7XG4gIGxpbmUtaGVpZ2h0OiAyMnB4O1xuICBtYXJnaW46IDA7XG59XG5cbiNkaXNoX3RleHQgaDMge1xuICBmb250LXNpemU6IDE0cHg7XG4gIGxpbmUtaGVpZ2h0OiAyMnB4O1xuICBtYXJnaW46IDA7XG59XG5cbi5oMiB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgbGVmdDogMzAycHg7XG4gIHRvcDogLTI1cHg7XG59XG5cbi5oMyB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgcmlnaHQ6IDM3MnB4O1xufVxuXG4uY3VzdG9tLWRyb3B6b25lIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBoZWlnaHQ6IGF1dG87XG4gIGNvbG9yOiAjNDY0MzQzO1xuICBmb250LXNpemU6IDIwcHg7XG4gIHBhZGRpbmc6IDEwcHg7XG4gIGhlaWdodDogMTU0cHg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbiNkaXNoSW1nIGltZyB7XG4gIHdpZHRoOiBhdXRvO1xuICAvKmhlaWdodDogMTAwcHg7Ki9cbn1cblxuI2xvZ28gaDIsICNkaXNoIGgyIHtcbiAgZm9udC1zaXplOiAxOHB4O1xufVxuIl19 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵsetClassMetadata"](PersonalComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"],
         args: [{
