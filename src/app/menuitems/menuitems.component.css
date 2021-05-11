@@ -1,4 +1,4 @@
-*, html, body {
+html, body {
     font-family: 'Poppins', sans-serif;
 }
 h1, h2, h3, h4, h5, h6 ,p {
@@ -52,7 +52,7 @@ p {
     font-weight: 700;
     padding: 0 !important;
     background: #ddd;
-    margin: 0 2.5rem;
+    margin: 0 5.5rem;
     border-radius: 50px;
     opacity: 1 !important;
     min-width: auto !important;
@@ -108,7 +108,7 @@ p {
     margin-bottom: 2.5rem;
 }
 .icon_card img {
-    width: 100%;
+    /* width: 100%; */
     border: 1px solid #2196f3;
     border-radius: 10px;
     padding: 1.4rem;
@@ -216,7 +216,7 @@ p {
     margin-right: 1rem;
 }
 .step_three_right img {
-    width: 70px;
+    width: 55px;
     margin-bottom: 1rem;
 }
 .step_three_right li p {
@@ -225,7 +225,7 @@ p {
 }
 .sync_btn {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 4rem;
 }
 .sync_btn button {
     background: #eee;
@@ -310,6 +310,10 @@ p {
 }
 /***** Step Six CSS *******/
 
+.menu-item-list h4, .menu-item-list h5 {
+    font-size: 12px !important;
+}
+
 /******* IPAD Pro Media Query **********/
 
 @media only screen and (min-width: 1024px)and (max-width: 1365px)  {
@@ -389,3 +393,8 @@ p {
     }
 }
 /******* Mobile Media Query **********/
+
+.image-fix-height{
+    max-height: 82px;
+    overflow: hidden;
+}

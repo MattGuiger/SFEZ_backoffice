@@ -8,6 +8,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { Options } from 'ng5-slider';
 import { isNgTemplate } from '@angular/compiler';
 import { async } from '@angular/core/testing';
+import { coreDirectives } from '@agm/core/core.module';
 
 
 declare var require: any;
@@ -27,6 +28,7 @@ export class FoodpckmgrorderComponent {
   drivers: any[] = [];
   unitForm: FormGroup;
   loadingIndicator = true;
+ 
   reorderable = true;
   closeResult: string;
   columns = [{ prop: 'name' }, { name: 'Type' }, { name: 'Username' }];
@@ -54,9 +56,10 @@ export class FoodpckmgrorderComponent {
   };
   
   orderDetails:any[] = [];
+  company_id: any;
   rowWiseData:any[] = [];
   loadingData:boolean = true;
-
+  data = "";
   dailyPayoutData:any[] = [];
   codBalance:any;
 
@@ -111,6 +114,7 @@ export class FoodpckmgrorderComponent {
 
   //@ViewChild(FoodpckmgrorderComponent, { static: false }) table: FoodpckmgrorderComponent;
   @ViewChild('table') table: any; 
+  tab: any;
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService
     , private _CommonFunctionsService: CommonFunctionsService,
@@ -120,18 +124,65 @@ export class FoodpckmgrorderComponent {
     this.getAllOrder();
     this.getDailyPayout();
     this.foodParkUnits(); 
+    
     //this.getCurrentDate();
       
   }
   /** Get Daily Payout */
   getDailyPayout(){
     let totalBalance = 0;
-    this._ProfileService.getDailyPayoutList().subscribe(
+    // const tempCompany_id = 11247
+    const tempDate = {
+      date:""
+    }
+    this._ProfileService.getDailyPayout(11247, tempDate).subscribe(
+      // this._ProfileService.getDailyPayoutLists(this.company_id, this.data).subscribe(
       (res:any) => {
-        this.dailyPayoutData = res.data;
-        res.data.forEach(function(val){
-          totalBalance = totalBalance+(val.amount-val.deduction);
-        });
+        this.tab = res.data
+        console.log("tabbb",this.tab)
+       var payoutContainer=[]
+   
+       this.tab.forEach(function(resp){
+         //console.log("resppp",resp.data.cod)
+         if (resp.data.cod){
+         payoutContainer.push(resp.data.cod)
+        
+        }
+        if(resp.data.online){
+          payoutContainer.push(resp.data.online)
+        }
+        // this.dailyPayoutData = resp.data.cod
+        //  resp.data.forEach(function(response){
+        //   this.dailyPayoutData = response.cod
+        //  })
+        
+       })
+       this.dailyPayoutData =payoutContainer
+       console.log("hhhh",this.dailyPayoutData)
+        // this.dailyPayoutData = res.data;
+        // res.data.forEach(function(response){
+        //  // console.log("lets see",response.data)
+        //   if(response.data.cod){
+        //     console.log("cod here")
+        //     response.data.cod.forEach(function(resp){
+        //     payoutContainer.push(resp)
+        //     console.log("value in cod", payoutContainer)
+        //   })
+        // }
+        //   if(response.data.online){
+        //     console.log("online here")
+        //     response.data.online.forEach(function(resp){
+        //       payoutContainer.push(resp)
+        //     console.log("value in online",payoutContainer)
+        //     })
+        //   }
+        // })
+        this.dailyPayoutData = payoutContainer;
+        console.log("overall value",payoutContainer)
+        console.log("Now this is payout data",this.dailyPayoutData)
+        // res.data[0].data.forEach(function(val){
+        //   totalBalance = totalBalance+(val.amount-val.deduction);
+        // });
         this.codBalance = totalBalance;
       },
       (error:any) => {
@@ -140,16 +191,31 @@ export class FoodpckmgrorderComponent {
     );
   }
 
+  // getDailyPayout(){
+  //   let totalBalance = 0;
+  //   this._ProfileService.getDailyPayoutList().subscribe(
+  //     (res:any) => {
+  //       this.dailyPayoutData = res.data;
+  //       console.log("Hey here is daily payout data",this.dailyPayoutData)
+  //       // res.data.forEach(function(val){
+  //       //   totalBalance = totalBalance+(val.amount-val.deduction);
+  //       // });
+  //       // this.codBalance = totalBalance;
+  //     },
+  //     (error:any) => {
+  //       console.log(error)
+  //     }
+  //   );
+  // }
   getAllDrivers(foodParkId) {
     this._ProfileService.getAllDrivers(foodParkId).subscribe((res: any) => {
       this.drivers = res.data;
     })
   }
-
   getAllOrder() {
     this.user = this._CommonFunctionsService.checkUser().user;
     this.getAllDrivers(this.user.food_park_id);
-    this._ProfileService.getallfoodparkmgrorder(this.user.id).subscribe((res: any) => {
+    this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id).subscribe((res: any) => {
       this.orders = res.data;
       this.temp = this.orders;
       this.rows = this.orders;
@@ -207,17 +273,27 @@ export class FoodpckmgrorderComponent {
   }
 
   orderAction(event, row){
-    console.log(row.order_detail.id);
-    this._ProfileService.voidOrder(row.order_detail.id).subscribe(
-      (voidResponse) => {
-        console.log(voidResponse);
-        this.toastr.success("Order removed successfully");
-        this.getAllOrder();
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
+    console.log(event.target.value,row.order_detail.id);
+    if(event.target.value=='Refund'){
+this._ProfileService.refundAmountToCustomer(row.id).subscribe(res=>{
+  this.toastr.success("Refund Amount");
+
+})
+    }else if(event.target.value=='Void'){
+      this._ProfileService.voidOrder(row.order_detail.id).subscribe(
+        (voidResponse) => {
+          console.log(voidResponse);
+          this.toastr.success("Order removed successfully");
+          this.getAllOrder();
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    } else if(event.target.value=='Delete'){
+
+    }
+ 
   }
 
   /** Filter by moltin id, company name, delivery address and customer name*/

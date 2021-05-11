@@ -1,153 +1,49 @@
-
-<form #workForm="ngForm" [formGroup]="workFormData"  (ngSubmit)="onSubmit()">
-    <div >
+<form #workForm="ngForm" [formGroup]="workFormData" (ngSubmit)="onSubmit()">
+    <div>
         <div class="tab-pane active">
             <h4 class="head text-center">{{title}}</h4>
-            <br/>
-            
             <div class="text-center">
-                <img src="/assets/images/type.png" style="height: 280px;"/>
+                <img src="/assets/images/type.png" style="height: 280px;" />
             </div>
-           
+
             <div class="form-group col-4 offset-4 mt-4">
-                
-                <!-- <select class="form-control" id="exampleFormControlSelect1">
-                    <option>RESTAURANT</option>
-                    <option>CAFÉ</option>
-                    <option>BEER</option>
-                    <option>WINE</option>
-                    <option>FOOD TRUCK</option>
-                    <option>PIZZA</option>
-                    <option>FARMER</option>
-                    <option>CHEF</option>
-                    <option>GHOST KITCHEN</option>
-                </select> -->
-                <label for="name">Unit Name</label>
-                <input type="text" class="form-control" id="name" formControlName="name" readonly>
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" formControlName="username" >
-                  <div *ngIf="workFormData.get('username').touched && workFormData.get('username').invalid" class="alert alert-danger">
-                                  <div  *ngIf=" workFormData.get('username').errors.required ">
-                                    Username is Required
-                                </div>
-                                 
-                               </div>
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" formControlName="password" >
-                <div *ngIf="workFormData.get('password').touched && workFormData.get('password').invalid" class="alert alert-danger">
-                    <div  *ngIf=" workFormData.get('password').errors.required ">
-                      Password is Required
-                  </div>
-                   
-                 </div>
-                <label for="workType">Select Type</label>
-                <mat-form-field appearance="fill">
-                    <mat-label>Type</mat-label>
+                <label for="type"></label>
+                <mat-form-field>
+                    <mat-label>Select type</mat-label>
                     <mat-select matNativeControl required formControlName="type">
-                      <mat-option value="RESTAURANT">RESTAURANT <img src="../../../../assets/images/icon-500-bar-restaurant.png"></mat-option>
-                      <mat-option value="CAFE">CAFÉ <img src="../../../../assets/images/icon-500-cafe.png"></mat-option>
-                      <mat-option value="BEER">BEER <img src="../../../../assets/images/icon-500-beer.png"></mat-option>
-                      <mat-option value="WINE">WINE <img src="../../../../assets/images/icon-500-wine.png"></mat-option>
-                      <mat-option value="TRUCK">FOOD TRUCK <img src="../../../../assets/images/icon-500-food-truck.png"></mat-option>
-                      <mat-option value="PIZZA">PIZZA <img src="../../../../assets/images/icon"></mat-option>
-                      <mat-option value="FARMER">FARMER <img src="../assets/img/google-drive@1x.png"></mat-option>
-                      <mat-option value="CHEF">CHEF <img src="../../../../assets/images/pizza.svg"></mat-option>
-                      <mat-option value="GHOST_KITCHEN">GHOST KITCHEN <img src="../../../../assets/images/Ghost-Kitchen.png"></mat-option>
-  
+                        <mat-option value="RESTAURANT">RESTAURANT <img src="/assets/images/icon-500-restaurant.png"
+                                style="width: 20px;margin-left: 10px"></mat-option>
+                        <mat-option value="CAFE">CAFÉ <img src="/assets/images/icon-500-cafe.png"
+                                style="width: 20px;margin-left: 10px"></mat-option>
+                        <mat-option value="BEER">BEER <img src="/assets/images/icon-500-beer.png"
+                                style="width: 20px;margin-left: 10px"></mat-option>
+                        <mat-option value="WINE">WINE <img src="/assets/images/icon-500-wine.png"
+                                style="width: 20px;margin-left: 10px"></mat-option>
+                        <mat-option value="TRUCK">FOOD TRUCK <img src="/assets/images/icon-500-food-truck.png"
+                                style="width: 20px;margin-left: 10px"></mat-option>
+                        <mat-option value="PIZZA">PIZZA <img src="/assets/images/pizza.svg"
+                                style="width: 20px;margin-left: 10px"></mat-option>
+                        <mat-option value="FARMERS">FARMER <img src="/assets/images/farmer.png"
+                                style="width: 20px;margin-left: 10px"></mat-option>
+                        <mat-option value="CHEF">CHEF <img src="/assets/images/chef.png"
+                                style="width: 20px;margin-left: 10px"></mat-option>
+                        <mat-option value="GHOST_KITCHEN">GHOST KITCHEN <img src="/assets/images/Ghost-Kitchen.png"
+                                style="width: 20px;margin-left: 10px"></mat-option>
                     </mat-select>
-                  </mat-form-field>
-                  
-                  <div *ngIf="workFormData.get('type').touched && workFormData.get('type').invalid" class="alert alert-danger">
-                    <div  *ngIf=" workFormData.get('type').errors.required ">
-                      Type is Required
-                  </div>
-                   
-                 </div>  
+                </mat-form-field>
+                <div *ngIf="workFormData.get('type').touched && workFormData.get('type').invalid"
+                    class="alert alert-danger">
+                    <div *ngIf=" workFormData.get('type').errors.required ">
+                        Type is Required
+                    </div>
+                </div>
             </div>
             <div class="col-md-12 text-center">
-
-            <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1 mt-3" (click)="cancel()"> Previous</button>
-                <!-- <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button> -->
-
-                <button uiSref="address" type="submit" [disabled]="workFormData.invalid" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" > Next </button>
+                <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1 mt-3"
+                    (click)="cancel()"> Previous</button>
+                <button uiSref="address" type="submit" class="btn btn-raised btn-info mt-3"
+                    style="background: #34a6bf;color:#fff;"> Next </button>
             </div>
         </div>
     </div>
 </form>
-
-
-
-<!-- <form #workForm="ngForm" class="editForm" novalidate>
-    <div >
-        <div class="tab-pane active">
-            <h4 class="head text-center">{{title}}</h4>
-            <br/>
-            <div class="row">
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="google_api_key">Google Api Key</label>  
-                        <input class="form-control input-md" #googleapikey="ngModel" required id="google_api_key" name="google_api_key" type="text"  [(ngModel)]="google_api_key">   
-                    </div>
-                </div>
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="google_sheet_url">Google Sheet URL</label>  
-                        <input class="form-control input-md" #googlesheeturl="ngModel" required id="google_sheet_url" name="google_sheet_url" type="text"  [(ngModel)]="google_sheet_url">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="google_sheet_tab_name">Google Api Key</label>  
-                        <input class="form-control input-md" #googlsheettabname="ngModel" required id="google_sheet_tab_name" name="google_sheet_tab_name" type="text"  [(ngModel)]="google_sheet_tab_name">   
-                    </div>
-                </div>
-            </div>
-            <div class="form-group text-center space-20">
-                <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1" (click)="cancel()"> Previous</button>
-                <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button>
-            </div>
-        </div>
-    </div>
-</form> -->
-
-
-
-<!-- <form #workForm="ngForm" class="editForm" novalidate>
-    <div >
-        <div class="tab-pane active">
-            <h4 class="head text-center">{{title}}</h4>
-            <br/>
-            <div class="row">
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="google_api_key">Google Api Key</label>  
-                        <input class="form-control input-md" #googleapikey="ngModel" required id="google_api_key" name="google_api_key" type="text"  [(ngModel)]="google_api_key">   
-                        <small class="form-text text-muted danger" *ngIf="!google_api_key.valid && (google_api_key.dirty || google_api_key.touched)">This field is required!</small>
-                    </div>
-                </div>
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="google_sheet_url">Google Sheet URL</label>  
-                        <input class="form-control input-md" #googlesheeturl="ngModel" required id="google_sheet_url" name="google_sheet_url" type="text"  [(ngModel)]="google_sheet_url">
-                        <small class="form-text text-muted danger" *ngIf="!google_sheet_url.valid && (google_sheet_url.dirty || google_sheet_url.touched)">This field is required!</small>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="google_sheet_tab_name">Google Api Key</label>  
-                        <input class="form-control input-md" #googlsheettabname="ngModel" required id="google_sheet_tab_name" name="google_sheet_tab_name" type="text"  [(ngModel)]="google_sheet_tab_name">   
-                        <small class="form-text text-muted danger" *ngIf="!google_sheet_tab_name.valid && (google_sheet_tab_name.dirty || google_sheet_tab_name.touched)">This field is required!</small>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group text-center space-20">
-                <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1" (click)="cancel()"> Previous</button>
-                <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button>
-            </div>
-        </div>
-    </div>
-</form> -->

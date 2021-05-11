@@ -3,6 +3,63 @@
     padding: 20px;
 }
 .ButtonState{display:none}
-.Button{padding:3px; margin:4px; background:#CCC; border:1px solid #333; cursor:pointer;}
+.Button{
+  padding: 5px 10px;
+  margin: 4px;
+  background: #909090;
+  border: 1px solid #fff;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 2px;
+  font-weight: 600;
+}
 .ButtonState:checked + .Button{background: rgb(57, 175, 230);}
+.btn-fb{color: white; background-color: rgb(57, 175, 230);}
 
+#telegramImg{
+  width: 100%;
+  margin: 1rem 0;
+}
+.show{
+  background-color: cadetblue;
+}
+::ng-deep .tooltip-inner {
+  // white-space:pre;
+  // background-color: rgb(57, 175, 230);
+}
+img:hover {
+  cursor: pointer;
+}
+.custom_tip {
+  position: absolute;
+    width: 360px;
+    padding: 10px;
+    right: -375px;
+    top: 15px;
+    background: #20252a;
+    text-align: left;
+    border-radius: 3px;
+    color: #fff;
+    pointer-events: none;
+    display: none;
+}
+.custom_tip p {
+  margin: 0;
+}
+.hovered_tip:hover .custom_tip {
+  display: block;
+}
+.custom_tip:before {
+  content: '';
+  width: 0;
+    position: absolute;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #20252a;
+    left: -8px;
+    top: 25px;
+}
+label {
+  font-size: 16px;
+}
