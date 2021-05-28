@@ -31,7 +31,7 @@ export class ProfileService {
   private setDriverManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/setfooddrivertohub';
   private addDriverURL = config.getEnvironmentVariable('endPoint') + 'auth/register';
   private userInfo = config.getEnvironmentVariable('endPoint') + 'auth/userinfoafterlogin';
-
+  private editManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/update-manager/'
   // private addDriverFoodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/foodparks/'; 
   private addDriverFoodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/';
   private companyURL = config.getEnvironmentVariable('endPoint') + 'api/v1/mol/companies';
@@ -41,7 +41,7 @@ export class ProfileService {
   private dailyPayoutURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/payout/dailypayoutsfororders';
   private getManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/getfoodparkmgrs';
   private getManagerOnTerritoryURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/managers';
-  //private greenMoneyURL = config.getEnvironmentVariable('endPoint') + 'api/v1/payment/green-money-generate-widget/';
+  private greenMoneyURL = config.getEnvironmentVariable('endPoint') + 'api/v1/payment/green-money-generate-widget/';
   private getUnitListURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/list-units';
   private addManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/create-manager';
   private assignManagersURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/assign-manager';
@@ -82,9 +82,9 @@ export class ProfileService {
 
   constructor(private http: HttpClient) { }
 
-  // greenMoneyPayment(data):Observable<any> {
-  //   return this.http.get(this.greenMoneyURL+data);
-  // }
+  greenMoneyPayment(data):Observable<any> {
+    return this.http.get(this.greenMoneyURL+data);
+  }
   getSingleTerritory(id): Observable<any> {
     return this.http.get(this.singleTerritoryUrl + id);
   }
@@ -195,6 +195,12 @@ export class ProfileService {
   addManagers(data): Observable<any> {
     return this.http.post(this.addManagersURL, data);
   }
+
+  editManagers(data,user_id): Observable<any>
+  {
+   return this.http.put(`${this.editManagersURL}${user_id}`,data)
+  }
+
   assignManager(data): Observable<any> {
     return this.http.put(this.assignManagersURL, data);
   }

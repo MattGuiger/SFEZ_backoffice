@@ -246,7 +246,7 @@
                                           <input matInput placeholder="Search" class="form-control">
                                         </mat-form-field>
                                         <div *ngFor="let addeditem of addedItems">
-                                          <mat-checkbox (change)="onChange1($event,addeditem)">{{addeditem}}
+                                          <mat-checkbox  (change)="onChange1($event,addeditem)">{{addeditem}}
                                           </mat-checkbox>
                                         </div>
                                       </div>
@@ -471,7 +471,7 @@
                           </div> -->
                         </div>
                       </mat-tab>
-                      <!-- <mat-tab *ngIf="showFourthTab" label="5">
+                      <mat-tab *ngIf="showFourthTab" label="5">
                         <div class="step_one padding_area">
                           <h2>Step 5</h2>
                         </div>
@@ -496,7 +496,7 @@
                           <br>
                           <br>
                         </div>
-                      </mat-tab> -->
+                      </mat-tab>
                     </mat-tab-group>
                   </div>
                 </section>

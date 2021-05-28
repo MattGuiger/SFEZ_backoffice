@@ -272,6 +272,8 @@ export class MenuitemsComponent implements OnInit {
     this._ProfileService.uploadImageTodrive(this.user.company_id, formData).subscribe(res => {
       this.ngxService.stop();
       this.authentication_url = res.data;
+      console.log(res.data,'uploadimages');
+      
       this.google_drive_url = res.data.drive_url;
 
       (this.tempMenuItem !== "") ? this.menuItemList.push(this.tempMenuItem) : "";
@@ -354,6 +356,8 @@ export class MenuitemsComponent implements OnInit {
       this.checkBool = true;
       this.isChecked += 1
       this.authentication_url = res.data
+      console.log(this.authentication_url,'authenticateurl');
+      
       //this.toastr.success('Google account verified please move to step 2')
     });
   }
@@ -483,6 +487,7 @@ export class MenuitemsComponent implements OnInit {
       if (dialogResult) {
         this._ProfileService.getGoogleAuthenication().subscribe(res => {
           this.authentication_url = res.data
+          console.log(this.authentication_url,'dialogrefclose')
         })
       }
     })

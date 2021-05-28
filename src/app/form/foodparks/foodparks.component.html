@@ -6,6 +6,7 @@
       <div class="card-body">
         <h4 class="card-title">Hub | Drivers Management</h4>
         <h6 class="card-subtitle">A Hubs listed here, and we can maname Drivers here also.</h6>
+        <button (click)="greenPay()">Green-pay</button>
         <ngb-tabset>
 
           <ngb-tab title="Delivery Hubs">
@@ -135,8 +136,7 @@
                           <img src="../../../assets/images/cash.png" alt="Icon" style="height: 36px;" />
                         </ng-template>
                         <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                          <!-- {{row.codIcon}}
-  -->
+                          <!-- {{row.codIcon}}-->
                           <div>
                             <label class="switch">
                               <input type="checkbox" [checked]=row.cash_on_delivery
@@ -277,11 +277,11 @@
                       {{row?.territory}}
                     </ng-template>
                   </ngx-datatable-column>
-                  <ngx-datatable-column name="Hub" prop="Hub" [width]="150">
+                  <!-- <ngx-datatable-column name="Hub" prop="Hub" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                       {{row?.number}}
                     </ng-template>
-                  </ngx-datatable-column>
+                  </ngx-datatable-column> -->
                   <ngx-datatable-column name="Manager" prop="Manager" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                       <select class="form-control" (change)="selectLocation($event,row,value)"
@@ -302,6 +302,9 @@
                           class="ti-pencil"></i></button> &nbsp;
                       <button type="button" class="btn btn-danger btn-sm" (click)="deleteLocation(row)"><i
                           class="ti-close"></i></button>
+                          &nbsp;
+                      <button type="button" class="btn btn-success btn-sm" ><i
+                            class="ti-plus"></i></button>     
                     </ng-template>
                   </ngx-datatable-column>
                 </ngx-datatable>
@@ -337,7 +340,7 @@
                       </div>
 
                       <div class="col-md-2">
-                        <button class="btn btn-success btn-raised" (click)="openManager(content3)">Create Manager
+                        <button class="btn btn-success btn-raised" (click)="openManager(content3,true)">Create Manager
                         </button>
                       </div>
                     </div>
@@ -407,7 +410,7 @@
 
                         <button type="button"
                           class="btn btn-sm btn-success btn-icon btn-pure btn-outline delete-row-btn"
-                          data-toggle="tooltip" data-original-title="View" (click)="viewManager($event,row,'edit')">
+                          data-toggle="tooltip" data-original-title="View"  (click)="openManager(Edititem,false,row)">
                           <i class="ti-pencil" aria-hidden="true"></i>
                         </button>&nbsp;&nbsp;
 
@@ -949,7 +952,7 @@
         </div>
       </div>
     </div>
-    <form [formGroup]="managerForm" (ngSubmit)="onManagerSubmit()">
+    <form [formGroup]="managerForm" (ngSubmit)="onManagerSubmit('1')">
       <div class="form-group">
 
         <!-- <div class="form-group" *ngIf="huborlocation; else showhub"> -->
@@ -1100,6 +1103,150 @@
   </div>
   <!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog> -->
 </ng-template>
+
+<ng-template #Edititem let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Edit Manager</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <div class="form-group row">
+        <label for="name" class="col-md-3 col-form-label">Select Hub Or Location</label>
+        <div class="col-md-9">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+            </div>
+            <select class="form-control" (change)="selectLocationOrHub($event)">
+              <option value="">Select</option>
+              <option *ngFor="let hub_location of selectArry"
+                value="{{hub_location.name}},{{hub_location.id}},{{hub_location.type}}">{{hub_location.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form [formGroup]="managerForm" (ngSubmit)="onManagerSubmit('2')">
+      <div class="form-group">
+
+        <div class="form-group">
+          <div class="form-group row">
+            <label for="first_name" class="col-md-3 col-form-label">First Name</label>
+            <div class="col-md-9">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
+                </div>
+                <input class="form-control" name="dp" type="text" formControlName="first_name">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-group row">
+            <label for="last_name" class="col-md-3 col-form-label">Last Name</label>
+            <div class="col-md-9">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
+                </div>
+                <input class="form-control" name="dp" type="text" formControlName="last_name">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-group row">
+            <label for="username" class="col-md-3 col-form-label">Email</label>
+            <div class="col-md-9">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                </div>
+                <input class="form-control" name="dp" type="text" formControlName="username">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-group row">
+            <label for="username" class="col-md-3 col-form-label">State</label>
+            <div class="col-md-9">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                </div>
+
+                <select class="form-control" (change)="getTerritory($event)" [(ngModel)]="state_id1"
+                  [ngModelOptions]="{standalone: true}">
+                  <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-group row">
+            <label for="username" class="col-md-3 col-form-label">Territory</label>
+            <div class="col-md-9">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text"><i class="fa fa-city" aria-hidden="true"></i></div>
+                </div>
+                <select formControlName="territory_id" [(ngModel)]="territory_id1" class="form-control"
+                  (change)="getLatLong($event)">
+                  <option *ngFor="let item of singleTerritory.territory" [ngValue]="item.id">{{item.city}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <label for="name">Last Name</label>
+        <div class="input-group">
+          <input id="name" class="form-control" name="dp" type="text" formControlName="last_name">
+        </div>
+
+
+        <label for="name">Username</label>
+        <div class="input-group">
+          <input id="name" class="form-control" name="dp" type="password" formControlName="password">
+        </div>
+        
+        
+        <label for="name">Password</label>
+        <div class="input-group">
+          <input id="name" class="form-control" name="dp" type="text" formControlName="phone">
+        </div>
+        <label for="name">Email</label>
+        <div class="input-group">
+          <input id="name" class="form-control" name="dp" type="text" formControlName="email">
+        </div> -->
+        <!-- <label for="territory">Territory</label>
+        <div class="input-group">
+          <select formControlName="territory_id" class="form-control">
+            <option *ngFor="let item of territory" value="{{item.id}}">{{item.territory}}</option>
+          </select>
+        </div>
+        <label for="territory">Hub</label>
+        <div class="input-group">
+          <select class="form-control" formControlName="hub_id">
+            <option value="">Select</option>
+            <option *ngFor="let manager of rows " value="{{manager.id}}">{{manager.name}}</option>
+          </select>
+        </div> -->
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark">Save</button>
+      </div>
+    </form>
+  </div>
+  <!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog> -->
+</ng-template>
+
 <ng-template #content5 let-modal>
   <div class="modal-header" style="background-color: #7460ee;">
     <h4 class="modal-title" id="modal-basic-title" style="color: #fff;">Delivery Hub Configuration</h4>
@@ -1112,31 +1259,31 @@
       <div class="form-group">
         <label for="delivery_time_window" style="display: block;">Delivery Time Window (Minutes)</label>
         <mat-slider thumbLabel min="0" max="20" step="5" [(ngModel)]="minDaysValue"
-          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="10" class="cdk-focused"
+          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel3" tickInterval="10" class="cdk-focused"
           (input)="minDaysValue = $event.value" [value]="minDaysValue">
         </mat-slider>
 
         <label for="standard_delivery_charge" style="display: block;">Standard Delivery Charge (0-6 Miles)</label>
         <mat-slider thumbLabel min="0" max="9" step="0.5" [(ngModel)]="standard_delivery_charge"
-          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="4.5" class="cdk-focused"
+          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel3" tickInterval="4.5" class="cdk-focused"
           (input)="standard_delivery_charge = $event.value" [value]="standard_delivery_charge">
         </mat-slider>
 
         <label for="standard_trip_fee_for_driver" style="display: block;">Standard Trip Fee For Driver</label>
         <mat-slider thumbLabel min="0" max="6.5" step="0.5" [(ngModel)]="standard_trip_fee_for_driver"
-          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="3.25" class="cdk-focused"
+          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel3" tickInterval="3.25" class="cdk-focused"
           (input)="standard_trip_fee_for_driver = $event.value" [value]="standard_trip_fee_for_driver">
         </mat-slider>
 
         <label for="long_delivery_charge" style="display: block;">Long Delivery Charge (6-12 Miles)</label>
         <mat-slider thumbLabel min="0" max="14" step="0.5" [(ngModel)]="long_delivery_charge"
-          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="7.0" class="cdk-focused"
+          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel3" tickInterval="7.0" class="cdk-focused"
           (input)="long_delivery_charge = $event.value" [value]="long_delivery_charge">
         </mat-slider>
 
         <label for="long_trip_fee" style="display: block;">Long Trip Fee</label>
         <mat-slider thumbLabel min="0" max="8.5" step="0.5" [(ngModel)]="long_trip_fee"
-          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="4.25" class="cdk-focused"
+          [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel3" tickInterval="4.25" class="cdk-focused"
           (input)="long_trip_fee = $event.value" [value]="long_trip_fee">
         </mat-slider>
 
