@@ -11,23 +11,7 @@
                 <mat-form-field>
                     <mat-label>Select type</mat-label>
                     <mat-select matNativeControl required formControlName="type">
-                        <mat-option value="RESTAURANT">RESTAURANT <img src="/assets/images/icon-500-restaurant.png"
-                                style="width: 20px;margin-left: 10px"></mat-option>
-                        <mat-option value="CAFE">CAFÉ <img src="/assets/images/icon-500-cafe.png"
-                                style="width: 20px;margin-left: 10px"></mat-option>
-                        <mat-option value="BEER">BEER <img src="/assets/images/icon-500-beer.png"
-                                style="width: 20px;margin-left: 10px"></mat-option>
-                        <mat-option value="WINE">WINE <img src="/assets/images/icon-500-wine.png"
-                                style="width: 20px;margin-left: 10px"></mat-option>
-                        <mat-option value="TRUCK">FOOD TRUCK <img src="/assets/images/icon-500-food-truck.png"
-                                style="width: 20px;margin-left: 10px"></mat-option>
-                        <mat-option value="PIZZA">PIZZA <img src="/assets/images/pizza.svg"
-                                style="width: 20px;margin-left: 10px"></mat-option>
-                        <mat-option value="FARMERS">FARMER <img src="/assets/images/farmer.png"
-                                style="width: 20px;margin-left: 10px"></mat-option>
-                        <mat-option value="CHEF">CHEF <img src="/assets/images/chef.png"
-                                style="width: 20px;margin-left: 10px"></mat-option>
-                        <mat-option value="GHOST_KITCHEN">GHOST KITCHEN <img src="/assets/images/Ghost-Kitchen.png"
+                        <mat-option value="RESTAURANT" *ngFor="let item of type">{{item.type}} <img [src]="item.imageUrl"
                                 style="width: 20px;margin-left: 10px"></mat-option>
                     </mat-select>
                 </mat-form-field>

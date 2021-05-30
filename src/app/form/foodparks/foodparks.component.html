@@ -6,7 +6,7 @@
       <div class="card-body">
         <h4 class="card-title">Hub | Drivers Management</h4>
         <h6 class="card-subtitle">A Hubs listed here, and we can maname Drivers here also.</h6>
-        <button (click)="greenPay()">Green-pay</button>
+        <!-- <button (click)="greenPay()">Green-pay</button> -->
         <ngb-tabset>
 
           <ngb-tab title="Delivery Hubs">
@@ -223,8 +223,8 @@
                 <form class="m-b-30">
                   <div class="row">
                     <div class="col-sm-6">
-                      <input type='text' class="form-control" placeholder='Type to filter the name column...'
-                        (keyup)='updateFilter($event)' />
+                      <input  #search type='text' class="form-control" placeholder='Type to filter the name column...'
+                         />
                     </div>
                     <div class="col-sm-6">
                       <button class="btn btn-success btn-raised" (click)="openLocations(content4)">New Location</button>
@@ -232,27 +232,6 @@
                   </div>
                 </form>
 
-                <!--<ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
-                  [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='foodparkmgrList'>
-                  <ngx-datatable-column name="First Name" prop="first_name" [width]="150"></ngx-datatable-column>
-                  <ngx-datatable-column name="Last Name" prop="last_name" [width]="150"></ngx-datatable-column>
-                  <ngx-datatable-column name="Email" prop="username" [width]="150"></ngx-datatable-column>
-                  <ngx-datatable-column name="Assign Hub">
-                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <select class="form-control" (change)="selectHub($event,row,value)">
-                        <option value="">Select</option>
-                        <option *ngFor="let manager of rows " value="{{manager.id}}"
-                          [selected]="manager.foodpark_mgr==row.id">{{manager.name}}</option>
-                      </select>
-                    </ng-template>
-                  </ngx-datatable-column>
-                  <ngx-datatable-column>
-                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <input class="btn btn-success btn-raised" type="button" value="View"
-                        (click)="onCheckboxChangeFn($event,row)">&nbsp;&nbsp;
-                    </ng-template>
-                  </ngx-datatable-column>
-                </ngx-datatable> -->
 
                 <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
                   [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [footerHeight]="50" [rowHeight]="'auto'"
@@ -340,7 +319,7 @@
                       </div>
 
                       <div class="col-md-2">
-                        <button class="btn btn-success btn-raised" (click)="openManager(content3,true)">Create Manager
+                        <button class="btn btn-success btn-raised" (click)="openManager(content3,true,'')">Create Manager
                         </button>
                       </div>
                     </div>
@@ -1327,43 +1306,21 @@
 
       <div class="form-group">
         <label for="customer_order_window" style="display: block;">Customer Order Window (Minutes)</label>
-        <!-- <mat-slider thumbLabel  min="0" max="15" step="5" formcontrolName="customer_order_window"
-          [displayWith]="formatLabel" tickInterval="15" class="cdk-focused" (input)="minDaysValuse = $event.value"
-          [value]="minDaysValuse">
-        </mat-slider> -->
+     
         <mat-slider thumbLabel min="0" max="30" step="5" [(ngModel)]="customer_order_window"
           [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="15" class="cdk-focused"
           (input)="minDaysValue = $event.value" [value]="minDaysValue">
         </mat-slider>
         <label for="delivery_radius" style="display: block;"> Delivery Range(Miles)</label>
-        <!-- <mat-slider thumbLabel formControlName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel" tickInterval="10" class="cdk-focused"
-            (input)="minDaysValue = $event.value" [value]="minDaysValuse">
-          </mat-slider> -->
-        <!-- <mat-slider thumbLabel formcontrolName="delivery_radius" min="0" max="15" step="5" [displayWith]="formatLabel"
-          tickInterval="5" class="cdk-focused" (input)="minDaysValue1 = $event.value" [value]="minDaysValue1">
-        </mat-slider> -->
+       
         <mat-slider thumbLabel min="0" max="15" step="1" [(ngModel)]="delivery_radius"
           [ngModelOptions]="{standalone: true}" [displayWith]="formatLabel" tickInterval="8" class="cdk-focused"
           (input)="minDaysValuee = $event.value" [value]="minDaysValuee">
         </mat-slider>
-        <!-- <label for="standard_delivery" style="display: block;">Standard Delivery Charge($0-5 km/mi) </label>
-        <mat-slider thumbLabel min="0" max="5" step="1" [(ngModel)]="standard_delivery"
-          [ngModelOptions]="{standalone: true}" (input)="minDaysValue2 = $event.value" [displayWith]="formatLabel"
-          tickInterval="5" class="cdk-focused" [value]="minDaysValue2">
-        </mat-slider>
-        <label for="long_delivery" style="display: block;">Long Delivery Charge($5-10 km/mi) </label>
-        <mat-slider thumbLabel min="5" max="10" step="1" [(ngModel)]="long_delivery"
-          [ngModelOptions]="{standalone: true}" (input)="minDaysValue3 = $event.value" [displayWith]="formatLabel"
-          tickInterval="10" class="cdk-focused" [value]="minDaysValue3">
-        </mat-slider> -->
-        <!-- </mat-slider> -->
-        <!-- <label for="name" style="display: block;">Custom</label>
-          <mat-slider thumbLabel [displayWith]="formatLabel3" min="0" max="15"></mat-slider> -->
+     
         <label for="stateid">State</label>
         <div class="input-group">
-          <!-- <option *ngFor="let item of states2" value="{{item.id}}">{{item.name}}</option>
-            <option *ngFor="let item of states2" value="{{item.id}}" >
-              {{item.name}}</option> -->
+        
           <select name=state_name class="form-control" [(ngModel)]="state_id1" (change)="getTerritory($event)"
             [ngModelOptions]="{standalone: true}">
             <option *ngFor="let item of states2" [value]="item.id">{{item.name}}</option>
@@ -1371,11 +1328,17 @@
         </div>
         <label for="territoryid">Territory</label>
         <div class="input-group">
-          <!-- <select class="form-control" (change)="getLatLong($event)">
-            <option *ngFor="let item of singleTerritory.territory" [ngValue]="item">{{item.city}}</option>
-          </select> -->
+        
           <select formControlName="territory_id" class="form-control" [(ngModel)]="territory_id1">
             <option *ngFor="let item of singleTerritory.territory" [value]="item.id">{{item.city}}</option>
+          </select>
+        </div>
+        <label for="territoryid">Type</label>
+        <div class="input-group">
+        
+          <select formControlName="typename" class="form-control" >
+            <option *ngFor="let item of Livetype" [value]="item.item">{{item.type}}<img [src]="item.imageUrl"
+              style="width: 20px;margin-left: 10px"></option>
           </select>
         </div>
       </div>

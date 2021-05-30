@@ -7,6 +7,11 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../services/auth.service';
 import { ProfileService } from '../../../services/profile.service'
 
+export interface Type {
+  type: string;
+  imageUrl: string;
+}
+
 @Component({
   selector: 'mt-wizard-work',
   templateUrl: './work.component.html',
@@ -23,6 +28,15 @@ export class WorkComponent implements OnInit {
   form: any;
   companyId: any;
   pass: any;
+type:Type[] = [{type:'RESTAURANT',imageUrl:'/assets/images/icon-500-restaurant.png'},
+{type:'CAFÉ',imageUrl:'/assets/images/icon-500-cafe.png'},
+{type:'BEER  ',imageUrl:'/assets/images/icon-500-beer.png'},
+{type:'WINE',imageUrl:'/assets/images/icon-500-wine.png'},
+{type:'FOOD TRUCK',imageUrl:'/assets/images/icon-500-food-truck.png'},
+{type:'PIZZA',imageUrl:'/assets/images/pizza.svg'},
+{type:'FARMER',imageUrl:'/assets/images/farmer.png'},
+{type:'CHEF',imageUrl:'/assets/images/chef.png'},
+{type:'GHOST KITCHEN',imageUrl:'/assets/images/Ghost-Kitchen.png'}]
   user: any;
   comapnydata: any
   workFormData = new FormGroup({
@@ -42,6 +56,7 @@ export class WorkComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.route.params.subscribe(params => {
       this.companyId = +params['id'];
     });

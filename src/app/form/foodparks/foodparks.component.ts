@@ -1,7 +1,7 @@
 import { AuthService } from 'src/app/services/auth.service';
 import { Observable } from 'rxjs/Rx';
-import { map, startWith } from 'rxjs/operators';
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { debounceTime, map, startWith } from 'rxjs/operators';
+import { Component, ViewChild, OnInit, ElementRef, AfterViewInit } from '@angular/core';
 import { ProfileService } from '../../services/profile.service';
 import { CommonFunctionsService } from '../../services/commonFunctions.service';
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -11,8 +11,12 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/confirm-dialog.component';
-import { forkJoin } from 'rxjs';
+import { forkJoin, fromEvent } from 'rxjs';
 
+export interface Type {
+  type: string;
+  imageUrl: string;
+}
 declare var require: any;
 const data: any = require('./company.json');
 @Component({
@@ -20,11 +24,22 @@ const data: any = require('./company.json');
   templateUrl: './foodparks.component.html',
   styleUrls: ['./foodparks.css']
 })
-export class FoodParkComponent implements OnInit {
+export class FoodParkComponent implements OnInit , AfterViewInit {
   editing = {};
-  rows = [];
   locOrHubArr = [];
-  temp = [...data];
+  public temp: Array<object> = [...data];
+  public rows: Array<object> = [];
+
+  @ViewChild('search', { static: false }) search: ElementRef;
+  Livetype:Type[] = [{type:'RESTAURANT',imageUrl:'/assets/images/icon-500-restaurant.png'},
+{type:'CAFÉ',imageUrl:'/assets/images/icon-500-cafe.png'},
+{type:'BEER  ',imageUrl:'/assets/images/icon-500-beer.png'},
+{type:'WINE',imageUrl:'/assets/images/icon-500-wine.png'},
+{type:'FOOD TRUCK',imageUrl:'/assets/images/icon-500-food-truck.png'},
+{type:'PIZZA',imageUrl:'/assets/images/pizza.svg'},
+{type:'FARMER',imageUrl:'/assets/images/farmer.png'},
+{type:'CHEF',imageUrl:'/assets/images/chef.png'},
+{type:'GHOST KITCHEN',imageUrl:'/assets/images/Ghost-Kitchen.png'}];
   drivertemp = [...data];
   managertemp = [...data];
   locationOrHubObject: any;
@@ -115,11 +130,10 @@ export class FoodParkComponent implements OnInit {
     "FARMER"
   ]
   onLocationEditForm = new FormGroup({
-    // delivery_time_offset: new FormControl(event),
     customer_order_window: new FormControl(event),
-    // delivery_radius: new FormControl(event)
     delivery_radius: new FormControl(event),
-    territory_id: new FormControl()
+    territory_id: new FormControl(),
+    typename: new FormControl()
   });
 
   foodParkForm = new FormGroup({
@@ -194,7 +208,7 @@ export class FoodParkComponent implements OnInit {
   deliveryHub: any;
   deliveryHubUnits: any;
   Hublocations: any;
-  hubDelivery: any
+  hubDelivery: any;
   selectedStates: any
   state_name: any
   l_country_id: any
@@ -293,6 +307,7 @@ export class FoodParkComponent implements OnInit {
     if (this.user.company_id) {
       this._ProfileService.getUnitManagerByCompanyId(this.user.company_id).subscribe(res => {
         if (res.status == 200) {
+          
           this.arr1 = res.data
           this.managerList.push(...this.arr1)
 
@@ -829,7 +844,7 @@ greenPay()
     const state_id = this.stateAndTerritoryObject.id;
     console.log(state_id)
     this._ProfileService.getTerritory(state_id).subscribe((res: any) => {
-      console.log(res);
+      console.log(res,'singleTerritory');
 
       this.singleTerritory = res;
     })
@@ -839,7 +854,7 @@ greenPay()
     let state_id = event.target.value;
 
     this._ProfileService.getTerritory(state_id).subscribe((res: any) => {
-      console.log(res);
+      console.log(res,'singleTerritory1');
 
       this.singleTerritory = res;
     })
@@ -882,7 +897,7 @@ greenPay()
           return val.id == this.user.state_id
         })
         this._ProfileService.getTerritory(d.id).subscribe((res: any) => {
-          console.log(res);
+          console.log(res,'singleterirtiyt3');
 
           this.singleTerritory = res;
           this.selectedTerritory = res.territory[0]?.id
@@ -929,9 +944,51 @@ greenPay()
   }
 
 
+  ngAfterViewInit(): void {
+    console.log(this.search.nativeElement, 'keydown')
+    // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    // Add 'implements AfterViewInit' to the class.
+    fromEvent(this.search.nativeElement, 'keydown')
+      .pipe(
+        debounceTime(550),
+        map(x => x['target']['value'])
+      )
+      .subscribe(value => {
+        
+        this.updateFilter(value);
+      });
+  }
 
 
+  updateFilter(val: any) {
+  console.log(val,'value')
+    const value = val.toString().toLowerCase().trim();
+    // get the amount of columns in the table
+    const count = this.columns.length;
+    // get the key names of each column in the dataset
+    const keys = Object.keys(this.temp[0]);
+    // assign filtered matches to the active datatable
+    this.rows = this.temp.filter(item => {
+      // iterate through each row's column data
+      for (let i = 0; i < count; i++) {
+        // check for a match
+        if (
+          (item[keys[i]] &&
+            item[keys[i]]
+              .toString()
+              .toLowerCase()
+              .indexOf(value) !== -1) ||
+          !value
+        ) {
+          // found match, return true to add to result set
+          return true;
+        }
+      }
+    });
 
+    // Whenever the filter changes, always go back to the first page
+    // this.table.offset = 0;
+  }
 
 
 
@@ -1315,6 +1372,7 @@ greenPay()
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
+  
 
   openEditDeilveryHub(content4, row) {
     console.log('12', row)
@@ -1342,7 +1400,7 @@ greenPay()
     }
   }
   onSelectRed(item) {
-    debugger
+    
   }
   updateDriverFilter(event) {
     const val = event.target.value.toLowerCase();
@@ -1370,17 +1428,17 @@ greenPay()
     // Whenever the filter changes, always go back to the first page
     this.table = data;
   }
-  updateFilter(event) {
-    const val = event.target.value.toLowerCase();
-    // filter our data
-    const temp = this.temp.filter(function (d) {
-      return d.name.toLowerCase().indexOf(val) !== -1 || !val;
-    });
-    // update the rows
-    this.rows = temp;
-    // Whenever the filter changes, always go back to the first page
-    this.table = data;
-  }
+  // updateFilter(event) {
+  //   const val = event.target.value.toLowerCase();
+  //   // filter our data
+  //   const temp = this.temp.filter(function (d) {
+  //     return d['name'].toLowerCase().indexOf(val) !== -1 || !val;
+  //   });
+  //   // update the rows
+  //   this.rows = temp;
+  //   // Whenever the filter changes, always go back to the first page
+  //   this.table = data;
+  // }
 
   updateValue(event, cell, rowIndex) {
     console.log('inline editing rowIndex', rowIndex);

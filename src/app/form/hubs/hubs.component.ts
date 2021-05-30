@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { ProfileService} from '../../services/profile.service';
 import {CommonFunctionsService} from '../../services/commonFunctions.service';
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -6,6 +6,8 @@ import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from "@angular/router";
 import {FormControl, FormGroup} from '@angular/forms';
+import { fromEvent } from 'rxjs';
+import { map, debounceTime } from 'rxjs/operators';
 
 declare var require: any;
 const data: any = require('./company.json');
@@ -14,7 +16,7 @@ const data: any = require('./company.json');
   templateUrl: './hubs.component.html',
   styleUrls: ['./hubs.css']
 })
-export class HubComponent {
+export class HubComponent implements AfterViewInit {
   editing = {};
   rows = [];
   temp = [...data];
@@ -32,7 +34,7 @@ export class HubComponent {
   latA = -28.754764;
   lngA = 119.736246;
   zoom = 4;
-
+  @ViewChild('search', { static: false }) search: ElementRef;
   @ViewChild('map1', { static: true }) map1;
   @ViewChild(HubComponent, { static: false }) table: HubComponent;
   constructor(private _ProfileService:ProfileService,
@@ -107,7 +109,51 @@ export class HubComponent {
 			this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
 		});
   }
+
+  //Filter hub manage Aryan//
   
+  ngAfterViewInit(): void {
+
+    fromEvent(this.search.nativeElement, 'keydown')
+      .pipe(
+        debounceTime(550),
+        map(x => x['target']['value'])
+      )
+      .subscribe(value => {
+        this.updateFilter(value);
+      });
+  }
+
+
+  updateFilter(val: any) {
+    const value = val.toString().toLowerCase().trim();
+    // get the amount of columns in the table
+    const count = this.columns.length;
+    // get the key names of each column in the dataset
+    const keys = Object.keys(this.temp[0]);
+    // assign filtered matches to the active datatable
+    this.rows = this.temp.filter(item => {
+      // iterate through each row's column data
+      for (let i = 0; i < count; i++) {
+        // check for a match
+        if (
+          (item[keys[i]] &&
+            item[keys[i]]
+              .toString()
+              .toLowerCase()
+              .indexOf(value) !== -1) ||
+          !value
+        ) {
+          // found match, return true to add to result set
+          return true;
+        }
+      }
+    });
+
+    // Whenever the filter changes, always go back to the first page
+    // this.table.offset = 0;
+  }
+
 	private getDismissReason(reason: any): string {
 		if (reason === ModalDismissReasons.ESC) {
 			return 'by pressing ESC';
@@ -152,17 +198,17 @@ getAllFoodPark(){
     this.foodParkForm.value.longitude = this.lng;
   }
 
-  updateFilter(event) {
-    const val = event.target.value.toLowerCase();
-    // filter our data
-    const temp = this.temp.filter(function(d) {
-      return d.name.toLowerCase().indexOf(val) !== -1 || !val;
-    });
-    // update the rows
-    this.rows = temp;
-    // Whenever the filter changes, always go back to the first page
-    this.table = data;
-  }
+  // updateFilter(event) {
+  //   const val = event.target.value.toLowerCase();
+  //   // filter our data
+  //   const temp = this.temp.filter(function(d) {
+  //     return d.name.toLowerCase().indexOf(val) !== -1 || !val;
+  //   });
+  //   // update the rows
+  //   this.rows = temp;
+  //   // Whenever the filter changes, always go back to the first page
+  //   this.table = data;
+  // }
 
   updateValue(event, cell, rowIndex) {
     console.log('inline editing rowIndex', rowIndex);
