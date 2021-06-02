@@ -17,8 +17,8 @@
                 <form class="m-b-30">
                   <div class="row">
                     <div class="col-sm-6">
-                      <input type='text' class="form-control" placeholder='Type to filter the name column...'
-                        (keyup)='updateFilter($event)' />
+                      <!-- <input type='text' class="form-control" placeholder='Type to filter the name column...'
+                        (keyup)='updateFilter($event)' /> -->
                     </div>
                     <div class="col-sm-6">
                       <button class="btn btn-success btn-raised" (click)="open1(content1)">New Hub</button>
@@ -738,7 +738,21 @@
           <textarea id="address" class="form-control" name="address" formControlName="address" required></textarea>
         </div>
       </div>
-      <!-- <label for="territory">Select Location</label>
+        <div class="form-group">
+          <label for="territoryid">Location</label>
+        <div class="input-group">
+          <select formControlName="location" class="form-control" (change)="getLocatset($event)">
+            <option *ngFor="let item of location_name" [ngValue]="item.id">{{item.name}}</option>
+          </select>
+        </div>
+        </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-outline-dark">Create Hub</button>
+  </div>
+
+        <!-- <label for="territory">Select Location</label>
         <div class="form-group mapmarker">
           <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [style.height.px]="300"
             (mapClick)="placeMarker($event)">
@@ -756,11 +770,6 @@
         <div class="input-group">
           <input id="longitude" class="form-control"  name="dp" type="text" formControlName="longitude">
         </div> -->
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button type="submit" class="btn btn-outline-dark">Create Hub</button>
-  </div>
 
 </ng-template>
 <ng-template #content4 let-modal>

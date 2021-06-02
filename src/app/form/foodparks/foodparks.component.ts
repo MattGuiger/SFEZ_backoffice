@@ -152,7 +152,7 @@ export class FoodParkComponent implements OnInit , AfterViewInit {
   hubFoodParkForm = new FormGroup({
     state: new FormControl('', Validators.required),
     territory_id: new FormControl(),
-    // type: new FormControl(' ', Validators.required),
+    location: new FormControl(' ', Validators.required),
     name: new FormControl('', Validators.required),
     trip_fee: new FormControl(0, Validators.required),
     address: new FormControl('', Validators.required)
@@ -223,6 +223,7 @@ export class FoodParkComponent implements OnInit , AfterViewInit {
   state_id1: any
   locationsList: any;
   user_id: any;
+  location_name: any;
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService,
     private router: Router,
@@ -280,12 +281,11 @@ export class FoodParkComponent implements OnInit , AfterViewInit {
   }
 
   ngOnInit() {
-    // this.filteredStateOptions = this.myControl.valueChanges
-    //   .pipe(
-    //     startWith(''),
-    //     map(value => this._filter(value))
-    //   );
-
+   this._ProfileService.getLocation(this.user.company_id).subscribe((res:any)=>
+   {
+     this.location_name = res.data
+     console.log(res,'thislocation')
+   })
   }
 
   // private _filter(value: string): string[] {
@@ -402,6 +402,7 @@ greenPay()
       })
     }
   }
+
   getDeliveryHubinCompany() {
     if (this.user.company_id) {
       this._ProfileService.getDeliveryHubsInCompany(this.user.company_id).subscribe(res => {
@@ -853,6 +854,7 @@ greenPay()
       this.singleTerritory = res;
     })
   }
+  
   getTerritoryForEdit(event) {
 
     let state_id = event.target.value;

@@ -409,5 +409,8 @@ export class ProfileService {
   addOwnCategory(data): Observable<any> {
     return this.http.post(config.getEnvironmentVariable('endPoint') + "api/v1/rel/category", data);
   }
+  getLocation(id):Observable<any> {
+    return this.http.get(`https://api.instamarkt.co/api/v1/rel/food_parks/location/${id}`)
+  }
 
 }
