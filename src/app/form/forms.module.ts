@@ -48,6 +48,7 @@ import {ConfirmationService} from 'primeng/api';
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
 import { ManagerEditComponent } from './manager-edit/manager-edit.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { MaterialModule } from '../menuitems/material/material.module';
 
 
 @NgModule({
@@ -69,6 +70,7 @@ import { NgxMaskModule } from 'ngx-mask';
            CustomFormsModule,
            ConfirmDialogModule, 
            ReactiveFormsModule,
+           MaterialModule,
            MatAutocompleteModule
         ],
     declarations: [

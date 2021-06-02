@@ -261,18 +261,24 @@
                       {{row?.number}}
                     </ng-template>
                   </ngx-datatable-column> -->
-                  <ngx-datatable-column name="Manager" prop="Manager" [width]="150">
-                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <select class="form-control" (change)="selectLocation($event,row,value)"
-                        [(ngModel)]="row.unit_mgr_id">
-                        <option value="">Assign Manager</option>
-                        <!-- <option *ngFor="let manager of unitmgr " value="{{manager.user_id}}"
+                    <!-- <option *ngFor="let manager of unitmgr " value="{{manager.user_id}}"
                           [selected]="manager.unitid==row.unit_id">{{manager.first_name}}
                         </option> -->
+                  <ngx-datatable-column name="Manager" prop="Manager" [width]="150">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                      <!-- <select class="form-control" (change)="selectLocation($event,row,value)"
+                        [(ngModel)]="row.unit_mgr_id">
+                        <option value="">Assign Manager</option>
+                      
                         <option *ngFor="let manager of arr1 " [value]="manager.user_id">{{manager.first_name}}
                         </option>
 
-                      </select>
+                      </select> -->
+                      <mat-form-field style="width: 98px;">
+                        <mat-select placeholder="Manager"  [(ngModel)]="row.unit_mgr_id" [(value)]="row.unit_mgr_id"  multiple>
+                          <mat-option *ngFor="let manager of arr1 "  [value]="manager.user_id">{{manager.first_name}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
                     </ng-template>
                   </ngx-datatable-column>
                   <ngx-datatable-column name="Action" prop="Action" [width]="150">
@@ -282,8 +288,8 @@
                       <button type="button" class="btn btn-danger btn-sm" (click)="deleteLocation(row)"><i
                           class="ti-close"></i></button>
                           &nbsp;
-                      <button type="button" class="btn btn-success btn-sm" ><i
-                            class="ti-plus"></i></button>     
+                      <!-- <button type="button" class="btn btn-success btn-sm" ><i
+                            class="ti-plus"></i></button>      -->
                     </ng-template>
                   </ngx-datatable-column>
                 </ngx-datatable>

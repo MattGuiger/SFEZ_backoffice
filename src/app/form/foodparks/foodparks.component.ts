@@ -209,6 +209,10 @@ export class FoodParkComponent implements OnInit , AfterViewInit {
   deliveryHubUnits: any;
   Hublocations: any;
   hubDelivery: any;
+   toppings = new FormControl();
+
+  toppingList = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  selectedToppings;
   selectedStates: any
   state_name: any
   l_country_id: any
