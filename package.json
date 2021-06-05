@@ -57,6 +57,7 @@
     "ngx-chips": "^2.1.0",
     "ngx-custom-validators": "^8.0.0",
     "ngx-dropzone": "^2.2.2",
+    "ngx-google-places-autocomplete": "^2.0.5",
     "ngx-mask": "^10.0.4",
     "ngx-perfect-scrollbar": "9.0.0",
     "ngx-quill": "^7.3.12",

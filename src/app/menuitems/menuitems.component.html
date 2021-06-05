@@ -8,8 +8,7 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Menu Management</h4>
-        <h6 class="card-subtitle">A Menuitems listed here, and we can maname Menuitems by importing/syncing them from
-          google spreadsheet.</h6>
+        <h6 class="card-subtitle">A Menuitems listed here, and we can maname Menuitems by importing/syncing them from google spreadsheet.</h6>
 
         <ngb-tabset (tabChange)="getProductList($event)" [activeId]="checkingId" #t="ngbTabset">
           <ngb-tab title="Menu Items" id="tb1">
@@ -22,8 +21,7 @@
                   <h6>Menu Items Loading...! Please wait</h6>
                 </div>
                 <div class="row" [hidden]="productList.length == 0">
-                  <h2 class="col-12 pt-4 font-weight-bold text-info">Click Category
-                    Below
+                  <h2 class="col-12 pt-4 font-weight-bold text-info">Click Category Below
                     <span class="float-right">
                       <label for="select-all">Select All</label>
                       <input type="checkbox" class="ml-2" name="select-all" id="select-all"

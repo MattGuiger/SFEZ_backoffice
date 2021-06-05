@@ -12,6 +12,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/confirm-dialog.component';
 import { forkJoin, fromEvent } from 'rxjs';
+import { GooglePlaceDirective } from "ngx-google-places-autocomplete";
 
 export interface Type {
   type: string;
@@ -27,6 +28,7 @@ const data: any = require('./company.json');
 export class FoodParkComponent implements OnInit , AfterViewInit {
   editing = {};
   locOrHubArr = [];
+  @ViewChild("placesRef", { static: true }) placesRef: GooglePlaceDirective;
   public temp: Array<object> = [...data];
   public rows: Array<object> = [];
 
@@ -464,6 +466,16 @@ greenPay()
       phone: new FormControl(null),
     });
   }
+
+  public AddressChange(address: any) {
+    //setting address from API to local variable
+    console.log(address);
+    this.lat = address.geometry.location.lat()
+    this.lng = address.geometry.location.lng()
+    let length = address.address_components.length
+
+  }
+
   managerFormInit() {
     this.managerForm = new FormGroup({
       first_name: new FormControl(null),

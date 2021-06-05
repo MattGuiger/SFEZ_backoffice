@@ -266,19 +266,18 @@
                         </option> -->
                   <ngx-datatable-column name="Manager" prop="Manager" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <!-- <select class="form-control" (change)="selectLocation($event,row,value)"
+                      <select class="form-control" (change)="selectLocation($event,row,value)"
                         [(ngModel)]="row.unit_mgr_id">
                         <option value="">Assign Manager</option>
-                      
                         <option *ngFor="let manager of arr1 " [value]="manager.user_id">{{manager.first_name}}
                         </option>
 
-                      </select> -->
-                      <mat-form-field style="width: 98px;">
+                      </select>
+                      <!-- <mat-form-field style="width: 98px;">
                         <mat-select placeholder="Manager"  [(ngModel)]="row.unit_mgr_id" [(value)]="row.unit_mgr_id"  multiple>
                           <mat-option *ngFor="let manager of arr1 "  [value]="manager.user_id">{{manager.first_name}}</mat-option>
                         </mat-select>
-                      </mat-form-field>
+                      </mat-form-field> -->
                     </ng-template>
                   </ngx-datatable-column>
                   <ngx-datatable-column name="Action" prop="Action" [width]="150">
@@ -406,12 +405,12 @@
 
                         <!-- <input class="btn btn-danger btn-raised" type="button" value="Delete" (click)="deleteCompany($event,row)"/>
                           <i class="ti-close" aria-hidden="true"></i> -->
-                        <button type="button"
+                        <!-- <button type="button"
                           class="btn btn-sm btn-icon btn-success btn-pure btn-outline delete-row-btn"
                           data-toggle="tooltip" data-original-title="email"
                           (click)="sendEmail($event, contentManagerEmail, row)">
                           <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </button>&nbsp;&nbsp;
+                        </button>&nbsp;&nbsp; -->
 
                       </ng-template>
                     </ngx-datatable-column>
@@ -732,12 +731,7 @@
           </select>
         </div>
       </div>
-      <div class="form-group">
-        <label for="address">Provide Address Below</label>
-        <div class="input-group">
-          <textarea id="address" class="form-control" name="address" formControlName="address" required></textarea>
-        </div>
-      </div>
+     
         <div class="form-group">
           <label for="territoryid">Location</label>
         <div class="input-group">
@@ -746,22 +740,31 @@
           </select>
         </div>
         </div>
+        <div class="form-group">
+          <label for="address">Provide Address</label>
+          <div class="input-group">
+            <input matInput ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="AddressChange($event)"  id="address" class="form-control" name="address" formControlName="address" required>
+          </div>
+        </div>
+        <div>
+          <label for="territory">Select Location</label>
+          <div class="form-group mapmarker">
+            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [style.height.px]="300"
+              (mapClick)="placeMarker($event)">
+              <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>
+          </div>
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+        </div>
     </form>
   </div>
   <div class="modal-footer">
     <button type="submit" class="btn btn-outline-dark">Create Hub</button>
   </div>
 
-        <!-- <label for="territory">Select Location</label>
-        <div class="form-group mapmarker">
-          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [style.height.px]="300"
-            (mapClick)="placeMarker($event)">
-            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-          </agm-map>
-        </div>
-        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-        </agm-map> -->
+        
       <!-- <label for="latitude">Latitude</label>
         <div class="input-group">
           <input id="latitude" class="form-control"  name="dp" type="text" formControlName="latitude">

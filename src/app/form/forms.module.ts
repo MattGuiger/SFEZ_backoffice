@@ -49,6 +49,7 @@ import { CustomMaterialModule } from '../custom-material/custom-material.module'
 import { ManagerEditComponent } from './manager-edit/manager-edit.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { MaterialModule } from '../menuitems/material/material.module';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 
 @NgModule({
@@ -69,6 +70,7 @@ import { MaterialModule } from '../menuitems/material/material.module';
            CustomMaterialModule,
            CustomFormsModule,
            ConfirmDialogModule, 
+           GooglePlaceModule,
            ReactiveFormsModule,
            MaterialModule,
            MatAutocompleteModule
