@@ -7,7 +7,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsRoutes } from './forms.routing';
 import { CustomFormsModule } from 'ngx-custom-validators';
-import { NGXFormWizardModule } from "./ngx-wizard/ngx-wizard.module";
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { FormBasicComponent } from './form-basic/basic.component';
@@ -63,7 +62,6 @@ import { MaterialModule } from '../menuitems/material/material.module';
         NgxDatatableModule,
         NgxMaskModule.forRoot(),
         TagInputModule,
-         NGXFormWizardModule,
           NgMultiSelectDropDownModule,
            NgbModule, 
            CustomMaterialModule,

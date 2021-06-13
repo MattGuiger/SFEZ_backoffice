@@ -194,7 +194,7 @@ export class FoodpckmgrorderComponent {
           orders: [{
             vendor: 'PHO #5452',
             address: '250 OW 5th St',
-            method: 'assets/images/card.png',
+            method: 'assets/images/bank.png',
             fee: '$20.25',
             tips: '$5.00'
           },

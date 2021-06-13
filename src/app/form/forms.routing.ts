@@ -252,10 +252,6 @@ export const FormsRoutes: Routes = [
             { title: 'Multiselect' }
           ]
         }
-      },
-	  {
-        path: 'ngx',
-        loadChildren: () => import('./ngx-wizard/ngx-wizard.module').then(m => m.NGXFormWizardModule)
       }
     ]
   }

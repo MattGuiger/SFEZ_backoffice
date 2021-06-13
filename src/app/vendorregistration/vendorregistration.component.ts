@@ -4,10 +4,6 @@ import {CommonFunctionsService} from '../services/commonFunctions.service'
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { ToastrService } from 'ngx-toastr';
 
-import { Personal } from '../../app/form/ngx-wizard/data/formData.model';
-import { FormDataService } from '../../app/form/ngx-wizard/data/formData.service';
-import { WorkflowService } from "../../app/form/ngx-wizard/workflow/workflow.service";
-import { STEPS } from "../../app/form/ngx-wizard/workflow/workflow.model";
 import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -17,20 +13,18 @@ export class VendorRegistrationComponent implements OnInit{
   user:any;
   productList : any[]=[];
   title = 'Please tell us about yourself.';
-  personal: Personal;
+
   form: any;
 
-  constructor(private workflowService: WorkflowService,
+  constructor(
     private router: Router,
-    private formDataService: FormDataService,
+
     private route: ActivatedRoute,
     private toastr: ToastrService,private _ProfileService: ProfileService,private slimLoader: SlimLoadingBarService,private _CommonFunctionsService:CommonFunctionsService,private _Router:Router){
   }
 
   ngOnInit(){
     this.getAllProductList();
-    
-    this.personal = this.formDataService.getPersonal();
   }
   getAllProductList(){
   
@@ -57,17 +51,7 @@ export class VendorRegistrationComponent implements OnInit{
 
 
  //Save button event Starts
- save(form: any) {
-     if (!form.valid)
-         return;
 
-     this.formDataService.setPersonal(this.personal);
-
-     let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);
-     if (firstState.length > 0) {          
-     };       
-     this.router.navigateByUrl('/forms/ngx/work', { relativeTo: this.route.parent, skipLocationChange: true });
- }
  //Save button event Ends
 
 

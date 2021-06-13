@@ -357,7 +357,6 @@ export class MenuitemsComponent implements OnInit {
       this.isChecked += 1
       this.authentication_url = res.data
       console.log(this.authentication_url,'authenticateurl');
-      
       //this.toastr.success('Google account verified please move to step 2')
     });
   }

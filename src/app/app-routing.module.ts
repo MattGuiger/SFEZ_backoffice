@@ -29,10 +29,6 @@ export const Approutes: Routes = [
         path: 'starter',
         loadChildren: () => import('./starter/starter.module').then(m => m.StarterModule)
       },
-      {
-        path: 'component',
-        loadChildren: () => import('./component/component.module').then(m => m.ComponentsModule)
-      },
       { path: 'menuitems', loadChildren: () => import('./menuitems/menuitems.module').then(m => m.MenuitemsModule) },
       { path: 'vendorregistration', loadChildren: () => import('./vendorregistration/vendorregistration.module').then(m => m.VendorRegistrationModule) },
       { path: 'cards', loadChildren: () => import('./cards/cards.module').then(m => m.CardsModule) },
@@ -55,10 +51,6 @@ export const Approutes: Routes = [
           () => import('./extra-component/extra-component.module').then(m => m.ExtraComponentModule)
       },
       { path: 'apps', loadChildren: () => import('./apps/apps.module').then(m => m.AppsModule) },
-      {
-        path: 'apps/email',
-        loadChildren: () => import('./apps/email/mail.module').then(m => m.MailModule)
-      },
       { path: 'maps', loadChildren: () => import('./maps/maps.module').then(m => m.MapsModule) },
       {
         path: 'sample-pages',
