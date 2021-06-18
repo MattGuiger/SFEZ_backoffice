@@ -69,6 +69,15 @@
                         (keyup)='updateFilter($event)' />
                     </div>
                   </div>
+                  <div class="col-xl-2 col-lg-3">
+                    <select  class="form-control custom-fontsize"
+                    (change)="orderActionFilter($event, row)">
+                    <option value="">Select</option>
+                    <option value="Void">Void</option>
+                    <option value="Refund">Refund</option>
+                   
+                  </select>
+                  </div>
                 </form>
                 <div class="accodion-datatable">
                   <ngx-datatable class="material" #table [rows]="rows" [columnMode]="'force'" [headerHeight]="50"

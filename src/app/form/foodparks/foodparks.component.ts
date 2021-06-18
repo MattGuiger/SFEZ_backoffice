@@ -31,7 +31,7 @@ export class FoodParkComponent implements OnInit , AfterViewInit {
   @ViewChild("placesRef", { static: true }) placesRef: GooglePlaceDirective;
   public temp: Array<object> = [...data];
   public rows: Array<object> = [];
-
+  options = {types:[],FoodParkComponent:{country : 'USA'}}
   @ViewChild('search', { static: false }) search: ElementRef;
   Livetype:Type[] = [{type:'RESTAURANT',imageUrl:'/assets/images/icon-500-restaurant.png'},
 {type:'CAFÉ',imageUrl:'/assets/images/icon-500-cafe.png'},
@@ -203,7 +203,7 @@ export class FoodParkComponent implements OnInit , AfterViewInit {
   // ];
   registerDriver = [];
 
-  @ViewChild(FoodParkComponent, { static: false }) table: FoodParkComponent;
+  @ViewChild('table', { static: false }) table;
   UnitList: any;
   locations: any;
   locations2: any
@@ -226,6 +226,8 @@ export class FoodParkComponent implements OnInit , AfterViewInit {
   locationsList: any;
   user_id: any;
   location_name: any;
+  locationfilter: any;
+  managerlistData = [];
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService,
     private router: Router,
@@ -303,6 +305,7 @@ export class FoodParkComponent implements OnInit , AfterViewInit {
         if (res.status == 200) {
           this.arr = res.data
           this.managerList.push(...this.arr)
+          this.managerlistData.push(...this.arr)
         }
 
       })
@@ -316,19 +319,8 @@ export class FoodParkComponent implements OnInit , AfterViewInit {
           
           this.arr1 = res.data
           this.managerList.push(...this.arr1)
-
-          // this.managerList.push(...this.managerListFoodpark)
-          // this.managerList.push(...this.managerListUnitMgr)
-
+          this.managerlistData.push(...this.arr1)
         }
-
-        // this.managerList.filter((item,index)=>{
-        //   if (! this.managerList.in(item.id) == index) {
-        //     //    newArray.push(item)
-        //     this.managerList.splice(index, 1)
-        // }
-        // })
-
       })
     }
 
@@ -404,6 +396,46 @@ greenPay()
       })
     }
   }
+  updateFiltdata(event) 
+  {
+    const val = event.target.value.toLowerCase();
+     console.log(event.target.value,'event')
+    // filter our data
+    debugger
+    const temp = this.locationsList.filter(function(d) {
+      return d.unit_name.toLowerCase().indexOf(val) !== -1 || !val;
+    });
+if(event.target.value == '')
+{
+  this.getlocationCompanyId()
+}
+    // update the rows
+    this.locationfilter = temp;
+    // Whenever the filter changes, always go back to the first page
+    this.table.offset = 0;
+  }
+
+
+  updateFiltmanager(event) 
+  {
+    const val = event.target.value.toLowerCase();
+     console.log(event.target.value,'event')
+     console.log(this.managerList,'list')
+    // filter our data
+    debugger
+    const temp = this.managerList.filter(function(d) {
+      return d.first_name.toLowerCase().indexOf(val) !== -1 || d.last_name.toLowerCase().indexOf(val) !== -1 || !val;
+    });
+// if(event.target.value == '')
+// {
+//   this.getlocationCompanyId()
+// }
+    // update the rows
+    this.managerlistData = temp;
+    // Whenever the filter changes, always go back to the first page
+    this.table.offset = 0;
+  }
+
 
   getDeliveryHubinCompany() {
     if (this.user.company_id) {
@@ -583,8 +615,8 @@ greenPay()
 
       this._ProfileService.getlocationCompanyId(this.user.company_id).subscribe(res => {
         if (res.status == 200) {
-        console.log('locationsList',this.locationsList)
           this.locationsList = res.data
+          this.locationfilter = res.data
         } else {
         }
       })
@@ -1435,28 +1467,6 @@ greenPay()
   cancelModal() {
     // this.modalService.close(false)
   }
-  updateManagerFilter(event) {
-    const val = event.target.value.toLowerCase();
-    // filter our data
-    const managertemp = this.allManager.filter(function (d) {
-      return d.first_name.toLowerCase().indexOf(val) !== -1 || d.last_name.toLowerCase().indexOf(val) !== -1 || !val;
-    });
-    // update the rows
-    this.allManager = managertemp;
-    // Whenever the filter changes, always go back to the first page
-    this.table = data;
-  }
-  // updateFilter(event) {
-  //   const val = event.target.value.toLowerCase();
-  //   // filter our data
-  //   const temp = this.temp.filter(function (d) {
-  //     return d['name'].toLowerCase().indexOf(val) !== -1 || !val;
-  //   });
-  //   // update the rows
-  //   this.rows = temp;
-  //   // Whenever the filter changes, always go back to the first page
-  //   this.table = data;
-  // }
 
   updateValue(event, cell, rowIndex) {
     console.log('inline editing rowIndex', rowIndex);

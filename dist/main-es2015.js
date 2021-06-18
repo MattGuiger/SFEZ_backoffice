@@ -2426,6 +2426,9 @@ class ProfileService {
     getAllDrivers(foodParkId) {
         return this.http.get(this.foodparkURL + '/' + foodParkId + "/drivers");
     }
+    getWeeklyrecon(data) {
+        return this.http.post('https://api.instamarkt.co/api/v1/rel/weekreconbydate', data);
+    }
     getAllCategories() {
         return this.http.get(this.Category);
     }
@@ -2437,10 +2440,13 @@ class ProfileService {
         return this.http.get("http://localhost:1337/api/v1/ord/companies/11144/units/25/active_orders");
     }
     getallfoodparkmgrorder(id) {
-        // http://localhost:1337/api/v1/rel/food_parks/30111/units/active_orders
         return this.http.get(this.foodparkURL + "/" + id + "/units/active_orders");
-        // return this.http.get(this.foodparkURL+"/30149/units/active_orders");
-        // return this.http.get('https://api.instamarkt.co/api/v1/mol/companies/11154/getunassignedOrders');
+    }
+    getVoidData() {
+        return this.http.get('https://api.instamarkt.co/api/v1/ord/voidorders');
+    }
+    getRefundVoidData() {
+        return this.http.get('https://api.instamarkt.co/api/v1/ord/voidrefundgreenmoney');
     }
     getOrderProductDetails() {
         return this.http.get('https://api.instamarkt.co/api/v1/ord/list-unit-order-items/2164');

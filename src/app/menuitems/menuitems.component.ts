@@ -116,7 +116,10 @@ export class MenuitemsComponent implements OnInit {
       this.addedCategories.splice(index, 1);
     }
   }
-  ngOnInit() {
+  ngOnInit() 
+  {
+    console.log( JSON.parse(localStorage.getItem('user')).user.id,'hIII');
+    
     this.getAllProductList();
     this.getCompanyProfile();
     this.getgoogleauthntication();
@@ -387,7 +390,7 @@ export class MenuitemsComponent implements OnInit {
       folder: this.addedItems,
       email: this.googleEmail,
       // user_id: '11744'
-      user_id: ''
+      user_id: JSON.parse(localStorage.getItem('user')).user.id
     }
 
     this._ProfileService.createfolderInGoogleDrive(data).subscribe(res => {

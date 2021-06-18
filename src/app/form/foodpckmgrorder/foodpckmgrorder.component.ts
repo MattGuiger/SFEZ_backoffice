@@ -128,7 +128,7 @@ export class FoodpckmgrorderComponent {
     this.getAllOrder();
     this.getDailyPayout();
     this.foodParkUnits();
-
+    this.getWeeklyRecon();
     //this.getCurrentDate();
     this.deliveryHub = [];
     // this.wagesDataArr = [];
@@ -360,11 +360,15 @@ export class FoodpckmgrorderComponent {
   //     }
   //   );
   // }
+
+
   getAllDrivers(foodParkId) {
     this._ProfileService.getAllDrivers(foodParkId).subscribe((res: any) => {
       this.drivers = res.data;
     })
   }
+
+
   getAllOrder() {
     // this.loadOrderDummyData();
     this.user = this._CommonFunctionsService.checkUser().user;
@@ -373,7 +377,40 @@ export class FoodpckmgrorderComponent {
       this.orders = res.data;
       this.temp = this.orders;
       this.rows = this.orders;
-      console.log(this.rows);
+
+    })
+  }
+
+  orderActionFilter(event)
+  {
+    
+     if(event.target.value == 'Void')
+     {
+       
+      this.user = this._CommonFunctionsService.checkUser().user;
+      this._ProfileService.getVoidData().subscribe((res: any) => {
+      this.orders = res.data['rows'];
+      this.temp = this.orders;
+      this.rows = this.orders;
+    })
+     }
+     else
+     {
+      this.user = this._CommonFunctionsService.checkUser().user;
+      this._ProfileService.getRefundVoidData().subscribe((res: any) => {
+        this.orders = res.data;
+        this.temp = this.orders;
+        this.rows = this.orders;
+  
+      })
+     }
+  }
+
+  getWeeklyRecon()
+  {
+    this._ProfileService.getWeeklyrecon(data).subscribe((res:any)=>
+    {
+      console.log(res,'res')
     })
   }
 

@@ -224,7 +224,7 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <input  #search type='text' class="form-control" placeholder='Type to filter the name column...'
-                         />
+                      (keyup)="updateFiltdata($event)" />
                     </div>
                     <div class="col-sm-6">
                       <button class="btn btn-success btn-raised" (click)="openLocations(content4)">New Location</button>
@@ -235,7 +235,7 @@
 
                 <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
                   [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [footerHeight]="50" [rowHeight]="'auto'"
-                  [limit]="10" [rows]='locationsList'>
+                  [limit]="10" [rows]='locationfilter'>
                   <ngx-datatable-column name="Name" prop="name" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                       {{row?.unit_name}}
@@ -319,8 +319,8 @@
                         <!-- <label class="mb-3">Filter By:</label> -->
                       </div>
                       <div class="col-md-8">
-                        <!-- <input type='text' class="form-control" placeholder='Type to filter the name column...'
-                            (keyup)='updateManagerFilter($event)' /> -->
+                        <input type='text' class="form-control" placeholder='Type to filter the name column...'
+                            (keyup)='updateFiltmanager($event)' />
                       </div>
 
                       <div class="col-md-2">
@@ -329,7 +329,7 @@
                       </div>
                     </div>
                   </form>
-                  <ngx-datatable class="material" #table [rows]="managerList" [columnMode]="'force'" [headerHeight]="50"
+                  <ngx-datatable  #table class="material"  [rows]="managerlistData" [columnMode]="'force'" [headerHeight]="50"
                     [footerHeight]="50" [rowHeight]="auto" [limit]="10" [scrollbarH]="true">
                     <ngx-datatable-column name="First Name" [width]="150">
                       <ng-template let-row="row" ngx-datatable-cell-template>
@@ -743,7 +743,7 @@
         <div class="form-group">
           <label for="address">Provide Address</label>
           <div class="input-group">
-            <input matInput ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="AddressChange($event)"  id="address" class="form-control" name="address" formControlName="address" required>
+            <input matInput ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="AddressChange($event)" [options]="options" id="address" class="form-control" name="address" formControlName="address" required>
           </div>
         </div>
         <div>

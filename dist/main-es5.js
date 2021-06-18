@@ -4558,6 +4558,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.http.get(this.foodparkURL + '/' + foodParkId + "/drivers");
         }
       }, {
+        key: "getWeeklyrecon",
+        value: function getWeeklyrecon(data) {
+          return this.http.post('https://api.instamarkt.co/api/v1/rel/weekreconbydate', data);
+        }
+      }, {
         key: "getAllCategories",
         value: function getAllCategories() {
           return this.http.get(this.Category);
@@ -4576,9 +4581,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getallfoodparkmgrorder",
         value: function getallfoodparkmgrorder(id) {
-          // http://localhost:1337/api/v1/rel/food_parks/30111/units/active_orders
-          return this.http.get(this.foodparkURL + "/" + id + "/units/active_orders"); // return this.http.get(this.foodparkURL+"/30149/units/active_orders");
-          // return this.http.get('https://api.instamarkt.co/api/v1/mol/companies/11154/getunassignedOrders');
+          return this.http.get(this.foodparkURL + "/" + id + "/units/active_orders");
+        }
+      }, {
+        key: "getVoidData",
+        value: function getVoidData() {
+          return this.http.get('https://api.instamarkt.co/api/v1/ord/voidorders');
+        }
+      }, {
+        key: "getRefundVoidData",
+        value: function getRefundVoidData() {
+          return this.http.get('https://api.instamarkt.co/api/v1/ord/voidrefundgreenmoney');
         }
       }, {
         key: "getOrderProductDetails",

@@ -1267,6 +1267,7 @@ class MenuitemsComponent {
         }
     }
     ngOnInit() {
+        console.log(JSON.parse(localStorage.getItem('user')).user.id, 'hIII');
         this.getAllProductList();
         this.getCompanyProfile();
         this.getgoogleauthntication();
@@ -1520,7 +1521,7 @@ class MenuitemsComponent {
             folder: this.addedItems,
             email: this.googleEmail,
             // user_id: '11744'
-            user_id: ''
+            user_id: JSON.parse(localStorage.getItem('user')).user.id
         };
         this._ProfileService.createfolderInGoogleDrive(data).subscribe(res => {
             //const tabCount = 2;

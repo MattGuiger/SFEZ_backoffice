@@ -276,6 +276,12 @@ export class ProfileService {
   getAllDrivers(foodParkId): Observable<any> {
     return this.http.get(this.foodparkURL + '/' + foodParkId + "/drivers");
   }
+  
+  getWeeklyrecon(data)
+  {
+    return this.http.post('https://api.instamarkt.co/api/v1/rel/weekreconbydate',data)
+  }
+
   getAllCategories(): Observable<any> {
     return this.http.get(this.Category);
   }
@@ -288,11 +294,19 @@ export class ProfileService {
   }
 
   getallfoodparkmgrorder(id): Observable<any> {
-    // http://localhost:1337/api/v1/rel/food_parks/30111/units/active_orders
     return this.http.get(this.foodparkURL+"/"+id+"/units/active_orders");
-    // return this.http.get(this.foodparkURL+"/30149/units/active_orders");
-    // return this.http.get('https://api.instamarkt.co/api/v1/mol/companies/11154/getunassignedOrders');
   }
+
+getVoidData(): Observable<any>
+{
+  return this.http.get('https://api.instamarkt.co/api/v1/ord/voidorders')
+}
+
+getRefundVoidData(): Observable<any>
+{
+  return this.http.get('https://api.instamarkt.co/api/v1/ord/voidrefundgreenmoney')
+}
+
 
   getOrderProductDetails(): Observable<any> {
     return this.http.get('https://api.instamarkt.co/api/v1/ord/list-unit-order-items/2164');
