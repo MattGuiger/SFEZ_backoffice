@@ -11,3 +11,36 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.ngx_img_upload img {
+    width: 100%;
+    height: 128px;
+}
+.ngx_img_upload {
+    margin: 0 auto !important;
+    height: auto !important;
+    min-height: auto !important;
+}
+ngx-dropzone-remove-badge {
+    left: 5px !important;
+    right: initial !important;
+}
+
+.linkModal .modal-dialog {
+    max-width: 40% !important;
+}
+
+.custom-input input, .custom-input textarea {
+    border: 1px solid #e9ecef;
+    padding: 6px;
+}
+
+.custom-input-label {
+    margin-bottom: 3px;
+}
+
+.pac-container {
+    z-index: 1051;
+}

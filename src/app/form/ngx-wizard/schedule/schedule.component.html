@@ -1,240 +1,95 @@
-
 <form #scheduleForm="ngForm" [formGroup]="scheduleFormData" (ngSubmit)="onSubmit()">
-    <div >
+    <div>
         <div class="tab-pane active">
             <h4 class="head text-center">{{title}}</h4>
             <small class="form-text text-muted text-center">(Schedule, Hours, Facebook, Business Address)</small>
-            <br/>
-            <!-- <div class="row">
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="schedule">Schedule</label>  
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <button class="btn mr-0 btn-info" type="button">
-                                    <i class="icon-Clock"></i>
-                                </button>
-                            </div>
-                        <input class="form-control input-md" #googleapikey="ngModel" required id="schedule" name="schedule" type="text"  [(ngModel)]="schedule">   
-                        </div>
-                    </div>
-                </div>
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="hours">Hours</label>  
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <button class="btn mr-0 btn-info" type="button">
-                                    <i class="icon-Clock"></i>
-                                </button>
-                            </div>
-                        <input class="form-control input-md" #googleapikey="ngModel" required id="hours" name="hours" type="text"  [(ngModel)]="hours">   
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="facebook">Facebook</label>  
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <button class="btn mr-0 btn-info" type="button">
-                                    <i class="icon-Facebook"></i>
-                                </button>
-                            </div>
-                        <input class="form-control input-md" #googleapikey="ngModel" required id="facebook" name="facebook" type="text"  [(ngModel)]="facebook">   
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- <div class="text-center">
-                <img src="/assets/images/business.png" />
-            </div> -->
-
-            
             <div class="form-group col-4 offset-4 mt-4">
-                <label class="form-control-label" for="facebook">Facebook Handle</label>  
-                <input class="form-control"  formControlName="facebook">
                 <div class="input-group mb-3">
-                    <img src="/assets/images/fb.png" />
-                   
+                    <img src="assets/images/facebook icon.png" width="50" height="60">
                 </div>
-
-            <!-- <div class="day" >
-                <input type="checkbox" name="Button1" formControlName="Button1" value="0" (change)="weekday($event)" class="ButtonState"  id="Button1"/>
-                <label class="Button"   for="Button1">Sun</label>
-                <input type="checkbox" name="Button2" formControlName="Button2" class="ButtonState" (change)="weekday($event)" id="Button2" value="1"/>
-                <label class="Button" for="Button2">Mon</label>
-                <input type="checkbox" name="Button3" formControlName="Button3" class="ButtonState" (change)="weekday($event)" id="Button3" value="2"/>
-                <label class="Button" for="Button3">Tue</label>
-                <input type="checkbox" name="Button4" formControlName="Button4" class="ButtonState" (change)="weekday($event)" id="Button4" value="3"/>
-                <label class="Button" for="Button4">Wed</label>
-                <input type="checkbox" name="Button5" formControlName="Button5" class="ButtonState" (change)="weekday($event)" (change)="weekday($event)" id="Button5" value="4"/>
-                <label class="Button" for="Button5">Thu</label>
-                <input type="checkbox" name="Button6" formControlName="Button6" class="ButtonState" (change)="weekday($event)" id="Button6" value="5"/>
-                <label class="Button" for="Button6">Fri</label>
-                <input type="checkbox" name="Button7" formControlName="Button7" class="ButtonState" (change)="weekday($event)" id="Button7" value="6"/>
-                <label class="Button" for="Button7">Sat</label>
-            </div> -->
-
-            <div class="day" formGroupName="schedule">
-               
-                <input type="checkbox" name="Button0"  class="ButtonState" (change)="weekday($event)" id="Button0" value="0"/>
-                <label class="Button" for="Button0">Mon</label>
-                <input type="checkbox" name="Button1"  class="ButtonState" (change)="weekday($event)" id="Button1" value="1"/>
-                <label class="Button" for="Button1">Tue</label>
-                <input type="checkbox" name="Button2"  class="ButtonState" (change)="weekday($event)" id="Button2" value="2"/>
-                <label class="Button" for="Button2">Wed</label>
-                <input type="checkbox" name="Button3"  class="ButtonState"  (change)="weekday($event)" id="Button3" value="3"/>
-                <label class="Button" for="Button3">Thu</label>
-                <input type="checkbox" name="Button4"  class="ButtonState" (change)="weekday($event)" id="Button4" value="4"/>
-                <label class="Button" for="Button4">Fri</label>
-                <input type="checkbox" name="Button5"  class="ButtonState" (change)="weekday($event)" id="Button5" value="5"/>
-                <label class="Button" for="Button5">Sat</label>
-                <input type="checkbox" name="Button6"  value="6" (change)="weekday($event)" class="ButtonState"  id="Button6"/>
-                <label class="Button"   for="Button6">Sun</label>
-            </div>
-    
-            <!-- Material input -->
-            <div class="md-form form-sm">
-                            <label for="hours" class="sr-only">Time</label>
-                            <input class="form-control" id="hour" formControlName="hours" placeholder="Ex: 8:00 AM - 10 PM">
-                            <div *ngIf="scheduleFormData.get('hours').touched && scheduleFormData.get('hours').invalid" class="alert alert-danger">
-                                <div  *ngIf=" scheduleFormData.get('hours').errors.required ">
-                                   Required
-                              </div>
-                               
-                             </div>
-                  </div>
-            <!-- <button type="button" class="btn btn-link" >Add Hours</button> -->
-            <button type="button" class="btn btn-link" (click)="onAddHours()">Add Hours</button>
-
-                <!-- <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <button class="btn mr-0 btn-info" type="button" style="background: #34a6bf;color:#fff;">
-                            <i class="icon-Clock"></i>
-                        </button>
+                <label class="orm-control-label">Facebook URL</label>
+                <input class="form-control" formControlName="facebook"
+                    placeholder="https://www.facebook.com/machotacos">
+                <br>
+                <label class="orm-control-label">Schedule</label>
+                <div formArrayName="arr" *ngFor="let a of scheduleFormData.get('arr')['controls'] ; let i = index">
+                    <div class="day" (click)="weekday($event)" formGroupName="schedule">
+                        <input type="checkbox" [checked]="days.indexOf('0') >= 0" name="Button0{{i}}" class="ButtonState" id="Button0{{i}}" value="0" />
+                        <label class="Button" for="Button0{{i}}">Mon</label>
+                        <input type="checkbox" [checked]="days.indexOf('1') >= 0" name="Button1{{i}}" class="ButtonState" id="Button1{{i}}" value="1" />
+                        <label class="Button" for="Button1{{i}}">Tue</label>
+                        <input type="checkbox" [checked]="days.indexOf('2') >= 0" name="Button2{{i}}" class="ButtonState" id="Button2{{i}}" value="2" />
+                        <label class="Button" for="Button2{{i}}">Wed</label>
+                        <input type="checkbox" [checked]="days.indexOf('3') >= 0" name="Button3{{i}}" class="ButtonState" id="Button3{{i}}" value="3" />
+                        <label class="Button" for="Button3{{i}}">Thu</label>
+                        <input type="checkbox" [checked]="days.indexOf('4') >= 0" name="Button4{{i}}" class="ButtonState" id="Button4{{i}}" value="4" />
+                        <label class="Button" for="Button4{{i}}">Fri</label>
+                        <input type="checkbox" [checked]="days.indexOf('5') >= 0" name="Button5{{i}}" class="ButtonState" id="Button5{{i}}" value="5" />
+                        <label class="Button" for="Button5{{i}}">Sat</label>
+                        <input type="checkbox" [checked]="days.indexOf('6') >= 0" name="Button6{{i}}" class="ButtonState" id="Button6{{i}}" value="6" />
+                        <label class="Button" for="Button6{{i}}">Sun</label>
                     </div>
-                <input class="form-control input-md" id="schedule" name="schedule" type="text">   
-                </div>  --> 
-
-                <!-- <label class="form-control-label" for="hours">Hours:  10 am – 8 pm</label> -->
-
-                <div class="input-group mb-3">
-                    <!-- <div class="input-group-prepend">
-                        <button class="btn mr-0 btn-info" type="button" style="background: #34a6bf;color:#fff;">
-                            <i class="icon-Clock"></i>
-                        </button>
+                    <br>
+                    <label class="form-control-label">Hours of Operation</label>
+                    <!-- <div class="row" style="margin-top: 1rem;" (change)="getHours($event)">
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <select class="form-control" [(ngModel)]="hoursFrom" [ngModelOptions]="{standalone: true}">
+                                <option value="0" selected hidden>From</option>
+                                <option [value]="type" *ngFor="let type of startTimeArray">
+                                    {{type}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-1 text-center mt-2">-</div>
+                        <div class="col-md-4">
+                            <select class="form-control" [(ngModel)]="hoursTo" [ngModelOptions]="{standalone: true}">
+                                <option value="0" selected hidden>To</option>
+                                <option [value]="type" *ngFor="let type of startTimeArray">
+                                    {{type}}
+                                </option>
+                            </select>
+                        </div>
                     </div>
-                <input class="form-control" id="hours" name="hours" type="text">    -->
                 </div>
-
-                <label class="form-control-label" for="hours">Telegram</label>
-                <div class="text-center">
-                    <img src="/assets/images/business.png" />
+                <br>
+                <label class="form-control-label" for="telegram">Telegram</label>
+                <div class="text-center" (click)="routeToTelegram()">
+                    <div class="col-sm-3 offset-sm-1">
+                        <div class="text-ellipsis hovered_tip" style="position: relative" placement="right"
+                            container="body">
+                            <img id="telegramImg" src="/assets/images/telegram.png" />
+                            <div class="custom_tip">
+                                <p>Step 1: Download the Telegram App or Visit https://web.telegram.org/.</p>
+                                <p>Step 2: Open the Telegram App.</p>
+                                <p>Step 3: Sign Up and Register your Telegram Account</p>
+                                <!-- <p>Step 4: Search @BotFather for create a bot</p>
+                                <p>Step 5: /newbot and provied bot name and the handle name</p>
+                                <p>Step 6: Add the token provied by BotFather</p> -->
+                                <p>Step 4: Search @Botfather</p>
+                                <p>Step 5: Type /newbot and “Name Your Bot” (Jaunna Taco Support, etc.)</p>
+                                <p>Step 6: Search User Info Bot (or @User Info Bot) and copy your Bot Access token
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- <form [formGroup]="foodParkForm" (ngSubmit)="onTelegramClick()">
-                       
-                        <label for="state">State</label>
-                        <div class="input-group">
-                          <select formControlName="state_id" class="form-control" (change)="getTerritory($event)">
-                            <option *ngFor="let item of states.state" value="{{item.id}}">{{item.name}}</option>
-                          </select>
-                        </div>         
-                       
-                </form> -->
-
-
-                <!-- <label class="form-control-label" for="name">Telegram Group Name</label> -->
-                
-                <!-- <input class="form-control form-control-sm" formControlName="name" type="text" formControlName="name"> -->
-
-                <!-- <label class="form-control-label" for="description">Business Address</label>  
-                <textarea rows="" class="form-control form-control-line" class="form-control input-md" id="description" name="description"></textarea> -->
-
-                <button uiSref="personal" type="button" class="mt-3 btn btn-raised btn-secondary mr-1" (click)="cancel()"> Previous</button>
-                <!-- <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save()"> Next </button> -->
-                <button uiSref="address" type="submit" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;" > Save </button>
+                <div>
+                    <br>
+                    <label class="form-control-label" for="telegram_id">Provide your Telegram ID below:</label>
+                    <input class="form-control" formControlName="telegram_id" type="text">
+                    <br>
+                    <button type="button" class="btn btn-raised btn-info mt-3" style="background: #34a6bf;color:#fff;"
+                        (click)="addGroupName()">Create Group</button>
+                    <br>
+                </div>
+                <br>
+                <button uiSref="personal" type="button" class="mt-3 btn btn-raised btn-secondary mr-1"
+                    (click)="cancel()"> Previous</button>
+                <button uiSref="address" type="submit" class="btn btn-raised btn-info mt-3"
+                    style="background: #34a6bf;color:#fff;"> Save </button>
             </div>
         </div>
     </div>
 </form>
-
-
-
-<!-- <form #workForm="ngForm" class="editForm" novalidate>
-    <div >
-        <div class="tab-pane active">
-            <h4 class="head text-center">{{title}}</h4>
-            <br/>
-            <div class="row">
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="google_api_key">Google Api Key</label>  
-                        <input class="form-control input-md" #googleapikey="ngModel" required id="google_api_key" name="google_api_key" type="text"  [(ngModel)]="google_api_key">   
-                    </div>
-                </div>
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="google_sheet_url">Google Sheet URL</label>  
-                        <input class="form-control input-md" #googlesheeturl="ngModel" required id="google_sheet_url" name="google_sheet_url" type="text"  [(ngModel)]="google_sheet_url">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="google_sheet_tab_name">Google Api Key</label>  
-                        <input class="form-control input-md" #googlsheettabname="ngModel" required id="google_sheet_tab_name" name="google_sheet_tab_name" type="text"  [(ngModel)]="google_sheet_tab_name">   
-                    </div>
-                </div>
-            </div>
-            <div class="form-group text-center space-20">
-                <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1" (click)="cancel()"> Previous</button>
-                <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button>
-            </div>
-        </div>
-    </div>
-</form> -->
-
-
-
-<!-- <form #workForm="ngForm" class="editForm" novalidate>
-    <div >
-        <div class="tab-pane active">
-            <h4 class="head text-center">{{title}}</h4>
-            <br/>
-            <div class="row">
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="google_api_key">Google Api Key</label>  
-                        <input class="form-control input-md" #googleapikey="ngModel" required id="google_api_key" name="google_api_key" type="text"  [(ngModel)]="google_api_key">   
-                        <small class="form-text text-muted danger" *ngIf="!google_api_key.valid && (google_api_key.dirty || google_api_key.touched)">This field is required!</small>
-                    </div>
-                </div>
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="google_sheet_url">Google Sheet URL</label>  
-                        <input class="form-control input-md" #googlesheeturl="ngModel" required id="google_sheet_url" name="google_sheet_url" type="text"  [(ngModel)]="google_sheet_url">
-                        <small class="form-text text-muted danger" *ngIf="!google_sheet_url.valid && (google_sheet_url.dirty || google_sheet_url.touched)">This field is required!</small>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class='col-12 col-sm-6'>
-                    <div class="form-group">
-                        <label class="form-control-label" for="google_sheet_tab_name">Google Api Key</label>  
-                        <input class="form-control input-md" #googlsheettabname="ngModel" required id="google_sheet_tab_name" name="google_sheet_tab_name" type="text"  [(ngModel)]="google_sheet_tab_name">   
-                        <small class="form-text text-muted danger" *ngIf="!google_sheet_tab_name.valid && (google_sheet_tab_name.dirty || google_sheet_tab_name.touched)">This field is required!</small>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group text-center space-20">
-                <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1" (click)="cancel()"> Previous</button>
-                <button uiSref="address" type="button" class="btn btn-raised btn-info" [disabled]="!workForm.valid" (click)="save(workForm)"> Next </button>
-            </div>
-        </div>
-    </div>
-</form> -->

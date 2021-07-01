@@ -11,10 +11,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GreenmoneyComponent implements OnInit {
 
-  // scriptData:any;
-  // urlId:any;
-  // accountId:any;
-  // customerId:any;
+  scriptData:any;
+  urlId:any;
+  accountId:any;
+  customerId:any;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,88 +26,90 @@ export class GreenmoneyComponent implements OnInit {
   public ngOnInit() {
     
 
-    // let urlid = window.location.href.split('/');
-    // this.urlId = urlid[5];
-    // localStorage.setItem('orderID', this.urlId);
+    let urlid = window.location.href.split('/');
+    this.urlId = urlid[5];
+    debugger
+    localStorage.setItem('orderID', this.urlId);
 
-    // let jqueryFile = document.createElement('script');
-    // jqueryFile.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js";
-    // document.head.appendChild(jqueryFile);
-
+    let jqueryFile = document.createElement('script');
+    jqueryFile.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js";
+    document.head.appendChild(jqueryFile);
+    window.open('https://admin.instamarkt.co/#/green-money/42a5e7d5-4b82-4368-a238-3661a78cd7eb','myWindow')
+    // this.greenMoney()
   }
 
  
 
-  // async greenMoney() {
-  //   await this._ProfileService.greenMoneyPayment(this.urlId).subscribe(
-  //     (response: any) => {
+  async greenMoney() {
+    await this._ProfileService.greenMoneyPayment(this.urlId).subscribe(
+      (response: any) => {
         
-  //       let getResponse = response;
-  //       getResponse = getResponse.split('<script>');
+        let getResponse = response;
+        getResponse = getResponse.split('<script>');
         
-  //       let getFirstScript = getResponse[1].split('</script>');
-  //       let getSecondScript = getResponse[2].split('</script>');
+        let getFirstScript = getResponse[1].split('</script>');
+        let getSecondScript = getResponse[2].split('</script>');
       
-  //       let appendFirstScript = document.createElement('script');
-  //       appendFirstScript.innerHTML = getFirstScript[0];
-  //       document.head.appendChild(appendFirstScript);
+        let appendFirstScript = document.createElement('script');
+        appendFirstScript.innerHTML = getFirstScript[0];
+        document.head.appendChild(appendFirstScript);
 
-  //       let appendSecondScript = document.createElement('script');
-  //       appendSecondScript.innerHTML = getSecondScript[0];
-  //       document.head.appendChild(appendSecondScript);
+        let appendSecondScript = document.createElement('script');
+        appendSecondScript.innerHTML = getSecondScript[0];
+        document.head.appendChild(appendSecondScript);
 
-  //       setTimeout(function(){
-  //         let cashFlowScript = document.createElement('script');
-  //         cashFlowScript.innerHTML = `Cashflow.init({ target: $("#widget")});
+        setTimeout(function(){
+          let cashFlowScript = document.createElement('script');
+          cashFlowScript.innerHTML = `Cashflow.init({ target: $("#widget")});
 
-  //         Cashflow.ready = function(id){
-  //             console.log("Session ID: " + id);
-  //             Cashflow.open();
-  //         }
+          Cashflow.ready = function(id){
+              console.log("Session ID: " + id);
+              Cashflow.open();
+          }
 
-  //         Cashflow.onFatalError = function(e) {
-  //             console.log("Verde widget failed on startup...", e);
-  //         }
+          Cashflow.onFatalError = function(e) {
+              console.log("Verde widget failed on startup...", e);
+          }
 
-  //         Cashflow.onCustomerCreation = function(id) {
-  //             console.log("Customer ID: " + id);
-  //             localStorage.setItem('customerId', id);
-  //         }
+          Cashflow.onCustomerCreation = function(id) {
+              console.log("Customer ID: " + id);
+              localStorage.setItem('customerId', id);
+          }
 
-  //         Cashflow.onEnrollmentSuccess = function(id, data) {
-  //             console.log("Account ID: " + id);
-  //             console.log("Enrollment Data: " + data);
-  //             var getOrderID = localStorage.getItem('orderID');
-  //             var customerID = localStorage.getItem('customerId');
+          Cashflow.onEnrollmentSuccess = function(id, data) {
+              console.log("Account ID: " + id);
+              console.log("Enrollment Data: " + data);
+              var getOrderID = localStorage.getItem('orderID');
+              var customerID = localStorage.getItem('customerId');
 
-  //             var arr = {
-  //               "CustomerToken":customerID,
-  //               "AccountToken":id
-  //             };
+              var arr = {
+                "CustomerToken":customerID,
+                "AccountToken":id
+              };
 
-  //             $.ajax({
-  //               method:'POST',
-  //               url:'https://api.instamarkt.co/api/v1/payment/green-money-generate-check/'+getOrderID,
-  //               data:JSON.stringify(arr),
-  //               contentType: 'application/json; charset=utf-8',
-  //               dataType: 'json',
-  //               success:function(data){
-  //                 console.log(data);
-  //                 localStorage.clear();
-  //               },
-  //               error: function(XMLHttpRequest, textStatus, errorThrown) { 
-  //                 alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-  //               }    
-  //             })
-  //         }`;
+              $.ajax({
+                method:'POST',
+                url:'https://api.instamarkt.co/api/v1/payment/green-money-generate-check/'+getOrderID,
+                data:JSON.stringify(arr),
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success:function(data){
+                  console.log(data);
+                  localStorage.clear();
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                  alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+                }    
+              })
+          }`;
 
-  //         document.head.appendChild(cashFlowScript);
-  //       },5000);  
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   )
-  // }
+          document.head.appendChild(cashFlowScript);
+        },5000);  
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
 
 }

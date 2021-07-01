@@ -13,12 +13,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
+<link rel="stylesheet" href="styles.de5593b008522792fed2.css"></head>
 
 <body class="mat-typography">
 
     <app-root></app-root>
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCNuSINklJM6YkiIYG9ixuWviIkJtCD5U&libraries=places&language=en">
+    </script>
     <script>
         if (window.location.href.indexOf('/green-money') > -1) {
             
@@ -86,7 +87,9 @@
                                 success:function(data){
                                     console.log(data);
                                     localStorage.clear();
-                                    document.write('<p class="text-alert-info" style="color: white;background: #aab8ff;padding: 5px 10px;text-align: center;border-radius: 5px;font-weight: bold;margin-bottom: 2px;width:400px;">Payment successful. Please click on done button to proceed.</p>');
+
+                                    // document.write('<p class="text-alert-info" style="color: white;background: #aab8ff;padding: 5px 10px;text-align: center;border-radius: 5px;font-weight: bold;margin-bottom: 2px;width:400px;">Payment successful. Please click on done button to proceed.</p>');
+                                    document.write('<p class="text-alert-info" style="color: white;background: #aab8ff;padding: 5px 10px;text-align: center;border-radius: 5px;font-weight: bold;margin-bottom: 2px;width:400px;">'+data.data.Result.Description+'</p>');
                                 },
                                 error: function(XMLHttpRequest, textStatus, errorThrown) { 
                                     console.log("Status: " + textStatus); alert("Error: " + errorThrown); 
@@ -142,6 +145,6 @@
         }    
     </script>
 
-<script src="runtime-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="polyfills-es2015.js" type="module"></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule defer></script><script src="vendor-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es2015.js" type="module"></script><script src="main-es5.js" nomodule defer></script></body>
+<script src="runtime-es2015.7e424bb09eeee66bc4f9.js" type="module"></script><script src="runtime-es5.7e424bb09eeee66bc4f9.js" nomodule defer></script><script src="polyfills-es5.561186807430c2d8fba6.js" nomodule defer></script><script src="polyfills-es2015.f6234737c3584bdb2e6b.js" type="module"></script><script src="main-es2015.442cafe0c4ae03067383.js" type="module"></script><script src="main-es5.442cafe0c4ae03067383.js" nomodule defer></script></body>
 
 </html>

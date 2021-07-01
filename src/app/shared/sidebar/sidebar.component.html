@@ -9,14 +9,14 @@
                 </div>
                 <div class="user-content hide-menu m-t-10">
                     <h5 class="m-b-10 user-name font-medium">{{firstName}} {{lastName}}</h5>
-                    <a ngbDropdownToggle href="javascript:void(0)" class="btn btn-circle btn-sm m-r-5" id="Userdd" role="button" data-toggle="dropdown"
+                    <!-- <a ngbDropdownToggle href="javascript:void(0)" class="btn btn-circle btn-sm m-r-5" id="Userdd" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <i class="ti-settings"></i>
                     </a>
                     <a href="javascript:void(0)" title="Logout" class="btn btn-circle btn-sm">
                         <i class="ti-power-off"></i>
-                    </a>
-                    <div class="animated flipInY" aria-labelledby="Userdd" ngbDropdownMenu>
+                    </a> -->
+                    <!-- <div class="animated flipInY" aria-labelledby="Userdd" ngbDropdownMenu>
                         <a class="dropdown-item" href="javascript:void(0)">
                             <i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
                         <a class="dropdown-item" href="javascript:void(0)">
@@ -29,13 +29,14 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="javascript:void(0)">
                             <i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- End User Profile-->
         </li>
         <!-- First level menu -->
-        <li class="sidebar-item" [class.selected]="showMenu === sidebarnavItem.title" *ngFor="let sidebarnavItem of sidebarnavItems"
+        <li class="sidebar-item" [class.selected]="showMenu === sidebarnavItem.title"
+            *ngFor="let sidebarnavItem of sidebarnavItems"
             [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
             <div class="nav-small-cap" *ngIf="sidebarnavItem.extralink === true">
                 <img [src]="[sidebarnavItem.icon]" class="img-fluid mr-2" width="20">
@@ -44,9 +45,16 @@
             <!-- <a class="sidebar-link waves-effect waves-dark" [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null"
                 [ngClass]="[sidebarnavItem.class]" *ngIf="!sidebarnavItem.extralink;" (click)="addExpandClass(sidebarnavItem.title)"
                 [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'"> -->
-                <a class="sidebar-link waves-effect waves-dark active" [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null"
-                [ngClass]="[sidebarnavItem.class]" *ngIf="!sidebarnavItem.extralink;" (click)="addExpandClass(sidebarnavItem.title)"
-                >
+            <a *ngIf="sidebarnavItem.class !== 'directlink' && !sidebarnavItem.extralink"
+                class="sidebar-link waves-effect waves-dark active"
+                [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null"
+                [ngClass]="[sidebarnavItem.class]" (click)="addExpandClass(sidebarnavItem.title)">
+                <img [src]="[sidebarnavItem.icon]" class="img-fluid mr-2" width="20">
+                <span class="hide-menu">{{sidebarnavItem.title}}</span>
+            </a>
+            <a *ngIf="sidebarnavItem.class == 'directlink'" class="sidebar-link waves-effect waves-dark active"
+                href="javascript:void(0);" [ngClass]="[sidebarnavItem.class]"
+                (click)="addExpandClass(sidebarnavItem.title); uploadGoogleMenuSheet();">
                 <img [src]="[sidebarnavItem.icon]" class="img-fluid mr-2" width="20">
                 <span class="hide-menu">{{sidebarnavItem.title}}</span>
             </a>

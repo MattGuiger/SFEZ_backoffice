@@ -11,4 +11,4 @@ backup*
 ####################
 *access.log
 *error.log
-.idea/
+.idea/*
