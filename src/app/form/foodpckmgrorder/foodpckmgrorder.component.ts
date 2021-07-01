@@ -9,6 +9,9 @@ import { Options } from 'ng5-slider';
 import { isNgTemplate } from '@angular/compiler';
 import { async } from '@angular/core/testing';
 import { coreDirectives } from '@agm/core/core.module';
+import { date } from 'ngx-custom-validators/src/app/date/validator';
+import * as moment from 'moment';
+import {IProduct} from '../foodpckmgrorder/interface'
 
 
 declare var require: any;
@@ -119,6 +122,9 @@ export class FoodpckmgrorderComponent {
   //@ViewChild(FoodpckmgrorderComponent, { static: false }) table: FoodpckmgrorderComponent;
   @ViewChild('table') table: any;
   tab: any;
+  weeklyRecon: any;
+  date: any;
+  sevendate: any;
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService
     , private _CommonFunctionsService: CommonFunctionsService,
@@ -129,13 +135,10 @@ export class FoodpckmgrorderComponent {
     this.getDailyPayout();
     this.foodParkUnits();
     this.getWeeklyRecon();
-    //this.getCurrentDate();
     this.deliveryHub = [];
-    // this.wagesDataArr = [];
-    // this.weekData = [];
     this.LoadHubData();
-    // this.loadWagesData();
-    // this.loadWeekData();
+    this.date = moment().add(0,'d')
+    this.sevendate = moment().add(7,'d')
   }
 
   LoadHubData() {
@@ -229,9 +232,6 @@ export class FoodpckmgrorderComponent {
           }]
         }]
     }
-    console.log("-------------- Hub Data --------------")
-    console.log(this.deliveryHub);
-    console.log("-------------- Hub Data --------------")
   }
 
   loadWagesData() {
@@ -292,11 +292,9 @@ export class FoodpckmgrorderComponent {
       // this._ProfileService.getDailyPayoutLists(this.company_id, this.data).subscribe(
       (res: any) => {
         this.tab = res.data
-        console.log("tabbb", this.tab)
         var payoutContainer = []
 
         this.tab.forEach(function (resp) {
-          //console.log("resppp",resp.data.cod)
           if (resp.data.cod) {
             payoutContainer.push(resp.data.cod)
 
@@ -304,63 +302,29 @@ export class FoodpckmgrorderComponent {
           if (resp.data.online) {
             payoutContainer.push(resp.data.online)
           }
-          // this.dailyPayoutData = resp.data.cod
-          //  resp.data.forEach(function(response){
-          //   this.dailyPayoutData = response.cod
-          //  })
 
         })
         this.dailyPayoutData = payoutContainer
-        console.log("hhhh", this.dailyPayoutData)
-        // this.dailyPayoutData = res.data;
-        // res.data.forEach(function(response){
-        //  // console.log("lets see",response.data)
-        //   if(response.data.cod){
-        //     console.log("cod here")
-        //     response.data.cod.forEach(function(resp){
-        //     payoutContainer.push(resp)
-        //     console.log("value in cod", payoutContainer)
-        //   })
-        // }
-        //   if(response.data.online){
-        //     console.log("online here")
-        //     response.data.online.forEach(function(resp){
-        //       payoutContainer.push(resp)
-        //     console.log("value in online",payoutContainer)
-        //     })
-        //   }
-        // })
         this.dailyPayoutData = payoutContainer;
-        console.log("overall value", payoutContainer)
-        console.log("Now this is payout data", this.dailyPayoutData)
-        // res.data[0].data.forEach(function(val){
-        //   totalBalance = totalBalance+(val.amount-val.deduction);
-        // });
         this.codBalance = totalBalance;
       },
       (error: any) => {
-        console.log(error)
+        
       }
     );
   }
 
-  // getDailyPayout(){
-  //   let totalBalance = 0;
-  //   this._ProfileService.getDailyPayoutList().subscribe(
-  //     (res:any) => {
-  //       this.dailyPayoutData = res.data;
-  //       console.log("Hey here is daily payout data",this.dailyPayoutData)
-  //       // res.data.forEach(function(val){
-  //       //   totalBalance = totalBalance+(val.amount-val.deduction);
-  //       // });
-  //       // this.codBalance = totalBalance;
-  //     },
-  //     (error:any) => {
-  //       console.log(error)
-  //     }
-  //   );
-  // }
+  goBack()
+  {
+  this.date = moment(this.date).add(-7,'d')
+  this.sevendate = moment(this.sevendate).add(-7,'d')
+  }
 
+  goFront()
+  {
+    this.date = moment(this.date).add(7,'d')
+    this.sevendate = moment(this.sevendate).add(7,'d')
+  }
 
   getAllDrivers(foodParkId) {
     this._ProfileService.getAllDrivers(foodParkId).subscribe((res: any) => {
@@ -370,7 +334,6 @@ export class FoodpckmgrorderComponent {
 
 
   getAllOrder() {
-    // this.loadOrderDummyData();
     this.user = this._CommonFunctionsService.checkUser().user;
     this.getAllDrivers(this.user.food_park_id);
     this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id).subscribe((res: any) => {
@@ -408,10 +371,16 @@ export class FoodpckmgrorderComponent {
 
   getWeeklyRecon()
   {
+    const data =
+    {
+      "startDate": "2020-12-29 10:29:23.105817+05:30",
+      "endDate": "2021-01-05 10:29:23.105817+05:30"
+    }
     this._ProfileService.getWeeklyrecon(data).subscribe((res:any)=>
     {
-      console.log(res,'res')
-    })
+    this.weeklyRecon = res.data 
+    console.log(this.weeklyRecon,'weklyRecon');  
+  })
   }
 
   loadOrderDummyData() {
@@ -482,16 +451,9 @@ export class FoodpckmgrorderComponent {
   toggleExpandRow(row) {
     this.rowWiseData = [];
     this.orderDetails = row;
-    // this.table.rowDetail.collapseAllRows();
     this.table.rowDetail.toggleExpandRow(row);
-    //this.loadingData = true;
-
-    // this._ProfileService.getOrderProductDetails().subscribe((res: any) => {
-    //   this.loadingData = false;
     const rowdata = this.temp.filter(d => d.id == row.id);
     this.rowWiseData = rowdata[0]?.order_items;
-    // });
-
   }
 
 
@@ -507,33 +469,22 @@ export class FoodpckmgrorderComponent {
   }
 
   toggleExpandRowDailyCod(row) {
-    console.log("sarwa", row);
+  
     this.table.rowDetail.collapseAllRows();
     this.table.rowDetail.toggleExpandRow(row);
   }
 
   /** Start select driver */
   selectdriver(event, row, value) {
-    console.log(event);
-    console.log(row);
-    console.log(value);
-    // this._ProfileService.setDriverToOrder(this.user.food_park_id, parseInt(event.target.value), row.orders[0].id).subscribe((res: any) => {
-    //   if (res.status == 200) {
-    //     this.toastr.success("Driver assign successfully!")
-    //   } else {
-    //     this.toastr.error("Something went wrong!")
-    //   }
-    // })
   }
+
+
   /** End */
 
   orderStatus(event, row) {
-    console.log(event.target.value);
-    console.log(row);
   }
 
   orderAction(event, row) {
-    console.log(event.target.value, row.order_detail.id);
     if (event.target.value == 'Refund') {
       this._ProfileService.refundAmountToCustomer(row.id).subscribe(res => {
         this.toastr.success("Refund Amount");
@@ -542,12 +493,10 @@ export class FoodpckmgrorderComponent {
     } else if (event.target.value == 'Void') {
       this._ProfileService.voidOrder(row.order_detail.id).subscribe(
         (voidResponse) => {
-          console.log(voidResponse);
           this.toastr.success("Order removed successfully");
           this.getAllOrder();
         },
         (error) => {
-          console.log(error);
         }
       )
     } else if (event.target.value == 'Delete') {
@@ -566,14 +515,23 @@ export class FoodpckmgrorderComponent {
     });
     this.rows = temp;
   }
+
+  getDate()
+  {
+    return this.date
+  }
+
+
+  getDateseven()
+  {
+    return this.sevendate
+  }
   /** end  */
 
   updateValue(event, cell, rowIndex) {
-    console.log('inline editing rowIndex', rowIndex);
     this.editing[rowIndex + '-' + cell] = false;
     this.rows[rowIndex][cell] = event.target.value;
     this.rows = [...this.rows];
-    console.log('UPDATED!', this.rows[rowIndex][cell]);
   }
 
 
@@ -585,7 +543,6 @@ export class FoodpckmgrorderComponent {
   async foodParkUnits() {
     await this._ProfileService.foodParkUnits(this.user.food_park_id).subscribe(
       (response) => {
-        console.log(response.data);
         if (response.data) {
           response.data.forEach(async (value) => {
             await this._ProfileService.getParticularUnitData(value.id).subscribe(
@@ -600,17 +557,13 @@ export class FoodpckmgrorderComponent {
                 this.unitsId.push(value.id);
               },
               (unitError) => {
-                console.log(unitError);
               }
             )
           })
-
-          console.log("testing", this.unitsId);
           this.unitsDriver();
         }
       },
       (error) => {
-        console.log(error);
       }
     )
 
@@ -623,7 +576,6 @@ export class FoodpckmgrorderComponent {
     }
     this._ProfileService.getUnitsDriver(unitsIdData).subscribe(
       (driverRespose) => {
-        // console.log("driverResponse",driverRespose);
         let getDriverId = [];
         if (driverRespose.data) {
           this.driverCount = driverRespose.data.length;
@@ -639,7 +591,6 @@ export class FoodpckmgrorderComponent {
                     }
                   },
                   (wagesError) => {
-                    console.log(wagesError);
                   }
                 )
               }
@@ -649,7 +600,6 @@ export class FoodpckmgrorderComponent {
         }
       },
       (driverError) => {
-        console.log(driverError);
       }
     )
   }
@@ -700,11 +650,9 @@ export class FoodpckmgrorderComponent {
   /** Save row */
   save(row, rowIndex) {
     this.isEditable[rowIndex] = !this.isEditable[rowIndex];
-    console.log(row);
     let getLocalStorage: any = localStorage.getItem('wagesdata');
     getLocalStorage = JSON.parse(getLocalStorage);
     getLocalStorage = getLocalStorage[rowIndex];
-    //console.log(getLocalStorage.mon);
 
     let editDay, editValue;
     if (row.mon != parseInt(getLocalStorage.mon)) { editDay = 1; editValue = row.mon; }
@@ -714,7 +662,6 @@ export class FoodpckmgrorderComponent {
     if (row.fri != parseInt(getLocalStorage.fri)) { editDay = 5; editValue = row.fri; }
     if (row.sat != parseInt(getLocalStorage.sat)) { editDay = 6; editValue = row.sat; }
     if (row.sun != parseInt(getLocalStorage.sun)) { editDay = 7; editValue = row.sun; }
-    console.log("editday:" + editDay, "editValue:" + editValue);
 
     let currentDate = new Date()
     let currentDay = currentDate.getDay();
@@ -725,9 +672,7 @@ export class FoodpckmgrorderComponent {
     } else {
       pasCurFutDate = currentDate.getDate() - Math.abs(exactDate);
     }
-    // console.log("pascurfut", String(pasCurFutDate).padStart(2, '0'));
     let actualDate = this.getCurrentDate(String(pasCurFutDate).padStart(2, '0'));
-    // console.log(actualDate);
     let addhour: any = parseInt(row.mon) + parseInt(row.tue) + parseInt(row.wed) + parseInt(row.thu) + parseInt(row.fri) + parseInt(row.sat) + parseInt(row.sun);
     let workTime: any = parseInt(addhour) - parseInt(row.total);
 
@@ -737,14 +682,11 @@ export class FoodpckmgrorderComponent {
       "work_time": workTime,
       "work_date": actualDate
     }
-    console.log(createWagesData);
     this._ProfileService.createDriverWages(row.driverId, createWagesData).subscribe(
       (wagesResponse) => {
-        console.log(wagesResponse);
         this.unitsDriver();
       },
       (wagesError) => {
-        console.log(wagesError);
       }
     );
   }
@@ -753,7 +695,6 @@ export class FoodpckmgrorderComponent {
   /**Delete row */
   delete(row, rowIndex) {
     this.isEditable[rowIndex] = !this.isEditable[rowIndex]
-    console.log("Row deleted: " + rowIndex);
   }
   /** end */
 
@@ -781,7 +722,6 @@ export class FoodpckmgrorderComponent {
       this.sumTotalDeliveryWages = this.sumTotalDeliveryWages + parseInt(data.wagesTotal)
     });
     //this.totalDeliveryWagesData = Array.from(this.totalDeliveryWagesData.reduce((m, t) => m.set(t.name, t), new Map()).values());
-    // console.log(this.totalDeliveryWagesData);
     this.deliveryAllocation();
   }
   /** end */
@@ -790,9 +730,7 @@ export class FoodpckmgrorderComponent {
   deliveryAllocationList: any[] = [];
   commasUnitName: any = "";
   deliveryAllocation() {
-    console.log(this.unitOrderAndName);
     this.unitOrderAndName.forEach((valAllocation: any, valKey: any) => {
-      // console.log("deliveryAllcocatin",this.totalDeliveryWagesData[valKey].wagesTotal)
       let data: any = {
         "unitName": valAllocation.unitName,
         "subSidy": (this.sumTotalDeliveryWages * valAllocation.unitOrder) / this.totalDeliveryCount,
@@ -810,8 +748,6 @@ export class FoodpckmgrorderComponent {
       }
       this.deliveryAllocationList.push(data);
     });
-    console.log("Allocation", this.deliveryAllocationList);
-    console.log("unitsname:" + this.commasUnitName);
   }
 
   subsidyTotalDeliveryWages: any;
@@ -823,7 +759,6 @@ export class FoodpckmgrorderComponent {
     this.subsidyUnitsOrder = unitsOrder;
     this.subsidyTotalDeliveryCount = totalDeliveryCount;
     this.subsidyUnitName = unitname;
-    console.log(this.subsidyUnitName)
     this.modalService.open(subsidy, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {

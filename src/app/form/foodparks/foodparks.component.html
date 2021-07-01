@@ -761,7 +761,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button type="submit" class="btn btn-outline-dark">Create Hub</button>
+    <button type="submit" class="btn btn-outline-dark" (click)="onSubmit()">Create Hub</button>
   </div>
 
         
@@ -861,8 +861,8 @@
         </div> -->
     </form>
   </div>
-  <div class="modal-footer">
-    <button type="submit" class="btn btn-outline-dark">Save</button>
+  <div class="modal-footer" (click)="onSubmitLocationForm()">
+    <button type="submit" class="btn btn-outline-dark" >Save</button>
   </div>
 
 </ng-template>

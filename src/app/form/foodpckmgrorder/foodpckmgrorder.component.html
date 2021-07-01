@@ -64,19 +64,27 @@
                 <form class="mb-3">
                   <div class="row align-items-center">
                     <div class="col-xl-2 col-lg-3"><label class="mb-3">Filter By:</label></div>
-                    <div class="col-xl-6 col-lg-7">
+                    <div class="col-xl-6 col-lg-4">
                       <input type='text' class="form-control" placeholder='Delivery address, Order Id, Customer Name'
                         (keyup)='updateFilter($event)' />
                     </div>
-                  </div>
-                  <div class="col-xl-2 col-lg-3">
-                    <select  class="form-control custom-fontsize"
+                    <div class="col-xl-6 col-lg-2">
+                      <select  class="form-control custom-fontsize"
                     (change)="orderActionFilter($event, row)">
                     <option value="">Select</option>
                     <option value="Void">Void</option>
                     <option value="Refund">Refund</option>
-                   
                   </select>
+                    </div>
+                    <div class="col-xl-6 col-lg-2">
+                     <input type="date" style="height: 32px;
+                     color: #24c6ab;">
+                    </div>
+                  </div>
+                  <div class="col-xl-2 col-lg-2">
+                  
+                   
+                 
                   </div>
                 </form>
                 <div class="accodion-datatable">
@@ -680,12 +688,12 @@
               <div class="row mb-3">
 
                 <div class="col-md-3 offset-3 text-right" style="font-weight:500;padding-left:10px;">
-                  <button type="button" class="btn" style="border-radius: 50%;">&#8249;</button> &nbsp;
+                  <button type="button" class="btn" style="border-radius: 50%;" (click)="goBack()">&#8249;</button> &nbsp;
                   Week Of :
                 </div>
                 <div class="col-md-3 pl-0">
-                  Aug 11 - 17 &nbsp;
-                  <button class="col-md-3 pl-0" type="button" class="btn" style="border-radius: 50%;">&#8250;</button>
+                  {{getDate() | date}} - {{getDateseven() | date}} &nbsp;
+                  <button class="col-md-3 pl-0" type="button" class="btn" style="border-radius: 50%;" (click)="goFront()">&#8250;</button>
                   <!-- <i class="ti-pencil" aria-hidden="true" style="cursor:pointer;color: #3dc6ac;
                   font-weight: 700;"></i> -->
                 </div>
@@ -700,7 +708,7 @@
                   </div>
                 </div>
 
-                <div *ngFor="let driver of deliveryHub.drivers">
+                <div *ngFor="let driver of weeklyRecon">
 
                   <div style="border: 1px solid lightgray;">
                     <div class="row mb-1 mt-4">
@@ -712,7 +720,7 @@
                     <!--Start week table-->
                     <div class="card-body">
                       <div class="accodion-datatable">
-                        <ngx-datatable class="material" #weekTable [rows]="driver.orders" [columnMode]="'force'"
+                        <ngx-datatable class="material" #weekTable [rows]="driver" [columnMode]="'force'"
                           [headerHeight]="50" [footerHeight]="0" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
 
                           <ngx-datatable-column headerClass="myClass" name="Vendor"  [width]="100" prop="vendor">
@@ -735,13 +743,13 @@
                               color: white;
                               align-items: center;
                               border-radius: 7px;">
-                                {{getUpdatevendor(row.vendor)[0]}}
+                                <!-- {{getUpdatevendor(row.vendor)[0]}} -->
                               </a> 
                              </span>
                              <br />
                              <span>
                               <a href="javascript:void(0)" style="font-size: 16px;font-weight: bold;">
-                                {{getUpdatevendor(row.vendor)[1]}}
+                                <!-- {{getUpdatevendor(row.vendor)[1]}} -->
                                </a>   
                              </span>
                         
@@ -753,7 +761,7 @@
                               ngx-datatable-cell-template>
                               <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.address" name="address"
                           [disabled]="!isEditable[rowIndex]"> -->
-                              {{row.address}}
+                              {{row.delivery_address_details.line_1}}
                             </ng-template>
                           </ngx-datatable-column>
 
@@ -773,16 +781,16 @@
                               ngx-datatable-cell-template>
                               <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.fee" name="fee"
                           [disabled]="!isEditable[rowIndex]"> -->
-                              {{row.fee}}
+                              {{row.amount}}
                             </ng-template>
                           </ngx-datatable-column>
 
-                          <ngx-datatable-column name="Tips" headerClass="myClass" [width]="70" prop="tips">
+                          <ngx-datatable-column name="Tips" headerClass="myClass" [width]="70" prop="trip_fee">
                             <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
                               ngx-datatable-cell-template>
                               <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.tips" name="tips"
                           [disabled]="!isEditable[rowIndex]"> -->
-                              {{row.tips}}
+                              {{row.trip_fee}}
                             </ng-template>
                           </ngx-datatable-column>
 
@@ -826,6 +834,7 @@
                   </div>
                 </div>
               </div> -->
+
                     <div class="row mb-1 mt-4" hidden>
                       <div class="view-orders" style="margin:0 auto;">
                         <button type="button" class="btn btn-success">View Orders</button>
@@ -859,18 +868,13 @@
                           <ngx-datatable-column name="Mon" [width]="70" prop="mon">
                             <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
                               ngx-datatable-cell-template>
-                              <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.mon" name="mon"
-                          [disabled]="!isEditable[rowIndex]"> -->
-
                               {{row.mon}}
                             </ng-template>
                           </ngx-datatable-column>
 
                           <ngx-datatable-column name="Tue" [width]="70" prop="tue">
                             <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
-                              ngx-datatable-cell-template>
-                              <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.tue" name="tue"
-                          [disabled]="!isEditable[rowIndex]"> -->
+                              ngx-datatable-cell-template>                      
                               {{row.tue}}
                             </ng-template>
                           </ngx-datatable-column>
@@ -878,41 +882,29 @@
                           <ngx-datatable-column name="Wed" [width]="70" prop="wed">
                             <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
                               ngx-datatable-cell-template>
-                              <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.wed" name="wed"
-                          [disabled]="!isEditable[rowIndex]"> -->
                               {{row.wed}}
-
                             </ng-template>
                           </ngx-datatable-column>
 
                           <ngx-datatable-column name="Thu" [width]="70" prop="thu">
                             <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
-                              ngx-datatable-cell-template>
-                              <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.thu" name="thu"
-                          [disabled]="!isEditable[rowIndex]"> -->
-
+                              ngx-datatable-cell-template>                        
                               {{row.thu}}
-
                             </ng-template>
                           </ngx-datatable-column>
 
                           <ngx-datatable-column name="Fri" [width]="70" prop="fri">
                             <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
                               ngx-datatable-cell-template>
-                              <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.fri" name="fri"
-                          [disabled]="!isEditable[rowIndex]"> -->
-
+                      
                               {{row.fri}}
-
                             </ng-template>
                           </ngx-datatable-column>
 
                           <ngx-datatable-column name="Sat" [width]="70" prop="sat">
                             <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
                               ngx-datatable-cell-template>
-                              <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.sat" name="sat"
-                          [disabled]="!isEditable[rowIndex]"> -->
-
+                            
                               {{row.sat}}
 
                             </ng-template>
@@ -921,9 +913,7 @@
                           <ngx-datatable-column name="Sun" [width]="70" prop="sun">
                             <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
                               ngx-datatable-cell-template>
-                              <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.sun" name="tue"
-                          [disabled]="!isEditable[rowIndex]"> -->
-
+                              
                               {{row.sun}}
 
                             </ng-template>
@@ -934,20 +924,6 @@
                               {{row.total}}
                             </ng-template>
                           </ngx-datatable-column>
-
-                          <!-- <ngx-datatable-column [width]="20">
-                      <ng-template let-value="value" let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
-                        <i class="ti-pencil" title="Modify" *ngIf="!this.isEditable[rowIndex]"
-                          (click)="this.isEditable[rowIndex]=!this.isEditable[rowIndex]"
-                          style="cursor:pointer;color: #3dc6ac;font-weight: 700;"></i>
-
-                        <i class="ti-save mb-1" *ngIf="this.isEditable[rowIndex]" title="Save"
-                          (click)="save(row, rowIndex);" style="cursor:pointer;color: #ffbc34;font-weight: 700;"></i>
-                        <i class="ti-back-left" *ngIf="this.isEditable[rowIndex]" title="Reset"
-                          (click)="delete(row,rowIndex)" style="cursor:pointer;color: #ef6e6e;font-weight: 700;"></i>
-                      </ng-template>
-                    </ngx-datatable-column> -->
-
 
                         </ngx-datatable>
                       </div>
@@ -993,41 +969,6 @@
                   </div>
                 </div>
               </div>
-
-              <!-- <div class="row mt-3 custom-card-main">
-                <div class="custom-card">
-                  <div class="wrap-div total-wages">
-                    <div class="title">
-                      <h6>$324.00</h6>
-                    </div>
-                    <div class="description">
-                      <p>Steve R</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="custom-card">
-                  <div class="wrap-div total-wages">
-                    <div class="title">
-                      <h6>$288.00</h6>
-                    </div>
-                    <div class="description">
-                      <p>Bill J</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="custom-card">
-                  <div class="wrap-div total-wages">
-                    <div class="title">
-                      <h6>$600.00</h6>
-                    </div>
-                    <div class="description">
-                      <p>Candy V</p>
-                    </div>
-                  </div>
-                </div>
-              </div>    -->
               <div class="card-body">
 
                 <div class="accodion-datatable">
@@ -1154,170 +1095,4 @@
   </div>
 </ng-template>
 
-<!-- <ng-template #content1 let-modal> -->
-<!-- <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Add Unit</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" id="closeModal">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <form [formGroup]="unitForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="territory">Territory</label>
-        <div class="mb-3 mt-1 input-group">
-          <select formControlName="territory_id" class="form-control">
-            <option *ngFor="let item of territory" value="{{item.id}}">{{item.territory}}</option>
-          </select>
-        </div>
-        <label for="Country">Unit Name</label>
-        <div class="mb-3 mt-1 input-group">
-          <input id="Country" class="form-control" name="dp" type="text" formControlName="name">
-        </div>
-        <label for="Country">Username</label>
-        <div class="mb-3 mt-1 input-group">
-          <input id="Country" class="form-control" name="dp" type="text" formControlName="username">
-        </div>
-
-        <label for="State">Password</label>
-        <div class="mb-3 mt-1 input-group">
-          <input id="State" class="form-control" name="dp" type="password" formControlName="password">
-        </div>
-
-        <label for="State">Type</label> -->
-<!-- <div class="col-md-6 col-lg-3 d-flex align-items-end">
-                    <div class="webParent">
-                        <input type="radio" name="rGroup" value="t" id="t" />
-                        <div class="customlabel">
-                            <label class="buildItem" for="t">
-                                <div class="customCheck"></div>
-                                <img src="" onerror="this.src='../../assets/images/noImage.png';"
-                                    class="img-fluid" />
-                               
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="webParent">
-                      <input type="radio" name="rGroup" value="t" id="t" />
-                      <div class="customlabel">
-                          <label class="buildItem" for="t">
-                              <div class="customCheck"></div>
-                              <img src="" onerror="this.src='../../assets/images/noImage.png';"
-                                  class="img-fluid" />
-                             
-                          </label>
-                      </div>
-                  </div>
-
-                </div> -->
-
-<!-- <div class="row">
-          <label class="col-sm-6 col-lg-3 testradio">
-            <img src="../../../assets/images/beer.svg" style="height: 50px;width: 50px;" />
-            <input type="radio" checked="checked" name="radio" value="BEER" (change)="changeType($event)">
-            <span class="checkmark"></span>
-          </label>
-          <label class="col-sm-6 col-lg-3  testradio">
-            <img src="../../../assets/images/cafe.svg" style="height: 50px;width: 50px;" />
-            <input type="radio" name="radio" value="CAFE" (change)="changeType($event)">
-            <span class="checkmark"></span>
-          </label>
-          <label class="col-sm-6 col-lg-3  testradio">
-            <img src="../../../assets/images/icon-500-hotel-restaurant.svg" style="height: 50px;width: 50px;" />
-            <input type="radio" name="radio" value="HOTEL" (change)="changeType($event)">
-            <span class="checkmark"></span>
-          </label>
-          <label class="col-sm-6 col-lg-3  testradio">
-            <img src="../../../assets/images/icon-500-farmers-market.svg" style="height: 50px;width: 50px;" />
-            <input type="radio" name="radio" value="FARMER" (change)="changeType($event)">
-            <span class="checkmark"></span>
-          </label>
-
-          <label class="col-sm-6 col-lg-3  testradio">
-            <img src="../../../assets/images/pizza.svg" style="height: 50px;width: 50px;" />
-            <input type="radio" name="radio" value="PIZZA" (change)="changeType($event)">
-            <span class="checkmark"></span>
-          </label>
-          <label class="col-sm-6 col-lg-3  testradio">
-            <img src="../../../assets/images/wine.svg" style="height: 50px;width: 50px;" />
-            <input type="radio" name="radio" value="WINE" (change)="changeType($event)">
-            <span class="checkmark"></span>
-          </label>
-          <label class="col-sm-6 col-lg-3  testradio">
-            <img src="../../../assets/images/icon-500-restaurant.svg" style="height: 50px;width: 50px;" />
-            <input type="radio" name="radio" value="RESTAURANT" (change)="changeType($event)">
-            <span class="checkmark"></span>
-          </label> -->
-
-
-
-<!-- <div class="col-sm-3 testradio">
-                  <input id="State" class="form-control"  name="dp" type="radio" value="BEER" (change)="changeType($event)"/>
-                  <img src="../../../assets/images/beer.svg" style="height: 50px;width: 50px;"/>
-                </div>
-
-                <div class="col-sm-3 testradio">
-                  <input id="State" class="form-control"  name="dp" type="radio" value="CAFE" (change)="changeType($event)"/>
-                  <img src="../../../assets/images/cafe.svg" style="height: 50px;width: 50px;"/>
-                </div>
-                <div class="col-sm-3">
-                  <input id="State" class="form-control"  name="dp" type="radio" value="HOTEL" (change)="changeType($event)"/>
-                  <img src="../../../assets/images/icon-500-hotel-restaurant.svg" style="height: 50px;width: 50px;"/>
-                  </div>
-                  <div class="col-sm-3">
-                  <input id="State" class="form-control"  name="dp" type="radio"  value="FARMER" (change)="changeType($event)"/>
-                  <img src="../../../assets/images/icon-500-farmers-market.svg" style="height: 50px;width: 50px;"/>
-                    </div> -->
-
-<!-- <div class="col-sm-3">
-                  <input id="State" class="form-control"  name="dp" type="radio"  value="PIZZA" (change)="changeType($event)"/>
-                  <img src="../../../assets/images/pizza.svg" style="height: 50px;width: 50px;"/>
-                      </div>
-                      <div class="col-sm-3">
-                  <input id="State" class="form-control"  name="dp" type="radio"  value="WINE" (change)="changeType($event)"/>
-                  <img src="../../../assets/images/wine.svg" style="height: 50px;width: 50px;"/>
-                        </div>
-                        <div class="col-sm-3">
-                   <input id="State" class="form-control"  name="dp" type="radio"  value="RESTAURANT" (change)="changeType($event)"/>
-                  <img src="../../../assets/images/icon-500-restaurant.svg" style="height: 50px;width: 50px;"/>
-              </div> -->
-<!-- </div> -->
-
-<!-- <div class="input-group">
-          <select class="form-control" formControlName="type">
-              <option value="BEER">BEER</option>
-              <option value="ASIAN">ASIAN</option>
-              <option value="MEXICAN">MEXICAN</option>
-              <option value="CAFE">CAFE</option>
-              <option value="HOTEL">HOTEL</option>
-              <option value="FARMER">FARMER</option>
-              <option value="WINE">WINE</option>
-              <option value="PIZZA">PIZZA</option>
-              <option value="RESTAURANT">RESTAURANT</option>
-          </select>
-        </div> -->
-
-<!-- <label for="State">Customer Order Window (min)</label>
-        <ng5-slider [(value)]="customer_order_window" [options]="customerorderwindow_options"></ng5-slider>
-
-        <label for="State">Delivery Time Window(min) </label>
-        <ng5-slider [(value)]="delivery_time_offset" [options]="customerdeliverytime_options"></ng5-slider>
-
-        <label for="State">Delivery Radius(km/mi)</label>
-        <ng5-slider [(value)]="delivery_radius" [options]="deliveryradious_options"></ng5-slider>
-
-        <label for="State">Delivery Charge Amount(R$)</label>
-        <ng5-slider [(value)]="delivery_chg_amount" [options]="deliverycharge_options"></ng5-slider>
-
-
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-dark">Save</button>
-      </div>
-    </form>
-  </div>
-
-</ng-template> -->
+  

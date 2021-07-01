@@ -1088,6 +1088,7 @@ if(event.target.value == '')
     }
   }
   onSubmitLocationForm() {
+    debugger
     this.locationFoodParkForm.value.territory_id = this.locationFoodParkForm.value.territory_id ? this.locationFoodParkForm.value.territory_id : this.territory_id1;
     // this.locationFoodParkForm.value.country_id=this.l_country_id
     // this.locationFoodParkForm.value.state_id= this.locationFoodParkForm.value.state_id?this.locationFoodParkForm.value.state_id:this.l_state_id

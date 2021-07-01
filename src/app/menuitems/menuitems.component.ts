@@ -16,6 +16,7 @@ declare var $;
   templateUrl: 'menuitems.component.html',
   styleUrls: ['./menuitems.component.css']
 })
+
 export class MenuitemsComponent implements OnInit {
   user: any;
   productList: any[] = [];
@@ -84,6 +85,7 @@ export class MenuitemsComponent implements OnInit {
       this.checkingId = 'tb2'
     }
   }
+  
   removeITEMS: any = []
   onChange(event, item) {
     if (event.checked == true) {
@@ -95,7 +97,6 @@ export class MenuitemsComponent implements OnInit {
   REMOVEITEM() {
     this.removei.map((item, i) => {
       this.removeItemFromArray(item)
-
     })
   }
   addItems() {
@@ -119,7 +120,6 @@ export class MenuitemsComponent implements OnInit {
   ngOnInit() 
   {
     console.log( JSON.parse(localStorage.getItem('user')).user.id,'hIII');
-    
     this.getAllProductList();
     this.getCompanyProfile();
     this.getgoogleauthntication();
@@ -130,6 +130,8 @@ export class MenuitemsComponent implements OnInit {
     })
     this.getFolderbyEmail()
   }
+
+
   onSelect(event) {
     const formData = new FormData();
     formData.append('file', event.addedFiles[0]);
@@ -142,15 +144,10 @@ export class MenuitemsComponent implements OnInit {
       }
       this.ngxService.start();
       this._ProfileService.getFoldersCreatedInDrive(data).subscribe(res => {
-        console.log('getFoldersCreatedInDrive', res)
         this.drivefolders = res.data;
         this.isChecked = 2;
         const tabCount = isTabchange ? 1 : 0;
         this.demo1TabIndex = tabCount;
-        // if (this.showFirstTab) {
-        //   const tabCount = 2;
-        //   this.demo1TabIndex = tabCount;
-        // }
         this.fetchFolder()
         this.showBlueColoredTable = false;
         this.showZerothTab = false;
@@ -327,8 +324,10 @@ export class MenuitemsComponent implements OnInit {
   }
 
   getAllProductList() {
+    
     this.processing = true;
     this.user = this._CommonFunctionsService.checkUser().user;
+    
     if (this.user.company_id) {
       this._ProfileService.getCategory(this.user.company_id).subscribe((res: any) => {
         this.categoryList = res.data;
@@ -340,9 +339,9 @@ export class MenuitemsComponent implements OnInit {
     if (this.user.unit_id) {
       this._ProfileService.getAllProductList(this.user.unit_id).subscribe((res: any) => {
         this.productList = res.data;
-        this.processing = false;
+        this.processing = false;``
       }, error => {
-        //debugger
+        //
       })
     } else {
       this.user.unit_id = localStorage.getItem("unit_id")
@@ -350,7 +349,7 @@ export class MenuitemsComponent implements OnInit {
         this.productList = res.data;
         this.processing = false;
       }, error => {
-        //debugger
+        //
       })
     }
   }

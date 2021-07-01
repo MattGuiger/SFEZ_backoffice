@@ -279,6 +279,7 @@ export class ProfileService {
   
   getWeeklyrecon(data)
   {
+    // http://localhost:1338/api/v1/rel/weekreconbydate
     return this.http.post('https://api.instamarkt.co/api/v1/rel/weekreconbydate',data)
   }
 
