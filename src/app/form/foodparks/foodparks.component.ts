@@ -995,7 +995,7 @@ if(event.target.value == '')
 
 
   ngAfterViewInit(): void {
-    console.log(this.search.nativeElement, 'keydown')
+  
     // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     // Add 'implements AfterViewInit' to the class.
     fromEvent(this.search.nativeElement, 'keydown')

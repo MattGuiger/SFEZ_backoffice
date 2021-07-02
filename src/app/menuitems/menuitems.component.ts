@@ -337,7 +337,7 @@ export class MenuitemsComponent implements OnInit {
       });
     }
     if (this.user.unit_id) {
-      this._ProfileService.getAllProductList(this.user.unit_id).subscribe((res: any) => {
+      this._ProfileService.getAllProductList(this.user.company_id).subscribe((res: any) => {
         this.productList = res.data;
         this.processing = false;``
       }, error => {
@@ -345,7 +345,7 @@ export class MenuitemsComponent implements OnInit {
       })
     } else {
       this.user.unit_id = localStorage.getItem("unit_id")
-      this._ProfileService.getAllProductList(this.user.unit_id).subscribe((res: any) => {
+      this._ProfileService.getAllProductList(this.user.company_id).subscribe((res: any) => {
         this.productList = res.data;
         this.processing = false;
       }, error => {

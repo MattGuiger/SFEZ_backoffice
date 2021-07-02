@@ -12,6 +12,7 @@ import { coreDirectives } from '@agm/core/core.module';
 import { date } from 'ngx-custom-validators/src/app/date/validator';
 import * as moment from 'moment';
 import {IProduct} from '../foodpckmgrorder/interface'
+import { DatePipe } from '@angular/common';
 
 
 declare var require: any;
@@ -31,7 +32,7 @@ export class FoodpckmgrorderComponent {
   drivers: any[] = [];
   unitForm: FormGroup;
   loadingIndicator = true;
-
+  datecuurent:any;
   deliveryHub: Object;
   weekData: Array<Object>;
   wagesDataArr: Array<Object>;
@@ -125,12 +126,15 @@ export class FoodpckmgrorderComponent {
   weeklyRecon: any;
   date: any;
   sevendate: any;
+  selectedstatus: any;
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService
     , private _CommonFunctionsService: CommonFunctionsService,
     private modalService: NgbModal,
     private _router: Router,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,public datepipe: DatePipe) {
+     this.datecuurent =  this.datepipe.transform(Date.now(), 'yyyy-MM-dd')
+
     this.getAllOrder();
     this.getDailyPayout();
     this.foodParkUnits();
@@ -314,6 +318,40 @@ export class FoodpckmgrorderComponent {
     );
   }
 
+
+  datePick(event)
+  {
+  console.log(event.target.value,'value');
+  this.datecuurent = event.target.value
+  if(this.selectedstatus == 'Void')
+  {
+    const data =
+    {
+     "orderdate": this.datecuurent 
+    }
+   this.user = this._CommonFunctionsService.checkUser().user;
+   this._ProfileService.getVoidData(data).subscribe((res: any) => {
+   this.orders = res.data;
+   this.temp = this.orders;
+   this.rows = this.orders;
+ })
+  }
+  else
+  {
+   const data =
+    {
+     "orderdate": this.datecuurent 
+    }
+   this.user = this._CommonFunctionsService.checkUser().user;
+   this._ProfileService.getRefundVoidData(data).subscribe((res: any) => {
+     this.orders = res.data;
+     this.temp = this.orders;
+     this.rows = this.orders;
+
+   })
+  }
+  }
+
   goBack()
   {
   this.date = moment(this.date).add(-7,'d')
@@ -346,21 +384,28 @@ export class FoodpckmgrorderComponent {
 
   orderActionFilter(event)
   {
-    
+    this.selectedstatus = event.target.value;
      if(event.target.value == 'Void')
      {
-       
+       const data =
+       {
+        "orderdate": this.datecuurent 
+       }
       this.user = this._CommonFunctionsService.checkUser().user;
-      this._ProfileService.getVoidData().subscribe((res: any) => {
-      this.orders = res.data['rows'];
+      this._ProfileService.getVoidData(data).subscribe((res: any) => {
+      this.orders = res.data;
       this.temp = this.orders;
       this.rows = this.orders;
     })
      }
      else
      {
+      const data =
+       {
+        "orderdate": this.datecuurent 
+       }
       this.user = this._CommonFunctionsService.checkUser().user;
-      this._ProfileService.getRefundVoidData().subscribe((res: any) => {
+      this._ProfileService.getRefundVoidData(data).subscribe((res: any) => {
         this.orders = res.data;
         this.temp = this.orders;
         this.rows = this.orders;

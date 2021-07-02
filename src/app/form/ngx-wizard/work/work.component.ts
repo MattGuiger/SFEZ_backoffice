@@ -114,7 +114,7 @@ type:Type[] = [{type:'RESTAURANT',imageUrl:'/assets/images/icon-500-restaurant.p
       this.workFormData.value.name = this.comapnydata.name + ' LOC1';
       this.workFormData.value.username = this.comapnydata.name + "_mgr1";
       this.workFormData.value.password = this.generateP();
-      this.workFormData.value.territory_id = localStorage.getItem('territory_id');
+      this.workFormData.value.territory_id = JSON.parse(localStorage.getItem('user')).user.territory_id;
       this.workFormData.value.number = 1
       this._ProfileService.addUnit(this.workFormData.value, this.comapnydata.id).subscribe(res => {
         if (res.status == 200) {

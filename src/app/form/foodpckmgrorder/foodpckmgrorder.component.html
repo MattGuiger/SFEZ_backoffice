@@ -16,9 +16,6 @@
         </div> 
           </div>
         </form>-->
-
-
-
         <!-- <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
         [rowHeight]="'auto'" [limit]="10" [rows]='orders'>
         <ngx-datatable-column name="Company Name" prop="company_name" [width]="150"></ngx-datatable-column>
@@ -77,14 +74,11 @@
                   </select>
                     </div>
                     <div class="col-xl-6 col-lg-2">
-                     <input type="date" style="height: 32px;
-                     color: #24c6ab;">
+                     <input type="date" style="height: 32px; color: #24c6ab;" [(ngModel)]="datecuurent" (change)="datePick($event)">
                     </div>
                   </div>
                   <div class="col-xl-2 col-lg-2">
                   
-                   
-                 
                   </div>
                 </form>
                 <div class="accodion-datatable">
@@ -129,8 +123,8 @@
 
                         <a style="background-color: #22c6ab; color:#fff;"
                           class="order-status text-capitalize btn w-100 border-0"
-                          *ngIf="row?.status == 'new'">{{row?.status}}</a>
-
+                          *ngIf="row?.order_detail?.status">{{row?.order_detail?.status}}</a>
+<!-- 
                         <a style="background-color: #ef6e6e; color:#fff;"
                           class="order-status text-capitalize btn w-100 border-0"
                           *ngIf="row?.status == 'order_paid'">{{row?.status}}</a>
@@ -139,9 +133,9 @@
                           class="order-status text-capitalize btn w-100 border-0"
                           *ngIf="row?.status == 'incomplete'">{{row?.status}}</a>
 
-                        <!-- <a style="background-color: #22c6ab; color:#fff;"
+                        <a style="background-color: #22c6ab; color:#fff;"
                           class="order-status text-capitalize btn w-100 border-0"
-                          *ngIf="row?.status == 'incomplete'">{{row?.status}}</a> -->
+                          *ngIf="row?.status == 'order_requested'">{{row?.status}}</a> -->
                       </ng-template>
                     </ngx-datatable-column>
 

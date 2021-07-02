@@ -298,14 +298,14 @@ export class ProfileService {
     return this.http.get(this.foodparkURL+"/"+id+"/units/active_orders");
   }
 
-getVoidData(): Observable<any>
+getVoidData(data): Observable<any>
 {
-  return this.http.get('https://api.instamarkt.co/api/v1/ord/voidorders')
+  return this.http.post('https://api.instamarkt.co/api/v1/ord/voidorders',data)
 }
 
-getRefundVoidData(): Observable<any>
+getRefundVoidData(data): Observable<any>
 {
-  return this.http.get('https://api.instamarkt.co/api/v1/ord/voidrefundgreenmoney')
+  return this.http.post('https://api.instamarkt.co/api/v1/ord/voidrefundgreenmoney',data)
 }
 
 

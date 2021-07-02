@@ -50,7 +50,7 @@ import { ManagerEditComponent } from './manager-edit/manager-edit.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { MaterialModule } from '../menuitems/material/material.module';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
-
+import { DatePipe } from '@angular/common';
 
 @NgModule({
     imports: [CommonModule, RouterModule.forChild(FormsRoutes),Ng5SliderModule,
@@ -104,7 +104,7 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
         CustompipePipe,
         ManagerEditComponent
     ],
-    providers:[ConfirmationService],
+    providers:[ConfirmationService,DatePipe],
     entryComponents: [ConfirmDialogComponent],
 
 })
