@@ -256,7 +256,21 @@
                                         <div class="col-md-1">
                                           <img src="../../assets/images/folder@1X.png" alt="">
                                         </div>
+                                     
+
                                         <div class="col-md-4">
+
+                                          <div class="custom-input">
+                                            <textarea name="category_description" required class="w-100 custom-textarea"
+                                              [id]="'category_description'+ folder.folderid"
+                                              placeholder="Category Description *"></textarea>
+                                          </div>
+                                          <div class="custom-file mb-2">
+                                            <input type="file" name="file" class="custom-file-input" #file id="customFile"
+                                              required (change)="onFileSelect($event,folder)">
+                                            <label class="custom-file-label" for="customFile">Upload image</label>
+                                          </div>
+
                                           <div class="custom-input mb-2">
                                             <input type="text" name="menu_name" class="w-100"
                                               [id]="'menu_name'+ folder.folderid" placeholder="Menu Item Name *"

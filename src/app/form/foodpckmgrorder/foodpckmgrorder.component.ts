@@ -6,12 +6,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from "@angular/router";
 import { Options } from 'ng5-slider';
-import { isNgTemplate } from '@angular/compiler';
-import { async } from '@angular/core/testing';
-import { coreDirectives } from '@agm/core/core.module';
-import { date } from 'ngx-custom-validators/src/app/date/validator';
 import * as moment from 'moment';
-import {IProduct} from '../foodpckmgrorder/interface'
 import { DatePipe } from '@angular/common';
 
 
@@ -119,7 +114,6 @@ export class FoodpckmgrorderComponent {
     },
   ]
 
-
   //@ViewChild(FoodpckmgrorderComponent, { static: false }) table: FoodpckmgrorderComponent;
   @ViewChild('table') table: any;
   tab: any;
@@ -127,14 +121,15 @@ export class FoodpckmgrorderComponent {
   date: any;
   sevendate: any;
   selectedstatus: any;
+  cash_payouts: any;
+  total_order_amount: any;
   constructor(private _ProfileService: ProfileService,
-    private toastr: ToastrService
-    , private _CommonFunctionsService: CommonFunctionsService,
+    private toastr: ToastrService,private _CommonFunctionsService: CommonFunctionsService,
     private modalService: NgbModal,
     private _router: Router,
-    private route: ActivatedRoute,public datepipe: DatePipe) {
-     this.datecuurent =  this.datepipe.transform(Date.now(), 'yyyy-MM-dd')
-
+    private route: ActivatedRoute,public datepipe: DatePipe) 
+    {
+    this.datecuurent =  this.datepipe.transform(Date.now(), 'yyyy-MM-dd')
     this.getAllOrder();
     this.getDailyPayout();
     this.foodParkUnits();
@@ -292,7 +287,11 @@ export class FoodpckmgrorderComponent {
     const tempDate = {
       date: ""
     }
-    this._ProfileService.getDailyPayout(11247, tempDate).subscribe(
+    const companyid = JSON.parse(localStorage.getItem('user'))
+    const companyid_test = companyid['user'].company_id;
+    
+    debugger
+    this._ProfileService.getDailyPayout(companyid_test, tempDate).subscribe(
       // this._ProfileService.getDailyPayoutLists(this.company_id, this.data).subscribe(
       (res: any) => {
         this.tab = res.data
@@ -356,12 +355,16 @@ export class FoodpckmgrorderComponent {
   {
   this.date = moment(this.date).add(-7,'d')
   this.sevendate = moment(this.sevendate).add(-7,'d')
+  console.log(this.sevendate,'sevendate');
+  
   }
 
   goFront()
   {
     this.date = moment(this.date).add(7,'d')
     this.sevendate = moment(this.sevendate).add(7,'d')
+    console.log(this.sevendate.format('YYYY-MM-DD'),'2021-01-05 10:29:23.105817+05:30');
+    
   }
 
   getAllDrivers(foodParkId) {
@@ -424,6 +427,8 @@ export class FoodpckmgrorderComponent {
     this._ProfileService.getWeeklyrecon(data).subscribe((res:any)=>
     {
     this.weeklyRecon = res.data 
+    this.cash_payouts = res.data[0].cash_payout;
+    this.total_order_amount = res.data[0].total_order_amount
     console.log(this.weeklyRecon,'weklyRecon');  
   })
   }

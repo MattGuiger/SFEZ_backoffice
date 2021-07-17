@@ -52,7 +52,6 @@
             </select>
           </ng-template>
       </ngx-datatable-column>
-       
       </ngx-datatable> -->
         <ngb-tabset>
           <ngb-tab title="Orders">
@@ -124,8 +123,7 @@
                         <a style="background-color: #22c6ab; color:#fff;"
                           class="order-status text-capitalize btn w-100 border-0"
                           *ngIf="row?.order_detail?.status">{{row?.order_detail?.status}}</a>
-<!-- 
-                        <a style="background-color: #ef6e6e; color:#fff;"
+                       <!-- <a style="background-color: #ef6e6e; color:#fff;"
                           class="order-status text-capitalize btn w-100 border-0"
                           *ngIf="row?.status == 'order_paid'">{{row?.status}}</a>
 
@@ -257,7 +255,7 @@
                 <div *ngFor="let payout of tab; let i=index">
                   <!-- <div *ngFor="let payout of dailyPayoutData">  -->
                   <!-- {{payout.data[0].tip_amount}} -->
-                  <h3 style="text-align: center;"><b> {{payout.data.cod[i].unit_name }}</b></h3>
+                  <h3 style="text-align: center;"><b> {{payout.data.cod[i].unit_name}}</b></h3>
                   <div *ngIf="payout.data.cod">
                     <p style="text-align: center;">Cash On Delivery</p>
                     <div class="accodion-datatable">
@@ -714,7 +712,7 @@
                     <!--Start week table-->
                     <div class="card-body">
                       <div class="accodion-datatable">
-                        <ngx-datatable class="material" #weekTable [rows]="driver" [columnMode]="'force'"
+                        <ngx-datatable class="material" #weekTable [rows]="weeklyRecon" [columnMode]="'force'"
                           [headerHeight]="50" [footerHeight]="0" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
 
                           <ngx-datatable-column headerClass="myClass" name="Vendor"  [width]="100" prop="vendor">
@@ -737,7 +735,7 @@
                               color: white;
                               align-items: center;
                               border-radius: 7px;">
-                                <!-- {{getUpdatevendor(row.vendor)[0]}} -->
+                                #{{row.order_id}}
                               </a> 
                              </span>
                              <br />
@@ -765,7 +763,7 @@
                               <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.method" name="method"
                           [disabled]="!isEditable[rowIndex]"> -->
                               <!-- <img src="../../../assets/images/cash.png" alt="Icon" style="height: 36px;" /> -->
-                              <img [src]="row.method" alt="Icon" style="height: 36px;" />
+                              <img *ngIf="row.context == 'cod'" src="assets/images/cash.png" alt="Icon" style="height: 36px;" />
                               <!-- {{}} -->
                             </ng-template>
                           </ngx-datatable-column>
@@ -836,7 +834,7 @@
                     </div>
 
                     <!--Start Hourly Wages table-->
-                    <div class="card-body">
+                    <!-- <div class="card-body">
                       <div class="accodion-datatable">
                         <ngx-datatable class="material" #table [rows]="driver.weekly_data" [columnMode]="'force'"
                           [headerHeight]="50" [footerHeight]="0" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
@@ -844,20 +842,10 @@
                           <ngx-datatable-column name="Drivers" [width]="100" prop="driver">
                             <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
                               ngx-datatable-cell-template>
-                              <!-- <input type="text" class="form-control custom-disable" [(ngModel)]="row.driver" name="driver"
-                          [disabled]="!isEditable[rowIndex]"> -->
+                     
                               {{row.task}}
                             </ng-template>
                           </ngx-datatable-column>
-
-                          <!-- <ngx-datatable-column name="Hourly wages" [width]="100" prop="hour_wages">
-                      <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <input type="text" class="form-control custom-disable" [(ngModel)]="row.hour_wages" name="hour_wages" [disabled]="!isEditable[rowIndex]">
-
-                        ${{row.hour_wages}}/hr
-
-                      </ng-template>
-                    </ngx-datatable-column> -->
 
                           <ngx-datatable-column name="Mon" [width]="70" prop="mon">
                             <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
@@ -921,7 +909,7 @@
 
                         </ngx-datatable>
                       </div>
-                    </div>
+                    </div> -->
 
                     <!-- Delivery Cash Payouts Table -->
                     <div class="row mt-3 custom-card-main">
@@ -931,7 +919,7 @@
                             <h2 style="color: white;">Cash Payouts</h2>
                           </div>
                           <div class="description">
-                            <p style="font-size: 18px; color: white;"> {{driver.cash_payouts}}</p>
+                            <p style="font-size: 18px; color: white;"> {{cash_payouts.toFixed(2)}}</p>
                           </div>
                         </div>
                       </div>
@@ -941,7 +929,7 @@
                             <h2 style="color: white;">Weekly Total</h2>
                           </div>
                           <div class="description">
-                            <p style="font-size: 18px;color: white;">{{driver.weekly_total}}</p>
+                            <p style="font-size: 18px;color: white;">{{cash_payouts.toFixed(2)}}</p>
                           </div>
                         </div>
                       </div>
@@ -958,7 +946,7 @@
                       <h6>Total Delivery Wages</h6>
                     </div>
                     <div class="description">
-                      <p>${{sumTotalDeliveryWages.toFixed(2)}}</p>
+                      <p>${{total_order_amount.toFixed(2)}}</p>
                     </div>
                   </div>
                 </div>

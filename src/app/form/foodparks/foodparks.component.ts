@@ -50,16 +50,16 @@ export class FoodParkComponent implements OnInit , AfterViewInit {
   confirmContent = "Are you sure want to delete tsddshis?";
   confirmCanceltext = "Cancel";
   confirmOkaytext = "Okay";
-  standard_delivery_charge = 4.5;
-  standard_trip_fee_for_driver = 3.5;
-  long_delivery_charge = 7;
-  long_trip_fee = 4.25;
+  standard_delivery_charge:any;
+  standard_trip_fee_for_driver :any;
+  long_delivery_charge:any;
+  long_trip_fee:any;
 
-  minDaysValue = 10;
-  minDaysValuee = 10
-  minDaysValue1 = 10;
-  minDaysValue2 = 10;
-  minDaysValue3 = 10;
+  minDaysValue :any;
+  minDaysValuee:any;
+  minDaysValue1:any;
+  minDaysValue2:any;
+  minDaysValue3:any;
 
   minDaysValuse = 10;
   selectedLocationRecord: any;
@@ -1426,14 +1426,14 @@ if(event.target.value == '')
   
 
   openEditDeilveryHub(content4, row) {
-    console.log('12', row)
+
     this.selectedHubRecord = row;
 
-    this.minDaysValue = !!row.delivery_time_window ? parseInt(row.delivery_time_window) : 15;
-    this.standard_delivery_charge = !!row.standard_delivery_charge ? parseInt(row.standard_delivery_charge) : 4.5;
-    this.standard_trip_fee_for_driver = !!row.standard_trip_fee_for_driver ? parseInt(row.standard_trip_fee_for_driver) : 3.25;
-    this.long_delivery_charge = !!row.long_delivery_charge ? parseInt(row.long_delivery_charge) : 7
-    this.long_trip_fee = !!row.long_trip_fee ? parseInt(row.long_trip_fee) : 4.5;
+    this.minDaysValue = !!row.delivery_time_window ? parseInt(row.delivery_time_window).toFixed(2) : 15;
+    this.standard_delivery_charge = !!row.standard_delivery_charge ? parseInt(row.standard_delivery_charge).toFixed(2) : 4.5;
+    this.standard_trip_fee_for_driver = !!row.standard_trip_fee_for_driver ? parseInt(row.standard_trip_fee_for_driver).toFixed(2) : 3.25;
+    this.long_delivery_charge = !!row.long_delivery_charge ? parseInt(row.long_delivery_charge).toFixed(2) : 7
+    this.long_trip_fee = !!row.long_trip_fee ? parseInt(row.long_trip_fee).toFixed(2) : 4.5;
 
     this.modalService.open(content4, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
