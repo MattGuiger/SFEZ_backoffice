@@ -262,14 +262,14 @@
                                               placeholder="Category Description *"></textarea>
                                           </div>
                                           <div class="custom-file mb-2" style="padding-bottom: 61px;">
-                                            <input type="file" name="file" class="custom-file-input" #file id="customFile"
+                                            <input type="file" name="fileget" class="custom-file-input" #fileget id="customFile"
                                               required (change)="onFileSelectget($event,folderset)">
                                             <label class="custom-file-label" for="customFile">Upload image</label>
                                           </div>
 
                                           <div class="custom-input mb-2">
                                             <input type="text" name="menu_name" class="w-100"
-                                              [id]="'menu_name'+ folderset.folderid" placeholder="Menu Item Name *"
+                                              [id]="'menu_name'+ folder.folderid" placeholder="Menu Item Name *"
                                               required />
                                           </div>
 

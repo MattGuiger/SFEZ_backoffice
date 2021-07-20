@@ -64,7 +64,7 @@ export class MenuitemsComponent implements OnInit {
   public demo1TabIndex = 0;
   private tabSet: ViewContainerRef;
   owncategory: string = "";
-  fileset: any;
+  fileget: any;
 
   @ViewChild(NgbTabset) set content(content: ViewContainerRef) {
     this.tabSet = content;
@@ -192,10 +192,10 @@ export class MenuitemsComponent implements OnInit {
     }
   }
 
-  onFileSelectset(event,fileName) {
+  onFileSelectget(event,fileName) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.fileset = file;
+      this.fileget = file;
       fileName.user_id = file.name;
       console.log(fileName,file);
     }
