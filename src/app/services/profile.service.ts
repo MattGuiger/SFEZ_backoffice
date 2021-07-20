@@ -411,6 +411,11 @@ getRefundVoidData(data): Observable<any>
   getCompanyById(id): Observable<any> {
     return this.http.get(this.companyURL + "/" + id);
   }
+  
+  getstatusProf(data,comp_id,menu_id)
+  {
+    return this.http.post(`https://api.instamarkt.co/api/v1/mol/companies/${comp_id}/menuitems/${menu_id}`,data)
+  }
 
   getCompanyByCompanyId(id): Observable<any> {
     return this.http.get(this.companyURL1 + "/" + id);

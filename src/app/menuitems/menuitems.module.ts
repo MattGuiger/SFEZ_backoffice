@@ -8,10 +8,11 @@ import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 // import { SpinnerComponent } from '../shared/spinner.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { EcomRoutes } from './menuitems.routing';
 import { TruncateStringPipe } from './truncate-string.pipe';
 import { MaterialModule } from './material/material.module';
+
+import { UiSwitchModule } from 'ngx-ui-switch';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,15 @@ import { MaterialModule } from './material/material.module';
     ToastrModule.forRoot(),
     SlimLoadingBarModule.forRoot(),
     MaterialModule,
+    UiSwitchModule.forRoot({
+      size: 'small',
+      color: 'rgb(0, 189, 99)',
+      switchColor: '#80FFA2',
+      defaultBgColor: '#ff80dd',
+      defaultBoColor : '#ff80dd',
+      checkedLabel: 'on',
+      uncheckedLabel: 'off'
+    }),
      RouterModule.forChild(EcomRoutes), FormsModule, NgbModule],
 
 })

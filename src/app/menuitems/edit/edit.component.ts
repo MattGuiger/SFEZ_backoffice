@@ -6,7 +6,8 @@ import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
-  templateUrl: 'edit.component.html'
+  templateUrl: 'edit.component.html',
+  styles:[`@import '~ngx-ui-switch/ui-switch.component.scss';`]
 })
 export class EditComponent implements OnInit{
   id:any;
@@ -42,8 +43,11 @@ export class EditComponent implements OnInit{
   getProductById(id,categoryId){
     this.user = this._CommonFunctionsService.checkUser().user;
     this._ProfileService.getProductById(id,categoryId,this.user.company_id).subscribe((res:any)=>{
+  
       if(res.status==200){
         this.productDetails = res.data[0];
+        console.log(this.productDetails,'productDetails');
+        
       }
       
     },error=>{
@@ -58,5 +62,29 @@ export class EditComponent implements OnInit{
   // goBack(){
   //   this._Router.navigateByUrl('/menuitems')
   // }
+  onChange(event)
+  {
+    console.log(event,'event');
+    const data =
+    {
+      "title" : this.productDetails.title,
+      "price" : this.productDetails.title,
+      "status" : this.productDetails.status,
+      "description" : this.productDetails.description,
+      "addOnMultiple" : this.productDetails.addonmultiple,
+      "addOnPrice" : this.productDetails.addonprice,
+      "optionSingle" : this.productDetails.optionsingle,
+      "optionCategory" : this.productDetails.optioncategory,
+      "instructions" : this.productDetails.instruction,
+      "drill_in" : event ? 1 : 0
+  }
+  this.user = this._CommonFunctionsService.checkUser().user;
+  this._ProfileService.getstatusProf(data,this.user.company_id,this.productDetails.id).subscribe((res:any)=>
+  {
+    console.log(res);
+    
+  })
+
+  }
 
 }

@@ -113,17 +113,15 @@ export class FoodParkComponent implements OnInit , AfterViewInit {
   showManager: any
   allUnitList: any[] = [];
   type: any[] = [];
-  types = [
-    "RESTAURANT",
-    "CAFE",
-    "BEER",
-    "WINE",
-    "FOOD TRUCK",
-    "PIZZA",
-    "FARMERS",
-    "CHEF",
-    "GHOST KITCHEN"
-  ];
+  types:Type[] = [{type:'RESTAURANT',imageUrl:'/assets/images/icon-500-restaurant.png'},
+  {type:'CAFÉ',imageUrl:'/assets/images/icon-500-cafe.png'},
+  {type:'BEER  ',imageUrl:'/assets/images/icon-500-beer.png'},
+  {type:'WINE',imageUrl:'/assets/images/icon-500-wine.png'},
+  {type:'FOOD TRUCK',imageUrl:'/assets/images/icon-500-food-truck.png'},
+  {type:'PIZZA',imageUrl:'/assets/images/pizza.svg'},
+  {type:'FARMER',imageUrl:'/assets/images/farmer.png'},
+  {type:'CHEF',imageUrl:'/assets/images/chef.png'},
+  {type:'GHOST KITCHEN',imageUrl:'/assets/images/Ghost-Kitchen.png'}]
   typesForHub = [
     "MALL",
     "HOTEL",

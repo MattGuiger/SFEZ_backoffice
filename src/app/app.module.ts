@@ -77,6 +77,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         BrowserModule,
         MatAutocompleteModule,
         // TextMaskModule,
+      
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,

@@ -93,10 +93,7 @@
                                   <span class="text-muted fix-ht-spn">{{getDescription(item.description)}}</span>
                                 </div>
                                 <div class="ml-auto m-r-15">
-                                  <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD'
-                                    ?
-                                    '$'
-                                    : item.price[0].currency}} {{item.price[0].amount}}</button>
+                                  <button type="button" class="btn btn-dark btn-circle">{{item.price[0].currency=='USD' ? '$' : item.price[0].currency}} {{item.price[0].amount}}</button>
                                 </div>
                               </div>
                             </div>
@@ -120,8 +117,7 @@
                 <ul *ngFor="let folder of drivefolders; let index = index" style="margin-bottom: 1.5rem;">
                   <div *ngIf="checkGoogleDriveFlag === index">
                     <div *ngFor="let category of googleSheet;  let i = index">
-                      <label *ngIf="category.category === folder.foldername">
-                        - <a (click)="googlesheetUrl(category.image)"
+                      <label *ngIf="category.category === folder.foldername"> - <a (click)="googlesheetUrl(category.image)"
                           style="cursor: pointer;color:rgb(67, 133, 238)">{{category.image}}</a>
                       </label>
                     </div>
@@ -265,15 +261,15 @@
                                               [id]="'category_description'+ folder.folderid"
                                               placeholder="Category Description *"></textarea>
                                           </div>
-                                          <div class="custom-file mb-2">
+                                          <div class="custom-file mb-2" style="padding-bottom: 61px;">
                                             <input type="file" name="file" class="custom-file-input" #file id="customFile"
-                                              required (change)="onFileSelect($event,folder)">
+                                              required (change)="onFileSelectget($event,folderset)">
                                             <label class="custom-file-label" for="customFile">Upload image</label>
                                           </div>
 
                                           <div class="custom-input mb-2">
                                             <input type="text" name="menu_name" class="w-100"
-                                              [id]="'menu_name'+ folder.folderid" placeholder="Menu Item Name *"
+                                              [id]="'menu_name'+ folderset.folderid" placeholder="Menu Item Name *"
                                               required />
                                           </div>
 
@@ -285,19 +281,19 @@
 
                                           <div class="custom-input mb-2">
                                             <input type="number" name="price" required class="w-100"
-                                              [id]="'price'+ folder.folderid" placeholder="Menu Item Price *" />
+                                              [id]="'price'+ folder.folderid" placeholder="Menu Item Price (ex. $10.00)" />
                                           </div>
 
                                           <div class="custom-file mb-2">
                                             <input type="file" name="file" class="custom-file-input" #file id="customFile"
                                               required (change)="onFileSelect($event,folder)">
-                                            <label class="custom-file-label" for="customFile">{{folder.user_id?folder.user_id : "Choose File"}}</label>
+                                            <label class="custom-file-label" for="customFile">{{"Upload image"}}</label>
                                           </div>
 
                                           <div class="d-block mt-2">
                                             <button type="button" class="btn btn-info"
                                               (click)="submitSheetData(folder.folderid,folder.foldername,folder)">
-                                              Upload
+                                              Save
                                             </button>
                                           </div>
                                         </div>
