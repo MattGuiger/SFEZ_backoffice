@@ -48,14 +48,17 @@
                                 <div class="form-group">
                                     <label>Status</label>
                                     <br/>
-                                    <div class="custom-control custom-radio custom-control-inline">
+                                    <div >
+                                        <ui-switch [checked]="productDetails?.drill_in" (change)="onChange($event)"></ui-switch>
+                                         </div>
+                                    <!-- <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked="{{productDetails?.status=='live'}}">
                                         <label class="custom-control-label" for="customRadioInline1" >Publish</label>
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
                                         <label class="custom-control-label" for="customRadioInline2">Draft</label>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <!--/span-->
@@ -89,7 +92,7 @@
                                 </div>
                             </div> -->
                         </div>
-                        <h5 class="card-title m-t-40">Product Description</h5>
+                        <h5 class="card-title m-t-40">Description</h5>
                         <div class="row">
                             <div class="col-md-12 ">
                                 <div class="form-group">
@@ -204,9 +207,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div >
-                                    <ui-switch (change)="onChange($event)"></ui-switch>
-                                     </div>
+                               
                             </div>
                         </div>
                         <!-- <div class="row">

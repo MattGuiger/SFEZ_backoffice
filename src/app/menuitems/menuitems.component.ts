@@ -10,6 +10,8 @@ import { NgbTabset } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog } from '@angular/material/dialog';
 import { local, values } from 'd3';
+import { data } from 'jquery';
+import { map } from 'rxjs/operators';
 declare var $;
 
 @Component({
@@ -65,6 +67,8 @@ export class MenuitemsComponent implements OnInit {
   private tabSet: ViewContainerRef;
   owncategory: string = "";
   fileget: any;
+  selectedcat: any;
+  finalCartdata: any;
 
   @ViewChild(NgbTabset) set content(content: ViewContainerRef) {
     this.tabSet = content;
@@ -77,8 +81,9 @@ export class MenuitemsComponent implements OnInit {
     private _ProfileService: ProfileService, 
     private slimLoader: SlimLoadingBarService, 
     private _CommonFunctionsService: CommonFunctionsService, 
-    private _Router: Router) {
-
+    private _Router: Router) 
+  {
+      this.showSelectedCat();
   }
  
   ngAfterViewInit() {
@@ -471,9 +476,52 @@ export class MenuitemsComponent implements OnInit {
   }
   getAllCategories() {
     this._ProfileService.getAllCategories().subscribe(res => {
-      this.categories = res.data
+      this.categories = res.data.map(x=>({...x, status:false}))
+
+     setTimeout(() => {
+      this.getStatusChange()
+     }, 1000);
+    })
+  
+  }
+
+  showSelectedCat()
+  {
+    this.user = this._CommonFunctionsService.checkUser().user;    
+    const data ={"email":this.user['username']}
+    this._ProfileService.getAllSecleted(data).subscribe((res:any) => {
+      this.selectedcat = res.data
+      console.log(this.selectedcat,'selected data');
     })
   }
+
+  getStatusChange()
+  {
+    // this.categories.map(x =>
+      // {
+      //   this.selectedcat.map(y => y.id == x.id , x.status = true)
+      // })
+      this.categories.forEach(element => {
+        this.selectedcat.forEach(value => {
+             if(element.id == value.id)
+             {
+               return element.status = true;
+             }
+        });
+      });
+      console.log(this.categories,'category data');
+  this.categories.filter(o1 => this.selectedcat.some(o2 => o1.id === o2.id)).map(x=>({...x, status:true}));
+      // const result1 = this.categories.filter(function(o1){
+      //   return this.selectedcat.some(function(o2){
+      //      return o1.id == o2.id;         
+      //    });
+      //  });
+        
+        console.log(this.categories,'status');
+      // })
+      
+  }
+
   openProduct(item) {
     this.getAllProductList();
     this._Router.navigateByUrl('menuitems/view/' + item.category + '/' + item.id)

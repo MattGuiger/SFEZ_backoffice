@@ -49,8 +49,8 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     let user = this.commonServices.checkUser();
 
-    this.firstName = user.user.first_name;
-    this.lastName = user.user.last_name;
+    this.firstName = user.user.vendor_name;
+    // this.lastName = user.user.last_name;
 
     if (user.user && user.user.role == 'ADMIN') {
       this.sidebarnavItems = ADMINROUTE.filter(sidebarnavItem => sidebarnavItem);

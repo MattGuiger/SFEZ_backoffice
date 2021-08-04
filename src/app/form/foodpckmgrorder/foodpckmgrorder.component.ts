@@ -7,7 +7,10 @@ import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from "@angular/router";
 import { Options } from 'ng5-slider';
 import * as moment from 'moment';
+import { ConfirmDialogComponent, ConfirmDialogModel } from '../../form/confirm-dialog/confirm-dialog.component';
 import { DatePipe } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { DriverDialogComponent, DriverDialogModel } from '../driver-dialog/driver-dialog.component';
 
 
 declare var require: any;
@@ -123,21 +126,29 @@ export class FoodpckmgrorderComponent {
   selectedstatus: any;
   cash_payouts: any;
   total_order_amount: any;
+  sevendatef: any;
+  sevendateb: any;
+  driverdate: any;
+  driverseven: any;
   constructor(private _ProfileService: ProfileService,
     private toastr: ToastrService,private _CommonFunctionsService: CommonFunctionsService,
     private modalService: NgbModal,
     private _router: Router,
+    public dialog: MatDialog,
     private route: ActivatedRoute,public datepipe: DatePipe) 
     {
     this.datecuurent =  this.datepipe.transform(Date.now(), 'yyyy-MM-dd')
     this.getAllOrder();
     this.getDailyPayout();
     this.foodParkUnits();
-    this.getWeeklyRecon();
+    this.goBack();
+    this.goFront();
     this.deliveryHub = [];
     this.LoadHubData();
     this.date = moment().add(0,'d')
     this.sevendate = moment().add(7,'d')
+    this.driverdate = moment().add(0,'d')
+    this.driverseven = moment().add(7,'d')
   }
 
   LoadHubData() {
@@ -290,7 +301,6 @@ export class FoodpckmgrorderComponent {
     const companyid = JSON.parse(localStorage.getItem('user'))
     const companyid_test = companyid['user'].company_id;
     
-    debugger
     this._ProfileService.getDailyPayout(companyid_test, tempDate).subscribe(
       // this._ProfileService.getDailyPayoutLists(this.company_id, this.data).subscribe(
       (res: any) => {
@@ -322,32 +332,34 @@ export class FoodpckmgrorderComponent {
   {
   console.log(event.target.value,'value');
   this.datecuurent = event.target.value
+  this.getAllOrder();
   if(this.selectedstatus == 'Void')
   {
-    const data =
-    {
-     "orderdate": this.datecuurent 
-    }
-   this.user = this._CommonFunctionsService.checkUser().user;
-   this._ProfileService.getVoidData(data).subscribe((res: any) => {
-   this.orders = res.data;
-   this.temp = this.orders;
-   this.rows = this.orders;
- })
+    
+//     const data =
+//     {
+//      "orderdate": this.datecuurent 
+//     }
+//    this.user = this._CommonFunctionsService.checkUser().user;
+//    this._ProfileService.getVoidData(data).subscribe((res: any) => {
+//    this.orders = res.data;
+//    this.temp = this.orders;
+//    this.rows = this.orders;
+//  })
   }
   else
   {
-   const data =
-    {
-     "orderdate": this.datecuurent 
-    }
-   this.user = this._CommonFunctionsService.checkUser().user;
-   this._ProfileService.getRefundVoidData(data).subscribe((res: any) => {
-     this.orders = res.data;
-     this.temp = this.orders;
-     this.rows = this.orders;
+  //  const data =
+  //   {
+  //    "orderdate": this.datecuurent 
+  //   }
+  //  this.user = this._CommonFunctionsService.checkUser().user;
+  //  this._ProfileService.getRefundVoidData(data).subscribe((res: any) => {
+  //    this.orders = res.data;
+  //    this.temp = this.orders;
+  //    this.rows = this.orders;
 
-   })
+  //  })
   }
   }
 
@@ -355,35 +367,73 @@ export class FoodpckmgrorderComponent {
   {
   this.date = moment(this.date).add(-7,'d')
   this.sevendate = moment(this.sevendate).add(-7,'d')
-  console.log(this.sevendate,'sevendate');
-  
+  this.sevendateb = this.sevendate.format('YYYY-MM-DD');
+  console.log(this.sevendate.format('YYYY-MM-DD') ,'sevendate');
+  this.getWeeklyRecon()
   }
 
   goFront()
   {
     this.date = moment(this.date).add(7,'d')
     this.sevendate = moment(this.sevendate).add(7,'d')
+    this.sevendatef = moment(this.sevendate).add(7,'d').format('YYYY-MM-DD') 
     console.log(this.sevendate.format('YYYY-MM-DD'),'2021-01-05 10:29:23.105817+05:30');
-    
+    this.getWeeklyRecon()
+  }
+
+
+  goBackDriver()
+  {
+  this.driverdate = moment(this.driverdate).add(-7,'d')
+  this.driverseven = moment(this.driverseven).add(-7,'d')
+  }
+
+  goFrontDriver()
+  {
+    this.driverdate = moment(this.driverdate).add(7,'d')
+    this.driverseven = moment(this.driverseven).add(7,'d').format('YYYY-MM-DD') 
+
   }
 
   getAllDrivers(foodParkId) {
-    this._ProfileService.getAllDrivers(foodParkId).subscribe((res: any) => {
+    
+    const data = 
+    {
+      "startDate" : "2020-10-15",
+      "endDate"   : "2020-10-22"
+    }
+    this._ProfileService.getAllDriversforRecon(foodParkId,data).subscribe((res: any) => {
       this.drivers = res.data;
+     
     })
+
+  }
+
+
+  openModal(row)
+  {
+     const dialogData = new DriverDialogModel("Confirm Action", row);
+
+     const dialogRef = this.dialog.open(DriverDialogComponent, {
+       maxWidth: "600px",
+       data: dialogData
+     });
   }
 
 
   getAllOrder() {
     this.user = this._CommonFunctionsService.checkUser().user;
-    this.getAllDrivers(this.user.food_park_id);
-    this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id).subscribe((res: any) => {
+   this.getAllDrivers(this.user.food_park_id);
+    const data ={
+      "orderdate":this.datecuurent 
+    }
+    this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id,data).subscribe((res: any) => {
       this.orders = res.data;
       this.temp = this.orders;
       this.rows = this.orders;
-
     })
   }
+
 
   orderActionFilter(event)
   {
@@ -421,15 +471,21 @@ export class FoodpckmgrorderComponent {
   {
     const data =
     {
-      "startDate": "2020-12-29 10:29:23.105817+05:30",
-      "endDate": "2021-01-05 10:29:23.105817+05:30"
+      "startDate": this.sevendateb,
+      "endDate": this.sevendatef
     }
     this._ProfileService.getWeeklyrecon(data).subscribe((res:any)=>
     {
-    this.weeklyRecon = res.data 
-    this.cash_payouts = res.data[0].cash_payout;
-    this.total_order_amount = res.data[0].total_order_amount
-    console.log(this.weeklyRecon,'weklyRecon');  
+      if(res.status == 200)
+      {
+        if(res.data.length > 0)
+        {
+          this.weeklyRecon = res.data 
+          this.cash_payouts = res.data[0].cash_payout;
+          this.total_order_amount = res.data[0].total_order_amount
+          console.log(this.weeklyRecon,'weklyRecon');  
+        }
+      }
   })
   }
 
@@ -498,7 +554,8 @@ export class FoodpckmgrorderComponent {
   }
 
   /** Start accordion for order tab*/
-  toggleExpandRow(row) {
+  toggleExpandRow(row) 
+  {
     this.rowWiseData = [];
     this.orderDetails = row;
     this.table.rowDetail.toggleExpandRow(row);
@@ -525,7 +582,8 @@ export class FoodpckmgrorderComponent {
   }
 
   /** Start select driver */
-  selectdriver(event, row, value) {
+  selectdriver(event, row, value) 
+  {
   }
 
 
@@ -535,12 +593,12 @@ export class FoodpckmgrorderComponent {
   }
 
   orderAction(event, row) {
-    if (event.target.value == 'Refund') {
+    if (event == 'Refund') {
       this._ProfileService.refundAmountToCustomer(row.id).subscribe(res => {
         this.toastr.success("Refund Amount");
 
       })
-    } else if (event.target.value == 'Void') {
+    } else if (event == 'Void') {
       this._ProfileService.voidOrder(row.order_detail.id).subscribe(
         (voidResponse) => {
           this.toastr.success("Order removed successfully");
@@ -549,7 +607,8 @@ export class FoodpckmgrorderComponent {
         (error) => {
         }
       )
-    } else if (event.target.value == 'Delete') {
+    } else if (event.target.value == 'Delete') 
+    {
 
     }
 
@@ -575,6 +634,16 @@ export class FoodpckmgrorderComponent {
   getDateseven()
   {
     return this.sevendate
+  }
+
+  getDriverdate()
+  {
+    return this.driverdate
+  }
+
+  getDriverseven()
+  {``
+    return this.driverseven
   }
   /** end  */
 

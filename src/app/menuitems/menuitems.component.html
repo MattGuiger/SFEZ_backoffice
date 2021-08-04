@@ -182,7 +182,7 @@
                                           <input matInput placeholder="Search" class="form-control">
                                         </mat-form-field>
                                         <div *ngFor="let category of categories">
-                                          <mat-checkbox (change)="onChange($event,category.category); false">
+                                          <mat-checkbox  [checked]="category?.status" (change)="onChange($event,category.category); false">
                                             {{category.category}}</mat-checkbox>
                                         </div>
                                         <div>

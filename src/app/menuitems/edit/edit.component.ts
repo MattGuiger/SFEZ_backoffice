@@ -71,9 +71,9 @@ export class EditComponent implements OnInit{
       "price" : this.productDetails.title,
       "status" : this.productDetails.status,
       "description" : this.productDetails.description,
-      "addOnMultiple" : this.productDetails.addonmultiple,
-      "addOnPrice" : this.productDetails.addonprice,
-      "optionSingle" : this.productDetails.optionsingle,
+      "addOnMultiple" : this.productDetails.addonmultiple == 'null' ? this.productDetails.addonmultiple : "",
+      "addOnPrice" : this.productDetails.addonprice == 'null' ?  this.productDetails.addonprice : "" ,
+      "optionSingle" : this.productDetails.optionsingle == 'null' ? this.productDetails.optionsingle : "",
       "optionCategory" : this.productDetails.optioncategory,
       "instructions" : this.productDetails.instruction,
       "drill_in" : event ? 1 : 0

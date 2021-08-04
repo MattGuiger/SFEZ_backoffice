@@ -51,6 +51,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { MaterialModule } from '../menuitems/material/material.module';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { DatePipe } from '@angular/common';
+import { DriverDialogComponent } from './driver-dialog/driver-dialog.component';
 
 @NgModule({
     imports: [CommonModule, RouterModule.forChild(FormsRoutes),Ng5SliderModule,
@@ -81,6 +82,7 @@ import { DatePipe } from '@angular/common';
         CheckradioComponent,
         ConfirmDialogComponent,
         ForminputsComponent,
+        DriverDialogComponent,
         GridsComponent,
         InputgroupsComponent,
         FormhorizontalComponent,
@@ -105,7 +107,7 @@ import { DatePipe } from '@angular/common';
         ManagerEditComponent
     ],
     providers:[ConfirmationService,DatePipe],
-    entryComponents: [ConfirmDialogComponent],
+    entryComponents: [ConfirmDialogComponent,DriverDialogComponent],
 
 })
 export class FormModule { }

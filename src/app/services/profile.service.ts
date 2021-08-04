@@ -277,6 +277,11 @@ export class ProfileService {
     return this.http.get(this.foodparkURL + '/' + foodParkId + "/drivers");
   }
   
+
+  getAllDriversforRecon(foodParkId,data): Observable<any> {
+    return this.http.post(this.foodparkURL + '/' + foodParkId + "/drivers",data);
+  }
+
   getWeeklyrecon(data)
   {
     // http://localhost:1338/api/v1/rel/weekreconbydate
@@ -286,16 +291,23 @@ export class ProfileService {
   getAllCategories(): Observable<any> {
     return this.http.get(this.Category);
   }
+
+  getAllSecleted(data) 
+  {
+   return this.http.post(`https://api.instamarkt.co/api/v1/rel/getSelectCategory`,data)
+  }
+
   getunitById(companyId, id): Observable<any> {
     return this.http.get(this.unitURL + '/' + companyId + "/units/" + id);
   }
   getAllUnitOrder(companyId, id): Observable<any> {
     // return this.http.get(this.unitURL+companyId+"/units/"+id+"/active_orders");
-    return this.http.get("http://localhost:1337/api/v1/ord/companies/11144/units/25/active_orders");
+    return this.http.get("https://api.instamarkt.co/api/v1/rel/food_parks/units/voidrefund/active_orders/30149");
   }
 
-  getallfoodparkmgrorder(id): Observable<any> {
-    return this.http.get(this.foodparkURL+"/"+id+"/units/active_orders");
+  getallfoodparkmgrorder(id,data): Observable<any> {
+    // return this.http.get(this.foodparkURL+"/"+id+"/units/active_orders");
+    return this.http.put(`https://api.instamarkt.co/api/v1/rel/food_parks/units/voidrefund/active_orders/${id}`,data)
   }
 
 getVoidData(data): Observable<any>
@@ -414,7 +426,7 @@ getRefundVoidData(data): Observable<any>
   
   getstatusProf(data,comp_id,menu_id)
   {
-    return this.http.post(`https://api.instamarkt.co/api/v1/mol/companies/${comp_id}/menuitems/${menu_id}`,data)
+    return this.http.put(`https://api.instamarkt.co/api/v1/mol/companies/${comp_id}/menuitems/${menu_id}`,data)
   }
 
   getCompanyByCompanyId(id): Observable<any> {

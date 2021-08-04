@@ -347,7 +347,7 @@ export class FoodParkComponent implements OnInit , AfterViewInit {
         if (res.status = 200) {
           this.toastr.success('Unit updated successfully!')
           this.getDeliveryHubAndLocationsInCompany()
-
+      
         }
       })
     }
@@ -1123,6 +1123,7 @@ if(event.target.value == '')
         this.toastr.success('Hub Created successfully');
         document.getElementById("closeModal").click();
         // this.getAllFoodPark();  
+
         this.hubFoodParkForm.reset()
         this.getDeliveryHubAndLocationsInCompany()
         this.getLocationInTerritoy()
@@ -1270,8 +1271,10 @@ if(event.target.value == '')
           this.toastr.success('Manager created and Email sent successfully');
           // this.toastr.success('Email sent successfully');
           this.huborlocation = false;
+          this.getUnitManager()
           document.getElementById("closeModal").click();
           this.getAllManger();
+          this.getFoodParkManager();
           this.getManagerOnTerritoryid()
           // this.getFoodParkManager()
           // this.getUnitManager()
@@ -1297,6 +1300,8 @@ if(event.target.value == '')
           this.huborlocation = false;
           document.getElementById("closeModal").click();
            this.getAllManger();
+           this.getUnitManager();
+           this.getFoodParkManager();
           // this.getManagerOnTerritoryid()
           // this.getFoodParkManager()
           // this.getUnitManager()
@@ -1344,8 +1349,9 @@ if(event.target.value == '')
       (response) => {
         if (response.status == 200) {
           this.toastr.success('Manager deleted successfull');
-
+       
           this.getAllManger();
+          this.getFoodParkManager();
           this.getUnitManager();
         }
       },

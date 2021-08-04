@@ -88,7 +88,7 @@ export class SignupComponent implements OnInit {
 
     if (this.lat && this.lng) {
       this._AuthService.vendorRegistration({
-        first_name: first_name, last_name: last_name, email: email,
+        first_name: first_name, last_name: last_name, email: email,vendor_name:company_name,
         password: password, company_name: company_name, role: 'OWNER', country_id: country_id, latitude: this.lat, longitude: this.lng
       }).subscribe((data: any) => {
         if (data.status !== 200) {
