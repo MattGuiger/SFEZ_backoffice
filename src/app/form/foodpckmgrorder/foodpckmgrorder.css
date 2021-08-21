@@ -4,6 +4,9 @@
 [type=radio] + img {
   cursor: pointer;
 }   
+table {
+  width: 100%;
+}
 
 /* CHECKED STYLES */
 [type=radio]:checked + img {
@@ -14,6 +17,9 @@
 {
   color: black;
   font-size: 19px;
+}
+::ng-deep.row.mb-3 {
+  margin-right: 126px;
 }
 
 ::ng-deep.ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell .datatable-body-cell-label

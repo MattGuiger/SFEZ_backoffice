@@ -79,7 +79,6 @@ export class ProfileService {
 
 
 
-
   constructor(private http: HttpClient) { }
 
   greenMoneyPayment(data):Observable<any> {
@@ -102,6 +101,14 @@ export class ProfileService {
   //   })
   //   return this.http.post(this.fileUploadURL, { headers: headers });
   // }
+  weeklyhubMaster(id,data){
+    return this.http.post(`https://api.instamarkt.co/api/v1/ord/hubmasters/${id}/weeklydata`,data)
+  }
+
+  weeklyhubMember(id,data){
+    return this.http.post(`https://api.instamarkt.co/api/v1/ord/hubmembers/${id}/weeklydata`,data)
+  }
+
   voidOrder(id): Observable<any> {
     return this.http.get(this.voidOrderUrl + id);
   }
@@ -306,8 +313,8 @@ export class ProfileService {
   }
 
   getallfoodparkmgrorder(id,data): Observable<any> {
-    // return this.http.get(this.foodparkURL+"/"+id+"/units/active_orders");
-    return this.http.put(`https://api.instamarkt.co/api/v1/rel/food_parks/units/voidrefund/active_orders/${id}`,data)
+    // return this.http.get(this.foodparkURL+"/"+id+"/units/active_orders" Kumar i changed the api https://api.instamarkt.co/api/v1/rel/food_parks/units/voidrefund/active_orders/30235 this to https://api.instamarkt.co/api/v1/rel/food_parks/units/order/active_orders/30235);
+    return this.http.put(`https://api.instamarkt.co/api/v1/rel/food_parks/units/order/active_orders/${id}`,data)
   }
 
 getVoidData(data): Observable<any>
@@ -333,6 +340,18 @@ getRefundVoidData(data): Observable<any>
   getDailyPayout(company_id, data): Observable<any> {
     return this.http.post(this.dailyPayoutURL + "/" + company_id, data);
   }
+
+  DriverDetails(food_id,id)
+  {
+    return this.http.get(`https://api.instamarkt.co/api/v1/rel/food_parks/${food_id}/drivers/${id}}`)
+  }
+
+
+  getextraDeatils()
+  {
+    return this.http.get(`https://api.instamarkt.co/api/v1/rel/food_parks/30149/drivers/11994`)
+  }
+
   setDriverToOrder(id, driverId, orderId): Observable<any> {
     return this.http.put(this.foodparkURL + "/" + id + "/orders/" + orderId, { driver_id: driverId });
   }

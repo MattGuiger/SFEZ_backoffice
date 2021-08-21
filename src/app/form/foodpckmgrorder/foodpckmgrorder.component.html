@@ -90,10 +90,10 @@
                           <h3><b>{{row?.unit_name}}</b></h3>
                           <p class="mb-3" style="padding-left:25px;">
                             <span>Size:{{row?.size}}</span><br />
-                            <span>Add-Ons: {{row?.addOns}}</span><br />
+                            <span>Add-Ons: {{row?.addons}}</span><br />
                             <span>Instructions: {{row?.instructions}}</span><br />
                           </p>
-                          <h3><b>Delivery Address: {{row?.delivery_address.line_1}} {{row?.delivery_address.line_2}}</b>
+                          <h3><b>Delivery Address: {{row?.delivery_address_details.line_1}} {{row?.delivery_address_details.line_2}}</b>
                           </h3>
                           <h3><b>Delivery Confirmation: In Person @ {{row?.desired_delivery_time|date:'hh:mm a'}}</b>
                           </h3>
@@ -151,9 +151,9 @@
                     <ngx-datatable-column name="Payment" [width]="70">
                       <ng-template let-row="row" ngx-datatable-cell-template>
                         <!-- {{row?.context}} -->
-                        <!-- <img *ngIf="row?.context == 'cod'" src="assets/images/cash.png" alt="Icon"
-                          style="height: 36px;" /> -->
-                        <img *ngIf="row?.context == 'bank'" src="assets/images/bank.png" alt="Icon"
+                        <img *ngIf="row?.context == 'cod'" src="assets/images/cash.png" alt="Icon"
+                          style="height: 36px;" />
+                        <img *ngIf="row?.context == 'Bank'" src="assets/images/bank.png" alt="Icon"
                           style="height: 36px;" />
                         <img *ngIf="row?.context == 'card'" src="assets/images/card.png" alt="Icon"
                           style="height: 36px;" />
@@ -175,7 +175,7 @@
 
                     <ngx-datatable-column name="Actions" [width]="135">
                       <ng-template let-row="row" ngx-datatable-cell-template>
-                        <div *ngIf="row?.context == 'bank'" >
+                        <div *ngIf="row?.context == 'Bank'" >
                           <button type="button" class="btn btn-info btn-circle btn-sm" (click)="orderAction('Refund',row)"><i class="fa fa-check"></i> </button>
                           <button type="button" class="btn btn-danger btn-circle btn-sm" (click)="orderAction('Void',row)"><i class="fa fa-times"></i> </button>
                         </div>
@@ -225,6 +225,153 @@
 
                   </ngx-datatable>
                 </div>
+               <div class="accodion-datatable">
+                  <ngx-datatable class="material" #table [rows]="grpay" [columnMode]="'force'" [headerHeight]="50"
+                  [footerHeight]="50" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
+
+                  <!-- Row Detail Template -->
+                  <ngx-datatable-row-detail [rowHeight]="auto">
+                    <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+                      <div style="padding-left:10px;">
+                        <h3><b>{{row?.group[0].unit_name}}</b></h3>
+                        <p class="mb-3" style="padding-left:25px;">
+                          <span>Size:{{row?.group[0].menudetails.size}}</span><br />
+                          <span>Add-Ons: {{row?.group[0].menudetails.addons}}</span><br />
+                          <span>Instructions: {{row?.group[0].menudetails.instructions}}</span><br />
+                        </p>
+                        <h3><b>Delivery Address: {{row?.group[0].delivery_address_details.line_1}} {{row?.group[0].delivery_address_details.line_2}}</b>
+                        </h3>
+                        <h3><b>Delivery Confirmation: In Person @ {{row?.group[0].desired_delivery_time|date:'hh:mm a'}}</b>
+                        </h3>
+                        <!-- <ng-template #loaddata>
+                          <p>Please wait item details loading .....</p>
+                        </ng-template> -->
+                      </div>
+                    </ng-template>
+                  </ngx-datatable-row-detail>
+
+                  <ngx-datatable-column name="#" [width]="40">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck{{row.id}}"
+                          name="example1">
+                        <label class="custom-control-label" for="customCheck{{row.id}}"></label>
+                      </div>
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Status" [width]="140">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                      <!-- <a href="javascript:void(0)" class="order-status text-captialize" *ngIf="row.order_detail.status == 'complete'"
+                        style="background-color: red; color:#fff;">{{row.order_detail.status}}</a> -->
+
+                      <a style="background-color: #22c6ab; color:#fff;"
+                        class="order-status text-capitalize btn w-100 border-0"
+                      >{{row?.group[0].status}}</a>
+                     <!-- <a style="background-color: #ef6e6e; color:#fff;"
+                        class="order-status text-capitalize btn w-100 border-0"
+                        *ngIf="row?.group[0].status == 'order_paid'">{{row?.group[0].status}}</a>
+
+                      <a style="background-color: #ffbc34; color:#fff;"
+                        class="order-status text-capitalize btn w-100 border-0"
+                        *ngIf="row?.group[0].status == 'incomplete'">{{row?.group[0].status}}</a>
+
+                      <a style="background-color: #22c6ab; color:#fff;"
+                        class="order-status text-capitalize btn w-100 border-0"
+                        *ngIf="row?.group[0].status == 'order_requested'">{{row?.group[0].status}}</a> -->
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Date" [width]="110">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                      {{row?.group[0].initiation_time|date:'MMM d'}}
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Order ID" [width]="62">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                      {{row?.group[0].ord_id |custompipe:row.group[0].ord_id}}
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Payment" [width]="70">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                      <!-- {{row?.group[0].context}} -->
+                      <img *ngIf="row?.group[0].context == 'cod'" src="assets/images/cash.png" alt="Icon"
+                        style="height: 36px;" />
+                      <img *ngIf="row?.group[0].context == 'Bank'" src="assets/images/bank.png" alt="Icon"
+                        style="height: 36px;" />
+                      <img *ngIf="row?.group[0].context == 'card'" src="assets/images/card.png" alt="Icon"
+                        style="height: 36px;" />
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Order Amt" [width]="92">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                      <!-- <p>${{row?.group[0].amount?.toFixed(2)}}</p> -->
+                      <p>${{row?.group[0].amount}}</p>
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Vendor" [width]="80">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                      {{row?.group[0].vendor_name}}
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column name="Actions" [width]="135">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                      <div *ngIf="row?.group[0].context == 'Bank'" >
+                        <button type="button" class="btn btn-info btn-circle btn-sm" (click)="orderAction('Refund',row)"><i class="fa fa-check"></i> </button>
+                        <button type="button" class="btn btn-danger btn-circle btn-sm" (click)="orderAction('Void',row)"><i class="fa fa-times"></i> </button>
+                      </div>
+
+                      <div *ngIf="row?.group[0].context == 'card'">
+                        <button type="button" class="btn btn-info btn-circle btn-sm" (click)="orderAction('Refund',row)"><i class="fa fa-check"></i> </button>
+                        <button type="button" class="btn btn-danger btn-circle btn-sm" (click)="orderAction('Void',row)"><i class="fa fa-times"></i> </button>
+                      </div>
+                      
+                      
+                      <div *ngIf="row?.group[0].context == 'cod'">
+                        <button type="button" class="btn btn-danger btn-circle btn-sm" (click)="orderAction('Void',row)"><i class="fa fa-times"></i> </button>
+                      </div>
+
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-column [width]="50"  [resizeable]="false" 
+                  [sortable]="false" 
+                  [draggable]="false"
+                  [canAutoResize]="true"
+                  [frozenLeft]="true">
+                    <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+                      <a href="javascript:void(0)" 
+                      [class.datatable-icon-right]="!expanded"
+                      [class.datatable-icon-down]="expanded"
+                         title="Expand/Collapse Row" id="{{row.id}}"
+                        (dblclick)="toggleExpandRow(row)">
+                      </a>
+                    </ng-template>
+                  </ngx-datatable-column>
+
+                  <ngx-datatable-footer>
+                    <!-- [class.datatable-icon-down]="row.$$expanded" [class.datatable-icon-down]="!row.$$expanded" -->
+                    <ng-template let-rowCount="rowCount" let-pageSize="pageSize" let-selectedCount="selectedCount"
+                      let-curPage="curPage" let-offset="offset" ngx-datatable-footer-template>
+                      <!-- <button type="button" class="btn btn-success ml-2 custom-button">Void</button>
+                      <button type="button" class="btn btn-warning ml-2 custom-button">Refund</button>-->
+                      <!-- <button type="button" class="btn btn-danger ml-2 custom-button">Delete</button>  -->
+                      <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'"
+                        [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'"
+                        [pagerNextIcon]="'datatable-icon-skip'" [page]="curPage" [visiblePagesCount]="currentVisible"
+                        [size]="pageSize" [count]="rowCount" [hidden]="false" (change)="table.onFooterPage($event)">
+                      </datatable-pager>
+                    </ng-template>
+                  </ngx-datatable-footer>
+
+                </ngx-datatable>
+                </div>
+
               </div>
             </ng-template>
           </ngb-tab>
@@ -246,13 +393,13 @@
                 <div *ngFor="let payout of tab; let i=index">
                   <!-- <div *ngFor="let payout of dailyPayoutData">  -->
                   <!-- {{payout.data[0].tip_amount}} -->
-                  <h3 style="text-align: center;"><b> {{payout.data.Delivery[i]?.unit_name}}</b></h3>
-                  <div *ngIf="payout.data.Delivery">
+                  <h3 style="text-align: center;"><b> Bank (Green Money)</b></h3>
+                  <div *ngIf="payout">
                     <!-- <p style="text-align: center;">Cash On Delivery</p> -->
                     <div class="accodion-datatable">
                       <!-- {{payout.data[0].unit_id}} -->
                       <!-- <ngx-datatable class="material" #table [rows]="dailyPayoutData[i]" [columnMode]="'force'" -->
-                      <ngx-datatable class="material" #table [rows]="payout.data.Delivery" [columnMode]="'force'"
+                      <ngx-datatable class="material" #table [rows]="tab" [columnMode]="'force'"
                         [headerHeight]="50" [footerHeight]="50" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
                         <!-- Row Detail Template -->
 
@@ -338,15 +485,218 @@
                           </ng-template>
                         </ngx-datatable-row-detail>
 
-                        <ngx-datatable-column name="#" [width]="40">
+                        <!-- <ngx-datatable-column name="#" [width]="40">
                           <ng-template let-row="row" ngx-datatable-cell-template>
-                            <div class="custom-control custom-checkbox" *ngIf="row?.order_detail?.status != 'processed'">
+                            <div class="custom-control custom-checkbox" *ngIf="row?.status != 'Proccesed'">
                               <input type="checkbox" class="custom-control-input" id="customCheck{{row.id}}"
                                 name="example1">
                               <label class="custom-control-label" for="customCheck{{row.id}}"></label>
                             </div>
                           </ng-template>
+                        </ngx-datatable-column> -->
+
+                        <ngx-datatable-column name="Status" [width]="158">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <a style="background-color: #ef6e6e; color:#fff;"
+                              class="order-status text-capitalize btn w-100 border-0"
+                              *ngIf="row?.order_detail?.status == 'complete'">{{row?.status}}</a>
+
+                            <a style="background-color: #ffbc34; color:#fff;"
+                              class="order-status text-capitalize btn w-100 border-0"
+                              *ngIf="row?.order_detail?.status == 'processed'">{{row?.status}}</a>
+
+                            <a style="background-color: #22c6ab; color:#fff;"
+                              class="order-status text-capitalize btn w-100 border-0"
+                              *ngIf="row?.order_detail?.status == 'new'">{{row?.status}}</a>
+
+                            <a style="background-color: #22c6ab; color:#fff;"
+                              class="order-status text-capitalize btn w-100 border-0"
+                              *ngIf="row?.order_detail?.status == 'incomplete'">{{row?.status}}</a>
+                          </ng-template>
                         </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Date" [width]="70">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row?.created_at|date:'MMM d'}}
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Order ID" [width]="62">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            {{row?.id|custompipe:row.id}}
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Method" [width]="70">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <!-- {{row?.context}} -->
+                            <img src="assets/images/bank.png" alt="Icon" style="height: 36px;" />
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Order Amt" [width]="92">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <p>${{row?.total_order_amount}}</p>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Meal" [width]="60">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <p>${{row?.amount}}</p>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Type" [width]="50">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <img src="/assets/images/deliverySmall.png" class="img-responsive"
+                              *ngIf="row?.for_delivery;else takeoutimg" />
+                            <ng-template #takeoutimg>
+                              <img src="/assets/images/takeout.png" class="img-responsive" />
+                            </ng-template>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Deductions" [width]="92">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <p>${{row?.deduction}}</p>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Balance" [width]="92">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <p>${{(row?.amount - row?.deduction) | number:'1.2-2'}}</p>
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column [width]="40">
+                          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+                            <a href="javascript:void(0)" [class.datatable-icon-down]="!row.$$expanded"
+                              [class.datatable-icon-down]="row.$$expanded" title="Expand/Collapse Row" id="{{row.id}}"
+                              (dblclick)="toggleExpandRowDailyout(row)">
+                            </a>
+                          </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-footer>
+                          <ng-template let-rowCount="rowCount" let-pageSize="pageSize" let-selectedCount="selectedCount"
+                            let-curPage="curPage" let-offset="offset" ngx-datatable-footer-template>
+                            <!-- <button *ngIf="row?.order_detail?.status != 'processed'" type="button" class="btn btn-success ml-2 custom-button">Process Selected
+                              Orders</button> -->
+                            <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'"
+                              [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'"
+                              [pagerNextIcon]="'datatable-icon-skip'" [page]="curPage"
+                              [visiblePagesCount]="currentVisible" [size]="pageSize" [count]="rowCount" [hidden]="false"
+                              (change)="table.onFooterPage($event)">
+                            </datatable-pager>
+                          </ng-template>
+                        </ngx-datatable-footer>
+                      </ngx-datatable>
+                    </div>
+                    <div *ngIf="payout" style="text-align: right;">
+                      {{payout.total_cod}}
+                    </div>
+                  </div>
+                  <!-- ----------------------------start -->
+                  <div >
+                    <h3 style="text-align: center;"><b>
+                      Cash on Delivery (COD) 
+                    </b> </h3>
+                    <div class="accodion-datatable">
+
+                      <ngx-datatable class="material" #table [rows]="tab" [columnMode]="'force'"
+                        [headerHeight]="50" [footerHeight]="50" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
+                        <!-- Row Detail Template -->
+
+                        <ngx-datatable-row-detail [rowHeight]="auto">
+                          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
+                            <div style="padding-left:58px;" *ngIf="row?.for_delivery; else takeout">
+                              
+                              <h6 class="col-md-6 pl-0" style="font-size: 15px;">Itemized Charges</h6>
+                              <div class="row">
+                                <div class="col-md-2">Instamarkt(10%)</div>
+                                <span>:</span>
+                                <div class="col-md-2">${{row?.instaMarkt_commission}}</div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-2">Delivery Charge</div>
+                                <span>:</span>
+                                <div class="col-md-2">${{row?.delivery_charge}}</div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-2">Tip</div>
+                                <span>:</span>
+                                <div class="col-md-2">${{row?.tip_amount}}</div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-2">Bank Processing</div>
+                                <span>:</span>
+                                <div class="col-md-2" *ngIf="row.bank_processing">${{row?.bank_processing}}</div>
+                                <div class="col-md-2" *ngIf="!row.bank_processing">$0</div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-3 pl-0">
+                                  <hr />
+                                </div>
+                              </div>
+                              <div class="row mb-2">
+                                <div class="col-md-2"><b>Total Deductions</b></div>
+                                <span>:</span>
+                                <div class="col-md-2">${{row?.deduction}}</div>
+                              </div>
+                              <div class="row mb-1">
+                                <div class="" style="font-weight:500;padding-left:10px;">Driver : </div>
+                                <div class="col-md-3 pl-1">{{row?.driver?.first_name +' '+ row?.driver?.last_name}}
+                                </div>
+                              </div>
+                            </div>
+                            <ng-template #takeout>
+                              <div style="padding-left:58px;">
+                                <div class="row mb-1">
+                                  <div class="" style="font-weight:500;padding-left:10px;">Driver :- </div>
+                                  <div class="col-md-3 pl-1">{{row?.driver?.first_name +' '+ row?.driver?.last_name}}
+                                  </div>
+                                </div>
+                                <h6 class="col-md-2 pl-0">Itemized Charges</h6>
+                                <div class="row">
+                                  <div class="col-md-2">Instamarkt(5%)</div>
+                                  <span>:</span>
+                                  <div class="col-md-2">{{row?.instaMarkt_commission}}</div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-2">Tip</div>
+                                  <span>:</span>
+                                  <div class="col-md-2">${{row?.tip_amount}}</div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-2">Bank Processing</div>
+                                  <span>:</span>
+                                  <div class="col-md-2" *ngIf="row.bank_processing">${{row?.bank_processing}}</div>
+                                  <div class="col-md-2" *ngIf="!row.bank_processing">$0</div>
+
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-3 pl-0">
+                                    <hr />
+                                  </div>
+                                </div>
+                                <div class="row mb-2">
+                                  <div class="col-md-2"><b>Total Deductions</b></div>
+                                  <span>:</span>
+                                  <div class="col-md-2">${{row?.deduction}}</div>
+                                </div>
+                              </div>
+                            </ng-template>
+                          </ng-template>
+                        </ngx-datatable-row-detail>
+
+                        <!-- <ngx-datatable-column name="#" [width]="40">
+                          <ng-template let-row="row" ngx-datatable-cell-template>
+                            <div class="custom-control custom-checkbox" *ngIf="row?.status != 'Proccesed'">
+                              <input type="checkbox" class="custom-control-input" id="customCheck{{row.id}}"
+                                name="example1">
+                              <label class="custom-control-label" for="customCheck{{row.id}}"></label>
+                            </div>
+                          </ng-template>
+                        </ngx-datatable-column> -->
 
                         <ngx-datatable-column name="Status" [width]="158">
                           <ng-template let-row="row" ngx-datatable-cell-template>
@@ -417,7 +767,7 @@
 
                         <ngx-datatable-column name="Balance" [width]="92">
                           <ng-template let-row="row" ngx-datatable-cell-template>
-                            <p>${{(row?.amount - row?.deduction)}}</p>
+                            <p>${{(row?.amount - row?.deduction) | number:'1.2-2'}}</p>
                           </ng-template>
                         </ngx-datatable-column>
 
@@ -432,8 +782,8 @@
                         <ngx-datatable-footer>
                           <ng-template let-rowCount="rowCount" let-pageSize="pageSize" let-selectedCount="selectedCount"
                             let-curPage="curPage" let-offset="offset" ngx-datatable-footer-template>
-                            <button type="button" class="btn btn-success ml-2 custom-button">Process Selected
-                              Orders</button>
+                            <!-- <button type="button" class="btn btn-success ml-2 custom-button">Process Selected
+                              Orders</button> -->
                             <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'"
                               [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'"
                               [pagerNextIcon]="'datatable-icon-skip'" [page]="curPage"
@@ -444,212 +794,11 @@
                         </ngx-datatable-footer>
                       </ngx-datatable>
                     </div>
-                    <div *ngIf="payout.data.cod" style="text-align: right;">
-                      {{payout.data.total_cod}}
-                    </div>
-                  </div>
-                  <!-- ----------------------------start -->
-                  <div *ngIf=payout.data.online>
-                    <p style="text-align: center;">Online</p>
-                    <div class="accodion-datatable">
-                      <!-- {{payout.data[0].unit_id}} -->
-
-                      <ngx-datatable class="material" #table [rows]="payout.data.online" [columnMode]="'force'"
-                        [headerHeight]="50" [footerHeight]="50" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
-                        <!-- Row Detail Template -->
-                        <ngx-datatable-row-detail [rowHeight]="auto">
-                          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template>
-                            <div style="padding-left:58px;" *ngIf="row?.for_delivery; else takeout">
-                              <div class="row mb-1">
-                                <div class="" style="font-weight:500;padding-left:10px;">Driver : </div>
-                                <div class="col-md-3 pl-1">{{row?.driver?.first_name +' '+ row?.driver?.last_name}}
-                                </div>
-                              </div>
-                              <h6 class="col-md-6 pl-0">Itemized Charges</h6>
-                              <div class="row">
-                                <div class="col-md-2">Instamarkt(10%)</div>
-                                <span>:</span>
-                                <div class="col-md-2">${{row?.instaMarkt_commission}}</div>
-                              </div>
-                              <div class="row">
-                                <div class="col-md-2">Delivery Charge</div>
-                                <span>:</span>
-                                <div class="col-md-2">${{row?.delivery_charge}}</div>
-                              </div>
-                              <div class="row">
-                                <div class="col-md-2">Tip</div>
-                                <span>:</span>
-                                <div class="col-md-2">${{row?.tip_amount}}</div>
-                              </div>
-                              <div class="row">
-                                <div class="col-md-2">Bank Processing</div>
-                                <span>:</span>
-                                <div class="col-md-2" *ngIf="row.bank_processing">${{row?.bank_processing}}</div>
-                                <div class="col-md-2" *ngIf="!row.bank_processing">$0</div>
-                              </div>
-                              <div class="row">
-                                <div class="col-md-3 pl-0">
-                                  <hr />
-                                </div>
-                              </div>
-                              <div class="row mb-2">
-                                <div class="col-md-2"><b>Total Deductions</b></div>
-                                <span>:</span>
-                                <div class="col-md-2">${{row?.deduction}}</div>
-                              </div>
-                            </div>
-                            <ng-template #takeout>
-                              <div style="padding-left:58px;">
-                                <div class="row mb-1">
-                                  <div class="" style="font-weight:500;padding-left:10px;">Driver :- </div>
-                                  <div class="col-md-3 pl-1">{{row?.driver?.first_name +' '+ row?.driver?.last_name}}
-                                  </div>
-                                </div>
-                                <h6 class="col-md-2 pl-0">Itemized Charges</h6>
-                                <div class="row">
-                                  <div class="col-md-2">Instamarkt(5%)</div>
-                                  <span>:</span>
-                                  <div class="col-md-2">{{row?.instaMarkt_commission}}</div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-md-2">Tip</div>
-                                  <span>:</span>
-                                  <div class="col-md-2">${{row?.tip_amount}}</div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-md-2">Bank Processing</div>
-                                  <span>:</span>
-                                  <div class="col-md-2" *ngIf="row.bank_processing">${{row?.bank_processing}}</div>
-                                  <div class="col-md-2" *ngIf="!row.bank_processing">$0</div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-md-3 pl-0">
-                                    <hr />
-                                  </div>
-                                </div>
-                                <div class="row mb-2">
-                                  <div class="col-md-2"><b>Total Deductions</b></div>
-                                  <span>:</span>
-                                  <div class="col-md-2">${{row?.deduction}}</div>
-                                </div>
-                              </div>
-                            </ng-template>
-                          </ng-template>
-                        </ngx-datatable-row-detail>
-
-                        <ngx-datatable-column name="#" [width]="40">
-                          <ng-template let-row="row" ngx-datatable-cell-template>
-                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="customCheck{{row.id}}"
-                                name="example1">
-                              <label class="custom-control-label" for="customCheck{{row.id}}"></label>
-                            </div>
-                          </ng-template>
-                        </ngx-datatable-column>
-
-                        <ngx-datatable-column name="Status" [width]="158">
-                          <ng-template let-row="row" ngx-datatable-cell-template>
-                            <a style="background-color: #ef6e6e; color:#fff;"
-                              class="order-status text-capitalize btn w-100 border-0"
-                              *ngIf="row?.order_detail?.status == 'complete'">{{row?.order_detail?.status}}</a>
-
-                            <a style="background-color: #ffbc34; color:#fff;"
-                              class="order-status text-capitalize btn w-100 border-0"
-                              *ngIf="row?.order_detail?.status == 'processed'">{{row?.order_detail?.status}}</a>
-
-                            <a style="background-color: #22c6ab; color:#fff;"
-                              class="order-status text-capitalize btn w-100 border-0"
-                              *ngIf="row?.order_detail?.status == 'new'">{{row?.order_detail?.status}}</a>
-
-                            <a style="background-color: #22c6ab; color:#fff;"
-                              class="order-status text-capitalize btn w-100 border-0"
-                              *ngIf="row?.order_detail?.status == 'incomplete'">{{row?.order_detail?.status}}</a>
-                          </ng-template>
-                        </ngx-datatable-column>
-
-                        <ngx-datatable-column name="Date" [width]="70">
-                          <ng-template let-row="row" ngx-datatable-cell-template>
-                            {{row?.created_at|date:'MMM d'}}
-                          </ng-template>
-                        </ngx-datatable-column>
-
-                        <ngx-datatable-column name="Order ID" [width]="62">
-                          <ng-template let-row="row" ngx-datatable-cell-template>
-                            {{row?.id|custompipe:row.id}}
-                          </ng-template>
-                        </ngx-datatable-column>
-
-                        <ngx-datatable-column name="Payment" [width]="70">
-                          <ng-template let-row="row" ngx-datatable-cell-template>
-                            <!-- {{row?.context}} -->
-                            <img src="assets/images/card.png" alt="Icon" style="height: 36px;" />
-
-                          </ng-template>
-                        </ngx-datatable-column>
-
-                        <ngx-datatable-column name="Order Amt" [width]="92">
-                          <ng-template let-row="row" ngx-datatable-cell-template>
-                            <p>${{row?.total_order_amount}}</p>
-                          </ng-template>
-                        </ngx-datatable-column>
-
-                        <ngx-datatable-column name="Meal" [width]="60">
-                          <ng-template let-row="row" ngx-datatable-cell-template>
-                            <p>${{row?.amount}}</p>
-                          </ng-template>
-                        </ngx-datatable-column>
-
-                        <ngx-datatable-column name="Type" [width]="50">
-                          <ng-template let-row="row" ngx-datatable-cell-template>
-                            <img src="/assets/images/deliverySmall.png" class="img-responsive"
-                              *ngIf="row?.for_delivery;else takeoutimg" />
-                            <ng-template #takeoutimg>
-                              <img src="/assets/images/takeout.png" class="img-responsive" />
-                            </ng-template>
-                          </ng-template>
-                        </ngx-datatable-column>
-
-                        <ngx-datatable-column name="Deductions" [width]="92">
-                          <ng-template let-row="row" ngx-datatable-cell-template>
-                            <p>${{row?.deduction}}</p>
-                          </ng-template>
-                        </ngx-datatable-column>
-
-                        <ngx-datatable-column name="Balance" [width]="92">
-                          <ng-template let-row="row" ngx-datatable-cell-template>
-                            <p>${{(row?.amount - row?.deduction)}}</p>
-                          </ng-template>
-                        </ngx-datatable-column>
-
-                        <ngx-datatable-column [width]="40">
-                          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-                            <a href="javascript:void(0)" [class.datatable-icon-down]="!row.$$expanded"
-                              [class.datatable-icon-down]="row.$$expanded" title="Expand/Collapse Row" id="{{row.id}}"
-                              (dblclick)="toggleExpandRowDailyout(row)">
-                            </a>
-                          </ng-template>
-                        </ngx-datatable-column>
-                        <ngx-datatable-footer>
-                          <ng-template let-rowCount="rowCount" let-pageSize="pageSize" let-selectedCount="selectedCount"
-                            let-curPage="curPage" let-offset="offset" ngx-datatable-footer-template>
-                            <button type="button" class="btn btn-success ml-2 custom-button">Process Selected
-                              Orders</button>
-                            <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'"
-                              [pagerRightArrowIcon]="'datatable-icon-right'" [pagerPreviousIcon]="'datatable-icon-prev'"
-                              [pagerNextIcon]="'datatable-icon-skip'" [page]="curPage"
-                              [visiblePagesCount]="currentVisible" [size]="pageSize" [count]="rowCount" [hidden]="false"
-                              (change)="table.onFooterPage($event)">
-                            </datatable-pager>
-                          </ng-template>
-                        </ngx-datatable-footer>
-                      </ngx-datatable>
-                    </div>
-                    <!--  -->
                   </div>
                   <!-- ---------------end -->
-                  <div *ngIf=payout.data.online style="text-align: right;">
+                  <!-- <div *ngIf=payout.data.online style="text-align: right;">
                     {{payout.data.total_online}}
-                  </div>
+                  </div> -->
 
                   <p style="text-align: right;">Payout- {{payout.payout}}</p>
                 </div>
@@ -682,11 +831,11 @@
 
               </div>
 
-              <div>
+              <div *ngIf="weeklyRecon">
                 <div class="row mb-1 mt-4">
                   <!-- <div style="font-weight:500;padding-left:10px; margin:0 auto;">LABOR ({{driverCount}} Drivers)
                 </div> -->
-                  <div style="font-weight:500;margin:0 auto;">Delivery Hub: {{deliveryHub.hub_name}}
+                  <div  style="font-weight:500;margin:0 auto;">Delivery Hub: {{deliveryHub.hub_name}}
                   </div>
                 </div>
 
@@ -725,7 +874,7 @@
                               color: white;
                               align-items: center;
                               border-radius: 7px;">
-                                #{{row.order_id}}
+                                #{{row.order_id}} {{row.company_name}}
                               </a> 
                              </span>
                              <br />
@@ -776,46 +925,11 @@
                             </ng-template>
                           </ngx-datatable-column>
 
-                          <!-- <ngx-datatable-column [width]="20">
-                      <ng-template let-value="value" let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
-                        
-                        <i class="ti-pencil" title="Modify" *ngIf="!this.isEditable[rowIndex]"
-                          (click)="this.isEditable[rowIndex]=!this.isEditable[rowIndex]"
-                          style="cursor:pointer;color: #3dc6ac;font-weight: 700;"></i>
-                        
-                        <i class="ti-save mb-1" *ngIf="this.isEditable[rowIndex]" title="Save"
-                          (click)="save(row, rowIndex);" style="cursor:pointer;color: #ffbc34;font-weight: 700;"></i>
-                        <i class="ti-back-left" *ngIf="this.isEditable[rowIndex]" title="Reset"
-                          (click)="delete(row,rowIndex)" style="cursor:pointer;color: #ef6e6e;font-weight: 700;"></i>
-                      </ng-template>
-                    </ngx-datatable-column> -->
 
                         </ngx-datatable>
                       </div>
                     </div>
 
-                    <!-- <div class="wrap-custom-card-main">
-                <div class="row mt-3 custom-card-main justify-content-center">
-                  <div class="col-lg-3 col-sm-4 col-6 col-list mb-3"
-                    *ngFor="let unitData of unitOrderAndName; let i=index;">
-                    <div class="custom-card card-colors p-3">
-                      <div class="wrap-div">
-                        <div class="title">
-                          <h3>{{unitData.unitOrder}} Deliveries</h3>
-                        </div>
-                        <div class="description">
-                          <p>Location: {{unitData.unitName}} #{{i+1}} </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row mt-3">
-                  <div style="font-weight:500;padding-left:10px; margin:0 auto;">Total Hub Deliveries :
-                    {{totalDeliveryCount}}
-                  </div>
-                </div>
-              </div> -->
 
                     <div class="row mb-1 mt-4" hidden>
                       <div class="view-orders" style="margin:0 auto;">
@@ -823,84 +937,7 @@
                       </div>
                     </div>
 
-                    <!--Start Hourly Wages table-->
-                    <!-- <div class="card-body">
-                      <div class="accodion-datatable">
-                        <ngx-datatable class="material" #table [rows]="driver.weekly_data" [columnMode]="'force'"
-                          [headerHeight]="50" [footerHeight]="0" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
-
-                          <ngx-datatable-column name="Drivers" [width]="100" prop="driver">
-                            <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
-                              ngx-datatable-cell-template>
-                     
-                              {{row.task}}
-                            </ng-template>
-                          </ngx-datatable-column>
-
-                          <ngx-datatable-column name="Mon" [width]="70" prop="mon">
-                            <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
-                              ngx-datatable-cell-template>
-                              {{row.mon}}
-                            </ng-template>
-                          </ngx-datatable-column>
-
-                          <ngx-datatable-column name="Tue" [width]="70" prop="tue">
-                            <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
-                              ngx-datatable-cell-template>                      
-                              {{row.tue}}
-                            </ng-template>
-                          </ngx-datatable-column>
-
-                          <ngx-datatable-column name="Wed" [width]="70" prop="wed">
-                            <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
-                              ngx-datatable-cell-template>
-                              {{row.wed}}
-                            </ng-template>
-                          </ngx-datatable-column>
-
-                          <ngx-datatable-column name="Thu" [width]="70" prop="thu">
-                            <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
-                              ngx-datatable-cell-template>                        
-                              {{row.thu}}
-                            </ng-template>
-                          </ngx-datatable-column>
-
-                          <ngx-datatable-column name="Fri" [width]="70" prop="fri">
-                            <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
-                              ngx-datatable-cell-template>
-                      
-                              {{row.fri}}
-                            </ng-template>
-                          </ngx-datatable-column>
-
-                          <ngx-datatable-column name="Sat" [width]="70" prop="sat">
-                            <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
-                              ngx-datatable-cell-template>
-                            
-                              {{row.sat}}
-
-                            </ng-template>
-                          </ngx-datatable-column>
-
-                          <ngx-datatable-column name="Sun" [width]="70" prop="sun">
-                            <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value"
-                              ngx-datatable-cell-template>
-                              
-                              {{row.sun}}
-
-                            </ng-template>
-                          </ngx-datatable-column>
-
-                          <ngx-datatable-column name="Total" [width]="70">
-                            <ng-template let-row="row" ngx-datatable-cell-template>
-                              {{row.total}}
-                            </ng-template>
-                          </ngx-datatable-column>
-
-                        </ngx-datatable>
-                      </div>
-                    </div> -->
-
+                  
                     <!-- Delivery Cash Payouts Table -->
                     <div class="row mt-3 custom-card-main">
                       <div class="custom-card-wages-total" style="background-color: #61c3eb;">
@@ -909,7 +946,7 @@
                             <h2 style="color: white;">Cash Payouts</h2>
                           </div>
                           <div class="description">
-                            <p style="font-size: 18px; color: white;"> {{cash_payouts.toFixed(2)}}</p>
+                            <p style="font-size: 18px; color: white;"> {{cash_payouts?.toFixed(2)}}</p>
                           </div>
                         </div>
                       </div>
@@ -919,7 +956,7 @@
                             <h2 style="color: white;">Weekly Total</h2>
                           </div>
                           <div class="description">
-                            <p style="font-size: 18px;color: white;">{{cash_payouts.toFixed(2)}}</p>
+                            <p style="font-size: 18px;color: white;">{{cash_payouts?.toFixed(2)}}</p>
                           </div>
                         </div>
                       </div>
@@ -928,8 +965,13 @@
                 </div>
               </div>
 
+              <div *ngIf="!weeklyRecon">
+                <h3>
+                  *No data for this week.
+                </h3>
+              </div>
               <!-- Delivery Wages Table -->
-              <div class="row mt-3 custom-card-main">
+              <div class="row mt-3 custom-card-main" *ngIf="weeklyRecon">
                 <div class="custom-card-wages-total" style="background-color: #61c3eb;">
                   <div class="total-wages">
                     <div class="title">
@@ -941,88 +983,154 @@
                   </div>
                 </div>
               </div>
-              <div class="card-body">
-
-                <div class="accodion-datatable">
-                  <ngx-datatable class="material" #table [rows]="totalDeliveryWagesData" [columnMode]="'force'"
-                    [headerHeight]="50" [footerHeight]="50" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
-
-                    <!-- <ngx-datatable-column name="S.No." [width]="70">
-                      <ng-template let-row="row" let-rowIndex='rowIndex' ngx-datatable-cell-template>
-                        {{rowIndex+1}}
-                      </ng-template>
-                    </ngx-datatable-column> -->
-
-                    <ngx-datatable-column name="Driver" [width]="70">
-                      <ng-template let-row="row" ngx-datatable-cell-template>
-                        {{row.driverName}}
-                      </ng-template>
-                    </ngx-datatable-column>
-
-                    <ngx-datatable-column name="Amount" [width]="62">
-                      <ng-template let-row="row" ngx-datatable-cell-template>
-                        ${{row.wagesTotal.toFixed(2)}}
-                      </ng-template>
-                    </ngx-datatable-column>
-
-                  </ngx-datatable>
-                </div>
-              </div>
+             
 
               <!--Start Delivery Allocation Table-->
               <div class="row mb-1">
-                <div class="mb-2 mt-2" style="font-weight:500;padding-left:10px; margin:0 auto;">Delivery Allocation
-                </div>
+            
               </div>
-
+              <div style="text-align: right;">
+                <button>
+                  Export CSV
+                </button>
+              </div>
               <div class="card-body">
-
-                <div class="accodion-datatable">
-                  <ngx-datatable class="material" #table [rows]="deliveryAllocationList" [columnMode]="'force'"
-                    [headerHeight]="50" [footerHeight]="50" [rowHeight]="auto" [limit]="5" [scrollbarH]="true">
-
-                    <ngx-datatable-column name="" [width]="10">
-                      <ng-template let-row="row" ngx-datatable-cell-template>
-                        <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="customCheck{{row.id}}"
-                            name="example1">
-                          <label class="custom-control-label" for="customCheck{{row.id}}"></label>
-                        </div>
-                      </ng-template>
-                    </ngx-datatable-column>
-
-                    <ngx-datatable-column name="Vendor" [width]="110">
-                      <ng-template let-row="row" ngx-datatable-cell-template>
-                        {{row.unitName}}
-                      </ng-template>
-                    </ngx-datatable-column>
-
-                    <ngx-datatable-column name="Subsidy" [width]="150">
-                      <ng-template let-row="row" ngx-datatable-cell-template>
-                        ${{row.subSidy?row.subSidy:0}} &nbsp;<button type="button" class="btn btn-danger"
-                          (click)="openSubsidy(subsidy, row.sumTotalDeliveryWages, row.unitsOrder, row.totalDeliveryCount, row.unitName)">Details</button>
-                      </ng-template>
-                    </ngx-datatable-column>
-
-                    <ngx-datatable-column name="Status" [width]="40">
-                      <ng-template let-row="row" ngx-datatable-cell-template>
-                        {{row.status}}
-                      </ng-template>
-                    </ngx-datatable-column>
-
-                    <ngx-datatable-column name="Action" [width]="150">
-                      <ng-template let-row="row" ngx-datatable-cell-template>
-                        <button class="btn btn-success">Approve / Process</button>
-
-                      </ng-template>
-
-                    </ngx-datatable-column>
-
-                  </ngx-datatable>
+                <div class="mb-2 mt-2" style="font-weight:500;padding-left:10px; margin:0 auto;text-align: center;">HubMaster
                 </div>
+                <div class="mb-2 mt-2" style="font-weight:500;padding-left:412px;">
+                  &nbsp;
+                 Week Of :{{getDate() | date}} - {{getDateseven() | date}}
+               </div>
+             
 
+                <div>
+                  <div class="accodion-datatable">
+                    <table mat-table [dataSource]="setdata" class="mat-elevation-z8">
+                      <!-- Implicit Column -->
+                      <ng-container matColumnDef="Schedule">
+                        <th mat-header-cell *matHeaderCellDef> Schedule </th>
+                        <td mat-cell *matCellDef="let setdata"> {{setdata}} </td>
+                      </ng-container>
+                    
+                      <!-- Index Column -->
+                      <ng-container matColumnDef="Monday">
+                        <th mat-header-cell *matHeaderCellDef> Monday </th>
+                        <td mat-cell *matCellDef="let Monday = Monday"> {{hubmasterdat.Monday || "0"}} </td>
+                      </ng-container>
+                    
+                      <!-- Count Column -->
+                      <ng-container matColumnDef="Tuesday">
+                        <th mat-header-cell *matHeaderCellDef> Tuesday </th>
+                        <td mat-cell *matCellDef="let Tuesday = Tuesday"> {{hubmasterdat.Tuesday || "0"}} </td>
+                      </ng-container>
+                    
+                      <!-- First Column -->
+                      <ng-container matColumnDef="Wednesday">
+                        <th mat-header-cell *matHeaderCellDef> Wednesday </th>
+                        <td mat-cell *matCellDef="let Wednesday = Wednesday"> {{hubmasterdat.Wednesday || "0"}} </td>
+                      </ng-container>
+                    
+                      <ng-container matColumnDef="Thursday">
+                        <th mat-header-cell *matHeaderCellDef> Thursday </th>
+                        <td mat-cell *matCellDef="let Thursday = Thursday"> {{hubmasterdat.Thursday || "0"}} </td>
+                      </ng-container>
+
+                      <!-- Last Column -->
+                      <ng-container matColumnDef="Friday">
+                        <th mat-header-cell *matHeaderCellDef> Friday </th>
+                        <td mat-cell *matCellDef="let Friday = Friday"> {{hubmasterdat.Friday || "0"}} </td>
+                      </ng-container>
+                    
+                      <!-- Even Column -->
+                      <ng-container matColumnDef="Saturday">
+                        <th mat-header-cell *matHeaderCellDef> Saturday </th>
+                        <td mat-cell *matCellDef="let Saturday = Saturday"> {{hubmasterdat.Saturday || "0"}} </td>
+                      </ng-container>
+                    
+                      <!-- Odd Column -->
+                      <ng-container matColumnDef="Sunday">
+                        <th mat-header-cell *matHeaderCellDef> Sunday </th>
+                        <td mat-cell *matCellDef="let Sunday = Sunday"> {{hubmasterdat.Sunday || "0"}} </td>
+                      </ng-container>
+                    
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                  </div>
+                </div>
               </div>
 
+              <div style="text-align: right;">
+                <button>
+                  Export CSV
+                </button>
+              </div>
+              <div class="card-body">
+                <div class="mb-2 mt-2" style="font-weight:500;padding-left:10px; margin:0 auto;text-align: center;">HubMember
+                </div>
+              <div>
+                <div class="mb-2 mt-2" style="font-weight:500;padding-left:412px;">
+               
+                  Week Of : {{getDate() | date}} - {{getDateseven() | date}}
+                </div>
+               
+              </div>
+                <div>
+                  <div class="accodion-datatable">
+                    <table mat-table [dataSource]="setdatamember" class="mat-elevation-z8">
+                      <!-- Implicit Column -->
+                      <ng-container matColumnDef="Schedule">
+                        <th mat-header-cell *matHeaderCellDef> Schedule </th>
+                        <td mat-cell *matCellDef="let setdatamember"> {{setdatamember}} </td>
+                      </ng-container>
+                    
+                      <!-- Index Column -->
+                      <ng-container matColumnDef="Monday">
+                        <th mat-header-cell *matHeaderCellDef> Monday </th>
+                        <td mat-cell *matCellDef="let Monday = Monday"> {{hubmasterdat.Monday || "0"}} </td>
+                      </ng-container>
+                    
+                      <!-- Count Column -->
+                      <ng-container matColumnDef="Tuesday">
+                        <th mat-header-cell *matHeaderCellDef> Tuesday </th>
+                        <td mat-cell *matCellDef="let Tuesday = Tuesday"> {{hubmasterdat.Tuesday || "0"}} </td>
+                      </ng-container>
+                    
+                      <!-- First Column -->
+                      <ng-container matColumnDef="Wednesday">
+                        <th mat-header-cell *matHeaderCellDef> Wednesday </th>
+                        <td mat-cell *matCellDef="let Wednesday = Wednesday"> {{hubmasterdat.Wednesday || "0"}} </td>
+                      </ng-container>
+                    
+                      <ng-container matColumnDef="Thursday">
+                        <th mat-header-cell *matHeaderCellDef> Thursday </th>
+                        <td mat-cell *matCellDef="let Thursday = Thursday"> {{hubmasterdat.Thursday || "0"}} </td>
+                      </ng-container>
+
+                      <!-- Last Column -->
+                      <ng-container matColumnDef="Friday">
+                        <th mat-header-cell *matHeaderCellDef> Friday </th>
+                        <td mat-cell *matCellDef="let Friday = Friday"> {{hubmasterdat.Friday || "0"}} </td>
+                      </ng-container>
+                    
+                      <!-- Even Column -->
+                      <ng-container matColumnDef="Saturday">
+                        <th mat-header-cell *matHeaderCellDef> Saturday </th>
+                        <td mat-cell *matCellDef="let Saturday = Saturday"> {{hubmasterdat.Saturday || "0"}} </td>
+                      </ng-container>
+                    
+                      <!-- Odd Column -->
+                      <ng-container matColumnDef="Sunday">
+                        <th mat-header-cell *matHeaderCellDef> Sunday </th>
+                        <td mat-cell *matCellDef="let Sunday = Sunday"> {{hubmasterdat.Sunday || "0"}} </td>
+                      </ng-container>
+                    
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </ng-template>
           </ngb-tab>
 
@@ -1049,8 +1157,7 @@
                     <div class="col-md-3 pl-0">
                       {{getDriverdate() | date}} - {{getDriverseven() | date}} &nbsp;
                       <button class="col-md-3 pl-0" type="button" class="btn" style="border-radius: 50%;" (click)="goFrontDriver()">&#8250;</button>
-                      <!-- <i class="ti-pencil" aria-hidden="true" style="cursor:pointer;color: #3dc6ac;
-                      font-weight: 700;"></i> -->
+                    
                     </div>
     
                   </div>
@@ -1063,21 +1170,6 @@
                       <ng-template let-row="row" ngx-datatable-cell-template>
                         <a href="javascript:void(0)" class="order-status text-captialize"
                           style="background-color: red; color:#fff;">{{row.first_name +" "+ row.last_name}}</a>
-
-                        <!-- <a style="background-color: #22c6ab; color:#fff;"
-                          class="order-status text-capitalize btn w-100 border-0"
-                          *ngIf="drivers?.first_name">{{drivers?.first_name}}</a> -->
-                       <!-- <a style="background-color: #ef6e6e; color:#fff;"
-                          class="order-status text-capitalize btn w-100 border-0"
-                          *ngIf="row?.status == 'order_paid'">{{row?.status}}</a>
-
-                        <a style="background-color: #ffbc34; color:#fff;"
-                          class="order-status text-capitalize btn w-100 border-0"
-                          *ngIf="row?.status == 'incomplete'">{{row?.status}}</a>
-
-                        <a style="background-color: #22c6ab; color:#fff;"
-                          class="order-status text-capitalize btn w-100 border-0"
-                          *ngIf="row?.status == 'order_requested'">{{row?.status}}</a> -->
                       </ng-template>
                     </ngx-datatable-column>
 
