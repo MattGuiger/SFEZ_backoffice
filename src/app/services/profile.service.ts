@@ -62,7 +62,7 @@ export class ProfileService {
   private unitLocationsHub = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/unit_locations/';
   private territoryDriverURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/driversinterritory';
   private companyDriverURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/drivers_company';
-  private deliveryhub_units = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/deliveryhub_units/';
+  private deliveryhub_units = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/unit_locations/';
 
   private foodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel';
   private emailManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/send-email-manager';

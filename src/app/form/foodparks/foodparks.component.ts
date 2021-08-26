@@ -377,10 +377,10 @@ greenPay()
 
   getDeliveryHubAndLocationsInCompany() {
     if (this.user.company_id) {
-      this._ProfileService.getDeliveryHubandUnits(this.user.company_id).subscribe(res => {
+      this._ProfileService.getDeliveryHubandUnits(this.user.territory_id).subscribe(res => {
       
         if (res.status == 200) {
-       
+       debugger
           this.deliveryHubUnits = res.data
           let units = []
           units = res.data
