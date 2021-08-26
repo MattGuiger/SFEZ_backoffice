@@ -212,31 +212,11 @@ export class FoodpckmgrorderComponent {
   this.getAllOrder();
   if(this.selectedstatus == 'Void')
   {
-    
-//     const data =
-//     {
-//      "orderdate": this.datecuurent 
-//     }
-//    this.user = this._CommonFunctionsService.checkUser().user;
-//    this._ProfileService.getVoidData(data).subscribe((res: any) => {
-//    this.orders = res.data;
-//    this.temp = this.orders;
-//    this.rows = this.orders;
-//  })
+ 
   }
   else
   {
-  //  const data =
-  //   {
-  //    "orderdate": this.datecuurent 
-  //   }
-  //  this.user = this._CommonFunctionsService.checkUser().user;
-  //  this._ProfileService.getRefundVoidData(data).subscribe((res: any) => {
-  //    this.orders = res.data;
-  //    this.temp = this.orders;
-  //    this.rows = this.orders;
 
-  //  })
   }
   }
 
@@ -288,9 +268,12 @@ export class FoodpckmgrorderComponent {
 
 
   openModal(row)
-  {
+  {   
+    this.user = this._CommonFunctionsService.checkUser().user;
      const dialogData = new DriverDialogModel("Confirm Action", row);
-    //  this._ProfileService.DriverDetails()
+     this._ProfileService.DriverDetails(this.user.food_park_id,this.user.id).subscribe((res:any)=>{
+       console.log(res,'res')
+     })
      const dialogRef = this.dialog.open(DriverDialogComponent, {
        maxWidth: "600px",
        data: dialogData

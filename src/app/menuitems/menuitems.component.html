@@ -445,32 +445,7 @@
                           </div> -->
                         </div>
                       </mat-tab>
-                      <mat-tab *ngIf="showFourthTab" label="5">
-                        <div class="step_one padding_area">
-                          <h2>Step 5</h2>
-                        </div>
-                        <h2 style="text-align: center;"><b>Spreadsheet Details</b></h2>
-                        <div class="spreadsheet_detail"
-                          *ngFor="let item of googleSheet | keyvalue: returnZero; let i = index">
-                          <br><br>
-                          <p>1. Menu Item Name: {{item.value.menuItemName}}
-                          </p>
-                          <p>2. Menu Item Description: {{item.value.menuItemDescription}}</p>
-                          <p>3. Menu Item Price: {{item.value.menuItemPrice}}</p>
-                          <p>4. Image</p>
-                          <p>5. Category:{{item.value.category}}</p>
-                          <p>6. Add-Ons: {{item.value.addOnMultiple}}</p>
-                          <p>7. Add-Ons Price: {{item.value.addOnPrice}}</p>
-                          <p>8. Required Category: {{item.value.category}}</p>
-                          <p>9. Required Selections: {{item.value.optionSingle}} </p>
-                          <p>10. Required Price: {{item.value.optionSinglePrice}}</p>
-                          <p>11. Instructions: {{item.value.instructions}}
-                          </p>
-                          <br>
-                          <br>
-                          <br>
-                        </div>
-                      </mat-tab>
+                      
                     </mat-tab-group>
                   </div>
                 </section>

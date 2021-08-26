@@ -733,22 +733,13 @@ if(event.target.value == '')
         }
         this._ProfileService.deleteUnitsListWithFoodParkId(unit_data).subscribe(
           (response: any) => {
-            // this.UnitList = response.data;
-            // this.getAllUnitWithFoodParkId()
             this.toastr.success("Vendor Removed Successfully")
-            // this.getlocationOnTerritoryId()
-            // this.getlocationsAndHub()
-            // this.gethubswithterriId()
-            // this.getlocationOnTerritoryId()
+            this.getDeliveryHubAndLocationsInCompany()
             this.getlocationsAndHub()
-            // this.gethubswithterriId()
-            // this.getlocationsAndHub()
             this.getLocationInTerritoy()
             this.getDeliveryHubinCompany()
             this.getlocationCompanyId()
             this.getDeliveryHubCompany()
-            this.getDeliveryHubAndLocationsInCompany()
-
           },
           (error) => {
      

@@ -343,7 +343,7 @@ getRefundVoidData(data): Observable<any>
 
   DriverDetails(food_id,id)
   {
-    return this.http.get(`https://api.instamarkt.co/api/v1/rel/food_parks/${food_id}/drivers/${id}}`)
+    return this.http.get(`https://api.instamarkt.co/api/v1/rel/food_parks/${food_id}/drivers/${id}`)
   }
 
 
