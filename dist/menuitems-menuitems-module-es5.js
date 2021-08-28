@@ -906,7 +906,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }
 
     var _c0 = function _c0() {
-      return ["/menuitems"];
+      return ["/menuitems/tabs/tb1"];
     };
 
     var EditComponent =
@@ -1112,7 +1112,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "label");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](35, "Status");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](35, "Publish");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -2085,14 +2085,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-checkbox", 91);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function MenuitemsComponent_ng_template_16_mat_tab_5_div_20_Template_mat_checkbox_change_1_listener($event) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function MenuitemsComponent_ng_template_16_mat_tab_5_div_20_Template_mat_checkbox_ngModelChange_1_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r49);
+
+          var category_r47 = ctx.$implicit;
+          return category_r47.status = $event;
+        })("change", function MenuitemsComponent_ng_template_16_mat_tab_5_div_20_Template_mat_checkbox_change_1_listener($event) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r49);
 
           var category_r47 = ctx.$implicit;
 
-          var ctx_r48 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+          var ctx_r50 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
 
-          ctx_r48.onChange($event, category_r47.category);
+          ctx_r50.onChange($event, category_r47.category);
           return false;
         });
 
@@ -2108,7 +2113,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("checked", category_r47 == null ? null : category_r47.status);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", category_r47.status);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
@@ -2118,20 +2123,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function MenuitemsComponent_ng_template_16_mat_tab_5_div_42_Template(rf, ctx) {
       if (rf & 1) {
-        var _r52 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r53 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-checkbox", 92);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function MenuitemsComponent_ng_template_16_mat_tab_5_div_42_Template_mat_checkbox_change_1_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r52);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r53);
 
-          var addeditem_r50 = ctx.$implicit;
+          var addeditem_r51 = ctx.$implicit;
 
-          var ctx_r51 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+          var ctx_r52 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
 
-          return ctx_r51.onChange1($event, addeditem_r50);
+          return ctx_r52.onChange1($event, addeditem_r51);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
@@ -2142,17 +2147,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var addeditem_r50 = ctx.$implicit;
+        var addeditem_r51 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", addeditem_r50, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", addeditem_r51, " ");
       }
     }
 
     function MenuitemsComponent_ng_template_16_mat_tab_5_Template(rf, ctx) {
       if (rf & 1) {
-        var _r54 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r55 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-tab", 64);
 
@@ -2221,11 +2226,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "input", 83);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function MenuitemsComponent_ng_template_16_mat_tab_5_Template_input_ngModelChange_25_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r54);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r55);
 
-          var ctx_r53 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r54 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r53.owncategory = $event;
+          return ctx_r54.owncategory = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -2233,11 +2238,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "button", 84);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function MenuitemsComponent_ng_template_16_mat_tab_5_Template_button_click_26_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r54);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r55);
 
-          var ctx_r55 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r56 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r55.addOwnCategory();
+          return ctx_r56.addOwnCategory();
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](27, "i", 85);
@@ -2261,11 +2266,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "button", 88);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function MenuitemsComponent_ng_template_16_mat_tab_5_Template_button_click_30_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r54);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r55);
 
-          var ctx_r56 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r57 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r56.addItems();
+          return ctx_r57.addItems();
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, "Add >");
@@ -2275,11 +2280,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "button", 89);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function MenuitemsComponent_ng_template_16_mat_tab_5_Template_button_click_32_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r54);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r55);
 
-          var ctx_r57 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r58 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r57.REMOVEITEM();
+          return ctx_r58.REMOVEITEM();
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, "< Remove");
@@ -2325,11 +2330,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](43, "button", 90);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function MenuitemsComponent_ng_template_16_mat_tab_5_Template_button_click_43_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r54);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r55);
 
-          var ctx_r58 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r59 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r58.createFolderinDrive();
+          return ctx_r59.createFolderinDrive();
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](44, "Create Folders in Google Drive");
@@ -2392,11 +2397,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var ctx_r59 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+        var ctx_r60 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r59.imageCount);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r60.imageCount);
       }
     }
 
@@ -2446,23 +2451,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var item_r66 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+        var item_r67 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", item_r66.img_url, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", item_r67.img_url, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", item_r66.menu_name, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", item_r67.menu_name, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", item_r66.description, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", item_r67.description, " ");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" $", item_r66.price, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" $", item_r67.price, " ");
       }
     }
 
@@ -2476,19 +2481,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var item_r66 = ctx.$implicit;
+        var item_r67 = ctx.$implicit;
 
-        var folder_r61 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+        var folder_r62 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", item_r66.folderId == folder_r61.folderid);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", item_r67.folderId == folder_r62.folderid);
       }
     }
 
     function MenuitemsComponent_ng_template_16_mat_tab_6_ng_container_8_Template(rf, ctx) {
       if (rf & 1) {
-        var _r71 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r72 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
@@ -2529,11 +2534,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "input", 106, 107);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function MenuitemsComponent_ng_template_16_mat_tab_6_ng_container_8_Template_input_change_14_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r71);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r72);
 
-          var ctx_r70 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+          var ctx_r71 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
 
-          return ctx_r70.onFileSelectget($event, ctx_r70.folderset);
+          return ctx_r71.onFileSelectget($event, ctx_r71.folderset);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -2569,13 +2574,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "input", 114, 115);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function MenuitemsComponent_ng_template_16_mat_tab_6_ng_container_8_Template_input_change_25_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r71);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r72);
 
-          var folder_r61 = ctx.$implicit;
+          var folder_r62 = ctx.$implicit;
 
-          var ctx_r72 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+          var ctx_r73 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
 
-          return ctx_r72.onFileSelect($event, folder_r61);
+          return ctx_r73.onFileSelect($event, folder_r62);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -2593,13 +2598,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "button", 117);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function MenuitemsComponent_ng_template_16_mat_tab_6_ng_container_8_Template_button_click_30_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r71);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r72);
 
-          var folder_r61 = ctx.$implicit;
+          var folder_r62 = ctx.$implicit;
 
-          var ctx_r73 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+          var ctx_r74 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
 
-          return ctx_r73.submitSheetData(folder_r61.folderid, folder_r61.foldername, folder_r61);
+          return ctx_r74.submitSheetData(folder_r62.folderid, folder_r62.foldername, folder_r62);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, " Save ");
@@ -2628,29 +2633,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var folder_r61 = ctx.$implicit;
+        var folder_r62 = ctx.$implicit;
 
-        var ctx_r60 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+        var ctx_r61 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](folder_r61.foldername);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](folder_r62.foldername);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", "category_description" + folder_r61.folderid);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", "category_description" + folder_r62.folderid);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", "menu_name" + folder_r61.folderid);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", "menu_name" + folder_r62.folderid);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", "category_description" + folder_r61.folderid);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", "category_description" + folder_r62.folderid);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", "price" + folder_r61.folderid);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("id", "price" + folder_r62.folderid);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 
@@ -2658,13 +2663,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r60.menuItemList);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r61.menuItemList);
       }
     }
 
     function MenuitemsComponent_ng_template_16_mat_tab_6_Template(rf, ctx) {
       if (rf & 1) {
-        var _r75 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r76 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-tab", 93);
 
@@ -2697,11 +2702,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "button", 96);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function MenuitemsComponent_ng_template_16_mat_tab_6_Template_button_click_11_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r75);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r76);
 
-          var ctx_r74 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r75 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r74.uploadGoogleMenuSheet();
+          return ctx_r75.uploadGoogleMenuSheet();
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Sync to Google Sheets ");
@@ -2753,11 +2758,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "a", 55);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function MenuitemsComponent_ng_template_16_mat_tab_6_Template_a_click_26_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r75);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r76);
 
-          var ctx_r76 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r77 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r76.googlesheetUrl(ctx_r76.google_sheet_url);
+          return ctx_r77.googlesheetUrl(ctx_r77.google_sheet_url);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27);
@@ -2806,7 +2811,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function MenuitemsComponent_ng_template_16_mat_tab_7_Template(rf, ctx) {
       if (rf & 1) {
-        var _r78 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r79 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-tab", 125);
 
@@ -2843,11 +2848,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "input", 133);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function MenuitemsComponent_ng_template_16_mat_tab_7_Template_input_change_13_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r78);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r79);
 
-          var ctx_r77 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+          var ctx_r78 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
 
-          return ctx_r77.onFileSelect1($event);
+          return ctx_r78.onFileSelect1($event);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -3028,7 +3033,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function MenuitemsComponent_ng_template_17_Template(rf, ctx) {
       if (rf & 1) {
-        var _r82 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r83 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 142);
 
@@ -3041,8 +3046,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 48);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function MenuitemsComponent_ng_template_17_Template_button_click_3_listener() {
-          var modal_r79 = ctx.$implicit;
-          return modal_r79.dismiss("Cross click");
+          var modal_r80 = ctx.$implicit;
+          return modal_r80.dismiss("Cross click");
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "span", 49);
@@ -3060,11 +3065,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "form", 144);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngSubmit", function MenuitemsComponent_ng_template_17_Template_form_ngSubmit_7_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r82);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r83);
 
-          var ctx_r81 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r82 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r81.onManagerSubmit();
+          return ctx_r82.onManagerSubmit();
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 130);
@@ -3174,7 +3179,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.removeITEMS = [];
         this.formData = new FormData();
         this.menuItemList = [];
-        this.tempMenuItem = '';
+        this.tempMenuItem = "";
         this.categoryList = [];
         this.selectedCategoryList = [];
         this.isCheckAllCategory = true;
@@ -3184,7 +3189,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
           if (this.googleEmail) {
-            this.checkingId = 'tb2';
+            this.checkingId = "tb2";
           }
         }
       }, {
@@ -3192,21 +3197,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function onChange(event, item) {
           if (event.checked == true) {
             if (this.addedCategories.indexOf(item) == -1) this.addedCategories.push(item);
+          } else {
+            this.addedCategories.splice(this.addedCategories.indexOf(item), 1);
           }
+        }
+      }, {
+        key: "getGoogleUser",
+        value: function getGoogleUser(id) {
+          return this._ProfileService.getGoogleUser(id);
         }
       }, {
         key: "REMOVEITEM",
         value: function REMOVEITEM() {
           var _this5 = this;
 
-          this.removei.map(function (item, i) {
-            _this5.removeItemFromArray(item);
+          this.removei.forEach(function (element) {
+            _this5.removeItemFromArray(element);
           });
+          this.removei = [];
         }
       }, {
         key: "addItems",
         value: function addItems() {
-          this.addedItems = this.addedCategories;
+          this.addedItems = JSON.parse(JSON.stringify(this.addedCategories));
         }
       }, {
         key: "onChange1",
@@ -3228,27 +3241,65 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (index > -1) {
             this.addedCategories.splice(index, 1);
           }
+
+          var itemCat = this.categories;
+          itemCat.forEach(function (element) {
+            if (element.category == item) {
+              element.status = false;
+            }
+          });
+          this.categories = itemCat;
+          this.addItems();
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
           var _this6 = this;
 
-          console.log(JSON.parse(localStorage.getItem('user')).user.id, 'hIII');
+          console.log(JSON.parse(localStorage.getItem("user")).user.id, "hIII");
+          this.user = this._CommonFunctionsService.checkUser().user;
           this.getCompanyProfile();
           this.getgoogleauthntication();
           this.getAllCategories();
-          this.getAllGoogleSheetDetails();
-          this.route.params.subscribe(function (data) {
-            _this6.googleEmail = data.email;
+          this.getGoogleUser(this.user.id).subscribe(function (data) {
+            var res = data['data'];
+
+            if (res && res[0]['email']) {
+              _this6.googleEmail = res[0]['email'];
+
+              _this6.initCalledAfterEmail();
+            }
+          }, function (er) {
+            console.log(er);
           });
+          this.route.params.subscribe(function (data) {
+            if (data.email) {
+              _this6.googleEmail = data.email;
+
+              _this6._ProfileService.addGoogleUser({
+                user_id: _this6.user.id,
+                email: _this6.googleEmail
+              }).subscribe(function (data) {
+                _this6.initCalledAfterEmail();
+              });
+            }
+
+            if (data.activeTab) {
+              _this6.checkingId = data.activeTab;
+            }
+          });
+        }
+      }, {
+        key: "initCalledAfterEmail",
+        value: function initCalledAfterEmail() {
+          this.getAllGoogleSheetDetails();
           this.getFolderbyEmail();
         }
       }, {
         key: "onSelect",
         value: function onSelect(event) {
           var formData = new FormData();
-          formData.append('file', event.addedFiles[0]);
+          formData.append("file", event.addedFiles[0]);
         }
       }, {
         key: "getFolderbyEmail",
@@ -3353,23 +3404,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function submitSheetData(folderId, category, folder) {
           var _this9 = this;
 
-          var menu_name = $('#menu_name' + folderId).val().toString();
-          var price = $('#price' + folderId).val().toString();
-          var category_description = $('#category_description' + folderId).val().toString();
+          var menu_name = $("#menu_name" + folderId).val().toString();
+          var price = $("#price" + folderId).val().toString();
+          var category_description = $("#category_description" + folderId).val().toString();
 
           if (menu_name !== "" && price !== "" && category_description !== "") {
             var formData1 = new FormData();
-            formData1.append('file', this.file);
-            formData1.append('folderId', folderId);
-            formData1.append('email', this.googleEmail);
-            formData1.append('category', category);
-            formData1.append('menu_name', menu_name);
-            formData1.append('price', price);
-            formData1.append('category_description', category_description);
-            $('#menu_name' + folderId).val("");
-            $('#price' + folderId).val("");
+            formData1.append("file", this.file);
+            formData1.append("folderId", folderId);
+            formData1.append("email", this.googleEmail);
+            formData1.append("category", category);
+            formData1.append("menu_name", menu_name);
+            formData1.append("price", price);
+            formData1.append("category_description", category_description);
+            $("#menu_name" + folderId).val("");
+            $("#price" + folderId).val("");
             folder.user_id = "";
-            $('#category_description' + folderId).val("");
+            $("#category_description" + folderId).val("");
             var reader = new FileReader();
 
             reader.onloadend = function () {
@@ -3406,17 +3457,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (event.target.files.length > 0) {
             var file = event.target.files[0];
             var formData = new FormData();
-            formData.append('file', file); // formData.append('folderId',folderId);
+            formData.append("file", file); // formData.append('folderId',folderId);
             // formData.append('email',this.googleEmail);
             // formData.append('category',category);
 
             this.user = this._CommonFunctionsService.checkUser().user;
 
             this._ProfileService.uploadaddons(formData, this.user.company_id).subscribe(function (res) {
-              _this10.toastr.success('Upload Menu successfully');
+              _this10.toastr.success("Upload Menu successfully");
             });
-
-            ;
           }
         }
       }, {
@@ -3431,16 +3480,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this11.ngxService.stop();
 
             _this11.authentication_url = res.data;
-            console.log(res.data, 'uploadimages');
+            console.log(res.data, "uploadimages");
             _this11.google_drive_url = res.data.drive_url;
             _this11.tempMenuItem !== "" ? _this11.menuItemList.push(_this11.tempMenuItem) : "";
             _this11.tempMenuItem = "";
 
-            _this11.toastr.success('Upload successfull to drive');
+            _this11.toastr.success("Upload successfull to drive");
           }, function (error) {
             _this11.ngxService.stop();
 
-            _this11.toastr.error('Failed to upload, please try again later');
+            _this11.toastr.error("Failed to upload, please try again later");
           });
 
           this.getAllGoogleSheetDetails();
@@ -3503,8 +3552,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
               _this13.categoryList.forEach(function (item) {
                 _this13.selectedCategoryList.push(item.id);
-
-                _this13.addedItems.push(item.name);
               });
             });
           }
@@ -3536,7 +3583,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this14.checkBool = true;
             _this14.isChecked += 1;
             _this14.authentication_url = res.data;
-            console.log(_this14.authentication_url, 'authenticateurl'); //this.toastr.success('Google account verified please move to step 2')
+            console.log(_this14.authentication_url, "authenticateurl"); //this.toastr.success('Google account verified please move to step 2')
           });
         }
       }, {
@@ -3566,7 +3613,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this15.googleSheet = res.data;
             _this15.imageCount = res.data.length;
             _this15.checkImageCountFlag = true;
-          }, function (error) {//  
+          }, function (error) {//
           });
         }
       }, {
@@ -3578,14 +3625,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             folder: this.addedItems,
             email: this.googleEmail,
             // user_id: '11744'
-            user_id: JSON.parse(localStorage.getItem('user')).user.id
+            user_id: JSON.parse(localStorage.getItem("user")).user.id
           };
 
           this._ProfileService.createfolderInGoogleDrive(data).subscribe(function (res) {
             //const tabCount = 2;
             _this16.demo1TabIndex = 1;
 
-            _this16.toastr.success('Folders created successfully');
+            _this16.toastr.success("Folders created successfully");
 
             _this16.getFolderbyEmail(true);
           });
@@ -3614,14 +3661,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this._ProfileService.getCompanyprofile(this.user.unit_id).subscribe(function (res) {
               _this17.profile = res.data;
               _this17.google_sheet_url = res.data.google_sheet_url;
-            }, function (error) {//  
+            }, function (error) {//
             });
           }
         }
       }, {
         key: "getProductList",
         value: function getProductList(event) {
-          if (event.activeId === 'tb2') {
+          if (event.activeId === "tb2") {
             this.getAllProductList();
           }
         }
@@ -3633,9 +3680,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.checkGoogleDriveFlag = index;
           this.selectedGoogleDriveFolder = folderName;
           this.modalService.open(contentGoogleDriveUrl, {
-            ariaLabelledBy: 'modal-basic-title',
-            windowClass: 'linkModal',
-            size: 'lg'
+            ariaLabelledBy: "modal-basic-title",
+            windowClass: "linkModal",
+            size: "lg"
           }).result.then(function (result) {
             _this18.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
@@ -3646,9 +3693,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getDismissReason",
         value: function getDismissReason(reason) {
           if (reason === _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__["ModalDismissReasons"].ESC) {
-            return 'by pressing ESC';
+            return "by pressing ESC";
           } else if (reason === _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__["ModalDismissReasons"].BACKDROP_CLICK) {
-            return 'by clicking on a backdrop';
+            return "by clicking on a backdrop";
           } else {
             return "with: ".concat(reason);
           }
@@ -3671,7 +3718,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             }
           }, function (error) {
-            _this19.toastr.error('Sync failed, Please try again later');
+            _this19.toastr.error("Sync failed, Please try again later");
           });
         }
       }, {
@@ -3700,12 +3747,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.user = this._CommonFunctionsService.checkUser().user;
           var data = {
-            "email": this.user['username']
+            email: this.googleEmail
           };
 
           this._ProfileService.getAllSecleted(data).subscribe(function (res) {
             _this21.selectedcat = res.data;
-            console.log(_this21.selectedcat, 'selected data');
+
+            _this21.selectedcat.forEach(function (item) {
+              _this21.addedItems.push(item.category);
+
+              _this21.addedCategories.push(item.category);
+            });
+
+            console.log(_this21.selectedcat, "selected data");
 
             _this21.getStatusChange();
           });
@@ -3715,40 +3769,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getStatusChange() {
           var _this22 = this;
 
-          // this.categories.map(x =>
-          // {
-          //   this.selectedcat.map(y => y.id == x.id , x.status = true)
-          // })
           this.categories.forEach(function (element) {
             _this22.selectedcat.forEach(function (value) {
               if (element.id == value.id) {
-                return element.status = true;
+                element.status = true;
               }
             });
           });
-          console.log(this.categories, 'category data');
-          this.categories.filter(function (o1) {
-            return _this22.selectedcat.some(function (o2) {
-              return o1.id === o2.id;
-            });
-          }).map(function (x) {
-            return Object.assign(Object.assign({}, x), {
-              status: true
-            });
-          }); // const result1 = this.categories.filter(function(o1){
-          //   return this.selectedcat.some(function(o2){
-          //      return o1.id == o2.id;         
-          //    });
-          //  });
-
-          console.log(this.categories, 'status'); // })
         }
       }, {
         key: "openProduct",
         value: function openProduct(item) {
           this.getAllProductList();
 
-          this._Router.navigateByUrl('menuitems/view/' + item.category + '/' + item.id);
+          this._Router.navigateByUrl("menuitems/view/" + item.category + "/" + item.id);
         }
       }, {
         key: "getDescription",
@@ -3775,7 +3809,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (dialogResult) {
               _this23._ProfileService.getGoogleAuthenication().subscribe(function (res) {
                 _this23.authentication_url = res.data;
-                console.log(_this23.authentication_url, 'dialogrefclose');
+                console.log(_this23.authentication_url, "dialogrefclose");
               });
             }
           });
@@ -3844,7 +3878,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       },
       decls: 19,
       vars: 2,
-      consts: [[1, "row", "el-element-overlay"], [4, "ngIf"], [1, "col-md-12"], [1, "card"], [1, "card-body"], [1, "card-title"], [1, "card-subtitle"], [3, "activeId", "tabChange"], ["t", "ngbTabset"], ["title", "Menu Items", "id", "tb1"], ["ngbTabContent", ""], ["contentGoogleDriveUrl", ""], ["title", "Google Sheet | images", "id", "tb2"], ["content3", ""], [1, "card", "card-body"], ["class", "mt-5", 4, "ngIf"], [1, "row", 3, "hidden"], [1, "col-12", "pt-4", "font-weight-bold", "text-info"], [1, "float-right"], ["for", "select-all"], ["type", "checkbox", "name", "select-all", "id", "select-all", 1, "ml-2", 3, "checked", "click"], ["class", "col-lg-4 col-md-6", 4, "ngFor", "ngForOf"], [4, "ngFor", "ngForOf"], [1, "mt-5"], [1, "col-lg-4", "col-md-6"], [1, "card", 3, "click"], [1, "el-card-item", "cursor-pointer", "p-2", 3, "ngClass"], [1, "d-flex", "no-block", "align-items-center"], [1, "col-lg-6"], [1, "m-b-0", "fix-ht-h4"], [1, "text-muted", "fix-ht-spn"], [1, "col-lg-6", "p-l-15", "image-fix-height"], ["onerror", "this.src = 'assets/images/noProduct.png'", "alt", "user", 1, "w-100", 3, "src"], [1, "col-12", "pt-2", "font-weight-bold", 3, "hidden"], [1, "col-lg-3", "col-md-6", 3, "hidden"], [1, "el-card-item"], [1, "el-card-avatar", "el-overlay-1"], ["onerror", "this.src = 'assets/images/noProduct.png'", "alt", "user", 1, "productimg", 3, "src"], [1, "el-overlay"], [1, "list-style-none", "el-info"], [1, "el-item"], ["href", "javascript:void(0);", 1, "btn", "default", "btn-outline", "el-link"], [1, "sl-icon-link"], [1, "m-l-15"], [1, "ml-auto", "m-r-15"], ["type", "button", 1, "btn", "btn-dark", "btn-circle"], [1, "modal-header", 2, "background-color", "#7460ee"], ["id", "modal-basic-title", 1, "modal-title", 2, "color", "#fff"], ["type", "button", "aria-label", "Close", "id", "closeModal", 1, "close", 3, "click"], ["aria-hidden", "true"], [1, "modal-body"], ["style", "margin-bottom: 1.5rem;", 4, "ngFor", "ngForOf"], [1, "modal-footer"], ["type", "submit", 1, "btn", "btn-outline-dark", 3, "click"], [2, "margin-bottom", "1.5rem"], [2, "cursor", "pointer", "color", "rgb(67, 133, 238)", 3, "click"], [1, "step_tabs"], [1, "container"], [3, "selectedIndex"], ["label", "1", 4, "ngIf"], ["label", "2", 4, "ngIf"], ["label", "3", 4, "ngIf"], [1, "row"], [1, "col-sm-4"], ["label", "1"], [1, "step_one"], [1, "mb-4"], [1, "col-md-4", "offset-md-4", "col-lg-4", "offset-lg-4"], [1, "icon_card"], [3, "href"], ["src", "../../assets/images/google.png", "alt", "google", 1, "drive"], [1, "btn", "btn-md", "btn-danger", "text-white"], [1, "fa", "fa-edit"], [1, "col-md-12", "col-lg-10", "offset-lg-1"], [1, "category_sec"], [1, "col-md-5"], [1, "category_area"], [1, "category_head"], [1, "category_checkbox"], ["appearance", "fill"], ["matInput", "", "placeholder", "Search", 1, "form-control"], [1, "mb-1", "font-weight-bold", "d-none"], [1, "custom-input", "mt-3"], ["type", "text", "name", "owncategory", "placeholder", "Add Your Own Category", 3, "ngModel", "ngModelChange"], ["type", "button", 1, "btn", "btn-primary", "px-3", "ml-2", 3, "click"], [1, "fa", "fa-plus"], [1, "col-md-2"], [1, "category_btn"], ["mat-raised-button", "", 1, "btn", "btn-primary", "btn-block", 3, "click"], ["mat-raised-button", "", 1, "btn", "btn-secondary", "btn-block", 3, "click"], ["mat-raised-button", "", 1, "btn", "btn-primary", "btn-block", "mt-4", 3, "click"], [3, "checked", "change"], [3, "change"], ["label", "2"], [1, "step_three_right"], [1, "sync_btn"], ["mat-raised-button", "", 1, "btn", 3, "click"], ["src", "../../assets/images/google-sheets.png", "alt", "", 2, "width", "25px", "margin", "-2px 0 0 10px"], [1, "row", "pt-5"], [2, "text-align", "left", "font-size", "18px", "margin-bottom", "1rem"], [1, "col-md-1"], ["src", "../../assets/images/folder@1X.png", "alt", ""], [1, "col-md-4"], [1, "custom-input"], ["name", "category_description", "required", "", "placeholder", "Category Description *", 1, "w-100", "custom-textarea", 3, "id"], [1, "custom-file", "mb-2", 2, "padding-bottom", "61px"], ["type", "file", "name", "fileget", "id", "customFile", "required", "", 1, "custom-file-input", 3, "change"], ["fileget", ""], ["for", "customFile", 1, "custom-file-label"], [1, "custom-input", "mb-2"], ["type", "text", "name", "menu_name", "placeholder", "Menu Item Name *", "required", "", 1, "w-100", 3, "id"], ["name", "category_description", "required", "", "placeholder", "Menu Item Description *", 1, "w-100", "custom-textarea", 3, "id"], ["type", "number", "name", "price", "required", "", "placeholder", "Menu Item Price (ex. $10.00)", 1, "w-100", 3, "id"], [1, "custom-file", "mb-2"], ["type", "file", "name", "file", "id", "customFile", "required", "", 1, "custom-file-input", 3, "change"], ["file", ""], [1, "d-block", "mt-2"], ["type", "button", 1, "btn", "btn-info", 3, "click"], [1, "col-md-7", "row"], [1, "col-md-12", "mt-3"], ["class", "col-6 mb-4 p-1 text-center menu-item-list", 4, "ngIf"], [1, "col-6", "mb-4", "p-1", "text-center", "menu-item-list"], [1, "w-50", "mb-1", 3, "src"], [1, "p-0", "mb-0", "font-weight-normal"], [1, "font-weight-bold"], ["label", "3"], [1, "step_one", "padding_area"], [1, "col-md-12", "text-center"], ["src", "/assets/images/menu-poster.jpg", 2, "width", "75%", "margin-bottom", "0.5rem"], [1, "step_four"], [1, "form-group"], ["for", "", 1, "label-control"], [1, "custom-file"], ["type", "file", "id", "customFile", 1, "custom-file-input", 3, "change"], [1, "add_btn"], ["mat-raised-button", "", 1, "btn", "btn-primary"], [1, "col-md-12", "pt-4"], [1, "col-md-3"], ["src", "../../assets/images/google-drive@1X.png", "alt", "  ", 1, "drive"], [1, "col-md-9"], ["src", "../../assets/images/Layer-5@1X.png", "alt", ""], ["src", "../../assets/images/Layer-6@1X.png", "alt", ""], [1, "modal-header"], ["id", "modal-basic-title", 1, "modal-title"], [3, "formGroup", "ngSubmit"], [1, "form-group", "row"], ["for", "username", 1, "col-md-3", "col-form-label"], [1, "input-group", "mb-2"], [1, "input-group-prepend"], [1, "input-group-text"], ["aria-hidden", "true", 1, "fa", "fa-envelope"], ["name", "dp", "type", "text", "formControlName", "username", 1, "form-control"], ["type", "submit", 1, "btn", "btn-outline-dark"]],
+      consts: [[1, "row", "el-element-overlay"], [4, "ngIf"], [1, "col-md-12"], [1, "card"], [1, "card-body"], [1, "card-title"], [1, "card-subtitle"], [3, "activeId", "tabChange"], ["t", "ngbTabset"], ["title", "Menu Items", "id", "tb1"], ["ngbTabContent", ""], ["contentGoogleDriveUrl", ""], ["title", "Google Sheet | images", "id", "tb2"], ["content3", ""], [1, "card", "card-body"], ["class", "mt-5", 4, "ngIf"], [1, "row", 3, "hidden"], [1, "col-12", "pt-4", "font-weight-bold", "text-info"], [1, "float-right"], ["for", "select-all"], ["type", "checkbox", "name", "select-all", "id", "select-all", 1, "ml-2", 3, "checked", "click"], ["class", "col-lg-4 col-md-6", 4, "ngFor", "ngForOf"], [4, "ngFor", "ngForOf"], [1, "mt-5"], [1, "col-lg-4", "col-md-6"], [1, "card", 3, "click"], [1, "el-card-item", "cursor-pointer", "p-2", 3, "ngClass"], [1, "d-flex", "no-block", "align-items-center"], [1, "col-lg-6"], [1, "m-b-0", "fix-ht-h4"], [1, "text-muted", "fix-ht-spn"], [1, "col-lg-6", "p-l-15", "image-fix-height"], ["onerror", "this.src = 'assets/images/noProduct.png'", "alt", "user", 1, "w-100", 3, "src"], [1, "col-12", "pt-2", "font-weight-bold", 3, "hidden"], [1, "col-lg-3", "col-md-6", 3, "hidden"], [1, "el-card-item"], [1, "el-card-avatar", "el-overlay-1"], ["onerror", "this.src = 'assets/images/noProduct.png'", "alt", "user", 1, "productimg", 3, "src"], [1, "el-overlay"], [1, "list-style-none", "el-info"], [1, "el-item"], ["href", "javascript:void(0);", 1, "btn", "default", "btn-outline", "el-link"], [1, "sl-icon-link"], [1, "m-l-15"], [1, "ml-auto", "m-r-15"], ["type", "button", 1, "btn", "btn-dark", "btn-circle"], [1, "modal-header", 2, "background-color", "#7460ee"], ["id", "modal-basic-title", 1, "modal-title", 2, "color", "#fff"], ["type", "button", "aria-label", "Close", "id", "closeModal", 1, "close", 3, "click"], ["aria-hidden", "true"], [1, "modal-body"], ["style", "margin-bottom: 1.5rem;", 4, "ngFor", "ngForOf"], [1, "modal-footer"], ["type", "submit", 1, "btn", "btn-outline-dark", 3, "click"], [2, "margin-bottom", "1.5rem"], [2, "cursor", "pointer", "color", "rgb(67, 133, 238)", 3, "click"], [1, "step_tabs"], [1, "container"], [3, "selectedIndex"], ["label", "1", 4, "ngIf"], ["label", "2", 4, "ngIf"], ["label", "3", 4, "ngIf"], [1, "row"], [1, "col-sm-4"], ["label", "1"], [1, "step_one"], [1, "mb-4"], [1, "col-md-4", "offset-md-4", "col-lg-4", "offset-lg-4"], [1, "icon_card"], [3, "href"], ["src", "../../assets/images/google.png", "alt", "google", 1, "drive"], [1, "btn", "btn-md", "btn-danger", "text-white"], [1, "fa", "fa-edit"], [1, "col-md-12", "col-lg-10", "offset-lg-1"], [1, "category_sec"], [1, "col-md-5"], [1, "category_area"], [1, "category_head"], [1, "category_checkbox"], ["appearance", "fill"], ["matInput", "", "placeholder", "Search", 1, "form-control"], [1, "mb-1", "font-weight-bold", "d-none"], [1, "custom-input", "mt-3"], ["type", "text", "name", "owncategory", "placeholder", "Add Your Own Category", 3, "ngModel", "ngModelChange"], ["type", "button", 1, "btn", "btn-primary", "px-3", "ml-2", 3, "click"], [1, "fa", "fa-plus"], [1, "col-md-2"], [1, "category_btn"], ["mat-raised-button", "", 1, "btn", "btn-primary", "btn-block", 3, "click"], ["mat-raised-button", "", 1, "btn", "btn-secondary", "btn-block", 3, "click"], ["mat-raised-button", "", 1, "btn", "btn-primary", "btn-block", "mt-4", 3, "click"], [3, "ngModel", "ngModelChange", "change"], [3, "change"], ["label", "2"], [1, "step_three_right"], [1, "sync_btn"], ["mat-raised-button", "", 1, "btn", 3, "click"], ["src", "../../assets/images/google-sheets.png", "alt", "", 2, "width", "25px", "margin", "-2px 0 0 10px"], [1, "row", "pt-5"], [2, "text-align", "left", "font-size", "18px", "margin-bottom", "1rem"], [1, "col-md-1"], ["src", "../../assets/images/folder@1X.png", "alt", ""], [1, "col-md-4"], [1, "custom-input"], ["name", "category_description", "required", "", "placeholder", "Category Description *", 1, "w-100", "custom-textarea", 3, "id"], [1, "custom-file", "mb-2", 2, "padding-bottom", "61px"], ["type", "file", "name", "fileget", "id", "customFile", "required", "", 1, "custom-file-input", 3, "change"], ["fileget", ""], ["for", "customFile", 1, "custom-file-label"], [1, "custom-input", "mb-2"], ["type", "text", "name", "menu_name", "placeholder", "Menu Item Name *", "required", "", 1, "w-100", 3, "id"], ["name", "category_description", "required", "", "placeholder", "Menu Item Description *", 1, "w-100", "custom-textarea", 3, "id"], ["type", "number", "name", "price", "required", "", "placeholder", "Menu Item Price (ex. $10.00)", 1, "w-100", 3, "id"], [1, "custom-file", "mb-2"], ["type", "file", "name", "file", "id", "customFile", "required", "", 1, "custom-file-input", 3, "change"], ["file", ""], [1, "d-block", "mt-2"], ["type", "button", 1, "btn", "btn-info", 3, "click"], [1, "col-md-7", "row"], [1, "col-md-12", "mt-3"], ["class", "col-6 mb-4 p-1 text-center menu-item-list", 4, "ngIf"], [1, "col-6", "mb-4", "p-1", "text-center", "menu-item-list"], [1, "w-50", "mb-1", 3, "src"], [1, "p-0", "mb-0", "font-weight-normal"], [1, "font-weight-bold"], ["label", "3"], [1, "step_one", "padding_area"], [1, "col-md-12", "text-center"], ["src", "/assets/images/menu-poster.jpg", 2, "width", "75%", "margin-bottom", "0.5rem"], [1, "step_four"], [1, "form-group"], ["for", "", 1, "label-control"], [1, "custom-file"], ["type", "file", "id", "customFile", 1, "custom-file-input", 3, "change"], [1, "add_btn"], ["mat-raised-button", "", 1, "btn", "btn-primary"], [1, "col-md-12", "pt-4"], [1, "col-md-3"], ["src", "../../assets/images/google-drive@1X.png", "alt", "  ", 1, "drive"], [1, "col-md-9"], ["src", "../../assets/images/Layer-5@1X.png", "alt", ""], ["src", "../../assets/images/Layer-6@1X.png", "alt", ""], [1, "modal-header"], ["id", "modal-basic-title", 1, "modal-title"], [3, "formGroup", "ngSubmit"], [1, "form-group", "row"], ["for", "username", 1, "col-md-3", "col-form-label"], [1, "input-group", "mb-2"], [1, "input-group-prepend"], [1, "input-group-text"], ["aria-hidden", "true", 1, "fa", "fa-envelope"], ["name", "dp", "type", "text", "formControlName", "username", 1, "form-control"], ["type", "submit", 1, "btn", "btn-outline-dark"]],
       template: function MenuitemsComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -3921,8 +3955,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MenuitemsComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          templateUrl: 'menuitems.component.html',
-          styleUrls: ['./menuitems.component.css']
+          templateUrl: "menuitems.component.html",
+          styleUrls: ["./menuitems.component.css"]
         }]
       }], function () {
         return [{
@@ -3947,7 +3981,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         ref: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
-          args: ['ref']
+          args: ["ref"]
         }],
         content: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
@@ -4071,10 +4105,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       },
       imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"], ngx_toastr__WEBPACK_IMPORTED_MODULE_7__["ToastrModule"].forRoot(), ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_6__["SlimLoadingBarModule"].forRoot(), _material_material_module__WEBPACK_IMPORTED_MODULE_11__["MaterialModule"], ngx_ui_switch__WEBPACK_IMPORTED_MODULE_12__["UiSwitchModule"].forRoot({
         size: 'small',
-        color: 'rgb(0, 189, 99)',
-        switchColor: '#80FFA2',
-        defaultBgColor: '#ff80dd',
-        defaultBoColor: '#ff80dd',
+        color: '#64bd63',
+        switchColor: '#e0dbd4',
+        defaultBgColor: '#e0dbd4',
+        defaultBoColor: '#e0dbd4',
         checkedLabel: 'on',
         uncheckedLabel: 'off'
       }), _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forChild(_menuitems_routing__WEBPACK_IMPORTED_MODULE_9__["EcomRoutes"]), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__["NgbModule"]]]
@@ -4096,10 +4130,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           declarations: [_menuitems_component__WEBPACK_IMPORTED_MODULE_0__["MenuitemsComponent"], _edit_edit_component__WEBPACK_IMPORTED_MODULE_1__["EditComponent"], _truncate_string_pipe__WEBPACK_IMPORTED_MODULE_10__["TruncateStringPipe"]],
           imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"], ngx_toastr__WEBPACK_IMPORTED_MODULE_7__["ToastrModule"].forRoot(), ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_6__["SlimLoadingBarModule"].forRoot(), _material_material_module__WEBPACK_IMPORTED_MODULE_11__["MaterialModule"], ngx_ui_switch__WEBPACK_IMPORTED_MODULE_12__["UiSwitchModule"].forRoot({
             size: 'small',
-            color: 'rgb(0, 189, 99)',
-            switchColor: '#80FFA2',
-            defaultBgColor: '#ff80dd',
-            defaultBoColor: '#ff80dd',
+            color: '#64bd63',
+            switchColor: '#e0dbd4',
+            defaultBgColor: '#e0dbd4',
+            defaultBoColor: '#e0dbd4',
             checkedLabel: 'on',
             uncheckedLabel: 'off'
           }), _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forChild(_menuitems_routing__WEBPACK_IMPORTED_MODULE_9__["EcomRoutes"]), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__["NgbModule"]]
@@ -4158,6 +4192,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         path: '',
+        component: _menuitems_component__WEBPACK_IMPORTED_MODULE_0__["MenuitemsComponent"]
+      }, {
+        path: 'tabs/:activeTab',
         component: _menuitems_component__WEBPACK_IMPORTED_MODULE_0__["MenuitemsComponent"]
       }, {
         path: 'auth/:email',

@@ -1285,7 +1285,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var urlid = window.location.href.split('/');
           this.urlId = urlid[5];
-          debugger;
           localStorage.setItem('orderID', this.urlId);
           var jqueryFile = document.createElement('script');
           jqueryFile.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js";
@@ -4267,6 +4266,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.updateUnitURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/update-unit-data/';
         this.unitManagerURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/unitmanagers';
         this.refundToCustomerURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/refund/customer/';
+        this.googleUser = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "/api/v1/rel/google/";
       }
 
       _createClass(ProfileService, [{
@@ -4582,6 +4582,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getAllCategories",
         value: function getAllCategories() {
           return this.http.get(this.Category);
+        }
+      }, {
+        key: "addGoogleUser",
+        value: function addGoogleUser(data) {
+          return this.http.post(this.googleUser + 'adduser', data);
+        }
+      }, {
+        key: "getGoogleUser",
+        value: function getGoogleUser(id) {
+          return this.http.get(this.googleUser + 'getuser/' + id);
         }
       }, {
         key: "getAllSecleted",

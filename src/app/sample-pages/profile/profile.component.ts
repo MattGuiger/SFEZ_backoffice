@@ -51,7 +51,6 @@ uploadFeaturePhoto(formData){
    this._ProfileService.uploadFeaturePhoto(this.user.company_id,formData).subscribe((res:any)=>{
      this.getCompanyProfile();
    },error=>{
-     //debugger
    })
 }
 
@@ -81,7 +80,7 @@ uploadFeaturePhoto(formData){
 //     this.toastr.success('Company Detail Updated successfully!');
 //     this.getCompanyProfile();
 //   },error=>{
-//     debugger
+//     
 //   })
 // }
 
@@ -93,7 +92,7 @@ uploadCompanyProfile(formData){
    this._ProfileService.uploadCompanyProfile(this.user.company_id,formData).subscribe((res:any)=>{
      this.getCompanyProfile();
    },error=>{
-     debugger
+     
    })
 }
 
@@ -102,15 +101,15 @@ uploadCompanyProfile(formData){
    this._ProfileService.getCompanyprofile(this.user.company_id).subscribe((res:any)=>{
      this.profile = res.data;
     //  console.log(this.profile);
-     //debugger
+
    },error=>{
-     //debugger
+    
    })
  }
 
  uploadGoogleMenuSheet(){
   this._ProfileService.uploadGoogleMenuSheet().subscribe((res:any)=>{
-    debugger
+    
   },error=>{
     this._NotifierService.notify('error','Failed to upload, please try again later...!')
   })

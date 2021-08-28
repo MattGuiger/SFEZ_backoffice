@@ -76,8 +76,7 @@ export class ProfileService {
 
   private unitManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/unitmanagers';
   private refundToCustomerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/refund/customer/';
-
-
+  private googleUser = config.getEnvironmentVariable('endPoint') + "/api/v1/rel/google/"
 
   constructor(private http: HttpClient) { }
 
@@ -297,6 +296,18 @@ export class ProfileService {
 
   getAllCategories(): Observable<any> {
     return this.http.get(this.Category);
+  }
+
+  
+
+  addGoogleUser(data) 
+  {
+   return this.http.post(this.googleUser+'adduser',data)
+  }
+
+  getGoogleUser(id) 
+  {
+   return this.http.get(this.googleUser+'getuser/'+id)
   }
 
   getAllSecleted(data) 

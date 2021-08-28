@@ -13014,8 +13014,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this._ProfileService.uploadFeaturePhoto(this.user.company_id, formData).subscribe(function (res) {
             _this2.getCompanyProfile();
-          }, function (error) {//debugger
-          });
+          }, function (error) {});
         } // updateComapnydetails(tags,schedule,hours,twitter,instagram,facebook,distance_range,description,delivery_chg_amount,phone,email,name,business_address,country_id,state,city){
         //   this.user = this._CommonFunctionsService.checkUser().user;
         //   let obj = {
@@ -13040,7 +13039,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         //     this.toastr.success('Company Detail Updated successfully!');
         //     this.getCompanyProfile();
         //   },error=>{
-        //     debugger
+        //     
         //   })
         // }
 
@@ -13053,9 +13052,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this._ProfileService.uploadCompanyProfile(this.user.company_id, formData).subscribe(function (res) {
             _this3.getCompanyProfile();
-          }, function (error) {
-            debugger;
-          });
+          }, function (error) {});
         }
       }, {
         key: "getCompanyProfile",
@@ -13066,18 +13063,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this._ProfileService.getCompanyprofile(this.user.company_id).subscribe(function (res) {
             _this4.profile = res.data; //  console.log(this.profile);
-            //debugger
-          }, function (error) {//debugger
-          });
+          }, function (error) {});
         }
       }, {
         key: "uploadGoogleMenuSheet",
         value: function uploadGoogleMenuSheet() {
           var _this5 = this;
 
-          this._ProfileService.uploadGoogleMenuSheet().subscribe(function (res) {
-            debugger;
-          }, function (error) {
+          this._ProfileService.uploadGoogleMenuSheet().subscribe(function (res) {}, function (error) {
             _this5._NotifierService.notify('error', 'Failed to upload, please try again later...!');
           });
         }

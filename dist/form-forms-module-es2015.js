@@ -30258,7 +30258,6 @@ class DriverComponent {
         }
     }
     onSelectRed(item) {
-        debugger;
     }
     getAllFoodPark() {
         // this.user = this._CommonFunctionsService.checkUser().user;
@@ -32495,7 +32494,6 @@ class FoodParkComponent {
         if (this.user.company_id) {
             this._ProfileService.getDeliveryHubandUnits(this.user.territory_id).subscribe(res => {
                 if (res.status == 200) {
-                    debugger;
                     this.deliveryHubUnits = res.data;
                     let units = [];
                     units = res.data;
@@ -32512,7 +32510,6 @@ class FoodParkComponent {
         const val = event.target.value.toLowerCase();
         console.log(event.target.value, 'event');
         // filter our data
-        debugger;
         const temp = this.locationsList.filter(function (d) {
             return d.unit_name.toLowerCase().indexOf(val) !== -1 || !val;
         });
@@ -32529,7 +32526,6 @@ class FoodParkComponent {
         console.log(event.target.value, 'event');
         console.log(this.managerList, 'list');
         // filter our data
-        debugger;
         const temp = this.managerList.filter(function (d) {
             return d.first_name.toLowerCase().indexOf(val) !== -1 || d.last_name.toLowerCase().indexOf(val) !== -1 || !val;
         });
@@ -33116,7 +33112,6 @@ class FoodParkComponent {
         }
     }
     onSubmitLocationForm() {
-        debugger;
         var reg = /( Loc #\d)$/;
         if (!reg.test(this.locationFoodParkForm.value.name)) {
             this.toastr.error("Name should end with Loc #{Localtion number}");
@@ -44376,7 +44371,6 @@ class HubComponent {
         }
     }
     onSelectRed(item) {
-        debugger;
     }
     getAllFoodPark() {
         // this.user = this._CommonFunctionsService.checkUser().user;
@@ -46833,7 +46827,6 @@ class AddressComponent {
             this.toastr.success('Company Detail Updated successfully!');
             this.router.navigateByUrl('/forms/ngx/result/' + this.companyId, { relativeTo: this.route.parent, skipLocationChange: true });
         }, error => {
-            debugger;
         });
         // this.formDataService.setAddress(this.address);
         let firstState = this.workflowService.getFirstInvalidStep(_workflow_workflow_model__WEBPACK_IMPORTED_MODULE_3__["STEPS"].work);
@@ -50167,7 +50160,6 @@ class TerritoryComponent {
         }
     }
     onSelectRed(item) {
-        debugger;
     }
     placeMarker($event) {
         console.log($event.coords.lat);
@@ -50566,7 +50558,6 @@ class UnitComponent {
     }
     changeType(event) {
         this.unitForm.value.type = event.target.value;
-        debugger;
     }
     getDismissReason(reason) {
         if (reason === _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["ModalDismissReasons"].ESC) {
@@ -50943,7 +50934,6 @@ class UnitorderComponent {
     getAllOrder() {
         this.user = this._CommonFunctionsService.checkUser().user;
         this._ProfileService.getAllUnitOrder(this.user.company_id, this.user.unit_id).subscribe((res) => {
-            debugger;
             this.orders = res.data;
             this.temp = this.orders;
             this.rows = this.orders;
@@ -51211,7 +51201,6 @@ class ViewFoodParkComponent {
         }
     }
     onSelectRed(item) {
-        debugger;
     }
     getAllFoodPark() {
         // this.user = this._CommonFunctionsService.checkUser().user;
@@ -51410,7 +51399,6 @@ class ViewunitComponent {
         });
     }
     viewUnit(event, row) {
-        debugger;
     }
     open1(content1) {
         this.modalService.open(content1, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
@@ -51421,7 +51409,6 @@ class ViewunitComponent {
     }
     changeType(event) {
         this.unitForm.value.type = event.target.value;
-        debugger;
     }
     getDismissReason(reason) {
         if (reason === _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["ModalDismissReasons"].ESC) {

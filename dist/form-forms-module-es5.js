@@ -44819,9 +44819,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "onSelectRed",
-        value: function onSelectRed(item) {
-          debugger;
-        }
+        value: function onSelectRed(item) {}
       }, {
         key: "getAllFoodPark",
         value: function getAllFoodPark() {
@@ -49643,7 +49641,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.user.company_id) {
             this._ProfileService.getDeliveryHubandUnits(this.user.territory_id).subscribe(function (res) {
               if (res.status == 200) {
-                debugger;
                 _this73.deliveryHubUnits = res.data;
                 var units = [];
                 units = res.data;
@@ -49662,7 +49659,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var val = event.target.value.toLowerCase();
           console.log(event.target.value, 'event'); // filter our data
 
-          debugger;
           var temp = this.locationsList.filter(function (d) {
             return d.unit_name.toLowerCase().indexOf(val) !== -1 || !val;
           });
@@ -49683,7 +49679,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.log(event.target.value, 'event');
           console.log(this.managerList, 'list'); // filter our data
 
-          debugger;
           var temp = this.managerList.filter(function (d) {
             return d.first_name.toLowerCase().indexOf(val) !== -1 || d.last_name.toLowerCase().indexOf(val) !== -1 || !val;
           }); // if(event.target.value == '')
@@ -50455,7 +50450,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function onSubmitLocationForm() {
           var _this105 = this;
 
-          debugger;
           var reg = /( Loc #\d)$/;
 
           if (!reg.test(this.locationFoodParkForm.value.name)) {
@@ -72247,9 +72241,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "onSelectRed",
-        value: function onSelectRed(item) {
-          debugger;
-        }
+        value: function onSelectRed(item) {}
       }, {
         key: "getAllFoodPark",
         value: function getAllFoodPark() {
@@ -77155,9 +77147,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               relativeTo: _this155.route.parent,
               skipLocationChange: true
             });
-          }, function (error) {
-            debugger;
-          }); // this.formDataService.setAddress(this.address);
+          }, function (error) {}); // this.formDataService.setAddress(this.address);
 
 
           var firstState = this.workflowService.getFirstInvalidStep(_workflow_workflow_model__WEBPACK_IMPORTED_MODULE_3__["STEPS"].work);
@@ -83717,9 +83707,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "onSelectRed",
-        value: function onSelectRed(item) {
-          debugger;
-        }
+        value: function onSelectRed(item) {}
       }, {
         key: "placeMarker",
         value: function placeMarker($event) {
@@ -84560,7 +84548,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "changeType",
         value: function changeType(event) {
           this.unitForm.value.type = event.target.value;
-          debugger;
         }
       }, {
         key: "getDismissReason",
@@ -85364,7 +85351,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.getAllUnitOrder(this.user.company_id, this.user.unit_id).subscribe(function (res) {
-            debugger;
             _this199.orders = res.data;
             _this199.temp = _this199.orders;
             _this199.rows = _this199.orders;
@@ -85892,9 +85878,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "onSelectRed",
-        value: function onSelectRed(item) {
-          debugger;
-        }
+        value: function onSelectRed(item) {}
       }, {
         key: "getAllFoodPark",
         value: function getAllFoodPark() {
@@ -86259,9 +86243,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "viewUnit",
-        value: function viewUnit(event, row) {
-          debugger;
-        }
+        value: function viewUnit(event, row) {}
       }, {
         key: "open1",
         value: function open1(content1) {
@@ -86279,7 +86261,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "changeType",
         value: function changeType(event) {
           this.unitForm.value.type = event.target.value;
-          debugger;
         }
       }, {
         key: "getDismissReason",

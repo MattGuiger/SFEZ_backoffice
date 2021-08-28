@@ -21,6 +21,10 @@ export const EcomRoutes: Routes = [
         component: MenuitemsComponent,
       },
       {
+        path: 'tabs/:activeTab',
+        component: MenuitemsComponent,
+      },
+      {
         path: 'auth/:email',
         component: MenuitemsComponent,
         // data: {

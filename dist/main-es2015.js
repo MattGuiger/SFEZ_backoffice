@@ -727,7 +727,6 @@ class GreenmoneyComponent {
     ngOnInit() {
         let urlid = window.location.href.split('/');
         this.urlId = urlid[5];
-        debugger;
         localStorage.setItem('orderID', this.urlId);
         let jqueryFile = document.createElement('script');
         jqueryFile.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js";
@@ -2247,6 +2246,7 @@ class ProfileService {
         this.updateUnitURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/update-unit-data/';
         this.unitManagerURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/unitmanagers';
         this.refundToCustomerURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/refund/customer/';
+        this.googleUser = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "/api/v1/rel/google/";
     }
     greenMoneyPayment(data) {
         return this.http.get(this.greenMoneyURL + data);
@@ -2441,6 +2441,12 @@ class ProfileService {
     }
     getAllCategories() {
         return this.http.get(this.Category);
+    }
+    addGoogleUser(data) {
+        return this.http.post(this.googleUser + 'adduser', data);
+    }
+    getGoogleUser(id) {
+        return this.http.get(this.googleUser + 'getuser/' + id);
     }
     getAllSecleted(data) {
         return this.http.post(`https://api.instamarkt.co/api/v1/rel/getSelectCategory`, data);

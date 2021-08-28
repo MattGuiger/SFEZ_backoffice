@@ -27,10 +27,10 @@ import { UiSwitchModule } from 'ngx-ui-switch';
     MaterialModule,
     UiSwitchModule.forRoot({
       size: 'small',
-      color: 'rgb(0, 189, 99)',
-      switchColor: '#80FFA2',
-      defaultBgColor: '#ff80dd',
-      defaultBoColor : '#ff80dd',
+      color: '#64bd63',
+      switchColor: '#e0dbd4',
+      defaultBgColor: '#e0dbd4',
+      defaultBoColor : '#e0dbd4',
       checkedLabel: 'on',
       uncheckedLabel: 'off'
     }),

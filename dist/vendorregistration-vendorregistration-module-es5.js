@@ -113,9 +113,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this._ProfileService.getAllProductList(this.user.company_id).subscribe(function (res) {
             _this.productList = res;
-          }, function (error) {
-            debugger;
-          });
+          }, function (error) {});
         }
       }, {
         key: "openProduct",

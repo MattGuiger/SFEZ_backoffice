@@ -164,7 +164,6 @@ export class HubComponent implements AfterViewInit {
 		}
 	}
   onSelectRed(item){
-    debugger
   }
 
 getAllFoodPark(){

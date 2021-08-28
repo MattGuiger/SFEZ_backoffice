@@ -97,7 +97,7 @@ export class UnitComponent {
   }
   changeType(event){
     this.unitForm.value.type=event.target.value;
-    debugger
+    
   }
   
 	private getDismissReason(reason: any): string {

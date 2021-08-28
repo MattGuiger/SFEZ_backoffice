@@ -380,7 +380,6 @@ greenPay()
       this._ProfileService.getDeliveryHubandUnits(this.user.territory_id).subscribe(res => {
       
         if (res.status == 200) {
-       debugger
           this.deliveryHubUnits = res.data
           let units = []
           units = res.data
@@ -399,7 +398,6 @@ greenPay()
     const val = event.target.value.toLowerCase();
      console.log(event.target.value,'event')
     // filter our data
-    debugger
     const temp = this.locationsList.filter(function(d) {
       return d.unit_name.toLowerCase().indexOf(val) !== -1 || !val;
     });
@@ -420,7 +418,6 @@ if(event.target.value == '')
      console.log(event.target.value,'event')
      console.log(this.managerList,'list')
     // filter our data
-    debugger
     const temp = this.managerList.filter(function(d) {
       return d.first_name.toLowerCase().indexOf(val) !== -1 || d.last_name.toLowerCase().indexOf(val) !== -1 || !val;
     });
@@ -1078,7 +1075,6 @@ if(event.target.value == '')
     }
   }
   onSubmitLocationForm() {
-    debugger
     var reg = /( Loc #\d)$/;
     if(!reg.test(this.locationFoodParkForm.value.name)){
       this.toastr.error("Name should end with Loc #{Localtion number}");

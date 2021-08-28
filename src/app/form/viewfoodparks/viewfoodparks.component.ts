@@ -91,7 +91,6 @@ export class ViewFoodParkComponent {
 		}
 	}
   onSelectRed(item){
-    debugger
   }
 
 getAllFoodPark(){

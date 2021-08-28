@@ -28,7 +28,6 @@ export class GreenmoneyComponent implements OnInit {
 
     let urlid = window.location.href.split('/');
     this.urlId = urlid[5];
-    debugger
     localStorage.setItem('orderID', this.urlId);
 
     let jqueryFile = document.createElement('script');

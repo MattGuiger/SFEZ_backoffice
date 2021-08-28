@@ -182,7 +182,7 @@
                                           <input matInput placeholder="Search" class="form-control">
                                         </mat-form-field>
                                         <div *ngFor="let category of categories">
-                                          <mat-checkbox  [checked]="category?.status" (change)="onChange($event,category.category); false">
+                                          <mat-checkbox   [(ngModel)]="category.status"  (change)="onChange($event,category.category); false">
                                             {{category.category}}</mat-checkbox>
                                         </div>
                                         <div>
@@ -492,7 +492,6 @@
               <!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog> -->
             </ng-template>
           </ngb-tab>
-
         </ngb-tabset>
       </div>
     </div>

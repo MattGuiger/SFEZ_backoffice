@@ -91,7 +91,7 @@ export class DriverComponent {
 		}
 	}
   onSelectRed(item){
-    debugger
+    
   }
 
 getAllFoodPark(){

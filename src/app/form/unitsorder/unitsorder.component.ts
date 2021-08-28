@@ -62,7 +62,6 @@ export class UnitorderComponent {
 getAllOrder(){
   this.user = this._CommonFunctionsService.checkUser().user;
   this._ProfileService.getAllUnitOrder(this.user.company_id,this.user.unit_id).subscribe((res:any)=>{
-    debugger
       this.orders = res.data;
       this.temp = this.orders;
       this.rows = this.orders;

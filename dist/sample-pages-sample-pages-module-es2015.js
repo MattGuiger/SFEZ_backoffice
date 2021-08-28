@@ -6503,7 +6503,6 @@ class ProfileComponent {
         this._ProfileService.uploadFeaturePhoto(this.user.company_id, formData).subscribe((res) => {
             this.getCompanyProfile();
         }, error => {
-            //debugger
         });
     }
     // updateComapnydetails(tags,schedule,hours,twitter,instagram,facebook,distance_range,description,delivery_chg_amount,phone,email,name,business_address,country_id,state,city){
@@ -6530,7 +6529,7 @@ class ProfileComponent {
     //     this.toastr.success('Company Detail Updated successfully!');
     //     this.getCompanyProfile();
     //   },error=>{
-    //     debugger
+    //     
     //   })
     // }
     uploadCompanyProfile(formData) {
@@ -6538,7 +6537,6 @@ class ProfileComponent {
         this._ProfileService.uploadCompanyProfile(this.user.company_id, formData).subscribe((res) => {
             this.getCompanyProfile();
         }, error => {
-            debugger;
         });
     }
     getCompanyProfile() {
@@ -6546,14 +6544,11 @@ class ProfileComponent {
         this._ProfileService.getCompanyprofile(this.user.company_id).subscribe((res) => {
             this.profile = res.data;
             //  console.log(this.profile);
-            //debugger
         }, error => {
-            //debugger
         });
     }
     uploadGoogleMenuSheet() {
         this._ProfileService.uploadGoogleMenuSheet().subscribe((res) => {
-            debugger;
         }, error => {
             this._NotifierService.notify('error', 'Failed to upload, please try again later...!');
         });
