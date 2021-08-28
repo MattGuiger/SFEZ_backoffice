@@ -46,10 +46,10 @@
                             <!--/span-->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Publish</label>
+                                    <label>Status</label>
                                     <br/>
                                     <div >
-                                        <ui-switch [checked]="productDetails?.drill_in" (change)="onChange($event)"></ui-switch>
+                                        <ui-switch checkedLabel="Publish" uncheckedLabel="Draft" [checked]="productDetails?.drill_in" (change)="onChange($event)"></ui-switch>
                                          </div>
                                     <!-- <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked="{{productDetails?.status=='live'}}">
