@@ -121,7 +121,7 @@ type:Type[] = [{type:'RESTAURANT',imageUrl:'/assets/images/icon-500-restaurant.p
           this.getUserInfoAfterLogin()
           localStorage.setItem("unit_id", res.data[0].id)
           this._ProfileService.getCompany_unitid(this.comapnydata.id, { unit_id: res.data[0].id }).subscribe(res => {
-            this.toastr.success("Vendor Registered Successfully.")
+            //this.toastr.success("Vendor Registered Successfully.")
             this.getUserInfoAfterLogin()
             this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
           })

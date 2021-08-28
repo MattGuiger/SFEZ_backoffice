@@ -83,7 +83,7 @@ export class MenuitemsComponent implements OnInit {
     private _CommonFunctionsService: CommonFunctionsService, 
     private _Router: Router) 
   {
-      this.showSelectedCat();
+      
   }
  
   ngAfterViewInit() {
@@ -126,7 +126,7 @@ export class MenuitemsComponent implements OnInit {
   ngOnInit() 
   {
     console.log( JSON.parse(localStorage.getItem('user')).user.id,'hIII');
-    this.getAllProductList();
+   
     this.getCompanyProfile();
     this.getgoogleauthntication();
     this.getAllCategories();
@@ -348,13 +348,16 @@ export class MenuitemsComponent implements OnInit {
         this.categoryList = res.data;
         this.categoryList.forEach((item) => {
           this.selectedCategoryList.push(item.id);
+          this.addedItems.push(item.name);
         })
+       
       });
     }
     if (this.user.unit_id) {
       this._ProfileService.getAllProductList(this.user.company_id).subscribe((res: any) => {
         this.productList = res.data;
-        this.processing = false;``
+        this.processing = false;
+        this.filterProductList();
       }, error => {
         //
       })
@@ -477,9 +480,9 @@ export class MenuitemsComponent implements OnInit {
   getAllCategories() {
     this._ProfileService.getAllCategories().subscribe(res => {
       this.categories = res.data.map(x=>({...x, status:false}))
-
+      this.getAllProductList();
      setTimeout(() => {
-      this.getStatusChange()
+      this.showSelectedCat();
      }, 1000);
     })
   
@@ -492,6 +495,7 @@ export class MenuitemsComponent implements OnInit {
     this._ProfileService.getAllSecleted(data).subscribe((res:any) => {
       this.selectedcat = res.data
       console.log(this.selectedcat,'selected data');
+      this.getStatusChange();
     })
   }
 
@@ -510,7 +514,7 @@ export class MenuitemsComponent implements OnInit {
         });
       });
       console.log(this.categories,'category data');
-  this.categories.filter(o1 => this.selectedcat.some(o2 => o1.id === o2.id)).map(x=>({...x, status:true}));
+      this.categories.filter(o1 => this.selectedcat.some(o2 => o1.id === o2.id)).map(x=>({...x, status:true}));
       // const result1 = this.categories.filter(function(o1){
       //   return this.selectedcat.some(function(o2){
       //      return o1.id == o2.id;         

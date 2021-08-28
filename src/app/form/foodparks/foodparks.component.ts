@@ -511,6 +511,7 @@ if(event.target.value == '')
       first_name: new FormControl(null),
       last_name: new FormControl(null),
       username: new FormControl(null),
+      password: new FormControl(null),
       // password: new FormControl(null),
       // unitId: new FormControl(null),
       territory_id: new FormControl(null)
@@ -1078,6 +1079,11 @@ if(event.target.value == '')
   }
   onSubmitLocationForm() {
     debugger
+    var reg = /( Loc #\d)$/;
+    if(!reg.test(this.locationFoodParkForm.value.name)){
+      this.toastr.error("Name should end with Loc #{Localtion number}");
+      return false;
+    }
     this.locationFoodParkForm.value.territory_id = this.locationFoodParkForm.value.territory_id ? this.locationFoodParkForm.value.territory_id : this.territory_id1;
     // this.locationFoodParkForm.value.country_id=this.l_country_id
     // this.locationFoodParkForm.value.state_id= this.locationFoodParkForm.value.state_id?this.locationFoodParkForm.value.state_id:this.l_state_id
@@ -1384,6 +1390,7 @@ if(event.target.value == '')
       this.managerForm.controls['last_name'].setValue(editable.last_name);
       this.managerForm.controls['username'].setValue(editable.username);
       this.managerForm.controls['territory_id'].setValue(editable.territory_id);
+      this.managerForm.controls['password'].setValue(editable.password);
       this.modalService.open(content3, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
       }, (reason) => {
