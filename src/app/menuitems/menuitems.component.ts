@@ -107,11 +107,11 @@ export class MenuitemsComponent implements OnInit {
     }
   }
 
-  getGoogleUser(id){
-    return this._ProfileService.getGoogleUser(id)
+  getGoogleUser(id) {
+    return this._ProfileService.getGoogleUser(id);
   }
   REMOVEITEM() {
-    this.removei.forEach(element => {
+    this.removei.forEach((element) => {
       this.removeItemFromArray(element);
     });
     this.removei = [];
@@ -134,7 +134,7 @@ export class MenuitemsComponent implements OnInit {
       this.addedCategories.splice(index, 1);
     }
 
-    let itemCat = this.categories
+    let itemCat = this.categories;
     itemCat.forEach((element) => {
       if (element.category == item) {
         element.status = false;
@@ -150,31 +150,36 @@ export class MenuitemsComponent implements OnInit {
     this.getCompanyProfile();
     this.getgoogleauthntication();
     this.getAllCategories();
-    
-    this.getGoogleUser(this.user.id).subscribe((data)=>{
-      let res = data['data'];
-      if(res && res[0]['email']){
-        this.googleEmail =  res[0]['email'];
-        this.initCalledAfterEmail()
+
+    this.getGoogleUser(this.user.id).subscribe(
+      (data) => {
+        let res = data["data"];
+        if (res && res[0]["email"]) {
+          this.googleEmail = res[0]["email"];
+          this.initCalledAfterEmail();
+        }
+      },
+      (er) => {
+        console.log(er);
       }
-    },er=>{
-      console.log(er);
-    })
+    );
 
     this.route.params.subscribe((data) => {
-      if(data.email){
+      if (data.email) {
         this.googleEmail = data.email;
-        this._ProfileService.addGoogleUser({user_id: this.user.id, email:this.googleEmail}).subscribe(data=>{
-          this.initCalledAfterEmail()
-        })
+        this._ProfileService
+          .addGoogleUser({ user_id: this.user.id, email: this.googleEmail })
+          .subscribe((data) => {
+            this.initCalledAfterEmail();
+          });
       }
-      if(data.activeTab){
-        this.checkingId  = data.activeTab;
+      if (data.activeTab) {
+        this.checkingId = data.activeTab;
       }
     });
   }
 
-  initCalledAfterEmail(){
+  initCalledAfterEmail() {
     this.getAllGoogleSheetDetails();
     this.getFolderbyEmail();
   }
@@ -188,6 +193,7 @@ export class MenuitemsComponent implements OnInit {
     if (this.googleEmail) {
       const data = {
         email: this.googleEmail,
+        user_id: this.user.id,
       };
       this.ngxService.start();
       this._ProfileService.getFoldersCreatedInDrive(data).subscribe((res) => {
@@ -229,21 +235,18 @@ export class MenuitemsComponent implements OnInit {
    * @param folderId
    * @param category
    */
-  onFileSelect(event, fileName) {
+  onFileSelect(event, folder, type) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.file = file;
-      fileName.user_id = file.name;
-      console.log(fileName, file);
+      folder[type] = file;
     }
   }
 
-  onFileSelectget(event, fileName) {
+  onFileSelectget(event, folder, type) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.fileget = file;
-      fileName.user_id = file.name;
-      console.log(fileName, file);
+      folder[type] = file;
     }
   }
 
@@ -266,45 +269,68 @@ export class MenuitemsComponent implements OnInit {
    *
    * @param index
    */
-  submitSheetData(folderId, category, folder) {
-    let menu_name = $("#menu_name" + folderId)
-      .val()
-      .toString();
-    let price = $("#price" + folderId)
-      .val()
-      .toString();
-    let category_description = $("#category_description" + folderId)
-      .val()
-      .toString();
-
-    if (menu_name !== "" && price !== "" && category_description !== "") {
-      let formData1 = new FormData();
-      formData1.append("file", this.file);
-      formData1.append("folderId", folderId);
-      formData1.append("email", this.googleEmail);
-      formData1.append("category", category);
-      formData1.append("menu_name", menu_name);
-      formData1.append("price", price);
-      formData1.append("category_description", category_description);
-      $("#menu_name" + folderId).val("");
-      $("#price" + folderId).val("");
-      folder.user_id = "";
-      $("#category_description" + folderId).val("");
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        this.tempMenuItem = {
-          folderId: folderId,
-          menu_name: menu_name,
-          price: price,
-          img_url: reader.result,
-          description: category_description,
-        };
-      };
-      reader.readAsDataURL(this.file);
-      this.uploadImageToDrive(formData1, folderId, category);
-    } else {
+  submitSheetData(folder) {
+    if (
+      !folder.category_description ||
+      !folder.category_image ||
+      !folder.menuItemName ||
+      !folder.menuItemDescription ||
+      !folder.menuItemPrice ||
+      !folder.image
+    ) {
       this.toastr.error("Please fill all required fields");
+    } else {
+      let formData1 = new FormData();
+      formData1.append("file", folder.menu_image);
+      formData1.append("category_file", folder.category_image);
+      formData1.append("folderId", folder.folderId);
+      formData1.append("email", this.googleEmail);
+      formData1.append("category", folder.category);
+      formData1.append("menu_name", folder.menuItemName);
+      formData1.append("price", folder.menuItemPrice);
+      formData1.append("category_description", folder.category_description);
+      formData1.append("menu_description", folder.menuItemDescription);
+      this.uploadImageToDrive(formData1, folder.folderId, folder.category);
     }
+
+    // let menu_name = $("#menu_name" + folderId)
+    //   .val()
+    //   .toString();
+    // let price = $("#price" + folderId)
+    //   .val()
+    //   .toString();
+    // let category_description = $("#category_description" + folderId)
+    //   .val()
+    //   .toString();
+
+    // if (menu_name !== "" && price !== "" && category_description !== "") {
+    //   let formData1 = new FormData();
+    //   formData1.append("file", this.file);
+    //   formData1.append("folderId", folderId);
+    //   formData1.append("email", this.googleEmail);
+    //   formData1.append("category", category);
+    //   formData1.append("menu_name", menu_name);
+    //   formData1.append("price", price);
+    //   formData1.append("category_description", category_description);
+    //   $("#menu_name" + folderId).val("");
+    //   $("#price" + folderId).val("");
+    //   folder.user_id = "";
+    //   $("#category_description" + folderId).val("");
+    //   const reader = new FileReader();
+    //   reader.onloadend = () => {
+    //     this.tempMenuItem = {
+    //       folderId: folderId,
+    //       menu_name: menu_name,
+    //       price: price,
+    //       img_url: reader.result,
+    //       description: category_description,
+    //     };
+    //   };
+    //   reader.readAsDataURL(this.file);
+    //   this.uploadImageToDrive(formData1, folderId, category);
+    // } else {
+    //   this.toastr.error("Please fill all required fields");
+    // }
   }
 
   deleteFolder(index) {
@@ -571,7 +597,7 @@ export class MenuitemsComponent implements OnInit {
 
   showSelectedCat() {
     this.user = this._CommonFunctionsService.checkUser().user;
-    const data = { email: this.googleEmail };
+    const data = { email: this.googleEmail, user_id: this.user.id };
     this._ProfileService.getAllSecleted(data).subscribe((res: any) => {
       this.selectedcat = res.data;
       this.selectedcat.forEach((item) => {

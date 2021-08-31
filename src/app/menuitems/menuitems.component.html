@@ -242,9 +242,9 @@
                                   # of uploaded images: <b>{{imageCount}}</b></div>
                               </span>
                               <div class="step_three_right">
-                                <ng-container *ngFor="let folder of drivefolders; let index = index">
+                                <ng-container *ngFor="let folder of googleSheet; let index = index">
 
-                                  <h5>Category: <b>{{folder.foldername}}</b></h5>
+                                  <h5>Category: <b>{{folder.category}}</b></h5>
 
                                   <ul style="margin-bottom: 1.5rem;">
                                     <li class="container">
@@ -253,75 +253,83 @@
                                           <img src="../../assets/images/folder@1X.png" alt="">
                                         </div>
                                         <div class="col-md-4">
-                                          <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+
+                                          <mat-form-field  appearance="fill" required>
                                             <mat-label>Category Description *</mat-label>
-                                            <textarea matInput></textarea>
+                                            <textarea matInput required [(ngModel)]="folder.category_description"></textarea>
                                           </mat-form-field>
-                                          <div class="custom-input">
-                                            <textarea name="category_description" required class="w-100 custom-textarea"
-                                              [id]="'category_description'+ folder.folderid"
-                                              placeholder="Category Description *">
-                                            </textarea>
-                                          </div>
                                           <div class="custom-file mb-2" style="padding-bottom: 61px;">
-                                            <input type="file" name="fileget" class="custom-file-input" #fileget id="customFile"
-                                              required (change)="onFileSelectget($event,folder)">
-                                            <label class="custom-file-label" for="customFile">Upload image</label>
+                                            <input  type="file" name="fileget" class="custom-file-input" #fileget id="customFile"
+                                              required (change)="onFileSelectget($event,folder,'category_image')">
+                                            <label class="custom-file-label" for="customFile">{{folder.category_image?folder.category_image.name:'Upload Image'}}</label>
                                           </div>
 
-                                          <div class="custom-input mb-2">
-                                            <input type="text" name="menu_name" class="w-100"
-                                              [id]="'menu_name'+ folder.folderid" placeholder="Menu Item Name *"
-                                              required />
-                                          </div>
+                                          <mat-form-field  appearance="fill"  required>
+                                            <mat-label>Menu Item Name *</mat-label>
+                                            <input matInput type="text" name="menu_name" placeholder="Menu Item Name *"
+                                              required [(ngModel)]="folder.menuItemName" />
+                                          </mat-form-field>
 
-                                          <div class="custom-input">
-                                            <textarea name="category_description" required class="w-100 custom-textarea"
-                                              [id]="'category_description'+ folder.folderid"
+                                          <mat-form-field  appearance="fill"  required>
+                                            <mat-label>Menu Item Description *</mat-label>
+                                            <textarea matInput name="menuItemDescription" required [(ngModel)]="folder.menuItemDescription"
                                               placeholder="Menu Item Description *"></textarea>
-                                          </div>
+                                          </mat-form-field>
 
-                                          <div class="custom-input mb-2">
-                                            <input type="number" name="price" required class="w-100"
-                                              [id]="'price'+ folder.folderid" placeholder="Menu Item Price (ex. $10.00)" />
-                                          </div>
+                                          <mat-form-field  appearance="fill"  required>
+                                            <mat-label>Menu Item Price (ex. $10.00)</mat-label>
+                                            <input matInput type="number" name="price"  placeholder="Menu Item Price (ex. $10.00)"
+                                              required [(ngModel)]="folder.menuItemPrice" />
+                                          </mat-form-field>
 
                                           <div class="custom-file mb-2">
                                             <input type="file" name="file" class="custom-file-input" #file id="customFile"
-                                              required (change)="onFileSelect($event,folder)">
-                                            <label class="custom-file-label" for="customFile">{{"Upload image"}}</label>
+                                              required (change)="onFileSelect($event,folder,'menu_image')">
+                                            <label class="custom-file-label" for="customFile">{{folder.menu_image?folder.menu_image.name:'Upload Image'}}</label>
                                           </div>
 
                                           <div class="d-block mt-2">
                                             <button type="button" class="btn btn-info"
-                                              (click)="submitSheetData(folder.folderid,folder.foldername,folder)">
+                                              (click)="submitSheetData(folder)">
                                               Save
                                             </button>
                                           </div>
                                         </div>
-                                        <div class="col-md-7 row">
-
-                                          <ng-container *ngFor="let item of menuItemList">
-                                            <div *ngIf="item.folderId == folder.folderid"
-                                              class="col-6 mb-4 p-1 text-center menu-item-list">
-                                              <img class="w-50 mb-1" [src]="item.img_url" />
+                                        <div class="col-md-4">
+                                          <ng-container>
+                                            <div
+                                              class="menu-item-list">
+                                              <img class="w-50 mb-1" [src]="folder.image" />
 
                                               <h4 class="p-0 mb-0 font-weight-normal">
-                                                <span class="font-weight-bold">Item Name:</span> {{item.menu_name}}
+                                                <span class="font-weight-bold">Item Name:</span> {{folder.menuItemName}}
                                               </h4>
                                               <h5 class="p-0 mb-0 font-weight-normal">
-                                                <span class="font-weight-bold">Item Description:</span>
-                                                {{item.description}}
+                                                <span class="font-weight-bold">Description:</span>
+                                                {{folder.menuItemDescription}}
                                               </h5>
                                               <h5 class="p-0 mb-0 font-weight-normal">
-                                                <span class="font-weight-bold">Item Price:</span>
-                                                ${{item.price}}
+                                                <span class="font-weight-bold">Price:</span>
+                                                ${{folder.menuItemPrice}}
                                               </h5>
-
                                             </div>
                                           </ng-container>
                                         </div>
-                                        <div class="col-md-12 mt-3">
+                                        <div class="col-md-3">
+                                          <ng-container>
+                                            <div
+                                              class="menu-item-list">
+                                              <img class="w-50 mb-1" [src]="folder.image" />
+
+                                              <h4 class="p-0 mb-0 font-weight-normal">
+                                                <span class="font-weight-bold">Category Name:</span> {{folder.category}}
+                                              </h4>
+                                              <h5 class="p-0 mb-0 font-weight-normal">
+                                                <span class="font-weight-bold">Description:</span>
+                                                {{folder.category_description}}
+                                              </h5>
+                                            </div>
+                                          </ng-container>
                                         </div>
                                       </div>
                                     </li>
