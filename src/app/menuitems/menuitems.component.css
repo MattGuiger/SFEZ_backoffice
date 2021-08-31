@@ -160,9 +160,9 @@ p {
 ::ng-deep .mat-form-field-underline {
     display: none;
 }
-::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+/* ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
     padding: 0 !important;
-}
+} */
 ::ng-deep .mat-form-field {
     width: 100% !important;
 }

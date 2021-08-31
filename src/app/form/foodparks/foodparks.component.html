@@ -7,7 +7,7 @@
         <h4 class="card-title">Hub | Drivers Management</h4>
         <h6 class="card-subtitle">A Hubs listed here, and we can maname Drivers here also.</h6>
         <!-- <button (click)="greenPay()">Green-pay</button> -->
-        <ngb-tabset>
+        <ngb-tabset [destroyOnHide]="true">
 
           <ngb-tab title="Delivery Hubs">
             <ng-template ngbTabContent>
@@ -62,7 +62,7 @@
                         <option *ngIf="!row.foodpark_mgr_id" value="">Assign Master</option>
 
                         <option *ngFor="let manager of arr" [value]="manager.user_id">
-                          {{manager.first_name}}...</option>
+                          {{manager.first_name}} {{manager.last_name}}</option>
                       </select>
 
                       <!-- <div *ngFor="let ma of foodmarkmgr">

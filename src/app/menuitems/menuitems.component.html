@@ -252,18 +252,20 @@
                                         <div class="col-md-1">
                                           <img src="../../assets/images/folder@1X.png" alt="">
                                         </div>
-                                     
-
                                         <div class="col-md-4">
-
+                                          <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+                                            <mat-label>Category Description *</mat-label>
+                                            <textarea matInput></textarea>
+                                          </mat-form-field>
                                           <div class="custom-input">
                                             <textarea name="category_description" required class="w-100 custom-textarea"
                                               [id]="'category_description'+ folder.folderid"
-                                              placeholder="Category Description *"></textarea>
+                                              placeholder="Category Description *">
+                                            </textarea>
                                           </div>
                                           <div class="custom-file mb-2" style="padding-bottom: 61px;">
                                             <input type="file" name="fileget" class="custom-file-input" #fileget id="customFile"
-                                              required (change)="onFileSelectget($event,folderset)">
+                                              required (change)="onFileSelectget($event,folder)">
                                             <label class="custom-file-label" for="customFile">Upload image</label>
                                           </div>
 
