@@ -1238,7 +1238,7 @@ function MenuitemsComponent_ng_template_16_mat_tab_6_ng_container_8_Template(rf,
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Category Description *");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "textarea", 104);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function MenuitemsComponent_ng_template_16_mat_tab_6_ng_container_8_Template_textarea_ngModelChange_14_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r67); const folder_r62 = ctx.$implicit; return folder_r62.category_description = $event; });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function MenuitemsComponent_ng_template_16_mat_tab_6_ng_container_8_Template_textarea_ngModelChange_14_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r67); const folder_r62 = ctx.$implicit; return folder_r62.catdescription = $event; });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 105);
@@ -1341,7 +1341,7 @@ function MenuitemsComponent_ng_template_16_mat_tab_6_ng_container_8_Template(rf,
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](folder_r62.category);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](10);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", folder_r62.category_description);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", folder_r62.catdescription);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](folder_r62.category_image ? folder_r62.category_image.name : "Upload Image");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
@@ -1361,11 +1361,11 @@ function MenuitemsComponent_ng_template_16_mat_tab_6_ng_container_8_Template(rf,
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" $", folder_r62.menuItemPrice, " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", folder_r62.image, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", folder_r62.catimage, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", folder_r62.category, " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", folder_r62.category_description, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", folder_r62.catdescription, " ");
 } }
 function MenuitemsComponent_ng_template_16_mat_tab_6_Template(rf, ctx) { if (rf & 1) {
     const _r75 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
@@ -1794,24 +1794,28 @@ class MenuitemsComponent {
      * @param index
      */
     submitSheetData(folder) {
-        if (!folder.category_description ||
-            !folder.category_image ||
+        if (!folder.catdescription ||
+            (!folder.category_image && !folder.catimage) ||
             !folder.menuItemName ||
             !folder.menuItemDescription ||
             !folder.menuItemPrice ||
-            !folder.image) {
+            (!folder.image && !folder.menu_image)) {
             this.toastr.error("Please fill all required fields");
         }
         else {
             let formData1 = new FormData();
-            formData1.append("file", folder.menu_image);
-            formData1.append("category_file", folder.category_image);
+            if (folder.menu_image) {
+                formData1.append("file", folder.menu_image);
+            }
+            if (folder.category_image) {
+                formData1.append("catimage", folder.category_image);
+            }
             formData1.append("folderId", folder.folderId);
             formData1.append("email", this.googleEmail);
             formData1.append("category", folder.category);
             formData1.append("menu_name", folder.menuItemName);
             formData1.append("price", folder.menuItemPrice);
-            formData1.append("category_description", folder.category_description);
+            formData1.append("catdescription", folder.catdescription);
             formData1.append("menu_description", folder.menuItemDescription);
             this.uploadImageToDrive(formData1, folder.folderId, folder.category);
         }
@@ -1986,7 +1990,10 @@ class MenuitemsComponent {
     }
     getAllGoogleSheetDetails() {
         this.user = this._CommonFunctionsService.checkUser().user;
-        this._ProfileService.getAllGoogleSheetDetails(this.date).subscribe((res) => {
+        this._ProfileService.getAllGoogleSheetDetails({
+            user_id: this.user.id,
+            email: this.googleEmail
+        }).subscribe((res) => {
             this.googleSheet = res.data;
             this.imageCount = res.data.length;
             this.checkImageCountFlag = true;

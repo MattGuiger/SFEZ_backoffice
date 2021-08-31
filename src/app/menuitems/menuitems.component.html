@@ -256,7 +256,7 @@
 
                                           <mat-form-field  appearance="fill" required>
                                             <mat-label>Category Description *</mat-label>
-                                            <textarea matInput required [(ngModel)]="folder.category_description"></textarea>
+                                            <textarea matInput required [(ngModel)]="folder.catdescription"></textarea>
                                           </mat-form-field>
                                           <div class="custom-file mb-2" style="padding-bottom: 61px;">
                                             <input  type="file" name="fileget" class="custom-file-input" #fileget id="customFile"
@@ -319,14 +319,14 @@
                                           <ng-container>
                                             <div
                                               class="menu-item-list">
-                                              <img class="w-50 mb-1" [src]="folder.image" />
+                                              <img class="w-50 mb-1" [src]="folder.catimage" />
 
                                               <h4 class="p-0 mb-0 font-weight-normal">
                                                 <span class="font-weight-bold">Category Name:</span> {{folder.category}}
                                               </h4>
                                               <h5 class="p-0 mb-0 font-weight-normal">
                                                 <span class="font-weight-bold">Description:</span>
-                                                {{folder.category_description}}
+                                                {{folder.catdescription}}
                                               </h5>
                                             </div>
                                           </ng-container>

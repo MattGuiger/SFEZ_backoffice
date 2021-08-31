@@ -271,24 +271,30 @@ export class MenuitemsComponent implements OnInit {
    */
   submitSheetData(folder) {
     if (
-      !folder.category_description ||
-      !folder.category_image ||
+      !folder.catdescription ||
+      (!folder.category_image && !folder.catimage) ||
       !folder.menuItemName ||
       !folder.menuItemDescription ||
       !folder.menuItemPrice ||
-      !folder.image
+      (!folder.image && !folder.menu_image)
     ) {
       this.toastr.error("Please fill all required fields");
     } else {
       let formData1 = new FormData();
-      formData1.append("file", folder.menu_image);
-      formData1.append("category_file", folder.category_image);
+      if(folder.menu_image){
+        formData1.append("file", folder.menu_image);
+      }
+     
+      if(folder.category_image){
+        formData1.append("catimage", folder.category_image);
+      }
+      
       formData1.append("folderId", folder.folderId);
       formData1.append("email", this.googleEmail);
       formData1.append("category", folder.category);
       formData1.append("menu_name", folder.menuItemName);
       formData1.append("price", folder.menuItemPrice);
-      formData1.append("category_description", folder.category_description);
+      formData1.append("catdescription", folder.catdescription);
       formData1.append("menu_description", folder.menuItemDescription);
       this.uploadImageToDrive(formData1, folder.folderId, folder.category);
     }
@@ -483,7 +489,10 @@ export class MenuitemsComponent implements OnInit {
   }
   getAllGoogleSheetDetails() {
     this.user = this._CommonFunctionsService.checkUser().user;
-    this._ProfileService.getAllGoogleSheetDetails(this.date).subscribe(
+    this._ProfileService.getAllGoogleSheetDetails({
+      user_id: this.user.id,
+      email: this.googleEmail
+    }).subscribe(
       (res: any) => {
         this.googleSheet = res.data;
         this.imageCount = res.data.length;

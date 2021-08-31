@@ -2451,7 +2451,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r67);
 
           var folder_r62 = ctx.$implicit;
-          return folder_r62.category_description = $event;
+          return folder_r62.catdescription = $event;
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -2697,7 +2697,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](10);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", folder_r62.category_description);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", folder_r62.catdescription);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 
@@ -2737,7 +2737,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", folder_r62.image, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", folder_r62.catimage, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
@@ -2745,7 +2745,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", folder_r62.category_description, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", folder_r62.catdescription, " ");
       }
     }
 
@@ -3482,18 +3482,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "submitSheetData",
         value: function submitSheetData(folder) {
-          if (!folder.category_description || !folder.category_image || !folder.menuItemName || !folder.menuItemDescription || !folder.menuItemPrice || !folder.image) {
+          if (!folder.catdescription || !folder.category_image && !folder.catimage || !folder.menuItemName || !folder.menuItemDescription || !folder.menuItemPrice || !folder.image && !folder.menu_image) {
             this.toastr.error("Please fill all required fields");
           } else {
             var formData1 = new FormData();
-            formData1.append("file", folder.menu_image);
-            formData1.append("category_file", folder.category_image);
+
+            if (folder.menu_image) {
+              formData1.append("file", folder.menu_image);
+            }
+
+            if (folder.category_image) {
+              formData1.append("catimage", folder.category_image);
+            }
+
             formData1.append("folderId", folder.folderId);
             formData1.append("email", this.googleEmail);
             formData1.append("category", folder.category);
             formData1.append("menu_name", folder.menuItemName);
             formData1.append("price", folder.menuItemPrice);
-            formData1.append("category_description", folder.category_description);
+            formData1.append("catdescription", folder.catdescription);
             formData1.append("menu_description", folder.menuItemDescription);
             this.uploadImageToDrive(formData1, folder.folderId, folder.category);
           } // let menu_name = $("#menu_name" + folderId)
@@ -3705,7 +3712,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
-          this._ProfileService.getAllGoogleSheetDetails(this.date).subscribe(function (res) {
+          this._ProfileService.getAllGoogleSheetDetails({
+            user_id: this.user.id,
+            email: this.googleEmail
+          }).subscribe(function (res) {
             _this14.googleSheet = res.data;
             _this14.imageCount = res.data.length;
             _this14.checkImageCountFlag = true;
