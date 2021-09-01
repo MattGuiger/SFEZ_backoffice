@@ -59,10 +59,10 @@ export class ProfileService {
   private territoryURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/territories';
   private googldriveUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/google/';
   private googlsheetUrl = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/google/googlesheetdetail';
-  private unitLocationsHub = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/unit_locations/';
+  private unitLocationsHub = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/deliveryhub_units/';
   private territoryDriverURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/driversinterritory';
   private companyDriverURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/drivers_company';
-  private deliveryhub_units = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/unit_locations/';
+  private deliveryhub_units = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/deliveryhub_units/';
 
   private foodParkURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel';
   private emailManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/send-email-manager';

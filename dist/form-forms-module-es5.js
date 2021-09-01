@@ -49634,7 +49634,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this73 = this;
 
           if (this.user.company_id) {
-            this._ProfileService.getDeliveryHubandUnits(this.user.territory_id).subscribe(function (res) {
+            this._ProfileService.getDeliveryHubandUnits(this.user.company_id).subscribe(function (res) {
               if (res.status == 200) {
                 _this73.deliveryHubUnits = res.data;
                 var units = [];
@@ -50008,8 +50008,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getlocationsAndHub() {
           var _this88 = this;
 
-          if (this.user.territory_id) {
-            this._ProfileService.getHubwithUnits(this.user.territory_id).subscribe(function (res) {
+          if (this.user.company_id) {
+            this._ProfileService.getHubwithUnits(this.user.company_id).subscribe(function (res) {
               if (res.status == 200) {
                 _this88.deliveryHubUnits = res.data;
                 var units = [];

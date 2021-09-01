@@ -396,7 +396,7 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
   getDeliveryHubAndLocationsInCompany() {
     if (this.user.company_id) {
       this._ProfileService
-        .getDeliveryHubandUnits(this.user.territory_id)
+        .getDeliveryHubandUnits(this.user.company_id)
         .subscribe((res) => {
           if (res.status == 200) {
             this.deliveryHubUnits = res.data;
@@ -728,9 +728,9 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
   }
   unithub: any[] = [];
   getlocationsAndHub() {
-    if (this.user.territory_id) {
+    if (this.user.company_id) {
       this._ProfileService
-        .getHubwithUnits(this.user.territory_id)
+        .getHubwithUnits(this.user.company_id)
         .subscribe((res) => {
           if (res.status == 200) {
             this.deliveryHubUnits = res.data;

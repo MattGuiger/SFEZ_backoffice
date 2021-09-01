@@ -242,9 +242,9 @@
                                   # of uploaded images: <b>{{imageCount}}</b></div>
                               </span>
                               <div class="step_three_right">
-                                <ng-container *ngFor="let folder of googleSheet; let index = index">
+                                <ng-container *ngFor="let folder of drivefolders; let index = index">
 
-                                  <h5>Category: <b>{{folder.category}}</b></h5>
+                                  <h5>Category: <b>{{folder.foldername}}</b></h5>
 
                                   <ul style="margin-bottom: 1.5rem;">
                                     <li class="container">

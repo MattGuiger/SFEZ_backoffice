@@ -1339,7 +1339,7 @@ function MenuitemsComponent_ng_template_16_mat_tab_6_ng_container_8_Template(rf,
 } if (rf & 2) {
     const folder_r62 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](folder_r62.category);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](folder_r62.foldername);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](10);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", folder_r62.catdescription);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
@@ -1428,7 +1428,7 @@ function MenuitemsComponent_ng_template_16_mat_tab_6_Template(rf, ctx) { if (rf 
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r43.checkImageCountFlag);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r43.googleSheet);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r43.drivefolders);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](19);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", ctx_r43.google_sheet_url, " ");
 } }
@@ -1810,14 +1810,14 @@ class MenuitemsComponent {
             if (folder.category_image) {
                 formData1.append("catimage", folder.category_image);
             }
-            formData1.append("folderId", folder.folderId);
+            formData1.append("folderId", folder.folderid);
             formData1.append("email", this.googleEmail);
-            formData1.append("category", folder.category);
+            formData1.append("category", folder.foldername);
             formData1.append("menu_name", folder.menuItemName);
             formData1.append("price", folder.menuItemPrice);
             formData1.append("catdescription", folder.catdescription);
             formData1.append("menu_description", folder.menuItemDescription);
-            this.uploadImageToDrive(formData1, folder.folderId, folder.category);
+            this.uploadImageToDrive(formData1, folder.folderid, folder.foldername);
         }
         // let menu_name = $("#menu_name" + folderId)
         //   .val()

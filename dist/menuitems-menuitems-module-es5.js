@@ -2693,7 +2693,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](folder_r62.category);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](folder_r62.foldername);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](10);
 
@@ -2883,7 +2883,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r43.googleSheet);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r43.drivefolders);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](19);
 
@@ -3495,14 +3495,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               formData1.append("catimage", folder.category_image);
             }
 
-            formData1.append("folderId", folder.folderId);
+            formData1.append("folderId", folder.folderid);
             formData1.append("email", this.googleEmail);
-            formData1.append("category", folder.category);
+            formData1.append("category", folder.foldername);
             formData1.append("menu_name", folder.menuItemName);
             formData1.append("price", folder.menuItemPrice);
             formData1.append("catdescription", folder.catdescription);
             formData1.append("menu_description", folder.menuItemDescription);
-            this.uploadImageToDrive(formData1, folder.folderId, folder.category);
+            this.uploadImageToDrive(formData1, folder.folderid, folder.foldername);
           } // let menu_name = $("#menu_name" + folderId)
           //   .val()
           //   .toString();

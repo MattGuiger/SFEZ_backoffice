@@ -2231,10 +2231,10 @@ class ProfileService {
         this.territoryURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/territories';
         this.googldriveUrl = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/google/';
         this.googlsheetUrl = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/google/googlesheetdetail';
-        this.unitLocationsHub = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/unit_locations/';
+        this.unitLocationsHub = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/deliveryhub_units/';
         this.territoryDriverURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/driversinterritory';
         this.companyDriverURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/drivers_company';
-        this.deliveryhub_units = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/unit_locations/';
+        this.deliveryhub_units = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/deliveryhub_units/';
         this.foodParkURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel';
         this.emailManagerURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/send-email-manager';
         this.countriesURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/countries';

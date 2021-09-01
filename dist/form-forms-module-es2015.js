@@ -32512,7 +32512,7 @@ class FoodParkComponent {
     getDeliveryHubAndLocationsInCompany() {
         if (this.user.company_id) {
             this._ProfileService
-                .getDeliveryHubandUnits(this.user.territory_id)
+                .getDeliveryHubandUnits(this.user.company_id)
                 .subscribe((res) => {
                 if (res.status == 200) {
                     this.deliveryHubUnits = res.data;
@@ -32834,9 +32834,9 @@ class FoodParkComponent {
         }
     }
     getlocationsAndHub() {
-        if (this.user.territory_id) {
+        if (this.user.company_id) {
             this._ProfileService
-                .getHubwithUnits(this.user.territory_id)
+                .getHubwithUnits(this.user.company_id)
                 .subscribe((res) => {
                 if (res.status == 200) {
                     this.deliveryHubUnits = res.data;

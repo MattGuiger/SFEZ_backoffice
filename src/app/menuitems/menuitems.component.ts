@@ -289,14 +289,14 @@ export class MenuitemsComponent implements OnInit {
         formData1.append("catimage", folder.category_image);
       }
       
-      formData1.append("folderId", folder.folderId);
+      formData1.append("folderId", folder.folderid);
       formData1.append("email", this.googleEmail);
-      formData1.append("category", folder.category);
+      formData1.append("category", folder.foldername);
       formData1.append("menu_name", folder.menuItemName);
       formData1.append("price", folder.menuItemPrice);
       formData1.append("catdescription", folder.catdescription);
       formData1.append("menu_description", folder.menuItemDescription);
-      this.uploadImageToDrive(formData1, folder.folderId, folder.category);
+      this.uploadImageToDrive(formData1, folder.folderid, folder.foldername);
     }
 
     // let menu_name = $("#menu_name" + folderId)
