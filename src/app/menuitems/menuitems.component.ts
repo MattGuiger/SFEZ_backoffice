@@ -271,12 +271,10 @@ export class MenuitemsComponent implements OnInit {
    */
   submitSheetData(folder) {
     if (
-      !folder.catdescription ||
-      (!folder.category_image && !folder.catimage) ||
       !folder.menuItemName ||
       !folder.menuItemDescription ||
       !folder.menuItemPrice ||
-      (!folder.image && !folder.menu_image)
+      !folder.menu_image
     ) {
       this.toastr.error("Please fill all required fields");
     } else {
@@ -285,18 +283,18 @@ export class MenuitemsComponent implements OnInit {
         formData1.append("file", folder.menu_image);
       }
      
-      if(folder.category_image){
-        formData1.append("catimage", folder.category_image);
-      }
+      // if(folder.category_image){
+      //   formData1.append("catimage", folder.category_image);
+      // }
       
       formData1.append("folderId", folder.folderid);
       formData1.append("email", this.googleEmail);
       formData1.append("category", folder.foldername);
       formData1.append("menu_name", folder.menuItemName);
       formData1.append("price", folder.menuItemPrice);
-      formData1.append("catdescription", folder.catdescription);
+      //formData1.append("catdescription", folder.catdescription);
       formData1.append("menu_description", folder.menuItemDescription);
-      this.uploadImageToDrive(formData1, folder.folderid, folder.foldername);
+      this.uploadImageToDrive(formData1, folder)
     }
 
     // let menu_name = $("#menu_name" + folderId)
@@ -361,10 +359,10 @@ export class MenuitemsComponent implements OnInit {
         });
     }
   }
-  uploadImageToDrive(formData, folderId, category) {
+  uploadImageToDrive(formData, folder) {
     this.user = this._CommonFunctionsService.checkUser().user;
     this.ngxService.start();
-    this._ProfileService
+    return this._ProfileService
       .uploadImageTodrive(this.user.company_id, formData)
       .subscribe(
         (res) => {
@@ -379,6 +377,9 @@ export class MenuitemsComponent implements OnInit {
             : "";
           this.tempMenuItem = "";
           this.toastr.success("Upload successfull to drive");
+          folder.menuItemName = "";
+          folder.menuItemPrice = "";
+          folder.menuItemDescription = "";
         },
         (error) => {
           this.ngxService.stop();

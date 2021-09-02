@@ -253,7 +253,6 @@
                                           <img src="../../assets/images/folder@1X.png" alt="">
                                         </div>
                                         <div class="col-md-4">
-
                                           <mat-form-field  appearance="fill" required>
                                             <mat-label>Category Description *</mat-label>
                                             <textarea matInput required [(ngModel)]="folder.catdescription"></textarea>
@@ -263,7 +262,14 @@
                                               required (change)="onFileSelectget($event,folder,'category_image')">
                                             <label class="custom-file-label" for="customFile">{{folder.category_image?folder.category_image.name:'Upload Image'}}</label>
                                           </div>
-
+                                          <div class="d-block mt-2">
+                                            <button type="button" class="btn btn-info"
+                                              (click)="submitSheetData(folder)">
+                                              Save
+                                            </button>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-4">
                                           <mat-form-field  appearance="fill"  required>
                                             <mat-label>Menu Item Name *</mat-label>
                                             <input matInput type="text" name="menu_name" placeholder="Menu Item Name *"
@@ -295,7 +301,7 @@
                                             </button>
                                           </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <!-- <div class="col-md-4">
                                           <ng-container>
                                             <div
                                               class="menu-item-list">
@@ -330,7 +336,7 @@
                                               </h5>
                                             </div>
                                           </ng-container>
-                                        </div>
+                                        </div> -->
                                       </div>
                                     </li>
                                   </ul>
