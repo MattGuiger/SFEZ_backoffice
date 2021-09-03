@@ -77,6 +77,7 @@ export class ProfileService {
   private unitManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/unitmanagers';
   private refundToCustomerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/refund/customer/';
   private googleUser = config.getEnvironmentVariable('endPoint') + "/api/v1/rel/google/"
+  private updateCategoryDetail = config.getEnvironmentVariable('endPoint') + "/api/v1/mol/companies/"
 
   constructor(private http: HttpClient) { }
 
@@ -184,6 +185,11 @@ export class ProfileService {
   uploadImageTodrive(companyId, data): Observable<any> {
     //this.companyProfileURl+companyId+"/"+"images"
     return this.http.post(this.googldriveUrl + companyId + "/" + 'imageuploadtodrive', data);
+  }
+
+  uploadCategoryDetail(companyId, data): Observable<any> {
+    //this.companyProfileURl+companyId+"/"+"images"
+    return this.http.post(this.updateCategoryDetail + companyId + "/" + 'categories', data);
   }
 
   foodParkUnits(id): Observable<any> {

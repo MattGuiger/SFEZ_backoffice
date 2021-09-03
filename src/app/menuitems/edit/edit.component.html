@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-body">
                 <form action="#">
-                    <div class="form-body">
+                    <div class="form-body" *ngIf="productDetails">
                         <h5 class="card-title">About Product</h5>
                         <hr>
                         <div class="row">
@@ -46,19 +46,9 @@
                             <!--/span-->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Status</label>
-                                    <br/>
-                                    <div >
-                                        <ui-switch checkedLabel="Publish" uncheckedLabel="Draft" [checked]="productDetails?.drill_in" (change)="onChange($event)"></ui-switch>
-                                         </div>
-                                    <!-- <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked="{{productDetails?.status=='live'}}">
-                                        <label class="custom-control-label" for="customRadioInline1" >Publish</label>
-                                    </div>
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadioInline2">Draft</label>
-                                    </div> -->
+                                    <label class="control-label">Status</label><br/>
+                                    <input type="radio" [value]="true" name="status" [(ngModel)]="productDetails.drill_in" id="plublish" (change)="onChange($event)"> <label for="plublish">&nbsp; Publish </label> &nbsp;&nbsp;&nbsp;
+                                    <input type="radio" [value]="false" name="status" [(ngModel)]="productDetails.drill_in"  id="draft" (change)="onChange($event)">  <label for="draft">&nbsp; Draft </label>
                                 </div>
                             </div>
                             <!--/span-->

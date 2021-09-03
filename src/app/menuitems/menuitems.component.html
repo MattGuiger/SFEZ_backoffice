@@ -253,44 +253,45 @@
                                           <img src="../../assets/images/folder@1X.png" alt="">
                                         </div>
                                         <div class="col-md-4">
-                                          <mat-form-field  appearance="fill" required>
+                                          <mat-form-field  appearance="fill">
                                             <mat-label>Category Description *</mat-label>
-                                            <textarea matInput required [(ngModel)]="folder.catdescription"></textarea>
+                                            <textarea matInput [(ngModel)]="folder.catdescription"></textarea>
                                           </mat-form-field>
+                                          <img *ngIf="folder.category_file" src="{{folder.category_file}}"/>
                                           <div class="custom-file mb-2" style="padding-bottom: 61px;">
                                             <input  type="file" name="fileget" class="custom-file-input" #fileget id="customFile"
-                                              required (change)="onFileSelectget($event,folder,'category_image')">
+                                               (change)="onFileSelectget($event,folder,'category_image')">
                                             <label class="custom-file-label" for="customFile">{{folder.category_image?folder.category_image.name:'Upload Image'}}</label>
                                           </div>
                                           <div class="d-block mt-2">
                                             <button type="button" class="btn btn-info"
-                                              (click)="submitSheetData(folder)">
+                                              (click)="submitCategoryData(folder)">
                                               Save
                                             </button>
                                           </div>
                                         </div>
                                         <div class="col-md-4">
-                                          <mat-form-field  appearance="fill"  required>
+                                          <mat-form-field  appearance="fill">
                                             <mat-label>Menu Item Name *</mat-label>
                                             <input matInput type="text" name="menu_name" placeholder="Menu Item Name *"
-                                              required [(ngModel)]="folder.menuItemName" />
+                                               [(ngModel)]="folder.menuItemName" />
                                           </mat-form-field>
 
-                                          <mat-form-field  appearance="fill"  required>
+                                          <mat-form-field  appearance="fill">
                                             <mat-label>Menu Item Description *</mat-label>
-                                            <textarea matInput name="menuItemDescription" required [(ngModel)]="folder.menuItemDescription"
+                                            <textarea matInput name="menuItemDescription" [(ngModel)]="folder.menuItemDescription"
                                               placeholder="Menu Item Description *"></textarea>
                                           </mat-form-field>
 
-                                          <mat-form-field  appearance="fill"  required>
+                                          <mat-form-field  appearance="fill">
                                             <mat-label>Menu Item Price (ex. $10.00)</mat-label>
                                             <input matInput type="number" name="price"  placeholder="Menu Item Price (ex. $10.00)"
-                                              required [(ngModel)]="folder.menuItemPrice" />
+                                               [(ngModel)]="folder.menuItemPrice" />
                                           </mat-form-field>
 
                                           <div class="custom-file mb-2">
                                             <input type="file" name="file" class="custom-file-input" #file id="customFile"
-                                              required (change)="onFileSelect($event,folder,'menu_image')">
+                                               (change)="onFileSelect($event,folder,'menu_image')">
                                             <label class="custom-file-label" for="customFile">{{folder.menu_image?folder.menu_image.name:'Upload Image'}}</label>
                                           </div>
 

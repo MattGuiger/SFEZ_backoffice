@@ -196,21 +196,34 @@ export class MenuitemsComponent implements OnInit {
         user_id: this.user.id,
       };
       this.ngxService.start();
-      this._ProfileService.getFoldersCreatedInDrive(data).subscribe((res) => {
-        this.drivefolders = res.data;
-        this.isChecked = 2;
-        const tabCount = isTabchange ? 1 : 0;
-        this.demo1TabIndex = tabCount;
-        this.fetchFolder();
-        this.showBlueColoredTable = false;
-        this.showZerothTab = false;
-        this.showFirstTab = true;
-        this.showSecondTab = true;
-        this.showThirdTab = true;
-        this.showFourthTab = true;
-        this.showFifthTab = true;
-        this.ngxService.stop();
-      });
+      this._ProfileService.getCategory(this.user.company_id).subscribe(res=>{
+        this.categoryList = res.data;
+        this._ProfileService.getFoldersCreatedInDrive(data).subscribe((res) => {
+          this.drivefolders = res.data;
+          this.categoryList.forEach(activeCat=>{
+            this.drivefolders.forEach(driveFolder => {
+                if(activeCat.name == driveFolder.foldername){
+                  driveFolder.catdescription = activeCat.description
+                  driveFolder.category_file = activeCat.image;
+                  driveFolder.active_category_id = activeCat.id;
+                }
+            });
+          })
+          this.isChecked = 2;
+          const tabCount = isTabchange ? 1 : 0;
+          this.demo1TabIndex = tabCount;
+          this.fetchFolder();
+          this.showBlueColoredTable = false;
+          this.showZerothTab = false;
+          this.showFirstTab = true;
+          this.showSecondTab = true;
+          this.showThirdTab = true;
+          this.showFourthTab = true;
+          this.showFifthTab = true;
+          this.ngxService.stop();
+        });
+      })
+      
     }
   }
   fetchFolder() {
@@ -296,45 +309,29 @@ export class MenuitemsComponent implements OnInit {
       formData1.append("menu_description", folder.menuItemDescription);
       this.uploadImageToDrive(formData1, folder)
     }
+  }
 
-    // let menu_name = $("#menu_name" + folderId)
-    //   .val()
-    //   .toString();
-    // let price = $("#price" + folderId)
-    //   .val()
-    //   .toString();
-    // let category_description = $("#category_description" + folderId)
-    //   .val()
-    //   .toString();
-
-    // if (menu_name !== "" && price !== "" && category_description !== "") {
-    //   let formData1 = new FormData();
-    //   formData1.append("file", this.file);
-    //   formData1.append("folderId", folderId);
-    //   formData1.append("email", this.googleEmail);
-    //   formData1.append("category", category);
-    //   formData1.append("menu_name", menu_name);
-    //   formData1.append("price", price);
-    //   formData1.append("category_description", category_description);
-    //   $("#menu_name" + folderId).val("");
-    //   $("#price" + folderId).val("");
-    //   folder.user_id = "";
-    //   $("#category_description" + folderId).val("");
-    //   const reader = new FileReader();
-    //   reader.onloadend = () => {
-    //     this.tempMenuItem = {
-    //       folderId: folderId,
-    //       menu_name: menu_name,
-    //       price: price,
-    //       img_url: reader.result,
-    //       description: category_description,
-    //     };
-    //   };
-    //   reader.readAsDataURL(this.file);
-    //   this.uploadImageToDrive(formData1, folderId, category);
-    // } else {
-    //   this.toastr.error("Please fill all required fields");
-    // }
+  /**
+   *
+   * @param index
+   */
+   submitCategoryData(folder) {
+    if (
+      !folder.catdescription ||
+      (!folder.category_image && !folder.category_file)
+    ) {
+      this.toastr.error("Please fill all required fields");
+    } else {
+      let formData1 = new FormData();
+     
+      if (folder.category_image){
+        formData1.append("category_file", folder.category_image);
+      }
+      
+      formData1.append("title", folder.foldername);
+      formData1.append("description", folder.catdescription);
+      this.uploadCategoryData(formData1, folder)
+    }
   }
 
   deleteFolder(index) {
@@ -359,6 +356,27 @@ export class MenuitemsComponent implements OnInit {
         });
     }
   }
+
+  uploadCategoryData(formData, folder) {
+    this.user = this._CommonFunctionsService.checkUser().user;
+    this.ngxService.start();
+    return this._ProfileService
+      .uploadCategoryDetail(this.user.company_id, formData)
+      .subscribe(
+        (res) => {
+          this.ngxService.stop();
+          //folder.catdescription = "";
+          //folder.menuItemDescription = "";
+          this.toastr.success("Upload Category successfully");
+          this.getAllGoogleSheetDetails();
+        },
+        (error) => {
+          this.ngxService.stop();
+          this.toastr.error("Failed to upload, please try again later");
+        }
+      );
+  }
+
   uploadImageToDrive(formData, folder) {
     this.user = this._CommonFunctionsService.checkUser().user;
     this.ngxService.start();

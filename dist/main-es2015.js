@@ -2247,6 +2247,7 @@ class ProfileService {
         this.unitManagerURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/unitmanagers';
         this.refundToCustomerURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/refund/customer/';
         this.googleUser = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "/api/v1/rel/google/";
+        this.updateCategoryDetail = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "/api/v1/mol/companies/";
     }
     greenMoneyPayment(data) {
         return this.http.get(this.greenMoneyURL + data);
@@ -2349,6 +2350,10 @@ class ProfileService {
     uploadImageTodrive(companyId, data) {
         //this.companyProfileURl+companyId+"/"+"images"
         return this.http.post(this.googldriveUrl + companyId + "/" + 'imageuploadtodrive', data);
+    }
+    uploadCategoryDetail(companyId, data) {
+        //this.companyProfileURl+companyId+"/"+"images"
+        return this.http.post(this.updateCategoryDetail + companyId + "/" + 'categories', data);
     }
     foodParkUnits(id) {
         return this.http.get(this.foodParkUnitsUrl + id);
