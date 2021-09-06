@@ -77,7 +77,7 @@ export class ProfileService {
   private unitManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/unitmanagers';
   private refundToCustomerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/refund/customer/';
   private googleUser = config.getEnvironmentVariable('endPoint') + "/api/v1/rel/google/"
-  private updateCategoryDetail = config.getEnvironmentVariable('endPoint') + "/api/v1/mol/companies/"
+  private molCategoryDetail = config.getEnvironmentVariable('endPoint') + "/api/v1/mol/companies/"
 
   constructor(private http: HttpClient) { }
 
@@ -189,7 +189,12 @@ export class ProfileService {
 
   uploadCategoryDetail(companyId, data): Observable<any> {
     //this.companyProfileURl+companyId+"/"+"images"
-    return this.http.post(this.updateCategoryDetail + companyId + "/" + 'categories', data);
+    return this.http.post(this.molCategoryDetail + companyId + "/" + 'categories', data);
+  }
+
+  updateCategoryDetail(companyId,categoryId, data): Observable<any> {
+    //this.companyProfileURl+companyId+"/"+"images"
+    return this.http.put(this.molCategoryDetail + companyId + "/" + 'categories/'+categoryId, data);
   }
 
   foodParkUnits(id): Observable<any> {

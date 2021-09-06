@@ -4267,7 +4267,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.unitManagerURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/unitmanagers';
         this.refundToCustomerURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/refund/customer/';
         this.googleUser = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "/api/v1/rel/google/";
-        this.updateCategoryDetail = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "/api/v1/mol/companies/";
+        this.molCategoryDetail = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "/api/v1/mol/companies/";
       }
 
       _createClass(ProfileService, [{
@@ -4436,7 +4436,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "uploadCategoryDetail",
         value: function uploadCategoryDetail(companyId, data) {
           //this.companyProfileURl+companyId+"/"+"images"
-          return this.http.post(this.updateCategoryDetail + companyId + "/" + 'categories', data);
+          return this.http.post(this.molCategoryDetail + companyId + "/" + 'categories', data);
+        }
+      }, {
+        key: "updateCategoryDetail",
+        value: function updateCategoryDetail(companyId, categoryId, data) {
+          //this.companyProfileURl+companyId+"/"+"images"
+          return this.http.put(this.molCategoryDetail + companyId + "/" + 'categories/' + categoryId, data);
         }
       }, {
         key: "foodParkUnits",

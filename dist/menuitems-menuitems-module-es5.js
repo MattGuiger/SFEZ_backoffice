@@ -3555,19 +3555,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.user = this._CommonFunctionsService.checkUser().user;
           this.ngxService.start();
-          return this._ProfileService.uploadCategoryDetail(this.user.company_id, formData).subscribe(function (res) {
+          var apicall = folder.active_category_id ? this.updateCategory(folder.active_category_id, formData) : this.addCategory(formData);
+          apicall.subscribe(function (res) {
             _this10.ngxService.stop(); //folder.catdescription = "";
             //folder.menuItemDescription = "";
 
 
             _this10.toastr.success("Upload Category successfully");
 
-            _this10.getAllGoogleSheetDetails();
+            folder.active_category_id = res.data.id;
+            folder.category_file = res.data.image; //this.getAllGoogleSheetDetails();
           }, function (error) {
             _this10.ngxService.stop();
 
             _this10.toastr.error("Failed to upload, please try again later");
           });
+        }
+      }, {
+        key: "addCategory",
+        value: function addCategory(formData) {
+          return this._ProfileService.uploadCategoryDetail(this.user.company_id, formData);
+        }
+      }, {
+        key: "updateCategory",
+        value: function updateCategory(categoryId, formData) {
+          return this._ProfileService.updateCategoryDetail(this.user.company_id, categoryId, formData);
         }
       }, {
         key: "uploadImageToDrive",

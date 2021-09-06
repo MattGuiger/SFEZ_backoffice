@@ -360,21 +360,33 @@ export class MenuitemsComponent implements OnInit {
   uploadCategoryData(formData, folder) {
     this.user = this._CommonFunctionsService.checkUser().user;
     this.ngxService.start();
-    return this._ProfileService
-      .uploadCategoryDetail(this.user.company_id, formData)
-      .subscribe(
+    let apicall = (folder.active_category_id)?this.updateCategory(folder.active_category_id,formData):this.addCategory(formData);
+
+    apicall.subscribe(
         (res) => {
           this.ngxService.stop();
           //folder.catdescription = "";
           //folder.menuItemDescription = "";
           this.toastr.success("Upload Category successfully");
-          this.getAllGoogleSheetDetails();
+          folder.active_category_id = res.data.id;
+          folder.category_file = res.data.image;
+          //this.getAllGoogleSheetDetails();
         },
         (error) => {
           this.ngxService.stop();
           this.toastr.error("Failed to upload, please try again later");
         }
       );
+  }
+  
+  addCategory(formData){
+    return this._ProfileService
+    .uploadCategoryDetail(this.user.company_id, formData)
+  }
+
+  updateCategory(categoryId,formData){
+    return this._ProfileService
+    .updateCategoryDetail(this.user.company_id,categoryId, formData)
   }
 
   uploadImageToDrive(formData, folder) {
