@@ -17,3 +17,11 @@ input.form-control.custom-disable{
   .switch{
     border: none !important;
   }
+  .confirm {
+    .buttons{
+      text-align: right;
+      .btn-success{
+        margin-right: 10px;
+      }
+    }
+  }

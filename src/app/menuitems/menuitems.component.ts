@@ -19,6 +19,9 @@ import { MatDialog } from "@angular/material/dialog";
 import { local, values } from "d3";
 import { data } from "jquery";
 import { map } from "rxjs/operators";
+import { NgxBootstrapConfirmService } from "ngx-bootstrap-confirm";
+import { Observable } from "rxjs";
+
 declare var $;
 
 @Component({
@@ -88,7 +91,8 @@ export class MenuitemsComponent implements OnInit {
     private _ProfileService: ProfileService,
     private slimLoader: SlimLoadingBarService,
     private _CommonFunctionsService: CommonFunctionsService,
-    private _Router: Router
+    private _Router: Router,
+    private ngxBootstrapConfirmService: NgxBootstrapConfirmService
   ) {}
 
   ngAfterViewInit() {
@@ -196,34 +200,37 @@ export class MenuitemsComponent implements OnInit {
         user_id: this.user.id,
       };
       this.ngxService.start();
-      this._ProfileService.getCategory(this.user.company_id).subscribe(res=>{
-        this.categoryList = res.data;
-        this._ProfileService.getFoldersCreatedInDrive(data).subscribe((res) => {
-          this.drivefolders = res.data;
-          this.categoryList.forEach(activeCat=>{
-            this.drivefolders.forEach(driveFolder => {
-                if(activeCat.name == driveFolder.foldername){
-                  driveFolder.catdescription = activeCat.description
-                  driveFolder.category_file = activeCat.image;
-                  driveFolder.active_category_id = activeCat.id;
-                }
+      this._ProfileService
+        .getCategory(this.user.company_id)
+        .subscribe((res) => {
+          this.categoryList = res.data;
+          this._ProfileService
+            .getFoldersCreatedInDrive(data)
+            .subscribe((res) => {
+              this.drivefolders = res.data;
+              this.categoryList.forEach((activeCat) => {
+                this.drivefolders.forEach((driveFolder) => {
+                  if (activeCat.name == driveFolder.foldername) {
+                    driveFolder.catdescription = activeCat.description;
+                    driveFolder.category_file = activeCat.image;
+                    driveFolder.active_category_id = activeCat.id;
+                  }
+                });
+              });
+              this.isChecked = 2;
+              const tabCount = isTabchange ? 1 : 0;
+              this.demo1TabIndex = tabCount;
+              this.fetchFolder();
+              this.showBlueColoredTable = false;
+              this.showZerothTab = false;
+              this.showFirstTab = true;
+              this.showSecondTab = true;
+              this.showThirdTab = true;
+              this.showFourthTab = true;
+              this.showFifthTab = true;
+              this.ngxService.stop();
             });
-          })
-          this.isChecked = 2;
-          const tabCount = isTabchange ? 1 : 0;
-          this.demo1TabIndex = tabCount;
-          this.fetchFolder();
-          this.showBlueColoredTable = false;
-          this.showZerothTab = false;
-          this.showFirstTab = true;
-          this.showSecondTab = true;
-          this.showThirdTab = true;
-          this.showFourthTab = true;
-          this.showFifthTab = true;
-          this.ngxService.stop();
         });
-      })
-      
     }
   }
   fetchFolder() {
@@ -292,14 +299,14 @@ export class MenuitemsComponent implements OnInit {
       this.toastr.error("Please fill all required fields");
     } else {
       let formData1 = new FormData();
-      if(folder.menu_image){
+      if (folder.menu_image) {
         formData1.append("file", folder.menu_image);
       }
-     
+
       // if(folder.category_image){
       //   formData1.append("catimage", folder.category_image);
       // }
-      
+
       formData1.append("folderId", folder.folderid);
       formData1.append("email", this.googleEmail);
       formData1.append("category", folder.foldername);
@@ -307,7 +314,7 @@ export class MenuitemsComponent implements OnInit {
       formData1.append("price", folder.menuItemPrice);
       //formData1.append("catdescription", folder.catdescription);
       formData1.append("menu_description", folder.menuItemDescription);
-      this.uploadImageToDrive(formData1, folder)
+      this.uploadImageToDrive(formData1, folder);
     }
   }
 
@@ -315,7 +322,7 @@ export class MenuitemsComponent implements OnInit {
    *
    * @param index
    */
-   submitCategoryData(folder) {
+  submitCategoryData(folder) {
     if (
       !folder.catdescription ||
       (!folder.category_image && !folder.category_file)
@@ -323,14 +330,14 @@ export class MenuitemsComponent implements OnInit {
       this.toastr.error("Please fill all required fields");
     } else {
       let formData1 = new FormData();
-     
-      if (folder.category_image){
+
+      if (folder.category_image) {
         formData1.append("category_file", folder.category_image);
       }
-      
+
       formData1.append("title", folder.foldername);
       formData1.append("description", folder.catdescription);
-      this.uploadCategoryData(formData1, folder)
+      this.uploadCategoryData(formData1, folder);
     }
   }
 
@@ -360,33 +367,47 @@ export class MenuitemsComponent implements OnInit {
   uploadCategoryData(formData, folder) {
     this.user = this._CommonFunctionsService.checkUser().user;
     this.ngxService.start();
-    let apicall = (folder.active_category_id)?this.updateCategory(folder.active_category_id,formData):this.addCategory(formData);
+    let apicall = folder.active_category_id
+      ? this.updateCategory(folder.active_category_id, formData)
+      : this.addCategory(formData);
 
     apicall.subscribe(
-        (res) => {
-          this.ngxService.stop();
-          //folder.catdescription = "";
-          //folder.menuItemDescription = "";
-          this.toastr.success("Upload Category successfully");
-          folder.active_category_id = res.data.id;
-          folder.category_file = res.data.image;
-          //this.getAllGoogleSheetDetails();
-        },
-        (error) => {
-          this.ngxService.stop();
-          this.toastr.error("Failed to upload, please try again later");
-        }
-      );
-  }
-  
-  addCategory(formData){
-    return this._ProfileService
-    .uploadCategoryDetail(this.user.company_id, formData)
+      (res) => {
+        this.ngxService.stop();
+        //folder.catdescription = "";
+        //folder.menuItemDescription = "";
+        this.toastr.success("Upload Category successfully");
+        folder.active_category_id = res.data.id;
+        folder.category_file = res.data.image;
+        //this.getAllGoogleSheetDetails();
+      },
+      (error) => {
+        this.ngxService.stop();
+        this.toastr.error("Failed to upload, please try again later");
+      }
+    );
   }
 
-  updateCategory(categoryId,formData){
-    return this._ProfileService
-    .updateCategoryDetail(this.user.company_id,categoryId, formData)
+  addCategory(formData) {
+    return this._ProfileService.uploadCategoryDetail(
+      this.user.company_id,
+      formData
+    );
+  }
+
+  removeCategoryMoltin(categoryId) {
+    return this._ProfileService.removeCategoryMol(
+      this.user.company_id,
+      categoryId
+    );
+  }
+
+  updateCategory(categoryId, formData) {
+    return this._ProfileService.updateCategoryDetail(
+      this.user.company_id,
+      categoryId,
+      formData
+    );
   }
 
   uploadImageToDrive(formData, folder) {
@@ -520,36 +541,94 @@ export class MenuitemsComponent implements OnInit {
   }
   getAllGoogleSheetDetails() {
     this.user = this._CommonFunctionsService.checkUser().user;
-    this._ProfileService.getAllGoogleSheetDetails({
-      user_id: this.user.id,
-      email: this.googleEmail
-    }).subscribe(
-      (res: any) => {
-        this.googleSheet = res.data;
-        this.imageCount = res.data.length;
-        this.checkImageCountFlag = true;
-      },
-      (error) => {
-        //
-      }
-    );
+    this._ProfileService
+      .getAllGoogleSheetDetails({
+        user_id: this.user.id,
+        email: this.googleEmail,
+      })
+      .subscribe(
+        (res: any) => {
+          this.googleSheet = res.data;
+          this.imageCount = res.data.length;
+          this.checkImageCountFlag = true;
+        },
+        (error) => {
+          //
+        }
+      );
   }
 
   createFolderinDrive() {
-    const data = {
-      folder: this.addedItems,
-      email: this.googleEmail,
-      // user_id: '11744'
-      user_id: JSON.parse(localStorage.getItem("user")).user.id,
+    let options = {
+      title:
+        "This will delete unselected categories and create new. Are you sure want to do ?",
+      confirmLabel: "Okay",
+      declineLabel: "Cancel",
     };
-
-    this._ProfileService.createfolderInGoogleDrive(data).subscribe((res) => {
-      //const tabCount = 2;
-      this.demo1TabIndex = 1;
-      this.toastr.success("Folders created successfully");
-      this.getFolderbyEmail(true);
+    this.ngxBootstrapConfirmService.confirm(options).then((res: boolean) => {
+      if (res) {
+        this.syncCategoryInMoltin().subscribe(() => {
+          const data = {
+            folder: this.addedItems,
+            email: this.googleEmail,
+            // user_id: '11744'
+            user_id: JSON.parse(localStorage.getItem("user")).user.id,
+          };
+          this._ProfileService
+            .createfolderInGoogleDrive(data)
+            .subscribe((res) => {
+              //const tabCount = 2;
+              this.demo1TabIndex = 1;
+              this.toastr.success("Folders created successfully");
+              this.getFolderbyEmail(true);
+            });
+        });
+      } else {
+      }
     });
   }
+
+  syncCategoryInMoltin() {
+    let observableBatch = [];
+    let addCategoryList = [];
+    let removeCategoryList = [];
+    this.addedItems.forEach((cat) => {
+      let catFound = false;
+      this.categoryList.forEach((catL) => {
+        if (cat == catL.name) {
+          catFound = true;
+        }
+      });
+      if (!catFound) {
+        addCategoryList.push(cat);
+      }
+    });
+
+    this.categoryList.forEach((catL) => {
+      let catFound = false;
+      this.addedItems.forEach((cat) => {
+        if (cat == catL.name) {
+          catFound = true;
+        }
+      });
+      if (!catFound) {
+        removeCategoryList.push(catL);
+      }
+    });
+
+    addCategoryList.forEach((element) => {
+      let formData1 = new FormData();
+      formData1.append("title", element);
+      observableBatch.push(this.addCategory(formData1));
+    });
+
+    removeCategoryList.forEach((element) => {
+      observableBatch.push(this.removeCategoryMoltin(element.id));
+    });
+
+    return Observable.forkJoin(observableBatch);
+  }
+
   onClick(event) {
     event.preventDefault();
     this.ref._checked = !this.ref._checked;

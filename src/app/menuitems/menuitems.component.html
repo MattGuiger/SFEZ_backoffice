@@ -234,6 +234,27 @@
                       </mat-tab>
                       <mat-tab *ngIf="showSecondTab" label="2">
                         <div class="step_one">
+                          <div class="row pt-5">
+                            <div class="col-md-12">
+                              <h4>Custom Google Sheets Spreadsheet</h4>
+                              <p>Thank you for providing your menu item details!
+                                InstaMarkt will finish creating your menu in Google Sheets.
+                                We will schedule a time with you to review that all this information is correct.
+                                Click on the link below to view menu details!</p>
+                              <p>Vendors can make changes directly to their menu in Google Sheets by clicking on
+                                this shared link. Once ready, use the button below to update the menu.</p>
+                            </div>
+                            <div class="col-md-12">
+                              <h4>Google Sheets Link (URL)</h4>
+                              <p><a (click)="googlesheetUrl(google_sheet_url)"
+                                  style="cursor: pointer;color:rgb(67, 133, 238)">{{google_sheet_url}} </a></p><br>
+                            </div>
+                            <div class="col-md-12">
+                              <p>Add-Ons and Instructions can be updated using Google Sheets. Click here to see the
+                                current Menu. Use “Sync to Google
+                                Sheets” button to ensure that all updates are synchronized.</p>
+                            </div>
+                          </div>
                           <h4>Menu Images | Google Drive</h4>
                           <div class="row">
                             <div class="col-md-12">
@@ -353,27 +374,7 @@
                             </div>
                           </div>
 
-                          <div class="row pt-5">
-                            <div class="col-md-12">
-                              <h4>Custom Google Sheets Spreadsheet</h4>
-                              <p>Thank you for providing your menu item details!
-                                InstaMarkt will finish creating your menu in Google Sheets.
-                                We will schedule a time with you to review that all this information is correct.
-                                Click on the link below to view menu details!</p>
-                              <p>Vendors can make changes directly to their menu in Google Sheets by clicking on
-                                this shared link. Once ready, use the button below to update the menu.</p>
-                            </div>
-                            <div class="col-md-12">
-                              <h4>Google Sheets Link (URL)</h4>
-                              <p><a (click)="googlesheetUrl(google_sheet_url)"
-                                  style="cursor: pointer;color:rgb(67, 133, 238)">{{google_sheet_url}} </a></p><br>
-                            </div>
-                            <div class="col-md-12">
-                              <p>Add-Ons and Instructions can be updated using Google Sheets. Click here to see the
-                                current Menu. Use “Sync to Google
-                                Sheets” button to ensure that all updates are synchronized.</p>
-                            </div>
-                          </div>
+                         
                         </div>
                       </mat-tab>
                       <mat-tab *ngIf="showThirdTab" label="3">

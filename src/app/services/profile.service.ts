@@ -179,17 +179,18 @@ export class ProfileService {
     return this.http.get(this.particularUnitUrl + id);
   }
   createlegrambot(token, companyId): Observable<any> {
-    //this.companyProfileURl+companyId+"/"+"images"
     return this.http.post(this.telegrambotURL + 'create-telegram-support-bot/' + companyId, token);
   }
   uploadImageTodrive(companyId, data): Observable<any> {
-    //this.companyProfileURl+companyId+"/"+"images"
     return this.http.post(this.googldriveUrl + companyId + "/" + 'imageuploadtodrive', data);
   }
 
   uploadCategoryDetail(companyId, data): Observable<any> {
-    //this.companyProfileURl+companyId+"/"+"images"
     return this.http.post(this.molCategoryDetail + companyId + "/" + 'categories', data);
+  }
+
+  removeCategoryMol(companyId, categoryId): Observable<any> {
+    return this.http.delete(this.molCategoryDetail + companyId + "/" + 'categories/'+categoryId);
   }
 
   updateCategoryDetail(companyId,categoryId, data): Observable<any> {
