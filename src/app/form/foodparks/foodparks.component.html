@@ -61,7 +61,7 @@
                         [(ngModel)]="row.foodpark_mgr_id">
                         <option *ngIf="!row.foodpark_mgr_id" value="">Assign Master</option>
 
-                        <option *ngFor="let manager of arr" [value]="manager.user_id">
+                        <option *ngFor="let manager of getFilterManagerList(row.territory)" [value]="manager.user_id">
                           {{manager.first_name}} {{manager.last_name}}</option>
                       </select>
 
@@ -173,8 +173,8 @@
 
                 <div class="card-body">
                   <p class="text-center" style="font-weight: 500;">Register Vendors</p>
-                  <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
-                    [footerHeight]="50" [rowHeight]="'auto'" [limit]="5" [rows]='Hublocations'>
+                  <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" *ngIf="vendorDataByTeritory[hubunit?.data[0]?.territory_id]"
+                    [footerHeight]="50" [rowHeight]="'auto'" [limit]="5" [rows]="getLocationHubForTable(hubunit?.data[0]?.territory_id,hubunit?.data)">
                     <ngx-datatable-column name="Name" [width]="150">
                       <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
                         {{row?.unit_name}}

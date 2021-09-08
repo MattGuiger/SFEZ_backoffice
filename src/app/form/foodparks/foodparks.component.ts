@@ -1,6 +1,6 @@
 import { AuthService } from "src/app/services/auth.service";
 import { Observable } from "rxjs/Rx";
-import { debounceTime, map, startWith } from "rxjs/operators";
+import { debounceTime, map, startWith, filter } from 'rxjs/operators';
 import {
   Component,
   ViewChild,
@@ -248,6 +248,7 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
   location_name: any;
   locationfilter: any;
   managerlistData = [];
+  vendorDataByTeritory = {}
   constructor(
     private _ProfileService: ProfileService,
     private toastr: ToastrService,
@@ -283,7 +284,7 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
     this.getAllUnitWithFoodParkId();
     this.getAllDriversWithFoodParkId();
     this.getlocationOnTerritoryId();
-    this.getTerritoryDrivers();
+    //this.getTerritoryDrivers();
     this.getlocationsAndHub();
     this.getlocationCompanyId();
     // this.getlocationsAndHub()
@@ -326,6 +327,10 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
           }
         });
     }
+  }
+
+  getFilterManagerList (territory){
+    return this.arr.filter(data=>{return data.territory==territory})
   }
   managerListUnitMgr = [];
   getUnitManager() {
@@ -400,6 +405,7 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
         .subscribe((res) => {
           if (res.status == 200) {
             this.deliveryHubUnits = res.data;
+            this.deliveryHubUnits.data = this.deliveryHubUnits.reverse();
             let units = [];
             units = res.data;
             units.map((el) => {
@@ -409,6 +415,10 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
           }
         });
     }
+  }
+
+  getHublocationsForTable(){
+    return this.Hublocations
   }
   updateFiltdata(event) {
     const val = event.target.value.toLowerCase();
@@ -456,6 +466,14 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
           if (res.status == 200) {
             console.log("-------------->>>", res.data);
             this.deliveryHub = res.data;
+            this.deliveryHub.forEach(element => {
+              if(!this.vendorDataByTeritory[element.territory_id]){
+                this.vendorDataByTeritory[element.territory_id] = [];
+                this.getLocationInTerritoy(element.territory_id).subscribe((res) => {
+                  this.vendorDataByTeritory[element.territory_id] = res.data;
+                });
+              }
+            });
           } else {
           }
         });
@@ -473,13 +491,12 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
         });
     }
   }
-  getLocationInTerritoy() {
-    if (this.territory_id1) {
-      this._ProfileService
-        .getLocationsInTerritory_id(this.territory_id1)
-        .subscribe((res) => {
-          this.Hublocations = res.data;
-        });
+  getLocationInTerritoy(territory_id) {
+    territory_id = (territory_id)?territory_id:this.territory_id1;
+    if (territory_id) {
+      return this._ProfileService
+        .getLocationsInTerritory_id(territory_id)
+        
     }
   }
   territory_id() {
@@ -495,7 +512,7 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
         if (res.status == 200) {
           this.territory_id1 = res.data?.id;
           this.getlocationOnTerritoryId();
-          this.getLocationInTerritoy();
+          //this.getLocationInTerritoy();
         }
 
         // localStorage.setItem("territory_id",this.territory_id1)
@@ -626,6 +643,16 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
         });
     }
   }
+
+  getLocationHubForTable(territory_id,hubData){
+    let registerVendors = [];
+    hubData.forEach(element=>{
+      registerVendors.push(element.unit_id);
+    })
+    return this.vendorDataByTeritory[territory_id].filter(data=>{
+      return registerVendors.indexOf(data.unit_id) == -1;
+    })
+  }
   getlocationCompanyId() {
     if (this.user.company_id) {
       this._ProfileService
@@ -705,7 +732,7 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
         this.getDeliveryHubAndLocationsInCompany();
         // this.gethubswithterriId()
         // this.getlocationsAndHub()
-        this.getLocationInTerritoy();
+        //this.getLocationInTerritoy();
         this.getDeliveryHubinCompany();
       } else if (res["status"] == 404) {
         this.toastr.success("Vendor is already added in the Hub ");
@@ -763,7 +790,7 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
             this.toastr.success("Vendor Removed Successfully");
             this.getDeliveryHubAndLocationsInCompany();
             this.getlocationsAndHub();
-            this.getLocationInTerritoy();
+            //this.getLocationInTerritoy();
             this.getDeliveryHubinCompany();
             this.getlocationCompanyId();
             this.getDeliveryHubCompany();
@@ -1167,7 +1194,7 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
 
           this.hubFoodParkForm.reset();
           this.getDeliveryHubAndLocationsInCompany();
-          this.getLocationInTerritoy();
+          //this.getLocationInTerritoy();
           this.getDeliveryHubinCompany();
           this.getAllFoodPark();
           //vaishnavi

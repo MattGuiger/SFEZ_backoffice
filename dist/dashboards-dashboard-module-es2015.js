@@ -636,7 +636,7 @@ FeedsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCom
 /*!**********************************************************!*\
   !*** ./src/app/dashboards/dashboard-components/index.ts ***!
   \**********************************************************/
-/*! exports provided: ChatComponent, ActivityComponent, EarningsComponent, UserProfileComponent, InfocardComponent, CommentComponent, TopsellComponent, BrowserStatsComponent, DeviceVisitsComponent, FeedsComponent, InfoBoxComponent, MixstatsComponent, ProductInfoComponent, ProjectComponent, ReviewComponent, SalesComponent, SalesIncomeComponent, TasklistComponent, UserDetailsComponent, VisitorsComponent, VisitsBounceComponent, WeathercardComponent, WelcomeComponent */
+/*! exports provided: ChatComponent, ActivityComponent, EarningsComponent, ReviewComponent, InfocardComponent, CommentComponent, TopsellComponent, BrowserStatsComponent, DeviceVisitsComponent, FeedsComponent, InfoBoxComponent, MixstatsComponent, ProductInfoComponent, ProjectComponent, SalesComponent, SalesIncomeComponent, TasklistComponent, UserDetailsComponent, UserProfileComponent, VisitorsComponent, VisitsBounceComponent, WeathercardComponent, WelcomeComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
