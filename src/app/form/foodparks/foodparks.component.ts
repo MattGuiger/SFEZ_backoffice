@@ -1,6 +1,6 @@
 import { AuthService } from "src/app/services/auth.service";
 import { Observable } from "rxjs/Rx";
-import { debounceTime, map, startWith, filter } from 'rxjs/operators';
+import { debounceTime, map, startWith, filter } from "rxjs/operators";
 import {
   Component,
   ViewChild,
@@ -248,7 +248,8 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
   location_name: any;
   locationfilter: any;
   managerlistData = [];
-  vendorDataByTeritory = {}
+  vendorDataByTeritory = {};
+  driverDataByTerritory = {};
   constructor(
     private _ProfileService: ProfileService,
     private toastr: ToastrService,
@@ -329,8 +330,10 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
     }
   }
 
-  getFilterManagerList (territory){
-    return this.arr.filter(data=>{return data.territory==territory})
+  getFilterManagerList(territory) {
+    return this.arr.filter((data) => {
+      return data.territory == territory;
+    });
   }
   managerListUnitMgr = [];
   getUnitManager() {
@@ -417,8 +420,8 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
     }
   }
 
-  getHublocationsForTable(){
-    return this.Hublocations
+  getHublocationsForTable() {
+    return this.Hublocations;
   }
   updateFiltdata(event) {
     const val = event.target.value.toLowerCase();
@@ -466,12 +469,22 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
           if (res.status == 200) {
             console.log("-------------->>>", res.data);
             this.deliveryHub = res.data;
-            this.deliveryHub.forEach(element => {
-              if(!this.vendorDataByTeritory[element.territory_id]){
+            this.deliveryHub.forEach((element) => {
+              if (!this.vendorDataByTeritory[element.territory_id]) {
                 this.vendorDataByTeritory[element.territory_id] = [];
-                this.getLocationInTerritoy(element.territory_id).subscribe((res) => {
-                  this.vendorDataByTeritory[element.territory_id] = res.data;
-                });
+                this.getLocationInTerritoy(element.territory_id).subscribe(
+                  (res) => {
+                    this.vendorDataByTeritory[element.territory_id] = res.data;
+                  }
+                );
+              }
+              if (!this.driverDataByTerritory[element.territory_id]) {
+                this.driverDataByTerritory[element.territory_id] = [];
+                this.getDriverswithterriId(element.territory_id).subscribe(
+                  (res) => {
+                    this.driverDataByTerritory[element.territory_id] = res.data;
+                  }
+                );
               }
             });
           } else {
@@ -492,11 +505,9 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
     }
   }
   getLocationInTerritoy(territory_id) {
-    territory_id = (territory_id)?territory_id:this.territory_id1;
+    territory_id = territory_id ? territory_id : this.territory_id1;
     if (territory_id) {
-      return this._ProfileService
-        .getLocationsInTerritory_id(territory_id)
-        
+      return this._ProfileService.getLocationsInTerritory_id(territory_id);
     }
   }
   territory_id() {
@@ -613,7 +624,7 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
         this.territory_id1 = res.data?.id;
         console.log("territory_id" + this.territory_id1);
         this.getDriverswithCompanyId();
-        this.getDriverswithterriId();
+        //this.getDriverswithterriId();
         this.getManagerOnTerritoryid();
         // this.getManagerOnTerritoryid()
       });
@@ -644,15 +655,26 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
     }
   }
 
-  getLocationHubForTable(territory_id,hubData){
+  getLocationHubForTable(territory_id, hubData) {
     let registerVendors = [];
-    hubData.forEach(element=>{
+    hubData.forEach((element) => {
       registerVendors.push(element.unit_id);
-    })
-    return this.vendorDataByTeritory[territory_id].filter(data=>{
+    });
+    return this.vendorDataByTeritory[territory_id].filter((data) => {
       return registerVendors.indexOf(data.unit_id) == -1;
-    })
+    });
   }
+
+  getDriverForTable(territory_id, driverData) {
+    let registerVendors = [];
+    driverData.forEach((element) => {
+      registerVendors.push(element.driver_id);
+    });
+    return this.driverDataByTerritory[territory_id].filter((data) => {
+      return registerVendors.indexOf(data.driver_id) == -1;
+    });
+  }
+
   getlocationCompanyId() {
     if (this.user.company_id) {
       this._ProfileService
@@ -707,17 +729,17 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
         });
     }
   }
-  getDriverswithterriId() {
+  getDriverswithterriId(territory_id) {
+    territory_id = territory_id ? territory_id : this.territory_id1;
     if (this.territory_id1) {
       // const territory_id=41;
-      this._ProfileService
-        .getDriverswithterriId(this.territory_id1)
-        .subscribe((res) => {
-          if (res.status == 200) {
-            this.registerDriver = res.data;
-          } else {
-          }
-        });
+      return this._ProfileService.getDriverswithterriId(territory_id);
+      // .subscribe((res) => {
+      //   if (res.status == 200) {
+      //     this.registerDriver = res.data;
+      //   } else {
+      //   }
+      // });
     }
   }
   addVendor(foodParkId, unitId) {
@@ -876,23 +898,38 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
       this.foodparkmgrList = res.data;
     });
   }
-  selectHub(event, row, value) {
-    this.setManager.push({
-      manager_id: event.target.value,
-      hub_id: row.food_park_id,
-    });
-    this.setManagers();
+  selectHub(selectedModel, row) {
+    let list = [
+      {
+        manager_id: selectedModel,
+        hub_id: row.food_park_id,
+      },
+    ];
+    // selectedModel.forEach(element => {
+    //   list.push({
+    //     manager_id: element,
+    //     hub_id: row.food_park_id,
+    //   });
+    // });
+    this.setManagers(list);
   }
-  selectLocation(event, row, value) {
-    this.setUnitManager.push({
-      manager_id: event.target.value,
-      unit_id: row.unit_id,
-    });
+  selectLocation(selectedManagers, row, value) {
+    // this.setUnitManager.push({
+    //   manager_id: event.target.value,
+    //   unit_id: row.unit_id,
+    // });
+    let list = [
+      {
+        manager_id : selectedManagers,
+        unit_id: row.unit_id,
+      }
+    ]
+    this.setManagersforlocation(list);
   }
-  setManagersforlocation() {
-    if (this.setUnitManager.length > 0) {
+  setManagersforlocation(list) {
+    if (list.length > 0) {
       this._ProfileService
-        .assignManager({ list: this.setUnitManager })
+        .assignManager({ list: list })
         .subscribe(
           (res: any) => {
             if (res.status == 200) {
@@ -1097,13 +1134,13 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
       this.drivertemp = [...this.drivers];
     });
   }
-  setManagers() {
-    if (this.setManager.length > 0) {
-      this._ProfileService.setManagers({ list: this.setManager }).subscribe(
+  setManagers(list) {
+    if (list.length > 0) {
+      this._ProfileService.setManagers({ list: list }).subscribe(
         (res: any) => {
           if (res.status == 200) {
             this.toastr.success("Managers assign successfully");
-            this.getDeliveryHubinCompany();
+            //this.getDeliveryHubinCompany();
             this.setManager = [];
           }
           //
@@ -1138,11 +1175,11 @@ export class FoodParkComponent implements OnInit, AfterViewInit {
     }
   }
   onSubmitLocationForm() {
-    var reg = /( Loc #\d)$/;
-    if (!reg.test(this.locationFoodParkForm.value.name)) {
-      this.toastr.error("Name should end with Loc #{Localtion number}");
-      return false;
-    }
+    // var reg = /( Loc #\d)$/;
+    // if (!reg.test(this.locationFoodParkForm.value.name)) {
+    //   this.toastr.error("Name should end with Loc #{Localtion number}");
+    //   return false;
+    // }
     this.locationFoodParkForm.value.territory_id = this.locationFoodParkForm
       .value.territory_id
       ? this.locationFoodParkForm.value.territory_id

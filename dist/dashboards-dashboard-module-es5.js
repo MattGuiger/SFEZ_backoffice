@@ -1269,7 +1269,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     !*** ./src/app/dashboards/dashboard-components/index.ts ***!
     \**********************************************************/
 
-  /*! exports provided: ChatComponent, ActivityComponent, EarningsComponent, ReviewComponent, InfocardComponent, CommentComponent, TopsellComponent, BrowserStatsComponent, DeviceVisitsComponent, FeedsComponent, InfoBoxComponent, MixstatsComponent, ProductInfoComponent, ProjectComponent, SalesComponent, SalesIncomeComponent, TasklistComponent, UserDetailsComponent, UserProfileComponent, VisitorsComponent, VisitsBounceComponent, WeathercardComponent, WelcomeComponent */
+  /*! exports provided: ChatComponent, ActivityComponent, EarningsComponent, UserProfileComponent, InfocardComponent, CommentComponent, TopsellComponent, BrowserStatsComponent, DeviceVisitsComponent, FeedsComponent, InfoBoxComponent, MixstatsComponent, ProductInfoComponent, ProjectComponent, ReviewComponent, SalesComponent, SalesIncomeComponent, TasklistComponent, UserDetailsComponent, VisitorsComponent, VisitsBounceComponent, WeathercardComponent, WelcomeComponent */
 
   /***/
   function srcAppDashboardsDashboardComponentsIndexTs(module, __webpack_exports__, __webpack_require__) {

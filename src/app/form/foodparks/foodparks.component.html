@@ -57,13 +57,20 @@
 
                   <ngx-datatable-column name="Hub Master" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value" let-rowIndex="rowIndex">
-                      <select class="form-control" (change)="selectHub($event,row,value)"
+                      <!-- <select class="form-control" (change)="selectHub($event,row,value)"
                         [(ngModel)]="row.foodpark_mgr_id">
                         <option *ngIf="!row.foodpark_mgr_id" value="">Assign Master</option>
 
                         <option *ngFor="let manager of getFilterManagerList(row.territory)" [value]="manager.user_id">
                           {{manager.first_name}} {{manager.last_name}}</option>
-                      </select>
+                      </select> -->
+                      <mat-form-field appearance="fill">
+                        <!-- <mat-label>Assign Master</mat-label> -->
+                        <mat-select  multiple  [(ngModel)]="row.multiple_foodpark_manager_id" (selectionChange)="selectHub(row.multiple_foodpark_manager_id,row,value)" placeholder="Select Master">
+                          <mat-option  *ngFor="let manager of getFilterManagerList(row.territory)" [value]="manager.user_id.toString()" >{{manager.first_name}} {{manager.last_name}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      {{row.foodpark_mgr_id1 | json}}
 
                       <!-- <div *ngFor="let ma of foodmarkmgr">
                           <div *ngIf="ma.foodparkid==row.food_park_id">{{ma.first_name}}</div>
@@ -263,13 +270,19 @@
                         </option> -->
                   <ngx-datatable-column name="Manager" prop="Manager" [width]="150">
                     <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                      <select class="form-control" (change)="selectLocation($event,row,value)"
+                      <!-- <select class="form-control" (change)="selectLocation($event,row,value)"
                         [(ngModel)]="row.unit_mgr_id">
                         <option value="">Assign Manager</option>
                         <option *ngFor="let manager of arr1 " [value]="manager.user_id">{{manager.first_name}}
                         </option>
 
-                      </select>
+                      </select> -->
+                      <mat-form-field appearance="fill">
+                        <!-- <mat-label>Assign Master</mat-label> -->
+                        <mat-select  multiple  [(ngModel)]="row.multiple_unit_manager_id" (selectionChange)="selectLocation(row.multiple_unit_manager_id,row,value)" placeholder="Select Manager">
+                          <mat-option  *ngFor="let manager of getFilterManagerList(row.territory)" [value]="manager.user_id.toString()" >{{manager.first_name}} {{manager.last_name}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
                       <!-- <mat-form-field style="width: 98px;">
                         <mat-select placeholder="Manager"  [(ngModel)]="row.unit_mgr_id" [(value)]="row.unit_mgr_id"  multiple>
                           <mat-option *ngFor="let manager of arr1 "  [value]="manager.user_id">{{manager.first_name}}</mat-option>
@@ -513,7 +526,7 @@
 
                     <p class="text-center mt-4" style="font-weight: 500;">Registered Drivers</p>
                     <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'"
-                      [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='registerDriver'>
+                      [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='getDriverForTable(foodParkData?.data[0]?.territoryid,foodParkData?.data)'>
 
                       <ngx-datatable-column name="Name" [width]="150">
                         <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
