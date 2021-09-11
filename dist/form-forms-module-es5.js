@@ -56063,11 +56063,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.loadingIndicator = true;
         this.reorderable = true;
         this.columns = [{
-          prop: 'name'
+          prop: "name"
         }, {
-          name: 'Type'
+          name: "Type"
         }, {
-          name: 'Username'
+          name: "Username"
         }];
         this.territory = (_ref10 = [], _ref10);
         this.customer_order_window = 0;
@@ -56089,22 +56089,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.deliverycharge_options = {
           floor: 0,
           ceil: 10,
-          step: .25
+          step: 0.25
         };
         this.orderDetails = [];
         this.rowWiseData = [];
         this.loadingData = true;
         this.data = "";
         this.dailyPayoutData = [];
-        this.displayedColumns = ['Schedule', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-        this.setdata = ['#Hub Company', '#Delivery'];
-        this.setdatamember = ['#Cash', '#Bank', '#Subtotal'];
+        this.displayedColumns = ["Schedule", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        this.setdata = ["#Hub Company", "#Delivery"];
+        this.setdatamember = ["#Cash", "#Bank", "#Subtotal"];
         /**Get food park units */
 
         this.unitOrderAndName = [];
         this.unitsId = [];
         this.totalDeliveryCount = 0;
-        this.driverCount = '';
+        this.driverCount = "";
         this.wagesData = [];
         this.oldData = [];
         this.makeData = {};
@@ -56118,7 +56118,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.deliveryAllocationList = [];
         this.commasUnitName = "";
-        this.datecuurent = this.datepipe.transform(Date.now(), 'yyyy-MM-dd');
+        this.user = this._CommonFunctionsService.checkUser().user;
+        this.datecuurent = this.datepipe.transform(Date.now(), "yyyy-MM-dd");
+        this.date = moment__WEBPACK_IMPORTED_MODULE_6__().add(0, "d");
+        this.sevendate = moment__WEBPACK_IMPORTED_MODULE_6__().add(7, "d");
+        this.driverdate = moment__WEBPACK_IMPORTED_MODULE_6__().add(0, "d");
+        this.driverseven = moment__WEBPACK_IMPORTED_MODULE_6__().add(7, "d");
         this.getAllOrder();
         this.getDailyPayout();
         this.foodParkUnits();
@@ -56128,10 +56133,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.LoadHubData();
         this.weeklyHubmaster();
         this.weeklyHubmember();
-        this.date = moment__WEBPACK_IMPORTED_MODULE_6__().add(0, 'd');
-        this.sevendate = moment__WEBPACK_IMPORTED_MODULE_6__().add(7, 'd');
-        this.driverdate = moment__WEBPACK_IMPORTED_MODULE_6__().add(0, 'd');
-        this.driverseven = moment__WEBPACK_IMPORTED_MODULE_6__().add(7, 'd');
       }
 
       _createClass(FoodpckmgrorderComponent, [{
@@ -56141,27 +56142,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "loadWagesData",
         value: function loadWagesData() {
           var obj = {
-            task: 'Deliveries & Tips',
-            mon: '$28.00',
-            tue: '$25.00',
-            wed: '$18.00',
-            thu: '',
-            fri: '',
-            sat: '',
-            sun: '',
-            total: '$71.00'
+            task: "Deliveries & Tips",
+            mon: "$28.00",
+            tue: "$25.00",
+            wed: "$18.00",
+            thu: "",
+            fri: "",
+            sat: "",
+            sun: "",
+            total: "$71.00"
           };
           this.wagesDataArr.push(obj);
           var obj1 = {
-            task: '# of Deliveries',
-            mon: '9',
-            tue: '10',
-            wed: '4',
-            thu: '',
-            fri: '',
-            sat: '',
-            sun: '',
-            total: '23'
+            task: "# of Deliveries",
+            mon: "9",
+            tue: "10",
+            wed: "4",
+            thu: "",
+            fri: "",
+            sat: "",
+            sun: "",
+            total: "23"
           };
           this.wagesDataArr.push(obj1);
         }
@@ -56169,19 +56170,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "loadWeekData",
         value: function loadWeekData() {
           var obj = {
-            vendor: 'PHO #3402',
-            address: '530 NW 5th St',
-            method: 'assets/images/cash.png',
-            fee: '$1.25',
-            tips: '$3.00'
+            vendor: "PHO #3402",
+            address: "530 NW 5th St",
+            method: "assets/images/cash.png",
+            fee: "$1.25",
+            tips: "$3.00"
           };
           this.weekData.push(obj);
           var obj1 = {
-            vendor: 'PHO #9902',
-            address: '2414 NW 6th St',
-            method: 'assets/images/bank.png',
-            fee: '$25.00',
-            tips: '$8.00'
+            vendor: "PHO #9902",
+            address: "2414 NW 6th St",
+            method: "assets/images/bank.png",
+            fee: "$25.00",
+            tips: "$8.00"
           };
           this.weekData.push(obj1);
         }
@@ -56195,15 +56196,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var totalBalance = 0; // const tempCompany_id = 11247
 
           var tempDate = {
-            date: ""
+            date: this.datecuurent = this.datepipe.transform(Date.now(), "yyyy-MM-dd")
           };
-          var companyid = JSON.parse(localStorage.getItem('user'));
-          var companyid_test = companyid['user'].company_id;
 
-          this._ProfileService.getDailyPayout(companyid_test, tempDate).subscribe( // this._ProfileService.getDailyPayoutLists(this.company_id, this.data).subscribe(
-          function (res) {
-            _this122.tab = res.data[0].data['bank'];
-            _this122.tabforCod = res.data[0].data['cod'];
+          this._ProfileService.getDailyPayout(this.user.company_id, tempDate).subscribe(function (res) {
+            _this122.tab = res.data[0].data["bank"];
+            _this122.tabforCod = res.data[0].data["cod"];
             var payoutContainer = [];
 
             _this122.tab.forEach(function (resp) {
@@ -56224,41 +56222,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "datePick",
         value: function datePick(event) {
-          console.log(event.target.value, 'value');
+          console.log(event.target.value, "value");
           this.datecuurent = event.target.value;
           this.getAllOrder();
 
-          if (this.selectedstatus == 'Void') {} else {}
+          if (this.selectedstatus == "Void") {} else {}
         }
       }, {
         key: "goBack",
         value: function goBack() {
-          this.date = moment__WEBPACK_IMPORTED_MODULE_6__(this.date).add(-7, 'd');
-          this.sevendate = moment__WEBPACK_IMPORTED_MODULE_6__(this.sevendate).add(-7, 'd');
-          this.sevendateb = this.sevendate.format('YYYY-MM-DD');
-          console.log(this.sevendate.format('YYYY-MM-DD'), 'sevendate');
+          this.date = moment__WEBPACK_IMPORTED_MODULE_6__(this.date).add(-7, "d");
+          this.sevendate = moment__WEBPACK_IMPORTED_MODULE_6__(this.sevendate).add(-7, "d");
+          this.sevendateb = this.sevendate.format("YYYY-MM-DD");
+          console.log(this.sevendate.format("YYYY-MM-DD"), "sevendate");
           this.getWeeklyRecon();
         }
       }, {
         key: "goFront",
         value: function goFront() {
-          this.date = moment__WEBPACK_IMPORTED_MODULE_6__(this.date).add(7, 'd');
-          this.sevendate = moment__WEBPACK_IMPORTED_MODULE_6__(this.sevendate).add(7, 'd');
-          this.sevendatef = moment__WEBPACK_IMPORTED_MODULE_6__(this.sevendate).add(7, 'd').format('YYYY-MM-DD');
-          console.log(this.sevendate.format('YYYY-MM-DD'), '2021-01-05 10:29:23.105817+05:30');
+          this.date = moment__WEBPACK_IMPORTED_MODULE_6__(this.date).add(7, "d");
+          this.sevendate = moment__WEBPACK_IMPORTED_MODULE_6__(this.sevendate).add(7, "d");
+          this.sevendatef = moment__WEBPACK_IMPORTED_MODULE_6__(this.sevendate).add(7, "d").format("YYYY-MM-DD");
+          console.log(this.sevendate.format("YYYY-MM-DD"), "2021-01-05 10:29:23.105817+05:30");
           this.getWeeklyRecon();
         }
       }, {
         key: "goBackDriver",
         value: function goBackDriver() {
-          this.driverdate = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverdate).add(-7, 'd');
-          this.driverseven = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverseven).add(-7, 'd');
+          this.driverdate = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverdate).add(-7, "d");
+          this.driverseven = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverseven).add(-7, "d");
         }
       }, {
         key: "goFrontDriver",
         value: function goFrontDriver() {
-          this.driverdate = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverdate).add(7, 'd');
-          this.driverseven = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverseven).add(7, 'd').format('YYYY-MM-DD');
+          this.driverdate = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverdate).add(7, "d");
+          this.driverseven = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverseven).add(7, "d").format("YYYY-MM-DD");
         }
       }, {
         key: "getAllDrivers",
@@ -56266,8 +56264,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this123 = this;
 
           var data = {
-            "startDate": "2020-10-15",
-            "endDate": "2020-10-22"
+            startDate: this.datepipe.transform(this.driverdate, "yyyy-MM-dd"),
+            endDate: this.datepipe.transform(this.driverseven, "yyyy-MM-dd")
           };
 
           this._ProfileService.getAllDriversforRecon(foodParkId, data).subscribe(function (res) {
@@ -56277,11 +56275,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "openModal",
         value: function openModal(row) {
-          this.user = this._CommonFunctionsService.checkUser().user;
           var dialogData = new _driver_dialog_driver_dialog_component__WEBPACK_IMPORTED_MODULE_9__["DriverDialogModel"]("Confirm Action", row);
 
           this._ProfileService.DriverDetails(this.user.food_park_id, this.user.id).subscribe(function (res) {
-            console.log(res, 'res');
+            console.log(res, "res");
           });
 
           var dialogRef = this.dialog.open(_driver_dialog_driver_dialog_component__WEBPACK_IMPORTED_MODULE_9__["DriverDialogComponent"], {
@@ -56297,7 +56294,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.user = this._CommonFunctionsService.checkUser().user;
           this.getAllDrivers(this.user.food_park_id);
           var data = {
-            "orderdate": this.datecuurent
+            orderdate: this.datecuurent
           };
 
           this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id, data).subscribe(function (res) {
@@ -56314,9 +56311,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.selectedstatus = event.target.value;
 
-          if (event.target.value == 'Void') {
+          if (event.target.value == "Void") {
             var _data = {
-              "orderdate": this.datecuurent
+              orderdate: this.datecuurent
             };
             this.user = this._CommonFunctionsService.checkUser().user;
 
@@ -56327,7 +56324,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             });
           } else {
             var _data2 = {
-              "orderdate": this.datecuurent
+              orderdate: this.datecuurent
             };
             this.user = this._CommonFunctionsService.checkUser().user;
 
@@ -56344,8 +56341,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this126 = this;
 
           var data = {
-            "startDate": this.sevendateb,
-            "endDate": this.sevendatef
+            startDate: this.datepipe.transform(this.date, "yyyy-MM-dd"),
+            endDate: this.datepipe.transform(this.sevendate, "yyyy-MM-dd")
           };
 
           this._ProfileService.getWeeklyrecon(data).subscribe(function (res) {
@@ -56354,7 +56351,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 _this126.weeklyRecon = res.data;
                 _this126.cash_payouts = res.data[0].cash_payout;
                 _this126.total_order_amount = res.data[0].total_order_amount;
-                console.log(_this126.weeklyRecon, 'weklyRecon');
+                console.log(_this126.weeklyRecon, "weklyRecon");
               }
             }
           });
@@ -56364,59 +56361,59 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function loadOrderDummyData() {
           var objOrder = {
             id: 101,
-            unit_name: 'Pho Loc#3',
-            size: 'Medium',
-            addOns: 'Extra condiments(+$2.75)',
-            instructions: 'extra Spicy',
+            unit_name: "Pho Loc#3",
+            size: "Medium",
+            addOns: "Extra condiments(+$2.75)",
+            instructions: "extra Spicy",
             delivery_address: {
-              line_1: 'Rua da campina',
-              line_2: 'Apt 2203'
+              line_1: "Rua da campina",
+              line_2: "Apt 2203"
             },
-            desired_delivery_time: '2021-02-25T07:49:57.870Z',
-            status: 'order_paid',
-            initiation_time: '2021-02-25T07:09:57.870Z',
-            order_id: '1234',
-            context: 'cod',
-            amount: '100.00',
-            short_name: 'ZZZ'
+            desired_delivery_time: "2021-02-25T07:49:57.870Z",
+            status: "order_paid",
+            initiation_time: "2021-02-25T07:09:57.870Z",
+            order_id: "1234",
+            context: "cod",
+            amount: "100.00",
+            short_name: "ZZZ"
           };
           this.rows.push(objOrder);
           objOrder = {
             id: 102,
-            unit_name: 'Beef PhoX1',
-            size: 'Regular',
-            addOns: 'Extra condiments(+$2.75)',
-            instructions: 'No Jalapenos',
+            unit_name: "Beef PhoX1",
+            size: "Regular",
+            addOns: "Extra condiments(+$2.75)",
+            instructions: "No Jalapenos",
             delivery_address: {
-              line_1: '2921',
-              line_2: 'Sw Pumice Ave'
+              line_1: "2921",
+              line_2: "Sw Pumice Ave"
             },
-            desired_delivery_time: '2021-03-16T10:25:57.870Z',
-            status: 'incomplete',
-            initiation_time: '2021-03-16T09:50:57.870Z',
-            order_id: '2154',
-            context: 'bank',
-            amount: '500.00',
-            short_name: 'TAS'
+            desired_delivery_time: "2021-03-16T10:25:57.870Z",
+            status: "incomplete",
+            initiation_time: "2021-03-16T09:50:57.870Z",
+            order_id: "2154",
+            context: "bank",
+            amount: "500.00",
+            short_name: "TAS"
           };
           this.rows.push(objOrder);
           objOrder = {
             id: 103,
-            unit_name: 'Beef PhoX5',
-            size: 'Larg',
-            addOns: 'Extra condiments(+$2.75)',
-            instructions: '---',
+            unit_name: "Beef PhoX5",
+            size: "Larg",
+            addOns: "Extra condiments(+$2.75)",
+            instructions: "---",
             delivery_address: {
-              line_1: '2203',
-              line_2: 'Rua parimode da'
+              line_1: "2203",
+              line_2: "Rua parimode da"
             },
-            desired_delivery_time: '2021-03-17T04:20:57.870Z',
-            status: 'incomplete',
-            initiation_time: '2021-03-17T03:45:57.870Z',
-            order_id: '2156',
-            context: 'card',
-            amount: '250.00',
-            short_name: 'ABC'
+            desired_delivery_time: "2021-03-17T04:20:57.870Z",
+            status: "incomplete",
+            initiation_time: "2021-03-17T03:45:57.870Z",
+            order_id: "2156",
+            context: "card",
+            amount: "250.00",
+            short_name: "ABC"
           };
           this.rows.push(objOrder);
           this.temp = this.rows;
@@ -56439,7 +56436,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUpdatevendor",
         value: function getUpdatevendor(item) {
-          return _toConsumableArray(item.split(' '));
+          return _toConsumableArray(item.split(" "));
         }
         /** End */
 
@@ -56470,17 +56467,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function orderAction(event, row) {
           var _this127 = this;
 
-          if (event == 'Refund') {
+          if (event == "Refund") {
             this._ProfileService.refundAmountToCustomer(row.id).subscribe(function (res) {
               _this127.toastr.success("Refund Amount");
             });
-          } else if (event == 'Void') {
+          } else if (event == "Void") {
             this._ProfileService.voidOrder(row.order_detail.id).subscribe(function (voidResponse) {
               _this127.toastr.success("Order removed successfully");
 
               _this127.getAllOrder();
             }, function (error) {});
-          } else if (event.target.value == 'Delete') {}
+          } else if (event.target.value == "Delete") {}
         }
         /** Filter by moltin id, company name, delivery address and customer name*/
 
@@ -56491,7 +56488,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var temp = this.temp.filter(function (d) {
             var _a, _b;
 
-            var deliveryAddress = ((_a = d.delivery_address) === null || _a === void 0 ? void 0 : _a.line_1) + ' ' + ((_b = d.delivery_address) === null || _b === void 0 ? void 0 : _b.line_2);
+            var deliveryAddress = ((_a = d.delivery_address) === null || _a === void 0 ? void 0 : _a.line_1) + " " + ((_b = d.delivery_address) === null || _b === void 0 ? void 0 : _b.line_2);
             var ordrId = d.order_id;
             return deliveryAddress.toLowerCase().indexOf(val) !== -1 || ordrId == val || d.short_name.toLowerCase().indexOf(val) !== -1 || !val;
           });
@@ -56523,7 +56520,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateValue",
         value: function updateValue(event, cell, rowIndex) {
-          this.editing[rowIndex + '-' + cell] = false;
+          this.editing[rowIndex + "-" + cell] = false;
           this.rows[rowIndex][cell] = event.target.value;
           this.rows = _toConsumableArray(this.rows);
         }
@@ -56563,10 +56560,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                                             switch (_context6.prev = _context6.next) {
                                               case 0:
                                                 data = {
-                                                  "unitId": unitResponse.data.id,
-                                                  "unitName": unitResponse.data.name,
-                                                  "unitOrder": 45 //unitResponse.data.order_count
-
+                                                  unitId: unitResponse.data.id,
+                                                  unitName: unitResponse.data.name,
+                                                  unitOrder: 45
                                                 };
                                                 this.unitOrderAndName.push(data);
                                                 this.totalDeliveryCount = this.totalDeliveryCount + data.unitOrder;
@@ -56608,8 +56604,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this130 = this;
 
           var unitsIdData = {
-            "units": [2164, 2165] //this.unitsId
-
+            units: [2164, 2165]
           };
 
           this._ProfileService.getUnitsDriver(unitsIdData).subscribe(function (driverRespose) {
@@ -56672,23 +56667,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
 
             _this132.makeData = {
-              "driverId": value.driver_id,
-              "driver": driverName,
-              "hour_wages": value.per_hour_price,
-              'mon': '1' in _final ? _final[1] : 0,
-              'tue': '2' in _final ? _final[2] : 0,
-              'wed': '3' in _final ? _final[3] : 0,
-              'thu': '4' in _final ? _final[4] : 0,
-              'fri': '5' in _final ? _final[5] : 0,
-              'sat': '6' in _final ? _final[6] : 0,
-              'sun': '0' in _final ? _final[0] : 0
+              driverId: value.driver_id,
+              driver: driverName,
+              hour_wages: value.per_hour_price,
+              mon: "1" in _final ? _final[1] : 0,
+              tue: "2" in _final ? _final[2] : 0,
+              wed: "3" in _final ? _final[3] : 0,
+              thu: "4" in _final ? _final[4] : 0,
+              fri: "5" in _final ? _final[5] : 0,
+              sat: "6" in _final ? _final[6] : 0,
+              sun: "0" in _final ? _final[0] : 0
             };
-            _this132.makeData['unitId'] = value.unit_id;
-            _this132.makeData['total'] = parseInt(_this132.makeData['mon']) + parseInt(_this132.makeData['tue']) + parseInt(_this132.makeData['wed']) + parseInt(_this132.makeData['thu']) + parseInt(_this132.makeData['fri']) + parseInt(_this132.makeData['sat']) + parseInt(_this132.makeData['sun']);
+            _this132.makeData["unitId"] = value.unit_id;
+            _this132.makeData["total"] = parseInt(_this132.makeData["mon"]) + parseInt(_this132.makeData["tue"]) + parseInt(_this132.makeData["wed"]) + parseInt(_this132.makeData["thu"]) + parseInt(_this132.makeData["fri"]) + parseInt(_this132.makeData["sat"]) + parseInt(_this132.makeData["sun"]);
           });
           this.wagesData.push(this.makeData); //this.wagesData = Array.from(this.wagesData.reduce((m, t) => m.set(t.name, t), new Map()).values());
 
-          localStorage.setItem('wagesdata', JSON.stringify(this.wagesData));
+          localStorage.setItem("wagesdata", JSON.stringify(this.wagesData));
           this.totalWagesDataList();
         }
         /** Save row */
@@ -56699,7 +56694,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this133 = this;
 
           this.isEditable[rowIndex] = !this.isEditable[rowIndex];
-          var getLocalStorage = localStorage.getItem('wagesdata');
+          var getLocalStorage = localStorage.getItem("wagesdata");
           getLocalStorage = JSON.parse(getLocalStorage);
           getLocalStorage = getLocalStorage[rowIndex];
           var editDay, editValue;
@@ -56750,14 +56745,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             pasCurFutDate = currentDate.getDate() - Math.abs(exactDate);
           }
 
-          var actualDate = this.getCurrentDate(String(pasCurFutDate).padStart(2, '0'));
+          var actualDate = this.getCurrentDate(String(pasCurFutDate).padStart(2, "0"));
           var addhour = parseInt(row.mon) + parseInt(row.tue) + parseInt(row.wed) + parseInt(row.thu) + parseInt(row.fri) + parseInt(row.sat) + parseInt(row.sun);
           var workTime = parseInt(addhour) - parseInt(row.total);
           var createWagesData = {
-            "unit_id": row.unitId,
-            "per_hour_price": row.hour_wages,
-            "work_time": workTime,
-            "work_date": actualDate
+            unit_id: row.unitId,
+            per_hour_price: row.hour_wages,
+            work_time: workTime,
+            work_date: actualDate
           };
 
           this._ProfileService.createDriverWages(row.driverId, createWagesData).subscribe(function (wagesResponse) {
@@ -56781,7 +56776,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var month = monthNames[dateObj.getMonth()];
           var day = actualDate;
           var year = dateObj.getFullYear();
-          return month + ' ' + day + ',' + year;
+          return month + " " + day + "," + year;
         }
       }, {
         key: "totalWagesDataList",
@@ -56790,9 +56785,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.wagesData.forEach(function (wagesValue, wagesKey) {
             var data = {
-              "driverName": wagesValue.driver,
-              "wagesTotal": wagesValue.total * wagesValue.hour_wages,
-              "driverId": wagesValue.driverId
+              driverName: wagesValue.driver,
+              wagesTotal: wagesValue.total * wagesValue.hour_wages,
+              driverId: wagesValue.driverId
             };
 
             _this134.totalDeliveryWagesData.push(data);
@@ -56809,14 +56804,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.unitOrderAndName.forEach(function (valAllocation, valKey) {
             var data = {
-              "unitName": valAllocation.unitName,
-              "subSidy": _this135.sumTotalDeliveryWages * valAllocation.unitOrder / _this135.totalDeliveryCount,
+              unitName: valAllocation.unitName,
+              subSidy: _this135.sumTotalDeliveryWages * valAllocation.unitOrder / _this135.totalDeliveryCount,
               //"subSidy": ((this.totalDeliveryWagesData[valKey]?.wagesTotal) *valAllocation.unitOrder)/this.totalDeliveryCount,
-              "status": "unpaid",
-              "sumTotalDeliveryWages": _this135.sumTotalDeliveryWages,
-              "unitsOrder": valAllocation.unitOrder,
-              "totalDeliveryCount": _this135.totalDeliveryCount,
-              "unitId": valAllocation.unitId
+              status: "unpaid",
+              sumTotalDeliveryWages: _this135.sumTotalDeliveryWages,
+              unitsOrder: valAllocation.unitOrder,
+              totalDeliveryCount: _this135.totalDeliveryCount,
+              unitId: valAllocation.unitId
             };
 
             if (valKey == 0) {
@@ -56838,7 +56833,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.subsidyTotalDeliveryCount = totalDeliveryCount;
           this.subsidyUnitName = unitname;
           this.modalService.open(subsidy, {
-            ariaLabelledBy: 'modal-basic-title'
+            ariaLabelledBy: "modal-basic-title"
           }).result.then(function (result) {
             _this136.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
@@ -56851,9 +56846,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getDismissReason",
         value: function getDismissReason(reason) {
           if (reason === _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["ModalDismissReasons"].ESC) {
-            return 'by pressing ESC';
+            return "by pressing ESC";
           } else if (reason === _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["ModalDismissReasons"].BACKDROP_CLICK) {
-            return 'by clicking on a backdrop';
+            return "by clicking on a backdrop";
           } else {
             return "with: ".concat(reason);
           }
@@ -56863,8 +56858,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function weeklyHubmember() {
           this.user = this._CommonFunctionsService.checkUser().user;
           var data = {
-            "startDate": "2021-02-18",
-            "endDate": "2021-02-24"
+            startDate: this.datepipe.transform(this.date, "yyyy-MM-dd"),
+            endDate: this.datepipe.transform(this.sevendate, "yyyy-MM-dd")
           };
 
           this._ProfileService.weeklyhubMember(this.user.unit_id, data).subscribe(function (res) {});
@@ -56876,12 +56871,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.user = this._CommonFunctionsService.checkUser().user;
           var data = {
-            "startDate": "2021-08-03",
-            "endDate": "2021-08-10"
+            startDate: this.datepipe.transform(this.date, "yyyy-MM-dd"),
+            endDate: this.datepipe.transform(this.sevendate, "yyyy-MM-dd")
           };
 
-          this._ProfileService.weeklyhubMaster('30235', data).subscribe(function (res) {
-            _this137.hubmasterdat = res.data['deliveries'];
+          this._ProfileService.weeklyhubMaster(this.user.food_park_id, data).subscribe(function (res) {
+            _this137.hubmasterdat = res.data["deliveries"];
             console.log(_this137.hubmasterdat);
           });
         }
@@ -56970,9 +56965,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](FoodpckmgrorderComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-          selector: 'app-foodpckmgrorder',
-          templateUrl: './foodpckmgrorder.component.html',
-          styleUrls: ['./foodpckmgrorder.css']
+          selector: "app-foodpckmgrorder",
+          templateUrl: "./foodpckmgrorder.component.html",
+          styleUrls: ["./foodpckmgrorder.css"]
         }]
       }], function () {
         return [{
@@ -56995,7 +56990,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         table: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
-          args: ['table']
+          args: ["table"]
         }]
       });
     })();

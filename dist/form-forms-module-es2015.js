@@ -36093,42 +36093,51 @@ class FoodpckmgrorderComponent {
         this.drivers = [];
         this.loadingIndicator = true;
         this.reorderable = true;
-        this.columns = [{ prop: 'name' }, { name: 'Type' }, { name: 'Username' }];
-        this.territory = [] = [];
+        this.columns = [{ prop: "name" }, { name: "Type" }, { name: "Username" }];
+        this.territory = ([] = []);
         this.customer_order_window = 0;
         this.delivery_chg_amount = 0;
         this.delivery_radius = 0;
         this.delivery_time_offset = 0;
         this.customerorderwindow_options = {
             floor: 0,
-            ceil: 30
+            ceil: 30,
         };
         this.deliveryradious_options = {
             floor: 0,
-            ceil: 15
+            ceil: 15,
         };
         this.customerdeliverytime_options = {
             floor: 0,
-            ceil: 30
+            ceil: 30,
         };
         this.deliverycharge_options = {
             floor: 0,
             ceil: 10,
-            step: .25
+            step: 0.25,
         };
         this.orderDetails = [];
         this.rowWiseData = [];
         this.loadingData = true;
         this.data = "";
         this.dailyPayoutData = [];
-        this.displayedColumns = ['Schedule', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-        this.setdata = ['#Hub Company', '#Delivery'];
-        this.setdatamember = ['#Cash', '#Bank', '#Subtotal'];
+        this.displayedColumns = [
+            "Schedule",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+        ];
+        this.setdata = ["#Hub Company", "#Delivery"];
+        this.setdatamember = ["#Cash", "#Bank", "#Subtotal"];
         /**Get food park units */
         this.unitOrderAndName = [];
         this.unitsId = [];
         this.totalDeliveryCount = 0;
-        this.driverCount = '';
+        this.driverCount = "";
         this.wagesData = [];
         this.oldData = [];
         this.makeData = {};
@@ -36139,7 +36148,12 @@ class FoodpckmgrorderComponent {
         /** Delivery Allocation Table */
         this.deliveryAllocationList = [];
         this.commasUnitName = "";
-        this.datecuurent = this.datepipe.transform(Date.now(), 'yyyy-MM-dd');
+        this.user = this._CommonFunctionsService.checkUser().user;
+        this.datecuurent = this.datepipe.transform(Date.now(), "yyyy-MM-dd");
+        this.date = moment__WEBPACK_IMPORTED_MODULE_6__().add(0, "d");
+        this.sevendate = moment__WEBPACK_IMPORTED_MODULE_6__().add(7, "d");
+        this.driverdate = moment__WEBPACK_IMPORTED_MODULE_6__().add(0, "d");
+        this.driverseven = moment__WEBPACK_IMPORTED_MODULE_6__().add(7, "d");
         this.getAllOrder();
         this.getDailyPayout();
         this.foodParkUnits();
@@ -36149,54 +36163,49 @@ class FoodpckmgrorderComponent {
         this.LoadHubData();
         this.weeklyHubmaster();
         this.weeklyHubmember();
-        this.date = moment__WEBPACK_IMPORTED_MODULE_6__().add(0, 'd');
-        this.sevendate = moment__WEBPACK_IMPORTED_MODULE_6__().add(7, 'd');
-        this.driverdate = moment__WEBPACK_IMPORTED_MODULE_6__().add(0, 'd');
-        this.driverseven = moment__WEBPACK_IMPORTED_MODULE_6__().add(7, 'd');
     }
-    LoadHubData() {
-    }
+    LoadHubData() { }
     loadWagesData() {
         let obj = {
-            task: 'Deliveries & Tips',
-            mon: '$28.00',
-            tue: '$25.00',
-            wed: '$18.00',
-            thu: '',
-            fri: '',
-            sat: '',
-            sun: '',
-            total: '$71.00'
+            task: "Deliveries & Tips",
+            mon: "$28.00",
+            tue: "$25.00",
+            wed: "$18.00",
+            thu: "",
+            fri: "",
+            sat: "",
+            sun: "",
+            total: "$71.00",
         };
         this.wagesDataArr.push(obj);
         let obj1 = {
-            task: '# of Deliveries',
-            mon: '9',
-            tue: '10',
-            wed: '4',
-            thu: '',
-            fri: '',
-            sat: '',
-            sun: '',
-            total: '23'
+            task: "# of Deliveries",
+            mon: "9",
+            tue: "10",
+            wed: "4",
+            thu: "",
+            fri: "",
+            sat: "",
+            sun: "",
+            total: "23",
         };
         this.wagesDataArr.push(obj1);
     }
     loadWeekData() {
         let obj = {
-            vendor: 'PHO #3402',
-            address: '530 NW 5th St',
-            method: 'assets/images/cash.png',
-            fee: '$1.25',
-            tips: '$3.00'
+            vendor: "PHO #3402",
+            address: "530 NW 5th St",
+            method: "assets/images/cash.png",
+            fee: "$1.25",
+            tips: "$3.00",
         };
         this.weekData.push(obj);
         let obj1 = {
-            vendor: 'PHO #9902',
-            address: '2414 NW 6th St',
-            method: 'assets/images/bank.png',
-            fee: '$25.00',
-            tips: '$8.00'
+            vendor: "PHO #9902",
+            address: "2414 NW 6th St",
+            method: "assets/images/bank.png",
+            fee: "$25.00",
+            tips: "$8.00",
         };
         this.weekData.push(obj1);
     }
@@ -36205,15 +36214,11 @@ class FoodpckmgrorderComponent {
         let totalBalance = 0;
         // const tempCompany_id = 11247
         const tempDate = {
-            date: ""
+            date: this.datecuurent = this.datepipe.transform(Date.now(), "yyyy-MM-dd")
         };
-        const companyid = JSON.parse(localStorage.getItem('user'));
-        const companyid_test = companyid['user'].company_id;
-        this._ProfileService.getDailyPayout(companyid_test, tempDate).subscribe(
-        // this._ProfileService.getDailyPayoutLists(this.company_id, this.data).subscribe(
-        (res) => {
-            this.tab = res.data[0].data['bank'];
-            this.tabforCod = res.data[0].data['cod'];
+        this._ProfileService.getDailyPayout(this.user.company_id, tempDate).subscribe((res) => {
+            this.tab = res.data[0].data["bank"];
+            this.tabforCod = res.data[0].data["cod"];
             var payoutContainer = [];
             this.tab.forEach(function (resp) {
                 if (resp.data.cod) {
@@ -36226,67 +36231,73 @@ class FoodpckmgrorderComponent {
             this.dailyPayoutData = payoutContainer;
             this.dailyPayoutData = payoutContainer;
             this.codBalance = totalBalance;
-        }, (error) => {
-        });
+        }, (error) => { });
     }
     datePick(event) {
-        console.log(event.target.value, 'value');
+        console.log(event.target.value, "value");
         this.datecuurent = event.target.value;
         this.getAllOrder();
-        if (this.selectedstatus == 'Void') {
+        if (this.selectedstatus == "Void") {
         }
         else {
         }
     }
     goBack() {
-        this.date = moment__WEBPACK_IMPORTED_MODULE_6__(this.date).add(-7, 'd');
-        this.sevendate = moment__WEBPACK_IMPORTED_MODULE_6__(this.sevendate).add(-7, 'd');
-        this.sevendateb = this.sevendate.format('YYYY-MM-DD');
-        console.log(this.sevendate.format('YYYY-MM-DD'), 'sevendate');
+        this.date = moment__WEBPACK_IMPORTED_MODULE_6__(this.date).add(-7, "d");
+        this.sevendate = moment__WEBPACK_IMPORTED_MODULE_6__(this.sevendate).add(-7, "d");
+        this.sevendateb = this.sevendate.format("YYYY-MM-DD");
+        console.log(this.sevendate.format("YYYY-MM-DD"), "sevendate");
         this.getWeeklyRecon();
     }
     goFront() {
-        this.date = moment__WEBPACK_IMPORTED_MODULE_6__(this.date).add(7, 'd');
-        this.sevendate = moment__WEBPACK_IMPORTED_MODULE_6__(this.sevendate).add(7, 'd');
-        this.sevendatef = moment__WEBPACK_IMPORTED_MODULE_6__(this.sevendate).add(7, 'd').format('YYYY-MM-DD');
-        console.log(this.sevendate.format('YYYY-MM-DD'), '2021-01-05 10:29:23.105817+05:30');
+        this.date = moment__WEBPACK_IMPORTED_MODULE_6__(this.date).add(7, "d");
+        this.sevendate = moment__WEBPACK_IMPORTED_MODULE_6__(this.sevendate).add(7, "d");
+        this.sevendatef = moment__WEBPACK_IMPORTED_MODULE_6__(this.sevendate).add(7, "d").format("YYYY-MM-DD");
+        console.log(this.sevendate.format("YYYY-MM-DD"), "2021-01-05 10:29:23.105817+05:30");
         this.getWeeklyRecon();
     }
     goBackDriver() {
-        this.driverdate = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverdate).add(-7, 'd');
-        this.driverseven = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverseven).add(-7, 'd');
+        this.driverdate = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverdate).add(-7, "d");
+        this.driverseven = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverseven).add(-7, "d");
     }
     goFrontDriver() {
-        this.driverdate = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverdate).add(7, 'd');
-        this.driverseven = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverseven).add(7, 'd').format('YYYY-MM-DD');
+        this.driverdate = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverdate).add(7, "d");
+        this.driverseven = moment__WEBPACK_IMPORTED_MODULE_6__(this.driverseven)
+            .add(7, "d")
+            .format("YYYY-MM-DD");
     }
     getAllDrivers(foodParkId) {
         const data = {
-            "startDate": "2020-10-15",
-            "endDate": "2020-10-22"
+            startDate: this.datepipe.transform(this.driverdate, "yyyy-MM-dd"),
+            endDate: this.datepipe.transform(this.driverseven, "yyyy-MM-dd")
         };
-        this._ProfileService.getAllDriversforRecon(foodParkId, data).subscribe((res) => {
+        this._ProfileService
+            .getAllDriversforRecon(foodParkId, data)
+            .subscribe((res) => {
             this.drivers = res.data;
         });
     }
     openModal(row) {
-        this.user = this._CommonFunctionsService.checkUser().user;
         const dialogData = new _driver_dialog_driver_dialog_component__WEBPACK_IMPORTED_MODULE_9__["DriverDialogModel"]("Confirm Action", row);
-        this._ProfileService.DriverDetails(this.user.food_park_id, this.user.id).subscribe((res) => {
-            console.log(res, 'res');
+        this._ProfileService
+            .DriverDetails(this.user.food_park_id, this.user.id)
+            .subscribe((res) => {
+            console.log(res, "res");
         });
         const dialogRef = this.dialog.open(_driver_dialog_driver_dialog_component__WEBPACK_IMPORTED_MODULE_9__["DriverDialogComponent"], {
             maxWidth: "600px",
-            data: dialogData
+            data: dialogData,
         });
     }
     getAllOrder() {
         this.user = this._CommonFunctionsService.checkUser().user;
         this.getAllDrivers(this.user.food_park_id);
         const data = {
-            "orderdate": this.datecuurent
+            orderdate: this.datecuurent,
         };
-        this._ProfileService.getallfoodparkmgrorder(this.user.food_park_id, data).subscribe((res) => {
+        this._ProfileService
+            .getallfoodparkmgrorder(this.user.food_park_id, data)
+            .subscribe((res) => {
             this.orders = res.data[0].orders;
             this.temp = this.orders;
             this.rows = this.orders;
@@ -36295,9 +36306,9 @@ class FoodpckmgrorderComponent {
     }
     orderActionFilter(event) {
         this.selectedstatus = event.target.value;
-        if (event.target.value == 'Void') {
+        if (event.target.value == "Void") {
             const data = {
-                "orderdate": this.datecuurent
+                orderdate: this.datecuurent,
             };
             this.user = this._CommonFunctionsService.checkUser().user;
             this._ProfileService.getVoidData(data).subscribe((res) => {
@@ -36308,7 +36319,7 @@ class FoodpckmgrorderComponent {
         }
         else {
             const data = {
-                "orderdate": this.datecuurent
+                orderdate: this.datecuurent,
             };
             this.user = this._CommonFunctionsService.checkUser().user;
             this._ProfileService.getRefundVoidData(data).subscribe((res) => {
@@ -36320,8 +36331,8 @@ class FoodpckmgrorderComponent {
     }
     getWeeklyRecon() {
         const data = {
-            "startDate": this.sevendateb,
-            "endDate": this.sevendatef
+            startDate: this.datepipe.transform(this.date, "yyyy-MM-dd"),
+            endDate: this.datepipe.transform(this.sevendate, "yyyy-MM-dd")
         };
         this._ProfileService.getWeeklyrecon(data).subscribe((res) => {
             if (res.status == 200) {
@@ -36329,7 +36340,7 @@ class FoodpckmgrorderComponent {
                     this.weeklyRecon = res.data;
                     this.cash_payouts = res.data[0].cash_payout;
                     this.total_order_amount = res.data[0].total_order_amount;
-                    console.log(this.weeklyRecon, 'weklyRecon');
+                    console.log(this.weeklyRecon, "weklyRecon");
                 }
             }
         });
@@ -36337,59 +36348,59 @@ class FoodpckmgrorderComponent {
     loadOrderDummyData() {
         let objOrder = {
             id: 101,
-            unit_name: 'Pho Loc#3',
-            size: 'Medium',
-            addOns: 'Extra condiments(+$2.75)',
-            instructions: 'extra Spicy',
+            unit_name: "Pho Loc#3",
+            size: "Medium",
+            addOns: "Extra condiments(+$2.75)",
+            instructions: "extra Spicy",
             delivery_address: {
-                line_1: 'Rua da campina',
-                line_2: 'Apt 2203'
+                line_1: "Rua da campina",
+                line_2: "Apt 2203",
             },
-            desired_delivery_time: '2021-02-25T07:49:57.870Z',
-            status: 'order_paid',
-            initiation_time: '2021-02-25T07:09:57.870Z',
-            order_id: '1234',
-            context: 'cod',
-            amount: '100.00',
-            short_name: 'ZZZ',
+            desired_delivery_time: "2021-02-25T07:49:57.870Z",
+            status: "order_paid",
+            initiation_time: "2021-02-25T07:09:57.870Z",
+            order_id: "1234",
+            context: "cod",
+            amount: "100.00",
+            short_name: "ZZZ",
         };
         this.rows.push(objOrder);
         objOrder = {
             id: 102,
-            unit_name: 'Beef PhoX1',
-            size: 'Regular',
-            addOns: 'Extra condiments(+$2.75)',
-            instructions: 'No Jalapenos',
+            unit_name: "Beef PhoX1",
+            size: "Regular",
+            addOns: "Extra condiments(+$2.75)",
+            instructions: "No Jalapenos",
             delivery_address: {
-                line_1: '2921',
-                line_2: 'Sw Pumice Ave'
+                line_1: "2921",
+                line_2: "Sw Pumice Ave",
             },
-            desired_delivery_time: '2021-03-16T10:25:57.870Z',
-            status: 'incomplete',
-            initiation_time: '2021-03-16T09:50:57.870Z',
-            order_id: '2154',
-            context: 'bank',
-            amount: '500.00',
-            short_name: 'TAS',
+            desired_delivery_time: "2021-03-16T10:25:57.870Z",
+            status: "incomplete",
+            initiation_time: "2021-03-16T09:50:57.870Z",
+            order_id: "2154",
+            context: "bank",
+            amount: "500.00",
+            short_name: "TAS",
         };
         this.rows.push(objOrder);
         objOrder = {
             id: 103,
-            unit_name: 'Beef PhoX5',
-            size: 'Larg',
-            addOns: 'Extra condiments(+$2.75)',
-            instructions: '---',
+            unit_name: "Beef PhoX5",
+            size: "Larg",
+            addOns: "Extra condiments(+$2.75)",
+            instructions: "---",
             delivery_address: {
-                line_1: '2203',
-                line_2: 'Rua parimode da'
+                line_1: "2203",
+                line_2: "Rua parimode da",
             },
-            desired_delivery_time: '2021-03-17T04:20:57.870Z',
-            status: 'incomplete',
-            initiation_time: '2021-03-17T03:45:57.870Z',
-            order_id: '2156',
-            context: 'card',
-            amount: '250.00',
-            short_name: 'ABC',
+            desired_delivery_time: "2021-03-17T04:20:57.870Z",
+            status: "incomplete",
+            initiation_time: "2021-03-17T03:45:57.870Z",
+            order_id: "2156",
+            context: "card",
+            amount: "250.00",
+            short_name: "ABC",
         };
         this.rows.push(objOrder);
         this.temp = this.rows;
@@ -36400,11 +36411,11 @@ class FoodpckmgrorderComponent {
         this.rowWiseData = [];
         this.orderDetails = row;
         this.table.rowDetail.toggleExpandRow(row);
-        const rowdata = this.temp.filter(d => d.id == row.id);
+        const rowdata = this.temp.filter((d) => d.id == row.id);
         this.rowWiseData = (_a = rowdata[0]) === null || _a === void 0 ? void 0 : _a.order_items;
     }
     getUpdatevendor(item) {
-        return [...item.split(' ')];
+        return [...item.split(" ")];
     }
     /** End */
     toggleExpandRowDailyout(row) {
@@ -36416,25 +36427,22 @@ class FoodpckmgrorderComponent {
         this.table.rowDetail.toggleExpandRow(row);
     }
     /** Start select driver */
-    selectdriver(event, row, value) {
-    }
+    selectdriver(event, row, value) { }
     /** End */
-    orderStatus(event, row) {
-    }
+    orderStatus(event, row) { }
     orderAction(event, row) {
-        if (event == 'Refund') {
-            this._ProfileService.refundAmountToCustomer(row.id).subscribe(res => {
+        if (event == "Refund") {
+            this._ProfileService.refundAmountToCustomer(row.id).subscribe((res) => {
                 this.toastr.success("Refund Amount");
             });
         }
-        else if (event == 'Void') {
+        else if (event == "Void") {
             this._ProfileService.voidOrder(row.order_detail.id).subscribe((voidResponse) => {
                 this.toastr.success("Order removed successfully");
                 this.getAllOrder();
-            }, (error) => {
-            });
+            }, (error) => { });
         }
-        else if (event.target.value == 'Delete') {
+        else if (event.target.value == "Delete") {
         }
     }
     /** Filter by moltin id, company name, delivery address and customer name*/
@@ -36442,9 +36450,12 @@ class FoodpckmgrorderComponent {
         const val = event.target.value.toLowerCase();
         const temp = this.temp.filter(function (d) {
             var _a, _b;
-            let deliveryAddress = ((_a = d.delivery_address) === null || _a === void 0 ? void 0 : _a.line_1) + ' ' + ((_b = d.delivery_address) === null || _b === void 0 ? void 0 : _b.line_2);
+            let deliveryAddress = ((_a = d.delivery_address) === null || _a === void 0 ? void 0 : _a.line_1) + " " + ((_b = d.delivery_address) === null || _b === void 0 ? void 0 : _b.line_2);
             let ordrId = d.order_id;
-            return deliveryAddress.toLowerCase().indexOf(val) !== -1 || ordrId == val || d.short_name.toLowerCase().indexOf(val) !== -1 || !val;
+            return (deliveryAddress.toLowerCase().indexOf(val) !== -1 ||
+                ordrId == val ||
+                d.short_name.toLowerCase().indexOf(val) !== -1 ||
+                !val);
         });
         this.rows = temp;
     }
@@ -36463,7 +36474,7 @@ class FoodpckmgrorderComponent {
     }
     /** end  */
     updateValue(event, cell, rowIndex) {
-        this.editing[rowIndex + '-' + cell] = false;
+        this.editing[rowIndex + "-" + cell] = false;
         this.rows[rowIndex][cell] = event.target.value;
         this.rows = [...this.rows];
     }
@@ -36472,27 +36483,28 @@ class FoodpckmgrorderComponent {
             yield this._ProfileService.foodParkUnits(this.user.food_park_id).subscribe((response) => {
                 if (response.data) {
                     response.data.forEach((value) => __awaiter(this, void 0, void 0, function* () {
-                        yield this._ProfileService.getParticularUnitData(value.id).subscribe((unitResponse) => __awaiter(this, void 0, void 0, function* () {
+                        yield this._ProfileService
+                            .getParticularUnitData(value.id)
+                            .subscribe((unitResponse) => __awaiter(this, void 0, void 0, function* () {
                             let data = {
-                                "unitId": unitResponse.data.id,
-                                "unitName": unitResponse.data.name,
-                                "unitOrder": 45 //unitResponse.data.order_count
+                                unitId: unitResponse.data.id,
+                                unitName: unitResponse.data.name,
+                                unitOrder: 45,
                             };
                             this.unitOrderAndName.push(data);
-                            this.totalDeliveryCount = this.totalDeliveryCount + data.unitOrder;
+                            this.totalDeliveryCount =
+                                this.totalDeliveryCount + data.unitOrder;
                             this.unitsId.push(value.id);
-                        }), (unitError) => {
-                        });
+                        }), (unitError) => { });
                     }));
                     this.unitsDriver();
                 }
-            }, (error) => {
-            });
+            }, (error) => { });
         });
     }
     unitsDriver() {
         let unitsIdData = {
-            "units": [2164, 2165] //this.unitsId
+            units: [2164, 2165],
         };
         this._ProfileService.getUnitsDriver(unitsIdData).subscribe((driverRespose) => {
             let getDriverId = [];
@@ -36502,18 +36514,18 @@ class FoodpckmgrorderComponent {
                     valueDriver.forEach((valueExact) => __awaiter(this, void 0, void 0, function* () {
                         if (getDriverId.includes(valueExact.id) !== true) {
                             getDriverId.push(valueExact.id);
-                            yield this._ProfileService.getParticularDriverWages(valueExact.id).subscribe((wagesResponse) => {
+                            yield this._ProfileService
+                                .getParticularDriverWages(valueExact.id)
+                                .subscribe((wagesResponse) => {
                                 if (wagesResponse.data && wagesResponse.data.result) {
                                     this.manageWagesDriver(wagesResponse.data.result, wagesResponse.data.driver.first_name);
                                 }
-                            }, (wagesError) => {
-                            });
+                            }, (wagesError) => { });
                         }
                     }));
                 });
             }
-        }, (driverError) => {
-        });
+        }, (driverError) => { });
     }
     manageWagesDriver(data, driverName) {
         let workTime = 0;
@@ -36529,29 +36541,36 @@ class FoodpckmgrorderComponent {
                 final[day] = value.work_time;
             }
             this.makeData = {
-                "driverId": value.driver_id,
-                "driver": driverName,
-                "hour_wages": value.per_hour_price,
-                'mon': '1' in final ? final[1] : 0,
-                'tue': '2' in final ? final[2] : 0,
-                'wed': '3' in final ? final[3] : 0,
-                'thu': '4' in final ? final[4] : 0,
-                'fri': '5' in final ? final[5] : 0,
-                'sat': '6' in final ? final[6] : 0,
-                'sun': '0' in final ? final[0] : 0,
+                driverId: value.driver_id,
+                driver: driverName,
+                hour_wages: value.per_hour_price,
+                mon: "1" in final ? final[1] : 0,
+                tue: "2" in final ? final[2] : 0,
+                wed: "3" in final ? final[3] : 0,
+                thu: "4" in final ? final[4] : 0,
+                fri: "5" in final ? final[5] : 0,
+                sat: "6" in final ? final[6] : 0,
+                sun: "0" in final ? final[0] : 0,
             };
-            this.makeData['unitId'] = value.unit_id;
-            this.makeData['total'] = parseInt(this.makeData['mon']) + parseInt(this.makeData['tue']) + parseInt(this.makeData['wed']) + parseInt(this.makeData['thu']) + parseInt(this.makeData['fri']) + parseInt(this.makeData['sat']) + parseInt(this.makeData['sun']);
+            this.makeData["unitId"] = value.unit_id;
+            this.makeData["total"] =
+                parseInt(this.makeData["mon"]) +
+                    parseInt(this.makeData["tue"]) +
+                    parseInt(this.makeData["wed"]) +
+                    parseInt(this.makeData["thu"]) +
+                    parseInt(this.makeData["fri"]) +
+                    parseInt(this.makeData["sat"]) +
+                    parseInt(this.makeData["sun"]);
         });
         this.wagesData.push(this.makeData);
         //this.wagesData = Array.from(this.wagesData.reduce((m, t) => m.set(t.name, t), new Map()).values());
-        localStorage.setItem('wagesdata', JSON.stringify(this.wagesData));
+        localStorage.setItem("wagesdata", JSON.stringify(this.wagesData));
         this.totalWagesDataList();
     }
     /** Save row */
     save(row, rowIndex) {
         this.isEditable[rowIndex] = !this.isEditable[rowIndex];
-        let getLocalStorage = localStorage.getItem('wagesdata');
+        let getLocalStorage = localStorage.getItem("wagesdata");
         getLocalStorage = JSON.parse(getLocalStorage);
         getLocalStorage = getLocalStorage[rowIndex];
         let editDay, editValue;
@@ -36593,19 +36612,26 @@ class FoodpckmgrorderComponent {
         else {
             pasCurFutDate = currentDate.getDate() - Math.abs(exactDate);
         }
-        let actualDate = this.getCurrentDate(String(pasCurFutDate).padStart(2, '0'));
-        let addhour = parseInt(row.mon) + parseInt(row.tue) + parseInt(row.wed) + parseInt(row.thu) + parseInt(row.fri) + parseInt(row.sat) + parseInt(row.sun);
+        let actualDate = this.getCurrentDate(String(pasCurFutDate).padStart(2, "0"));
+        let addhour = parseInt(row.mon) +
+            parseInt(row.tue) +
+            parseInt(row.wed) +
+            parseInt(row.thu) +
+            parseInt(row.fri) +
+            parseInt(row.sat) +
+            parseInt(row.sun);
         let workTime = parseInt(addhour) - parseInt(row.total);
         let createWagesData = {
-            "unit_id": row.unitId,
-            "per_hour_price": row.hour_wages,
-            "work_time": workTime,
-            "work_date": actualDate
+            unit_id: row.unitId,
+            per_hour_price: row.hour_wages,
+            work_time: workTime,
+            work_date: actualDate,
         };
-        this._ProfileService.createDriverWages(row.driverId, createWagesData).subscribe((wagesResponse) => {
+        this._ProfileService
+            .createDriverWages(row.driverId, createWagesData)
+            .subscribe((wagesResponse) => {
             this.unitsDriver();
-        }, (wagesError) => {
-        });
+        }, (wagesError) => { });
     }
     /** end */
     /**Delete row */
@@ -36613,22 +36639,36 @@ class FoodpckmgrorderComponent {
         this.isEditable[rowIndex] = !this.isEditable[rowIndex];
     }
     getCurrentDate(actualDate) {
-        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const monthNames = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ];
         let dateObj = new Date();
         let month = monthNames[dateObj.getMonth()];
         let day = actualDate;
         let year = dateObj.getFullYear();
-        return month + ' ' + day + ',' + year;
+        return month + " " + day + "," + year;
     }
     totalWagesDataList() {
         this.wagesData.forEach((wagesValue, wagesKey) => {
             let data = {
-                "driverName": wagesValue.driver,
-                "wagesTotal": wagesValue.total * wagesValue.hour_wages,
-                "driverId": wagesValue.driverId
+                driverName: wagesValue.driver,
+                wagesTotal: wagesValue.total * wagesValue.hour_wages,
+                driverId: wagesValue.driverId,
             };
             this.totalDeliveryWagesData.push(data);
-            this.sumTotalDeliveryWages = this.sumTotalDeliveryWages + parseInt(data.wagesTotal);
+            this.sumTotalDeliveryWages =
+                this.sumTotalDeliveryWages + parseInt(data.wagesTotal);
         });
         //this.totalDeliveryWagesData = Array.from(this.totalDeliveryWagesData.reduce((m, t) => m.set(t.name, t), new Map()).values());
         this.deliveryAllocation();
@@ -36636,20 +36676,22 @@ class FoodpckmgrorderComponent {
     deliveryAllocation() {
         this.unitOrderAndName.forEach((valAllocation, valKey) => {
             let data = {
-                "unitName": valAllocation.unitName,
-                "subSidy": (this.sumTotalDeliveryWages * valAllocation.unitOrder) / this.totalDeliveryCount,
+                unitName: valAllocation.unitName,
+                subSidy: (this.sumTotalDeliveryWages * valAllocation.unitOrder) /
+                    this.totalDeliveryCount,
                 //"subSidy": ((this.totalDeliveryWagesData[valKey]?.wagesTotal) *valAllocation.unitOrder)/this.totalDeliveryCount,
-                "status": "unpaid",
-                "sumTotalDeliveryWages": this.sumTotalDeliveryWages,
-                "unitsOrder": valAllocation.unitOrder,
-                "totalDeliveryCount": this.totalDeliveryCount,
-                "unitId": valAllocation.unitId
+                status: "unpaid",
+                sumTotalDeliveryWages: this.sumTotalDeliveryWages,
+                unitsOrder: valAllocation.unitOrder,
+                totalDeliveryCount: this.totalDeliveryCount,
+                unitId: valAllocation.unitId,
             };
             if (valKey == 0) {
                 this.commasUnitName = valAllocation.unitName;
             }
             else {
-                this.commasUnitName = this.commasUnitName + "," + valAllocation.unitName;
+                this.commasUnitName =
+                    this.commasUnitName + "," + valAllocation.unitName;
             }
             this.deliveryAllocationList.push(data);
         });
@@ -36659,7 +36701,9 @@ class FoodpckmgrorderComponent {
         this.subsidyUnitsOrder = unitsOrder;
         this.subsidyTotalDeliveryCount = totalDeliveryCount;
         this.subsidyUnitName = unitname;
-        this.modalService.open(subsidy, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+        this.modalService
+            .open(subsidy, { ariaLabelledBy: "modal-basic-title" })
+            .result.then((result) => {
             this.closeResult = `Closed with: ${result}`;
         }, (reason) => {
             this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -36668,10 +36712,10 @@ class FoodpckmgrorderComponent {
     /** end */
     getDismissReason(reason) {
         if (reason === _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["ModalDismissReasons"].ESC) {
-            return 'by pressing ESC';
+            return "by pressing ESC";
         }
         else if (reason === _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["ModalDismissReasons"].BACKDROP_CLICK) {
-            return 'by clicking on a backdrop';
+            return "by clicking on a backdrop";
         }
         else {
             return `with: ${reason}`;
@@ -36680,20 +36724,23 @@ class FoodpckmgrorderComponent {
     weeklyHubmember() {
         this.user = this._CommonFunctionsService.checkUser().user;
         const data = {
-            "startDate": "2021-02-18",
-            "endDate": "2021-02-24"
+            startDate: this.datepipe.transform(this.date, "yyyy-MM-dd"),
+            endDate: this.datepipe.transform(this.sevendate, "yyyy-MM-dd"),
         };
-        this._ProfileService.weeklyhubMember(this.user.unit_id, data).subscribe((res) => {
-        });
+        this._ProfileService
+            .weeklyhubMember(this.user.unit_id, data)
+            .subscribe((res) => { });
     }
     weeklyHubmaster() {
         this.user = this._CommonFunctionsService.checkUser().user;
         const data = {
-            "startDate": "2021-08-03",
-            "endDate": "2021-08-10"
+            startDate: this.datepipe.transform(this.date, "yyyy-MM-dd"),
+            endDate: this.datepipe.transform(this.sevendate, "yyyy-MM-dd"),
         };
-        this._ProfileService.weeklyhubMaster('30235', data).subscribe((res) => {
-            this.hubmasterdat = res.data['deliveries'];
+        this._ProfileService
+            .weeklyhubMaster(this.user.food_park_id, data)
+            .subscribe((res) => {
+            this.hubmasterdat = res.data["deliveries"];
             console.log(this.hubmasterdat);
         });
     }
@@ -36732,13 +36779,13 @@ FoodpckmgrorderComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵ�
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](FoodpckmgrorderComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
-                selector: 'app-foodpckmgrorder',
-                templateUrl: './foodpckmgrorder.component.html',
-                styleUrls: ['./foodpckmgrorder.css']
+                selector: "app-foodpckmgrorder",
+                templateUrl: "./foodpckmgrorder.component.html",
+                styleUrls: ["./foodpckmgrorder.css"],
             }]
     }], function () { return [{ type: _services_profile_service__WEBPACK_IMPORTED_MODULE_1__["ProfileService"] }, { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"] }, { type: _services_commonFunctions_service__WEBPACK_IMPORTED_MODULE_2__["CommonFunctionsService"] }, { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbModal"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }, { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"] }, { type: _angular_common__WEBPACK_IMPORTED_MODULE_7__["DatePipe"] }]; }, { table: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
-            args: ['table']
+            args: ["table"]
         }] }); })();
 
 
