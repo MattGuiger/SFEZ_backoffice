@@ -297,7 +297,7 @@ export class ProfileService {
   
 
   getAllDriversforRecon(foodParkId,data): Observable<any> {
-    return this.http.post(this.foodparkURL + '/' + foodParkId + "/drivers",data);
+    return this.http.post(this.foodparkURL + '/' + foodParkId + "/getdrivers",data);
   }
 
   getWeeklyrecon(data)

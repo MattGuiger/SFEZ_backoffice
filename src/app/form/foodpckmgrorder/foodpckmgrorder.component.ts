@@ -233,16 +233,13 @@ export class FoodpckmgrorderComponent {
     this.date = moment(this.date).add(7, "d");
     this.sevendate = moment(this.sevendate).add(7, "d");
     this.sevendatef = moment(this.sevendate).add(7, "d").format("YYYY-MM-DD");
-    console.log(
-      this.sevendate.format("YYYY-MM-DD"),
-      "2021-01-05 10:29:23.105817+05:30"
-    );
     this.getWeeklyRecon();
   }
 
   goBackDriver() {
     this.driverdate = moment(this.driverdate).add(-7, "d");
     this.driverseven = moment(this.driverseven).add(-7, "d");
+    this.getAllDrivers(this.user.food_park_id)
   }
 
   goFrontDriver() {
@@ -250,6 +247,7 @@ export class FoodpckmgrorderComponent {
     this.driverseven = moment(this.driverseven)
       .add(7, "d")
       .format("YYYY-MM-DD");
+    this.getAllDrivers(this.user.food_park_id)
   }
 
   getAllDrivers(foodParkId) {
