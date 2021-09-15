@@ -257,7 +257,7 @@
                           [class.datatable-icon-down]="expanded"
                           title="Expand/Collapse Row"
                           id="{{ row.id }}"
-                          (dblclick)="toggleExpandRow(row)"
+                          (click)="toggleExpandRow(row)"
                         >
                         </a>
                       </ng-template>
@@ -318,12 +318,13 @@
                           </h3>
                           <p class="mb-3" style="padding-left: 25px">
                             <span
-                              >Size:{{ row?.group[0].menudetails.size }}</span
+                              >Size:{{ row?.group[0].menudetails.size }}
+                            </span
                             ><br />
                             <span
                               >Add-Ons:
-                              {{ row?.group[0].menudetails.addons }}</span
-                            ><br />
+                              {{ row?.group[0].menudetails.addons }}
+                            </span><br />
                             <span
                               >Instructions:
                               {{ row?.group[0].menudetails.instructions }}</span
@@ -521,7 +522,7 @@
                           [class.datatable-icon-down]="expanded"
                           title="Expand/Collapse Row"
                           id="{{ row.id }}"
-                          (dblclick)="toggleExpandRow(row)"
+                          (click)="toggleExpandRow(row)"
                         >
                         </a>
                       </ng-template>
@@ -916,7 +917,7 @@
                               [class.datatable-icon-down]="row.$$expanded"
                               title="Expand/Collapse Row"
                               id="{{ row.id }}"
-                              (dblclick)="toggleExpandRowDailyout(row)"
+                              (click)="toggleExpandRowDailyout(row)"
                             >
                             </a>
                           </ng-template>
@@ -1291,7 +1292,7 @@
                               [class.datatable-icon-down]="row.$$expanded"
                               title="Expand/Collapse Row"
                               id="{{ row.id }}"
-                              (dblclick)="toggleExpandRowDailyout(row)"
+                              (click)="toggleExpandRowDailyout(row)"
                             >
                             </a>
                           </ng-template>

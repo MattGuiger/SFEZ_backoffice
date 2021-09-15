@@ -4594,7 +4594,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllDriversforRecon",
         value: function getAllDriversforRecon(foodParkId, data) {
-          return this.http.post(this.foodparkURL + '/' + foodParkId + "/drivers", data);
+          return this.http.post(this.foodparkURL + '/' + foodParkId + "/getdrivers", data);
         }
       }, {
         key: "getWeeklyrecon",

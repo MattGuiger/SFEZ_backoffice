@@ -2450,7 +2450,7 @@ class ProfileService {
         return this.http.get(this.foodparkURL + '/' + foodParkId + "/drivers");
     }
     getAllDriversforRecon(foodParkId, data) {
-        return this.http.post(this.foodparkURL + '/' + foodParkId + "/drivers", data);
+        return this.http.post(this.foodparkURL + '/' + foodParkId + "/getdrivers", data);
     }
     getWeeklyrecon(data) {
         // http://localhost:1338/api/v1/rel/weekreconbydate

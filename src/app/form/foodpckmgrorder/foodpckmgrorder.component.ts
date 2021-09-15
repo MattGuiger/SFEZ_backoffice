@@ -187,7 +187,7 @@ export class FoodpckmgrorderComponent {
     let totalBalance = 0;
     // const tempCompany_id = 11247
     const tempDate = {
-      date: this.datecuurent = this.datepipe.transform(Date.now(), "yyyy-MM-dd")
+      orderdate: this.datecuurent = this.datepipe.transform(Date.now()-1, "yyyy-MM-dd")
     };
 
     this._ProfileService.getDailyPayout(this.user.company_id, tempDate).subscribe(
