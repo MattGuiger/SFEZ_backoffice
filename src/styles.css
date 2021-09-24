@@ -44,3 +44,7 @@ ngx-dropzone-remove-badge {
 .pac-container {
     z-index: 1051;
 }
+.expan-icon{
+    font-size: 37px;
+    line-height: 10px;
+}

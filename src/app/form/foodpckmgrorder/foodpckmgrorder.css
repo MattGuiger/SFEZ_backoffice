@@ -24,7 +24,7 @@ table {
 
 ::ng-deep.ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell .datatable-body-cell-label
 {
-  display: unset;
+  /* display: unset; */
 }
 
 /* The container */

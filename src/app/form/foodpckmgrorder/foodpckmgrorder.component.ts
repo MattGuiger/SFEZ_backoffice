@@ -1,4 +1,4 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component, QueryList, ViewChild, ElementRef, ViewChildren } from '@angular/core';
 import { ProfileService } from "../../services/profile.service";
 import { CommonFunctionsService } from "../../services/commonFunctions.service";
 import {
@@ -35,11 +35,14 @@ export class FoodpckmgrorderComponent {
   rows = [];
   temp = [...data];
   orders: any[] = [];
+  filterOrders : any[] = [];
+  columnsWithSearch = [];
   user: any;
   drivers: any[] = [];
   unitForm: FormGroup;
   loadingIndicator = true;
   datecuurent: any;
+  datecurrentDailyPayout : any;
   deliveryHub: Object;
   weekData: Array<Object>;
   wagesDataArr: Array<Object>;
@@ -92,6 +95,9 @@ export class FoodpckmgrorderComponent {
 
   //@ViewChild(FoodpckmgrorderComponent, { static: false }) table: FoodpckmgrorderComponent;
   @ViewChild("table") table: any;
+  @ViewChildren("dailyPayoutBank") dailyPayoutBank: QueryList<any>;
+  @ViewChildren("dailyPayoutCod") dailyPayoutCod: QueryList<any>;
+
   tab: any;
   weeklyRecon: any;
   date: any;
@@ -105,6 +111,8 @@ export class FoodpckmgrorderComponent {
   driverseven: any;
   tabforCod: any;
   grpay: any;
+  changeOrders: [];
+  allOrders = [];
   hubmasterdat: any;
   constructor(
     private _ProfileService: ProfileService,
@@ -118,6 +126,7 @@ export class FoodpckmgrorderComponent {
   ) {
     this.user = this._CommonFunctionsService.checkUser().user;
     this.datecuurent = this.datepipe.transform(Date.now(), "yyyy-MM-dd");
+    this.datecurrentDailyPayout = this.datepipe.transform(Date.now(), "yyyy-MM-dd");
     this.date = moment().add(0, "d");
     this.sevendate = moment().add(7, "d");
     this.driverdate = moment().add(0, "d");
@@ -184,29 +193,13 @@ export class FoodpckmgrorderComponent {
 
   /** Get Daily Payout */
   getDailyPayout() {
-    let totalBalance = 0;
-    // const tempCompany_id = 11247
     const tempDate = {
-      orderdate: this.datecuurent = this.datepipe.transform(Date.now()-1, "yyyy-MM-dd")
+      orderdate: this.datecurrentDailyPayout
     };
 
     this._ProfileService.getDailyPayout(this.user.company_id, tempDate).subscribe(
       (res: any) => {
-        this.tab = res.data[0].data["bank"];
-        this.tabforCod = res.data[0].data["cod"];
-        var payoutContainer = [];
-
-        this.tab.forEach(function (resp) {
-          if (resp.data.cod) {
-            payoutContainer.push(resp.data.cod);
-          }
-          if (resp.data.online) {
-            payoutContainer.push(resp.data.online);
-          }
-        });
-        this.dailyPayoutData = payoutContainer;
-        this.dailyPayoutData = payoutContainer;
-        this.codBalance = totalBalance;
+        this.dailyPayoutData = res.data;
       },
       (error: any) => {}
     );
@@ -219,6 +212,11 @@ export class FoodpckmgrorderComponent {
     if (this.selectedstatus == "Void") {
     } else {
     }
+  }
+
+  datePickForDailyPayout(event) {
+    this.datecurrentDailyPayout = event.target.value;
+    this.getDailyPayout();
   }
 
   goBack() {
@@ -274,7 +272,29 @@ export class FoodpckmgrorderComponent {
       data: dialogData,
     });
   }
+  onActivate(event){
+    if(event.type == "dblclick"){
+      this.table.rowDetail.toggleExpandRow(event.row);
+      const rowdata = this.temp.filter((d) => d.id == event.row.id);
+      this.rowWiseData = rowdata[0]?.order_items;
+    }
+  }
 
+  dailyPayoutonActivateCod (event,index){
+    if(event.type == "dblclick"){
+      let tables = this.dailyPayoutCod.toArray();
+      tables[index].rowDetail.collapseAllRows();
+      tables[index].rowDetail.toggleExpandRow(event.row);
+    }
+  }
+
+  dailyPayoutonActivatebank (event,index){
+    if(event.type == "dblclick"){
+      let tables = this.dailyPayoutBank.toArray();
+      tables[index].rowDetail.collapseAllRows();
+      tables[index].rowDetail.toggleExpandRow(event.row);
+    }
+  }
   getAllOrder() {
     this.user = this._CommonFunctionsService.checkUser().user;
     this.getAllDrivers(this.user.food_park_id);
@@ -284,12 +304,38 @@ export class FoodpckmgrorderComponent {
     this._ProfileService
       .getallfoodparkmgrorder(this.user.food_park_id, data)
       .subscribe((res: any) => {
-        this.orders = res.data[0].orders;
-        this.temp = this.orders;
-        this.rows = this.orders;
-        this.grpay = res.data[0].grouporders;
+        //this.orders = res.data[0].orders;
+        //this.temp = this.orders;
+        //this.rows = this.orders;
+        //this.grpay = res.data[0].grouporders;
+        //this.changeOrders = res.data[0].changeorders;
+        let groupOrders = [];
+
+        if(res.data[0].grouporders){
+          res.data[0].grouporders.forEach(order => {
+            let orderDetail = order.order_detail;
+            orderDetail.group = order.group;
+            groupOrders.push(orderDetail);
+          });
+        }
+        this.orders = [... res.data[0].orders,...res.data[0].changeorders,...groupOrders]
+        this.filterOrders = [...this.orders];
+        this.columnsWithSearch = ['order_id','customer_name','delivery_address_details.city','delivery_address_details.county','delivery_address_details.line_1',
+        'delivery_address_details.line_2','delivery_address_details.company_name'
+        ];
       });
   }
+filterDatatable(event){
+  let filter = event.target.value.toLowerCase();
+  this.filterOrders = this.orders.filter(item => {
+    for (let i = 0; i < this.columnsWithSearch.length; i++){
+      var colValue = item[this.columnsWithSearch[i]] ;
+      if (!filter || (!!colValue && colValue.toString().toLowerCase().indexOf(filter) !== -1)) {
+        return true;
+      }
+    }
+  });
+}
 
   orderActionFilter(event) {
     this.selectedstatus = event.target.value;
@@ -397,7 +443,7 @@ export class FoodpckmgrorderComponent {
   }
 
   /** Start accordion for order tab*/
-  toggleExpandRow(row) {
+  toggleExpandRow(row,table) {
     this.rowWiseData = [];
     this.orderDetails = row;
     this.table.rowDetail.toggleExpandRow(row);
@@ -410,14 +456,16 @@ export class FoodpckmgrorderComponent {
   }
   /** End */
 
-  toggleExpandRowDailyout(row) {
-    this.table.rowDetail.collapseAllRows();
-    this.table.rowDetail.toggleExpandRow(row);
+  toggleExpandRowDailyout(row,index) {
+    let tables = this.dailyPayoutBank.toArray();
+    tables[index].rowDetail.collapseAllRows();
+    tables[index].rowDetail.toggleExpandRow(row);
   }
 
-  toggleExpandRowDailyCod(row) {
-    this.table.rowDetail.collapseAllRows();
-    this.table.rowDetail.toggleExpandRow(row);
+  toggleExpandRowDailyCod(row,index) {
+    let tables = this.dailyPayoutCod.toArray();
+    tables[index].rowDetail.collapseAllRows();
+    tables[index].rowDetail.toggleExpandRow(row);
   }
 
   /** Start select driver */

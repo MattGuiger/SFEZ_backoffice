@@ -52,7 +52,7 @@ import { MaterialModule } from '../menuitems/material/material.module';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { DatePipe } from '@angular/common';
 import { DriverDialogComponent } from './driver-dialog/driver-dialog.component';
-
+import {CallbackPipe} from './callback.pipe'
 @NgModule({
     imports: [CommonModule, RouterModule.forChild(FormsRoutes),Ng5SliderModule,
         AgmCoreModule.forRoot({
@@ -104,7 +104,8 @@ import { DriverDialogComponent } from './driver-dialog/driver-dialog.component';
         UnitorderComponent,
         FoodpckmgrorderComponent,
         CustompipePipe,
-        ManagerEditComponent
+        ManagerEditComponent,
+        CallbackPipe
     ],
     providers:[ConfirmationService,DatePipe],
     entryComponents: [ConfirmDialogComponent,DriverDialogComponent],

@@ -17,7 +17,7 @@
                         type="text"
                         class="form-control"
                         placeholder="Delivery Address, Order # or Customer Name"
-                        (keyup)="updateFilter($event)"
+                        (keyup)="filterDatatable($event)"
                       />
                       <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
                     </div>
@@ -41,16 +41,18 @@
                   <div class="col-xl-2 col-lg-2"></div>
                 </form>
                 <div class="accodion-datatable">
+                  <h2 style="margin-top:20px;">Order</h2>
                   <ngx-datatable
                     class="material"
                     #table
-                    [rows]="rows"
+                    [rows]="filterOrders"
                     [columnMode]="'force'"
                     [headerHeight]="50"
                     [footerHeight]="50"
                     [rowHeight]="auto"
                     [limit]="5"
                     [scrollbarH]="true"
+                    (activate)="onActivate($event)"
                   >
                     <!-- Row Detail Template -->
                     <ngx-datatable-row-detail [rowHeight]="auto">
@@ -61,22 +63,27 @@
                       >
                         <div style="padding-left: 10px">
                           <h3>
-                            <b>{{ row?.unit_name }}</b>
+                            <b>{{ row?.menudetails?.name }} X {{row?.menudetails?.orderquantity}} ${{row?.menudetails?.price}}</b>
                           </h3>
-                          <p class="mb-3" style="padding-left: 25px">
-                            <span>Size:{{ row?.size }}</span
-                            ><br />
-                            <span>Add-Ons: {{ row?.addons }}</span
-                            ><br />
-                            <span>Instructions: {{ row?.instructions }}</span
-                            ><br />
-                          </p>
+                          <div>Size:{{ row?.menudetails?.size }}</div>
+                          <div>Add-Ons:
+                            <ul>
+                              <li *ngFor="let addon of row?.menudetails?.addons">
+                                {{ addon.name }} (+${{addon.price}})
+                              </li>
+                            </ul>
+                          </div>
+                          <div>Instructions: 
+                            <ul>
+                              <li *ngFor="let instruction of row?.menudetails?.instructions">
+                                {{ instruction }}
+                              </li>
+                            </ul>
+                          </div>
                           <h3>
-                            <b
-                              >Delivery Address:
+                            Delivery Address:
                               {{ row?.delivery_address_details.line_1 }}
-                              {{ row?.delivery_address_details.line_2 }}</b
-                            >
+                              {{ row?.delivery_address_details.line_2 }}
                           </h3>
                           <h3>
                             <b
@@ -85,6 +92,15 @@
                                 row?.desired_delivery_time | date: "hh:mm a"
                               }}</b
                             >
+                          </h3>
+
+                          <h3 *ngIf="row?.group">
+                            Group Order
+                            <ul>
+                              <li *ngFor="let grp of row?.group">
+                                {{ grp.first_name }}  {{ grp.last_name }} : ${{grp.amount_paid}} : {{grp.context}}
+                              </li>
+                            </ul>
                           </h3>
                           <!-- <ng-template #loaddata>
                             <p>Please wait item details loading .....</p>
@@ -256,8 +272,9 @@
                           [class.datatable-icon-right]="!expanded"
                           [class.datatable-icon-down]="expanded"
                           title="Expand/Collapse Row"
+                          class="expan-icon"
                           id="{{ row.id }}"
-                          (click)="toggleExpandRow(row)"
+                          (click)="toggleExpandRow(row,'table')"
                         >
                         </a>
                       </ng-template>
@@ -293,271 +310,6 @@
                     </ngx-datatable-footer>
                   </ngx-datatable>
                 </div>
-                <div class="accodion-datatable">
-                  <ngx-datatable
-                    class="material"
-                    #table
-                    [rows]="grpay"
-                    [columnMode]="'force'"
-                    [headerHeight]="50"
-                    [footerHeight]="50"
-                    [rowHeight]="auto"
-                    [limit]="5"
-                    [scrollbarH]="true"
-                  >
-                    <!-- Row Detail Template -->
-                    <ngx-datatable-row-detail [rowHeight]="auto">
-                      <ng-template
-                        let-row="row"
-                        let-expanded="expanded"
-                        ngx-datatable-row-detail-template
-                      >
-                        <div style="padding-left: 10px">
-                          <h3>
-                            <b>{{ row?.group[0].unit_name }}</b>
-                          </h3>
-                          <p class="mb-3" style="padding-left: 25px">
-                            <span
-                              >Size:{{ row?.group[0].menudetails.size }}
-                            </span
-                            ><br />
-                            <span
-                              >Add-Ons:
-                              {{ row?.group[0].menudetails.addons }}
-                            </span><br />
-                            <span
-                              >Instructions:
-                              {{ row?.group[0].menudetails.instructions }}</span
-                            ><br />
-                          </p>
-                          <h3>
-                            <b
-                              >Delivery Address:
-                              {{
-                                row?.group[0].delivery_address_details.line_1
-                              }}
-                              {{
-                                row?.group[0].delivery_address_details.line_2
-                              }}</b
-                            >
-                          </h3>
-                          <h3>
-                            <b
-                              >Delivery Confirmation: In Person @
-                              {{
-                                row?.group[0].desired_delivery_time
-                                  | date: "hh:mm a"
-                              }}</b
-                            >
-                          </h3>
-                          <!-- <ng-template #loaddata>
-                          <p>Please wait item details loading .....</p>
-                        </ng-template> -->
-                        </div>
-                      </ng-template>
-                    </ngx-datatable-row-detail>
-
-                    <ngx-datatable-column name="#" [width]="40">
-                      <ng-template let-row="row" ngx-datatable-cell-template>
-                        <div class="custom-control custom-checkbox">
-                          <input
-                            type="checkbox"
-                            class="custom-control-input"
-                            id="customCheck{{ row.id }}"
-                            name="example1"
-                          />
-                          <label
-                            class="custom-control-label"
-                            for="customCheck{{ row.id }}"
-                          ></label>
-                        </div>
-                      </ng-template>
-                    </ngx-datatable-column>
-
-                    <ngx-datatable-column name="Status" [width]="140">
-                      <ng-template let-row="row" ngx-datatable-cell-template>
-                        <!-- <a href="javascript:void(0)" class="order-status text-captialize" *ngIf="row.order_detail.status == 'complete'"
-                        style="background-color: red; color:#fff;">{{row.order_detail.status}}</a> -->
-
-                        <a
-                          style="background-color: #22c6ab; color: #fff"
-                          class="
-                            order-status
-                            text-capitalize
-                            btn
-                            w-100
-                            border-0
-                          "
-                          >{{ row?.group[0].status }}</a
-                        >
-                        <!-- <a style="background-color: #ef6e6e; color:#fff;"
-                        class="order-status text-capitalize btn w-100 border-0"
-                        *ngIf="row?.group[0].status == 'order_paid'">{{row?.group[0].status}}</a>
-
-                      <a style="background-color: #ffbc34; color:#fff;"
-                        class="order-status text-capitalize btn w-100 border-0"
-                        *ngIf="row?.group[0].status == 'incomplete'">{{row?.group[0].status}}</a>
-
-                      <a style="background-color: #22c6ab; color:#fff;"
-                        class="order-status text-capitalize btn w-100 border-0"
-                        *ngIf="row?.group[0].status == 'order_requested'">{{row?.group[0].status}}</a> -->
-                      </ng-template>
-                    </ngx-datatable-column>
-
-                    <ngx-datatable-column name="Date" [width]="110">
-                      <ng-template let-row="row" ngx-datatable-cell-template>
-                        {{ row?.group[0].initiation_time | date: "MMM d" }}
-                      </ng-template>
-                    </ngx-datatable-column>
-
-                    <ngx-datatable-column name="Order ID" [width]="62">
-                      <ng-template let-row="row" ngx-datatable-cell-template>
-                        {{
-                          row?.group[0].ord_id | custompipe: row.group[0].ord_id
-                        }}
-                      </ng-template>
-                    </ngx-datatable-column>
-
-                    <ngx-datatable-column name="Payment" [width]="70">
-                      <ng-template let-row="row" ngx-datatable-cell-template>
-                        <!-- {{row?.group[0].context}} -->
-                        <img
-                          *ngIf="row?.group[0].context == 'cod'"
-                          src="assets/images/cash.png"
-                          alt="Icon"
-                          style="height: 36px"
-                        />
-                        <img
-                          *ngIf="row?.group[0].context == 'Bank'"
-                          src="assets/images/bank.png"
-                          alt="Icon"
-                          style="height: 36px"
-                        />
-                        <img
-                          *ngIf="row?.group[0].context == 'card'"
-                          src="assets/images/card.png"
-                          alt="Icon"
-                          style="height: 36px"
-                        />
-                      </ng-template>
-                    </ngx-datatable-column>
-
-                    <ngx-datatable-column name="Order Amt" [width]="92">
-                      <ng-template let-row="row" ngx-datatable-cell-template>
-                        <!-- <p>${{row?.group[0].amount?.toFixed(2)}}</p> -->
-                        <p>${{ row?.group[0].amount }}</p>
-                      </ng-template>
-                    </ngx-datatable-column>
-
-                    <ngx-datatable-column name="Vendor" [width]="80">
-                      <ng-template let-row="row" ngx-datatable-cell-template>
-                        {{ row?.group[0].vendor_name }}
-                      </ng-template>
-                    </ngx-datatable-column>
-
-                    <ngx-datatable-column name="Actions" [width]="135">
-                      <ng-template let-row="row" ngx-datatable-cell-template>
-                        <div *ngIf="row?.group[0].context == 'Bank'">
-                          <button
-                            type="button"
-                            class="btn btn-info btn-circle btn-sm"
-                            (click)="orderAction('Refund', row)"
-                          >
-                            <i class="fa fa-check"></i>
-                          </button>
-                          <button
-                            type="button"
-                            class="btn btn-danger btn-circle btn-sm"
-                            (click)="orderAction('Void', row)"
-                          >
-                            <i class="fa fa-times"></i>
-                          </button>
-                        </div>
-
-                        <div *ngIf="row?.group[0].context == 'card'">
-                          <button
-                            type="button"
-                            class="btn btn-info btn-circle btn-sm"
-                            (click)="orderAction('Refund', row)"
-                          >
-                            <i class="fa fa-check"></i>
-                          </button>
-                          <button
-                            type="button"
-                            class="btn btn-danger btn-circle btn-sm"
-                            (click)="orderAction('Void', row)"
-                          >
-                            <i class="fa fa-times"></i>
-                          </button>
-                        </div>
-
-                        <div *ngIf="row?.group[0].context == 'cod'">
-                          <button
-                            type="button"
-                            class="btn btn-danger btn-circle btn-sm"
-                            (click)="orderAction('Void', row)"
-                          >
-                            <i class="fa fa-times"></i>
-                          </button>
-                        </div>
-                      </ng-template>
-                    </ngx-datatable-column>
-
-                    <ngx-datatable-column
-                      [width]="50"
-                      [resizeable]="false"
-                      [sortable]="false"
-                      [draggable]="false"
-                      [canAutoResize]="true"
-                      [frozenLeft]="true"
-                    >
-                      <ng-template
-                        let-row="row"
-                        let-expanded="expanded"
-                        ngx-datatable-cell-template
-                      >
-                        <a
-                          href="javascript:void(0)"
-                          [class.datatable-icon-right]="!expanded"
-                          [class.datatable-icon-down]="expanded"
-                          title="Expand/Collapse Row"
-                          id="{{ row.id }}"
-                          (click)="toggleExpandRow(row)"
-                        >
-                        </a>
-                      </ng-template>
-                    </ngx-datatable-column>
-
-                    <ngx-datatable-footer>
-                      <!-- [class.datatable-icon-down]="row.$$expanded" [class.datatable-icon-down]="!row.$$expanded" -->
-                      <ng-template
-                        let-rowCount="rowCount"
-                        let-pageSize="pageSize"
-                        let-selectedCount="selectedCount"
-                        let-curPage="curPage"
-                        let-offset="offset"
-                        ngx-datatable-footer-template
-                      >
-                        <!-- <button type="button" class="btn btn-success ml-2 custom-button">Void</button>
-                      <button type="button" class="btn btn-warning ml-2 custom-button">Refund</button>-->
-                        <!-- <button type="button" class="btn btn-danger ml-2 custom-button">Delete</button>  -->
-                        <datatable-pager
-                          [pagerLeftArrowIcon]="'datatable-icon-left'"
-                          [pagerRightArrowIcon]="'datatable-icon-right'"
-                          [pagerPreviousIcon]="'datatable-icon-prev'"
-                          [pagerNextIcon]="'datatable-icon-skip'"
-                          [page]="curPage"
-                          [visiblePagesCount]="currentVisible"
-                          [size]="pageSize"
-                          [count]="rowCount"
-                          [hidden]="false"
-                          (change)="table.onFooterPage($event)"
-                        >
-                        </datatable-pager>
-                      </ng-template>
-                    </ngx-datatable-footer>
-                  </ngx-datatable>
-                </div>
               </div>
             </ng-template>
           </ngb-tab>
@@ -575,8 +327,19 @@
                   </div>
                 </div>
               </div> -->
-              <div class="card-body" *ngIf="tab">
-                <div *ngFor="let payout of tab; let i = index">
+              <div class="card-body">
+                <div class="text-center">
+                  <label>Select Date</label> &nbsp;
+                  <input
+                      type="date"
+                      style="height: 32px; color: #24c6ab"
+                      [(ngModel)]="datecurrentDailyPayout"
+                      (change)="datePickForDailyPayout($event)"
+                      [ngModelOptions]="{ standalone: true }"
+                  />
+               </div>
+                <div *ngFor="let payout of dailyPayoutData; let i = index">
+                  <h2 class="text-center"><strong>{{payout.membername}}</strong></h2>
                   <!-- <div *ngFor="let payout of dailyPayoutData">  -->
                   <!-- {{payout.data[0].tip_amount}} -->
                   <h3 style="text-align: center"><b> Bank (Green Money)</b></h3>
@@ -587,14 +350,15 @@
                       <!-- <ngx-datatable class="material" #table [rows]="dailyPayoutData[i]" [columnMode]="'force'" -->
                       <ngx-datatable
                         class="material"
-                        #table
-                        [rows]="tab"
+                        #dailyPayoutBank
+                        [rows]="payout.data.bank"
                         [columnMode]="'force'"
                         [headerHeight]="50"
                         [footerHeight]="50"
                         [rowHeight]="auto"
                         [limit]="5"
                         [scrollbarH]="true"
+                        (activate)="dailyPayoutonActivatebank($event,i)"
                       >
                         <!-- Row Detail Template -->
 
@@ -662,39 +426,10 @@
                                   ${{ row?.deduction }}
                                 </div>
                               </div>
-                              <div class="row mb-1">
-                                <div
-                                  class=""
-                                  style="font-weight: 500; padding-left: 10px"
-                                >
-                                  Driver :
-                                </div>
-                                <div class="col-md-3 pl-1">
-                                  {{
-                                    row?.driver?.first_name +
-                                      " " +
-                                      row?.driver?.last_name
-                                  }}
-                                </div>
-                              </div>
+                              
                             </div>
                             <ng-template #takeout>
                               <div style="padding-left: 58px">
-                                <div class="row mb-1">
-                                  <div
-                                    class=""
-                                    style="font-weight: 500; padding-left: 10px"
-                                  >
-                                    Driver :-
-                                  </div>
-                                  <div class="col-md-3 pl-1">
-                                    {{
-                                      row?.driver?.first_name +
-                                        " " +
-                                        row?.driver?.last_name
-                                    }}
-                                  </div>
-                                </div>
                                 <h6 class="col-md-2 pl-0">Itemized Charges</h6>
                                 <div class="row">
                                   <div class="col-md-2">Instamarkt(5%)</div>
@@ -829,6 +564,15 @@
                             ngx-datatable-cell-template
                           >
                             {{ row?.id | custompipe: row.id }}
+                          </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Driver" [width]="62">
+                          <ng-template
+                            let-row="row"
+                            ngx-datatable-cell-template
+                          >
+                            {{ row?.driver?.first_name}} {{ row?.driver?.last_name}}
                           </ng-template>
                         </ngx-datatable-column>
 
@@ -917,7 +661,8 @@
                               [class.datatable-icon-down]="row.$$expanded"
                               title="Expand/Collapse Row"
                               id="{{ row.id }}"
-                              (click)="toggleExpandRowDailyout(row)"
+                              class="expan-icon"
+                              (click)="toggleExpandRowDailyout(row,i)"
                             >
                             </a>
                           </ng-template>
@@ -950,9 +695,9 @@
                         </ngx-datatable-footer>
                       </ngx-datatable>
                     </div>
-                    <div *ngIf="payout" style="text-align: right">
-                      {{ payout.total_cod }}
-                    </div>
+                    <h3  style="text-align: right">
+                      <strong>Total Due: ${{ payout?.data?.total_online }}</strong>
+                    </h3>
                   </div>
                   <!-- ----------------------------start -->
                   <div>
@@ -962,14 +707,15 @@
                     <div class="accodion-datatable">
                       <ngx-datatable
                         class="material"
-                        #table
-                        [rows]="tab"
+                        #dailyPayoutCod
+                        [rows]="payout.data.cod"
                         [columnMode]="'force'"
                         [headerHeight]="50"
                         [footerHeight]="50"
                         [rowHeight]="auto"
                         [limit]="5"
                         [scrollbarH]="true"
+                        (activate)="dailyPayoutonActivateCod($event,i)"
                       >
                         <!-- Row Detail Template -->
 
@@ -1008,22 +754,6 @@
                                 </div>
                               </div>
                               <div class="row">
-                                <div class="col-md-2">Bank Processing</div>
-                                <span>:</span>
-                                <div
-                                  class="col-md-2"
-                                  *ngIf="row.bank_processing"
-                                >
-                                  ${{ row?.bank_processing }}
-                                </div>
-                                <div
-                                  class="col-md-2"
-                                  *ngIf="!row.bank_processing"
-                                >
-                                  $0
-                                </div>
-                              </div>
-                              <div class="row">
                                 <div class="col-md-3 pl-0">
                                   <hr />
                                 </div>
@@ -1037,39 +767,9 @@
                                   ${{ row?.deduction }}
                                 </div>
                               </div>
-                              <div class="row mb-1">
-                                <div
-                                  class=""
-                                  style="font-weight: 500; padding-left: 10px"
-                                >
-                                  Driver :
-                                </div>
-                                <div class="col-md-3 pl-1">
-                                  {{
-                                    row?.driver?.first_name +
-                                      " " +
-                                      row?.driver?.last_name
-                                  }}
-                                </div>
-                              </div>
                             </div>
                             <ng-template #takeout>
                               <div style="padding-left: 58px">
-                                <div class="row mb-1">
-                                  <div
-                                    class=""
-                                    style="font-weight: 500; padding-left: 10px"
-                                  >
-                                    Driver :-
-                                  </div>
-                                  <div class="col-md-3 pl-1">
-                                    {{
-                                      row?.driver?.first_name +
-                                        " " +
-                                        row?.driver?.last_name
-                                    }}
-                                  </div>
-                                </div>
                                 <h6 class="col-md-2 pl-0">Itemized Charges</h6>
                                 <div class="row">
                                   <div class="col-md-2">Instamarkt(5%)</div>
@@ -1207,6 +907,15 @@
                           </ng-template>
                         </ngx-datatable-column>
 
+                        <ngx-datatable-column name="Driver" [width]="62">
+                          <ng-template
+                            let-row="row"
+                            ngx-datatable-cell-template
+                          >
+                            {{ row?.driver?.first_name}} {{ row?.driver?.last_name}}
+                          </ng-template>
+                        </ngx-datatable-column>
+
                         <ngx-datatable-column name="Method" [width]="70">
                           <ng-template
                             let-row="row"
@@ -1292,7 +1001,8 @@
                               [class.datatable-icon-down]="row.$$expanded"
                               title="Expand/Collapse Row"
                               id="{{ row.id }}"
-                              (click)="toggleExpandRowDailyout(row)"
+                              class="expan-icon"
+                              (click)="toggleExpandRowDailyCod(row,i)"
                             >
                             </a>
                           </ng-template>
@@ -1324,14 +1034,18 @@
                           </ng-template>
                         </ngx-datatable-footer>
                       </ngx-datatable>
+                      <h3  style="text-align: right">
+                        <strong>Total Ownes : ${{ payout?.data?.total_cod }}</strong>
+                      </h3>
                     </div>
                   </div>
                   <!-- ---------------end -->
-                  <!-- <div *ngIf=payout.data.online style="text-align: right;">
-                    {{payout.data.total_online}}
-                  </div> -->
-
-                  <p style="text-align: right">Payout- {{ payout.payout }}</p>
+                  
+                  <h2 class="text-center">
+                    <strong>
+                      Payout: ${{ payout.payout }}
+                    </strong>
+                  </h2>
                 </div>
               </div>
               <div class="card-body" *ngIf="!tab">
