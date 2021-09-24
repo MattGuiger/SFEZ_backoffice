@@ -77,7 +77,8 @@ export class ProfileService {
   private unitManagerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/unitmanagers';
   private refundToCustomerURL = config.getEnvironmentVariable('endPoint') + 'api/v1/rel/refund/customer/';
   private googleUser = config.getEnvironmentVariable('endPoint') + "/api/v1/rel/google/"
-  private molCategoryDetail = config.getEnvironmentVariable('endPoint') + "/api/v1/mol/companies/"
+  private molCategoryDetail = config.getEnvironmentVariable('endPoint') + "api/v1/mol/companies/"
+  private getDriverByHub = config.getEnvironmentVariable('endPoint') + "api/v1/ord/hub/food_parks/"
 
   constructor(private http: HttpClient) { }
 
@@ -297,7 +298,7 @@ export class ProfileService {
   
 
   getAllDriversforRecon(foodParkId,data): Observable<any> {
-    return this.http.post(this.foodparkURL + '/' + foodParkId + "/getdrivers",data);
+    return this.http.post(this.getDriverByHub  + foodParkId + "/drivers",data);
   }
 
   getWeeklyrecon(data)

@@ -1,0 +1,155 @@
+<form class="mb-3">
+  <div class="row align-items-center justify-content-center">
+    <div class="row col col-auto">
+      <div
+        class="text-right"
+        style="font-weight: 500; padding-left: 10px"
+      >
+        <button
+          type="button"
+          class="btn"
+          style="border-radius: 50%"
+          (click)="goBackDriver()"
+        >
+          &#8249;
+        </button>
+        &nbsp; Week Of :
+      </div>
+      <div>
+        {{ getDriverdate() | date }} - {{ getDriverseven() | date }} &nbsp;
+        <button
+          class="col-md-3 pl-0"
+          type="button"
+          class="btn"
+          style="border-radius: 50%"
+          (click)="goFrontDriver()"
+        >
+          &#8250;
+        </button>
+      </div>
+    </div>
+    <div class="text-center col col-auto ml-1">
+      <mat-form-field appearance="fill">
+        <label>Select Hub</label>
+        <mat-select
+          name="hub"
+          [(ngModel)]="selectedHub"
+          (selectionChange)="selectHub(selectedHub)"
+          placeholder="Select Master"
+        >
+          <mat-option *ngFor="let hub of hubs" [value]="hub.food_park_id">{{
+            hub.data[0].name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</form>
+<div *ngFor="let driver of drivers">
+  <h2 class="text-center">
+    <strong>{{ driver.first_name }} {{ driver.last_name }}</strong>
+  </h2>
+  <div class="accodion-datatable">
+    <table mat-table [dataSource]="driver.data" class="mat-elevation-z8">
+      <!-- Implicit Column -->
+      <ng-container matColumnDef="Schedule">
+        <th mat-header-cell *matHeaderCellDef>Schedule</th>
+        <td mat-cell *matCellDef="let data">
+          {{ data.label }}
+        </td>
+      </ng-container>
+
+      <!-- Index Column -->
+      <ng-container matColumnDef="Monday">
+        <th mat-header-cell *matHeaderCellDef>Monday</th>
+        <td mat-cell *matCellDef="let data">
+          {{ data.data?.Monday || "0" }}
+        </td>
+      </ng-container>
+
+      <!-- Index Column -->
+      <ng-container matColumnDef="Tuesday">
+        <th mat-header-cell *matHeaderCellDef>Tuesday</th>
+        <td mat-cell *matCellDef="let data">
+          {{ data.data?.Tuesday || "0" }}
+        </td>
+      </ng-container>
+
+      <!-- Index Column -->
+      <ng-container matColumnDef="Wednesday">
+        <th mat-header-cell *matHeaderCellDef>Wednesday</th>
+        <td mat-cell *matCellDef="let data">
+          {{ data.data?.Wednesday || "0" }}
+        </td>
+      </ng-container>
+
+      <!-- Index Column -->
+      <ng-container matColumnDef="Thursday">
+        <th mat-header-cell *matHeaderCellDef>Thursday</th>
+        <td mat-cell *matCellDef="let data">
+          {{ data.data?.Thursday || "0" }}
+        </td>
+      </ng-container>
+
+      <!-- Last Column -->
+      <ng-container matColumnDef="Friday">
+        <th mat-header-cell *matHeaderCellDef>Friday</th>
+        <td mat-cell *matCellDef="let data">
+          {{ data.data?.Friday || "0" }}
+        </td>
+      </ng-container>
+
+      <!-- Even Column -->
+      <ng-container matColumnDef="Saturday">
+        <th mat-header-cell *matHeaderCellDef>Saturday</th>
+        <td mat-cell *matCellDef="let data">
+          {{ data.data?.Saturday || "0" }}
+        </td>
+      </ng-container>
+
+      <!-- Odd Column -->
+      <ng-container matColumnDef="Sunday">
+        <th mat-header-cell *matHeaderCellDef>Sunday</th>
+        <td mat-cell *matCellDef="let data">
+          {{ data.data?.Sunday || "0" }}
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <div class="text-center" style="margin: 30px 0">
+    <h2>
+      <strong> Cashout Summary </strong>
+    </h2>
+    <table
+      class="table table-bordered"
+      style="width: 300px; margin: 0 auto; text-align: left"
+    >
+      <tr>
+        <th>Trip fees & Tips</th>
+        <td>
+          {{ driver.cashout_summary.trip }}
+        </td>
+      </tr>
+      <tr>
+        <th>COD Cash Received</th>
+        <td>{{ driver.cashout_summary.cash_advance }}</td>
+      </tr>
+      <tr>
+        <th>Total Weekly Wages</th>
+        <td>{{ driver.cashout_summary.week_wages }}</td>
+      </tr>
+
+      <tr>
+        <th>Delivery Attempts</th>
+        <td>{{ driver.cashout_summary.delivery_attempts }}</td>
+      </tr>
+
+      <tr>
+        <th>Adjustments</th>
+        <td>{{ driver.cashout_summary.adjustment }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

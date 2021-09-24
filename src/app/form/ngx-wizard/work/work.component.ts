@@ -119,12 +119,14 @@ type:Type[] = [{type:'RESTAURANT',imageUrl:'/assets/images/icon-500-restaurant.p
       this._ProfileService.addUnit(this.workFormData.value, this.comapnydata.id).subscribe(res => {
         if (res.status == 200) {
           this.getUserInfoAfterLogin()
-          localStorage.setItem("unit_id", res.data[0].id)
-          this._ProfileService.getCompany_unitid(this.comapnydata.id, { unit_id: res.data[0].id }).subscribe(res => {
-            //this.toastr.success("Vendor Registered Successfully.")
-            this.getUserInfoAfterLogin()
+          if(res.data && res.data.length > 0){
+            localStorage.setItem("unit_id", res.data[0].id)
+            this._ProfileService.getCompany_unitid(this.comapnydata.id, { unit_id: res.data[0].id }).subscribe(res => {
+              this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
+            })
+          }else{
             this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
-          })
+          }
         }
       }, error => {
         this.toastr.error(' Username exist already. Please go to the location tab to create new unit in hub management.')

@@ -2255,7 +2255,8 @@ class ProfileService {
         this.unitManagerURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/food_parks/unitmanagers';
         this.refundToCustomerURL = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + 'api/v1/rel/refund/customer/';
         this.googleUser = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "/api/v1/rel/google/";
-        this.molCategoryDetail = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "/api/v1/mol/companies/";
+        this.molCategoryDetail = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "api/v1/mol/companies/";
+        this.getDriverByHub = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "api/v1/ord/hub/food_parks/";
     }
     greenMoneyPayment(data) {
         return this.http.get(this.greenMoneyURL + data);
@@ -2450,7 +2451,7 @@ class ProfileService {
         return this.http.get(this.foodparkURL + '/' + foodParkId + "/drivers");
     }
     getAllDriversforRecon(foodParkId, data) {
-        return this.http.post(this.foodparkURL + '/' + foodParkId + "/getdrivers", data);
+        return this.http.post(this.getDriverByHub + foodParkId + "/drivers", data);
     }
     getWeeklyrecon(data) {
         // http://localhost:1338/api/v1/rel/weekreconbydate
