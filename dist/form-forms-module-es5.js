@@ -51408,7 +51408,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function FoodpckmgrorderDriverComponent_div_19_th_7_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 28);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 22);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Schedule");
 
@@ -51418,7 +51418,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function FoodpckmgrorderDriverComponent_div_19_td_8_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 29);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 23);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -51426,27 +51426,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var data_r22 = ctx.$implicit;
+        var data_r9 = ctx.$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", data_r22.label, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", data_r9.label, " ");
       }
     }
 
-    function FoodpckmgrorderDriverComponent_div_19_th_10_Template(rf, ctx) {
+    function FoodpckmgrorderDriverComponent_div_19_ng_container_9_th_1_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 28);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Monday");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-    }
-
-    function FoodpckmgrorderDriverComponent_div_19_td_11_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 29);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 22);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -51454,27 +51444,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var data_r23 = ctx.$implicit;
+        var day_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", (data_r23.data == null ? null : data_r23.data.Monday) || "0", " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](day_r10);
       }
     }
 
-    function FoodpckmgrorderDriverComponent_div_19_th_13_Template(rf, ctx) {
+    function FoodpckmgrorderDriverComponent_div_19_ng_container_9_td_2_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 28);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Tuesday");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-    }
-
-    function FoodpckmgrorderDriverComponent_div_19_td_14_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 29);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 23);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -51482,163 +51462,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       if (rf & 2) {
-        var data_r24 = ctx.$implicit;
+        var data_r14 = ctx.$implicit;
+
+        var day_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", (data_r24.data == null ? null : data_r24.data.Tuesday) || "0", " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", data_r14.data && data_r14.data[day_r10] ? data_r14.data[day_r10] : "0", " ");
       }
     }
 
-    function FoodpckmgrorderDriverComponent_div_19_th_16_Template(rf, ctx) {
+    function FoodpckmgrorderDriverComponent_div_19_ng_container_9_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 28);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0, 24);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Wednesday");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderDriverComponent_div_19_ng_container_9_th_1_Template, 2, 1, "th", 15);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-    }
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, FoodpckmgrorderDriverComponent_div_19_ng_container_9_td_2_Template, 2, 1, "td", 16);
 
-    function FoodpckmgrorderDriverComponent_div_19_td_17_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 29);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
       }
 
       if (rf & 2) {
-        var data_r25 = ctx.$implicit;
+        var day_r10 = ctx.$implicit;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", (data_r25.data == null ? null : data_r25.data.Wednesday) || "0", " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matColumnDef", day_r10);
       }
     }
 
-    function FoodpckmgrorderDriverComponent_div_19_th_19_Template(rf, ctx) {
+    function FoodpckmgrorderDriverComponent_div_19_tr_10_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 28);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Thursday");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "tr", 25);
       }
     }
 
-    function FoodpckmgrorderDriverComponent_div_19_td_20_Template(rf, ctx) {
+    function FoodpckmgrorderDriverComponent_div_19_tr_11_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 29);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-
-      if (rf & 2) {
-        var data_r26 = ctx.$implicit;
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", (data_r26.data == null ? null : data_r26.data.Thursday) || "0", " ");
-      }
-    }
-
-    function FoodpckmgrorderDriverComponent_div_19_th_22_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 28);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Friday");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-    }
-
-    function FoodpckmgrorderDriverComponent_div_19_td_23_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 29);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-
-      if (rf & 2) {
-        var data_r27 = ctx.$implicit;
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", (data_r27.data == null ? null : data_r27.data.Friday) || "0", " ");
-      }
-    }
-
-    function FoodpckmgrorderDriverComponent_div_19_th_25_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 28);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Saturday");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-    }
-
-    function FoodpckmgrorderDriverComponent_div_19_td_26_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 29);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-
-      if (rf & 2) {
-        var data_r28 = ctx.$implicit;
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", (data_r28.data == null ? null : data_r28.data.Saturday) || "0", " ");
-      }
-    }
-
-    function FoodpckmgrorderDriverComponent_div_19_th_28_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 28);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Sunday");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-    }
-
-    function FoodpckmgrorderDriverComponent_div_19_td_29_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 29);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-      }
-
-      if (rf & 2) {
-        var data_r29 = ctx.$implicit;
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", (data_r29.data == null ? null : data_r29.data.Sunday) || "0", " ");
-      }
-    }
-
-    function FoodpckmgrorderDriverComponent_div_19_tr_30_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "tr", 30);
-      }
-    }
-
-    function FoodpckmgrorderDriverComponent_div_19_tr_31_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "tr", 31);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "tr", 26);
       }
     }
 
@@ -51668,159 +51528,105 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](9, 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](9, FoodpckmgrorderDriverComponent_div_19_ng_container_9_Template, 3, 1, "ng-container", 17);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](10, FoodpckmgrorderDriverComponent_div_19_th_10_Template, 2, 0, "th", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](10, FoodpckmgrorderDriverComponent_div_19_tr_10_Template, 1, 0, "tr", 18);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](11, FoodpckmgrorderDriverComponent_div_19_td_11_Template, 2, 1, "td", 16);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](12, 18);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](13, FoodpckmgrorderDriverComponent_div_19_th_13_Template, 2, 0, "th", 15);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](14, FoodpckmgrorderDriverComponent_div_19_td_14_Template, 2, 1, "td", 16);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](15, 19);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, FoodpckmgrorderDriverComponent_div_19_th_16_Template, 2, 0, "th", 15);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](17, FoodpckmgrorderDriverComponent_div_19_td_17_Template, 2, 1, "td", 16);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](18, 20);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, FoodpckmgrorderDriverComponent_div_19_th_19_Template, 2, 0, "th", 15);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](20, FoodpckmgrorderDriverComponent_div_19_td_20_Template, 2, 1, "td", 16);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](21, 21);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](22, FoodpckmgrorderDriverComponent_div_19_th_22_Template, 2, 0, "th", 15);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](23, FoodpckmgrorderDriverComponent_div_19_td_23_Template, 2, 1, "td", 16);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](24, 22);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](25, FoodpckmgrorderDriverComponent_div_19_th_25_Template, 2, 0, "th", 15);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](26, FoodpckmgrorderDriverComponent_div_19_td_26_Template, 2, 1, "td", 16);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](27, 23);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](28, FoodpckmgrorderDriverComponent_div_19_th_28_Template, 2, 0, "th", 15);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](29, FoodpckmgrorderDriverComponent_div_19_td_29_Template, 2, 1, "td", 16);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](30, FoodpckmgrorderDriverComponent_div_19_tr_30_Template, 1, 0, "tr", 24);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](31, FoodpckmgrorderDriverComponent_div_19_tr_31_Template, 1, 0, "tr", 25);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](11, FoodpckmgrorderDriverComponent_div_19_tr_11_Template, 1, 0, "tr", 19);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "div", 26);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "div", 20);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "h2");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "strong");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "strong");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](35, " Cashout Summary ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, " Cashout Summary ");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "table", 21);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "tr");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "th");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "Trip fees & Tips");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "td");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "table", 27);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "tr");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "th");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, "COD Cash Received");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "td");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](26);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "tr");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "th");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, "Total Weekly Wages");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "td");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "tr");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "th");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](34, "Delivery Attempts");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "td");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](36);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "tr");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "th");
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](39, "Trip fees & Tips");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](39, "Adjustments");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "td");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](41);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "tr");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](43, "th");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](44, "COD Cash Received");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "td");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](46);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "tr");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](48, "th");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](49, "Total Weekly Wages");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](50, "td");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](51);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "tr");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](53, "th");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](54, "Delivery Attempts");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](55, "td");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](56);
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](57, "tr");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](58, "th");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](59, "Adjustments");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](60, "td");
-
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](61);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -51846,7 +51652,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("dataSource", driver_r3.data);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](25);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r1.daysKey);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matHeaderRowDef", ctx_r1.displayedColumns);
 
@@ -51900,6 +51710,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }, {
           "label": "COD Cash Due"
         }];
+        this.daysKey = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
         this.user = this._CommonFunctionsService.checkUser().user;
         this.datecuurent = this.datepipe.transform(Date.now(), "yyyy-MM-dd");
         this.date = moment__WEBPACK_IMPORTED_MODULE_6__().add(0, "d");
@@ -51996,7 +51807,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-driver-tab"]],
       decls: 20,
       vars: 9,
-      consts: [[1, "mb-3"], [1, "row", "align-items-center", "justify-content-center"], [1, "row", "col", "col-auto"], [1, "text-right", 2, "font-weight", "500", "padding-left", "10px"], ["type", "button", 1, "btn", 2, "border-radius", "50%", 3, "click"], [1, "text-center", "col", "col-auto", "ml-1"], ["appearance", "fill"], ["name", "hub", "placeholder", "Select Master", 3, "ngModel", "ngModelChange", "selectionChange"], [3, "value", 4, "ngFor", "ngForOf"], [4, "ngFor", "ngForOf"], [3, "value"], [1, "text-center"], [1, "accodion-datatable"], ["mat-table", "", 1, "mat-elevation-z8", 3, "dataSource"], ["matColumnDef", "Schedule"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], ["matColumnDef", "Monday"], ["matColumnDef", "Tuesday"], ["matColumnDef", "Wednesday"], ["matColumnDef", "Thursday"], ["matColumnDef", "Friday"], ["matColumnDef", "Saturday"], ["matColumnDef", "Sunday"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [1, "text-center", 2, "margin", "30px 0"], [1, "table", "table-bordered", 2, "width", "300px", "margin", "0 auto", "text-align", "left"], ["mat-header-cell", ""], ["mat-cell", ""], ["mat-header-row", ""], ["mat-row", ""]],
+      consts: [[1, "mb-3"], [1, "row", "align-items-center", "justify-content-center"], [1, "row", "col", "col-auto"], [1, "text-right", 2, "font-weight", "500", "padding-left", "10px"], ["type", "button", 1, "btn", 2, "border-radius", "50%", 3, "click"], [1, "text-center", "col", "col-auto", "ml-1"], ["appearance", "fill"], ["name", "hub", "placeholder", "Select Master", 3, "ngModel", "ngModelChange", "selectionChange"], [3, "value", 4, "ngFor", "ngForOf"], [4, "ngFor", "ngForOf"], [3, "value"], [1, "text-center"], [1, "accodion-datatable"], ["mat-table", "", 1, "mat-elevation-z8", 3, "dataSource"], ["matColumnDef", "Schedule"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], [3, "matColumnDef", 4, "ngFor", "ngForOf"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [1, "text-center", 2, "margin", "30px 0"], [1, "table", "table-bordered", 2, "width", "300px", "margin", "0 auto", "text-align", "left"], ["mat-header-cell", ""], ["mat-cell", ""], [3, "matColumnDef"], ["mat-header-row", ""], ["mat-row", ""]],
       template: function FoodpckmgrorderDriverComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0);
@@ -52073,7 +51884,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, FoodpckmgrorderDriverComponent_div_19_Template, 62, 10, "div", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, FoodpckmgrorderDriverComponent_div_19_Template, 42, 11, "div", 9);
         }
 
         if (rf & 2) {
@@ -57161,6 +56972,775 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           args: ["dailyPayoutCod"]
         }]
       });
+    })();
+    /***/
+
+  },
+
+  /***/
+  "./src/app/form/foodpckmgrorder/weekly-recon-tab/weekly-recon.component.ts":
+  /*!*********************************************************************************!*\
+    !*** ./src/app/form/foodpckmgrorder/weekly-recon-tab/weekly-recon.component.ts ***!
+    \*********************************************************************************/
+
+  /*! exports provided: FoodpckmgrorderWeeklyReconComponent */
+
+  /***/
+  function srcAppFormFoodpckmgrorderWeeklyReconTabWeeklyReconComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FoodpckmgrorderWeeklyReconComponent", function () {
+      return FoodpckmgrorderWeeklyReconComponent;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _services_profile_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ../../../services/profile.service */
+    "./src/app/services/profile.service.ts");
+    /* harmony import */
+
+
+    var _services_commonFunctions_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../../services/commonFunctions.service */
+    "./src/app/services/commonFunctions.service.ts");
+    /* harmony import */
+
+
+    var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ngx-toastr */
+    "./node_modules/ngx-toastr/__ivy_ngcc__/fesm2015/ngx-toastr.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_4___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @angular/material/form-field */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/form-field.js");
+    /* harmony import */
+
+
+    var _angular_material_select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @angular/material/select */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/select.js");
+    /* harmony import */
+
+
+    var _angular_material_table__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! @angular/material/table */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/table.js");
+    /* harmony import */
+
+
+    var _angular_material_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @angular/material/core */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/core.js");
+
+    function FoodpckmgrorderWeeklyReconComponent_mat_option_18_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-option", 19);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var hub_r9 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", hub_r9.food_park_id);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](hub_r9.data[0].name);
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_div_19_th_7_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 21);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Schedule");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_div_19_td_8_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 22);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var data_r18 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", data_r18.label, " ");
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_div_19_ng_container_9_th_1_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 21);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var day_r19 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](day_r19);
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_div_19_ng_container_9_td_2_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 22);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var data_r23 = ctx.$implicit;
+
+        var day_r19 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", data_r23.data && data_r23.data[day_r19] ? data_r23.data[day_r19] : "0", " ");
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_div_19_ng_container_9_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0, 23);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderWeeklyReconComponent_div_19_ng_container_9_th_1_Template, 2, 1, "th", 13);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, FoodpckmgrorderWeeklyReconComponent_div_19_ng_container_9_td_2_Template, 2, 1, "td", 14);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
+      }
+
+      if (rf & 2) {
+        var day_r19 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matColumnDef", day_r19);
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_div_19_th_11_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 21);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Sunday");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_div_19_td_12_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 22);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var data_r25 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", (data_r25.data == null ? null : data_r25.data.total) || "0", " ");
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_div_19_tr_13_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "tr", 24);
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_div_19_tr_14_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "tr", 25);
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_div_19_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h2", 20);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "strong");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 10);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "table", 11);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](6, 12);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](7, FoodpckmgrorderWeeklyReconComponent_div_19_th_7_Template, 2, 0, "th", 13);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](8, FoodpckmgrorderWeeklyReconComponent_div_19_td_8_Template, 2, 1, "td", 14);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](9, FoodpckmgrorderWeeklyReconComponent_div_19_ng_container_9_Template, 3, 1, "ng-container", 15);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](10, 16);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](11, FoodpckmgrorderWeeklyReconComponent_div_19_th_11_Template, 2, 0, "th", 13);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](12, FoodpckmgrorderWeeklyReconComponent_div_19_td_12_Template, 2, 1, "td", 14);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](13, FoodpckmgrorderWeeklyReconComponent_div_19_tr_13_Template, 1, 0, "tr", 17);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](14, FoodpckmgrorderWeeklyReconComponent_div_19_tr_14_Template, 1, 0, "tr", 18);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var member_r10 = ctx.$implicit;
+
+        var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](member_r10.name);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("dataSource", member_r10.data);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r1.daysKey);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matHeaderRowDef", ctx_r1.displayedColumns);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matRowDefColumns", ctx_r1.displayedColumns);
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_th_26_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 21);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Schedule");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_td_27_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 22);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var data_r27 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", data_r27.label, " ");
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_ng_container_28_th_1_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 21);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var day_r28 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](day_r28);
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_ng_container_28_td_2_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 22);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var data_r32 = ctx.$implicit;
+
+        var day_r28 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", data_r32.data && data_r32.data[day_r28] ? data_r32.data[day_r28] : "0", " ");
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_ng_container_28_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0, 23);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, FoodpckmgrorderWeeklyReconComponent_ng_container_28_th_1_Template, 2, 1, "th", 13);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, FoodpckmgrorderWeeklyReconComponent_ng_container_28_td_2_Template, 2, 1, "td", 14);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
+      }
+
+      if (rf & 2) {
+        var day_r28 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matColumnDef", day_r28);
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_th_30_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "th", 21);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Sunday");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_td_31_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 22);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var data_r34 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", (data_r34.data == null ? null : data_r34.data.total) || "0", " ");
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_tr_32_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "tr", 24);
+      }
+    }
+
+    function FoodpckmgrorderWeeklyReconComponent_tr_33_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "tr", 25);
+      }
+    }
+
+    var data = [];
+
+    var FoodpckmgrorderWeeklyReconComponent =
+    /*#__PURE__*/
+    function () {
+      function FoodpckmgrorderWeeklyReconComponent(_ProfileService, toastr, _CommonFunctionsService, datepipe) {
+        _classCallCheck(this, FoodpckmgrorderWeeklyReconComponent);
+
+        this._ProfileService = _ProfileService;
+        this.toastr = toastr;
+        this._CommonFunctionsService = _CommonFunctionsService;
+        this.datepipe = datepipe;
+        this.displayedColumns = ["Schedule", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Total"];
+        this.setdata = [{
+          "label": "Cash"
+        }, {
+          "label": "Bank"
+        }, {
+          "label": "Payout"
+        }, {
+          "label": "Sub Total"
+        }];
+        this.daysKey = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        this.user = this._CommonFunctionsService.checkUser().user;
+        this.datecuurent = this.datepipe.transform(Date.now(), "yyyy-MM-dd");
+        this.date = moment__WEBPACK_IMPORTED_MODULE_4__().add(0, "d");
+        this.weeklyDate = moment__WEBPACK_IMPORTED_MODULE_4__().add(0, "d");
+        this.weeklyDateSeven = moment__WEBPACK_IMPORTED_MODULE_4__().add(7, "d");
+        this.getUnitHubs();
+        this.getWeekreconbydate(this.user.food_park_id);
+        this.selectedHub = this.user.food_park_id;
+      }
+
+      _createClass(FoodpckmgrorderWeeklyReconComponent, [{
+        key: "getWeekreconbydate",
+        value: function getWeekreconbydate(id) {
+          var _this141 = this;
+
+          this._ProfileService.getWeekreconbydate(id).subscribe(function (data) {
+            _this141.masterDetails = data.data;
+
+            _this141.masterDetails.data.forEach(function (member) {
+              member.cash.total = _this141.getTotalOfDay(member.cash).toFixed(2);
+              member.bank.total = _this141.getTotalOfDay(member.bank).toFixed(2);
+              member.bank.payout = _this141.getTotalOfDay(member.payout).toFixed(2);
+              var data = [{
+                "label": "Cash",
+                "data": member.cash
+              }, {
+                "label": "Banks",
+                "data": member.bank
+              }, {
+                "label": "Payout",
+                "data": member.payout
+              }, {
+                "label": "Sub Total",
+                data: _this141.getSubTotal(member)
+              }];
+              member.data = data;
+            });
+
+            _this141.getMasterPayoutDatails();
+          });
+        }
+      }, {
+        key: "getMasterPayoutDatails",
+        value: function getMasterPayoutDatails() {
+          this.masterDetails.hub_comps.total = this.getTotalOfDay(this.masterDetails.hub_comps).toFixed(2);
+          this.masterDetails.deliveries.total = this.getTotalOfDay(this.masterDetails.deliveries).toFixed(2);
+          var data = [{
+            "label": "Hub Comps",
+            "data": this.masterDetails.hub_comps
+          }, {
+            "label": "# of Deliveries",
+            "data": this.masterDetails.deliveries
+          }];
+          this.masterDetails.masterData = data;
+        }
+      }, {
+        key: "getSubTotal",
+        value: function getSubTotal(member) {
+          var _this142 = this;
+
+          var subTotal = {};
+          this.daysKey.forEach(function (day) {
+            subTotal[day] = _this142.getDaySubTotal(member, day);
+          });
+          subTotal.total = this.getTotalOfDay(subTotal);
+          return subTotal;
+        }
+      }, {
+        key: "getTotalOfDay",
+        value: function getTotalOfDay(data) {
+          var total = 0;
+          this.daysKey.forEach(function (day) {
+            total += data[day] ? data[day] : 0;
+          });
+          return total;
+        }
+      }, {
+        key: "getDaySubTotal",
+        value: function getDaySubTotal(member, day) {
+          return ((member.cash[day] ? member.cash[day] : 0) + (member.bank[day] ? member.bank[day] : 0) + (member.payout[day] ? member.payout[day] : 0)).toFixed(2);
+        }
+      }, {
+        key: "goBackDriver",
+        value: function goBackDriver() {
+          this.weeklyDate = moment__WEBPACK_IMPORTED_MODULE_4__(this.weeklyDate).add(-7, "d");
+          this.weeklyDateSeven = moment__WEBPACK_IMPORTED_MODULE_4__(this.weeklyDateSeven).add(-7, "d");
+          this.getWeekreconbydate(this.user.food_park_id);
+        }
+      }, {
+        key: "getUnitHubs",
+        value: function getUnitHubs() {
+          var _this143 = this;
+
+          this._ProfileService.getHubwithUnits(this.user.company_id).subscribe(function (data) {
+            _this143.hubs = data.data; // this.getAllDrivers(this.hubs[0].food_park_id);
+          });
+        }
+      }, {
+        key: "selectHub",
+        value: function selectHub(id) {
+          this.getWeekreconbydate(id);
+        }
+      }, {
+        key: "goFrontDriver",
+        value: function goFrontDriver() {
+          this.weeklyDate = moment__WEBPACK_IMPORTED_MODULE_4__(this.weeklyDate).add(7, "d");
+          this.weeklyDateSeven = moment__WEBPACK_IMPORTED_MODULE_4__(this.weeklyDateSeven).add(7, "d").format("YYYY-MM-DD");
+          this.getWeekreconbydate(this.user.food_park_id);
+        }
+      }, {
+        key: "getDate",
+        value: function getDate() {
+          return this.date;
+        }
+      }]);
+
+      return FoodpckmgrorderWeeklyReconComponent;
+    }();
+
+    FoodpckmgrorderWeeklyReconComponent.ɵfac = function FoodpckmgrorderWeeklyReconComponent_Factory(t) {
+      return new (t || FoodpckmgrorderWeeklyReconComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_profile_service__WEBPACK_IMPORTED_MODULE_1__["ProfileService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_commonFunctions_service__WEBPACK_IMPORTED_MODULE_2__["CommonFunctionsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"]));
+    };
+
+    FoodpckmgrorderWeeklyReconComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+      type: FoodpckmgrorderWeeklyReconComponent,
+      selectors: [["app-weekly-recon-tab"]],
+      decls: 34,
+      vars: 13,
+      consts: [[1, "mb-3"], [1, "row", "align-items-center", "justify-content-center"], [1, "row", "col", "col-auto"], [1, "text-right", 2, "font-weight", "500", "padding-left", "10px"], ["type", "button", 1, "btn", 2, "border-radius", "50%", 3, "click"], [1, "text-center", "col", "col-auto", "ml-1"], ["appearance", "fill"], ["name", "hub", "placeholder", "Select Master", 3, "ngModel", "ngModelChange", "selectionChange"], [3, "value", 4, "ngFor", "ngForOf"], [4, "ngFor", "ngForOf"], [1, "accodion-datatable"], ["mat-table", "", 1, "mat-elevation-z8", 3, "dataSource"], ["matColumnDef", "Schedule"], ["mat-header-cell", "", 4, "matHeaderCellDef"], ["mat-cell", "", 4, "matCellDef"], [3, "matColumnDef", 4, "ngFor", "ngForOf"], ["matColumnDef", "Total"], ["mat-header-row", "", 4, "matHeaderRowDef"], ["mat-row", "", 4, "matRowDef", "matRowDefColumns"], [3, "value"], [1, "text-center"], ["mat-header-cell", ""], ["mat-cell", ""], [3, "matColumnDef"], ["mat-header-row", ""], ["mat-row", ""]],
+      template: function FoodpckmgrorderWeeklyReconComponent_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "button", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function FoodpckmgrorderWeeklyReconComponent_Template_button_click_4_listener() {
+            return ctx.goBackDriver();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " \u2039 ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, " \xA0 Week Of : ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](9, "date");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](10, "date");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "button", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function FoodpckmgrorderWeeklyReconComponent_Template_button_click_11_listener() {
+            return ctx.goFrontDriver();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, " \u203A ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "mat-form-field", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "label");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Select Hub");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "mat-select", 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function FoodpckmgrorderWeeklyReconComponent_Template_mat_select_ngModelChange_17_listener($event) {
+            return ctx.selectedHub = $event;
+          })("selectionChange", function FoodpckmgrorderWeeklyReconComponent_Template_mat_select_selectionChange_17_listener() {
+            return ctx.selectHub(ctx.selectedHub);
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, FoodpckmgrorderWeeklyReconComponent_mat_option_18_Template, 2, 2, "mat-option", 8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, FoodpckmgrorderWeeklyReconComponent_div_19_Template, 15, 5, "div", 9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "h2");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "strong");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](22, "Hub Payout");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "div", 10);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "table", 11);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](25, 12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](26, FoodpckmgrorderWeeklyReconComponent_th_26_Template, 2, 0, "th", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](27, FoodpckmgrorderWeeklyReconComponent_td_27_Template, 2, 1, "td", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](28, FoodpckmgrorderWeeklyReconComponent_ng_container_28_Template, 3, 1, "ng-container", 15);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](29, 16);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](30, FoodpckmgrorderWeeklyReconComponent_th_30_Template, 2, 0, "th", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](31, FoodpckmgrorderWeeklyReconComponent_td_31_Template, 2, 1, "td", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](32, FoodpckmgrorderWeeklyReconComponent_tr_32_Template, 1, 0, "tr", 17);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](33, FoodpckmgrorderWeeklyReconComponent_tr_33_Template, 1, 0, "tr", 18);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](9, 9, ctx.weeklyDate), " - ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](10, 11, ctx.weeklyDate()), " \xA0 ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.selectedHub);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.hubs);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.masterDetails.data);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("dataSource", ctx.masterDetails.masterData);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.daysKey);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matHeaderRowDef", ctx.displayedColumns);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matRowDefColumns", ctx.displayedColumns);
+        }
+      },
+      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgForm"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormField"], _angular_material_select__WEBPACK_IMPORTED_MODULE_8__["MatSelect"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTable"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatColumnDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatHeaderCellDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatCellDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatHeaderRowDef"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatRowDef"], _angular_material_core__WEBPACK_IMPORTED_MODULE_10__["MatOption"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatHeaderCell"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatCell"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatHeaderRow"], _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatRow"]],
+      pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"]],
+      styles: ["[type=radio][_ngcontent-%COMP%]    + img[_ngcontent-%COMP%] {\r\n  cursor: pointer;\r\n}\r\ntable[_ngcontent-%COMP%] {\r\n  width: 100%;\r\n}\r\n\r\n[type=radio][_ngcontent-%COMP%]:checked    + img[_ngcontent-%COMP%] {\r\n  outline: 2px solid #0db9f0;\r\n}\r\n .datatable-header-cell.datatable-header-cell.myClass.resizeable.sortable\r\n{\r\n  color: black;\r\n  font-size: 19px;\r\n}\r\n .row.mb-3 {\r\n  margin-right: 126px;\r\n}\r\n .ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell .datatable-body-cell-label\r\n{\r\n  \r\n}\r\n\r\n.testradio[_ngcontent-%COMP%] {\r\n    display: block;\r\n    position: relative;\r\n    padding-left: 28px;\r\n    margin-bottom: 20px;\r\n    cursor: pointer;\r\n    font-size: 22px;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n  }\r\n\r\n.testradio[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\r\n    position: absolute;\r\n    opacity: 0;\r\n    cursor: pointer;\r\n  }\r\n\r\n.checkmark[_ngcontent-%COMP%] {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    height: 25px;\r\n    width: 25px;\r\n    background-color: #eee;\r\n    border-radius: 50%;\r\n  }\r\n\r\n.testradio[_ngcontent-%COMP%]:hover   input[_ngcontent-%COMP%]    ~ .checkmark[_ngcontent-%COMP%] {\r\n    background-color: #ccc;\r\n  }\r\n\r\n.testradio[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:checked    ~ .checkmark[_ngcontent-%COMP%] {\r\n    background-color: #2196F3;\r\n  }\r\n\r\n.checkmark[_ngcontent-%COMP%]:after {\r\n    content: \"\";\r\n    position: absolute;\r\n    display: none;\r\n  }\r\n\r\n.testradio[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:checked    ~ .checkmark[_ngcontent-%COMP%]:after {\r\n    display: block;\r\n  }\r\n\r\n.testradio[_ngcontent-%COMP%]   .checkmark[_ngcontent-%COMP%]:after {\r\n       top: 9px;\r\n      left: 9px;\r\n      width: 8px;\r\n      height: 8px;\r\n      border-radius: 50%;\r\n      background: white;\r\n  }\r\n.btn-success.custom-button[_ngcontent-%COMP%]{\r\n    color: #22c6ab;\r\n    background-color: #fff;\r\n    border-color: #22c6ab;\r\n  }\r\n.btn-warning.custom-button[_ngcontent-%COMP%]{\r\n    color: #ffaf0e;\r\n    background-color: #fff;\r\n    border-color: #ffaf0e;\r\n  }\r\n.btn-danger.custom-button[_ngcontent-%COMP%]{\r\n    color: #eb4c4c;\r\n    background-color: #fff;\r\n    border-color: #eb4c4c;\r\n  }\r\n\r\n.wrap-custom-card-main[_ngcontent-%COMP%]{\r\n    border: solid 1px #ddd;\r\n    padding: 20px 0px;\r\n  }\r\n.row.mt-3.custom-card-main[_ngcontent-%COMP%] {\r\n    margin: 0 20px;\r\n  }\r\n\r\n.custom-card-wages-total[_ngcontent-%COMP%]{\r\n    width: 25%;\r\n    height: auto;\r\n    margin: 0 auto;\r\n    padding: 0 10px;\r\n    border: solid 1px #ddd;\r\n    text-align: center;\r\n  }\r\n.wrap-div[_ngcontent-%COMP%] {\r\n    \r\n    text-align: center;\r\n    min-height: 125px;\r\n  }\r\n.wrap-div[_ngcontent-%COMP%]   .title[_ngcontent-%COMP%] {\r\n    margin: 15px auto;\r\n  }\r\n.wrap-div[_ngcontent-%COMP%]   .title[_ngcontent-%COMP%]   h5[_ngcontent-%COMP%] {\r\n    font-size: 30px;\r\n  }\r\n.view-orders[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{\r\n    float: right;\r\n  }\r\n.wrap-div.total-wages[_ngcontent-%COMP%] {\r\n    height: 75px;\r\n  }\r\n.total-wages[_ngcontent-%COMP%]   .title[_ngcontent-%COMP%] {\r\n    margin: 12px auto !important;\r\n  }\r\n.col-list[_ngcontent-%COMP%]:nth-child(3n+0)   .card-colors[_ngcontent-%COMP%]{\r\n    background-color:#253a7e;\r\n    color: #fff;\r\n  }\r\n.col-list[_ngcontent-%COMP%]:nth-child(3n+1)   .card-colors[_ngcontent-%COMP%]{\r\n    background-color:#40cccc;\r\n    color: #fff;\r\n  }\r\n.col-list[_ngcontent-%COMP%]:nth-child(3n+2)   .card-colors[_ngcontent-%COMP%]{\r\n    background-color:#be3d5e;\r\n    color: #fff;\r\n  }\r\n.description[_ngcontent-%COMP%]{\r\n    font-size:16px;\r\n  }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9ybS9mb29kcGNrbWdyb3JkZXIvd2Vla2x5LXJlY29uLXRhYi93ZWVrbHktcmVjb24uY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBRUEsaUJBQWlCO0FBQ2pCO0VBQ0UsZUFBZTtBQUNqQjtBQUNBO0VBQ0UsV0FBVztBQUNiO0FBRUEsbUJBQW1CO0FBQ25CO0VBQ0UsMEJBQTBCO0FBQzVCO0FBRUE7O0VBRUUsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLG1CQUFtQjtBQUNyQjtBQUVBOztFQUVFLG9CQUFvQjtBQUN0QjtBQUVBLGtCQUFrQjtBQUNsQjtJQUNJLGNBQWM7SUFDZCxrQkFBa0I7SUFDbEIsa0JBQWtCO0lBQ2xCLG1CQUFtQjtJQUNuQixlQUFlO0lBQ2YsZUFBZTtJQUNmLHlCQUF5QjtJQUN6QixzQkFBc0I7SUFDdEIscUJBQXFCO0lBQ3JCLGlCQUFpQjtFQUNuQjtBQUVBLDRDQUE0QztBQUM1QztJQUNFLGtCQUFrQjtJQUNsQixVQUFVO0lBQ1YsZUFBZTtFQUNqQjtBQUVBLGlDQUFpQztBQUNqQztJQUNFLGtCQUFrQjtJQUNsQixNQUFNO0lBQ04sT0FBTztJQUNQLFlBQVk7SUFDWixXQUFXO0lBQ1gsc0JBQXNCO0lBQ3RCLGtCQUFrQjtFQUNwQjtBQUVBLCtDQUErQztBQUMvQztJQUNFLHNCQUFzQjtFQUN4QjtBQUVBLDREQUE0RDtBQUM1RDtJQUNFLHlCQUF5QjtFQUMzQjtBQUVBLG9FQUFvRTtBQUNwRTtJQUNFLFdBQVc7SUFDWCxrQkFBa0I7SUFDbEIsYUFBYTtFQUNmO0FBRUEsaURBQWlEO0FBQ2pEO0lBQ0UsY0FBYztFQUNoQjtBQUVBLHFDQUFxQztBQUNyQztPQUNLLFFBQVE7TUFDVCxTQUFTO01BQ1QsVUFBVTtNQUNWLFdBQVc7TUFDWCxrQkFBa0I7TUFDbEIsaUJBQWlCO0VBQ3JCO0FBQ0E7SUFDRSxjQUFjO0lBQ2Qsc0JBQXNCO0lBQ3RCLHFCQUFxQjtFQUN2QjtBQUNBO0lBQ0UsY0FBYztJQUNkLHNCQUFzQjtJQUN0QixxQkFBcUI7RUFDdkI7QUFDQTtJQUNFLGNBQWM7SUFDZCxzQkFBc0I7SUFDdEIscUJBQXFCO0VBQ3ZCO0FBQ0Esa0JBQWtCO0FBQ2xCO0lBQ0Usc0JBQXNCO0lBQ3RCLGlCQUFpQjtFQUNuQjtBQUNBO0lBQ0UsY0FBYztFQUNoQjtBQUNBOzs7OztLQUtHO0FBRUg7SUFDRSxVQUFVO0lBQ1YsWUFBWTtJQUNaLGNBQWM7SUFDZCxlQUFlO0lBQ2Ysc0JBQXNCO0lBQ3RCLGtCQUFrQjtFQUNwQjtBQUNBO0lBQ0UsNEJBQTRCO0lBQzVCLGtCQUFrQjtJQUNsQixpQkFBaUI7RUFDbkI7QUFDQTtJQUNFLGlCQUFpQjtFQUNuQjtBQUNBO0lBQ0UsZUFBZTtFQUNqQjtBQUNBO0lBQ0UsWUFBWTtFQUNkO0FBQ0E7SUFDRSxZQUFZO0VBQ2Q7QUFDQTtJQUNFLDRCQUE0QjtFQUM5QjtBQUVBO0lBQ0Usd0JBQXdCO0lBQ3hCLFdBQVc7RUFDYjtBQUNBO0lBQ0Usd0JBQXdCO0lBQ3hCLFdBQVc7RUFDYjtBQUNBO0lBQ0Usd0JBQXdCO0lBQ3hCLFdBQVc7RUFDYjtBQUNBO0lBQ0UsY0FBYztFQUNoQiIsImZpbGUiOiJzcmMvYXBwL2Zvcm0vZm9vZHBja21ncm9yZGVyL3dlZWtseS1yZWNvbi10YWIvd2Vla2x5LXJlY29uLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG5cclxuLyogSU1BR0UgU1RZTEVTICovXHJcblt0eXBlPXJhZGlvXSArIGltZyB7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59ICAgXHJcbnRhYmxlIHtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLyogQ0hFQ0tFRCBTVFlMRVMgKi9cclxuW3R5cGU9cmFkaW9dOmNoZWNrZWQgKyBpbWcge1xyXG4gIG91dGxpbmU6IDJweCBzb2xpZCAjMGRiOWYwO1xyXG59XHJcblxyXG46Om5nLWRlZXAuZGF0YXRhYmxlLWhlYWRlci1jZWxsLmRhdGF0YWJsZS1oZWFkZXItY2VsbC5teUNsYXNzLnJlc2l6ZWFibGUuc29ydGFibGVcclxue1xyXG4gIGNvbG9yOiBibGFjaztcclxuICBmb250LXNpemU6IDE5cHg7XHJcbn1cclxuOjpuZy1kZWVwLnJvdy5tYi0zIHtcclxuICBtYXJnaW4tcmlnaHQ6IDEyNnB4O1xyXG59XHJcblxyXG46Om5nLWRlZXAubmd4LWRhdGF0YWJsZS5tYXRlcmlhbCAuZGF0YXRhYmxlLWJvZHkgLmRhdGF0YWJsZS1ib2R5LXJvdyAuZGF0YXRhYmxlLWJvZHktY2VsbCAuZGF0YXRhYmxlLWJvZHktY2VsbC1sYWJlbFxyXG57XHJcbiAgLyogZGlzcGxheTogdW5zZXQ7ICovXHJcbn1cclxuXHJcbi8qIFRoZSBjb250YWluZXIgKi9cclxuLnRlc3RyYWRpbyB7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIHBhZGRpbmctbGVmdDogMjhweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICBmb250LXNpemU6IDIycHg7XHJcbiAgICAtd2Via2l0LXVzZXItc2VsZWN0OiBub25lO1xyXG4gICAgLW1vei11c2VyLXNlbGVjdDogbm9uZTtcclxuICAgIC1tcy11c2VyLXNlbGVjdDogbm9uZTtcclxuICAgIHVzZXItc2VsZWN0OiBub25lO1xyXG4gIH1cclxuICBcclxuICAvKiBIaWRlIHRoZSBicm93c2VyJ3MgZGVmYXVsdCByYWRpbyBidXR0b24gKi9cclxuICAudGVzdHJhZGlvIGlucHV0IHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIG9wYWNpdHk6IDA7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgfVxyXG4gIFxyXG4gIC8qIENyZWF0ZSBhIGN1c3RvbSByYWRpbyBidXR0b24gKi9cclxuICAuY2hlY2ttYXJrIHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDogMDtcclxuICAgIGxlZnQ6IDA7XHJcbiAgICBoZWlnaHQ6IDI1cHg7XHJcbiAgICB3aWR0aDogMjVweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNlZWU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgfVxyXG4gIFxyXG4gIC8qIE9uIG1vdXNlLW92ZXIsIGFkZCBhIGdyZXkgYmFja2dyb3VuZCBjb2xvciAqL1xyXG4gIC50ZXN0cmFkaW86aG92ZXIgaW5wdXQgfiAuY2hlY2ttYXJrIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNjY2M7XHJcbiAgfVxyXG4gIFxyXG4gIC8qIFdoZW4gdGhlIHJhZGlvIGJ1dHRvbiBpcyBjaGVja2VkLCBhZGQgYSBibHVlIGJhY2tncm91bmQgKi9cclxuICAudGVzdHJhZGlvIGlucHV0OmNoZWNrZWQgfiAuY2hlY2ttYXJrIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICMyMTk2RjM7XHJcbiAgfVxyXG4gIFxyXG4gIC8qIENyZWF0ZSB0aGUgaW5kaWNhdG9yICh0aGUgZG90L2NpcmNsZSAtIGhpZGRlbiB3aGVuIG5vdCBjaGVja2VkKSAqL1xyXG4gIC5jaGVja21hcms6YWZ0ZXIge1xyXG4gICAgY29udGVudDogXCJcIjtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGRpc3BsYXk6IG5vbmU7XHJcbiAgfVxyXG4gIFxyXG4gIC8qIFNob3cgdGhlIGluZGljYXRvciAoZG90L2NpcmNsZSkgd2hlbiBjaGVja2VkICovXHJcbiAgLnRlc3RyYWRpbyBpbnB1dDpjaGVja2VkIH4gLmNoZWNrbWFyazphZnRlciB7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICB9XHJcbiAgXHJcbiAgLyogU3R5bGUgdGhlIGluZGljYXRvciAoZG90L2NpcmNsZSkgKi9cclxuICAudGVzdHJhZGlvIC5jaGVja21hcms6YWZ0ZXIge1xyXG4gICAgICAgdG9wOiA5cHg7XHJcbiAgICAgIGxlZnQ6IDlweDtcclxuICAgICAgd2lkdGg6IDhweDtcclxuICAgICAgaGVpZ2h0OiA4cHg7XHJcbiAgICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICAgICAgYmFja2dyb3VuZDogd2hpdGU7XHJcbiAgfVxyXG4gIC5idG4tc3VjY2Vzcy5jdXN0b20tYnV0dG9ue1xyXG4gICAgY29sb3I6ICMyMmM2YWI7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmO1xyXG4gICAgYm9yZGVyLWNvbG9yOiAjMjJjNmFiO1xyXG4gIH1cclxuICAuYnRuLXdhcm5pbmcuY3VzdG9tLWJ1dHRvbntcclxuICAgIGNvbG9yOiAjZmZhZjBlO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcclxuICAgIGJvcmRlci1jb2xvcjogI2ZmYWYwZTtcclxuICB9XHJcbiAgLmJ0bi1kYW5nZXIuY3VzdG9tLWJ1dHRvbntcclxuICAgIGNvbG9yOiAjZWI0YzRjO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcclxuICAgIGJvcmRlci1jb2xvcjogI2ViNGM0YztcclxuICB9XHJcbiAgLyoqIFNoYXJlZCBsYWJvdXIqL1xyXG4gIC53cmFwLWN1c3RvbS1jYXJkLW1haW57XHJcbiAgICBib3JkZXI6IHNvbGlkIDFweCAjZGRkO1xyXG4gICAgcGFkZGluZzogMjBweCAwcHg7XHJcbiAgfVxyXG4gIC5yb3cubXQtMy5jdXN0b20tY2FyZC1tYWluIHtcclxuICAgIG1hcmdpbjogMCAyMHB4O1xyXG4gIH1cclxuICAvKiAuY3VzdG9tLWNhcmQge1xyXG4gICAgd2lkdGg6IDI1JTtcclxuICAgIGhlaWdodDogYXV0bztcclxuICAgIG1hcmdpbjogMCBhdXRvO1xyXG4gICAgcGFkZGluZzogMCAxMHB4O1xyXG4gIH0gKi9cclxuICBcclxuICAuY3VzdG9tLWNhcmQtd2FnZXMtdG90YWx7XHJcbiAgICB3aWR0aDogMjUlO1xyXG4gICAgaGVpZ2h0OiBhdXRvO1xyXG4gICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICBwYWRkaW5nOiAwIDEwcHg7XHJcbiAgICBib3JkZXI6IHNvbGlkIDFweCAjZGRkO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIH1cclxuICAud3JhcC1kaXYge1xyXG4gICAgLyogYm9yZGVyOiBzb2xpZCAxcHggI2RkZDsgKi9cclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIG1pbi1oZWlnaHQ6IDEyNXB4O1xyXG4gIH1cclxuICAud3JhcC1kaXYgLnRpdGxlIHtcclxuICAgIG1hcmdpbjogMTVweCBhdXRvO1xyXG4gIH1cclxuICAud3JhcC1kaXYgLnRpdGxlIGg1IHtcclxuICAgIGZvbnQtc2l6ZTogMzBweDtcclxuICB9XHJcbiAgLnZpZXctb3JkZXJzIGJ1dHRvbntcclxuICAgIGZsb2F0OiByaWdodDtcclxuICB9XHJcbiAgLndyYXAtZGl2LnRvdGFsLXdhZ2VzIHtcclxuICAgIGhlaWdodDogNzVweDtcclxuICB9XHJcbiAgLnRvdGFsLXdhZ2VzIC50aXRsZSB7XHJcbiAgICBtYXJnaW46IDEycHggYXV0byAhaW1wb3J0YW50O1xyXG4gIH1cclxuXHJcbiAgLmNvbC1saXN0Om50aC1jaGlsZCgzbiswKSAuY2FyZC1jb2xvcnN7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiMyNTNhN2U7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxuICB9XHJcbiAgLmNvbC1saXN0Om50aC1jaGlsZCgzbisxKSAuY2FyZC1jb2xvcnN7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiM0MGNjY2M7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxuICB9XHJcbiAgLmNvbC1saXN0Om50aC1jaGlsZCgzbisyKSAuY2FyZC1jb2xvcnN7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiNiZTNkNWU7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxuICB9XHJcbiAgLmRlc2NyaXB0aW9ue1xyXG4gICAgZm9udC1zaXplOjE2cHg7XHJcbiAgfVxyXG4gIFxyXG4gIFxyXG4gICJdfQ== */"]
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](FoodpckmgrorderWeeklyReconComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+        args: [{
+          selector: "app-weekly-recon-tab",
+          templateUrl: "./weekly-recon.component.html",
+          styleUrls: ["./weekly-recon.css"]
+        }]
+      }], function () {
+        return [{
+          type: _services_profile_service__WEBPACK_IMPORTED_MODULE_1__["ProfileService"]
+        }, {
+          type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]
+        }, {
+          type: _services_commonFunctions_service__WEBPACK_IMPORTED_MODULE_2__["CommonFunctionsService"]
+        }, {
+          type: _angular_common__WEBPACK_IMPORTED_MODULE_5__["DatePipe"]
+        }];
+      }, null);
     })();
     /***/
 
@@ -70744,6 +71324,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _foodpckmgrorder_driver_tab_drivers_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(
     /*! ./foodpckmgrorder/driver-tab/drivers.component */
     "./src/app/form/foodpckmgrorder/driver-tab/drivers.component.ts");
+    /* harmony import */
+
+
+    var _foodpckmgrorder_weekly_recon_tab_weekly_recon_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(
+    /*! ./foodpckmgrorder/weekly-recon-tab/weekly-recon.component */
+    "./src/app/form/foodpckmgrorder/weekly-recon-tab/weekly-recon.component.ts");
 
     var FormModule = function FormModule() {
       _classCallCheck(this, FormModule);
@@ -70765,7 +71351,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](FormModule, {
-        declarations: [_form_basic_basic_component__WEBPACK_IMPORTED_MODULE_10__["FormBasicComponent"], _form_validation_form_validation_component__WEBPACK_IMPORTED_MODULE_11__["FormvalComponent"], _checkbox_radio_cr_component__WEBPACK_IMPORTED_MODULE_12__["CheckradioComponent"], _confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_35__["ConfirmDialogComponent"], _form_inputs_inputs_component__WEBPACK_IMPORTED_MODULE_13__["ForminputsComponent"], _driver_dialog_driver_dialog_component__WEBPACK_IMPORTED_MODULE_48__["DriverDialogComponent"], _input_grids_grids_component__WEBPACK_IMPORTED_MODULE_14__["GridsComponent"], _input_groups_input_groups_component__WEBPACK_IMPORTED_MODULE_15__["InputgroupsComponent"], _form_horizontal_horizontal_component__WEBPACK_IMPORTED_MODULE_16__["FormhorizontalComponent"], _form_actions_actions_component__WEBPACK_IMPORTED_MODULE_17__["FormactionsComponent"], _form_row_separator_row_sep_component__WEBPACK_IMPORTED_MODULE_18__["FormrowsepComponent"], _form_striped_row_striped_component__WEBPACK_IMPORTED_MODULE_19__["FormstripedComponent"], _form_detail_detail_component__WEBPACK_IMPORTED_MODULE_20__["FormdetailComponent"], _multiselect_multiselect_component__WEBPACK_IMPORTED_MODULE_21__["MultiselectComponent"], _units_units_component__WEBPACK_IMPORTED_MODULE_23__["UnitComponent"], _territory_territory_component__WEBPACK_IMPORTED_MODULE_24__["TerritoryComponent"], _foodparks_foodparks_component__WEBPACK_IMPORTED_MODULE_25__["FoodParkComponent"], _viewfoodparks_viewfoodparks_component__WEBPACK_IMPORTED_MODULE_26__["ViewFoodParkComponent"], _hubs_hubs_component__WEBPACK_IMPORTED_MODULE_27__["HubComponent"], _hubmanager_hubmanager_component__WEBPACK_IMPORTED_MODULE_28__["HubmemberComponent"], _drivers_drivers_component__WEBPACK_IMPORTED_MODULE_29__["DriverComponent"], _company_company_component__WEBPACK_IMPORTED_MODULE_30__["CompanyComponent"], _companyview_companyview_component__WEBPACK_IMPORTED_MODULE_31__["CompanyviewComponent"], _viewunits_viewunits_component__WEBPACK_IMPORTED_MODULE_32__["ViewunitComponent"], _unitsorder_unitsorder_component__WEBPACK_IMPORTED_MODULE_33__["UnitorderComponent"], _foodpckmgrorder_foodpckmgrorder_component__WEBPACK_IMPORTED_MODULE_34__["FoodpckmgrorderComponent"], _custompipe_pipe__WEBPACK_IMPORTED_MODULE_40__["CustompipePipe"], _manager_edit_manager_edit_component__WEBPACK_IMPORTED_MODULE_44__["ManagerEditComponent"], _foodpckmgrorder_driver_tab_drivers_component__WEBPACK_IMPORTED_MODULE_49__["FoodpckmgrorderDriverComponent"]],
+        declarations: [_form_basic_basic_component__WEBPACK_IMPORTED_MODULE_10__["FormBasicComponent"], _form_validation_form_validation_component__WEBPACK_IMPORTED_MODULE_11__["FormvalComponent"], _checkbox_radio_cr_component__WEBPACK_IMPORTED_MODULE_12__["CheckradioComponent"], _confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_35__["ConfirmDialogComponent"], _form_inputs_inputs_component__WEBPACK_IMPORTED_MODULE_13__["ForminputsComponent"], _driver_dialog_driver_dialog_component__WEBPACK_IMPORTED_MODULE_48__["DriverDialogComponent"], _input_grids_grids_component__WEBPACK_IMPORTED_MODULE_14__["GridsComponent"], _input_groups_input_groups_component__WEBPACK_IMPORTED_MODULE_15__["InputgroupsComponent"], _form_horizontal_horizontal_component__WEBPACK_IMPORTED_MODULE_16__["FormhorizontalComponent"], _form_actions_actions_component__WEBPACK_IMPORTED_MODULE_17__["FormactionsComponent"], _form_row_separator_row_sep_component__WEBPACK_IMPORTED_MODULE_18__["FormrowsepComponent"], _form_striped_row_striped_component__WEBPACK_IMPORTED_MODULE_19__["FormstripedComponent"], _form_detail_detail_component__WEBPACK_IMPORTED_MODULE_20__["FormdetailComponent"], _multiselect_multiselect_component__WEBPACK_IMPORTED_MODULE_21__["MultiselectComponent"], _units_units_component__WEBPACK_IMPORTED_MODULE_23__["UnitComponent"], _territory_territory_component__WEBPACK_IMPORTED_MODULE_24__["TerritoryComponent"], _foodparks_foodparks_component__WEBPACK_IMPORTED_MODULE_25__["FoodParkComponent"], _viewfoodparks_viewfoodparks_component__WEBPACK_IMPORTED_MODULE_26__["ViewFoodParkComponent"], _hubs_hubs_component__WEBPACK_IMPORTED_MODULE_27__["HubComponent"], _hubmanager_hubmanager_component__WEBPACK_IMPORTED_MODULE_28__["HubmemberComponent"], _drivers_drivers_component__WEBPACK_IMPORTED_MODULE_29__["DriverComponent"], _company_company_component__WEBPACK_IMPORTED_MODULE_30__["CompanyComponent"], _companyview_companyview_component__WEBPACK_IMPORTED_MODULE_31__["CompanyviewComponent"], _viewunits_viewunits_component__WEBPACK_IMPORTED_MODULE_32__["ViewunitComponent"], _unitsorder_unitsorder_component__WEBPACK_IMPORTED_MODULE_33__["UnitorderComponent"], _foodpckmgrorder_foodpckmgrorder_component__WEBPACK_IMPORTED_MODULE_34__["FoodpckmgrorderComponent"], _custompipe_pipe__WEBPACK_IMPORTED_MODULE_40__["CustompipePipe"], _manager_edit_manager_edit_component__WEBPACK_IMPORTED_MODULE_44__["ManagerEditComponent"], _foodpckmgrorder_driver_tab_drivers_component__WEBPACK_IMPORTED_MODULE_49__["FoodpckmgrorderDriverComponent"], _foodpckmgrorder_weekly_recon_tab_weekly_recon_component__WEBPACK_IMPORTED_MODULE_50__["FoodpckmgrorderWeeklyReconComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"], ng5_slider__WEBPACK_IMPORTED_MODULE_37__["Ng5SliderModule"], _agm_core__WEBPACK_IMPORTED_MODULE_39__["AgmCoreModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], angular2_text_mask__WEBPACK_IMPORTED_MODULE_0__["TextMaskModule"], _swimlane_ngx_datatable__WEBPACK_IMPORTED_MODULE_36__["NgxDatatableModule"], ngx_mask__WEBPACK_IMPORTED_MODULE_45__["NgxMaskModule"], ngx_chips__WEBPACK_IMPORTED_MODULE_38__["TagInputModule"], _ngx_wizard_ngx_wizard_module__WEBPACK_IMPORTED_MODULE_8__["NGXFormWizardModule"], ng_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_22__["NgMultiSelectDropDownModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModule"], _custom_material_custom_material_module__WEBPACK_IMPORTED_MODULE_43__["CustomMaterialModule"], ngx_custom_validators__WEBPACK_IMPORTED_MODULE_7__["CustomFormsModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_41__["ConfirmDialogModule"], ngx_google_places_autocomplete__WEBPACK_IMPORTED_MODULE_47__["GooglePlaceModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _menuitems_material_material_module__WEBPACK_IMPORTED_MODULE_46__["MaterialModule"], _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_9__["MatAutocompleteModule"]]
       });
     })();
@@ -70780,7 +71366,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apiKey: "AIzaSyBLXlb_YUHwakS59P-aI5_xJHRwXBtA_hE",
             libraries: ["places", "visualization", "drawing", "geometry"]
           }), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], angular2_text_mask__WEBPACK_IMPORTED_MODULE_0__["TextMaskModule"], _swimlane_ngx_datatable__WEBPACK_IMPORTED_MODULE_36__["NgxDatatableModule"], ngx_mask__WEBPACK_IMPORTED_MODULE_45__["NgxMaskModule"].forRoot(), ngx_chips__WEBPACK_IMPORTED_MODULE_38__["TagInputModule"], _ngx_wizard_ngx_wizard_module__WEBPACK_IMPORTED_MODULE_8__["NGXFormWizardModule"], ng_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_22__["NgMultiSelectDropDownModule"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModule"], _custom_material_custom_material_module__WEBPACK_IMPORTED_MODULE_43__["CustomMaterialModule"], ngx_custom_validators__WEBPACK_IMPORTED_MODULE_7__["CustomFormsModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_41__["ConfirmDialogModule"], ngx_google_places_autocomplete__WEBPACK_IMPORTED_MODULE_47__["GooglePlaceModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _menuitems_material_material_module__WEBPACK_IMPORTED_MODULE_46__["MaterialModule"], _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_9__["MatAutocompleteModule"]],
-          declarations: [_form_basic_basic_component__WEBPACK_IMPORTED_MODULE_10__["FormBasicComponent"], _form_validation_form_validation_component__WEBPACK_IMPORTED_MODULE_11__["FormvalComponent"], _checkbox_radio_cr_component__WEBPACK_IMPORTED_MODULE_12__["CheckradioComponent"], _confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_35__["ConfirmDialogComponent"], _form_inputs_inputs_component__WEBPACK_IMPORTED_MODULE_13__["ForminputsComponent"], _driver_dialog_driver_dialog_component__WEBPACK_IMPORTED_MODULE_48__["DriverDialogComponent"], _input_grids_grids_component__WEBPACK_IMPORTED_MODULE_14__["GridsComponent"], _input_groups_input_groups_component__WEBPACK_IMPORTED_MODULE_15__["InputgroupsComponent"], _form_horizontal_horizontal_component__WEBPACK_IMPORTED_MODULE_16__["FormhorizontalComponent"], _form_actions_actions_component__WEBPACK_IMPORTED_MODULE_17__["FormactionsComponent"], _form_row_separator_row_sep_component__WEBPACK_IMPORTED_MODULE_18__["FormrowsepComponent"], _form_striped_row_striped_component__WEBPACK_IMPORTED_MODULE_19__["FormstripedComponent"], _form_detail_detail_component__WEBPACK_IMPORTED_MODULE_20__["FormdetailComponent"], _multiselect_multiselect_component__WEBPACK_IMPORTED_MODULE_21__["MultiselectComponent"], _units_units_component__WEBPACK_IMPORTED_MODULE_23__["UnitComponent"], _territory_territory_component__WEBPACK_IMPORTED_MODULE_24__["TerritoryComponent"], _foodparks_foodparks_component__WEBPACK_IMPORTED_MODULE_25__["FoodParkComponent"], _viewfoodparks_viewfoodparks_component__WEBPACK_IMPORTED_MODULE_26__["ViewFoodParkComponent"], _hubs_hubs_component__WEBPACK_IMPORTED_MODULE_27__["HubComponent"], _hubmanager_hubmanager_component__WEBPACK_IMPORTED_MODULE_28__["HubmemberComponent"], _drivers_drivers_component__WEBPACK_IMPORTED_MODULE_29__["DriverComponent"], _company_company_component__WEBPACK_IMPORTED_MODULE_30__["CompanyComponent"], _companyview_companyview_component__WEBPACK_IMPORTED_MODULE_31__["CompanyviewComponent"], _viewunits_viewunits_component__WEBPACK_IMPORTED_MODULE_32__["ViewunitComponent"], _unitsorder_unitsorder_component__WEBPACK_IMPORTED_MODULE_33__["UnitorderComponent"], _foodpckmgrorder_foodpckmgrorder_component__WEBPACK_IMPORTED_MODULE_34__["FoodpckmgrorderComponent"], _custompipe_pipe__WEBPACK_IMPORTED_MODULE_40__["CustompipePipe"], _manager_edit_manager_edit_component__WEBPACK_IMPORTED_MODULE_44__["ManagerEditComponent"], _foodpckmgrorder_driver_tab_drivers_component__WEBPACK_IMPORTED_MODULE_49__["FoodpckmgrorderDriverComponent"]],
+          declarations: [_form_basic_basic_component__WEBPACK_IMPORTED_MODULE_10__["FormBasicComponent"], _form_validation_form_validation_component__WEBPACK_IMPORTED_MODULE_11__["FormvalComponent"], _checkbox_radio_cr_component__WEBPACK_IMPORTED_MODULE_12__["CheckradioComponent"], _confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_35__["ConfirmDialogComponent"], _form_inputs_inputs_component__WEBPACK_IMPORTED_MODULE_13__["ForminputsComponent"], _driver_dialog_driver_dialog_component__WEBPACK_IMPORTED_MODULE_48__["DriverDialogComponent"], _input_grids_grids_component__WEBPACK_IMPORTED_MODULE_14__["GridsComponent"], _input_groups_input_groups_component__WEBPACK_IMPORTED_MODULE_15__["InputgroupsComponent"], _form_horizontal_horizontal_component__WEBPACK_IMPORTED_MODULE_16__["FormhorizontalComponent"], _form_actions_actions_component__WEBPACK_IMPORTED_MODULE_17__["FormactionsComponent"], _form_row_separator_row_sep_component__WEBPACK_IMPORTED_MODULE_18__["FormrowsepComponent"], _form_striped_row_striped_component__WEBPACK_IMPORTED_MODULE_19__["FormstripedComponent"], _form_detail_detail_component__WEBPACK_IMPORTED_MODULE_20__["FormdetailComponent"], _multiselect_multiselect_component__WEBPACK_IMPORTED_MODULE_21__["MultiselectComponent"], _units_units_component__WEBPACK_IMPORTED_MODULE_23__["UnitComponent"], _territory_territory_component__WEBPACK_IMPORTED_MODULE_24__["TerritoryComponent"], _foodparks_foodparks_component__WEBPACK_IMPORTED_MODULE_25__["FoodParkComponent"], _viewfoodparks_viewfoodparks_component__WEBPACK_IMPORTED_MODULE_26__["ViewFoodParkComponent"], _hubs_hubs_component__WEBPACK_IMPORTED_MODULE_27__["HubComponent"], _hubmanager_hubmanager_component__WEBPACK_IMPORTED_MODULE_28__["HubmemberComponent"], _drivers_drivers_component__WEBPACK_IMPORTED_MODULE_29__["DriverComponent"], _company_company_component__WEBPACK_IMPORTED_MODULE_30__["CompanyComponent"], _companyview_companyview_component__WEBPACK_IMPORTED_MODULE_31__["CompanyviewComponent"], _viewunits_viewunits_component__WEBPACK_IMPORTED_MODULE_32__["ViewunitComponent"], _unitsorder_unitsorder_component__WEBPACK_IMPORTED_MODULE_33__["UnitorderComponent"], _foodpckmgrorder_foodpckmgrorder_component__WEBPACK_IMPORTED_MODULE_34__["FoodpckmgrorderComponent"], _custompipe_pipe__WEBPACK_IMPORTED_MODULE_40__["CustompipePipe"], _manager_edit_manager_edit_component__WEBPACK_IMPORTED_MODULE_44__["ManagerEditComponent"], _foodpckmgrorder_driver_tab_drivers_component__WEBPACK_IMPORTED_MODULE_49__["FoodpckmgrorderDriverComponent"], _foodpckmgrorder_weekly_recon_tab_weekly_recon_component__WEBPACK_IMPORTED_MODULE_50__["FoodpckmgrorderWeeklyReconComponent"]],
           providers: [primeng_api__WEBPACK_IMPORTED_MODULE_42__["ConfirmationService"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]],
           entryComponents: [_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_35__["ConfirmDialogComponent"], _driver_dialog_driver_dialog_component__WEBPACK_IMPORTED_MODULE_48__["DriverDialogComponent"]]
         }]
@@ -71580,52 +72166,52 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getcountryList",
         value: function getcountryList() {
-          var _this141 = this;
+          var _this144 = this;
 
           this._AuthService.getcountryList().subscribe(function (res) {
-            _this141.countryList = res;
+            _this144.countryList = res;
           });
         }
       }, {
         key: "getAllTerritory",
         value: function getAllTerritory() {
-          var _this142 = this;
+          var _this145 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllTerritory().subscribe(function (res) {
-            _this142.territory1 = res;
+            _this145.territory1 = res;
           });
         }
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this143 = this;
+          var _this146 = this;
 
           this.foodParkMgrForm.value.role = "FOODPARKMGR";
 
           this._ProfileService.addFoodParkmgr(this.foodParkMgrForm.value).subscribe(function (res) {
-            _this143.toastr.success('Manager Created successfully');
+            _this146.toastr.success('Manager Created successfully');
 
-            _this143.foodParkMgrForm.reset();
+            _this146.foodParkMgrForm.reset();
 
             document.getElementById("closeModal").click();
 
-            _this143.getAllFoodPark();
+            _this146.getAllFoodPark();
           }, function (error) {
-            _this143.toastr.error(error.error.message);
+            _this146.toastr.error(error.error.message);
           });
         }
       }, {
         key: "open1",
         value: function open1(content1) {
-          var _this144 = this;
+          var _this147 = this;
 
           this.modalService.open(content1, {
             ariaLabelledBy: 'modal-basic-title'
           }).result.then(function (result) {
-            _this144.closeResult = "Closed with: ".concat(result);
+            _this147.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
-            _this144.closeResult = "Dismissed ".concat(_this144.getDismissReason(reason));
+            _this147.closeResult = "Dismissed ".concat(_this147.getDismissReason(reason));
           });
         }
       }, {
@@ -71645,23 +72231,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllFoodPark",
         value: function getAllFoodPark() {
-          var _this145 = this;
+          var _this148 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getallfoodparkmgr().subscribe(function (res) {
-            _this145.territory = res.data;
-            _this145.rows = _this145.territory;
-            _this145.temp = _toConsumableArray(_this145.rows);
+            _this148.territory = res.data;
+            _this148.rows = _this148.territory;
+            _this148.temp = _toConsumableArray(_this148.rows);
           });
         }
       }, {
         key: "getAllFoodParkList",
         value: function getAllFoodParkList() {
-          var _this146 = this;
+          var _this149 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllFoodPark().subscribe(function (res) {
-            _this146.foodparkList = res;
+            _this149.foodparkList = res;
           });
         }
       }, {
@@ -72377,90 +72963,90 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllTerritory",
         value: function getAllTerritory() {
-          var _this147 = this;
+          var _this150 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllTerritory().subscribe(function (res) {
-            _this147.territory = res;
+            _this150.territory = res;
           });
         }
       }, {
         key: "getAllDrivers",
         value: function getAllDrivers(foodParkId) {
-          var _this148 = this;
+          var _this151 = this;
 
           this._ProfileService.getAllDrivers(foodParkId).subscribe(function (res) {
-            _this148.drivers = res.data; // this.rows = this.drivers;
+            _this151.drivers = res.data; // this.rows = this.drivers;
 
-            _this148.drivertemp = _toConsumableArray(_this148.drivers);
+            _this151.drivertemp = _toConsumableArray(_this151.drivers);
           });
         }
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this149 = this;
+          var _this152 = this;
 
           this._ProfileService.addFoodPark(this.foodParkForm.value).subscribe(function (res) {
-            _this149.toastr.success('Territory Created successfully');
+            _this152.toastr.success('Territory Created successfully');
 
             document.getElementById("closeModal").click();
 
-            _this149.getAllFoodPark();
+            _this152.getAllFoodPark();
           }, function (error) {
-            _this149.toastr.error(error.error.message);
+            _this152.toastr.error(error.error.message);
           });
         }
       }, {
         key: "onDriverSubmit",
         value: function onDriverSubmit() {
-          var _this150 = this;
+          var _this153 = this;
 
           this._ProfileService.addFoodPark(this.foodParkForm.value).subscribe(function (res) {
-            _this150.toastr.success('Territory Created successfully');
+            _this153.toastr.success('Territory Created successfully');
 
             document.getElementById("closeModal").click();
 
-            _this150.getAllFoodPark();
+            _this153.getAllFoodPark();
           }, function (error) {
-            _this150.toastr.error(error.error.message);
+            _this153.toastr.error(error.error.message);
           });
         }
       }, {
         key: "open1",
         value: function open1(content1) {
-          var _this151 = this;
+          var _this154 = this;
 
           this.modalService.open(content1, {
             ariaLabelledBy: 'modal-basic-title'
           }).result.then(function (result) {
-            _this151.closeResult = "Closed with: ".concat(result);
+            _this154.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
-            _this151.closeResult = "Dismissed ".concat(_this151.getDismissReason(reason));
+            _this154.closeResult = "Dismissed ".concat(_this154.getDismissReason(reason));
           });
         }
       }, {
         key: "openDriver",
         value: function openDriver(content2) {
-          var _this152 = this;
+          var _this155 = this;
 
           this.modalService.open(content2, {
             ariaLabelledBy: 'modal-basic-title'
           }).result.then(function (result) {
-            _this152.closeResult = "Closed with: ".concat(result);
+            _this155.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
-            _this152.closeResult = "Dismissed ".concat(_this152.getDismissReason(reason));
+            _this155.closeResult = "Dismissed ".concat(_this155.getDismissReason(reason));
           });
         } //Filter hub manage Aryan//
 
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this153 = this;
+          var _this156 = this;
 
           Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["fromEvent"])(this.search.nativeElement, 'keydown').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["debounceTime"])(550), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["map"])(function (x) {
             return x['target']['value'];
           })).subscribe(function (value) {
-            _this153.updateFilter(value);
+            _this156.updateFilter(value);
           });
         }
       }, {
@@ -72501,15 +73087,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllFoodPark",
         value: function getAllFoodPark() {
-          var _this154 = this;
+          var _this157 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllFoodPark().subscribe(function (res) {
-            _this154.territory = res;
-            _this154.rows = _this154.territory;
-            _this154.temp = _toConsumableArray(_this154.rows);
+            _this157.territory = res;
+            _this157.rows = _this157.territory;
+            _this157.temp = _toConsumableArray(_this157.rows);
 
-            _this154.getAllDrivers(_this154.territory[0].id);
+            _this157.getAllDrivers(_this157.territory[0].id);
           });
         }
       }, {
@@ -77378,18 +77964,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AddressComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this155 = this;
+          var _this158 = this;
 
           // this.address = this.formDataService.getAddress();
           this.route.params.subscribe(function (params) {
-            _this155.companyId = +params['id']; // (+) converts string 'id' to a number
+            _this158.companyId = +params['id']; // (+) converts string 'id' to a number
           });
         } //Save button event Starts
 
       }, {
         key: "save",
         value: function save(form) {
-          var _this156 = this;
+          var _this159 = this;
 
           var obj = {
             business_address: this.business_address
@@ -77397,10 +77983,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (!form.valid) return;
 
           this._ProfileService.updateComapnydetails(this.companyId, obj).subscribe(function (res) {
-            _this156.toastr.success('Company Detail Updated successfully!');
+            _this159.toastr.success('Company Detail Updated successfully!');
 
-            _this156.router.navigateByUrl('/forms/ngx/result/' + _this156.companyId, {
-              relativeTo: _this156.route.parent,
+            _this159.router.navigateByUrl('/forms/ngx/result/' + _this159.companyId, {
+              relativeTo: _this159.route.parent,
               skipLocationChange: true
             });
           }, function (error) {}); // this.formDataService.setAddress(this.address);
@@ -77668,7 +78254,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DescriptionComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this157 = this;
+          var _this160 = this;
 
           var vendroData = JSON.parse(localStorage.getItem('vendroData'));
 
@@ -77679,7 +78265,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           this.route.params.subscribe(function (params) {
-            _this157.companyId = +params['id'];
+            _this160.companyId = +params['id'];
           });
         }
       }, {
@@ -77978,17 +78564,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(NavbarComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this158 = this;
+          var _this161 = this;
 
           this.router.events //.filter(event => event instanceof NavigationEnd)
           .subscribe(function (event) {
-            var currentRoute = _this158.route.root;
+            var currentRoute = _this161.route.root;
 
             while (currentRoute.children[0] !== undefined) {
               currentRoute = currentRoute.children[0];
             }
 
-            _this158.page = currentRoute.snapshot.data["title"];
+            _this161.page = currentRoute.snapshot.data["title"];
           });
         }
       }, {
@@ -79947,7 +80533,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getlocationCompanyId",
         value: function getlocationCompanyId() {
-          var _this159 = this;
+          var _this162 = this;
 
           this.user = this.commonFunctionsService.checkUser().user;
 
@@ -79955,7 +80541,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this._ProfileService.getlocationCompanyId(this.user.company_id).subscribe(function (res) {
               if (res.status == 200) {
                 // console.log('getlocationCompanyId ',res.data)
-                _this159.locations2 = res.data;
+                _this162.locations2 = res.data;
               } else {
                 console.log("operation Failed ");
               }
@@ -79965,19 +80551,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getCompanyInfo",
         value: function getCompanyInfo() {
-          var _this160 = this;
+          var _this163 = this;
 
           this.user = this.commonFunctionsService.checkUser().user;
 
           this._ProfileService.getCompanyByCompanyId(this.user.company_id).subscribe(function (res) {
-            _this160.comapnydata = res;
+            _this163.comapnydata = res;
             console.log('reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', res);
           });
         }
       }, {
         key: "getUserInfoAfterLogin",
         value: function getUserInfoAfterLogin() {
-          var _this161 = this;
+          var _this164 = this;
 
           this._ProfileService.getUserInfoAfterLogin().subscribe(function (res) {
             console.log('getUserInfoAfterLogingetUserInfoAfterLogin', res);
@@ -79985,21 +80571,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (res.status == 200) {
               localStorage.setItem('user', JSON.stringify(res));
 
-              var localStorageItem = _this161.commonFunctionsService.checkUser();
+              var localStorageItem = _this164.commonFunctionsService.checkUser();
 
-              _this161.userName = localStorageItem.user.username;
-              console.log("username" + _this161.userName);
-              _this161.activeHub = localStorageItem.user.food_park_id == "" ? null : localStorageItem.user.food_park_id;
-              _this161.activeLocation = localStorageItem.user.unit_id == "" ? null : localStorageItem.user.unit_id;
-              console.log("activeHubactiveHub" + _this161.activeHub);
-              console.log("activeLocation" + _this161.activeLocation);
+              _this164.userName = localStorageItem.user.username;
+              console.log("username" + _this164.userName);
+              _this164.activeHub = localStorageItem.user.food_park_id == "" ? null : localStorageItem.user.food_park_id;
+              _this164.activeLocation = localStorageItem.user.unit_id == "" ? null : localStorageItem.user.unit_id;
+              console.log("activeHubactiveHub" + _this164.activeHub);
+              console.log("activeLocation" + _this164.activeLocation);
             }
           });
         }
       }, {
         key: "getDeliveryHubinCompany",
         value: function getDeliveryHubinCompany() {
-          var _this162 = this;
+          var _this165 = this;
 
           this.user = this.commonFunctionsService.checkUser().user;
 
@@ -80008,7 +80594,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               // console.log('res of',res)
               if (res.status == 200) {
                 // console.log('thisssss deliveryHub',res.data)
-                _this162.deliveryHub = res.data;
+                _this165.deliveryHub = res.data;
               } else {}
             });
           }
@@ -80016,7 +80602,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateCompanyForUnit",
         value: function updateCompanyForUnit(unit_id) {
-          var _this163 = this;
+          var _this166 = this;
 
           this.activeLocation = null;
           this.user = this.commonFunctionsService.checkUser().user;
@@ -80027,11 +80613,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.user.company_id) {
             this._ProfileService.getCompany_unitid(this.user.company_id, obj).subscribe(function (res) {
               if (res.status == 200) {
-                _this163.getUserInfoAfterLogin();
+                _this166.getUserInfoAfterLogin();
 
-                _this163.getlocationCompanyId();
+                _this166.getlocationCompanyId();
 
-                _this163.getDeliveryHubinCompany();
+                _this166.getDeliveryHubinCompany();
               }
             });
           }
@@ -80039,7 +80625,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateCompanyForHub",
         value: function updateCompanyForHub(food_park_id) {
-          var _this164 = this;
+          var _this167 = this;
 
           this.user = this.commonFunctionsService.checkUser().user;
           var obj = {
@@ -80049,11 +80635,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (this.user.company_id) {
             this._ProfileService.getCompany_foodparkid(this.user.company_id, obj).subscribe(function (res) {
               if (res.status == 200) {
-                _this164.getUserInfoAfterLogin();
+                _this167.getUserInfoAfterLogin();
 
-                _this164.getlocationCompanyId();
+                _this167.getlocationCompanyId();
 
-                _this164.getDeliveryHubinCompany();
+                _this167.getDeliveryHubinCompany();
               }
             });
           }
@@ -80071,7 +80657,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "uploadCompanyProfile",
         value: function uploadCompanyProfile(formData) {
-          var _this165 = this;
+          var _this168 = this;
 
           this.user = this.commonFunctionsService.checkUser().user;
 
@@ -80079,9 +80665,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log('resss ', res.data[0].photo);
             localStorage.setItem('photo', res.data[0].photo);
 
-            _this165.toastr.success('Photo upload successfully!');
+            _this168.toastr.success('Photo upload successfully!');
           }, function (error) {
-            _this165.toastr.error('failed to upload, please try again later');
+            _this168.toastr.error('failed to upload, please try again later');
           });
         }
       }, {
@@ -80102,7 +80688,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "uploadFeaturePhoto",
         value: function uploadFeaturePhoto(formData) {
-          var _this166 = this;
+          var _this169 = this;
 
           this.user = this.commonFunctionsService.checkUser().user;
 
@@ -80110,9 +80696,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log('resss ', res.data[0].photo);
             localStorage.setItem('driving_license', res.data[0].featured_dish);
 
-            _this166.toastr.success('Successfully uploaded!');
+            _this169.toastr.success('Successfully uploaded!');
           }, function (error) {
-            _this166.toastr.error('failed to upload, please try again later');
+            _this169.toastr.error('failed to upload, please try again later');
           });
         }
       }, {
@@ -80691,14 +81277,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "vendor_name",
         value: function vendor_name() {
-          var _this167 = this;
+          var _this170 = this;
 
           this._AuthService.getVendrName(this.user.company_id).subscribe(function (res) {
-            _this167.vndr_dish = res.featured_dish;
-            _this167.vndr_logo = res.photo;
+            _this170.vndr_dish = res.featured_dish;
+            _this170.vndr_logo = res.photo;
             localStorage.setItem("vendroData", JSON.stringify(res));
 
-            _this167.personalDetailsForm.patchValue({
+            _this170.personalDetailsForm.patchValue({
               "name": res.name
             });
           });
@@ -80706,16 +81292,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getcountryList",
         value: function getcountryList() {
-          var _this168 = this;
+          var _this171 = this;
 
           this._AuthService.getcountryList().subscribe(function (res) {
-            _this168.countryList = res;
+            _this171.countryList = res;
           });
         }
       }, {
         key: "territory_id",
         value: function territory_id() {
-          var _this169 = this;
+          var _this172 = this;
 
           this.latt = localStorage.getItem('latitude');
           this["long"] = localStorage.getItem('longitude');
@@ -80725,14 +81311,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
 
           this._AuthService.territory_id(this.user.country, this.user.state, data).subscribe(function (res) {
-            _this169.territoryid = res.data.id;
-            localStorage.setItem("territory_id", _this169.territoryid);
+            _this172.territoryid = res.data.id;
+            localStorage.setItem("territory_id", _this172.territoryid);
           });
         }
       }, {
         key: "getTerritory",
         value: function getTerritory(event) {
-          var _this170 = this;
+          var _this173 = this;
 
           var stateData = event.target.value;
           var strData = stateData.split(",");
@@ -80743,7 +81329,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var state_id = this.stateAndTerritoryObject.id;
 
           this._ProfileService.getTerritory(state_id).subscribe(function (res) {
-            _this170.singleTerritory = res.territory;
+            _this173.singleTerritory = res.territory;
           });
         }
       }, {
@@ -80754,7 +81340,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this171 = this;
+          var _this174 = this;
 
           var vendroData = JSON.parse(localStorage.getItem("vendroData"));
           var data = {
@@ -80771,13 +81357,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (res.status == 200) {
               localStorage.setItem("vendroData", JSON.stringify(res.data[0]));
 
-              _this171.router.navigateByUrl('/forms/ngx/work', {
-                relativeTo: _this171.route.parent,
+              _this174.router.navigateByUrl('/forms/ngx/work', {
+                relativeTo: _this174.route.parent,
                 skipLocationChange: true
               });
             } else {
-              _this171.router.navigateByUrl('/forms/ngx/work', {
-                relativeTo: _this171.route.parent,
+              _this174.router.navigateByUrl('/forms/ngx/work', {
+                relativeTo: _this174.route.parent,
                 skipLocationChange: true
               });
             }
@@ -80794,45 +81380,45 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllCountries",
         value: function getAllCountries() {
-          var _this172 = this;
+          var _this175 = this;
 
           this._ProfileService.getAllCountries().subscribe(function (res) {
-            _this172.countries = res;
+            _this175.countries = res;
           });
         }
       }, {
         key: "getAllStates",
         value: function getAllStates() {
-          var _this173 = this;
+          var _this176 = this;
 
           this._ProfileService.getState(this.user.country_id).subscribe(function (res) {
-            _this173.states = res.data;
+            _this176.states = res.data;
           });
         }
       }, {
         key: "getState",
         value: function getState(event) {
-          var _this174 = this;
+          var _this177 = this;
 
           var country_id = event.target.value;
 
           this._ProfileService.getState(country_id).subscribe(function (res) {
-            _this174.singleState = res.territory;
+            _this177.singleState = res.territory;
           });
         }
       }, {
         key: "uploadCompanyProfile",
         value: function uploadCompanyProfile(formData) {
-          var _this175 = this;
+          var _this178 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.uploadCompanyProfile(this.user.company_id, formData).subscribe(function (res) {
             localStorage.setItem('photo', res.data[0].photo);
 
-            _this175.toastr.success('Photo uploaded successfully!');
+            _this178.toastr.success('Photo uploaded successfully!');
           }, function (error) {
-            _this175.toastr.error('failed to upload, please try again later');
+            _this178.toastr.error('failed to upload, please try again later');
           });
         }
       }, {
@@ -80850,16 +81436,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "uploadFeaturePhoto",
         value: function uploadFeaturePhoto(formData) {
-          var _this176 = this;
+          var _this179 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.uploadFeaturePhoto(this.user.company_id, formData).subscribe(function (res) {
             localStorage.setItem('featured_dish', res.data[0].featured_dish);
 
-            _this176.toastr.success('Featured Dish Uploaded Successfully!');
+            _this179.toastr.success('Featured Dish Uploaded Successfully!');
           }, function (error) {
-            _this176.toastr.error('failed to upload, please try again later');
+            _this179.toastr.error('failed to upload, please try again later');
           });
         }
       }, {
@@ -81366,37 +81952,37 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(PhotoComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this177 = this;
+          var _this180 = this;
 
           // this.address = this.formDataService.getAddress();
           this.route.params.subscribe(function (params) {
-            _this177.companyId = +params['id']; // (+) converts string 'id' to a number
+            _this180.companyId = +params['id']; // (+) converts string 'id' to a number
           });
         }
       }, {
         key: "uploadCompanyProfile",
         value: function uploadCompanyProfile(formData) {
-          var _this178 = this;
+          var _this181 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.uploadCompanyProfile(this.user.company_id, formData).subscribe(function (res) {
-            _this178.toastr.success('Photo upload successfully!');
+            _this181.toastr.success('Photo upload successfully!');
           }, function (error) {
-            _this178.toastr.error('failed to upload, please try again later');
+            _this181.toastr.error('failed to upload, please try again later');
           });
         }
       }, {
         key: "uploadFeaturePhoto",
         value: function uploadFeaturePhoto(formData) {
-          var _this179 = this;
+          var _this182 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.uploadFeaturePhoto(this.user.company_id, formData).subscribe(function (res) {
-            _this179.toastr.success('Feathured dish upload successfully!');
+            _this182.toastr.success('Feathured dish upload successfully!');
           }, function (error) {
-            _this179.toastr.error('failed to upload, please try again later');
+            _this182.toastr.error('failed to upload, please try again later');
           });
         }
       }, {
@@ -81708,23 +82294,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ResultComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this180 = this;
+          var _this183 = this;
 
           this.formData = this.formDataService.getFormData();
           this.isFormValid = this.formDataService.isFormValid();
           this.route.params.subscribe(function (params) {
-            _this180.companyId = +params['id']; // (+) converts string 'id' to a number
+            _this183.companyId = +params['id']; // (+) converts string 'id' to a number
 
-            _this180.getCompanyInfo(_this180.companyId);
+            _this183.getCompanyInfo(_this183.companyId);
           });
         }
       }, {
         key: "getCompanyInfo",
         value: function getCompanyInfo(companyId) {
-          var _this181 = this;
+          var _this184 = this;
 
           this._ProfileService.getCompanyprofile(companyId).subscribe(function (res) {
-            _this181.companyProfile = res.data;
+            _this184.companyProfile = res.data;
           });
         } //Submit button event Starts
 
@@ -82436,10 +83022,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ScheduleComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this182 = this;
+          var _this185 = this;
 
           this.route.params.subscribe(function (params) {
-            _this182.companyId = +params['id'];
+            _this185.companyId = +params['id'];
           });
           this.scheduleFormData = this.fb.group({
             facebook: '',
@@ -82457,7 +83043,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.hoursTo = hour[1].toString();
             this.days = vendroData.schedule.split(",");
             this.days.forEach(function (item) {
-              _this182.addValue({
+              _this185.addValue({
                 "value": item
               });
             });
@@ -82473,7 +83059,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this183 = this;
+          var _this186 = this;
 
           //merge local storage data
           this.allData = this.mergeData();
@@ -82483,15 +83069,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.allData.name = vendroData.name;
 
           this._ProfileService.updateCompanyCredentials(this.user.company_id, this.allData).subscribe(function (res) {
-            _this183.toastr.success('Success');
+            _this186.toastr.success('Success');
 
-            _this183.clearLocalstorage();
+            _this186.clearLocalstorage();
 
-            _this183.router.navigate(['/forms']);
+            _this186.router.navigate(['/forms']);
 
             document.getElementById("closeModal").click();
           }, function (error) {
-            _this183.toastr.error(error.error.message);
+            _this186.toastr.error(error.error.message);
           });
         }
       }, {
@@ -82558,7 +83144,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "save",
         value: function save(form) {
-          var _this184 = this;
+          var _this187 = this;
 
           if (!form.valid) return 1;
           var obj = {
@@ -82568,10 +83154,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
 
           this._ProfileService.updateGoogleSheetDetails(this.companyId, obj).subscribe(function (res) {
-            _this184.toastr.success('Weekly Schedule saved successfully!');
+            _this187.toastr.success('Weekly Schedule saved successfully!');
 
-            _this184.router.navigateByUrl('/forms/ngx/address/' + _this184.companyId, {
-              relativeTo: _this184.route.parent,
+            _this187.router.navigateByUrl('/forms/ngx/address/' + _this187.companyId, {
+              relativeTo: _this187.route.parent,
               skipLocationChange: true
             });
           });
@@ -82592,13 +83178,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addGroupName",
         value: function addGroupName() {
-          var _this185 = this;
+          var _this188 = this;
 
           this._ProfileService.createlegrambot({
             token: this.scheduleFormData.value.telegram_id
           }, this.user.company_id).subscribe(function (res) {
             if (res.status == 200) {
-              _this185.toastr.success('Telegram Bot Created successfully');
+              _this188.toastr.success('Telegram Bot Created successfully');
             }
           });
         }
@@ -83262,10 +83848,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(WorkComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this186 = this;
+          var _this189 = this;
 
           this.route.params.subscribe(function (params) {
-            _this186.companyId = +params['id'];
+            _this189.companyId = +params['id'];
           });
           this.getCompanyInfo();
           this.territory_id();
@@ -83274,10 +83860,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getCompanyInfo",
         value: function getCompanyInfo() {
-          var _this187 = this;
+          var _this190 = this;
 
           this._ProfileService.getCompanyByCompanyId(this.user.company_id).subscribe(function (res) {
-            _this187.comapnydata = res;
+            _this190.comapnydata = res;
           });
         }
       }, {
@@ -83298,7 +83884,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "territory_id",
         value: function territory_id() {
-          var _this188 = this;
+          var _this191 = this;
 
           this.latt = localStorage.getItem('latitude');
           this["long"] = localStorage.getItem('longitude');
@@ -83308,22 +83894,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
 
           this._AuthService.territory_id(this.user.country, this.user.state, data).subscribe(function (res) {
-            _this188.territory_id1 = res.data.id;
-            localStorage.setItem("territory_id", _this188.territory_id1);
+            _this191.territory_id1 = res.data.id;
+            localStorage.setItem("territory_id", _this191.territory_id1);
           });
         }
       }, {
         key: "getlocationCompanyId",
         value: function getlocationCompanyId() {
-          var _this189 = this;
+          var _this192 = this;
 
           if (this.user.company_id) {
             this._ProfileService.getlocationCompanyId(this.user.company_id).subscribe(function (res) {
               if (res.status == 200) {
-                _this189.locationsList = res.data[0].type;
+                _this192.locationsList = res.data[0].type;
 
-                _this189.workFormData.patchValue({
-                  "type": _this189.locationsList
+                _this192.workFormData.patchValue({
+                  "type": _this192.locationsList
                 });
               }
             });
@@ -83332,7 +83918,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this190 = this;
+          var _this193 = this;
 
           if (this.comapnydata) {
             this.workFormData.value.name = this.comapnydata.name + ' LOC1';
@@ -83343,31 +83929,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             this._ProfileService.addUnit(this.workFormData.value, this.comapnydata.id).subscribe(function (res) {
               if (res.status == 200) {
-                _this190.getUserInfoAfterLogin();
+                _this193.getUserInfoAfterLogin();
 
                 if (res.data && res.data.length > 0) {
                   localStorage.setItem("unit_id", res.data[0].id);
 
-                  _this190._ProfileService.getCompany_unitid(_this190.comapnydata.id, {
+                  _this193._ProfileService.getCompany_unitid(_this193.comapnydata.id, {
                     unit_id: res.data[0].id
                   }).subscribe(function (res) {
-                    _this190.router.navigateByUrl('/forms/ngx/tags', {
-                      relativeTo: _this190.route.parent,
+                    _this193.router.navigateByUrl('/forms/ngx/tags', {
+                      relativeTo: _this193.route.parent,
                       skipLocationChange: true
                     });
                   });
                 } else {
-                  _this190.router.navigateByUrl('/forms/ngx/tags', {
-                    relativeTo: _this190.route.parent,
+                  _this193.router.navigateByUrl('/forms/ngx/tags', {
+                    relativeTo: _this193.route.parent,
                     skipLocationChange: true
                   });
                 }
               }
             }, function (error) {
-              _this190.toastr.error(' Username exist already. Please go to the location tab to create new unit in hub management.');
+              _this193.toastr.error(' Username exist already. Please go to the location tab to create new unit in hub management.');
 
-              _this190.router.navigateByUrl('/forms/ngx/tags', {
-                relativeTo: _this190.route.parent,
+              _this193.router.navigateByUrl('/forms/ngx/tags', {
+                relativeTo: _this193.route.parent,
                 skipLocationChange: true
               });
             });
@@ -83918,40 +84504,40 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this191 = this;
+          var _this194 = this;
 
           this._ProfileService.addTerritory(this.territoryForm.value).subscribe(function (res) {
             if (res.status == 200) {
-              _this191.toastr.success('Territory Created successfully');
+              _this194.toastr.success('Territory Created successfully');
 
               document.getElementById("closeModal").click();
 
-              _this191.getAllTerritory();
+              _this194.getAllTerritory();
             }
           }, function (error) {
-            _this191.toastr.error(error.error.message);
+            _this194.toastr.error(error.error.message);
           });
         }
       }, {
         key: "getcountryList",
         value: function getcountryList() {
-          var _this192 = this;
+          var _this195 = this;
 
           this._AuthService.getcountryList().subscribe(function (res) {
-            _this192.countryList = res;
+            _this195.countryList = res;
           });
         }
       }, {
         key: "open1",
         value: function open1(content1) {
-          var _this193 = this;
+          var _this196 = this;
 
           this.modalService.open(content1, {
             ariaLabelledBy: 'modal-basic-title'
           }).result.then(function (result) {
-            _this193.closeResult = "Closed with: ".concat(result);
+            _this196.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
-            _this193.closeResult = "Dismissed ".concat(_this193.getDismissReason(reason));
+            _this196.closeResult = "Dismissed ".concat(_this196.getDismissReason(reason));
           });
         }
       }, {
@@ -83981,27 +84567,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllTerritory",
         value: function getAllTerritory() {
-          var _this194 = this;
+          var _this197 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllTerritory().subscribe(function (res) {
-            _this194.territory = res;
-            _this194.rows = _this194.territory;
-            _this194.temp = _toConsumableArray(_this194.rows);
+            _this197.territory = res;
+            _this197.rows = _this197.territory;
+            _this197.temp = _toConsumableArray(_this197.rows);
           });
         }
       }, {
         key: "deleteTerritory",
         value: function deleteTerritory(event, row) {
-          var _this195 = this;
+          var _this198 = this;
 
           this._ProfileService.deleteTerritory(row.id).subscribe(function (res) {
             if (res.status == 200) {
-              _this195.toastr.success(res.message);
+              _this198.toastr.success(res.message);
 
-              _this195.getAllTerritory();
+              _this198.getAllTerritory();
             } else {
-              _this195.toastr.error(res.message);
+              _this198.toastr.error(res.message);
             }
           });
         }
@@ -84779,11 +85365,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllTerritory",
         value: function getAllTerritory() {
-          var _this196 = this;
+          var _this199 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllTerritory().subscribe(function (res) {
-            _this196.territory = res;
+            _this199.territory = res;
           });
         }
       }, {
@@ -84794,14 +85380,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "open1",
         value: function open1(content1) {
-          var _this197 = this;
+          var _this200 = this;
 
           this.modalService.open(content1, {
             ariaLabelledBy: 'modal-basic-title'
           }).result.then(function (result) {
-            _this197.closeResult = "Closed with: ".concat(result);
+            _this200.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
-            _this197.closeResult = "Dismissed ".concat(_this197.getDismissReason(reason));
+            _this200.closeResult = "Dismissed ".concat(_this200.getDismissReason(reason));
           });
         }
       }, {
@@ -84823,7 +85409,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this198 = this;
+          var _this201 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
           this.unitForm.value.delivery_chg_amount = this.delivery_chg_amount;
@@ -84833,27 +85419,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this._ProfileService.addUnit(this.unitForm.value, this.user.company_id).subscribe(function (res) {
             if (res.status == 200) {
-              _this198.toastr.success('Units Created successfully');
+              _this201.toastr.success('Units Created successfully');
 
               document.getElementById("closeModal").click();
 
-              _this198.getAllUnits();
+              _this201.getAllUnits();
             }
           }, function (error) {
-            _this198.toastr.error(error.error.message);
+            _this201.toastr.error(error.error.message);
           });
         }
       }, {
         key: "getAllUnits",
         value: function getAllUnits() {
-          var _this199 = this;
+          var _this202 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.getAllUnits(this.user.company_id).subscribe(function (res) {
-            _this199.units = res;
-            _this199.temp = _this199.units;
-            _this199.rows = _this199.units;
+            _this202.units = res;
+            _this202.temp = _this202.units;
+            _this202.rows = _this202.units;
           });
         }
       }, {
@@ -85606,14 +86192,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(UnitorderComponent, [{
         key: "getAllOrder",
         value: function getAllOrder() {
-          var _this200 = this;
+          var _this203 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.getAllUnitOrder(this.user.company_id, this.user.unit_id).subscribe(function (res) {
-            _this200.orders = res.data;
-            _this200.temp = _this200.orders;
-            _this200.rows = _this200.orders;
+            _this203.orders = res.data;
+            _this203.temp = _this203.orders;
+            _this203.rows = _this203.orders;
           });
         }
       }, {
@@ -86090,39 +86676,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllTerritory",
         value: function getAllTerritory() {
-          var _this201 = this;
+          var _this204 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllTerritory().subscribe(function (res) {
-            _this201.territory = res;
+            _this204.territory = res;
           });
         }
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this202 = this;
+          var _this205 = this;
 
           this._ProfileService.addFoodPark(this.foodParkForm.value).subscribe(function (res) {
-            _this202.toastr.success('Territory Created successfully');
+            _this205.toastr.success('Territory Created successfully');
 
             document.getElementById("closeModal").click();
 
-            _this202.getAllFoodPark();
+            _this205.getAllFoodPark();
           }, function (error) {
-            _this202.toastr.error(error.error.message);
+            _this205.toastr.error(error.error.message);
           });
         }
       }, {
         key: "open1",
         value: function open1(content1) {
-          var _this203 = this;
+          var _this206 = this;
 
           this.modalService.open(content1, {
             ariaLabelledBy: 'modal-basic-title'
           }).result.then(function (result) {
-            _this203.closeResult = "Closed with: ".concat(result);
+            _this206.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
-            _this203.closeResult = "Dismissed ".concat(_this203.getDismissReason(reason));
+            _this206.closeResult = "Dismissed ".concat(_this206.getDismissReason(reason));
           });
         }
       }, {
@@ -86142,13 +86728,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getAllFoodPark",
         value: function getAllFoodPark() {
-          var _this204 = this;
+          var _this207 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllFoodPark().subscribe(function (res) {
-            _this204.territory = res;
-            _this204.rows = _this204.territory;
-            _this204.temp = _toConsumableArray(_this204.rows);
+            _this207.territory = res;
+            _this207.rows = _this207.territory;
+            _this207.temp = _toConsumableArray(_this207.rows);
           });
         }
       }, {
@@ -86413,7 +86999,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     function () {
       function ViewunitComponent(_ProfileService, toastr, _CommonFunctionsService, modalService, route) {
         var _ref13,
-            _this205 = this;
+            _this208 = this;
 
         _classCallCheck(this, ViewunitComponent);
 
@@ -86460,9 +87046,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.formInit();
         this.getAllUnits();
         this.route.params.subscribe(function (params) {
-          _this205.id = params['id'];
+          _this208.id = params['id'];
 
-          _this205.getunitById(_this205.id);
+          _this208.getunitById(_this208.id);
         });
       }
 
@@ -86485,20 +87071,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getunitById",
         value: function getunitById(id) {
-          var _this206 = this;
+          var _this209 = this;
 
           this._ProfileService.getunitById(this.user.company_id, id).subscribe(function (res) {
-            _this206.unitDetails = res;
+            _this209.unitDetails = res;
           });
         }
       }, {
         key: "getAllTerritory",
         value: function getAllTerritory() {
-          var _this207 = this;
+          var _this210 = this;
 
           // this.user = this._CommonFunctionsService.checkUser().user;
           this._ProfileService.getAllTerritory().subscribe(function (res) {
-            _this207.territory = res;
+            _this210.territory = res;
           });
         }
       }, {
@@ -86507,14 +87093,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "open1",
         value: function open1(content1) {
-          var _this208 = this;
+          var _this211 = this;
 
           this.modalService.open(content1, {
             ariaLabelledBy: 'modal-basic-title'
           }).result.then(function (result) {
-            _this208.closeResult = "Closed with: ".concat(result);
+            _this211.closeResult = "Closed with: ".concat(result);
           }, function (reason) {
-            _this208.closeResult = "Dismissed ".concat(_this208.getDismissReason(reason));
+            _this211.closeResult = "Dismissed ".concat(_this211.getDismissReason(reason));
           });
         }
       }, {
@@ -86536,7 +87122,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this209 = this;
+          var _this212 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
           this.unitForm.value.delivery_chg_amount = this.delivery_chg_amount;
@@ -86546,27 +87132,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this._ProfileService.addUnit(this.unitForm.value, this.user.company_id).subscribe(function (res) {
             if (res.status == 200) {
-              _this209.toastr.success('Units Created successfully');
+              _this212.toastr.success('Units Created successfully');
 
               document.getElementById("closeModal").click();
 
-              _this209.getAllUnits();
+              _this212.getAllUnits();
             }
           }, function (error) {
-            _this209.toastr.error(error.error.message);
+            _this212.toastr.error(error.error.message);
           });
         }
       }, {
         key: "getAllUnits",
         value: function getAllUnits() {
-          var _this210 = this;
+          var _this213 = this;
 
           this.user = this._CommonFunctionsService.checkUser().user;
 
           this._ProfileService.getAllUnits(this.user.company_id).subscribe(function (res) {
-            _this210.units = res;
-            _this210.temp = _this210.units;
-            _this210.rows = _this210.units;
+            _this213.units = res;
+            _this213.temp = _this213.units;
+            _this213.rows = _this213.units;
           });
         }
       }, {

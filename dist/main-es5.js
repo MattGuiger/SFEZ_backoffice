@@ -4278,6 +4278,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.googleUser = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "/api/v1/rel/google/";
         this.molCategoryDetail = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "api/v1/mol/companies/";
         this.getDriverByHub = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "api/v1/ord/hub/food_parks/";
+        this.weekreconbydate = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "api/v1/rel/weekreconbydate/";
       }
 
       _createClass(ProfileService, [{
@@ -4858,6 +4859,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getLocation",
         value: function getLocation(id) {
           return this.http.get("https://api.instamarkt.co/api/v1/rel/food_parks/location/".concat(id));
+        }
+      }, {
+        key: "getWeekreconbydate",
+        value: function getWeekreconbydate(id) {
+          return this.http.get("".concat(this.weekreconbydate, "/").concat(id));
         }
       }]);
 
