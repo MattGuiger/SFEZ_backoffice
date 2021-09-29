@@ -4862,8 +4862,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "getWeekreconbydate",
-        value: function getWeekreconbydate(id) {
-          return this.http.get("".concat(this.weekreconbydate, "/").concat(id));
+        value: function getWeekreconbydate(id, data) {
+          return this.http.post("".concat(this.weekreconbydate, "/").concat(id), data);
         }
       }]);
 

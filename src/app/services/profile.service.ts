@@ -80,6 +80,8 @@ export class ProfileService {
   private molCategoryDetail = config.getEnvironmentVariable('endPoint') + "api/v1/mol/companies/"
   private getDriverByHub = config.getEnvironmentVariable('endPoint') + "api/v1/ord/hub/food_parks/"
 
+  private weekreconbydate = config.getEnvironmentVariable('endPoint') + "api/v1/rel/weekreconbydate/"
+
   constructor(private http: HttpClient) { }
 
   greenMoneyPayment(data):Observable<any> {
@@ -488,4 +490,7 @@ getRefundVoidData(data): Observable<any>
     return this.http.get(`https://api.instamarkt.co/api/v1/rel/food_parks/location/${id}`)
   }
 
+  getWeekreconbydate (id,data){
+    return this.http.post(`${this.weekreconbydate}/${id}`,data)
+  }
 }

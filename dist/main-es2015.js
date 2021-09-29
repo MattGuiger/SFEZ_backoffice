@@ -2612,8 +2612,8 @@ class ProfileService {
     getLocation(id) {
         return this.http.get(`https://api.instamarkt.co/api/v1/rel/food_parks/location/${id}`);
     }
-    getWeekreconbydate(id) {
-        return this.http.get(`${this.weekreconbydate}/${id}`);
+    getWeekreconbydate(id, data) {
+        return this.http.post(`${this.weekreconbydate}/${id}`, data);
     }
 }
 ProfileService.ɵfac = function ProfileService_Factory(t) { return new (t || ProfileService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };

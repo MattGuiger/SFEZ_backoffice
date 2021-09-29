@@ -54,7 +54,7 @@ import { DatePipe } from "@angular/common";
 import { DriverDialogComponent } from "./driver-dialog/driver-dialog.component";
 import { CallbackPipe } from "./callback.pipe";
 import { FoodpckmgrorderDriverComponent } from "./foodpckmgrorder/driver-tab/drivers.component";
-
+import {FoodpckmgrorderWeeklyReconComponent } from './foodpckmgrorder/weekly-recon-tab/weekly-recon.component'
 @NgModule({
   imports: [
     CommonModule,
@@ -111,6 +111,7 @@ import { FoodpckmgrorderDriverComponent } from "./foodpckmgrorder/driver-tab/dri
     CustompipePipe,
     ManagerEditComponent,
     FoodpckmgrorderDriverComponent,
+    FoodpckmgrorderWeeklyReconComponent
   ],
   providers: [ConfirmationService, DatePipe],
   entryComponents: [ConfirmDialogComponent, DriverDialogComponent],

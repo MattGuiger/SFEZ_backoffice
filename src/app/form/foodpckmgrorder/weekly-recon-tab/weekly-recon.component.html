@@ -1,0 +1,126 @@
+<form class="mb-3">
+  <div class="row align-items-center justify-content-center">
+    <div class="row col col-auto">
+      <div
+        class="text-right"
+        style="font-weight: 500; padding-left: 10px"
+      >
+        <button
+          type="button"
+          class="btn"
+          style="border-radius: 50%"
+          (click)="goBackDriver()"
+        >
+          &#8249;
+        </button>
+        &nbsp; Week Of :
+      </div>
+      <div>
+        {{ weeklyDate | date }} - {{ weeklyDateSeven | date }} &nbsp;
+        <button
+          class="col-md-3 pl-0"
+          type="button"
+          class="btn"
+          style="border-radius: 50%"
+          (click)="goFrontDriver()"
+        >
+          &#8250;
+        </button>
+      </div>
+    </div>
+    <div class="text-center col col-auto ml-1">
+      <mat-form-field appearance="fill">
+        <label>Select Hub</label>
+        <mat-select
+          name="hub"
+          [(ngModel)]="selectedHub"
+          (selectionChange)="selectHub(selectedHub)"
+          placeholder="Select Master"
+        >
+          <mat-option *ngFor="let hub of hubs" [value]="hub.food_park_id">{{
+            hub.data[0].name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</form>
+<div *ngFor="let member of masterDetails.data">
+  <h2 class="text-center" style="margin-top: 30px;">
+    <strong>{{ member.first_name }} {{ member.last_name }}</strong>
+  </h2>
+  <div class="accodion-datatable" *ngIf="member.data">
+    <table mat-table [dataSource]="member.data" class="mat-elevation-z8">
+      <!-- Implicit Column -->
+      <ng-container matColumnDef="Schedule">
+        <th mat-header-cell *matHeaderCellDef>Schedule</th>
+        <td mat-cell *matCellDef="let data">
+          {{ data.label }}
+        </td>
+      </ng-container>
+
+      <!-- Index Column -->
+      <ng-container [matColumnDef]="day"  *ngFor="let day of daysKey">
+        <th mat-header-cell *matHeaderCellDef>{{day}}</th>
+        <td mat-cell *matCellDef="let data">
+          <span *ngIf="data.label=='Sub Total'">
+            <strong>${{ (data.data && data.data[day])?data.data[day] :"0" }}</strong>
+          </span>
+          <span *ngIf="data.label !='Sub Total'">
+            ${{ (data.data && data.data[day])?data.data[day] :"0" }}
+          </span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Total">
+        <th mat-header-cell *matHeaderCellDef>Total</th>
+        <td mat-cell *matCellDef="let data">
+          <strong>${{ data.data?.total || "0" }}</strong>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    
+  </div>
+  <div *ngIf="! member.data">
+    No data found
+  </div>
+</div>
+<h2 class="text-center"  style="margin-top: 30px;"><strong>Hub Payout</strong></h2>
+<div class="accodion-datatable" *ngIf="masterDetails.hubmaster">
+  <table mat-table [dataSource]="masterDetails.hubmaster" class="mat-elevation-z8">
+    <!-- Implicit Column -->
+    <ng-container matColumnDef="Schedule">
+      <th mat-header-cell *matHeaderCellDef>Schedule</th>
+      <td mat-cell *matCellDef="let data">
+        {{ data.label }}
+      </td>
+    </ng-container>
+
+    <!-- Index Column -->
+    <ng-container [matColumnDef]="day"  *ngFor="let day of daysKey">
+      <th mat-header-cell *matHeaderCellDef>{{day}}</th>
+      <td mat-cell *matCellDef="let data">
+        ${{ (data.data && data.data[day])?data.data[day] :"0" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Total">
+      <th mat-header-cell *matHeaderCellDef>Total</th>
+      <td mat-cell *matCellDef="let data">
+        <strong>${{ data.data?.total || "0" }}</strong>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+<div *ngIf="!masterDetails.hubmaster">
+  No data found
+</div>
+<div class="text-center" style="margin: 30px 0;">
+  <h3><strong>(Standard Delivery = $4.50 Comp@$1.25)</strong></h3>
+  <h3><strong>(Long Delivery = $7.00 Comp@$2.75)</strong></h3>
+  <h3><strong>Balance (Owed)	$70.00</strong></h3>
+</div>

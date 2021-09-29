@@ -48,6 +48,8 @@ export class FoodpckmgrorderDriverComponent {
     "label":"COD Cash Due"
   }];
 
+  daysKey= ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
   user: any;
   datecuurent: any;
   tab: any;
