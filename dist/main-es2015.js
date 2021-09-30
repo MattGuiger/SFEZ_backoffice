@@ -2258,6 +2258,7 @@ class ProfileService {
         this.molCategoryDetail = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "api/v1/mol/companies/";
         this.getDriverByHub = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "api/v1/ord/hub/food_parks/";
         this.weekreconbydate = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "api/v1/rel/weekreconbydate/";
+        this.authAdjustment = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "api/v1//rel/adjustment/manauth";
     }
     greenMoneyPayment(data) {
         return this.http.get(this.greenMoneyURL + data);
@@ -2614,6 +2615,9 @@ class ProfileService {
     }
     getWeekreconbydate(id, data) {
         return this.http.post(`${this.weekreconbydate}/${id}`, data);
+    }
+    getAuthAdjustment(id, data) {
+        return this.http.post(`${this.authAdjustment}/${id}`, data);
     }
 }
 ProfileService.ɵfac = function ProfileService_Factory(t) { return new (t || ProfileService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };

@@ -4279,6 +4279,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.molCategoryDetail = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "api/v1/mol/companies/";
         this.getDriverByHub = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "api/v1/ord/hub/food_parks/";
         this.weekreconbydate = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "api/v1/rel/weekreconbydate/";
+        this.authAdjustment = _app_config__WEBPACK_IMPORTED_MODULE_2__["config"].getEnvironmentVariable('endPoint') + "api/v1//rel/adjustment/manauth";
       }
 
       _createClass(ProfileService, [{
@@ -4864,6 +4865,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getWeekreconbydate",
         value: function getWeekreconbydate(id, data) {
           return this.http.post("".concat(this.weekreconbydate, "/").concat(id), data);
+        }
+      }, {
+        key: "getAuthAdjustment",
+        value: function getAuthAdjustment(id, data) {
+          return this.http.post("".concat(this.authAdjustment, "/").concat(id), data);
         }
       }]);
 

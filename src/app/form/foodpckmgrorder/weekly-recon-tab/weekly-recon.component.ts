@@ -62,6 +62,7 @@ export class FoodpckmgrorderWeeklyReconComponent {
   hubs : any[];
   selectedHub: any;
   masterDetails : any;
+  authAdjustmentData: any;
   constructor(
     private _ProfileService: ProfileService,
     private toastr: ToastrService,
@@ -71,10 +72,11 @@ export class FoodpckmgrorderWeeklyReconComponent {
     this.user = this._CommonFunctionsService.checkUser().user;
     this.datecuurent = this.datepipe.transform(Date.now(), "yyyy-MM-dd");
     this.date = moment().add(0, "d");
-    this.weeklyDate = moment().add(0, "d");
-    this.weeklyDateSeven = moment().add(7, "d");
+    this.weeklyDate = moment().startOf('week');
+    this.weeklyDateSeven =  moment().endOf('week')
     this.getUnitHubs();
     this.getWeekreconbydate(this.user.food_park_id);
+    this.getAuthAdjustment(this.user.food_park_id);
     this.selectedHub = this.user.food_park_id;
   }
 
@@ -130,6 +132,16 @@ export class FoodpckmgrorderWeeklyReconComponent {
     this.masterDetails.hubmaster = data;
   }
 
+  getAuthAdjustment(id){
+    const reqData = {
+      startDate: this.datepipe.transform(this.weeklyDate, "yyyy-MM-dd"),
+      endDate: this.datepipe.transform(this.weeklyDateSeven, "yyyy-MM-dd")
+    };
+    this._ProfileService.getAuthAdjustment(id,reqData).subscribe((data:any)=>{
+      this.authAdjustmentData = data.data[0];
+    });
+  }
+
 
   getSubTotal (member){
     let subTotal:any = {};
@@ -158,7 +170,8 @@ export class FoodpckmgrorderWeeklyReconComponent {
   goBackDriver() {
     this.weeklyDate = moment(this.weeklyDate).add(-7, "d");
     this.weeklyDateSeven = moment(this.weeklyDateSeven).add(-7, "d");
-    this.getWeekreconbydate(this.user.food_park_id)
+    this.getWeekreconbydate(this.selectedHub);
+    this.getAuthAdjustment(this.selectedHub)
   }
 
   getUnitHubs(){
@@ -177,7 +190,8 @@ export class FoodpckmgrorderWeeklyReconComponent {
     this.weeklyDateSeven = moment(this.weeklyDateSeven)
       .add(7, "d")
       .format("YYYY-MM-DD");
-    this.getWeekreconbydate(this.user.food_park_id)
+      this.getWeekreconbydate(this.selectedHub);
+      this.getAuthAdjustment(this.selectedHub)
   }
 
   getDate() {

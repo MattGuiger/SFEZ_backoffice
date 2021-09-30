@@ -81,6 +81,7 @@ export class ProfileService {
   private getDriverByHub = config.getEnvironmentVariable('endPoint') + "api/v1/ord/hub/food_parks/"
 
   private weekreconbydate = config.getEnvironmentVariable('endPoint') + "api/v1/rel/weekreconbydate/"
+  private authAdjustment = config.getEnvironmentVariable('endPoint') + "api/v1//rel/adjustment/manauth"
 
   constructor(private http: HttpClient) { }
 
@@ -492,5 +493,9 @@ getRefundVoidData(data): Observable<any>
 
   getWeekreconbydate (id,data){
     return this.http.post(`${this.weekreconbydate}/${id}`,data)
+  }
+
+  getAuthAdjustment(id,data){
+    return this.http.post(`${this.authAdjustment}/${id}`,data)
   }
 }
