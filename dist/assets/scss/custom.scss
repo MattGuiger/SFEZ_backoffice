@@ -25,3 +25,18 @@ input.form-control.custom-disable{
       }
     }
   }
+
+  .tab-button {
+    border: 1px solid #dee2e6;
+    border-top: 0;
+    .nav-item{
+      width: 50%;
+      .nav-link{
+        &.active{
+          background: #4f99e8;
+          color: #fff;
+        }
+        background: #dee2e6;
+      }
+    }
+  }

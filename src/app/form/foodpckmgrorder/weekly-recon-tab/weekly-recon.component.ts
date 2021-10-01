@@ -1,4 +1,4 @@
-import { Component, QueryList, ViewChild, ElementRef, ViewChildren } from '@angular/core';
+import { Component, QueryList, ViewChild, ElementRef, ViewChildren, Input, OnInit } from '@angular/core';
 import { ProfileService } from "../../../services/profile.service";
 import { CommonFunctionsService } from "../../../services/commonFunctions.service";
 import {
@@ -17,6 +17,8 @@ import {
 } from "../../../form/confirm-dialog/confirm-dialog.component";
 import { DatePipe } from "@angular/common";
 import { MatDialog } from "@angular/material/dialog";
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs';
 
 declare var require: any;
 const data: any = [];
@@ -25,7 +27,7 @@ const data: any = [];
   templateUrl: "./weekly-recon.component.html",
   styleUrls: ["./weekly-recon.css"],
 })
-export class FoodpckmgrorderWeeklyReconComponent {
+export class FoodpckmgrorderWeeklyReconComponent implements OnInit{
   displayedColumns: string[] = [
     "Schedule",
     "Monday",
@@ -57,12 +59,16 @@ export class FoodpckmgrorderWeeklyReconComponent {
   date: any;
   sevendate: any;
   sevendatef: any;
-  weeklyDateSeven: any;
-  weeklyDate: any;
+  @Input() weeklyDateSeven: any;
+  @Input() weeklyDate: any;
+  @Input() weekChange: Observable<void>;
+  @Input() hubChange: Observable<void>;
+  @Input() selectedHub: any;
   hubs : any[];
-  selectedHub: any;
   masterDetails : any;
   authAdjustmentData: any;
+  private weekChangeSub: Subscription;
+  private hubChangeSub: Subscription;
   constructor(
     private _ProfileService: ProfileService,
     private toastr: ToastrService,
@@ -70,14 +76,28 @@ export class FoodpckmgrorderWeeklyReconComponent {
     public datepipe: DatePipe
   ) {
     this.user = this._CommonFunctionsService.checkUser().user;
-    this.datecuurent = this.datepipe.transform(Date.now(), "yyyy-MM-dd");
-    this.date = moment().add(0, "d");
-    this.weeklyDate = moment().startOf('week');
-    this.weeklyDateSeven =  moment().endOf('week')
-    this.getUnitHubs();
-    this.getWeekreconbydate(this.user.food_park_id);
-    this.getAuthAdjustment(this.user.food_park_id);
-    this.selectedHub = this.user.food_park_id;
+  }
+
+  ngOnInit(): void {
+    //this.getUnitHubs();
+    this.getInitData()
+    this.weekChangeSub = this.weekChange.subscribe(()=>{
+      this.getInitData();
+    });
+    this.hubChangeSub = this.hubChange.subscribe((data)=>{
+      this.selectedHub = data;
+      this.getInitData();
+    })
+  }
+
+  ngOnDestroy() {
+    this.weekChangeSub.unsubscribe();
+    this.hubChangeSub.unsubscribe();
+  }
+
+  getInitData(){
+    this.getWeekreconbydate(this.selectedHub);
+    this.getAuthAdjustment(this.selectedHub);
   }
 
   getWeekreconbydate(id){
@@ -164,38 +184,6 @@ export class FoodpckmgrorderWeeklyReconComponent {
     return ((member.cash[day]?parseFloat(member.cash[day]):0) 
           + (member.bank[day]?parseFloat(member.bank[day]):0) 
           + (member.payout[day]?parseFloat(member.payout[day]):0)).toFixed(2)
-  }
-
-
-  goBackDriver() {
-    this.weeklyDate = moment(this.weeklyDate).add(-7, "d");
-    this.weeklyDateSeven = moment(this.weeklyDateSeven).add(-7, "d");
-    this.getWeekreconbydate(this.selectedHub);
-    this.getAuthAdjustment(this.selectedHub)
-  }
-
-  getUnitHubs(){
-    this._ProfileService.getHubwithUnits(this.user.company_id).subscribe(data=>{
-      this.hubs = data.data;
-     // this.getAllDrivers(this.hubs[0].food_park_id);
-    })
-  }
-
-  selectHub(id){
-    this.getWeekreconbydate(id)
-  }
-
-  goFrontDriver() {
-    this.weeklyDate = moment(this.weeklyDate).add(7, "d");
-    this.weeklyDateSeven = moment(this.weeklyDateSeven)
-      .add(7, "d")
-      .format("YYYY-MM-DD");
-      this.getWeekreconbydate(this.selectedHub);
-      this.getAuthAdjustment(this.selectedHub)
-  }
-
-  getDate() {
-    return this.date;
   }
 
 }

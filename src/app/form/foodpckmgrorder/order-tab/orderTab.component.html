@@ -1,0 +1,251 @@
+<div class="accodion-datatable">
+  <ngx-datatable
+    class="material"
+    #table
+    [rows]="filterOrders"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="'auto'"
+    [limit]="5"
+    [scrollbarH]="true"
+    (activate)="onActivate($event)"
+  >
+    <!-- Row Detail Template -->
+    <ngx-datatable-row-detail [rowHeight]="'auto'">
+      <ng-template
+        let-row="row"
+        let-expanded="expanded"
+        ngx-datatable-row-detail-template
+      >
+        <div style="padding-left: 10px">
+          <h3>
+            <b
+              >{{ row?.menudetails?.name }} X
+              {{ row?.menudetails?.orderquantity }} ${{
+                row?.menudetails?.price
+              }}</b
+            >
+          </h3>
+          <table class="table table-sm table">
+              <tr>
+                <th width="150">Size</th>
+                <td>{{ row?.menudetails?.size }}</td>
+              </tr>
+              <tr>
+                <th width="150">Add-Ons</th>
+                  <td>
+                    <ul>
+                      <li *ngFor="let addon of row?.menudetails?.addons">
+                        {{ addon.name }} (+${{ addon.price }})
+                      </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th width="150">Instructions</th>
+                <td>
+                  <ul>
+                    <li *ngFor="let instruction of row?.menudetails?.instructions">
+                      {{ instruction }}
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+          </table>
+          <table class="table table-sm table-stripped" *ngIf="row?.group">
+              <tr>
+                <th width="150">Group Order</th>
+                <td>
+                  <ul>
+                    <li *ngFor="let grp of row?.group">
+                      {{ grp.first_name }} {{ grp.last_name }} : ${{
+                        grp.amount_paid
+                      }}
+                       : {{ grp.context }}
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+          </table>
+          <h3>
+            Delivery Address:
+            {{ row?.delivery_address_details.line_1 }}
+            {{ row?.delivery_address_details.line_2 }}
+          </h3>
+          <h3>
+            <b
+              >Delivery Confirmation: In Person @
+              {{ row?.desired_delivery_time | date: "hh:mm a" }}</b
+            >
+          </h3>
+        </div>
+      </ng-template>
+    </ngx-datatable-row-detail>
+
+    <ngx-datatable-column name="#" [width]="40">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <div class="custom-control custom-checkbox">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            id="customCheck{{ row.id }}"
+            name="example1"
+          />
+          <label
+            class="custom-control-label"
+            for="customCheck{{ row.id }}"
+          ></label>
+        </div>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Status" [width]="140">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <!-- <a href="javascript:void(0)" class="order-status text-captialize" *ngIf="row.order_detail.status == 'complete'"
+          style="background-color: red; color:#fff;">{{row.order_detail.status}}</a> -->
+
+        <a
+          style="background-color: #22c6ab; color: #fff"
+          class="order-status text-capitalize btn w-100 border-0"
+          *ngIf="row?.order_detail?.status"
+          >{{ row?.status }}</a
+        >
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Date" [width]="110">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{ row?.initiation_time | date: "MMM d" }}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Order ID" [width]="62">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{ row?.order_id | custompipe: row.order_id }}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Payment" [width]="70">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <!-- {{row?.context}} -->
+        <img
+          *ngIf="row?.context == 'cod' || row?.context == 'Cod'"
+          src="assets/images/cash.png"
+          alt="Icon"
+          style="height: 36px"
+        />
+        <img
+          *ngIf="row?.context == 'Bank' || row?.context == 'bank'"
+          src="assets/images/bank.png"
+          alt="Icon"
+          style="height: 36px"
+        />
+        <img
+          *ngIf="row?.context == 'card' || row?.context == 'Card'"
+          src="assets/images/card.png"
+          alt="Icon"
+          style="height: 36px"
+        />
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Order Amt" [width]="92">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <!-- <p>${{row?.amount?.toFixed(2)}}</p> -->
+        <p>${{ row?.amount }}</p>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Vendor" [width]="80">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        {{ row?.short_name }}
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Actions" [width]="135">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <div *ngIf="row?.context == 'Bank' || row?.context == 'bank' || row?.context == 'card' || row?.context == 'Card'">
+          <button
+            type="button"
+            class="btn btn-info btn-sm"
+            (click)="orderAction('Refund', row)"
+            *ngIf="row?.status != 'refund' "
+          >
+            <i class="fa fa-check"></i>
+            Refund
+          </button>
+          &nbsp;
+          <button
+            type="button"
+            class="btn btn-danger btn-sm"
+            (click)="orderAction('Void', row)"
+          >
+            <i class="fa fa-times"></i> Void
+          </button>
+        </div>
+
+        <div *ngIf="row?.context == 'cod'">
+          <button
+            type="button"
+            class="btn btn-danger btn-sm"
+            (click)="orderAction('Void', row)"
+          >
+            <i class="fa fa-times"></i> Voice
+          </button>
+        </div>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column
+      [width]="50"
+      [resizeable]="false"
+      [sortable]="false"
+      [draggable]="false"
+      [canAutoResize]="true"
+      [frozenLeft]="true"
+    >
+      <ng-template
+        let-row="row"
+        let-expanded="expanded"
+        ngx-datatable-cell-template
+      >
+        <a
+          href="javascript:void(0)"
+          [class.datatable-icon-right]="!expanded"
+          [class.datatable-icon-down]="expanded"
+          title="Expand/Collapse Row"
+          class="expan-icon"
+          id="{{ row.id }}"
+          (click)="toggleExpandRow(row)"
+        >
+        </a>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-footer>
+      <ng-template
+        let-rowCount="rowCount"
+        let-pageSize="pageSize"
+        let-selectedCount="selectedCount"
+        let-curPage="curPage"
+        let-offset="offset"
+        ngx-datatable-footer-template
+      >
+        <datatable-pager
+          [pagerLeftArrowIcon]="'datatable-icon-left'"
+          [pagerRightArrowIcon]="'datatable-icon-right'"
+          [pagerPreviousIcon]="'datatable-icon-prev'"
+          [pagerNextIcon]="'datatable-icon-skip'"
+          [page]="curPage"
+          [visiblePagesCount]="currentVisible"
+          [size]="pageSize"
+          [count]="rowCount"
+          [hidden]="false"
+          (change)="table.onFooterPage($event)"
+        >
+        </datatable-pager>
+      </ng-template>
+    </ngx-datatable-footer>
+  </ngx-datatable>
+</div>

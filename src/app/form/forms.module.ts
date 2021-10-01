@@ -56,6 +56,7 @@ import { CallbackPipe } from "./callback.pipe";
 import { FoodpckmgrorderDriverComponent } from "./foodpckmgrorder/driver-tab/drivers.component";
 import {FoodpckmgrorderWeeklyReconComponent } from './foodpckmgrorder/weekly-recon-tab/weekly-recon.component'
 import {FoodpckmgrorderDailyPayoutOrderComponent} from './foodpckmgrorder/daily-payout-order/daily-payout-order.component'
+import {FoodpckmgrorderOrderComponent} from './foodpckmgrorder/order-tab/orderTab.component'
 @NgModule({
   imports: [
     CommonModule,
@@ -113,7 +114,8 @@ import {FoodpckmgrorderDailyPayoutOrderComponent} from './foodpckmgrorder/daily-
     ManagerEditComponent,
     FoodpckmgrorderDriverComponent,
     FoodpckmgrorderWeeklyReconComponent,
-    FoodpckmgrorderDailyPayoutOrderComponent
+    FoodpckmgrorderDailyPayoutOrderComponent,
+    FoodpckmgrorderOrderComponent
   ],
   providers: [ConfirmationService, DatePipe],
   entryComponents: [ConfirmDialogComponent, DriverDialogComponent],
