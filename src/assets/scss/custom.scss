@@ -8,3 +8,35 @@ input.form-control.custom-disable{
     background: #eee;
     border: none;
   }
+
+  .mat-form-field-flex{
+    background: none !important;
+    border: 1px solid #e9ecef;
+    padding: 5px !important;
+  }
+  .switch{
+    border: none !important;
+  }
+  .confirm {
+    .buttons{
+      text-align: right;
+      .btn-success{
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .tab-button {
+    border: 1px solid #dee2e6;
+    border-top: 0;
+    .nav-item{
+      width: 50%;
+      .nav-link{
+        &.active{
+          background: #4f99e8;
+          color: #fff;
+        }
+        background: #dee2e6;
+      }
+    }
+  }

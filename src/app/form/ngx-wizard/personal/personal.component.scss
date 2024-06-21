@@ -1,0 +1,88 @@
+#paco{
+    position: relative;
+    -webkit-filter: blur(1.5px); 
+    filter: blur(1.5px);
+}
+#paco img {
+    width: auto;
+    height: 100px;
+}
+#dishImg{
+    position: relative;
+    -webkit-filter: blur(1px); 
+    filter: blur(1px);
+}
+#logo {
+    font-size: 2rem;
+    text-align: center;
+}
+ngx-dropzone-label {
+    margin: 2px auto !important;
+}
+// ngx-dropzone-label {
+//     // visibility: hidden;
+//     position: relative;
+// }
+.ngx_img_upload img {
+    z-index: 9999;
+    opacity: 1;
+}
+.ngx_lbl {
+    display: block;
+    visibility: hidden;
+}
+#err{
+    position: relative;
+    top: -160x;
+}
+#dish {
+    text-align: center;
+    font-size: 2rem;
+}
+#dish_text {
+    position: relative;
+    top: -10px;
+}
+#logo_text {
+    position: relative;
+    top: -5px;
+}
+#logo_text h3 {
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0;
+}
+#dish_text h3 {
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0;
+}
+.h2{
+    position: relative;
+    left: 302px;
+    top: -25px;
+}
+.h3{
+    position: relative;
+    right: 372px; 
+}
+
+.custom-dropzone {
+    position: relative;
+	height: auto;
+	color: rgb(70, 67, 67);
+	// border: 5px dashed rgb(19, 15, 15);
+	// border-radius: 5px;
+    font-size: 20px;
+    padding: 10px;
+    height: 154px;
+    overflow: hidden;
+}
+#dishImg img {
+    width: auto;
+    height: 100px;
+}
+
+#logo h2, #dish h2{
+    font-size: 18px;
+}

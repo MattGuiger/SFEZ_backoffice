@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './AuthInterceptor';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
- 
+import { NgxBootstrapConfirmModule } from 'ngx-bootstrap-confirm';
+
 import {
     CommonModule,
     LocationStrategy,
@@ -16,20 +17,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AgmMap, MouseEvent, MapsAPILoader } from '@agm/core';
 import { AgmCoreModule } from '@agm/core';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonFunctionsService } from './services/index';
-import { Globals} from './globals'
+import { Globals } from './globals'
 
 import { FullComponent } from './layouts/full/full.component';
 import { BlankComponent } from './layouts/blank/blank.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NavigationComponent } from './shared/header-navigation/navigation.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
-import {LoginComponent} from '../app/login/login.component'
+import { LoginComponent } from '../app/login/login.component'
 // import {SignupComponent} from '../app/authentication/signup/signup.component'
 import { ErrorMessageService } from './services/error-message.service';
 
@@ -45,8 +48,10 @@ import { HttpModule } from '@angular/http';
 // import { TextMaskModule } from 'angular2-text-mask';
 import { GreenmoneyComponent } from './greenmoney/greenmoney.component';
 
-import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
-import {MenuItem} from 'primeng/api';                  //api
+import { AccordionModule } from 'primeng/accordion';     //accordion and accordion tab
+import { MenuItem } from 'primeng/api';                  //api
+import { NgHttpLoaderModule } from 'ng-http-loader';
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     suppressScrollX: true,
     wheelSpeed: 1,
@@ -65,7 +70,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         SidebarComponent,
         LoginComponent,
         GreenmoneyComponent
-       
+
         // SignupComponent
     ],
     imports: [
@@ -73,6 +78,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         BrowserModule,
         MatAutocompleteModule,
         // TextMaskModule,
+      
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
@@ -80,14 +86,17 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         HttpModule,
         NgbModule,
         MatTabsModule,
+        NgxUiLoaderModule,
         AccordionModule,
         ToastrModule.forRoot(),
+        NgHttpLoaderModule.forRoot(),
         SlimLoadingBarModule.forRoot(),
         RouterModule.forRoot(Approutes, { useHash: false }),
         PerfectScrollbarModule,
         Ng2SearchPipeModule,
         NgMultiSelectDropDownModule.forRoot(),
         AgmCoreModule.forRoot({ apiKey: 'AIzaSyBUb3jDWJQ28vDJhuQZxkC0NXr_zycm8D0' }),
+        NgxBootstrapConfirmModule
         // NgxMaskModule.forRoot()
     ],
     exports: [
@@ -95,10 +104,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ],
     providers: [
         {
-        provide: HTTP_INTERCEPTORS,
-        useClass: AuthInterceptor,
-        multi: true,
-      },
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true,
+        },
         {
             provide: PERFECT_SCROLLBAR_CONFIG,
             useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG

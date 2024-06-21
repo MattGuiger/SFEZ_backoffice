@@ -59,6 +59,8 @@ export class DriverComponent {
         this.drivertemp = [...this.drivers];
     })
   }
+
+  
   onSubmit(){
     this._ProfileService.addFoodPark(this.foodParkForm.value).subscribe((res:any)=>{
           this.toastr.success('Territory Created successfully');
@@ -89,7 +91,7 @@ export class DriverComponent {
 		}
 	}
   onSelectRed(item){
-    debugger
+    
   }
 
 getAllFoodPark(){

@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
   check(uname: string, p: string) {
     this._AuthService.login({username:uname,password:p}).subscribe((data:any)=>{
       localStorage.setItem('user',JSON.stringify(data))
-      this.routes.navigate(['/dashboard/dashboard2']);
+      // this.routes.navigate(['/dashboard/dashboard2']);
+      this.routes.navigate(['/forms']);
     },err=>{
       this.msg = 'Invalid Username or Password';
     })

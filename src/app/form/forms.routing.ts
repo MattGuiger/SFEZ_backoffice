@@ -59,14 +59,14 @@ export const FormsRoutes: Routes = [
         }
       },
       {
-        path: 'foodparks',
+        path: 'hubs',
         component: FoodParkComponent,
         data: {
           title: 'Hub'
         }
       },
       {
-        path: 'hubs',
+        path: 'foodparks',
         component: HubComponent,
         data: {
           title: 'Hub'

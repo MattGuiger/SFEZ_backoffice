@@ -59,7 +59,6 @@ class VendorRegistrationComponent {
         this._ProfileService.getAllProductList(this.user.company_id).subscribe((res) => {
             this.productList = res;
         }, error => {
-            debugger;
         });
     }
     openProduct(item) {

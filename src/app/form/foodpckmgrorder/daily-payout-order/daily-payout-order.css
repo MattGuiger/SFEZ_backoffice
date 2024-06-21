@@ -1,0 +1,169 @@
+
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  cursor: pointer;
+}   
+table {
+  width: 100%;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+  outline: 2px solid #0db9f0;
+}
+
+::ng-deep.datatable-header-cell.datatable-header-cell.myClass.resizeable.sortable
+{
+  color: black;
+  font-size: 19px;
+}
+::ng-deep.row.mb-3 {
+  margin-right: 126px;
+}
+
+::ng-deep.ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell .datatable-body-cell-label
+{
+  /* display: unset; */
+}
+
+/* The container */
+.testradio {
+    display: block;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default radio button */
+  .testradio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .testradio:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .testradio input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .testradio input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .testradio .checkmark:after {
+       top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+  }
+  .btn-success.custom-button{
+    color: #22c6ab;
+    background-color: #fff;
+    border-color: #22c6ab;
+  }
+  .btn-warning.custom-button{
+    color: #ffaf0e;
+    background-color: #fff;
+    border-color: #ffaf0e;
+  }
+  .btn-danger.custom-button{
+    color: #eb4c4c;
+    background-color: #fff;
+    border-color: #eb4c4c;
+  }
+  /** Shared labour*/
+  .wrap-custom-card-main{
+    border: solid 1px #ddd;
+    padding: 20px 0px;
+  }
+  .row.mt-3.custom-card-main {
+    margin: 0 20px;
+  }
+  /* .custom-card {
+    width: 25%;
+    height: auto;
+    margin: 0 auto;
+    padding: 0 10px;
+  } */
+  
+  .custom-card-wages-total{
+    width: 25%;
+    height: auto;
+    margin: 0 auto;
+    padding: 0 10px;
+    border: solid 1px #ddd;
+    text-align: center;
+  }
+  .wrap-div {
+    /* border: solid 1px #ddd; */
+    text-align: center;
+    min-height: 125px;
+  }
+  .wrap-div .title {
+    margin: 15px auto;
+  }
+  .wrap-div .title h5 {
+    font-size: 30px;
+  }
+  .view-orders button{
+    float: right;
+  }
+  .wrap-div.total-wages {
+    height: 75px;
+  }
+  .total-wages .title {
+    margin: 12px auto !important;
+  }
+
+  .col-list:nth-child(3n+0) .card-colors{
+    background-color:#253a7e;
+    color: #fff;
+  }
+  .col-list:nth-child(3n+1) .card-colors{
+    background-color:#40cccc;
+    color: #fff;
+  }
+  .col-list:nth-child(3n+2) .card-colors{
+    background-color:#be3d5e;
+    color: #fff;
+  }
+  .description{
+    font-size:16px;
+  }
+  
+  
+  

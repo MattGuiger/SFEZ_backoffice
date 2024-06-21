@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-body">
                 <form action="#">
-                    <div class="form-body">
+                    <div class="form-body" *ngIf="productDetails">
                         <h5 class="card-title">About Product</h5>
                         <hr>
                         <div class="row">
@@ -46,16 +46,9 @@
                             <!--/span-->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Status</label>
-                                    <br/>
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked="{{productDetails?.status=='live'}}">
-                                        <label class="custom-control-label" for="customRadioInline1" >Publish</label>
-                                    </div>
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadioInline2">Draft</label>
-                                    </div>
+                                    <label class="control-label">Status</label><br/>
+                                    <input type="radio" [value]="true" name="status" [(ngModel)]="productDetails.drill_in" id="plublish" (change)="onChange($event)"> <label for="plublish">&nbsp; Publish </label> &nbsp;&nbsp;&nbsp;
+                                    <input type="radio" [value]="false" name="status" [(ngModel)]="productDetails.drill_in"  id="draft" (change)="onChange($event)">  <label for="draft">&nbsp; Draft </label>
                                 </div>
                             </div>
                             <!--/span-->
@@ -89,7 +82,7 @@
                                 </div>
                             </div> -->
                         </div>
-                        <h5 class="card-title m-t-40">Product Description</h5>
+                        <h5 class="card-title m-t-40">Description</h5>
                         <div class="row">
                             <div class="col-md-12 ">
                                 <div class="form-group">
@@ -191,12 +184,12 @@
                                                 <ul class="list-style-none el-info">
                                                     <li class="el-item">
                                                         <a class="btn default btn-outline image-popup-vertical-fit el-link" href="assets/images/gallery/chair3.jpg">
-                                                            <i class="icon-magnifier"></i>
+                                                            <i class="sl-icon-magnifier"></i>
                                                         </a>
                                                     </li>
                                                     <li class="el-item">
                                                         <a class="btn default btn-outline el-link" href="javascript:void(0);">
-                                                            <i class="icon-link"></i>
+                                                            <i class="sl-icon-link"></i>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -204,9 +197,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="btn btn-info waves-effect waves-light">
-                                    <span>Upload Anonther Image</span>
-                                    <input type="file" class="upload"> </div> -->
+                               
                             </div>
                         </div>
                         <!-- <div class="row">
@@ -281,7 +272,7 @@
                         <!-- <button type="submit" class="btn btn-success m-r-5">
                             <i class="fa fa-check"></i> Save</button>
                         <button type="button" class="btn btn-dark">Cancel</button> -->
-                        <button type="button" class="btn btn-dark" [routerLink]="['/menuitems']">Back</button>
+                        <button type="button" class="btn btn-dark" [routerLink]="['/menuitems/tabs/tb1']">Back</button>
                     </div>
                 </form>
             </div>

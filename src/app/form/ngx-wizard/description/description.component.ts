@@ -1,14 +1,7 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
-import { FormDataService } from '../data/formData.service';
-import { WorkflowService } from "../workflow/workflow.service";
-import { STEPS } from "../workflow/workflow.model";
 import { Router, ActivatedRoute } from "@angular/router";
-import { ToastrService } from 'ngx-toastr';
-import { AuthService } from '../../../services/auth.service';
-import { ProfileService} from '../../../services/profile.service'
-
 
 @Component({
     selector: 'mt-wizard-description',
@@ -18,51 +11,39 @@ import { ProfileService} from '../../../services/profile.service'
 
 export class DescriptionComponent implements OnInit {
     title = 'STEP #4 Tell Us What Makes You Unique';
-    description : string;
+    description: string;
     form: any;
-    companyId :any;
+    companyId: any;
     descriptionFormData = new FormGroup({
-        // description: new FormControl(),
-        description: new FormControl('', Validators.required)       
-        });
+        description: new FormControl('', Validators.required)
+    });
 
-    constructor(private router: Router,
-        private _AuthService:AuthService,
-        private toastr: ToastrService,
-        private _ProfileService:ProfileService,
-        private route: ActivatedRoute, private formDataService: FormDataService,
-        private workflowService: WorkflowService) {
+    constructor(
+        private router: Router,
+        private route: ActivatedRoute,
+    ) {
     }
 
     ngOnInit() {
+        let vendroData = JSON.parse(localStorage.getItem('vendroData'));
+        if (vendroData && vendroData.description) {
+            this.descriptionFormData.patchValue({ "description": vendroData.description });
+        }
         this.route.params.subscribe(params => {
             this.companyId = +params['id'];
-         });
+        });
     }
 
-    // save(form: any) {
-    //     if (!form.valid)
-    //         return;
-    //     let obj={
-    //         description : this.description
-    //     }
-    //     this._ProfileService.updateGoogleSheetDetails(this.companyId,obj).subscribe((res:any)=>{
-    //         // this.toastr.success('E-Commerce google sheet details update successfully!');
-    //         this.toastr.success('Saved successfully!');
-    //         this.router.navigateByUrl('/forms/ngx/schedule/'+this.companyId, { relativeTo: this.route.parent, skipLocationChange: true });
-    //     })
-    //     // this.router.navigateByUrl('/forms/ngx/schedule/11152', { relativeTo: this.route.parent, skipLocationChange: true });
-    //     let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);       
-        
-    // }
+    onSubmit() {
+        let vendroData = JSON.parse(localStorage.getItem('vendroData'));
+        vendroData.description = this.descriptionFormData.value.description;
+        localStorage.setItem('vendroData', JSON.stringify(vendroData));
 
-    onSubmit(){
-        console.log("work"+ JSON.stringify(this.descriptionFormData.value));
-  const data = localStorage.setItem('descriptionFormData', JSON.stringify(this.descriptionFormData.value));
+        localStorage.setItem('descriptionFormData', JSON.stringify(this.descriptionFormData.value));
         this.router.navigateByUrl('/forms/ngx/schedule', { relativeTo: this.route.parent, skipLocationChange: true });
     }
 
     cancel() {
-        this.router.navigate(['wizard'], { relativeTo: this.route.parent, skipLocationChange: true });
+        this.router.navigateByUrl('/forms/ngx/tags', { relativeTo: this.route.parent, skipLocationChange: true });
     }
 }

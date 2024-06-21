@@ -53,7 +53,7 @@ export const ADMINROUTE: RouteInfo[] = [
     {
         path: '/forms/territory',
         title: 'Territory',
-        icon: ' icon-Globe',
+        icon: '/assets/images/driver.png',
         class: '',
         extralink: false,
         submenu: [
@@ -62,7 +62,7 @@ export const ADMINROUTE: RouteInfo[] = [
     {
         path: '/forms/foodparks',
         title: 'Hub | Driver Mgmt',
-        icon: 'icon-Motorcycle',
+        icon: '/assets/images/driver.png',
         class: '',
         extralink: false,
         submenu: [
@@ -71,16 +71,16 @@ export const ADMINROUTE: RouteInfo[] = [
     {
         path: '/forms/company',
         title: 'Company',
-        icon: 'icon-Home-5',
+        icon: '/assets/images/driver.png',
         class: '',
         extralink: false,
         submenu: [
         ]
     },
-    
- ];
 
- 
+];
+
+
 export const UNITMGRROUTE: RouteInfo[] = [
     {
         path: '/forms/units',
@@ -100,7 +100,7 @@ export const UNITMGRROUTE: RouteInfo[] = [
         submenu: [
         ]
     },
- ];
+];
 
 export const ROUTES: RouteInfo[] = [
     // {
@@ -160,7 +160,6 @@ export const ROUTES: RouteInfo[] = [
     //     extralink: false,
     //     submenu: []
     // },
-    
     {
         path: '/forms',
         title: 'Vendor Registration',
@@ -172,7 +171,7 @@ export const ROUTES: RouteInfo[] = [
     },
     {
         path: '/menuitems',
-        title: 'Menu | Products',
+        title: 'Menu | Google Sheets',
         icon: '/assets/images/menu.png',
         class: '',
         extralink: false,
@@ -197,10 +196,19 @@ export const ROUTES: RouteInfo[] = [
         ]
     },
     {
-        path: '/forms/foodparks',
+        path: '/forms/hubs',
         title: 'Hub Mgmt | Drivers',
         icon: '/assets/images/driver.png',
         class: '',
+        extralink: false,
+        submenu: [
+        ]
+    },
+    {
+        path: '',
+        title: 'Sync to Google Sheets',
+        icon: '/assets/images/google-sheets.png',
+        class: 'directlink',
         extralink: false,
         submenu: [
         ]
@@ -592,7 +600,7 @@ export const ROUTES: RouteInfo[] = [
     //             extralink: false,
     //             submenu: []
     //         },
-      //         {
+    //         {
     //             path: '/forms/company',
     //             title: 'Hub Members',
     //             icon: '',

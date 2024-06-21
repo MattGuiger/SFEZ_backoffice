@@ -95,7 +95,6 @@ export class ViewunitComponent {
   }
 
   viewUnit(event,row){
-    debugger
   }
   open1(content1) {
 		this.modalService.open(content1, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -106,7 +105,6 @@ export class ViewunitComponent {
   }
   changeType(event){
     this.unitForm.value.type=event.target.value;
-    debugger
   }
   
 	private getDismissReason(reason: any): string {

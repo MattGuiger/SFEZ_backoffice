@@ -49,7 +49,7 @@ export class AddressComponent implements OnInit {
             this.toastr.success('Company Detail Updated successfully!');
             this.router.navigateByUrl('/forms/ngx/result/'+this.companyId, { relativeTo: this.route.parent, skipLocationChange: true });
             },error=>{
-            debugger
+            
             })
         // this.formDataService.setAddress(this.address);
         let firstState = this.workflowService.getFirstInvalidStep(STEPS.work);

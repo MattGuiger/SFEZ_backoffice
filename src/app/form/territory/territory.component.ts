@@ -103,7 +103,7 @@ export class TerritoryComponent {
 		}
 	}
   onSelectRed(item){
-    debugger
+    
   }
 
   placeMarker($event){

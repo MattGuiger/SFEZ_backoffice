@@ -39,7 +39,6 @@ export class VendorRegistrationComponent implements OnInit{
       this.productList = res;
      
     },error=>{
-      debugger
     })
  }
  openProduct(item){
